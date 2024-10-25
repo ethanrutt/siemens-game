@@ -23,6 +23,9 @@ public class PlayerData : MonoBehaviour
     // because we will need to access this later for inventory
     // and other setup.
 
+    // Grab the button for the DanceEmote m_Colors.m_DisabledColor
+    [SerializeField] private UnityEngine.UI.Button danceEmoteButton;
+
     // Add player data such as interactions with certain NPC's
     // Default Npc's: 'deckmaster', 'casino_owner', 'shopkeeper', 'drunk_robot'
     // Storing the interaction_times with each NPC (starting at 0)
@@ -44,21 +47,20 @@ public class PlayerData : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Fill in the inventoryButtons images with the 
+        // If there is no equipped items within 500's range, grey out dance button (non-selectable)
+        if (!equipped_items.Exists(x => x >= 500 && x < 600))
+        {
+            danceEmoteButton.interactable = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // If the X key is pressed down
-        // Change the items to 102, 203, 304, 405
-        if (Input.GetKeyDown(KeyCode.X))
+        // If dances are equipped, make the dance button interactable
+        if (equipped_items.Exists(x => x >= 500 && x < 600))
         {
-            equipped_items = new List<int> {102, 203, 304, 405};
-        }
-        else if (Input.GetKeyDown(KeyCode.Z))
-        {
-            equipped_items = new List<int> {100, 200, 300, 400};
+            danceEmoteButton.interactable = true;
         }
     }
 }

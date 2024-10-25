@@ -416,7 +416,7 @@ public class ItemIDs : MonoBehaviour
         selectedType = "all";
 
         // DEBUG: Equip a dance
-        playerData.equipped_items.Add(500);
+        // playerData.equipped_items.Add(500);
 
         // Fill in the inventoryButtons images with the
         // correct sprites

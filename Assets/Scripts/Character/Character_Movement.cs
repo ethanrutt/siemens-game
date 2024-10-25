@@ -280,7 +280,6 @@ public class Character_Movement : MonoBehaviour
 	// If 500, headripper (3), 501, robotdance (2), 502, zenflip (1)
 	public void DanceEmote()
 	{
-		Debug.Log("Dance Emote");
 		// Check the equipped items
 		// If the player has the headripper, robotdance, or zenflip
 		// Set the dance emote accordingly
