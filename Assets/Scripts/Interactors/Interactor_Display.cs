@@ -49,17 +49,25 @@ public class Interactor_Display : MonoBehaviour
     // Grab the playerData's interactable string
     // EX: If the playerData's interactable string is "leaderboard"
     // then we will show the leaderboards
-    private string interactable => player.GetComponent<PlayerData>().interactable;
+    public string interactable
+    {
+        get { return PlayerData.Instance.interactable; }
+    }
 
     public void DisplayPanel()
     {
-        // Stop the player
-        player.GetComponent<Character_Movement>().StopPlayer();
-
+        // Debug.Log("Display Panel" + interactable);
+        // If the player walks into the collider for the leaderboard,
+        // we will change the player's interactable to "leaderboard"
+        // and show the interact button.
         if (interactable == "leaderboard")
         {
+            // Debug.Log("Leaderboard Interact");
             leaderboards.SetActive(true);
             baseGameUI.SetActive(false);
+
+            // Stop the player
+            player.GetComponent<Character_Movement>().StopPlayer();
         }
     }
 
@@ -72,7 +80,6 @@ public class Interactor_Display : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // DEBUG: Interactable testing
-        // Debug.Log(interactable);
+
     }
 }

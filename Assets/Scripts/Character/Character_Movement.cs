@@ -21,9 +21,11 @@ public class Character_Movement : MonoBehaviour
 	private Animator child_HatAnimator;
 
 	// Grab the equipped items dictionary from PlayerData
-	[SerializeField] private PlayerData playerData;
+	// The PlayerData is a singleton
+	// PlayerData.Instance.equipped_items, PlayerData.Instance.original_load_items
+	private PlayerData playerData => PlayerData.Instance;
 	private List<int> equipped_items => playerData.equipped_items;
-	public List<int> original_load_items = new List<int>();
+	private List<int> original_load_items = new List<int>();
 
 	private Vector2 movementInputDirection;
 	private Vector2 lastMovementInputDirection;
@@ -63,42 +65,47 @@ public class Character_Movement : MonoBehaviour
 
 		lastMovementInputDirection = Vector2.down;
 
-		// Set the chestsprite to the one in the equipped items
-		// Organize equippedItems by lowest to highest id
-
-		if (equipped_items.Count != 0) {
-			equipped_items.Sort();
-
-			// If equipped items has something in the 100s
-			if (equipped_items[0] >= 100 && equipped_items[0] < 200)
-			{
-				SetHatSprite(cosmeticHandler.GetHatController(equipped_items[0] - 100));
-			}
-			if (equipped_items[1] >= 200 && equipped_items[1] < 300)
-			{
-				SetChestSprite(cosmeticHandler.GetChestController(equipped_items[1] - 200));
-			}
-			if (equipped_items[2] >= 300 && equipped_items[2] < 400)
-			{
-				SetLegSprite(cosmeticHandler.GetLegController(equipped_items[2] - 300));
-			}
-			if (equipped_items[3] >= 400 && equipped_items[3] < 500)
-			{
-				SetShoeSprite(cosmeticHandler.GetShoeController(equipped_items[3] - 400));
-			}
-
-			// SetChestSprite(cosmeticHandler.GetChestController(equipped_items[1] - 200));
-			// SetLegSprite(cosmeticHandler.GetLegController(equipped_items[2] - 300));
-			// SetShoeSprite(cosmeticHandler.GetShoeController(equipped_items[3] - 400));
-			// SetHatSprite(cosmeticHandler.GetHatController(equipped_items[0] - 100));
+		if (playerData != null)
+		{
+			original_load_items = new List<int>(playerData.equipped_items);
 		}
 
-        // Find all buttons with the ButtonLocation script
-        ButtonLocation[] buttonLocations = FindObjectsOfType<ButtonLocation>();
-        foreach (var button in buttonLocations)
-        {
-            interactiveButtons.Add(button.gameObject);
-        }
+		// Sort the equipped_items and iterate through 100-499
+		// If the equipped_items contains a number in the 100s, 200s, 300s, 400s
+		// Set the hat, chest, leg, shoe sprites accordingly
+		if (equipped_items.Count != 0)
+		{
+			equipped_items.Sort();
+
+			for (int i = 0; i < equipped_items.Count; i++)
+			{
+				if (equipped_items[i] >= 100 && equipped_items[i] < 200)
+				{
+					SetHatSprite(cosmeticHandler.GetHatController(equipped_items[i] - 100));
+				}
+				if (equipped_items[i] >= 200 && equipped_items[i] < 300)
+				{
+					SetChestSprite(cosmeticHandler.GetChestController(equipped_items[i] - 200));
+				}
+				if (equipped_items[i] >= 300 && equipped_items[i] < 400)
+				{
+					SetLegSprite(cosmeticHandler.GetLegController(equipped_items[i] - 300));
+				}
+				if (equipped_items[i] >= 400 && equipped_items[i] < 500)
+				{
+					SetShoeSprite(cosmeticHandler.GetShoeController(equipped_items[i] - 400));
+				}
+			}
+		}
+	}
+
+	// Use the Start() method
+	private void Start()
+	{
+		if (GameManager.Instance != null)
+		{
+			transform.position = GameManager.Instance.playerSpawnPosition;
+		}
 	}
 
 	// Can't move function
@@ -119,6 +126,42 @@ public class Character_Movement : MonoBehaviour
 	{
 		// Allow the player to move
 		canMove = true;
+	}
+
+	// Moving Up (Joystick)
+	public void MoveUp()
+	{
+		// Make the character move once up
+		movementInputDirection = Vector2.up;
+		HandleMovement(movementInputDirection);
+	}
+
+	// Moving Down (Joystick)
+	public void MoveDown()
+	{
+		movementInputDirection = Vector2.down;
+		HandleMovement(movementInputDirection);
+	}
+
+	// Moving Left (Joystick)
+	public void MoveLeft()
+	{
+		movementInputDirection = Vector2.left;
+		HandleMovement(movementInputDirection);
+	}
+
+	// Moving Right (Joystick)
+	public void MoveRight()
+	{
+		movementInputDirection = Vector2.right;
+		HandleMovement(movementInputDirection);
+	}
+
+	// Stopping the player
+	public void StopMoving()
+	{
+		movementInputDirection = Vector2.zero;
+		HandleMovement(movementInputDirection);
 	}
 
 	// Coroutine to print the equipped items every 3 seconds
@@ -179,17 +222,8 @@ public class Character_Movement : MonoBehaviour
 	// Use update for animations
 	private void Update()
 	{
-		// Remove all 0's from equipped items list
-		equipped_items.RemoveAll(item => item == 0);
-
-		// Every 3 seconds print the original load and equipped items
-		// This is for debugging purposes
-		// StartCoroutine(PrintEquippedEvery3Seconds());
-		
-		// For example if something gets unequipped
-		// This means that equipped_items will act weird
-		// If anything in the list is 199,299,399,499 we have to disable it
-
+		// First, check if the equipped items have changed
+		// If they have, update the player's equipped items
 		if (!AreListsEqual(original_load_items, equipped_items))
 		{
 			// Occurs
@@ -257,21 +291,10 @@ public class Character_Movement : MonoBehaviour
 			original_load_items = new List<int>(equipped_items);
 		}
 
-
-		// Update the animator
-		movementInputDirection = GetInput();
-        if(canMove)
-		    UpdateAnimator();
-
-		if (Input.GetKeyDown(KeyCode.Space))
+		// Update the player's animations
+		if (canMove)
 		{
-			StopAllCoroutines();
-			isEmoting = false;
-
-			SetChestSprite(cosmeticHandler.GetChestController(Random.Range(0, cosmeticHandler.ChestAnimControllerLenght())));
-			SetLegSprite(cosmeticHandler.GetLegController(Random.Range(0, cosmeticHandler.LegAnimControllerLenght())));
-			SetShoeSprite(cosmeticHandler.GetShoeController(Random.Range(0, cosmeticHandler.ShoeControllerLenght())));
-			SetHatSprite(cosmeticHandler.GetHatController(Random.Range(0, cosmeticHandler.HatAnimControllerLenght())));
+			UpdateAnimator();
 		}
 	}
 
@@ -306,7 +329,6 @@ public class Character_Movement : MonoBehaviour
             HandleMovement(movementInput);
             isEmoting = false;
         }
-        CheckForLocationTrigger();
 	}
 
     // New method to toggle player movement
@@ -633,38 +655,4 @@ public class Character_Movement : MonoBehaviour
 			{ Vector2.right, "Hat_Idle_Right" }
 		};
 	}
-
-    void CheckForLocationTrigger()
-    {
-        Vector2 playerPosition = transform.position;
-
-        // Hide all buttons initially
-        foreach (var button in interactiveButtons)
-        {
-            button.SetActive(false);
-        }
-
-        
-        // Check if the player's position is close enough to the actual position of each button
-        foreach (var button in interactiveButtons)
-        {
-            ButtonLocation buttonLocation = button.GetComponent<ButtonLocation>();
-            if (buttonLocation != null)
-            {
-                //if(buttonLocation.clicked == true){
-                //    ButtonLocation.SetClickedForAllButtons(true);
-                //}
-                
-                Vector2 buttonPosition = buttonLocation.GetButtonPosition();
-                float distance = Vector2.Distance(playerPosition, buttonPosition);
-                float interactionDistance = buttonLocation.interactionDistance;
-                
-                // Check if the player is within the interaction distance
-                if (distance <= interactionDistance && buttonLocation.clicked == false)
-                {
-                    button.SetActive(true); // Show the button
-                }
-            }
-        }
-    }
 }

@@ -163,8 +163,8 @@ public class ItemIDs : MonoBehaviour
     // The UI buttons in the inventory
     [SerializeField] private GameObject[] inventoryButtons;
 
-    // Grab the player's owned items and equippeditems
-    [SerializeField] private PlayerData playerData;
+    // Grab the player's owned items and equippeditems from the playerData (is a singleton)
+    private PlayerData playerData => PlayerData.Instance;
 
     // Function to get the sprite of an item
     private Sprite GetItemSprite(int itemID)
@@ -422,8 +422,6 @@ public class ItemIDs : MonoBehaviour
         // correct sprites
         FillInventoryButtons();
 
-        // Debug log all item equipped
-        Debug.Log("Equipped Items: " + playerData.equipped_items[0]);
     }
 
     // Update is called once per frame

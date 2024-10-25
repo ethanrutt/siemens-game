@@ -66,27 +66,27 @@ public class Laboratory_RoomEnterExit : MonoBehaviour
             switch (roomID)
             {
                 case "0":
-                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("Laboratory");
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("LABORATORY");
                     text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Automation Station");
                     break;
                 case "1":
-                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("Laboratory");
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("LABORATORY");
                     text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Synthesis Chamber");
                     break;
                 case "2":
-                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("Laboratory");
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("LABORATORY");
                     text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Main Hallway");
                     break;
                 case "3":
-                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("Laboratory");
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("LABORATORY");
                     text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Data Center");
                     break;
                 case "4":
-                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("Laboratory");
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("LABORATORY");
                     text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Digital Command Room");
                     break;
                 case "5":
-                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("Laboratory");
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("LABORATORY");
                     text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Integration Zone");
                     break;
                 default:

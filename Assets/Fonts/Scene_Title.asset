@@ -61,8 +61,8 @@ Material:
     - _FaceUVSpeedX: 0
     - _FaceUVSpeedY: 0
     - _GlowInner: 0.05
-    - _GlowOffset: 0.718
-    - _GlowOuter: 0.05
+    - _GlowOffset: 1
+    - _GlowOuter: 0.103
     - _GlowPower: 0.72
     - _GradientScale: 6
     - _LightAngle: 3.1416
@@ -75,7 +75,7 @@ Material:
     - _PerspectiveFilter: 0.875
     - _Reflectivity: 10
     - _ScaleRatioA: 0.8333333
-    - _ScaleRatioB: 0.6770833
+    - _ScaleRatioB: 0.61385614
     - _ScaleRatioC: 0.6770833
     - _ScaleX: 1
     - _ScaleY: 1
@@ -119,11 +119,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
-  m_Name: Silkscreen-Bold SDF
+  m_Name: Scene_Title
   m_EditorClassIdentifier: 
-  hashCode: -293295160
+  hashCode: -2036585759
   material: {fileID: -5786070883851446419}
-  materialHashCode: -1193783576
+  materialHashCode: 365822881
   m_Version: 1.1.0
   m_SourceFontFileGUID: 87fe3168f390b4615acb8420a923c12a
   m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 87fe3168f390b4615acb8420a923c12a, type: 3}

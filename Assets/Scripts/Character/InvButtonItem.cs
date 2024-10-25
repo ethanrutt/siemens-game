@@ -10,8 +10,10 @@ public class InvButtonItem : MonoBehaviour
     // in the Inventory.cs script
     public int item_id;
 
-    // Also, what is the playerData
-    [SerializeField] public PlayerData playerData;
+    // The PlayerData is a singleton
+    // We will grab the playerData object and
+    // equip the item
+    private PlayerData playerData => PlayerData.Instance;
 
     // Basically, we will be calling the Set?Sprite method on the playerObject
     // to change the sprite of the playerObject to the sprite of the item

@@ -7,14 +7,16 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     // Storing information like the player's username, coins
-    [SerializeField] public string username;
-    [SerializeField] public int coins;
+    public string username;
+    public int coins;
+
+    public static PlayerData Instance;
     
     // Storing public information like the current interactable
-    public string interactable; // This will be changed to things such as "leaderboard"
+    public string interactable = "nig";
 
     // Item Ids
-    [SerializeField] private ItemIDs item_ids;
+    [SerializeField] private ItemIDs item_ids = new ItemIDs();
     // Grab the item_database
     public Dictionary<int, ItemIDs.Item> item_database => item_ids.item_database;
 
@@ -44,11 +46,29 @@ public class PlayerData : MonoBehaviour
     // List of item id's
     [SerializeField] public List<int> equipped_items = new List<int>();
 
+    // The original load items should be the items that the player has
+    // when they first start the game. This is used to reset the player's
+    // items to the original state.
+    [SerializeField] public List<int> original_load_items = new List<int>();
+
+    // Awake is called when the script instance is being loaded
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        } else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         // If there is no equipped items within 500's range, grey out dance button (non-selectable)
-        if (!equipped_items.Exists(x => x >= 500 && x < 600))
+        if (danceEmoteButton != null && !equipped_items.Exists(x => x >= 500 && x < 600))
         {
             danceEmoteButton.interactable = false;
         }
@@ -58,7 +78,7 @@ public class PlayerData : MonoBehaviour
     void Update()
     {
         // If dances are equipped, make the dance button interactable
-        if (equipped_items.Exists(x => x >= 500 && x < 600))
+        if (danceEmoteButton != null && equipped_items.Exists(x => x >= 500 && x < 600))
         {
             danceEmoteButton.interactable = true;
         }
