@@ -7,8 +7,8 @@ public class PipeGenerator : MonoBehaviour
 {
     public System.Random rand = new System.Random();
 
-    public GameObject sourcePrefab;
-    public GameObject sinkPrefab;
+    public GameObject source;
+    public GameObject sink;
     public GameObject straightPipe;
     public GameObject turnPipe;
 
@@ -33,9 +33,8 @@ public class PipeGenerator : MonoBehaviour
         // have 3 categories of levels, easy, medium, hard
         // maybe have 3 levels for each, so 3 easy, 3 medium, 3 hard
         // randomly pick an easy level, then randomly pick a medium level, then randomly pick a hard level
-        // each level is a nxn matrix with - meaning straight pipe, l meaning turnpipe(starting position of these is in an l), s meaning source (start), and e meaning sink (end)
-        // we will generate the level, and then when use colliders to see when 2 pipes are connected
-        GenerateLevel();
+        // probably have a "done" button that checks the solution and moves on to the next level
+        GenerateLevel(level);
     }
 
     // Update is called once per frame
@@ -54,7 +53,9 @@ public class PipeGenerator : MonoBehaviour
         switch (type)
         {
             case PipeType.turn:
-                return new Vector3(spawnLocations[i, j].x + 0.5f, spawnLocations[i, j].y, spawnLocations[i, j].z);
+                Vector3 res = spawnLocations[i, j];
+                res.x += 0.5f;
+                return res;
             case PipeType.straight:
                 return spawnLocations[i, j];
         }
@@ -62,21 +63,27 @@ public class PipeGenerator : MonoBehaviour
         return Vector3.zero;
     }
 
-    void GenerateLevel()
+    void GenerateLevel(PipeInfo[,] currLevel)
     {
-        for (int i = 0; i < level.GetLength(0); i++)
+        for (int i = 0; i < currLevel.GetLength(0); i++)
         {
-            for (int j = 0; j < level.GetLength(1); j++)
+            for (int j = 0; j < currLevel.GetLength(1); j++)
             {
                 Quaternion currRotation = possibleRotations[rand.Next(3)];
 
-                switch (level[i,j].type)
+                switch (currLevel[i,j].type)
                 {
                     case PipeType.straight:
                         Instantiate(straightPipe, getSpawnLocation(PipeType.straight, i, j), currRotation);
                         break;
                     case PipeType.turn:
                         Instantiate(turnPipe, getSpawnLocation(PipeType.turn, i, j), currRotation);
+                        break;
+                    case PipeType.source:
+                        Instantiate(source, getSpawnLocation(PipeType.source, i, j), source.transform.rotation);
+                        break;
+                    case PipeType.sink:
+                        Instantiate(sink, getSpawnLocation(PipeType.sink, i, j), sink.transform.rotation);
                         break;
                 }
             }
