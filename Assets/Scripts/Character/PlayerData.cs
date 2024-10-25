@@ -77,6 +77,11 @@ public class PlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If any 0's in equipped_items, remove them
+        if (equipped_items.Contains(0))
+        {
+            equipped_items.RemoveAll(x => x == 0);
+        }
         // If dances are equipped, make the dance button interactable
         if (danceEmoteButton != null && equipped_items.Exists(x => x >= 500 && x < 600))
         {
