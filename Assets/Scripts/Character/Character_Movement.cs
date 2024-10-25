@@ -273,21 +273,28 @@ public class Character_Movement : MonoBehaviour
 			SetShoeSprite(cosmeticHandler.GetShoeController(Random.Range(0, cosmeticHandler.ShoeControllerLenght())));
 			SetHatSprite(cosmeticHandler.GetHatController(Random.Range(0, cosmeticHandler.HatAnimControllerLenght())));
 		}
+	}
 
-		if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
+	// Dance emote function
+	// Check the player's equipped items and set the dance emote
+	// If 500, headripper (3), 501, robotdance (2), 502, zenflip (1)
+	public void DanceEmote()
+	{
+		Debug.Log("Dance Emote");
+		// Check the equipped items
+		// If the player has the headripper, robotdance, or zenflip
+		// Set the dance emote accordingly
+		if (equipped_items.Contains(500))
 		{
-			StopAllCoroutines();
-			PerformEmote(1);
+			PerformEmote(3);
 		}
-		if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
+		else if (equipped_items.Contains(501))
 		{
-			StopAllCoroutines();
 			PerformEmote(2);
 		}
-		if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
+		else if (equipped_items.Contains(502))
 		{
-			StopAllCoroutines();
-			PerformEmote(3);
+			PerformEmote(1);
 		}
 	}
 
