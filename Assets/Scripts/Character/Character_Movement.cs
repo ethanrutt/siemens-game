@@ -128,33 +128,61 @@ public class Character_Movement : MonoBehaviour
 		canMove = true;
 	}
 
+	// A coroutine to stop the player from moving for a certain amount of time
+	public IEnumerator MoveAndStopForSeconds(int direction, float seconds)
+	{
+		// Set the movement input direction to the correct direction
+		switch (direction)
+		{
+			case 0:
+				movementInputDirection = Vector2.up;
+				break;
+			case 1:
+				movementInputDirection = Vector2.down;
+				break;
+			case 2:
+				movementInputDirection = Vector2.left;
+				break;
+			case 3:
+				movementInputDirection = Vector2.right;
+				break;
+			default:
+				Debug.LogError("Invalid movement direction.");
+				break;
+		}
+
+		// Wait for the seconds
+		yield return new WaitForSeconds(seconds);
+
+		// Stop the player from moving
+		movementInputDirection = Vector2.zero;
+		UpdateAnimator();
+	}
+	
 	// Moving Up (Joystick)
 	public void MoveUp()
 	{
-		// Make the character move once up
-		movementInputDirection = Vector2.up;
-		HandleMovement(movementInputDirection);
+		// Essentially, Move Up and Stop
+		// Set the movement input direction to up
+		StartCoroutine(MoveAndStopForSeconds(0, 3.0f));
 	}
 
 	// Moving Down (Joystick)
 	public void MoveDown()
 	{
-		movementInputDirection = Vector2.down;
-		HandleMovement(movementInputDirection);
+		StartCoroutine(MoveAndStopForSeconds(1, 3.0f));
 	}
 
 	// Moving Left (Joystick)
 	public void MoveLeft()
 	{
-		movementInputDirection = Vector2.left;
-		HandleMovement(movementInputDirection);
+		StartCoroutine(MoveAndStopForSeconds(2, 3.0f));
 	}
 
 	// Moving Right (Joystick)
 	public void MoveRight()
 	{
-		movementInputDirection = Vector2.right;
-		HandleMovement(movementInputDirection);
+		StartCoroutine(MoveAndStopForSeconds(3, 3.0f));
 	}
 
 	// Stopping the player
@@ -392,7 +420,11 @@ public class Character_Movement : MonoBehaviour
 		{
 			// Stops emoting
 
-			StopAllCoroutines();
+			// Stops CoRoutines iff emoting
+			if (isEmoting)
+			{
+				StopEmoting();
+			}
 			isEmoting = false;
 		}
 

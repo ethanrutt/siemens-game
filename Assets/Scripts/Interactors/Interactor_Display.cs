@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Scene Manager
+using UnityEngine.SceneManagement;
+
 public class Interactor_Display : MonoBehaviour
 {
     // Call the GameObject for Leaderboards
@@ -15,6 +18,37 @@ public class Interactor_Display : MonoBehaviour
 
     // Call the Inventory Panel
     [SerializeField] private GameObject inventoryPanel;
+
+    // Menu Panel
+    [SerializeField] private GameObject menuPanel;
+
+    // Defining open Menu
+    public void OpenMenu()
+    {
+        menuPanel.SetActive(true);
+        baseGameUI.SetActive(false);
+
+        // Stop the player
+        player.GetComponent<Character_Movement>().StopPlayer();
+    }
+
+    // Defining leave Menu
+    public void LeaveMenu()
+    {
+        menuPanel.SetActive(false);
+        baseGameUI.SetActive(true);
+
+        // Unstop the player
+        player.GetComponent<Character_Movement>().UnstopPlayer();
+    }
+
+    // Defining the Exit Out for the Game
+    public void ExitGame()
+    {
+        SceneManager.LoadScene("MainMenu");
+        // Bring the Singletons with us
+        DontDestroyOnLoad(PlayerData.Instance);
+    }
 
     // Defining the Exit Out for Leaderboards
     public void ExitLeaderboards()
