@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using UnityEngine.Networking; 
 using TMPro;
 
 /**
@@ -14,6 +15,7 @@ public class GameOverManager : MonoBehaviour
     public TMP_Text levelTimeElapsed;
     public TMP_Text gameTimeElapsed;
 
+    private string score;
     /**
      * Setup() sets the game over screen to be active so it will actually show up when called.
      * 
@@ -30,6 +32,8 @@ public class GameOverManager : MonoBehaviour
             gameTimeSpan.Minutes, gameTimeSpan.Seconds,
             gameTimeSpan.Milliseconds / 10);
 
+        score = System.String.Format("{0}.{1}", gameTimeSpan.Minutes * 60 + gameTimeSpan.Seconds, gameTimeSpan.Milliseconds / 10);
+
         gameObject.SetActive(true);
     }
 
@@ -39,6 +43,8 @@ public class GameOverManager : MonoBehaviour
      */
     public void RestartButton()
     {
+        // FIXME: replace with current user_id
+        uploadTime(12);
         SceneManager.LoadScene("WireGame");
     }
 
@@ -48,8 +54,29 @@ public class GameOverManager : MonoBehaviour
      */
     public void ExitButton()
     {
-        // FIXME: add a coordinate here so that we know where to spawn so they
-        // can spawn back at their computer?
+        // FIXME: replace with current user_id
+        uploadTime(12);
         SceneManager.LoadScene("Laboratory_L1");
     }
+
+    /**
+     * uploadTime() is a function that sends a POST request to the backend to upload the time
+     */
+    private void uploadTime(int userId)
+    {
+        string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/ScoreUpload";
+        string jsonData = System.String.Format(@"{{
+            ""user_id"": {0},
+            ""game_id"": {1},
+            ""score"": {2}
+        }}", userId, 7, score);
+        Debug.Log("uploading score " + score);
+        WebRequestUtility.SendWebRequest(this, url, jsonData, OnRequestComplete);
+    }
+
+    void OnRequestComplete(string responseText)
+    {
+        Debug.Log(responseText);
+    }
+
 }
