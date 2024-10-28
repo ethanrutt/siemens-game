@@ -1,6 +1,7 @@
 Add lambda_role to lambda function
 
 npm install archiver aws-sdk pg @aws-sdk/client-secrets-manager
+npm install jest @jest/globals --save-dev
 
 Change build.js function name
 
@@ -15,3 +16,7 @@ and change to "main": "index.js",
 to package.json
 
 Create API
+
+
+
+

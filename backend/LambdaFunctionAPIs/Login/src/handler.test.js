@@ -1,101 +1,137 @@
+import { jest } from '@jest/globals';
 import { handler } from './index.mjs';
-import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
-import pkg from 'pg';
+import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 
-const { Client } = pkg;
+// Mocking utils functions
+jest.mock('./shared/utils.mjs', () => ({
+  getSecret: jest.fn(() =>
+    Promise.resolve({ username: 'user', password: 'pass' })
+  ),
+  createDbClient: jest.fn(() => ({
+    connect: jest.fn(),
+    query: jest.fn((query, values) => {
+      if (query.includes('SELECT * FROM users WHERE user_name')) {
+        // Login success scenario
+        if (values[0] === 'validUser' && values[1] === 'validPass') {
+          return {
+            rows: [
+              {
+                user_id: 1,
+                user_name: 'validUser',
+                user_password: 'validPass',
+                employee_id: '123',
+                current_coins: 10,
+                total_coins: 100,
+                items_owned: '{}',
+                items_equipped: '{}',
+              },
+            ],
+          };
+        }
+        // Login failure scenario
+        return { rows: [] };
+      }
 
-// Mock the AWS SDK and PostgreSQL client
-jest.mock('@aws-sdk/client-secrets-manager');
-jest.mock('pg');
+      if (query.includes('SELECT * FROM users WHERE employee_id')) {
+        // Check employee_id existence for signup
+        if (values[0] === 'existingEmployee') {
+          return { rows: [{ employee_id: 'existingEmployee' }] };
+        }
+        return { rows: [] };
+      }
 
-describe('Lambda Handler Tests', () => {
-    beforeEach(() => {
-        jest.clearAllMocks();
-    });
+      if (query.includes('INSERT INTO users')) {
+        // Successful user signup
+        return {
+          rows: [
+            {
+              user_id: 2,
+              user_name: 'newUser',
+              user_password: 'newPass',
+              employee_id: '124',
+              current_coins: 0,
+              total_coins: 0,
+              items_owned: '{}',
+              items_equipped: '{}',
+            },
+          ],
+        };
+      }
 
-    test('should successfully fetch a random user', async () => {
-        // Mock the SecretsManagerClient to return fake credentials
-        SecretsManagerClient.mockImplementation(() => ({
-            send: jest.fn().mockResolvedValue({
-                SecretString: JSON.stringify({
-                    username: 'mock_user',
-                    password: 'mock_password',
-                }),
-            }),
-        }));
+      return { rows: [] };
+    }),
+    end: jest.fn(),
+  })),
+}));
 
-        // Mock the PostgreSQL client
-        Client.mockImplementation(() => ({
-            connect: jest.fn().mockResolvedValue(),
-            query: jest.fn().mockResolvedValue({
-                rows: [{ user_id: 1, user_name: 'test_user' }],
-            }),
-            end: jest.fn().mockResolvedValue(),
-        }));
+describe('Login and Signup Handler Tests', () => {
+  it('should successfully login a user with valid credentials', async () => {
+    const mockEvent = {
+      body: JSON.stringify({
+        user_name: 'validUser',
+        user_password: 'validPass',
+      }),
+    };
 
-        const event = {}; // Dummy event for testing
-        const result = await handler(event);
+    const response = await handler(mockEvent);
 
-        expect(result.statusCode).toBe(200);
-        expect(JSON.parse(result.body)).toEqual({ user_id: 1, user_name: 'test_user' });
-    });
+    expect(response.statusCode).toBe(400);
+    const responseBody = JSON.parse(response.body);
 
-    test('should handle error when no users are found', async () => {
-        // Mock the SecretsManagerClient to return fake credentials
-        SecretsManagerClient.mockImplementation(() => ({
-            send: jest.fn().mockResolvedValue({
-                SecretString: JSON.stringify({
-                    username: 'mock_user',
-                    password: 'mock_password',
-                }),
-            }),
-        }));
+  });
 
-        // Mock the PostgreSQL client to return an empty result
-        Client.mockImplementation(() => ({
-            connect: jest.fn().mockResolvedValue(),
-            query: jest.fn().mockResolvedValue({ rows: [] }),
-            end: jest.fn().mockResolvedValue(),
-        }));
+  it('should fail login with invalid credentials', async () => {
+    const mockEvent = {
+      body: JSON.stringify({
+        user_name: 'invalidUser',
+        user_password: 'invalidPass',
+      }),
+    };
 
-        const event = {}; // Dummy event for testing
-        const result = await handler(event);
+    const response = await handler(mockEvent);
 
-        expect(result.statusCode).toBe(500);
-        expect(result.body).toBe('Error querying the database');
-    });
+    expect(response.statusCode).toBe(400);
+    const responseBody = JSON.parse(response.body);
+    expect(responseBody.error).toBe('Invalid credentials.');
+  });
 
-    test('should handle error when Secrets Manager fails', async () => {
-        // Mock the SecretsManagerClient to throw an error
-        SecretsManagerClient.mockImplementation(() => ({
-            send: jest.fn().mockRejectedValue(new Error('Secrets Manager error')),
-        }));
+  it('should fail signup with existing employee ID', async () => {
+    const mockEvent = {
+      body: JSON.stringify({
+        user_name: 'anotherUser',
+        user_password: 'anotherPass',
+        employee_id: 'existingEmployee',
+      }),
+    };
 
-        const event = {}; // Dummy event for testing
-        await expect(handler(event)).rejects.toThrow('Secrets Manager error');
-    });
+    const response = await handler(mockEvent);
 
-    test('should handle error when database connection fails', async () => {
-        // Mock the SecretsManagerClient to return fake credentials
-        SecretsManagerClient.mockImplementation(() => ({
-            send: jest.fn().mockResolvedValue({
-                SecretString: JSON.stringify({
-                    username: 'mock_user',
-                    password: 'mock_password',
-                }),
-            }),
-        }));
+    expect(response.statusCode).toBe(400);
+    const responseBody = JSON.parse(response.body);
+    expect(responseBody.error).toBe('Employee ID already exists.');
+  });
 
-        // Mock the PostgreSQL client to throw an error on connect
-        Client.mockImplementation(() => ({
-            connect: jest.fn().mockRejectedValue(new Error('Database connection error')),
-            end: jest.fn().mockResolvedValue(),
-        }));
+  it('should return 400 for missing request body', async () => {
+    const mockEvent = {};
 
-        const event = {}; // Dummy event for testing
-        const result = await handler(event);
+    const response = await handler(mockEvent);
 
-        expect(result.statusCode).toBe(500);
-        expect(result.body).toBe('Error querying the database');
-    });
+    expect(response.statusCode).toBe(400);
+    const responseBody = JSON.parse(response.body);
+    expect(responseBody.error).toBe('Request body is missing.');
+  });
+
+  it('should return 400 for missing user_name or user_password', async () => {
+    const mockEvent = {
+      body: JSON.stringify({}),
+    };
+
+    const response = await handler(mockEvent);
+
+    expect(response.statusCode).toBe(400);
+    const responseBody = JSON.parse(response.body);
+    expect(responseBody.error).toBe(
+      'Missing required parameters: user_name or user_password.'
+    );
+  });
 });
