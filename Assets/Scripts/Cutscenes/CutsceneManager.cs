@@ -9,6 +9,9 @@ public class CutsceneManager : MonoBehaviour
     // Grab the dialogueManager
     public DialogueManager_Cutscene dialogueManager;
 
+    // Grab the GameManager
+    public GameManager gameManager => GameManager.Instance;
+
     // Grab the dialogueIndex from the dialogueManager
     private int dialogueIndex => dialogueManager.dialogueIndex;
 
@@ -40,14 +43,17 @@ public class CutsceneManager : MonoBehaviour
     public void toTutorialScene()
     {
         // Load the tutorial scene
+        // -14.89,0.23 gameManager
+        gameManager.ChangePlayerSpawnPosition(new Vector2(-14.89f, 0.23f));
         UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
     }
 
     // Take to Laboratory-L1
-    public void toLaboratoryL1()
+    public void toTownSquare()
     {
         // Load the laboratory-l1 scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Laboratory_L1");
+        gameManager.ChangePlayerSpawnPosition(new Vector2(-30.1f, 20.49f));
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Town_Square");
     }
 
     

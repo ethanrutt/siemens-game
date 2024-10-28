@@ -1,0 +1,7 @@
+curl -X POST "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/ScoreUpload" \
+-H "Content-Type: application/json" \
+-d '{
+  "user_id": 12,
+  "game_id": 5,
+  "score": 2500
+}'
