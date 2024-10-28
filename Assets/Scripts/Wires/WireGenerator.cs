@@ -68,9 +68,6 @@ public class WireGenerator : MonoBehaviour
     // keep track of all objects for cleanup in between levels
     private List<GameObject> allWires = new List<GameObject>();
 
-    // keep track of times for different levels
-    private List<System.TimeSpan> allTimes = new List<System.TimeSpan>();
-
     // Level over screen manager member
     public LevelOverManager levelOverManager;
 
@@ -99,13 +96,15 @@ public class WireGenerator : MonoBehaviour
     {
         if (checkConnection())
         {
-            if (level < 6)
+            // FIXME: change back to 6 after testing
+            if (level < 2)
             {
                 levelStopwatch.Stop();
                 levelOverManager.Setup(levelStopwatch.Elapsed);
             }
             else
             {
+                // FIXME: setup backend call
                 levelStopwatch.Stop();
                 gameStopwatch.Stop();
                 gameOverManager.Setup(levelStopwatch.Elapsed, gameStopwatch.Elapsed);
@@ -224,4 +223,5 @@ public class WireGenerator : MonoBehaviour
         }
         return true;
     }
+
 }
