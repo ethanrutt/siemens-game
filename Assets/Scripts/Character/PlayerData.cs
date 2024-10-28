@@ -7,14 +7,16 @@ using UnityEngine;
 public class PlayerData : MonoBehaviour
 {
     // Storing information like the player's username, coins
-    [SerializeField] public string username;
-    [SerializeField] public int coins;
+    public string username;
+    public int coins;
+
+    public static PlayerData Instance;
     
     // Storing public information like the current interactable
-    public string interactable; // This will be changed to things such as "leaderboard"
+    public string interactable = "";
 
     // Item Ids
-    [SerializeField] private ItemIDs item_ids;
+    [SerializeField] private ItemIDs item_ids = new ItemIDs();
     // Grab the item_database
     public Dictionary<int, ItemIDs.Item> item_database => item_ids.item_database;
 
@@ -22,6 +24,9 @@ public class PlayerData : MonoBehaviour
     // Will eventually store all obtained items here PUBLICLY
     // because we will need to access this later for inventory
     // and other setup.
+
+    // Grab the button for the DanceEmote m_Colors.m_DisabledColor
+    [SerializeField] private UnityEngine.UI.Button danceEmoteButton;
 
     // Add player data such as interactions with certain NPC's
     // Default Npc's: 'deckmaster', 'casino_owner', 'shopkeeper', 'drunk_robot'
@@ -41,24 +46,79 @@ public class PlayerData : MonoBehaviour
     // List of item id's
     [SerializeField] public List<int> equipped_items = new List<int>();
 
+    // The original load items should be the items that the player has
+    // when they first start the game. This is used to reset the player's
+    // items to the original state.
+    [SerializeField] public List<int> original_load_items = new List<int>();
+
+    // Awake is called when the script instance is being loaded
+    private void Awake()
+    {
+        // If there is no instance of PlayerData, set it to this
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        // If there is an instance of PlayerData, destroy this
+        else
+        {
+            Destroy(gameObject);
+        }
+
+        // Don't destroy this object when loading a new scene
+        DontDestroyOnLoad(gameObject);
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        // Fill in the inventoryButtons images with the 
+        // If there is no equipped items within 500's range, grey out dance button (non-selectable)
+        if (danceEmoteButton != null && !equipped_items.Exists(x => x >= 500 && x < 600))
+        {
+            danceEmoteButton.interactable = false;
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // If the X key is pressed down
-        // Change the items to 102, 203, 304, 405
-        if (Input.GetKeyDown(KeyCode.X))
+        // If ItemIDs is null, look for any ItemIDs in the scene
+        if (item_ids == null)
         {
-            equipped_items = new List<int> {102, 203, 304, 405};
+            item_ids = FindObjectOfType<ItemIDs>();
         }
-        else if (Input.GetKeyDown(KeyCode.Z))
+
+        // If DanceEmoteButton is null, look for any DanceEmoteButton in the scene
+        if (danceEmoteButton == null)
         {
-            equipped_items = new List<int> {100, 200, 300, 400};
+            // The name must be "UI_Button_Dance"
+            danceEmoteButton = GameObject.Find("UI_Button_Dance").GetComponent<UnityEngine.UI.Button>();
+        }
+        // For just showing how everything works, add all items to unlocked_items
+        // if someone pressed Y key
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Debug.Log("Adding all items to unlocked items");
+            foreach (KeyValuePair<int, ItemIDs.Item> item in item_database)
+            {
+                unlocked_items.Add(item.Key);
+            }
+
+            // Now call ItemIds FillAllInventoryButtons()
+            item_ids.FillInventoryButtons();
+        }
+        // If any 0's in equipped_items, remove them
+        if (equipped_items.Contains(0))
+        {
+            equipped_items.RemoveAll(x => x == 0);
+        }
+        // If dances are equipped, make the dance button interactable
+        if (danceEmoteButton != null && equipped_items.Exists(x => x >= 500 && x < 600))
+        {
+            danceEmoteButton.interactable = true;
+        } else if (danceEmoteButton != null && !equipped_items.Exists(x => x >= 500 && x < 600))
+        {
+            danceEmoteButton.interactable = false;
         }
     }
 }
