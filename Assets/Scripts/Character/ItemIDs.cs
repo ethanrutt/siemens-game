@@ -163,8 +163,8 @@ public class ItemIDs : MonoBehaviour
     // The UI buttons in the inventory
     [SerializeField] private GameObject[] inventoryButtons;
 
-    // Grab the player's owned items and equippeditems
-    [SerializeField] private PlayerData playerData;
+    // Grab the player's owned items and equippeditems from the playerData (is a singleton)
+    private PlayerData playerData => PlayerData.Instance;
 
     // Function to get the sprite of an item
     private Sprite GetItemSprite(int itemID)
@@ -187,7 +187,7 @@ public class ItemIDs : MonoBehaviour
     // Function to fill in the inventory buttons with the correct sprites
     // Only fill between 100-200 for hats
     // ... etc etc
-    private void FillInventoryButtons()
+    public void FillInventoryButtons()
     {
         List<int> ownedItems = playerData.unlocked_items;
 
@@ -201,6 +201,18 @@ public class ItemIDs : MonoBehaviour
                     Sprite itemSprite = GetItemSprite(itemID);
                     inventoryButtons[i].SetActive(true);
                     inventoryButtons[i].GetComponent<Image>().sprite = itemSprite;
+                    inventoryButtons[i].GetComponent<InvButtonItem>().item_id = itemID;
+                    
+                    // Capture the current value of i in a new local variable
+                    int buttonIndex = i;
+
+                    // Dynamically change the button's onClick event
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
+
+                    // Add the new listener
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                        inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
+                    );
                 }
                 else
                 {
@@ -227,6 +239,21 @@ public class ItemIDs : MonoBehaviour
                     Sprite itemSprite = GetItemSprite(itemID);
                     inventoryButtons[i].SetActive(true);
                     inventoryButtons[i].GetComponent<Image>().sprite = itemSprite;
+                    inventoryButtons[i].GetComponent<InvButtonItem>().item_id = itemID;
+
+                    // Capture the current value of i in a new local variable
+                    int buttonIndex = i;
+
+                    // Dynamically change the button's onClick event
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
+
+                    // Add the new listener
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                        inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
+                    );
+
+                    // Debug
+                    // Debug.Log("Button Index: " + buttonIndex);
                 }
                 else
                 {
@@ -254,6 +281,18 @@ public class ItemIDs : MonoBehaviour
                         Sprite itemSprite = GetItemSprite(itemID);
                         inventoryButtons[i].SetActive(true);
                         inventoryButtons[i].GetComponent<Image>().sprite = itemSprite;
+                        inventoryButtons[i].GetComponent<InvButtonItem>().item_id = itemID;
+
+                        // Capture the current value of i in a new local variable
+                        int buttonIndex = i;
+
+                        // Dynamically change the button's onClick event
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
+
+                        // Add the new listener
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                            inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
+                        );
                     }
                     else
                     {
@@ -281,6 +320,18 @@ public class ItemIDs : MonoBehaviour
                         Sprite itemSprite = GetItemSprite(itemID);
                         inventoryButtons[i].SetActive(true);
                         inventoryButtons[i].GetComponent<Image>().sprite = itemSprite;
+                        inventoryButtons[i].GetComponent<InvButtonItem>().item_id = itemID;
+
+                        // Capture the current value of i in a new local variable
+                        int buttonIndex = i;
+
+                        // Dynamically change the button's onClick event
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
+
+                        // Add the new listener
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                            inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
+                        );
                     }
                     else
                     {
@@ -308,6 +359,18 @@ public class ItemIDs : MonoBehaviour
                         Sprite itemSprite = GetItemSprite(itemID);
                         inventoryButtons[i].SetActive(true);
                         inventoryButtons[i].GetComponent<Image>().sprite = itemSprite;
+                        inventoryButtons[i].GetComponent<InvButtonItem>().item_id = itemID;
+
+                        // Capture the current value of i in a new local variable
+                        int buttonIndex = i;
+
+                        // Dynamically change the button's onClick event
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
+
+                        // Add the new listener
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                            inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
+                        );
                     }
                     else
                     {
@@ -335,6 +398,7 @@ public class ItemIDs : MonoBehaviour
                     Sprite itemSprite = GetItemSprite(itemID);
                     inventoryButtons[i].SetActive(true);
                     inventoryButtons[i].GetComponent<Image>().sprite = itemSprite;
+                    inventoryButtons[i].GetComponent<InvButtonItem>().item_id = itemID;
                 }
                 else
                 {
@@ -351,17 +415,20 @@ public class ItemIDs : MonoBehaviour
         // selectedType = all
         selectedType = "all";
 
+        // DEBUG: Equip a dance
+        // playerData.equipped_items.Add(500);
+
         // Fill in the inventoryButtons images with the
         // correct sprites
         FillInventoryButtons();
 
-        // Debug log all item equipped
-        Debug.Log("Equipped Items: " + playerData.equipped_items[0]);
     }
 
     // Update is called once per frame
     void Update()
     {
+        // DEBUG LOG for selectedType
+        Debug.Log("Selected Type: " + selectedType);
         if (selectedType != newselectedType)
         {
             FillInventoryButtons();

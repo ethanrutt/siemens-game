@@ -27,16 +27,20 @@ public class Leaderboard_Interact : MonoBehaviour
         
     }
 
+    // Grab the PlayerData object (this is a DoNotDestroyOnLoad object)
+    // and set the player object to the player object in the scene
+    // The PlayerData is a singelton
+
+
+
+
     // When the player walks into the collider for the leaderboard,
     // we will change the player's interactable to "leaderboard"
     // and show the interact button.
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject == player)
-        {
-            player.GetComponent<PlayerData>().interactable = "leaderboard";
-            interactButton.SetActive(true);
-        }
+        PlayerData.Instance.interactable = "leaderboard";
+        interactButton.SetActive(true);
     }
 
     // When the player walks away from the collider for the leaderboard,
@@ -44,10 +48,7 @@ public class Leaderboard_Interact : MonoBehaviour
     // and hide the interact button.
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject == player)
-        {
-            player.GetComponent<PlayerData>().interactable = "";
-            interactButton.SetActive(false);
-        }
+        PlayerData.Instance.interactable = "";
+        interactButton.SetActive(false);
     }
 }
