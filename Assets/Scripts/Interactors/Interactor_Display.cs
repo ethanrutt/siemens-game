@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Networking;
 using TMPro;
 using System.Linq;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public class UserScoreList
@@ -21,8 +22,6 @@ public class UserScore
     public double score;
 }
 
-// Scene Manager
-using UnityEngine.SceneManagement;
 
 public class Interactor_Display : MonoBehaviour
 {
@@ -43,6 +42,9 @@ public class Interactor_Display : MonoBehaviour
 
     // Modal
     [SerializeField] private GameObject modal;
+
+    [SerializeField] private TMP_Text top5;
+    [SerializeField] private TMP_Text top10;
 
     // GameManager
     public GameManager gameManager => GameManager.Instance;
