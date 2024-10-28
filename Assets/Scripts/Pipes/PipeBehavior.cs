@@ -9,6 +9,11 @@ public class PipeBehavior : MonoBehaviour
     private bool mouseDown;
     private bool movable;
 
+    // variables to keep track of main game state
+    public PipeInfo[,] gameState;
+    public int row;
+    public int col;
+
     private Vector3 rotate90 = new Vector3(0, 0, 90);
 
     // Start is called before the first frame update
@@ -55,6 +60,7 @@ public class PipeBehavior : MonoBehaviour
         // goes to next clockwise direction in a cycle
         int dir = (((int)pipeInfo.direction) + 1) % 4;
         pipeInfo.direction = ((Direction) dir);
+        gameState[row, col].direction = ((Direction)dir);
         gameObject.transform.Rotate(rotate90);
     }
 }

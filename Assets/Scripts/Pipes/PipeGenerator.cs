@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEditor.Rendering;
 using UnityEngine;
 
 public class PipeGenerator : MonoBehaviour
@@ -24,7 +25,7 @@ public class PipeGenerator : MonoBehaviour
     };
     // initialize explicitly
     private PipeInfo[,] level = {
-        {new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight)}
+        {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
     };
 
     // Start is called before the first frame update
@@ -56,11 +57,38 @@ public class PipeGenerator : MonoBehaviour
                 Vector3 res = spawnLocations[i, j];
                 res.x += 0.5f;
                 return res;
-            case PipeType.straight:
+            default:
                 return spawnLocations[i, j];
         }
 
         return Vector3.zero;
+    }
+
+    Quaternion getSpawnRotation(PipeInfo[,] currLevel, int i, int j)
+    {
+        Direction rotation = currLevel[i, j].direction;
+        switch (rotation)
+        {
+            case Direction.up:
+                return possibleRotations[0];
+            case Direction.right:
+                return possibleRotations[1];
+            case Direction.down:
+                return possibleRotations[2];
+            case Direction.left:
+                return possibleRotations[3];
+        }
+        return possibleRotations[0];
+    }
+
+    void InstantiatePipe(PipeInfo[,] currLevel, GameObject prefab, Vector3 spawn, Quaternion rotation, int row, int col, int dir)
+    {
+        GameObject pipe = Instantiate(prefab, spawn, rotation);
+        PipeBehavior pipeInfo = pipe.GetComponent<PipeBehavior>();
+        pipeInfo.gameState = currLevel;
+        pipeInfo.row = row;
+        pipeInfo.col = col;
+        currLevel[row, col].direction = (Direction)dir;
     }
 
     void GenerateLevel(PipeInfo[,] currLevel)
@@ -69,25 +97,110 @@ public class PipeGenerator : MonoBehaviour
         {
             for (int j = 0; j < currLevel.GetLength(1); j++)
             {
-                Quaternion currRotation = possibleRotations[rand.Next(3)];
+                int dir = rand.Next(3);
+                Quaternion currRotation = possibleRotations[dir];
 
                 switch (currLevel[i,j].type)
                 {
                     case PipeType.straight:
-                        Instantiate(straightPipe, getSpawnLocation(PipeType.straight, i, j), currRotation);
+                        InstantiatePipe(currLevel, straightPipe, getSpawnLocation(PipeType.straight, i, j), currRotation, i, j, dir);
                         break;
                     case PipeType.turn:
+                        currLevel[i, j].direction = (Direction) dir;
                         Instantiate(turnPipe, getSpawnLocation(PipeType.turn, i, j), currRotation);
                         break;
                     case PipeType.source:
-                        Instantiate(source, getSpawnLocation(PipeType.source, i, j), source.transform.rotation);
+                        Instantiate(source, getSpawnLocation(PipeType.source, i, j), getSpawnRotation(currLevel, i, j));
                         break;
                     case PipeType.sink:
-                        Instantiate(sink, getSpawnLocation(PipeType.sink, i, j), sink.transform.rotation);
+                        Instantiate(sink, getSpawnLocation(PipeType.sink, i, j), getSpawnRotation(currLevel, i, j));
                         break;
                 }
             }
         }
+    }
 
+    (int row, int col) GetSource(PipeInfo[,] currLevel)
+    {
+        for (int row = 0; row < currLevel.GetLength(0); row++)
+        {
+            for (int col = 0; col < currLevel.GetLength(1); col++)
+            {
+                if (currLevel[row, col].type == PipeType.source)
+                {
+                    return (row, col);
+                }
+            }
+        }
+
+        return (0, 0);
+    }
+
+    (int i, int j) DirectionToMove(PipeInfo[,] currLevel, int row, int col)
+    {
+        if (currLevel[row, col].type == PipeType.turn)
+        {
+            switch(currLevel[row, col].direction)
+            {
+                case Direction.up:
+                    return (row, col + 1);
+                case Direction.right:
+                    return (row + 1, col);
+                case Direction.down:
+                    return (row, col - 1);
+                case Direction.left:
+                    return (row - 1, col);
+            }
+        }
+        else
+        {
+            Debug.Log("non turn pipe");
+            switch(currLevel[row, col].direction)
+            {
+                case Direction.up:
+                    Debug.Log("moving up");
+                    return (row - 1, col);
+                case Direction.right:
+                    Debug.Log("moving right");
+                    return (row, col + 1);
+                case Direction.down:
+                    Debug.Log("moving down");
+                    return (row + 1, col);
+                case Direction.left:
+                    Debug.Log("moving left");
+                    return (row, col - 1);
+            }
+        }
+        return (0, 0);
+    }
+
+    public bool CheckSolution(PipeInfo[,] currLevel)
+    {
+        var (currRow, currCol) = GetSource(currLevel);
+        Debug.Log($"source = ({currRow}, {currCol})");
+        for (int i = 0; i < 100; i++)
+        {
+            Debug.Log($"curr location = ({currRow}, {currCol})");
+            Debug.Log($"curr direction = {currLevel[currRow, currCol].direction}");
+            if (currLevel[currRow, currCol].type == PipeType.sink)
+            {
+                return true;
+            }
+            (currRow, currCol) = DirectionToMove(currLevel, currRow, currCol);
+        }
+
+        return false;
+    }
+
+    public void CheckSolutionButton()
+    {
+        if (CheckSolution(level))
+        {
+            Debug.Log("success");
+        }
+        else
+        {
+            Debug.Log("level failed");
+        }
     }
 }
