@@ -22,6 +22,9 @@ public class Interactor_Display : MonoBehaviour
     // Menu Panel
     [SerializeField] private GameObject menuPanel;
 
+    // Modal
+    [SerializeField] private GameObject modal;
+
     // Defining open Menu
     public void OpenMenu()
     {
@@ -46,8 +49,6 @@ public class Interactor_Display : MonoBehaviour
     public void ExitGame()
     {
         SceneManager.LoadScene("MainMenu");
-        // Bring the Singletons with us
-        DontDestroyOnLoad(PlayerData.Instance);
     }
 
     // Defining the Exit Out for Leaderboards
@@ -65,6 +66,7 @@ public class Interactor_Display : MonoBehaviour
     {
         inventoryPanel.SetActive(false);
         baseGameUI.SetActive(true);
+        modal.SetActive(false);
 
         // Unstop the player
         player.GetComponent<Character_Movement>().UnstopPlayer();
@@ -75,6 +77,7 @@ public class Interactor_Display : MonoBehaviour
     {
         inventoryPanel.SetActive(true);
         baseGameUI.SetActive(false);
+        modal.SetActive(true);
 
         // Stop the player
         player.GetComponent<Character_Movement>().StopPlayer();

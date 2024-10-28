@@ -25,6 +25,10 @@ public class DialogueManagerTutorial : MonoBehaviour
     // Let's serialize the images (4 reactions)
     [SerializeField] private Sprite[] characterImages = new Sprite[4];
 
+    // Make the UI buttons serialized
+    // Just activate and deactivate the UI
+    [SerializeField] private GameObject UI;
+
     // The current index of the dialogue
     public int dialogueIndex = 0;
 
@@ -59,6 +63,7 @@ public class DialogueManagerTutorial : MonoBehaviour
     public void StartDialogue()
     {
         dialoguePanel.SetActive(true);
+        UI.SetActive(false);
 
         // Typing the sentence
         StartCoroutine(TypeSentence(dialogues[dialogueIndex]));
@@ -110,6 +115,7 @@ public class DialogueManagerTutorial : MonoBehaviour
     {
         dialoguePanel.SetActive(false);
         dialoguePaused = true;
+        UI.SetActive(true);
     }
 
     // Resume dialogue
@@ -118,12 +124,14 @@ public class DialogueManagerTutorial : MonoBehaviour
         dialoguePanel.SetActive(true);
         DisplayNextSentence();
         dialoguePaused = false;
+        UI.SetActive(false);
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        // Set the UI to false
+        UI.SetActive(false);
     }
 
     // Update is called once per frame

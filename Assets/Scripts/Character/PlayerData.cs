@@ -54,14 +54,19 @@ public class PlayerData : MonoBehaviour
     // Awake is called when the script instance is being loaded
     private void Awake()
     {
+        // If there is no instance of PlayerData, set it to this
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
-        } else if (Instance != this)
+        }
+        // If there is an instance of PlayerData, destroy this
+        else
         {
             Destroy(gameObject);
         }
+
+        // Don't destroy this object when loading a new scene
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
