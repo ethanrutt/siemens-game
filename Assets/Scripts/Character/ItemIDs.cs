@@ -187,7 +187,7 @@ public class ItemIDs : MonoBehaviour
     // Function to fill in the inventory buttons with the correct sprites
     // Only fill between 100-200 for hats
     // ... etc etc
-    private void FillInventoryButtons()
+    public void FillInventoryButtons()
     {
         List<int> ownedItems = playerData.unlocked_items;
 
@@ -427,6 +427,8 @@ public class ItemIDs : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // DEBUG LOG for selectedType
+        Debug.Log("Selected Type: " + selectedType);
         if (selectedType != newselectedType)
         {
             FillInventoryButtons();

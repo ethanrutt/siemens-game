@@ -13,7 +13,7 @@ public class PlayerData : MonoBehaviour
     public static PlayerData Instance;
     
     // Storing public information like the current interactable
-    public string interactable = "nig";
+    public string interactable = "";
 
     // Item Ids
     [SerializeField] private ItemIDs item_ids = new ItemIDs();
@@ -82,6 +82,31 @@ public class PlayerData : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        // If ItemIDs is null, look for any ItemIDs in the scene
+        if (item_ids == null)
+        {
+            item_ids = FindObjectOfType<ItemIDs>();
+        }
+
+        // If DanceEmoteButton is null, look for any DanceEmoteButton in the scene
+        if (danceEmoteButton == null)
+        {
+            // The name must be "UI_Button_Dance"
+            danceEmoteButton = GameObject.Find("UI_Button_Dance").GetComponent<UnityEngine.UI.Button>();
+        }
+        // For just showing how everything works, add all items to unlocked_items
+        // if someone pressed Y key
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            Debug.Log("Adding all items to unlocked items");
+            foreach (KeyValuePair<int, ItemIDs.Item> item in item_database)
+            {
+                unlocked_items.Add(item.Key);
+            }
+
+            // Now call ItemIds FillAllInventoryButtons()
+            item_ids.FillInventoryButtons();
+        }
         // If any 0's in equipped_items, remove them
         if (equipped_items.Contains(0))
         {
@@ -91,6 +116,9 @@ public class PlayerData : MonoBehaviour
         if (danceEmoteButton != null && equipped_items.Exists(x => x >= 500 && x < 600))
         {
             danceEmoteButton.interactable = true;
+        } else if (danceEmoteButton != null && !equipped_items.Exists(x => x >= 500 && x < 600))
+        {
+            danceEmoteButton.interactable = false;
         }
     }
 }

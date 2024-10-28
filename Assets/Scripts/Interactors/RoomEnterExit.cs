@@ -27,6 +27,13 @@ public class Laboratory_RoomEnterExit : MonoBehaviour
     // 4 -> Digital Command Room (Middle bottom)
     // 5 -> Integration Zone (Bottom right)
 
+    // TOWN SQUARE
+    // 10 -> The Reclamation Zone
+    // 11 -> Casino
+    // 12 -> Scavenger Shop
+    // 13 -> Tipsy Tower
+    // 14 -> Laboratory
+
     // Fading text
     public IEnumerator FadeTextToZeroAlpha(float t, TMPro.TextMeshProUGUI text)
     {
@@ -88,6 +95,26 @@ public class Laboratory_RoomEnterExit : MonoBehaviour
                 case "5":
                     text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("LABORATORY");
                     text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Integration Zone");
+                    break;
+                case "10":
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("TOWN SQUARE");
+                    text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("The Reclamation Zone");
+                    break;
+                case "11":
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("TOWN SQUARE");
+                    text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Casino");
+                    break;
+                case "12":
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("TOWN SQUARE");
+                    text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Scavenger Shop");
+                    break;
+                case "13":
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("TOWN SQUARE");
+                    text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Tipsy Tower");
+                    break;
+                case "14":
+                    text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("TOWN SQUARE");
+                    text_Description.GetComponent<TMPro.TextMeshProUGUI>().SetText("Laboratory");
                     break;
                 default:
                     text_Title.GetComponent<TMPro.TextMeshProUGUI>().SetText("Error");

@@ -49,10 +49,11 @@ public class CutsceneManager : MonoBehaviour
     }
 
     // Take to Laboratory-L1
-    public void toLaboratoryL1()
+    public void toTownSquare()
     {
         // Load the laboratory-l1 scene
-        UnityEngine.SceneManagement.SceneManager.LoadScene("Laboratory_L1");
+        gameManager.ChangePlayerSpawnPosition(new Vector2(-30.1f, 20.49f));
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Town_Square");
     }
 
     

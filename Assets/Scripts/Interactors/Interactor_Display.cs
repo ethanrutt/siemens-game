@@ -25,6 +25,9 @@ public class Interactor_Display : MonoBehaviour
     // Modal
     [SerializeField] private GameObject modal;
 
+    // GameManager
+    public GameManager gameManager => GameManager.Instance;
+
     // Defining open Menu
     public void OpenMenu()
     {
@@ -105,6 +108,18 @@ public class Interactor_Display : MonoBehaviour
 
             // Stop the player
             player.GetComponent<Character_Movement>().StopPlayer();
+        } else if (interactable == "enterlaboratory")
+        {
+            // Debug.Log("Enter Laboratory"); -33, 10.25
+            gameManager.ChangePlayerSpawnPosition(new Vector2(-33f, 10.25f));
+            SceneManager.LoadScene("Laboratory_Main");
+        } else if (interactable == "exitlaboratory")
+        {
+            // Debug.Log("Exit Laboratory");
+            gameManager.ChangePlayerSpawnPosition(new Vector2(13.97f, -4.36f));
+            SceneManager.LoadScene("Town_Square");
+        } else {
+            // Debug.Log("No Interactable");
         }
     }
 
