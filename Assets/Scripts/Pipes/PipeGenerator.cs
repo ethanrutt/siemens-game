@@ -24,13 +24,28 @@ public class PipeGenerator : MonoBehaviour
         Quaternion.Euler(0, 0, -90)
     };
 
-    private Vector3[,] spawnLocations = {
-        {new Vector3(-7, 0, 0), new Vector3(-5, 0, 0), new Vector3(-3, 0, 0), new Vector3(-1, 0, 0), new Vector3(1, 0, 0), new Vector3(3, 0, 0), new Vector3(5, 0, 0), new Vector3(7, 0, 0)}
+    private Vector3[][] spawnLocations = new Vector3[][] {
+        new Vector3[] {new Vector3(-7, 2, 0), new Vector3(-5, 2, 0), new Vector3(-3, 2, 0), new Vector3(-1, 2, 0), new Vector3(1, 2, 0), new Vector3(3, 2, 0), new Vector3(5, 2, 0), new Vector3(7, 2, 0)},
+        new Vector3[] {new Vector3(-7, 0, 0), new Vector3(-5, 0, 0), new Vector3(-3, 0, 0), new Vector3(-1, 0, 0), new Vector3(1, 0, 0), new Vector3(3, 0, 0), new Vector3(5, 0, 0), new Vector3(7, 0, 0)}
     };
+
     // initialize explicitly
-    private PipeInfo[,] level = {
-        {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
+    private PipeInfo[][][] easyLevels = new PipeInfo[][][] {
+        // level 1 straight line
+        new PipeInfo[][] {
+            emptyRow,
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
+        },
+        // level 1 one turn
+        new PipeInfo[][] {
+            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)},
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)}
+        }
     };
+
+    private static PipeInfo[] emptyRow = new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)};
+
+    private PipeInfo[][] currentLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +54,7 @@ public class PipeGenerator : MonoBehaviour
         // maybe have 3 levels for each, so 3 easy, 3 medium, 3 hard
         // randomly pick an easy level, then randomly pick a medium level, then randomly pick a hard level
         // probably have a "done" button that checks the solution and moves on to the next level
-        GenerateLevel(level);
+        GenerateLevel(easyLevels[1]);
     }
 
     // Update is called once per frame
@@ -58,19 +73,19 @@ public class PipeGenerator : MonoBehaviour
         switch (type)
         {
             case PipeType.turn:
-                Vector3 res = spawnLocations[i, j];
+                Vector3 res = spawnLocations[i][j];
                 res.x += 0.5f;
                 return res;
             default:
-                return spawnLocations[i, j];
+                return spawnLocations[i][j];
         }
 
         return Vector3.zero;
     }
 
-    Quaternion getSpawnRotation(PipeInfo[,] currLevel, int i, int j)
+    Quaternion getSpawnRotation(PipeInfo[][] currLevel, int i, int j)
     {
-        Direction rotation = currLevel[i, j].direction;
+        Direction rotation = currLevel[i][j].direction;
         switch (rotation)
         {
             case Direction.up:
@@ -85,7 +100,7 @@ public class PipeGenerator : MonoBehaviour
         return possibleRotations[0];
     }
 
-    void InstantiatePipe(PipeInfo[,] currLevel, GameObject prefab, Vector3 spawn, Quaternion rotation, int row, int col, int dir, PipeType type)
+    void InstantiatePipe(PipeInfo[][] currLevel, GameObject prefab, Vector3 spawn, Quaternion rotation, int row, int col, int dir, PipeType type)
     {
         Debug.Log($"instantiating pipe at {row}, {col} with direction {(Direction) dir}");
         GameObject pipe = Instantiate(prefab, spawn, rotation);
@@ -94,26 +109,26 @@ public class PipeGenerator : MonoBehaviour
         pipeBehavior.row = row;
         pipeBehavior.col = col;
         pipeBehavior.pipeInfo = new PipeInfo((Direction)dir, type);
-        currLevel[row, col].direction = (Direction)dir;
+        currLevel[row][col].direction = (Direction)dir;
     }
 
-    void GenerateLevel(PipeInfo[,] currLevel)
+    void GenerateLevel(PipeInfo[][] currLevel)
     {
-        for (int i = 0; i < currLevel.GetLength(0); i++)
+        currentLevel = currLevel;
+        for (int i = 0; i < currLevel.Length; i++)
         {
-            for (int j = 0; j < currLevel.GetLength(1); j++)
+            for (int j = 0; j < currLevel[i].Length; j++)
             {
                 int dir = rand.Next(3);
                 Quaternion currRotation = possibleRotations[dir];
 
-                switch (currLevel[i,j].type)
+                switch (currLevel[i][j].type)
                 {
                     case PipeType.straight:
                         InstantiatePipe(currLevel, straightPipe, getSpawnLocation(PipeType.straight, i, j), currRotation, i, j, dir, PipeType.straight);
                         break;
                     case PipeType.turn:
-                        currLevel[i, j].direction = (Direction) dir;
-                        Instantiate(turnPipe, getSpawnLocation(PipeType.turn, i, j), currRotation);
+                        InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j), currRotation, i, j, dir, PipeType.turn);
                         break;
                     case PipeType.source:
                         Instantiate(source, getSpawnLocation(PipeType.source, i, j), getSpawnRotation(currLevel, i, j));
@@ -126,13 +141,13 @@ public class PipeGenerator : MonoBehaviour
         }
     }
 
-    (int row, int col) GetSource(PipeInfo[,] currLevel)
+    (int row, int col) GetSource(PipeInfo[][] currLevel)
     {
-        for (int row = 0; row < currLevel.GetLength(0); row++)
+        for (int row = 0; row < currLevel.Length; row++)
         {
-            for (int col = 0; col < currLevel.GetLength(1); col++)
+            for (int col = 0; col < currLevel[row].Length; col++)
             {
-                if (currLevel[row, col].type == PipeType.source)
+                if (currLevel[row][col].type == PipeType.source)
                 {
                     return (row, col);
                 }
@@ -142,11 +157,11 @@ public class PipeGenerator : MonoBehaviour
         return (0, 0);
     }
 
-    (int i, int j) DirectionToMove(PipeInfo[,] currLevel, int row, int col)
+    (int i, int j) DirectionToMove(PipeInfo[][] currLevel, int row, int col)
     {
-        if (currLevel[row, col].type == PipeType.turn)
+        if (currLevel[row][col].type == PipeType.turn)
         {
-            switch(currLevel[row, col].direction)
+            switch(currLevel[row][col].direction)
             {
                 case Direction.up:
                     return (row, col + 1);
@@ -161,7 +176,7 @@ public class PipeGenerator : MonoBehaviour
         else
         {
             Debug.Log("non turn pipe");
-            switch(currLevel[row, col].direction)
+            switch(currLevel[row][col].direction)
             {
                 case Direction.up:
                     Debug.Log("moving up");
@@ -180,15 +195,15 @@ public class PipeGenerator : MonoBehaviour
         return (0, 0);
     }
 
-    public bool CheckSolution(PipeInfo[,] currLevel)
+    public bool CheckSolution(PipeInfo[][] currLevel)
     {
         var (currRow, currCol) = GetSource(currLevel);
         Debug.Log($"source = ({currRow}, {currCol})");
         for (int i = 0; i < 100; i++)
         {
             Debug.Log($"curr location = ({currRow}, {currCol})");
-            Debug.Log($"curr direction = {currLevel[currRow, currCol].direction}");
-            if (currLevel[currRow, currCol].type == PipeType.sink)
+            Debug.Log($"curr direction = {currLevel[currRow][currCol].direction}");
+            if (currLevel[currRow][currCol].type == PipeType.sink)
             {
                 return true;
             }
@@ -200,7 +215,7 @@ public class PipeGenerator : MonoBehaviour
 
     public void CheckSolutionButton()
     {
-        if (CheckSolution(level))
+        if (CheckSolution(currentLevel))
         {
             Debug.Log("success");
         }

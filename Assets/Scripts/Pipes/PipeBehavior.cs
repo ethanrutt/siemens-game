@@ -10,7 +10,7 @@ public class PipeBehavior : MonoBehaviour
     private bool movable;
 
     // variables to keep track of main game state
-    public PipeInfo[,] gameState;
+    public PipeInfo[][] gameState;
     public int row;
     public int col;
 
@@ -61,8 +61,8 @@ public class PipeBehavior : MonoBehaviour
         int dir = (((int)pipeInfo.direction) + 1) % 4;
         Debug.Log($"going from direction {(int) pipeInfo.direction} to {dir}");
         pipeInfo.direction = ((Direction) dir);
-        gameState[row, col].direction = ((Direction)dir);
+        gameState[row][col].direction = ((Direction)dir);
         gameObject.transform.Rotate(rotate90);
-        Debug.Log(gameState[row, col].direction);
+        Debug.Log(gameState[row][col].direction);
     }
 }
