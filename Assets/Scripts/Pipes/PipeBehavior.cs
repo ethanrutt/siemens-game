@@ -19,7 +19,7 @@ public class PipeBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        pipeInfo = new PipeInfo(Direction.right, PipeType.straight);
+        // pipeInfo is populated in pipeGenerator
         mouseDown = false;
         movable = false;
     }
@@ -27,7 +27,7 @@ public class PipeBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void OnMouseOver()
@@ -59,8 +59,10 @@ public class PipeBehavior : MonoBehaviour
     {
         // goes to next clockwise direction in a cycle
         int dir = (((int)pipeInfo.direction) + 1) % 4;
+        Debug.Log($"going from direction {(int) pipeInfo.direction} to {dir}");
         pipeInfo.direction = ((Direction) dir);
         gameState[row, col].direction = ((Direction)dir);
         gameObject.transform.Rotate(rotate90);
+        Debug.Log(gameState[row, col].direction);
     }
 }

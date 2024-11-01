@@ -14,9 +14,13 @@ public class PipeGenerator : MonoBehaviour
     public GameObject turnPipe;
 
     private Quaternion[] possibleRotations = {
+        // up
         Quaternion.Euler(0, 0, 0),
+        // right
         Quaternion.Euler(0, 0, 90),
+        // down
         Quaternion.Euler(0, 0, 180),
+        // left
         Quaternion.Euler(0, 0, -90)
     };
 
@@ -41,7 +45,7 @@ public class PipeGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     /**
@@ -81,13 +85,15 @@ public class PipeGenerator : MonoBehaviour
         return possibleRotations[0];
     }
 
-    void InstantiatePipe(PipeInfo[,] currLevel, GameObject prefab, Vector3 spawn, Quaternion rotation, int row, int col, int dir)
+    void InstantiatePipe(PipeInfo[,] currLevel, GameObject prefab, Vector3 spawn, Quaternion rotation, int row, int col, int dir, PipeType type)
     {
+        Debug.Log($"instantiating pipe at {row}, {col} with direction {(Direction) dir}");
         GameObject pipe = Instantiate(prefab, spawn, rotation);
-        PipeBehavior pipeInfo = pipe.GetComponent<PipeBehavior>();
-        pipeInfo.gameState = currLevel;
-        pipeInfo.row = row;
-        pipeInfo.col = col;
+        PipeBehavior pipeBehavior = pipe.GetComponent<PipeBehavior>();
+        pipeBehavior.gameState = currLevel;
+        pipeBehavior.row = row;
+        pipeBehavior.col = col;
+        pipeBehavior.pipeInfo = new PipeInfo((Direction)dir, type);
         currLevel[row, col].direction = (Direction)dir;
     }
 
@@ -103,7 +109,7 @@ public class PipeGenerator : MonoBehaviour
                 switch (currLevel[i,j].type)
                 {
                     case PipeType.straight:
-                        InstantiatePipe(currLevel, straightPipe, getSpawnLocation(PipeType.straight, i, j), currRotation, i, j, dir);
+                        InstantiatePipe(currLevel, straightPipe, getSpawnLocation(PipeType.straight, i, j), currRotation, i, j, dir, PipeType.straight);
                         break;
                     case PipeType.turn:
                         currLevel[i, j].direction = (Direction) dir;

@@ -194,7 +194,7 @@ Transform:
   m_GameObject: {fileID: 3420969860624978722}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -1, y: 1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -300,6 +300,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2060c7b089acec94b8f76a596051f7b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  row: 0
+  col: 0
 --- !u!60 &4391957914229961288
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -344,10 +346,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.5020876, y: 1.4928544}
-      - {x: -0.498385, y: 0.5053644}
+    - - {x: 0.49731016, y: 1.4995409}
+      - {x: -0.5020876, y: 1.4928544}
+      - {x: -1.5004706, y: 1.4987051}
       - {x: -1.4947934, y: 0.5065445}
       - {x: -1.4998827, y: -0.49417055}
-      - {x: 0.50429606, y: -0.49404407}
-      - {x: 0.49488127, y: 1.5038981}
+      - {x: -0.5041299, y: -0.5006979}
+      - {x: -0.5005111, y: 0.500016}
+      - {x: 0.49846137, y: 0.49995553}
   m_UseDelaunayMesh: 0
