@@ -67,20 +67,33 @@ public class PipeGenerator : MonoBehaviour
      * Since turnPipes have a 0.5 offset for alignment reasons, as well as
      * source and sink might cause issues later, so we will have this function
      * to get spawn position based on type
+     *
+     * for turn pipes, we also have to do some modifications to the
+     * transform.position so that we are always aligned to the grid
+     *
+     * @see PipeBehavior.RotatePipe
      */
-    Vector3 getSpawnLocation(PipeType type, int i, int j)
+    Vector3 getSpawnLocation(PipeType type, int i, int j, int dir)
     {
-        switch (type)
-        {
-            case PipeType.turn:
-                Vector3 res = spawnLocations[i][j];
-                res.x += 0.5f;
-                return res;
-            default:
-                return spawnLocations[i][j];
+        if (type == PipeType.turn) {
+            Vector3 res = spawnLocations[i][j];
+            res.x += 0.5f;
+            switch (dir) {
+                case 1:
+                    res.y += 1f;
+                    break;
+                case 2:
+                    res.x -= 1f;
+                    break;
+                case 3:
+                    res.y -= 1f;
+                    break;
+            }
+            return res;
         }
-
-        return Vector3.zero;
+        else {
+            return spawnLocations[i][j];
+        }
     }
 
     Quaternion getSpawnRotation(PipeInfo[][] currLevel, int i, int j)
@@ -125,16 +138,16 @@ public class PipeGenerator : MonoBehaviour
                 switch (currLevel[i][j].type)
                 {
                     case PipeType.straight:
-                        InstantiatePipe(currLevel, straightPipe, getSpawnLocation(PipeType.straight, i, j), currRotation, i, j, dir, PipeType.straight);
+                        InstantiatePipe(currLevel, straightPipe, getSpawnLocation(PipeType.straight, i, j, dir), currRotation, i, j, dir, PipeType.straight);
                         break;
                     case PipeType.turn:
-                        InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j), currRotation, i, j, dir, PipeType.turn);
+                        InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), currRotation, i, j, dir, PipeType.turn);
                         break;
                     case PipeType.source:
-                        Instantiate(source, getSpawnLocation(PipeType.source, i, j), getSpawnRotation(currLevel, i, j));
+                        Instantiate(source, getSpawnLocation(PipeType.source, i, j, 0), getSpawnRotation(currLevel, i, j));
                         break;
                     case PipeType.sink:
-                        Instantiate(sink, getSpawnLocation(PipeType.sink, i, j), getSpawnRotation(currLevel, i, j));
+                        Instantiate(sink, getSpawnLocation(PipeType.sink, i, j, 0), getSpawnRotation(currLevel, i, j));
                         break;
                 }
             }
