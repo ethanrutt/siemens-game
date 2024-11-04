@@ -184,7 +184,7 @@ public class WireGenerator : MonoBehaviour
      * This is to be used in the spawnObjects() function so that
      * we can get random positions for the colors and exit spawns
      * The Fisher-Yates algorithm is utilized in this function
-     * 
+     *
      * @param sourceArray The source array that wants to be shuffled
      * @param numElements The number of elements in the source array
      * @return            A new array that is a shuffled version of the source Array
@@ -209,7 +209,7 @@ public class WireGenerator : MonoBehaviour
 
     /**
      * checkConnection() checks the connection of all the wires in the allPlugStats member
-     * 
+     *
      * @return a boolean, true if all wires are connected, false otherwise
      */
     private bool checkConnection()

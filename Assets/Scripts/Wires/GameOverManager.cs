@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using UnityEngine.Networking; 
+using UnityEngine.Networking;
 using TMPro;
 
 /**
@@ -18,7 +18,7 @@ public class GameOverManager : MonoBehaviour
     private string score;
     /**
      * Setup() sets the game over screen to be active so it will actually show up when called.
-     * 
+     *
      * @param levelTimeSpan The timespan of the elapsed time spent on a level
      * @param gameTimeSpan The timespan of the elapsed time spent on the entire game
      */
