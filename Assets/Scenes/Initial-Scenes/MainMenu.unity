@@ -1199,8 +1199,8 @@ MonoBehaviour:
   interactable: ads
   item_ids: {fileID: 0}
   danceEmoteButton: {fileID: 0}
-  unlocked_items: 
-  equipped_items: 
+  unlocked_items: f6010000
+  equipped_items: f6010000
   original_load_items: 
 --- !u!4 &234869019
 Transform:

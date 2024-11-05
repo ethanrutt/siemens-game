@@ -384,7 +384,7 @@ public class ItemIDs : MonoBehaviour
     
             for (int i = 0; i < ownedItems.Count; i++)
             {
-                if (ownedItems[i] >= 1000)
+                if (ownedItems[i] >= 500)
                 {
                     displayItems.Add(ownedItems[i]);
                 }
