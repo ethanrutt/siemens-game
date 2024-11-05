@@ -314,6 +314,8 @@ public class ShopManager : MonoBehaviour
             {
                 purchaseButton.interactable = false;
             }
+        } else {
+            purchaseButton.interactable = false;
         }
 
         // If the player is in the shop

@@ -111,6 +111,28 @@ public class DialogueManager_TS : MonoBehaviour
         0, 0, 3, 3, 2, 1, 1, 3, 1, 2, 0, 1, 3, 1, 0, 1, 3, 1
     };
 
+    public string[] shopOwnerThanks = {
+        "Thanks for the business. I appreciate it. I really do. I'm not just saying that. I really do.",
+        "I love the smell of coins... But you know what beats coins? More coins. Thanks, buddy.",
+        "Flux is a hell of a drug. But you know what's better? Money. So you can buy more flux. Thanks for the business.",
+        "Appreciate it. You're a good guy – you know that?",
+        "You know, I'm not just a shopkeeper. I'm a friend. And friends give friends discounts. Just kidding. I don't give discounts. But I appreciate the business.",
+        "Thanks for the business. I hope I see you around again, partner.",
+        "Every coin you spend here goes to a good cause. Me. I'm the good cause. Thanks for the business.",
+        "Hey, buying something from me is better than donating to charity. At least you know where the money's going. Thanks for the business.",
+        "They say money can't buy happiness. But it can buy stuff. And stuff makes me happy. Thanks for the business.",
+        "How do you say 'thank you' in Spanish? 'Gracias'? Well, 'gracias' for the business.",
+        "I heard that new Vietnamese place down the street is good. I got enough coins to buy a nice bun bo hue. Too bad I'm chained to the ground. I guess the aromas enough for me.",
+        "I have enough money to travel to China now. Too bad I can't move. But hey, thanks!",
+        "Arigatou-gozaimasu. Ugokenai ndakedo, arigatou shika ienai.",
+        "Alright, I'm going to buy myself a nice hoodie with the money you just gave me. From myself. But thanks."
+    };
+
+    //0=serious,nohands, 1=series,hand, 2=happy,hand, 3,quitehappy,hand
+    public int[] shopOwnerSpriteIndices_Thanks = {
+        3, 2, 1, 3, 2, 3, 2, 3, 3, 2, 3, 3, 3, 3
+    };
+
     // A coroutine to type out the sentence
     private Coroutine typeSentenceCoroutine;
 
@@ -140,86 +162,93 @@ public class DialogueManager_TS : MonoBehaviour
         typeSentenceCoroutine = StartCoroutine(TypeSentence(randomDialogue));
     }
 
-    
-
     public void TalkToShopOwner()
     {
-        dialogueIndex = 0;
-
-        // If the coroutine is not null, stop the coroutine
-        if (typeSentenceCoroutine != null)
-        {
-            StopCoroutine(typeSentenceCoroutine);
-        }
-
-        // Check if it's the first time talking to the shop owner
+        dialoguePanel.SetActive(true);
+        
+        // Check if the player has talked to the shop owner before
         if (playerData.npc_interactions["shopkeeper"] == 0)
         {
+            // Initialize the dialogue index for new interaction.
+            dialogueIndex = 0;
+            
+            // Start initial long dialogue with multiple parts
             StartCoroutine(InitialShopOwnerDialogue());
         }
         else
         {
+            // Show random one-liner and afterward potentially open up the shop
+            ShowRandomShopOwnerOneLiner();
+        }
+    }
+
+    private void ShowRandomShopOwnerOneLiner()
+    {
+        if (typeSentenceCoroutine != null)
+            StopCoroutine(typeSentenceCoroutine);
+        
+        // Random index for one-liners
+        int randomIndex = Random.Range(0, shopOwnerOneLiners.Length);
+        string randomDialogue = shopOwnerOneLiners[randomIndex];
+        
+        // Set sprite and character name
+        characterImage.sprite = shopOwnerSprites[shopOwnerSpriteIndices_OneLiners[randomIndex]];
+        charName.text = "Shop Owner";
+        
+        // Typing the sentence
+        isTyping = true;
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(randomDialogue));
+        
+        // Wait for user interaction for closing or opening the shop
+        StartCoroutine(WaitForUserInput());
+    }
+
+    private IEnumerator WaitForUserInput()
+    {
+        // Wait for a mouse click or screen tap
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began));
+        
+        dialoguePanel.SetActive(false);
+        shopPanel.SetActive(true);
+
+        playerData.interactable = "shopopen";
+    }
+
+
+    // Coroutine to handle the initial conversation with the shop owner
+    private IEnumerator InitialShopOwnerDialogue()
+    {
+        for (int i = 0; i < shopOwnerInitial.Length; i++)
+        {
+            // If the coroutine is not null, stop the coroutine
             if (typeSentenceCoroutine != null)
             {
                 StopCoroutine(typeSentenceCoroutine);
             }
 
-            // Set the characterImage to the appropriate sprite
-            characterImage.sprite = shopOwnerSprites[shopOwnerSpriteIndices_OneLiners[dialogueIndex]];
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
 
-            // Set the charName to "Shop Owner"
-            charName.text = "Ethan";
-
-            // Set the dialoguePanel to active
-            dialoguePanel.SetActive(true);
-
-            // Start typing the sentence
-            isTyping = true;
-
-            typeSentenceCoroutine = StartCoroutine(TypeSentence(shopOwnerOneLiners[dialogueIndex]));
-        }
-    }
-
-    // Coroutine to handle the initial conversation with the shop owner
-    private IEnumerator InitialShopOwnerDialogue()
-    {
-        // Using dialogue index to type out the initial dialogues
-        for (int i = 0; i < shopOwnerInitial.Length; i++)
-        {
             // Set the characterImage to the appropriate sprite
             characterImage.sprite = shopOwnerSprites[shopOwnerSpriteIndices_InitialSpeak[i]];
 
             // Set the charName to "Shop Owner"
-            charName.text = "Shop Owner";
-
-            // Set the dialoguePanel to active
-            dialoguePanel.SetActive(true);
+            charName.text = "Ethan";
 
             // Start typing the sentence
             isTyping = true;
             typeSentenceCoroutine = StartCoroutine(TypeSentence(shopOwnerInitial[i]));
 
-            // the coroutine will be continued on clicking the screen
-            yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || Input.touchCount > 0);
+            // Wait for the player to click the screen
+            // debug the touch
+            
+            dialogueIndex = i;
+            yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began));
         }
 
         // Increment the npc_interactions for the shopkeeper
-
         playerData.npc_interactions["shopkeeper"]++;
     }
-
-
-    // Get the next sentence
-    // public void GetNextSentence()
-    // {
-    //     // If the coroutine is not null, stop the coroutine
-    //     if (typeSentenceCoroutine != null)
-    //     {
-    //         StopCoroutine(typeSentenceCoroutine);
-    //     }
-
-        
-    // }
 
     IEnumerator TypeSentence (string sentence)
     {
@@ -241,47 +270,27 @@ public class DialogueManager_TS : MonoBehaviour
     // Get the next sentence
     public void GetNextSentence()
     {
-        StopAllCoroutines();
+        // If the coroutine is not null, stop the coroutine
+        if (typeSentenceCoroutine != null)
+        {
+            StopCoroutine(typeSentenceCoroutine);
+        }
 
+        // Set the dialogueText to an empty string
         dialogueText.text = "";
 
-        // If the dialogueIndex is less than the length of the shopOwnerOneLiners array
-        if (dialogueIndex < shopOwnerOneLiners.Length - 1)
-        {
-            // Increment the dialogueIndex
-            dialogueIndex++;
+        // Increment the dialogueIndex
+        dialogueIndex++;
 
-            // Set the characterImage to the appropriate sprite
-            characterImage.sprite = shopOwnerSprites[shopOwnerSpriteIndices_OneLiners[dialogueIndex]];
+        // Set the characterImage to the appropriate sprite
+        characterImage.sprite = shopOwnerSprites[shopOwnerSpriteIndices_OneLiners[dialogueIndex]];
 
-            // Set the charName to "Shop Owner"
-            if (dialogueIndex == 0)
-            {
-                charName.text = "Shop Owner";
-            } else if (dialogueIndex == 1)
-            {
-                charName.text = "Gus?";
-            } else
-            {
-                charName.text = "Ethan";
-            }
+        // Set the charName to "Shop Owner"
+        charName.text = "Ethan";
 
-            // Start typing the sentence
-            isTyping = true;
-            typeSentenceCoroutine = StartCoroutine(TypeSentence(shopOwnerOneLiners[dialogueIndex]));
-        }
-        else
-        {
-            // Wait for the sentence to end before
-            // opening the shopPanel and setting dialogue to false
-            dialoguePanel.SetActive(false);
-
-            // Set the shopPanel to active
-            // interactable=shopopen
-            playerData.interactable = "shopopen";
-        }
-
-
+        // Start typing the sentence
+        isTyping = true;
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(shopOwnerOneLiners[dialogueIndex]));
     }
         
 
@@ -312,28 +321,11 @@ public class DialogueManager_TS : MonoBehaviour
     }
 
     void Update()
-{
-    // If player is talking to drunkard, one-liner dialogue
-    if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "drunkard")
     {
-        dialoguePanel.SetActive(false);
-    }
-
-    // If player is talking to shop owner, progress through dialogue
-    if ((Input.GetMouseButtonDown(0) || Input.touchCount > 0) && playerData.interactable == "shopowner")
-    {
-        if (dialogueIndex == 0 && playerData.npc_interactions["shopkeeper"] == 0)
+        // If player is talking to drunkard, one-liner dialogue
+        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "drunkard")
         {
-            // Initial dialogue
-            StartCoroutine(InitialShopOwnerDialogue());
-        }
-        else
-        {
-            // Progress the shop owner dialogue
-            GetNextSentence();
+            dialoguePanel.SetActive(false);
         }
     }
-}
-
-
 }
