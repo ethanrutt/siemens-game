@@ -72,7 +72,7 @@ public class DialogueManagerTutorial : MonoBehaviour
         characterImage.sprite = characterImages[characterImageAssociations[dialogueIndex]];
     }
 
-    // Display the next sentence
+    // Display the next sentence 
     public void DisplayNextSentence()
     {
         // DEBUG: Just use if needed, the tutorial is autoended.

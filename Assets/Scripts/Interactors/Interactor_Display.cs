@@ -149,6 +149,11 @@ public class Interactor_Display : MonoBehaviour
             // Debug.Log("Drunkard Interact");
             dialogueManager.TalkToDrunkGuy();
         }
+        else if (interactable == "shopowner")
+        {
+            // Debug.Log("Shop Owner Interact");
+            dialogueManager.TalkToShopOwner();
+        }
          else {
             // Debug.Log("No Interactable");
         }

@@ -335,7 +335,7 @@ public class ShopManager : MonoBehaviour
     public void CloseShop()
     {
         // Set the player's interactable to "none"
-        playerData.interactable = "none";
+        playerData.interactable = "shopowner";
 
         // Turn off shop
         shopPanel.SetActive(false);

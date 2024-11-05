@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 5501127}
   - component: {fileID: 5501128}
   m_Layer: 0
-  m_Name: DrunkGuy
+  m_Name: DrunkGuy_Interact
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5949,7 +5949,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &129768086
 RectTransform:
   m_ObjectHideFlags: 0
@@ -60376,6 +60376,97 @@ MonoBehaviour:
   - {x: 0.4157348, y: -0.27778515, z: 0}
   - {x: 0.46193978, y: -0.19134171, z: 0}
   - {x: 0.49039266, y: -0.09754512, z: 0}
+--- !u!1 &496345221
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 496345222}
+  - component: {fileID: 496345224}
+  - component: {fileID: 496345223}
+  m_Layer: 0
+  m_Name: ShopOwner_Interact
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &496345222
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496345221}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -21.15, y: -9.52, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 921529983}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &496345223
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496345221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 915119a1f96ef40d88a6490e98083470, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  interactButton: {fileID: 1986639720}
+--- !u!61 &496345224
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 496345221}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.22232723, y: -0.041952133}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.709509, y: 1.4195175}
+  m_EdgeRadius: 0
 --- !u!1 &496531675
 GameObject:
   m_ObjectHideFlags: 0
@@ -78485,6 +78576,7 @@ Transform:
   - {fileID: 949175636}
   - {fileID: 1016432679}
   - {fileID: 5501126}
+  - {fileID: 496345222}
   - {fileID: 1572346643}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84479,7 +84571,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1170803888
 RectTransform:
   m_ObjectHideFlags: 0
@@ -92337,12 +92429,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   username: 
-  coins: 333
-  interactable: shopopen
+  coins: 9999
+  interactable: 
   item_ids: {fileID: 0}
   danceEmoteButton: {fileID: 0}
-  unlocked_items: f4010000f501000065000000f6010000
-  equipped_items: f6010000
+  unlocked_items: 
+  equipped_items: 
   original_load_items: 
 --- !u!4 &1683374847
 Transform:
@@ -98779,6 +98871,7 @@ MonoBehaviour:
   charName: {fileID: 112825971}
   characterImage: {fileID: 1839932550}
   dialoguePanel: {fileID: 341920515}
+  shopPanel: {fileID: 1170803887}
   drunkGuyDialogues:
   - You know, the view up here, it's so nice.
   - I know that I'm not supposed to be up here, but I just can't help it.
@@ -98815,7 +98908,65 @@ MonoBehaviour:
     take every little penny... Okay, that's it.
   - Elementary school was nice. I remember when I was in elementary school. Now I'm
     not in elementary school. I'm on a building. I'm on a building.
+  shopOwnerInitial:
+  - Hello there. I suppose we haven't met before, huh. I'm the shopkeeper of this
+    town.
+  - You can call me Gus. But my real name? That's Ethan. So call me Ethan.
+  - Sorry. I suppose I had a bit too much flux. It's alright though. Let me give
+    you a little rundown.
+  - Here at the Scavenger Shop, we sell all sorts of items. Well, not we, but me.
+    I'm alone, as you can tell.
+  - I can sell you some nice cosmetic items. Too cold? Buy a hoodie. Too hot? Nice
+    safety vests. Need some shoes? I got some Jordans.
+  - And I also happen to sell the flash drives you need to unlock some cool dances.
+    Want to impress a girl you know? Buy a dance.
+  - You get the whole idea. I'm here for you. But this stuff isn't free. You need
+    coins. And I need coins. So let's make a deal.
+  - So, from here on out, you can come to me whenever you need something. I'll be
+    here. I'm always here. I mean, my foot's chained to the dirt. And I got just
+    enough flux to keep me going.
+  shopOwnerSpriteIndices_InitialSpeak: 0200000003000000000000000100000002000000030000000100000001000000
   drunkGuySpriteIndices: 02000000020000000200000000000000000000000100000002000000010000000100000001000000020000000000000000000000000000000100000002000000020000000000000000000000
+  shopOwnerOneLiners:
+  - It's cold out here. I wish I had a hoodie. I bet you wish you had a hoodie too.
+    Why don't you buy one?
+  - I kind of miss the past life. It sucks being chained down. But hey, I got my
+    flux. I'm good. You want something?
+  - Abra-cadabra. Might not be a magician, but I can make your coins disappear. Just
+    kidding. I'm not a magician. I'm a shopkeeper. What can I get you?
+  - Do you want to talk, or do you just want my money? Just kidding, I'm here to
+    take yours. What can I get you?
+  - You know, they recently have been minting some new coins. You got some? I got
+    some. But I want more. What can I get you?
+  - Few decades ago they said AI would take over shopping. AI has nothing on me.
+    Unless... I'm an AI. Jeepers. What can I get you?
+  - Need something? I need something. My life back. But I bet you need a new hoodie,
+    or some nice shoes, huh. First world problems. But I got you. What can I get
+    you?
+  - I'm only snappy on alternating Tuesdays. The other days, well, I'm just your
+    friendly neighborhood shopkeeper. What can I get you?
+  - Psst. Hey. Can you hear me? Well, I hear the coins jiggling in your pocket. Or
+    robot-thingamajig. Man, what did they do to us? Anyways, what can I get you?
+  - You like my monologues? I like my monologues. I also like money. And I bet you
+    have some. What can I get you?
+  - I got some new stuff. Just kidding. Just the same old stuff. But you know what
+    they say. If it ain't broke, don't fix it. What can I get you?
+  - Man the only thing I miss about being human is not being chained to this damn
+    ground. But hey, I got my flux. What can I get you?
+  - You know being chained sucks, but a guy recently dropped all his coins right
+    next to me. I didn't say a word. Don't tell him though. Or... I guess the secret's
+    out. Need something?
+  - Pacha-pacha-pacha-pacha-chocha-chocha-hey! Sorry. I'm just trying to keep myself
+    entertained. What can I get you?
+  - Maybe we would get along if you gave me some money. I'll give you what you're
+    here for. What can I get you?
+  - They say revenge is a dish best served cold. I say it's a dish best served with
+    a side of coins. What can I get you?
+  - You know, I didn't know you liked me so much. I'm flattered. Here's the problem.
+    We don't give discounts out here. If we did I'd be broke. What can I get you?
+  - Money talks, and so do humans. Only difference is, I like money. What can I get
+    you?
+  shopOwnerSpriteIndices_OneLiners: 000000000000000003000000030000000200000001000000010000000300000001000000020000000000000001000000030000000100000000000000010000000300000001000000
 --- !u!4 &2137166715
 Transform:
   m_ObjectHideFlags: 0
