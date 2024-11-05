@@ -15,6 +15,7 @@ public class PipeBehavior : MonoBehaviour
     public int col;
 
     private Vector3 rotate90 = new Vector3(0, 0, 90);
+    private Vector3 flipTurnPipe = new Vector3(0, 0, 180);
 
     private Quaternion[] possibleRotations = {
         // up
@@ -93,8 +94,10 @@ public class PipeBehavior : MonoBehaviour
         }
 
         Debug.Log($"going from direction {(int) pipeInfo.direction} to {dir}");
-        pipeInfo.direction = ((Direction) dir);
-        gameState[row][col].direction = ((Direction)dir);
+        Direction newDir = ((Direction)dir);
+        pipeInfo.direction = newDir;
+        gameState[row][col].direction = newDir;
+        // FIXME: left is right and right is left on the turn pipes. figure out a way to handle this
         gameObject.transform.Rotate(rotate90);
         Debug.Log(gameState[row][col].direction);
     }
