@@ -20,6 +20,7 @@ public class WireConnectionTest : MonoBehaviour
     [UnitySetUp]
     public IEnumerator SetUp()
     {
+        Debug.Log("setting up");
         SceneManager.LoadScene("EmptyScene");
         yield return null;
 
@@ -57,6 +58,21 @@ public class WireConnectionTest : MonoBehaviour
         Assert.IsTrue(connected, "wire entry and wire plug are not successfully connected");
     }
 
+    [UnityTest]
+    public IEnumerator WireSnapBack()
+    {
+        Vector3 startPosition = wire.transform.position;
+
+        SimulateClick(wire);
+
+        yield return SimulateDragToPosition(wire, new Vector3(0, -5, 0));
+
+        wire.SendMessage("OnMouseUp", SendMessageOptions.DontRequireReceiver);
+        yield return null;
+
+        Vector3 endingPosition = wire.transform.position;
+    }
+
     private void SimulateClick(GameObject target)
     {
         target.SendMessage("OnMouseDown", SendMessageOptions.DontRequireReceiver);
@@ -82,6 +98,7 @@ public class WireConnectionTest : MonoBehaviour
     [UnityTearDown]
     public IEnumerator TearDown()
     {
+        Debug.Log("tearing down");
         if (wire != null) GameObject.Destroy(wire);
         if (plug != null) GameObject.Destroy(plug);
 
