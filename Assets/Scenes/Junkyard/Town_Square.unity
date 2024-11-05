@@ -87416,7 +87416,7 @@ Transform:
   m_GameObject: {fileID: 1399883595}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -23.2, y: -6.07, z: 0}
+  m_LocalPosition: {x: -23.48, y: -4.17, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -98870,6 +98870,7 @@ MonoBehaviour:
   dialogueText: {fileID: 1523313165}
   charName: {fileID: 112825971}
   characterImage: {fileID: 1839932550}
+  TTC_Text: {fileID: 1248250327}
   dialoguePanel: {fileID: 341920515}
   shopPanel: {fileID: 1170803887}
   drunkGuyDialogues:
@@ -98967,6 +98968,32 @@ MonoBehaviour:
   - Money talks, and so do humans. Only difference is, I like money. What can I get
     you?
   shopOwnerSpriteIndices_OneLiners: 000000000000000003000000030000000200000001000000010000000300000001000000020000000000000001000000030000000100000000000000010000000300000001000000
+  shopOwnerThanks:
+  - Thanks for the business. I appreciate it. I really do. I'm not just saying that.
+    I really do.
+  - I love the smell of coins... But you know what beats coins? More coins. Thanks,
+    buddy.
+  - Flux is a hell of a drug. But you know what's better? Money. So you can buy more
+    flux. Thanks for the business.
+  - "Appreciate it. You're a good guy \u2013\_you know that?"
+  - You know, I'm not just a shopkeeper. I'm a friend. And friends give friends discounts.
+    Just kidding. I don't give discounts. But I appreciate the business.
+  - Thanks for the business. I hope I see you around again, partner.
+  - Every coin you spend here goes to a good cause. Me. I'm the good cause. Thanks
+    for the business.
+  - Hey, buying something from me is better than donating to charity. At least you
+    know where the money's going. Thanks for the business.
+  - They say money can't buy happiness. But it can buy stuff. And stuff makes me
+    happy. Thanks for the business.
+  - How do you say 'thank you' in Spanish? 'Gracias'? Well, 'gracias' for the business.
+  - I heard that new Vietnamese place down the street is good. I got enough coins
+    to buy a nice bun bo hue. Too bad I'm chained to the ground. I guess the aromas
+    enough for me.
+  - I have enough money to travel to China now. Too bad I can't move. But hey, thanks!
+  - Arigatou-gozaimasu. Ugokenai ndakedo, arigatou shika ienai.
+  - Alright, I'm going to buy myself a nice hoodie with the money you just gave me.
+    From myself. But thanks.
+  shopOwnerSpriteIndices_Thanks: 0300000002000000010000000300000002000000030000000200000003000000030000000200000003000000030000000300000003000000
 --- !u!4 &2137166715
 Transform:
   m_ObjectHideFlags: 0

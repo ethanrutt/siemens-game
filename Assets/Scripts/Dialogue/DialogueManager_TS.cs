@@ -27,6 +27,8 @@ public class DialogueManager_TS : MonoBehaviour
     public TMPro.TextMeshProUGUI charName;
     // image for the character
     public UnityEngine.UI.Image characterImage;
+    // TTC text
+    public TMPro.TextMeshProUGUI TTC_Text;
 
     // Load in the dialoguePanel
     // Look for UI-Panel Dialogue-Panel and assign it
@@ -184,6 +186,9 @@ public class DialogueManager_TS : MonoBehaviour
 
     private void ShowRandomShopOwnerOneLiner()
     {
+        // Change TTC_Text to "Tap to Continue..."
+        TTC_Text.text = "Tap to Continue...";
+
         if (typeSentenceCoroutine != null)
             StopCoroutine(typeSentenceCoroutine);
         
@@ -193,7 +198,7 @@ public class DialogueManager_TS : MonoBehaviour
         
         // Set sprite and character name
         characterImage.sprite = shopOwnerSprites[shopOwnerSpriteIndices_OneLiners[randomIndex]];
-        charName.text = "Shop Owner";
+        charName.text = "Ethan";
         
         // Typing the sentence
         isTyping = true;
@@ -218,6 +223,9 @@ public class DialogueManager_TS : MonoBehaviour
     // Coroutine to handle the initial conversation with the shop owner
     private IEnumerator InitialShopOwnerDialogue()
     {
+        // Change TTC_Text to "Do not Tap."
+        TTC_Text.text = "Do Not Tap...";
+
         for (int i = 0; i < shopOwnerInitial.Length; i++)
         {
             // If the coroutine is not null, stop the coroutine
@@ -233,21 +241,43 @@ public class DialogueManager_TS : MonoBehaviour
             characterImage.sprite = shopOwnerSprites[shopOwnerSpriteIndices_InitialSpeak[i]];
 
             // Set the charName to "Shop Owner"
-            charName.text = "Ethan";
+            if (dialogueIndex == 0)
+            {
+                charName.text = "Shop Owner";
+            } else if (dialogueIndex == 1)
+            {
+                charName.text = "Gus?";
+            } else {
+                charName.text = "Ethan";
+            }
 
             // Start typing the sentence
             isTyping = true;
             typeSentenceCoroutine = StartCoroutine(TypeSentence(shopOwnerInitial[i]));
 
-            // Wait for the player to click the screen
-            // debug the touch
-            
-            dialogueIndex = i;
-            yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began));
+            // Wait
+            yield return new WaitForSeconds(shopOwnerInitial[i].Length * typingSpeed + 1);
+
+            // Increment the dialogueIndex
+            dialogueIndex++;
+            // Debug.Log("Dialogue Index: " + dialogueIndex);
+
+            if (dialogueIndex == 8)
+            {
+                // Change TTC_Text to "Tap to Continue..."
+                TTC_Text.text = "Tap to Continue...";
+            }
         }
 
         // Increment the npc_interactions for the shopkeeper
         playerData.npc_interactions["shopkeeper"]++;
+
+        // Open the shop
+        shopPanel.SetActive(true);
+        playerData.interactable = "shopopen";
+
+        // Close the dialogue panel
+        dialoguePanel.SetActive(false);
     }
 
     IEnumerator TypeSentence (string sentence)
@@ -325,6 +355,18 @@ public class DialogueManager_TS : MonoBehaviour
         // If player is talking to drunkard, one-liner dialogue
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "drunkard")
         {
+            dialoguePanel.SetActive(false);
+        }
+
+        // If player is talking to shopkeeper, one-liner dialogue
+        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "shopowner" && playerData.npc_interactions["shopkeeper"] > 0)
+        {
+            // If dialogueIndex == shopOwnerOneLiners.Length - 1, increment npc_interactions for shopkeeper
+            if (dialogueIndex == shopOwnerOneLiners.Length - 1)
+            {
+                playerData.npc_interactions["shopkeeper"]++;
+            }
+
             dialoguePanel.SetActive(false);
         }
     }
