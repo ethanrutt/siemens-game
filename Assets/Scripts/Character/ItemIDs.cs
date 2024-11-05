@@ -428,7 +428,7 @@ public class ItemIDs : MonoBehaviour
     void Update()
     {
         // DEBUG LOG for selectedType
-        Debug.Log("Selected Type: " + selectedType);
+        // Debug.Log("Selected Type: " + selectedType);
         if (selectedType != newselectedType)
         {
             FillInventoryButtons();
