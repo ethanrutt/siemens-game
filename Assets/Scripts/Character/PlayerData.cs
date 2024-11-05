@@ -15,6 +15,10 @@ public class PlayerData : MonoBehaviour
     // Storing public information like the current interactable
     public string interactable = "";
 
+    // Where the UI for coins is stored
+    // Look for Currency Image, which has a Text (TMP) that is a child object
+    private TMPro.TMP_Text currencyText;
+
     // Item Ids
     [SerializeField] private ItemIDs item_ids = new ItemIDs();
     // Grab the item_database
@@ -120,5 +124,13 @@ public class PlayerData : MonoBehaviour
         {
             danceEmoteButton.interactable = false;
         }
+
+        // Set the coins
+        if (currencyText == null)
+        {
+            currencyText = GameObject.Find("Currency-Text").GetComponent<TMPro.TMP_Text>();
+        }
+
+        currencyText.text = coins.ToString();
     }
 }
