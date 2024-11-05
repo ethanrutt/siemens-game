@@ -160,6 +160,9 @@ public class ShopManager : MonoBehaviour
             // Set the clicked item to -1
             clicked_item_id = -1;
 
+            // Deactivate the purchase button
+            purchaseButton.interactable = false;
+
             // Update the pages
             PopulateLists();
 
@@ -301,6 +304,16 @@ public class ShopManager : MonoBehaviour
 
             // Set the rarity of the item
             itemRarity.GetComponent<TextMeshProUGUI>().text = clicked_item_rarity;
+
+            // Purchase button is interactable if the player has enough money
+            if (playerData.coins >= clicked_item_cost)
+            {
+                purchaseButton.interactable = true;
+            }
+            else
+            {
+                purchaseButton.interactable = false;
+            }
         }
 
         // If the player is in the shop

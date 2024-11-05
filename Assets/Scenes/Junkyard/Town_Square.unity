@@ -92337,7 +92337,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   username: 
-  coins: 9999
+  coins: 333
   interactable: shopopen
   item_ids: {fileID: 0}
   danceEmoteButton: {fileID: 0}
