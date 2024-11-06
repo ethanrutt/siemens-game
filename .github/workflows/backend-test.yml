@@ -10,31 +10,25 @@ on:
       - master-all
 
 jobs:
-  # test:
-  #   name: Run Equip
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/Equip/package-lock.json"
-  #
-  #     - name: Install Deps
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/Equip
-  #         npm install
-  #
-  #     - name: Run Jest Tests
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/Equip
-  #         npm test
+  test:
+    name: Setup AWS Credentials
+      steps:
+        - name: Configure AWS Credentials
+          uses: aws-actions/configure-aws-credentials@v1
+          with:
+            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+        - name: Read secrets from AWS Secrets Manager into environment variables
+          uses: abhilash1in/aws-secrets-manager-action@v2.1.0
+          with:
+            secrets: |
+              AWS_ACCESS_KEY_ID
+              AWS_SECRET_ACCESS_KEY
+            parse-json: true
+
+        - name: Check if env variable is set after fetching secrets
+          run: if [ -z ${AWS_ACCESS_KEY_ID+x} ]; then echo "AWS_ACCESS_KEY_ID is unset"; else echo "AWS_ACCESS_KEY_ID is set"; fi
 
   test:
     name: Run GetAllItems
@@ -60,196 +54,7 @@ jobs:
         working-directory: backend/LambdaFunctionAPIs/GetAllItems
         run: npm install
 
-      - name: Export AWS Keys
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        run: |
-          export AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }}
-          export AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }}
-
       - name: Run Jest Tests
         working-directory: backend/LambdaFunctionAPIs/GetAllItems
         run: npm test
 
-  # test:
-  #   name: Run GetItemsByCategory
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/GetItemsByCategory/package-lock.json"
-  #
-  #     - name: Install Deps
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/GetItemsByCategory
-  #         npm install
-  #
-  #     - name: Run Jest Tests
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/GetItemsByCategory
-  #         npm test
-  #
-  # test:
-  #   name: Run GetUserItems
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/GetUserItems/package-lock.json"
-  #
-  #     - name: Install Deps
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/GetUserItems
-  #         npm install
-  #
-  #     - name: Run Jest Tests
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/GetUserItems
-  #         npm test
-  #
-  # test:
-  #   name: Run HighScore
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/HighScore/package-lock.json"
-  #
-  #     - name: Install Deps
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/HighScore
-  #         npm install
-  #
-  #     - name: Run Jest Tests
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/HighScore
-  #         npm test
-  #
-  # test:
-  #   name: Run Leaderboard
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/Leaderboard/package-lock.json"
-  #
-  #     - name: Install Deps
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/Leaderboard
-  #         npm install
-  #
-  #     - name: Run Jest Tests
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/Leaderboard
-  #         npm test
-  #
-  # test:
-  #   name: Run Login
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/Login/package-lock.json"
-  #
-  #     - name: Install Deps
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/Login
-  #         npm install
-  #
-  #     - name: Run Jest Tests
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/Login
-  #         npm test
-  #
-  # test:
-  #   name: Run Purchase
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/Purchase/package-lock.json"
-  #
-  #     - name: Install Deps
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/Purchase
-  #         npm install
-  #
-  #     - name: Run Jest Tests
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/Purchase
-  #         npm test
-  #
-  # test:
-  #   name: Run ScoreUpload
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/ScoreUpload/package-lock.json"
-  #
-  #     - name: Install Deps
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/ScoreUpload
-  #         npm install
-  #
-  #     - name: Run Jest Tests
-  #       run: |
-  #         cd backend/LambdaFunctionAPIs/ScoreUpload
-  #         npm test
