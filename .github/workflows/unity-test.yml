@@ -3,12 +3,13 @@ name: Unity Test Runner
 on: 
   push:
     branches: 
-      - main
-      - dev
+      - dev-all-ethan
+      - dev-all-rishi
+      - dev-all-rohan
   pull_request:
-    branches: 
-      - main
-      - dev
+    branches:
+      - dev-all
+      - master-all
 
 jobs:
   test:
@@ -17,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: checkout repo
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Run Tests
