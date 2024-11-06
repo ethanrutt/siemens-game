@@ -15,6 +15,17 @@ public class PlayerData : MonoBehaviour
     // Storing public information like the current interactable
     public string interactable = "";
 
+    // Now storing information used for achievements
+    // Hint (to Ethan & Rohan & possibly Naveed) -> you will need to call the PlayerData instance
+    // and affect these variables upon any sort of win
+    public int wire_puzzle_wins = 0;
+    public int wire_puzzle_fullround = 0; // Make it to the last round
+    public int card_game_wins = 0; // Wins from the card game
+    public int card_game_fullround = 0; // Make it to the last round
+    public int casino_winnings = 0; // Total winnings from the casino (coins)
+    public int casino_losses = 0; // Total losses from the casino　（coins)
+    public int pipe_puzzle_wins = 0; // Wins from the pipe puzzle
+
     // Where the UI for coins is stored
     // Look for Currency Image, which has a Text (TMP) that is a child object
     private TMPro.TMP_Text currencyText;

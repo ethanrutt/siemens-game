@@ -166,7 +166,30 @@ public class DialogueManager_TS : MonoBehaviour
 
         // Make the dialoguePanel type something
         isTyping = true;
+        
+        // Make the sentence type and just stop it after (like the yield wait for + 1)
+        typeSentenceCoroutine = StartCoroutine(DrunkGuyDialogue());
+    }
+
+    private IEnumerator DrunkGuyDialogue()
+    {
+        // Change TTC_Text to "Tap to Continue..."
+        TTC_Text.text = "Tap to Continue...";
+
+        // Random index for one-liners
+        int randomIndex = Random.Range(0, drunkGuyDialogues.Length);
+        string randomDialogue = drunkGuyDialogues[randomIndex];
+        
+        // Set sprite and character name
+        characterImage.sprite = drunkGuySprites[drunkGuySpriteIndices[randomIndex]];
+        charName.text = "Drunkard";
+        
+        // Typing the sentence
+        isTyping = true;
         typeSentenceCoroutine = StartCoroutine(TypeSentence(randomDialogue));
+        
+        // Wait for user interaction for closing or opening the shop
+        StartCoroutine(WaitForUserInput());
     }
 
     public void TalkToShopOwner()
