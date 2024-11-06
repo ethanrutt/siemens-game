@@ -16,13 +16,13 @@ public class CheckTownSquare
     public IEnumerator CheckTownSquareForPlayerObject()
     {
         // Load Main Menu Scene to get Player Data singleton loaded
-        yield return SceneManager.LoadSceneAsync("MainMenu");
+        yield return SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
 
         // Wait for one frame to ensure the scene is fully loaded
         yield return null;
 
         // Load the Town_Square scene
-        yield return SceneManager.LoadSceneAsync("Town_Square");
+        yield return SceneManager.LoadSceneAsync("Town_Square", LoadSceneMode.Additive);
 
         // Wait for one frame to ensure the scene is fully loaded
         yield return null;
@@ -37,16 +37,17 @@ public class CheckTownSquare
     [UnityTearDown]
     public IEnumerator TearDown()
     {
+        // Unload the Town_Square scene
+        yield return SceneManager.UnloadSceneAsync("Town_Square");
+
+        // Wait for one frame to ensure the scene is fully unloaded
+        yield return null;
+
         // Unload MainMenu scene
         yield return SceneManager.UnloadSceneAsync("MainMenu");
 
         // Wait for one frame to ensure the scene is fully unloaded
         yield return null;
 
-        // Unload the Town_Square scene
-        yield return SceneManager.UnloadSceneAsync("Town_Square");
-
-        // Wait for one frame to ensure the scene is fully unloaded
-        yield return null;
     }
 }
