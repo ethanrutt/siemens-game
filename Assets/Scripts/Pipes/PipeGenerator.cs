@@ -39,7 +39,7 @@ public class PipeGenerator : MonoBehaviour
         // level 1 one turn
         new PipeInfo[][] {
             new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
+            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
         }
     };
 
@@ -82,11 +82,12 @@ public class PipeGenerator : MonoBehaviour
                 case 0:
                     res.y -= 1f;
                     break;
+                case 1:
+                    res.x -= 1f;
+                    res.y -= 1f;
+                    break;
                 case 2:
                     res.x -= 1f;
-                    break;
-                case 3:
-                    res.y -= 1f;
                     break;
             }
             return res;
@@ -141,7 +142,22 @@ public class PipeGenerator : MonoBehaviour
                         InstantiatePipe(currLevel, straightPipe, getSpawnLocation(PipeType.straight, i, j, dir), currRotation, i, j, dir, PipeType.straight);
                         break;
                     case PipeType.turn:
-                        InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), currRotation, i, j, dir, PipeType.turn);
+                        // with turnpipes, right is left and left is right in terms of animations
+                        // this is due to the rotate 90 working differently for the shape i've defined
+                        // this will handle whether it is left or right, flip it accordingly, and sync the direction in the gamestate
+                        if (dir == 1)
+                        {
+                            InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), possibleRotations[3], i, j, dir, PipeType.turn);
+                        }
+                        else if (dir == 3)
+                        {
+                            InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), possibleRotations[1], i, j, dir, PipeType.turn);
+
+                        }
+                        else
+                        {
+                            InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), currRotation, i, j, dir, PipeType.turn);
+                        }
                         break;
                     case PipeType.source:
                         Instantiate(source, getSpawnLocation(PipeType.source, i, j, 0), getSpawnRotation(currLevel, i, j));
