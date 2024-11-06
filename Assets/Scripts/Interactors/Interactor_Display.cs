@@ -46,6 +46,11 @@ public class Interactor_Display : MonoBehaviour
     [SerializeField] private TMP_Text top5;
     [SerializeField] private TMP_Text top10;
 
+    // Grab the dialogueManager script object
+    // the script is DialogueManager_TS on the Town_Square scene
+    // and is on DialogueManager object
+    [SerializeField] private DialogueManager_TS dialogueManager;
+
     // GameManager
     public GameManager gameManager => GameManager.Instance;
 
@@ -139,7 +144,17 @@ public class Interactor_Display : MonoBehaviour
             // Debug.Log("Exit Laboratory");
             gameManager.ChangePlayerSpawnPosition(new Vector2(13.97f, -4.36f));
             SceneManager.LoadScene("Town_Square");
-        } else {
+        } else if (interactable == "drunkard")
+        {
+            // Debug.Log("Drunkard Interact");
+            dialogueManager.TalkToDrunkGuy();
+        }
+        else if (interactable == "shopowner")
+        {
+            // Debug.Log("Shop Owner Interact");
+            dialogueManager.TalkToShopOwner();
+        }
+         else {
             // Debug.Log("No Interactable");
         }
     }
@@ -147,7 +162,14 @@ public class Interactor_Display : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        // Find dialogueManager_TS if current scene is Town_Square
+        if (SceneManager.GetActiveScene().name == "Town_Square")
+        {
+            if (dialogueManager == null)
+            {
+                dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager_TS>();
+            }
+        }
     }
 
     // Update is called once per frame
