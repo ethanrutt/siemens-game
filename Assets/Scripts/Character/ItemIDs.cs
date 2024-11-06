@@ -48,6 +48,38 @@ public class ItemIDs : MonoBehaviour
         }
     }
 
+    // Achievements
+    public struct Achievement
+    {
+        public string title; // The title of the achievement
+        public string description; // The description of the achievement
+        public int lore_linker; // The lore object that is linked to the achievement (0 -> 15)
+    }
+
+    // Public Dictionary int -> Achievement (for all achievements)
+    public Dictionary<int, Achievement> achievement_database = new Dictionary<int, Achievement>()
+    {
+        {0, new Achievement{title = "Tutorial", description = "Complete the tutorial.", lore_linker = 0},
+        {1, new Achievement{title = "Wire Wiggler", description = "Beat all levels of the wire game.", lore_linker = 2},
+        {2, new Achievement{title = "Wire Wizard", description = "Beat all levels of the wire game five times.", lore_linker = 5},
+        {3, new Achievement{title = "Wire Warrior", description = "Beat all levels of the wire game ten times.", lore_linker = 3},
+        {4, new Achievement{title = "Piping Pupil", description = "Beat all levels of the pipe game once.", lore_linker = 6},
+        {5, new Achievement{title = "Piping Prodigy", description = "Beat all levels of the pipe game five times.", lore_linker = 7},
+        {6, new Achievement{title = "Piping Pro", description = "Beat all levels of the pipe game ten times.", lore_linker = 8},
+        {7, new Achievement{title = "Fluxed Up", description = "Take the neuroflux meter to 100.", lore_linker = 15},
+        {8, new Achievement{title = "Shopaholic", description = "Buy five items from the shop.", lore_linker = 12},
+        {9, new Achievement{title = "Retail Therapy", description = "Buy ten items from the shop.", lore_linker = 13},
+        {10, new Achievement{title = "Richie Rich", description = "Have 1000 coins in your inventory.", lore_linker = 11}
+        {11, new Achievement{title = "Lucky Strike", description = "Win 100 coins from the casino.", lore_linker = 1},
+        {12, new Achievement{title = "Where's my Money?", description = "Lose 100 coins from the casino.", lore_linker = 16},
+        {13, new Achievement{title = "Casino King", description = "Win 500 coins from the casino.", lore_linker = 9},
+        {14, new Achievement{title = "Casino God", description = "Win 1000 coins from the casino.", lore_linker = 10},
+        {15, new Achievement{title = "Factory Fury", description = "Win a match of the card game.", lore_linker = 4},
+        {16, new Achievement{title = "Card Shark", description = "Win five matches of the card game.", lore_linker = 14},
+        {17, new Achievement{title = "Card Collector", description = "Collect all cards from the deckmaster.", lore_linker = 18},
+        {18, new Achievement{title = "Weirdo", description = "Find the drunkard and speak with him.", lore_linker = 17}
+    };
+
     // Public Dictionary int -> LoreObject (for all lore objects)
     public Dictionary<int, LoreObject> lore_database = new Dictionary<int, LoreObject>()
     {
@@ -62,11 +94,14 @@ public class ItemIDs : MonoBehaviour
         {8, new LoreObject("Naveed", "Re: Robot Girlfriend?", "Naveed,\n\nI'm not sure about the robot girlfriend idea. I think we should focus on the project. We're making good progress, and I think we can make a difference in the world.\n\nBest,\nEthan", "Sep. 1, 2051", new string[]{"Naveed"})},
         {9, new LoreObject("Ethan", "Project Update", "Hey, team.\n\nI'm at the lab with Rohan right now.\n\nWe just successfully transferred consciousness into a robot. The issue is, the consciousness isn't able to do anything yet. But at least it's there. This is a huge milestone, and I think we can do this thing.\n\nDrinks on me at the casino,\nEthan", "Dec. 24, 2051", new string[]{"Rishi", "Rohan", "Naveed"})},
         {10, new LoreObject("Ethan", "Issue: Is this normal?", "Hey, Rishi.\n\nWas working late at the lab last night. I swear I shut all the robots off, and while on my way out, I saw Mrs. Haq behind one of the desks. I swear I turned her off, and didn't move her at all. She started writing random things on the paper. We'll talk about the contents later.\n\nBest,\nEthan", "Feb. 14, 2052", new string[]{"Rishi"})},
-        {11, new LoreObject("Rishi", "Re: Issue: Is this normal?", "Hey, Ethan\n\nI'm not sure what's going on. It might an issue with the MOSFET diode that deals with the battery. I'll take a look at it tomorrow.\n\nBest,\nRishi", "Feb. 15, 2052", new string[]{"Ethan"})},
+        {11, new LoreObject("Dr. Santhanam", "Re: Issue: Is this normal?", "Hey, Ethan\n\nI'm not sure what's going on. It might an issue with the MOSFET diode that deals with the battery. I'll take a look at it tomorrow.\n\nBest,\nRishi", "Feb. 15, 2052", new string[]{"Ethan"})},
         {12, new LoreObject("Ethan", "Where's Rishi?", "Hey, team.\n\nRishi hasn't been in the lab for a few days. He isn't returning any of my e-mails, and I can't seem to get a hold of him. Did you guys see what he sent earlier? I'm worried.\n\nLet me know,\nEthan", "Dec. 23, 2054", new string[]{"Rohan", "Naveed"})},
         {13, new LoreObject("Naveed", "Re: Where's Rishi", "Well, that's good news. At least I can make infinite wives now.\n\nBut seriously, what's going on? I haven't seen him either. I'll check the casino.\n\nRegards,\nNaveed", "Dec. 23, 2054", new string[]{"Ethan", "Rohan"})},
         {14, new LoreObject("Rohan", "Re: Where's Rishi", "Hey team,\n\nRishi and I got on a call that day. I'm not sure how else to say this... I think Midra got a hold of him. The call ended abruptly, and I heard a few screams. I'm scared. If he's gone, what's going to happen to the rest of us?\n\nCall me ASAP,\nRohan", "Dec. 23, 2054", new string[]{"Ethan", "Naveed"})},
-        {15, new LoreObject("Rishi", "To my love", "Keiko, \n\nI'm sorry. I'm sorry for everything. I'm sorry it had to come to this.\n\nTo be honest, Keiko, I've been feeling like I've been losing myself. My mind is in a bunch of pieces. Take the kids back to Japan. But no matter what happens, I love you. And I'll always love you. I'm so glad I met you that one fateful day. Even if this is the end, just know, I'll always be by your side.", "Dec. 17, 2054", new string[]{"Keiko"})},
+        {15, new LoreObject("Naveed", "Football game?", "Texans just won the championship. Anyone down to go to the casino later tonight and buy some drinks? First round's on me.\n\nBest,\nNaveed", "Feb. 5, 2051", new string[]{"Rishi", "Ethan", "Rohan"})},
+        {16, new LoreObject("Rohan", "Re: Football game?", "Hey Naveed,\n\nI'm interested, but I have some work at the lab. Rishi told me he's hitting some sort of 'big break' and he needs my assistance.\n\nMy apologies,\nRohan", "Feb. 5, 2051", new string[]{"Naveed"})},
+        {17, new LoreObject("Dr. Santhanam", "Project Success", "Hello Midra,\n\nI'm pleased to announce that Project Elysium is a success. We have a demo ready for you to present, and Rohan my assistant will be present at the demo. We're preparing to transfer the first five employees by this Friday.\n\nThanks for being there,\nRishi", "Apr. 29, 2052", new string[]{"Midra"})},
+        {18, new LoreObject("Rishi", "To my love", "Keiko, \n\nI'm sorry. I'm sorry for everything. I'm sorry it had to come to this.\n\nTo be honest, Keiko, I've been feeling like I've been losing myself. My mind is in a bunch of pieces. Take the kids back to Japan. But no matter what happens, I love you. And I'll always love you. I'm so glad I met you that one fateful day. Even if this is the end, just know, I'll always be by your side.", "Dec. 17, 2054", new string[]{"Keiko"})},
     };
 
     // Create the item database
