@@ -15,6 +15,34 @@ env:
 
 jobs:
   test:
+    name: Run Equip
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/Equip/package-lock.json"
+
+      - name: Install Shared Deps
+        working-directory: backend/LambdaFunctionAPIs/shared
+        run: npm install
+
+      - name: Install Test Deps
+        working-directory: backend/LambdaFunctionAPIs/Equip
+        run: npm install
+
+      - name: Run Jest Tests
+        working-directory: backend/LambdaFunctionAPIs/Equip
+        run: npm test
+
+  test:
     name: Run GetAllItems
     permissions: write-all
     runs-on: ubuntu-latest
@@ -40,5 +68,173 @@ jobs:
 
       - name: Run Jest Tests
         working-directory: backend/LambdaFunctionAPIs/GetAllItems
+        run: npm test
+
+  test:
+    name: Run GetUserItems
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/GetUserItems/package-lock.json"
+
+      - name: Install Shared Deps
+        working-directory: backend/LambdaFunctionAPIs/shared
+        run: npm install
+
+      - name: Install Test Deps
+        working-directory: backend/LambdaFunctionAPIs/GetUserItems
+        run: npm install
+
+      - name: Run Jest Tests
+        working-directory: backend/LambdaFunctionAPIs/GetUserItems
+        run: npm test
+
+  test:
+    name: Run HighScore
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/HighScore/package-lock.json"
+
+      - name: Install Shared Deps
+        working-directory: backend/LambdaFunctionAPIs/shared
+        run: npm install
+
+      - name: Install Test Deps
+        working-directory: backend/LambdaFunctionAPIs/HighScore
+        run: npm install
+
+      - name: Run Jest Tests
+        working-directory: backend/LambdaFunctionAPIs/HighScore
+        run: npm test
+
+  test:
+    name: Run Leaderboard
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/Leaderboard/package-lock.json"
+
+      - name: Install Shared Deps
+        working-directory: backend/LambdaFunctionAPIs/shared
+        run: npm install
+
+      - name: Install Test Deps
+        working-directory: backend/LambdaFunctionAPIs/Leaderboard
+        run: npm install
+
+      - name: Run Jest Tests
+        working-directory: backend/LambdaFunctionAPIs/Leaderboard
+        run: npm test
+
+  test:
+    name: Run Login
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/Login/package-lock.json"
+
+      - name: Install Shared Deps
+        working-directory: backend/LambdaFunctionAPIs/shared
+        run: npm install
+
+      - name: Install Test Deps
+        working-directory: backend/LambdaFunctionAPIs/Login
+        run: npm install
+
+      - name: Run Jest Tests
+        working-directory: backend/LambdaFunctionAPIs/Login
+        run: npm test
+
+  test:
+    name: Run Purchase
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/Purchase/package-lock.json"
+
+      - name: Install Shared Deps
+        working-directory: backend/LambdaFunctionAPIs/shared
+        run: npm install
+
+      - name: Install Test Deps
+        working-directory: backend/LambdaFunctionAPIs/Purchase
+        run: npm install
+
+      - name: Run Jest Tests
+        working-directory: backend/LambdaFunctionAPIs/Purchase
+        run: npm test
+
+  test:
+    name: Run ScoreUpload
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/ScoreUpload/package-lock.json"
+
+      - name: Install Shared Deps
+        working-directory: backend/LambdaFunctionAPIs/shared
+        run: npm install
+
+      - name: Install Test Deps
+        working-directory: backend/LambdaFunctionAPIs/ScoreUpload
+        run: npm install
+
+      - name: Run Jest Tests
+        working-directory: backend/LambdaFunctionAPIs/ScoreUpload
         run: npm test
 
