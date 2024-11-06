@@ -59,25 +59,25 @@ public class ItemIDs : MonoBehaviour
     // Public Dictionary int -> Achievement (for all achievements)
     public Dictionary<int, Achievement> achievement_database = new Dictionary<int, Achievement>()
     {
-        {0, new Achievement{title = "Tutorial", description = "Complete the tutorial.", lore_linker = 0},
-        {1, new Achievement{title = "Wire Wiggler", description = "Beat all levels of the wire game.", lore_linker = 2},
-        {2, new Achievement{title = "Wire Wizard", description = "Beat all levels of the wire game five times.", lore_linker = 5},
-        {3, new Achievement{title = "Wire Warrior", description = "Beat all levels of the wire game ten times.", lore_linker = 3},
-        {4, new Achievement{title = "Piping Pupil", description = "Beat all levels of the pipe game once.", lore_linker = 6},
-        {5, new Achievement{title = "Piping Prodigy", description = "Beat all levels of the pipe game five times.", lore_linker = 7},
-        {6, new Achievement{title = "Piping Pro", description = "Beat all levels of the pipe game ten times.", lore_linker = 8},
-        {7, new Achievement{title = "Fluxed Up", description = "Take the neuroflux meter to 100.", lore_linker = 15},
-        {8, new Achievement{title = "Shopaholic", description = "Buy five items from the shop.", lore_linker = 12},
-        {9, new Achievement{title = "Retail Therapy", description = "Buy ten items from the shop.", lore_linker = 13},
-        {10, new Achievement{title = "Richie Rich", description = "Have 1000 coins in your inventory.", lore_linker = 11}
-        {11, new Achievement{title = "Lucky Strike", description = "Win 100 coins from the casino.", lore_linker = 1},
-        {12, new Achievement{title = "Where's my Money?", description = "Lose 100 coins from the casino.", lore_linker = 16},
-        {13, new Achievement{title = "Casino King", description = "Win 500 coins from the casino.", lore_linker = 9},
-        {14, new Achievement{title = "Casino God", description = "Win 1000 coins from the casino.", lore_linker = 10},
-        {15, new Achievement{title = "Factory Fury", description = "Win a match of the card game.", lore_linker = 4},
-        {16, new Achievement{title = "Card Shark", description = "Win five matches of the card game.", lore_linker = 14},
-        {17, new Achievement{title = "Card Collector", description = "Collect all cards from the deckmaster.", lore_linker = 18},
-        {18, new Achievement{title = "Weirdo", description = "Find the drunkard and speak with him.", lore_linker = 17}
+        {0, new Achievement{title = "Tutorial", description = "Complete the tutorial.", lore_linker = 0}},
+        {1, new Achievement{title = "Wire Wiggler", description = "Beat all levels of the wire game.", lore_linker = 2}},
+        {2, new Achievement{title = "Wire Wizard", description = "Beat all levels of the wire game five times.", lore_linker = 5}},
+        {3, new Achievement{title = "Wire Warrior", description = "Beat all levels of the wire game ten times.", lore_linker = 3}},
+        {4, new Achievement{title = "Piping Pupil", description = "Beat all levels of the pipe game once.", lore_linker = 6}},
+        {5, new Achievement{title = "Piping Prodigy", description = "Beat all levels of the pipe game five times.", lore_linker = 7}},
+        {6, new Achievement{title = "Piping Pro", description = "Beat all levels of the pipe game ten times.", lore_linker = 8}},
+        {7, new Achievement{title = "Fluxed Up", description = "Take the neuroflux meter to 100.", lore_linker = 15}},
+        {8, new Achievement{title = "Shopaholic", description = "Buy five items from the shop.", lore_linker = 12}},
+        {9, new Achievement{title = "Retail Therapy", description = "Buy ten items from the shop.", lore_linker = 13}},
+        {10, new Achievement{title = "Richie Rich", description = "Have 1000 coins in your inventory.", lore_linker = 11}},
+        {11, new Achievement{title = "Lucky Strike", description = "Win 100 coins from the casino.", lore_linker = 1}},
+        {12, new Achievement{title = "Where's my Money?", description = "Lose 100 coins from the casino.", lore_linker = 16}},
+        {13, new Achievement{title = "Casino King", description = "Win 500 coins from the casino.", lore_linker = 9}},
+        {14, new Achievement{title = "Casino God", description = "Win 1000 coins from the casino.", lore_linker = 10}},
+        {15, new Achievement{title = "Factory Fury", description = "Win a match of the card game.", lore_linker = 4}},
+        {16, new Achievement{title = "Card Shark", description = "Win five matches of the card game.", lore_linker = 14}},
+        {17, new Achievement{title = "Card Collector", description = "Collect all cards from the deckmaster.", lore_linker = 18}},
+        {18, new Achievement{title = "Weirdo", description = "Find the drunkard and speak with him.", lore_linker = 17}}
     };
 
     // Public Dictionary int -> LoreObject (for all lore objects)
