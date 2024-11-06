@@ -12,23 +12,26 @@ on:
 jobs:
   test:
     name: Setup AWS Credentials
-      steps:
-        - name: Configure AWS Credentials
-          uses: aws-actions/configure-aws-credentials@v1
-          with:
-            aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-            aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    permissions: write-all
+    runs-on: ubuntu-latest
 
-        - name: Read secrets from AWS Secrets Manager into environment variables
-          uses: abhilash1in/aws-secrets-manager-action@v2.1.0
-          with:
-            secrets: |
-              AWS_ACCESS_KEY_ID
-              AWS_SECRET_ACCESS_KEY
-            parse-json: true
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-        - name: Check if env variable is set after fetching secrets
-          run: if [ -z ${AWS_ACCESS_KEY_ID+x} ]; then echo "AWS_ACCESS_KEY_ID is unset"; else echo "AWS_ACCESS_KEY_ID is set"; fi
+      - name: Read secrets from AWS Secrets Manager into environment variables
+        uses: abhilash1in/aws-secrets-manager-action@v2.1.0
+        with:
+          secrets: |
+            AWS_ACCESS_KEY_ID
+            AWS_SECRET_ACCESS_KEY
+          parse-json: true
+
+      - name: Check if env variable is set after fetching secrets
+        run: if [ -z ${AWS_ACCESS_KEY_ID+x} ]; then echo "AWS_ACCESS_KEY_ID is unset"; else echo "AWS_ACCESS_KEY_ID is set"; fi
 
   test:
     name: Run GetAllItems
