@@ -335,8 +335,10 @@ public class DialogueManager_TS : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("sensei interactions: " + playerData.npc_interactions["sensei"]);
-        // Assign disaloguePanel
+        // Debug to test how sensei interactions are stored
+        // Debug.Log("sensei interactions: " + playerData.npc_interactions["sensei"]);
+
+        // Assign the dialoguePanel
         if (dialoguePanel == null)
         {
             dialoguePanel = GameObject.Find("Dialogue-Panel");
@@ -463,6 +465,15 @@ public class DialogueManager_TS : MonoBehaviour
 
     void Update()
     {
+
+        // If player is talking to sensei, no matter if they click or tap, Do NOT close the dialogue
+        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "sensei")
+        {
+            // Do nothing
+            return;
+        }
+
+
         // If player is talking to drunkard, one-liner dialogue
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "drunkard")
         {
@@ -480,5 +491,7 @@ public class DialogueManager_TS : MonoBehaviour
 
             dialoguePanel.SetActive(false);
         }
+
+        
     }
 }
