@@ -25,6 +25,9 @@ public class PlayerData : MonoBehaviour
     public int casino_winnings = 0; // Total winnings from the casino (coins)
     public int casino_losses = 0; // Total losses from the casino　（coins)
     public int pipe_puzzle_wins = 0; // Wins from the pipe puzzle
+    
+    // Storing neuroflux meter
+    public int neuroflux_meter = 0; // Can go max 100
 
     // Where the UI for coins is stored
     // Look for Currency Image, which has a Text (TMP) that is a child object
