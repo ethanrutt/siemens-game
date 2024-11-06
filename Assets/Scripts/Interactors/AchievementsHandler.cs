@@ -1,3 +1,71 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class AchievementsHandler : MonoBehaviour
+{
+    // Grab playerData
+    private PlayerData playerData => PlayerData.Instance;
+
+    // Grab itemIDS
+    [SerializeField] private ItemIDs itemIDS;
+
+    // Grab the achievements panel
+    [SerializeField] private GameObject achievementsPanel;
+
+    // Grab the playerMovement
+    [SerializeField] private Character_Movement playerMovement;
+
+    // Grab the blackoutModal
+    [SerializeField] private GameObject blackoutModal;
+    
+    // Grab the UI Object (because we're going to) deactivate it
+    [SerializeField] private GameObject uiObject;
+
+    // Grab the left and right UI buttons
+    [SerializeField] private UnityEngine.UI.Button leftButton;
+    [SerializeField] private UnityEngine.UI.Button rightButton; // These will be greyed out depending on the pages
+
+    // Have a page counter
+    private int pageCounter = 0;
+
+    // Grab the lore object panel
+    [SerializeField] private GameObject loreObjectPanel;
+
+    // Hold pages in a list of lists (int) for achievement IDS
+    private List<List<int>> achievementPages = new List<List<int>>(); // There are only 3 achievements per page
+
+    // OpenPanel
+    public void OpenAchievementsPanel()
+    {
+        achievementsPanel.SetActive(true);
+        playerMovement.StopPlayer();
+        blackoutModal.SetActive(true);
+        uiObject.SetActive(false);
+    }
+
+    public void CloseAchievementsPanel()
+    {
+        achievementsPanel.SetActive(false);
+        playerMovement.UnstopPlayer();
+        blackoutModal.SetActive(false);
+        uiObject.SetActive(true);
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        // Grab all the achievements the player has
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+}
+
+/*
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -496,3 +564,5 @@ public class ItemIDs : MonoBehaviour
         // Debug.Log("Selected Type: " + selectedType);
     }
 }
+
+*/
