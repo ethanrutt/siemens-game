@@ -52,7 +52,12 @@ jobs:
           cache: npm
           cache-dependency-path: "backend/LambdaFunctionAPIs/GetAllItems/package-lock.json"
 
-      - name: Install Deps
+      - name: Install Shared Deps
+        run: |
+          cd backend/LambdaFunctionAPIs/shared
+          npm install
+
+      - name: Install Test Deps
         run: |
           cd backend/LambdaFunctionAPIs/GetAllItems
           npm install
