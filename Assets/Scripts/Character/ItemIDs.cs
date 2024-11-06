@@ -26,6 +26,7 @@ public class ItemIDs : MonoBehaviour
         public string name; // The name of the item
         public string type; // "hat", "chest", "leggings", "shoes", "dance", "unlockable"
         public int id; // The main kxwey
+        public int cost; // The cost of the item
     }
 
     // Create the item database
@@ -33,87 +34,45 @@ public class ItemIDs : MonoBehaviour
     public Dictionary<int, Item> item_database = new Dictionary<int, Item>()
     {
         // Hats
-        {100, new Item{name = "Orange Hard Hat", type = "hat", id = 100}},
-        {101, new Item{name = "White Hard Hat", type = "hat", id = 101}},
-        {102, new Item{name = "Yellow Hard Hat", type = "hat", id = 102}},
-        {103, new Item{name = "Orange Party Hat", type = "hat", id = 103}},
-        {104, new Item{name = "Purple Party Hat", type = "hat", id = 104}},
-        {105, new Item{name = "Blue Party Hat", type = "hat", id = 105}},
-        {106, new Item{name = "Cone", type = "hat", id = 106}},
-        {107, new Item{name = "Medieval Helmet", type = "hat", id = 107}},
-        {108, new Item{name = "A&M Football Helmet", type = "hat", id = 108}},
+        {100, new Item{name = "Orange Hard Hat", type = "hat", id = 100, cost = 125}},
+        {101, new Item{name = "White Hard Hat", type = "hat", id = 101, cost = 125}},
+        {102, new Item{name = "Yellow Hard Hat", type = "hat", id = 102, cost = 125}},
+        {103, new Item{name = "Orange Party Hat", type = "hat", id = 103, cost = 250}},
+        {104, new Item{name = "Purple Party Hat", type = "hat", id = 104, cost = 250}},
+        {105, new Item{name = "Blue Party Hat", type = "hat", id = 105, cost = 250}},
+        {106, new Item{name = "Cone", type = "hat", id = 106, cost = 500}},
+        {107, new Item{name = "Medieval Helmet", type = "hat", id = 107, cost = 1000}},
+        {108, new Item{name = "A&M Football Helmet", type = "hat", id = 108, cost = 500}},
         // Chest
-        {200, new Item{name = "White Hoodie", type = "chest", id = 200}},
-        {201, new Item{name = "Grey Hoodie", type = "chest", id = 201}},
-        {202, new Item{name = "Black Hoodie", type = "chest", id = 202}},
-        {203, new Item{name = "Blue Hoodie", type = "chest", id = 203}},
-        {204, new Item{name = "Green Hoodie", type = "chest", id = 204}},
-        {205, new Item{name = "Black Safety Vest", type = "chest", id = 205}},
-        {206, new Item{name = "Grey Safety Vest", type = "chest", id = 206}},
-        {207, new Item{name = "Orange Safety Vest", type = "chest", id = 207}},
-        {208, new Item{name = "Medieval Armor", type = "chest", id = 208}},
+        {200, new Item{name = "White Hoodie", type = "chest", id = 200, cost = 150}},
+        {201, new Item{name = "Grey Hoodie", type = "chest", id = 201, cost = 150}},
+        {202, new Item{name = "Black Hoodie", type = "chest", id = 202, cost = 150}},
+        {203, new Item{name = "Blue Hoodie", type = "chest", id = 203, cost = 150}},
+        {204, new Item{name = "Green Hoodie", type = "chest", id = 204, cost = 150}},
+        {205, new Item{name = "Black Safety Vest", type = "chest", id = 205, cost = 450}},
+        {206, new Item{name = "Grey Safety Vest", type = "chest", id = 206, cost = 450}},
+        {207, new Item{name = "Orange Safety Vest", type = "chest", id = 207, cost = 450}},
+        {208, new Item{name = "Medieval Armor", type = "chest", id = 208, cost = 1250}},
         // Leggings
-        {300, new Item{name = "Black Utility Pants", type = "leggings", id = 300}},
-        {301, new Item{name = "Blue Utility Pants", type = "leggings", id = 301}},
-        {302, new Item{name = "Grey Utility Pants", type = "leggings", id = 302}},
-        {303, new Item{name = "White Nano-Fiber Leggings", type = "leggings", id = 303}},
-        {304, new Item{name = "Grey Nano-Fiber Leggings", type = "leggings", id = 304}},
-        {305, new Item{name = "Black Nano-Fiber Leggings", type = "leggings", id = 305}},
-        {306, new Item{name = "Medieval Leggings", type = "leggings", id = 306}},
+        {300, new Item{name = "Black Utility Pants", type = "leggings", id = 300, cost = 300}},
+        {301, new Item{name = "Blue Utility Pants", type = "leggings", id = 301, cost = 300}},
+        {302, new Item{name = "Grey Utility Pants", type = "leggings", id = 302, cost = 300}},
+        {303, new Item{name = "White Nano-Fiber Leggings", type = "leggings", id = 303, cost = 500}},
+        {304, new Item{name = "Grey Nano-Fiber Leggings", type = "leggings", id = 304, cost = 500}},
+        {305, new Item{name = "Black Nano-Fiber Leggings", type = "leggings", id = 305, cost = 500}},
+        {306, new Item{name = "Medieval Leggings", type = "leggings", id = 306, cost = 1000}},
         // Footwear
-        {400, new Item{name = "Brown Utility Boots", type = "shoes", id = 400}},
-        {401, new Item{name = "Grey Utility Boots", type = "shoes", id = 401}},
-        {402, new Item{name = "Black Utility Boots", type = "shoes", id = 402}},
-        {403, new Item{name = "BW Jordan 1", type = "shoes", id = 403}},
-        {404, new Item{name = "Retro Jordan 1", type = "shoes", id = 404}},
-        {405, new Item{name = "UNC Jordan 1", type = "shoes", id = 405}},
-        {406, new Item{name = "Medieval Boots", type = "shoes", id = 406}},
+        {400, new Item{name = "Brown Utility Boots", type = "shoes", id = 400, cost = 100}},
+        {401, new Item{name = "Grey Utility Boots", type = "shoes", id = 401, cost = 100}},
+        {402, new Item{name = "Black Utility Boots", type = "shoes", id = 402, cost = 100}},
+        {403, new Item{name = "BW Jordan 1", type = "shoes", id = 403, cost = 500}},
+        {404, new Item{name = "Retro Jordan 1", type = "shoes", id = 404, cost = 500}},
+        {405, new Item{name = "UNC Jordan 1", type = "shoes", id = 405, cost = 500}},
+        {406, new Item{name = "Medieval Boots", type = "shoes", id = 406, cost = 750}},
         // Dances
-        {500, new Item{name = "Head-Ripper", type = "dance", id = 500}},
-        {501, new Item{name = "Robot Dance", type = "dance", id = 501}},
-        {502, new Item{name = "Zen Flip", type = "dance", id = 502}},
-        // Unlockables
-        {1000, new Item{name = "lore-object", type = "unlockable", id = 1000}}, // rishi to naveed
-        {1001, new Item{name = "lore-object", type = "unlockable", id = 1001}}, // rishi to ethan, rohan
-        {1002, new Item{name = "lore-object", type = "unlockable", id = 1002}}, // rishi ...
-        {1003, new Item{name = "lore-object", type = "unlockable", id = 1003}},
-        {1004, new Item{name = "lore-object", type = "unlockable", id = 1004}},
-        {1005, new Item{name = "lore-object", type = "unlockable", id = 1005}},
-        {1006, new Item{name = "lore-object", type = "unlockable", id = 1006}},
-        {1007, new Item{name = "lore-object", type = "unlockable", id = 1007}},
-        {1008, new Item{name = "lore-object", type = "unlockable", id = 1008}},
-        {1009, new Item{name = "lore-object", type = "unlockable", id = 1009}},
-        {1010, new Item{name = "lore-object", type = "unlockable", id = 1010}},
-        {1011, new Item{name = "lore-object", type = "unlockable", id = 1011}},
-        {1012, new Item{name = "lore-object", type = "unlockable", id = 1012}},
-        {1013, new Item{name = "lore-object", type = "unlockable", id = 1013}},
-        {1014, new Item{name = "lore-object", type = "unlockable", id = 1014}},
-        {1015, new Item{name = "lore-object", type = "unlockable", id = 1015}},
-        {1016, new Item{name = "lore-object", type = "unlockable", id = 1016}},
-        {1017, new Item{name = "lore-object", type = "unlockable", id = 1017}},
-        {1018, new Item{name = "lore-object", type = "unlockable", id = 1018}},
-        {1019, new Item{name = "lore-object", type = "unlockable", id = 1019}},
-        {1020, new Item{name = "lore-object", type = "unlockable", id = 1020}},
-        {1021, new Item{name = "lore-object", type = "unlockable", id = 1021}},
-        {1022, new Item{name = "lore-object", type = "unlockable", id = 1022}},
-        {1023, new Item{name = "lore-object", type = "unlockable", id = 1023}},
-        {1024, new Item{name = "lore-object", type = "unlockable", id = 1024}},
-        {1025, new Item{name = "lore-object", type = "unlockable", id = 1025}},
-        {1026, new Item{name = "lore-object", type = "unlockable", id = 1026}},
-        {1027, new Item{name = "lore-object", type = "unlockable", id = 1027}},
-        {1028, new Item{name = "lore-object", type = "unlockable", id = 1028}},
-        {1029, new Item{name = "lore-object", type = "unlockable", id = 1029}},
-        {1030, new Item{name = "lore-object", type = "unlockable", id = 1030}},
-        {1031, new Item{name = "lore-object", type = "unlockable", id = 1031}},
-        {1032, new Item{name = "lore-object", type = "unlockable", id = 1032}},
-        {1033, new Item{name = "lore-object", type = "unlockable", id = 1033}},
-        {1034, new Item{name = "lore-object", type = "unlockable", id = 1034}},
-        {1035, new Item{name = "lore-object", type = "unlockable", id = 1035}},
-        {1036, new Item{name = "lore-object", type = "unlockable", id = 1036}},
-        {1037, new Item{name = "lore-object", type = "unlockable", id = 1037}},
-        {1038, new Item{name = "lore-object", type = "unlockable", id = 1038}},
-        {1039, new Item{name = "lore-object", type = "unlockable", id = 1039}},
-        {1040, new Item{name = "lore-object", type = "unlockable", id = 1040}}
+        {500, new Item{name = "Head-Ripper", type = "dance", id = 500, cost = 500}},
+        {501, new Item{name = "Robot Dance", type = "dance", id = 501, cost = 500}},
+        {502, new Item{name = "Zen Flip", type = "dance", id = 502, cost = 1200}},
     };
 
     // Type of item that is selected in inventory (either "all", "hat" ...)
@@ -167,7 +126,7 @@ public class ItemIDs : MonoBehaviour
     private PlayerData playerData => PlayerData.Instance;
 
     // Function to get the sprite of an item
-    private Sprite GetItemSprite(int itemID)
+    public Sprite GetItemSprite(int itemID)
     {
         // Loop through all the item sprites
         for (int i = 0; i < itemSprites.Length; i++)
@@ -384,7 +343,7 @@ public class ItemIDs : MonoBehaviour
     
             for (int i = 0; i < ownedItems.Count; i++)
             {
-                if (ownedItems[i] >= 1000)
+                if (ownedItems[i] >= 500)
                 {
                     displayItems.Add(ownedItems[i]);
                 }
@@ -418,17 +377,41 @@ public class ItemIDs : MonoBehaviour
         // DEBUG: Equip a dance
         // playerData.equipped_items.Add(500);
 
+        if (!isSorted(playerData.unlocked_items))
+        {
+            playerData.unlocked_items.Sort();
+        }
+
         // Fill in the inventoryButtons images with the
         // correct sprites
         FillInventoryButtons();
 
     }
 
+    // Check sorted list
+    private bool isSorted(List<int> list)
+    {
+        for (int i = 1; i < list.Count; i++)
+        {
+            if (list[i] < list[i - 1])
+            {
+                return false;
+            }
+        }
+        return true;
+    }
+
     // Update is called once per frame
     void Update()
     {
+        // Make unlocked Items organized if not sorted
+        if (!isSorted(playerData.unlocked_items))
+        {
+            playerData.unlocked_items.Sort();
+        }
+
         // DEBUG LOG for selectedType
-        Debug.Log("Selected Type: " + selectedType);
+        // Debug.Log("Selected Type: " + selectedType);
         if (selectedType != newselectedType)
         {
             FillInventoryButtons();

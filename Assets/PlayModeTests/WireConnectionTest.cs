@@ -44,18 +44,29 @@ public class WireConnectionTest : MonoBehaviour
 
         Assert.IsNotNull(wire, "wire was not able to be instantiated");
         Assert.IsNotNull(plug, "plug was not able to be instantiated");
+        yield return null;
     }
 
     [UnityTest]
     public IEnumerator WireConnection()
     {
-        SimulateClick(wire);
+        if (wire != null && plug != null)
+        {
+            SimulateClick(wire);
 
-        yield return SimulateDragToPosition(wire, plug.transform.position);
+            yield return SimulateDragToPosition(wire, plug.transform.position);
 
-        bool connected = plug.GetComponent<PlugStats>().connected;
+            var plugStats = plug.GetComponent<PlugStats>();
+            Assert.IsNotNull(plugStats, "PlugStats component is missing on plug");
 
-        Assert.IsTrue(connected, "wire entry and wire plug are not successfully connected");
+            bool connected = plugStats.connected;
+
+            Assert.IsTrue(connected, "wire entry and wire plug are not successfully connected");
+        }
+        else
+        {
+            Assert.Fail("wire or plug is null");
+        }
     }
 
     [UnityTest]

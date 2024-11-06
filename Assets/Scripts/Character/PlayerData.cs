@@ -15,6 +15,21 @@ public class PlayerData : MonoBehaviour
     // Storing public information like the current interactable
     public string interactable = "";
 
+    // Now storing information used for achievements
+    // Hint (to Ethan & Rohan & possibly Naveed) -> you will need to call the PlayerData instance
+    // and affect these variables upon any sort of win
+    public int wire_puzzle_wins = 0;
+    public int wire_puzzle_fullround = 0; // Make it to the last round
+    public int card_game_wins = 0; // Wins from the card game
+    public int card_game_fullround = 0; // Make it to the last round
+    public int casino_winnings = 0; // Total winnings from the casino (coins)
+    public int casino_losses = 0; // Total losses from the casino　（coins)
+    public int pipe_puzzle_wins = 0; // Wins from the pipe puzzle
+
+    // Where the UI for coins is stored
+    // Look for Currency Image, which has a Text (TMP) that is a child object
+    private TMPro.TMP_Text currencyText;
+
     // Item Ids
     [SerializeField] private ItemIDs item_ids = new ItemIDs();
     // Grab the item_database
@@ -36,7 +51,8 @@ public class PlayerData : MonoBehaviour
         {"deckmaster", 0},
         {"casino_owner", 0},
         {"shopkeeper", 0},
-        {"drunk_robot", 0}
+        {"drunk_robot", 0},
+        {"sensei", 0}
     };
 
     // Storing the current items the player has unlocked (list of item id's)
@@ -92,7 +108,11 @@ public class PlayerData : MonoBehaviour
         if (danceEmoteButton == null)
         {
             // The name must be "UI_Button_Dance"
-            danceEmoteButton = GameObject.Find("UI_Button_Dance").GetComponent<UnityEngine.UI.Button>();
+            // If can find it (it's not on all scenes)
+            if (GameObject.Find("UI_Button_Dance") != null)
+            {
+                danceEmoteButton = GameObject.Find("UI_Button_Dance").GetComponent<UnityEngine.UI.Button>();
+            }
         }
         // For just showing how everything works, add all items to unlocked_items
         // if someone pressed Y key
@@ -119,6 +139,22 @@ public class PlayerData : MonoBehaviour
         } else if (danceEmoteButton != null && !equipped_items.Exists(x => x >= 500 && x < 600))
         {
             danceEmoteButton.interactable = false;
+        }
+
+        // Set the coins
+        if (currencyText == null)
+        {
+            // currencyText = GameObject.Find("Currency-Text").GetComponent<TMPro.TMP_Text>();
+            // If can find it (it's not on all scenes)
+            if (GameObject.Find("Currency-Text") != null)
+            {
+                currencyText = GameObject.Find("Currency-Text").GetComponent<TMPro.TMP_Text>();
+            }
+        }
+
+        if (currencyText != null)
+        {
+            currencyText.text = coins.ToString();
         }
     }
 }

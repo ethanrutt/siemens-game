@@ -4,10 +4,12 @@ on:
   push:
     branches:
       - dev-all-ethan
-      - dev-all
+      - dev-all-rishi
+      - dev-all-rohan
   pull_request:
     branches:
       - dev-all
+      - master-all
 
 jobs:
   test:
@@ -16,7 +18,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: checkout repo
+    - name: Checkout
       uses: actions/checkout@v4
 
     - name: Run Tests

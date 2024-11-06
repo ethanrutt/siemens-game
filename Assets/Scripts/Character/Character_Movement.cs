@@ -255,7 +255,6 @@ public class Character_Movement : MonoBehaviour
 		if (!AreListsEqual(original_load_items, equipped_items))
 		{
 			// Occurs
-			Debug.Log("OCCURANCE");
 			// Organize equippedItems by lowest to highest id
 			equipped_items.Sort();
 

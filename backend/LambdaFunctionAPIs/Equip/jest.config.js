@@ -6,9 +6,3 @@ export default {
     },
   };
 
-module.exports = {
-  collectCoverage: true,
-  collectCoverageFrom: ["**/*.mjs"],  // Adjust the pattern if needed
-  coverageDirectory: "<rootDir>/coverage",
-  testEnvironment: "node"
-};
