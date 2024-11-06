@@ -71559,6 +71559,10 @@ MonoBehaviour:
   leftButton: {fileID: 106179730}
   rightButton: {fileID: 920532313}
   loreObjectPanel: {fileID: 620540394}
+  loreTitle: {fileID: 341346756}
+  loreSender: {fileID: 1853274148}
+  loreRecipients: {fileID: 1427371581}
+  loreBody: {fileID: 1380778408}
 --- !u!4 &708819426
 Transform:
   m_ObjectHideFlags: 0
@@ -81422,6 +81426,7 @@ MonoBehaviour:
   unlocked_items: 
   equipped_items: 
   original_load_items: 
+  unlocked_achievements: 
 --- !u!4 &1011950753
 Transform:
   m_ObjectHideFlags: 0

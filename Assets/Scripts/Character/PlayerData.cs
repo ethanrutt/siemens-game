@@ -70,6 +70,9 @@ public class PlayerData : MonoBehaviour
     // items to the original state.
     [SerializeField] public List<int> original_load_items = new List<int>();
 
+    // A list of unlocked achievements
+    [SerializeField] public List<int> unlocked_achievements = new List<int>(); // by the ids, 0 , 1, 2, etc...
+
     // Awake is called when the script instance is being loaded
     private void Awake()
     {
@@ -95,6 +98,14 @@ public class PlayerData : MonoBehaviour
         if (danceEmoteButton != null && !equipped_items.Exists(x => x >= 500 && x < 600))
         {
             danceEmoteButton.interactable = false;
+        }
+
+        // DEBUG:
+        // Give the player all unlocked achievements from 0->11
+        // for testing purposes
+        for (int i = 0; i < 12; i++)
+        {
+            unlocked_achievements.Add(i);
         }
     }
 

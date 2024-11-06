@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+// TMP
+using TMPro;
 
 public class AchievementsHandler : MonoBehaviour
 {
     // Grab playerData
     private PlayerData playerData => PlayerData.Instance;
+    //[SerializeField] public List<string> unlocked_achievements = new List<int>(); // by the ids, 0 , 1, 2, etc... is on PlayerData
 
     // Grab itemIDS
     [SerializeField] private ItemIDs itemIDS;
@@ -29,8 +32,19 @@ public class AchievementsHandler : MonoBehaviour
     // Have a page counter
     private int pageCounter = 0;
 
-    // Grab the lore object panel
+    // Grab the lore object panel, the lore title, sender, recipients, and body
+    // We will display everything from this script.
     [SerializeField] private GameObject loreObjectPanel;
+    [SerializeField] private TMPro.TMP_Text loreTitle;
+    [SerializeField] private TMPro.TMP_Text loreSender;
+    [SerializeField] private TMPro.TMP_Text loreRecipients;
+    [SerializeField] private TMPro.TMP_Text loreBody;
+
+    // Close lore panel
+    public void CloseLorePanel()
+    {
+        loreObjectPanel.SetActive(false);
+    }
 
     // Hold pages in a list of lists (int) for achievement IDS
     private List<List<int>> achievementPages = new List<List<int>>(); // There are only 3 achievements per page
