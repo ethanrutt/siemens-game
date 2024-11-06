@@ -87,7 +87,15 @@ public class DialogueManagerTutorial : MonoBehaviour
 
             // Typing the sentence
             isTyping = true;
-            StartCoroutine(TypeSentence(dialogues[dialogueIndex]));
+            // if index is not out of the bounds
+            if (dialogueIndex < dialogues.Length)
+            {
+                StartCoroutine(TypeSentence(dialogues[dialogueIndex]));
+            }
+            else
+            {
+                EndDialogue();
+            }
 
             // Set the character image
             characterImage.sprite = characterImages[characterImageAssociations[dialogueIndex]];

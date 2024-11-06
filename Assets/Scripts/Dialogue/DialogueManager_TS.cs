@@ -30,6 +30,11 @@ public class DialogueManager_TS : MonoBehaviour
     // TTC text
     public TMPro.TextMeshProUGUI TTC_Text;
 
+    // import Camera_Movement script
+    [SerializeField] private CameraFollow cameraFollow;
+    // import PlayerMovement script
+    [SerializeField] private Character_Movement playerMovement;
+
     // Load in the dialoguePanel
     // Look for UI-Panel Dialogue-Panel and assign it
     public GameObject dialoguePanel;
@@ -330,6 +335,7 @@ public class DialogueManager_TS : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("sensei interactions: " + playerData.npc_interactions["sensei"]);
         // Assign disaloguePanel
         if (dialoguePanel == null)
         {
@@ -347,8 +353,113 @@ public class DialogueManager_TS : MonoBehaviour
         {
             characterImage = GameObject.Find("Character-Image").GetComponent<UnityEngine.UI.Image>();
         }
-        
+
+        // if Sensei interactions == 1 exactly, have a beginning part where we explain everything in the town square
+        if (playerData.npc_interactions["sensei"] == 0 || playerData.npc_interactions["sensei"] == 1)
+        {
+            // Start the Sensei Tutorial
+            SenseiTutorial();
+        }
     }
+    
+    // GameObjects to pan the Camera to
+    [SerializeField] private GameObject[] cameraPanTargets; // should be three, scavenge shop, casino, laboratory
+
+    // Sensei Town Square tutorial
+    public void SenseiTutorial()
+    {
+        // Stop player
+        playerMovement.StopPlayer();
+
+        // Turn on the dialogue panel
+        dialoguePanel.SetActive(true);
+
+        // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
+        StartCoroutine(SenseiTutorialCoroutine());
+
+        // Increment the npc_interactions for the sensei
+        playerData.npc_interactions["sensei"] = 2;
+    }
+
+    private IEnumerator SenseiTutorialCoroutine()
+    {
+        // Change TTC_Text to "Do Not Tap."
+        TTC_Text.text = "Do Not Tap...";
+
+        for (int i = 0; i < senseiDialogues.Length; i++)
+        {
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
+
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
+
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = senseiSprites[senseiSpriteIndices[i]];
+
+            // Set the charName to "Sensei"
+            charName.text = "Sensei";
+
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(senseiDialogues[i]));
+
+            // Wait
+            yield return new WaitForSeconds(senseiDialogues[i].Length * typingSpeed + 2);
+
+            // If i == 0, pan to the first target
+            if (i == 1)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[0].transform);
+            }
+            // If i == 3, pan to the second target
+            else if (i == 2)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[1].transform);
+            }
+            // If i == 5, pan to the third target
+            else if (i == 3)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[2].transform);
+            }
+
+            // Increment the dialogueIndex
+            dialogueIndex++;
+            // Debug.Log("Dialogue Index: " + dialogueIndex);
+
+            if (i == 5)
+            {
+                // Change TTC_Text to "Tap to Continue..."
+                TTC_Text.text = "Tap to Continue...";
+            }
+        }
+
+        // Close the dialogue panel
+        dialoguePanel.SetActive(false);
+
+        // Let player move
+        playerMovement.UnstopPlayer();
+    }
+
+    // Sensei sprites
+    [SerializeField] private Sprite[] senseiSprites; // series no hands, serious with hands, happy with hands, quite happy with hands
+
+    // Multiple dialogues for the sensei
+    private string[] senseiDialogues = {
+        "By the way, Rishi made sure to install a copy of my consciousness into you. So, that's why you're hearing me speak.",
+        "Anyways, this is the Town Square. You can find the Scavenger Shop, the Casino, and the Laboratory from here.",
+        "First, the Scavenger Shop. You can buy items and dances from the shopkeeper. He's a bit of an interesting character. You'll need coins to buy stuff.",
+        "Next, the Casino. Like gambling? We got a place for you. Just don't get too addicted. I've seen some people lose everything.",
+        "Last but not least, the splendid Laboratory. Here, you can play all the games you want. Achievements, leaderboards, and more...",
+        "So, that's pretty much it. Enjoy your time here. I don't know if we'll ever cross paths again. But if you figure out who that Rishi guy is, let me know.",
+    };
+
+    private int[] senseiSpriteIndices = {
+        3, 1, 0, 2, 3, 2
+    };
 
     void Update()
     {

@@ -42,7 +42,7 @@ public class ItemIDs : MonoBehaviour
         {105, new Item{name = "Blue Party Hat", type = "hat", id = 105, cost = 250}},
         {106, new Item{name = "Cone", type = "hat", id = 106, cost = 500}},
         {107, new Item{name = "Medieval Helmet", type = "hat", id = 107, cost = 1000}},
-        {108, new Item{name = "A&M Football Helmet", type = "hat", id = 108, cost = 0}},
+        {108, new Item{name = "A&M Football Helmet", type = "hat", id = 108, cost = 500}},
         // Chest
         {200, new Item{name = "White Hoodie", type = "chest", id = 200, cost = 150}},
         {201, new Item{name = "Grey Hoodie", type = "chest", id = 201, cost = 150}},

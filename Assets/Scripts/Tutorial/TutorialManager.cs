@@ -224,7 +224,7 @@ public class TutorialManager : MonoBehaviour
         blackoutPanel.SetActive(true);
 
         // Also, increment sensei of npc interactions
-        playerData.npc_interactions["sensei"]++;
+        playerData.npc_interactions["sensei"] = 1;
     }
     
 }

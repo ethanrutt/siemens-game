@@ -97,7 +97,11 @@ public class PlayerData : MonoBehaviour
         if (danceEmoteButton == null)
         {
             // The name must be "UI_Button_Dance"
-            danceEmoteButton = GameObject.Find("UI_Button_Dance").GetComponent<UnityEngine.UI.Button>();
+            // If can find it (it's not on all scenes)
+            if (GameObject.Find("UI_Button_Dance") != null)
+            {
+                danceEmoteButton = GameObject.Find("UI_Button_Dance").GetComponent<UnityEngine.UI.Button>();
+            }
         }
         // For just showing how everything works, add all items to unlocked_items
         // if someone pressed Y key
@@ -129,9 +133,17 @@ public class PlayerData : MonoBehaviour
         // Set the coins
         if (currencyText == null)
         {
-            currencyText = GameObject.Find("Currency-Text").GetComponent<TMPro.TMP_Text>();
+            // currencyText = GameObject.Find("Currency-Text").GetComponent<TMPro.TMP_Text>();
+            // If can find it (it's not on all scenes)
+            if (GameObject.Find("Currency-Text") != null)
+            {
+                currencyText = GameObject.Find("Currency-Text").GetComponent<TMPro.TMP_Text>();
+            }
         }
 
-        currencyText.text = coins.ToString();
+        if (currencyText != null)
+        {
+            currencyText.text = coins.ToString();
+        }
     }
 }
