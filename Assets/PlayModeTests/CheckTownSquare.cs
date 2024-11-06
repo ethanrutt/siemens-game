@@ -37,6 +37,12 @@ public class CheckTownSquare
     [UnityTearDown]
     public IEnumerator TearDown()
     {
+        // Unload MainMenu scene
+        yield return SceneManager.UnloadSceneAsync("MainMenu");
+
+        // Wait for one frame to ensure the scene is fully unloaded
+        yield return null;
+
         // Unload the Town_Square scene
         yield return SceneManager.UnloadSceneAsync("Town_Square");
 
