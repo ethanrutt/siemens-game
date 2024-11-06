@@ -53,6 +53,9 @@ public class AchievementsHandler : MonoBehaviour
     private string loreRecipientsText;
     private string loreBodyText;
 
+    // Grab the GameObject[] rectangleHolders
+    [SerializeField] private GameObject[] rectangleHolders;
+
     // Open lore panel
     public void OpenLorePanel(int loreID)
     {
@@ -64,8 +67,8 @@ public class AchievementsHandler : MonoBehaviour
 
         // Set the texts
         loreTitle.text = loreTitleText;
-        loreSender.text = loreSenderText;
-        loreRecipients.text = loreRecipientsText;
+        loreSender.text = "From: " + loreSenderText;
+        loreRecipients.text = "To: " + loreRecipientsText;
         loreBody.text = loreBodyText;
 
         // Close achievements panel
@@ -132,6 +135,31 @@ public class AchievementsHandler : MonoBehaviour
             achievementTitles[i].text = itemIDS.achievement_database[achievementPages[pageCounter][i]].title;
             achievementDescriptions[i].text = itemIDS.achievement_database[achievementPages[pageCounter][i]].description;
 
+            // in the cases where there is one achievement on that page, the other two achievements below should be blank
+            if (i == 0 && achievementPages[pageCounter].Count == 1)
+            {
+                achievementTitles[1].text = "";
+                achievementDescriptions[1].text = "";
+                achievementTitles[2].text = "";
+                achievementDescriptions[2].text = "";
+
+                // disable rectangle holder 2 and 3
+                rectangleHolders[1].SetActive(false);
+                rectangleHolders[2].SetActive(false);
+            } else if (i == 1 && achievementPages[pageCounter].Count == 2)
+            {
+                achievementTitles[2].text = "";
+                achievementDescriptions[2].text = "";
+
+                // disable rectangle holder 3
+                rectangleHolders[2].SetActive(false);
+            } else if (i == 2 && achievementPages[pageCounter].Count == 3)
+            {
+                // set all rectangle holders to active
+                rectangleHolders[1].SetActive(true);
+                rectangleHolders[2].SetActive(true);
+            }
+
             // Set the button's onClick event
             int loreID = itemIDS.achievement_database[achievementPages[pageCounter][i]].lore_linker;
             loreButtons[i].onClick.RemoveAllListeners();
@@ -190,33 +218,10 @@ public class AchievementsHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Grab all the achievements the player has from unlocked_achievements (PlayerData.cs)
-        List<int> playerAchievements = playerData.unlocked_achievements;
-
-        // Create a new list of achievements
-        List<int> achievements = new List<int>();
-
-        // Loop through all the achievements
-        foreach (int achievement in playerAchievements)
-        {
-            // Add the achievement to the list
-            achievements.Add(achievement);
-        }
-
-        // Create a new list of achievements
-        List<int> page = new List<int>();
-
-        // Add the page to the list of pages
-        achievementPages.Add(page);
-
-        // Populate the lists of achievements
+        // Populate the lists
+        achievementPages.Add(new List<int>());
         PopulateLists();
-
-        // Populate the achievements panel
         PopulatePanel();
-
-        // Close the lore panel
-        CloseLorePanel();
     }
 
     // Update is called once per frame
