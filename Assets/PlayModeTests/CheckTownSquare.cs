@@ -8,24 +8,30 @@ using UnityEngine.SceneManagement;
 
 // We're going to test that the TownSquare has the Player_Object
 [TestFixture]
-public class CheckTownSquare : MonoBehaviour
+public class CheckTownSquare
 {
     // We are going to load the Town_Square scene
     // and then we will check if the Player_Object is present
     [UnityTest]
     public IEnumerator CheckTownSquareForPlayerObject()
     {
+        // Load Main Menu Scene to get Player Data singleton loaded
+        yield return SceneManager.LoadSceneAsync("MainMenu", LoadSceneMode.Additive);
+
+        // Wait for one frame to ensure the scene is fully loaded
+        yield return null;
+
         // Load the Town_Square scene
-        yield return SceneManager.LoadSceneAsync("Town_Square");
+        yield return SceneManager.LoadSceneAsync("Town_Square", LoadSceneMode.Additive);
 
         // Wait for one frame to ensure the scene is fully loaded
         yield return null;
 
         // Find the Player_Object in the scene
-        GameObject playerObject = GameObject.Find("Player_Object");
+        GameObject player = GameObject.Find("Player_Object");
 
         // Check if the Player_Object is present
-        Assert.IsNotNull(playerObject, "Player_Object not found in Town_Square scene");
+        Assert.IsNotNull(player, "player not found in Town_Square scene");
     }
 
     [UnityTearDown]
@@ -36,5 +42,12 @@ public class CheckTownSquare : MonoBehaviour
 
         // Wait for one frame to ensure the scene is fully unloaded
         yield return null;
+
+        // Unload MainMenu scene
+        yield return SceneManager.UnloadSceneAsync("MainMenu");
+
+        // Wait for one frame to ensure the scene is fully unloaded
+        yield return null;
+
     }
 }
