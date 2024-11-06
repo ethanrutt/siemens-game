@@ -40,6 +40,7 @@ jobs:
     name: Run GetAllItems
     permissions: write-all
     runs-on: ubuntu-latest
+    environment: AWS
 
     steps:
       - name: Checkout
