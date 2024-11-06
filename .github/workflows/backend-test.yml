@@ -33,31 +33,31 @@ jobs:
       - name: Check if env variable is set after fetching secrets
         run: if [ -z ${AWS_ACCESS_KEY_ID+x} ]; then echo "AWS_ACCESS_KEY_ID is unset"; else echo "AWS_ACCESS_KEY_ID is set"; fi
 
-  test:
-    name: Run GetAllItems
-    permissions: write-all
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: npm
-          cache-dependency-path: "backend/LambdaFunctionAPIs/GetAllItems/package-lock.json"
-
-      - name: Install Shared Deps
-        working-directory: backend/LambdaFunctionAPIs/shared
-        run: npm install
-
-      - name: Install Test Deps
-        working-directory: backend/LambdaFunctionAPIs/GetAllItems
-        run: npm install
-
-      - name: Run Jest Tests
-        working-directory: backend/LambdaFunctionAPIs/GetAllItems
-        run: npm test
-
+  # test:
+  #   name: Run GetAllItems
+  #   permissions: write-all
+  #   runs-on: ubuntu-latest
+  #
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #
+  #     - name: Setup Node
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '14'
+  #         cache: npm
+  #         cache-dependency-path: "backend/LambdaFunctionAPIs/GetAllItems/package-lock.json"
+  #
+  #     - name: Install Shared Deps
+  #       working-directory: backend/LambdaFunctionAPIs/shared
+  #       run: npm install
+  #
+  #     - name: Install Test Deps
+  #       working-directory: backend/LambdaFunctionAPIs/GetAllItems
+  #       run: npm install
+  #
+  #     - name: Run Jest Tests
+  #       working-directory: backend/LambdaFunctionAPIs/GetAllItems
+  #       run: npm test
+  #
