@@ -20,8 +20,9 @@ public class WireConnectionTest : MonoBehaviour
     [UnitySetUp]
     public IEnumerator SetUp()
     {
-        // Asynchronously load the empty scene ("EmptyScene")
-        yield return SceneManager.LoadSceneAsync("EmptyScene");
+        Debug.Log("setting up");
+        SceneManager.LoadScene("EmptyScene");
+        yield return null;
 
         wireEntry = AssetDatabase.LoadAssetAtPath<GameObject>(wireEntryPrefabPath);
         wirePlug = AssetDatabase.LoadAssetAtPath<GameObject>(wirePlugPrefabPath);
@@ -68,6 +69,21 @@ public class WireConnectionTest : MonoBehaviour
         }
     }
 
+    [UnityTest]
+    public IEnumerator WireSnapBack()
+    {
+        Vector3 startPosition = wire.transform.position;
+
+        SimulateClick(wire);
+
+        yield return SimulateDragToPosition(wire, new Vector3(0, -5, 0));
+
+        wire.SendMessage("OnMouseUp", SendMessageOptions.DontRequireReceiver);
+        yield return null;
+
+        Vector3 endingPosition = wire.transform.position;
+    }
+
     private void SimulateClick(GameObject target)
     {
         target.SendMessage("OnMouseDown", SendMessageOptions.DontRequireReceiver);
@@ -93,6 +109,7 @@ public class WireConnectionTest : MonoBehaviour
     [UnityTearDown]
     public IEnumerator TearDown()
     {
+        Debug.Log("tearing down");
         if (wire != null) GameObject.Destroy(wire);
         if (plug != null) GameObject.Destroy(plug);
 

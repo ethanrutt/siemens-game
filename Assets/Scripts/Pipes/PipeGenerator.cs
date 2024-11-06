@@ -38,8 +38,8 @@ public class PipeGenerator : MonoBehaviour
         },
         // level 1 one turn
         new PipeInfo[][] {
-            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)},
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)}
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
+            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
         }
     };
 
@@ -79,8 +79,8 @@ public class PipeGenerator : MonoBehaviour
             Vector3 res = spawnLocations[i][j];
             res.x += 0.5f;
             switch (dir) {
-                case 1:
-                    res.y += 1f;
+                case 0:
+                    res.y -= 1f;
                     break;
                 case 2:
                     res.x -= 1f;
@@ -188,20 +188,15 @@ public class PipeGenerator : MonoBehaviour
         }
         else
         {
-            Debug.Log("non turn pipe");
             switch(currLevel[row][col].direction)
             {
                 case Direction.up:
-                    Debug.Log("moving up");
                     return (row - 1, col);
                 case Direction.right:
-                    Debug.Log("moving right");
                     return (row, col + 1);
                 case Direction.down:
-                    Debug.Log("moving down");
                     return (row + 1, col);
                 case Direction.left:
-                    Debug.Log("moving left");
                     return (row, col - 1);
             }
         }
@@ -215,7 +210,6 @@ public class PipeGenerator : MonoBehaviour
         for (int i = 0; i < 100; i++)
         {
             Debug.Log($"curr location = ({currRow}, {currCol})");
-            Debug.Log($"curr direction = {currLevel[currRow][currCol].direction}");
             if (currLevel[currRow][currCol].type == PipeType.sink)
             {
                 return true;
