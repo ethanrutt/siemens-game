@@ -40,7 +40,8 @@ public class PlayerData : MonoBehaviour
         {"deckmaster", 0},
         {"casino_owner", 0},
         {"shopkeeper", 0},
-        {"drunk_robot", 0}
+        {"drunk_robot", 0},
+        {"sensei", 0}
     };
 
     // Storing the current items the player has unlocked (list of item id's)
