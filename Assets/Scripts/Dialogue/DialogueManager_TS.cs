@@ -173,23 +173,30 @@ public class DialogueManager_TS : MonoBehaviour
 
     private IEnumerator DrunkGuyDialogue()
     {
+        // Change TTC_Text to "Do Not Tap."
+        TTC_Text.text = "Do Not Tap...";
+
+        // If the coroutine is not null, stop the coroutine
+        if (typeSentenceCoroutine != null)
+        {
+            StopCoroutine(typeSentenceCoroutine);
+        }
+
+        // Set the dialogueText to an empty string
+        dialogueText.text = "";
+
+        // Start typing the sentence
+        isTyping = true;
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(drunkGuyDialogues[0]));
+
+        // Wait
+        yield return new WaitForSeconds(drunkGuyDialogues[0].Length * typingSpeed + 1);
+
+        // Increment the dialogueIndex
+        dialogueIndex++;
+
         // Change TTC_Text to "Tap to Continue..."
         TTC_Text.text = "Tap to Continue...";
-
-        // Random index for one-liners
-        int randomIndex = Random.Range(0, drunkGuyDialogues.Length);
-        string randomDialogue = drunkGuyDialogues[randomIndex];
-        
-        // Set sprite and character name
-        characterImage.sprite = drunkGuySprites[drunkGuySpriteIndices[randomIndex]];
-        charName.text = "Drunkard";
-        
-        // Typing the sentence
-        isTyping = true;
-        typeSentenceCoroutine = StartCoroutine(TypeSentence(randomDialogue));
-        
-        // Wait for user interaction for closing or opening the shop
-        StartCoroutine(WaitForUserInput());
     }
 
     public void TalkToShopOwner()
