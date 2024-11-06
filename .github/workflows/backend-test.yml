@@ -10,34 +10,8 @@ on:
       - master-all
 
 jobs:
-  test:
-    name: Run Equip
-    permissions: write-all
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
-          cache: npm
-          cache-dependency-path: "backend/LambdaFunctionAPIs/Equip/package-lock.json"
-
-      - name: Install Deps
-        run: |
-          cd backend/LambdaFunctionAPIs/Equip
-          npm install
-
-      - name: Run Jest Tests
-        run: |
-          cd backend/LambdaFunctionAPIs/Equip
-          npm test
-
   # test:
-  #   name: Run GetAllItems
+  #   name: Run Equip
   #   permissions: write-all
   #   runs-on: ubuntu-latest
   #
@@ -50,18 +24,44 @@ jobs:
   #       with:
   #         node-version: '14'
   #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/GetAllItems/package-lock.json"
+  #         cache-dependency-path: "backend/LambdaFunctionAPIs/Equip/package-lock.json"
   #
   #     - name: Install Deps
   #       run: |
-  #         cd backend/LambdaFunctionAPIs/GetAllItems
+  #         cd backend/LambdaFunctionAPIs/Equip
   #         npm install
   #
   #     - name: Run Jest Tests
   #       run: |
-  #         cd backend/LambdaFunctionAPIs/GetAllItems
+  #         cd backend/LambdaFunctionAPIs/Equip
   #         npm test
-  #
+
+  test:
+    name: Run GetAllItems
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/GetAllItems/package-lock.json"
+
+      - name: Install Deps
+        run: |
+          cd backend/LambdaFunctionAPIs/GetAllItems
+          npm install
+
+      - name: Run Jest Tests
+        run: |
+          cd backend/LambdaFunctionAPIs/GetAllItems
+          npm test
+
   # test:
   #   name: Run GetItemsByCategory
   #   permissions: write-all
