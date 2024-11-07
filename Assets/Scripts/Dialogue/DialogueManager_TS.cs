@@ -188,10 +188,14 @@ public class DialogueManager_TS : MonoBehaviour
         // Start typing the sentence
         isTyping = true;
         // Start a random dialogue
-        typeSentenceCoroutine = StartCoroutine(TypeSentence(drunkGuyDialogues[Random.Range(0, drunkGuyDialogues.Length)]));
+        
+        // define randomIndex
+        int randomIndex = Random.Range(0, drunkGuyDialogues.Length);
+
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(drunkGuyDialogues[randomIndex]));
 
         // Wait
-        yield return new WaitForSeconds(drunkGuyDialogues[Random.Range(0, drunkGuyDialogues.Length)].Length * typingSpeed + 1);
+        yield return new WaitForSeconds(drunkGuyDialogues[randomIndex].Length * typingSpeed + 1.5f);
 
         // Increment the dialogueIndex
         dialogueIndex++;

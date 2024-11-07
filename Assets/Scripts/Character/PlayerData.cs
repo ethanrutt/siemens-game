@@ -153,31 +153,35 @@ public class PlayerData : MonoBehaviour
                 danceEmoteButton = GameObject.Find("UI_Button_Dance").GetComponent<UnityEngine.UI.Button>();
             }
         }
+
         // For just showing how everything works, add all items to unlocked_items
         // if someone pressed Y key
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            Debug.Log("Adding all items to unlocked items");
-            foreach (KeyValuePair<int, ItemIDs.Item> item in item_database)
-            {
-                if (!unlocked_items.Contains(item.Key))
-                {
-                    unlocked_items.Add(item.Key);
-                }
-            }
+        // DEBUG:::
+        // if (Input.GetKeyDown(KeyCode.Y))
+        // {
+        //     Debug.Log("Adding all items to unlocked items");
+        //     foreach (KeyValuePair<int, ItemIDs.Item> item in item_database)
+        //     {
+        //         if (!unlocked_items.Contains(item.Key))
+        //         {
+        //             unlocked_items.Add(item.Key);
+        //         }
+        //     }
 
-            // Now call ItemIds FillAllInventoryButtons()
-            item_ids.FillInventoryButtons();
+        //     // Now call ItemIds FillAllInventoryButtons()
+        //     item_ids.FillInventoryButtons();
 
-            // Now, we want to make sure to unlock all achievements that aren't already unlocked
-            for (int i = 0; i < 19; i++)
-            {
-                if (!unlocked_achievements.Contains(i))
-                {
-                    unlocked_achievements.Add(i);
-                }
-            }
-        }
+        //     // Now, we want to make sure to unlock all achievements that aren't already unlocked
+        //     for (int i = 0; i < 19; i++)
+        //     {
+        //         if (!unlocked_achievements.Contains(i))
+        //         {
+        //             unlocked_achievements.Add(i);
+        //         }
+        //     }
+        // }
+
+
         // If any 0's in equipped_items, remove them
         if (equipped_items.Contains(0))
         {
