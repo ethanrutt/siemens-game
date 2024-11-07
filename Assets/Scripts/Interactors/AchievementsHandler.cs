@@ -42,6 +42,7 @@ public class AchievementsHandler : MonoBehaviour
     [SerializeField] private TMPro.TMP_Text loreSender;
     [SerializeField] private TMPro.TMP_Text loreRecipients;
     [SerializeField] private TMPro.TMP_Text loreBody;
+    [SerializeField] private TMPro.TMP_Text loreDate;
 
     // Grab the texts from the achievements (there are only 3, and 2 each)
     [SerializeField] private TMPro.TMP_Text[] achievementTitles;
@@ -52,6 +53,7 @@ public class AchievementsHandler : MonoBehaviour
     private string loreSenderText;
     private string loreRecipientsText;
     private string loreBodyText;
+    private string loreDateText;
 
     // Grab the GameObject[] rectangleHolders
     [SerializeField] private GameObject[] rectangleHolders;
@@ -64,12 +66,14 @@ public class AchievementsHandler : MonoBehaviour
         loreSenderText = itemIDS.lore_database[loreID].sender;
         loreRecipientsText = string.Join(", ", itemIDS.lore_database[loreID].receivers);
         loreBodyText = itemIDS.lore_database[loreID].body;
+        loreDateText = itemIDS.lore_database[loreID].date;
 
         // Set the texts
         loreTitle.text = loreTitleText;
         loreSender.text = "From: " + loreSenderText;
         loreRecipients.text = "To: " + loreRecipientsText;
         loreBody.text = loreBodyText;
+        loreDate.text = loreDateText;
 
         // Close achievements panel
         achievementsPanel.SetActive(false);
@@ -131,9 +135,23 @@ public class AchievementsHandler : MonoBehaviour
         // for each achievement
         for (int i = 0; i < achievementPages[pageCounter].Count; i++)
         {
+            // DEBUG
+            // Debug.Log("Achievement: " + achievementPages[pageCounter][i]);
+
             // Set the achievement title and description
             achievementTitles[i].text = itemIDS.achievement_database[achievementPages[pageCounter][i]].title;
             achievementDescriptions[i].text = itemIDS.achievement_database[achievementPages[pageCounter][i]].description;
+
+            // If the achivement isn't unlocked, if it's the 0th index, grey out the rectangleHolder's color
+            if (!playerData.unlocked_achievements.Contains(achievementPages[pageCounter][i]))
+            {
+                // Set the color to grey
+                rectangleHolders[i].GetComponent<UnityEngine.UI.Image>().color = new Color(0.5f, 0.5f, 0.5f, 1);
+            } else
+            {
+                // Set the color to white
+                rectangleHolders[i].GetComponent<UnityEngine.UI.Image>().color = new Color(1, 1, 1, 1);
+            }
 
             // in the cases where there is one achievement on that page, the other two achievements below should be blank
             if (i == 0 && achievementPages[pageCounter].Count == 1)
@@ -216,7 +234,7 @@ public class AchievementsHandler : MonoBehaviour
     }
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         // Populate the lists
         achievementPages.Add(new List<int>());
@@ -227,6 +245,6 @@ public class AchievementsHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }

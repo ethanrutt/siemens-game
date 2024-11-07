@@ -79,10 +79,18 @@ public class ItemIDs : MonoBehaviour
         {18, new Achievement{title = "Weirdo", description = "Find the drunkard and speak with him.", lore_linker = 17}}
     };
 
+// how do I quote iwthin a quote?
+// a: if you have two quotes?
+// q: yes, like if I have my main quote ""
+// a: you can use single quotes ''
+// but what if I want to use double quotes?
+
     // Public Dictionary int -> LoreObject (for all lore objects)
     public Dictionary<int, LoreObject> lore_database = new Dictionary<int, LoreObject>()
     {
-        {0, new LoreObject("Dr. Santhanam", "Long Time No See...", "Hey, team. Long time no see. If you're reading this, I've suffered an untimely fate... But good news, Protocol Ascendance is complete. I've installed a tiny copy of my consciousness in Sensei. I don't think I have much time. This is all I can say.", "Dec. 18, 2054", new string[]{"Ethan", "Rohan", "Naveed"})},
+        {0, new LoreObject("Dr. Santhanam", "Long Time No See...", 
+        "Hey team,\n\nLong time no see. Well, I'm not sure if we'll see again. You know – when we started this project, we were all excited. To be able to remove the shackles of mortality from mankind... But now, I've lost my way.\n\nOn another note, I've transferred parts of my consciousness into the robot \"Sensei\". Take care of Keiko for me.\n\nI suppose this is goodbye,\nYour buddy", 
+        "Dec. 17, 2054", new string[]{"Ethan", "Rohan", "Naveed"})},
         {1, new LoreObject("Dr. Santhanam", "Come to the Lab! (URGENT)", "Rohan, can you come to the lab around 5 PM? I've made good progress on the protocol we discussed back in October. I think you'll be pleased with the results.\n\nBest,\nDr. Santhanam", "Nov. 13, 2053", new string[]{"Rohan"})},
         {2, new LoreObject("Dr. Santhanam", "Vacation Time", "Ethan. Me and my wife Keiko are going back to visit her family in Niigata. I was wondering if you'd like to come along.\n\nThat stipend from Project Elysium should be more than enough to cover the trip.\n\nKindest regards,\nRishi", "Mar. 28, 2051", new string[]{"Ethan"})},
         {3, new LoreObject("Dr. Santhanam", "Souvenirs?", "Hey, team.\n\nKeiko and I bought a lot of souvenirs for you all. I was wondering if you wanted to hop on a call and talk about which ones you'd like to take. Rohan, I got you that sword you wanted. Man, life is good...\n\nDrinking party on Sunday?\nRishi", "Apr. 05, 2051", new string[]{"Ethan", "Rohan", "Naveed"})},
@@ -90,7 +98,7 @@ public class ItemIDs : MonoBehaviour
         {5, new LoreObject("Ethan", "Re: Vacation Time", "Hey, Rishi.\n\nThanks for the invite. Can we stop by Osaka castle? I got a recommendation from a friend, and I want to try on some nice samurai clothes lol.\n\nBest,\nEthan", "Mar. 29, 2051", new string[]{"Rishi"})},
         {6, new LoreObject("Naveed", "I'm irritated", "Hey, guys\n\nIs anyone else getting frustrated? I've been working my butt off with no progress. Can I make a robot girlfriend? Is that even possible?\n\nIrritated regards,\nNaveed", "Aug. 24, 2051", new string[]{"Rishi", "Ethan", "Rohan"})},
         {7, new LoreObject("Naveed", "Robot Girlfriend?", "Yo, Ethan\n\nYou're okay with the robot girlfriend idea, right? I'm thinking of calling her Mrs. Haq. Get it? Cause my last name is... Oh what's the point in even explaining. Just let me know. Rishi isn't green lighting it.\n\nRegards,\nNaveed", "Aug. 25, 2051", new string[]{"Ethan"})},
-        {8, new LoreObject("Naveed", "Re: Robot Girlfriend?", "Naveed,\n\nI'm not sure about the robot girlfriend idea. I think we should focus on the project. We're making good progress, and I think we can make a difference in the world.\n\nBest,\nEthan", "Sep. 1, 2051", new string[]{"Naveed"})},
+        {8, new LoreObject("Ethan", "Re: Robot Girlfriend?", "Naveed,\n\nI'm not sure about the robot girlfriend idea. I think we should focus on the project. We're making good progress, and I think we can make a difference in the world.\n\nBest,\nEthan", "Sep. 1, 2051", new string[]{"Naveed"})},
         {9, new LoreObject("Ethan", "Project Update", "Hey, team.\n\nI'm at the lab with Rohan right now.\n\nWe just successfully transferred consciousness into a robot. The issue is, the consciousness isn't able to do anything yet. But at least it's there. This is a huge milestone, and I think we can do this thing.\n\nDrinks on me at the casino,\nEthan", "Dec. 24, 2051", new string[]{"Rishi", "Rohan", "Naveed"})},
         {10, new LoreObject("Ethan", "Issue: Is this normal?", "Hey, Rishi.\n\nWas working late at the lab last night. I swear I shut all the robots off, and while on my way out, I saw Mrs. Haq behind one of the desks. I swear I turned her off, and didn't move her at all. She started writing random things on the paper. We'll talk about the contents later.\n\nBest,\nEthan", "Feb. 14, 2052", new string[]{"Rishi"})},
         {11, new LoreObject("Dr. Santhanam", "Re: Issue: Is this normal?", "Hey, Ethan\n\nI'm not sure what's going on. It might an issue with the MOSFET diode that deals with the battery. I'll take a look at it tomorrow.\n\nBest,\nRishi", "Feb. 15, 2052", new string[]{"Ethan"})},

@@ -103,10 +103,10 @@ public class PlayerData : MonoBehaviour
         // DEBUG:
         // Give the player all unlocked achievements from 0->11
         // for testing purposes
-        for (int i = 0; i < 12; i++)
-        {
-            unlocked_achievements.Add(i);
-        }
+        // for (int i = 0; i < 12; i++)
+        // {
+        //     unlocked_achievements.Add(i);
+        // }
     }
 
     // Update is called once per frame
