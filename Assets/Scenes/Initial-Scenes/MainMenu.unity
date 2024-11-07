@@ -1196,11 +1196,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: 
   coins: 0
-  interactable: ads
+  interactable: none
+  wire_puzzle_wins: 0
+  wire_puzzle_fullround: 0
+  card_game_wins: 0
+  card_game_fullround: 0
+  casino_winnings: 0
+  casino_losses: 0
+  pipe_puzzle_wins: 0
   item_ids: {fileID: 0}
   danceEmoteButton: {fileID: 0}
-  unlocked_items: f6010000
-  equipped_items: f6010000
+  unlocked_items: 
+  equipped_items: 
   original_load_items: 
 --- !u!4 &234869019
 Transform:
