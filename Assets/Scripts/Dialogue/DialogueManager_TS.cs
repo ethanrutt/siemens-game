@@ -187,16 +187,25 @@ public class DialogueManager_TS : MonoBehaviour
 
         // Start typing the sentence
         isTyping = true;
-        typeSentenceCoroutine = StartCoroutine(TypeSentence(drunkGuyDialogues[0]));
+        // Start a random dialogue
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(drunkGuyDialogues[Random.Range(0, drunkGuyDialogues.Length)]));
 
         // Wait
-        yield return new WaitForSeconds(drunkGuyDialogues[0].Length * typingSpeed + 1);
+        yield return new WaitForSeconds(drunkGuyDialogues[Random.Range(0, drunkGuyDialogues.Length)].Length * typingSpeed + 1);
 
         // Increment the dialogueIndex
         dialogueIndex++;
 
         // Change TTC_Text to "Tap to Continue..."
-        TTC_Text.text = "Tap to Continue...";
+        // Stop the dialogue
+        dialoguePanel.SetActive(false);
+
+        // If the drunk guy has been talked to, get the achievement unlocked for playerData 18
+        if (playerData.npc_interactions["drunkard"] == 0)
+        {
+            playerData.UnlockAchievement(18);
+            playerData.npc_interactions["drunkard"] += 1;
+        }
     }
 
     public void TalkToShopOwner()

@@ -54,7 +54,7 @@ public class PlayerData : MonoBehaviour
         {"deckmaster", 0},
         {"casino_owner", 0},
         {"shopkeeper", 0},
-        {"drunk_robot", 0},
+        {"drunkard", 0},
         {"sensei", 3} // just for debug
     };
 
@@ -72,6 +72,25 @@ public class PlayerData : MonoBehaviour
 
     // A list of unlocked achievements
     [SerializeField] public List<int> unlocked_achievements = new List<int>(); // by the ids, 0 , 1, 2, etc...
+
+    // AchievementFunction
+    // This function will be called when the player completes an achievement
+    public void UnlockAchievement(int achievement_id)
+    {
+        // If the achievement is not already unlocked, unlock it
+        if (!unlocked_achievements.Contains(achievement_id))
+        {
+            unlocked_achievements.Add(achievement_id);
+        }
+
+        // Also call PopulatePanel on AchievementHandler
+        // to update the achievements panel
+        FindObjectOfType<AchievementsHandler>().PopulatePanel();
+
+        // Call AchievementHandler's ShowAchievementUnlockedScreen
+        // to show the achievement unlocked screen
+        FindObjectOfType<AchievementsHandler>().ShowAchievementUnlockedScreen(achievement_id);
+    }
 
     // Awake is called when the script instance is being loaded
     private void Awake()
@@ -103,11 +122,17 @@ public class PlayerData : MonoBehaviour
         // DEBUG:
         // Give the player all unlocked achievements from 0->11
         // for testing purposes
-        // for (int i = 0; i < 12; i++)
-        // {
+        // StartCoroutine(WaitAndUnlockAchievement(3.0f, 2));
         //     unlocked_achievements.Add(i);
         // }
     }
+
+    // Wait and unlock achievement DEBUG
+    // private IEnumerator WaitAndUnlockAchievement(float waitTime, int achievement_id)
+    // {
+    //     yield return new WaitForSeconds(waitTime);
+    //     UnlockAchievement(achievement_id);
+    // }
 
     // Update is called once per frame
     void Update()
@@ -135,11 +160,23 @@ public class PlayerData : MonoBehaviour
             Debug.Log("Adding all items to unlocked items");
             foreach (KeyValuePair<int, ItemIDs.Item> item in item_database)
             {
-                unlocked_items.Add(item.Key);
+                if (!unlocked_items.Contains(item.Key))
+                {
+                    unlocked_items.Add(item.Key);
+                }
             }
 
             // Now call ItemIds FillAllInventoryButtons()
             item_ids.FillInventoryButtons();
+
+            // Now, we want to make sure to unlock all achievements that aren't already unlocked
+            for (int i = 0; i < 19; i++)
+            {
+                if (!unlocked_achievements.Contains(i))
+                {
+                    unlocked_achievements.Add(i);
+                }
+            }
         }
         // If any 0's in equipped_items, remove them
         if (equipped_items.Contains(0))

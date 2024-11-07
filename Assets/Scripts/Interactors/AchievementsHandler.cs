@@ -128,7 +128,7 @@ public class AchievementsHandler : MonoBehaviour
 
     // Populate achievements panel with the pages (similar to ShopManager)
     // and populate the buttons with open(loreID)
-    private void PopulatePanel()
+    public void PopulatePanel()
     {
         // Basically, will populate the texts 
         // and the buttons with the loreID
@@ -247,4 +247,64 @@ public class AchievementsHandler : MonoBehaviour
     {
 
     }
+
+    // Grab the achievement unlocked screen
+    [SerializeField] private GameObject achievementUnlockedScreen;
+    // Grab the achievement unlocked title
+    [SerializeField] private TMPro.TMP_Text achievementUnlockedTitle;
+    // Grab the achievement unlocked description
+    [SerializeField] private TMPro.TMP_Text achievementUnlockedDescription;
+
+    // ShowAchievementUnlockedScreen (will be a fade in fade out for a few seconds)
+    public void ShowAchievementUnlockedScreen(int achievementID)
+    {
+        // Set the title and description
+        achievementUnlockedTitle.text = itemIDS.achievement_database[achievementID].title;
+        achievementUnlockedDescription.text = itemIDS.achievement_database[achievementID].description;
+
+        // Set the screen to active
+        achievementUnlockedScreen.SetActive(true);
+        StartCoroutine(FadeAchievementUnlockedScreen());
+    }
+
+    // FadeAchievementUnlockedScreen
+    private IEnumerator FadeAchievementUnlockedScreen()
+    {
+    CanvasGroup canvasGroup = achievementUnlockedScreen.GetComponent<CanvasGroup>();
+    if (canvasGroup == null)
+    {
+        canvasGroup = achievementUnlockedScreen.AddComponent<CanvasGroup>();
+    }
+    
+    // Fade in
+    canvasGroup.alpha = 0f;  // Start with fully transparent
+    achievementUnlockedScreen.SetActive(true);  // Ensure it's visible
+    float fadeDuration = 1f;  // Adjust how long the fade will take (in seconds)
+    float startTime = Time.time;
+    
+    // Gradually fade in over 'fadeDuration' seconds
+    while (Time.time - startTime < fadeDuration)
+    {
+        canvasGroup.alpha = Mathf.Lerp(0f, 1f, (Time.time - startTime) / fadeDuration);
+        yield return null;
+    }
+    canvasGroup.alpha = 1f;  // Ensure it's fully opaque when done
+
+    // Wait for 3 seconds after fading in
+    yield return new WaitForSeconds(3.0f);
+
+    // Fade out
+    startTime = Time.time;
+    
+    // Gradually fade out over 'fadeDuration' seconds
+    while (Time.time - startTime < fadeDuration)
+    {
+        canvasGroup.alpha = Mathf.Lerp(1f, 0f, (Time.time - startTime) / fadeDuration);
+        yield return null;
+    }
+    canvasGroup.alpha = 0f;  // Ensure it's fully transparent when done
+    
+    achievementUnlockedScreen.SetActive(false);  // Hide the screen once the fade-out is complete
+    }
+
 }
