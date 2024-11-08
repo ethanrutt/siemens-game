@@ -25,8 +25,11 @@ public class PipeGenerator : MonoBehaviour
     };
 
     private Vector3[][] spawnLocations = new Vector3[][] {
+        new Vector3[] {new Vector3(-7, 4, 0), new Vector3(-5, 4, 0), new Vector3(-3, 4, 0), new Vector3(-1, 4, 0), new Vector3(1, 4, 0), new Vector3(3, 4, 0), new Vector3(5, 4, 0), new Vector3(7, 4, 0)},
         new Vector3[] {new Vector3(-7, 2, 0), new Vector3(-5, 2, 0), new Vector3(-3, 2, 0), new Vector3(-1, 2, 0), new Vector3(1, 2, 0), new Vector3(3, 2, 0), new Vector3(5, 2, 0), new Vector3(7, 2, 0)},
-        new Vector3[] {new Vector3(-7, 0, 0), new Vector3(-5, 0, 0), new Vector3(-3, 0, 0), new Vector3(-1, 0, 0), new Vector3(1, 0, 0), new Vector3(3, 0, 0), new Vector3(5, 0, 0), new Vector3(7, 0, 0)}
+        new Vector3[] {new Vector3(-7, 0, 0), new Vector3(-5, 0, 0), new Vector3(-3, 0, 0), new Vector3(-1, 0, 0), new Vector3(1, 0, 0), new Vector3(3, 0, 0), new Vector3(5, 0, 0), new Vector3(7, 0, 0)},
+        new Vector3[] {new Vector3(-7, -3, 0), new Vector3(-5, -3, 0), new Vector3(-3, -3, 0), new Vector3(-1, -3, 0), new Vector3(1, -3, 0), new Vector3(3, -2, 0), new Vector3(5, -3, 0), new Vector3(7, -3, 0)},
+        new Vector3[] {new Vector3(-7, -4, 0), new Vector3(-5, -4, 0), new Vector3(-3, -4, 0), new Vector3(-1, -4, 0), new Vector3(1, -4, 0), new Vector3(3, -4, 0), new Vector3(5, -4, 0), new Vector3(7, -4, 0)}
     };
 
     // initialize explicitly
@@ -34,12 +37,27 @@ public class PipeGenerator : MonoBehaviour
         // level 1 straight line
         new PipeInfo[][] {
             emptyRow,
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)},
+            emptyRow,
+            emptyRow
         },
         // level 1 one turn
         new PipeInfo[][] {
+            emptyRow,
             new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
+            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)},
+            emptyRow,
+            emptyRow
+        }
+    };
+
+    private PipeInfo[][][] mediumLevels = new PipeInfo[][][] {
+        new PipeInfo[][] {
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
+            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
+            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
+            new PipeInfo[] {new PipeInfo(Direction.left, PipeType.sink), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
+            emptyRow
         }
     };
 
@@ -54,7 +72,7 @@ public class PipeGenerator : MonoBehaviour
         // maybe have 3 levels for each, so 3 easy, 3 medium, 3 hard
         // randomly pick an easy level, then randomly pick a medium level, then randomly pick a hard level
         // probably have a "done" button that checks the solution and moves on to the next level
-        GenerateLevel(easyLevels[1]);
+        GenerateLevel(mediumLevels[0]);
     }
 
     // Update is called once per frame
