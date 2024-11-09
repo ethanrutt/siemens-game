@@ -1302,6 +1302,7 @@ MonoBehaviour:
   straightPipe: {fileID: 6068450974861239014, guid: 891a15841feb9bb4fb7013d21557b421, type: 3}
   turnPipe: {fileID: 5346159205575210829, guid: 8d2aae178b5ba12419cca6b8b8bfde92, type: 3}
   pipeGameOverManager: {fileID: 931123035}
+  checkSolutionButton: {fileID: 1882473524}
 --- !u!4 &1317944746
 Transform:
   m_ObjectHideFlags: 0
