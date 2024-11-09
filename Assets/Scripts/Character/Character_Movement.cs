@@ -8,8 +8,9 @@ using UnityEngine;
 
 public class Character_Movement : MonoBehaviour
 {
-	[SerializeField] private float charSpeed = 4f;
+	//charSpeed is gotten from playerData.movement_speed
 	[SerializeField] private CosmeticHandler cosmeticHandler;
+	private float charSpeed => PlayerData.Instance.movement_speed;
 
 	private string currentState;
 
