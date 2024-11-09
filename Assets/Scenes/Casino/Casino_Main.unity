@@ -1425,10 +1425,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speeds:
-  - 11
-  - 22
-  - 33
-  - 44
   - 55
   - 66
   - 77
@@ -21477,10 +21473,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speeds:
-  - 11
-  - 22
-  - 33
-  - 44
   - 55
   - 66
   - 77
@@ -21495,7 +21487,7 @@ MonoBehaviour:
   - 176
   - 187
   - 198
-  neurofluxLevel: 0.2
+  neurofluxLevel: 0.1
   direction: {x: 1, y: 0, z: 0}
 --- !u!1 &1256075482
 GameObject:
