@@ -25,6 +25,9 @@ public class PlayerData : MonoBehaviour
     public int casino_winnings = 0; // Total winnings from the casino (coins)
     public int casino_losses = 0; // Total losses from the casino　（coins)
     public int pipe_puzzle_wins = 0; // Wins from the pipe puzzle
+
+    // Movement speed
+    public float movement_speed = 5.0f;
     
     // Storing neuroflux meter
     public int neuroflux_meter = 0; // Can go max 100
@@ -55,7 +58,8 @@ public class PlayerData : MonoBehaviour
         {"casino_owner", 0},
         {"shopkeeper", 0},
         {"drunkard", 0},
-        {"sensei", 0} // just for debug
+        {"sensei", 0}, // just for debug
+        {"casinoenter", 0}
     };
 
     // Storing the current items the player has unlocked (list of item id's)

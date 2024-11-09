@@ -1204,11 +1204,13 @@ MonoBehaviour:
   casino_winnings: 0
   casino_losses: 0
   pipe_puzzle_wins: 0
+  neuroflux_meter: 0
   item_ids: {fileID: 0}
   danceEmoteButton: {fileID: 0}
   unlocked_items: 
   equipped_items: 
   original_load_items: 
+  unlocked_achievements: 
 --- !u!4 &234869019
 Transform:
   m_ObjectHideFlags: 0

@@ -154,6 +154,21 @@ public class Interactor_Display : MonoBehaviour
             // Debug.Log("Shop Owner Interact");
             dialogueManager.TalkToShopOwner();
         }
+        // exit caisno and enter asino
+        else if (interactable == "exitcasino")
+        {
+            // Debug.Log("Exit Casino");
+            gameManager.ChangePlayerSpawnPosition(new Vector2(-22f, -1.5f));
+            SceneManager.LoadScene("Town_Square");
+        } else if (interactable == "entercasino")
+        {
+            // Debug.Log("Enter Casino"); //0.36,-9.37
+            gameManager.ChangePlayerSpawnPosition(new Vector2(0.36f, -9.37f));
+            SceneManager.LoadScene("Casino_Main");
+        } else if (interactable == "enterwackywires")
+        {
+            //none
+        }
          else {
             // Debug.Log("No Interactable");
         }
