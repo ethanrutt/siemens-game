@@ -8,6 +8,8 @@ public class PipeGenerator : MonoBehaviour
 {
     public System.Random rand = new System.Random();
 
+    public System.Diagnostics.Stopwatch gameTime = new System.Diagnostics.Stopwatch();
+
     public GameObject source;
     public GameObject sink;
     public GameObject straightPipe;
@@ -89,9 +91,12 @@ public class PipeGenerator : MonoBehaviour
 
     private ArrayList gameObjects = new ArrayList();
 
+    public PipeGameOverManager pipeGameOverManager;
+
     // Start is called before the first frame update
     void Start()
     {
+        gameTime.Start();
         GenerateLevel(easyLevels[rand.Next(2)]);
     }
 
@@ -312,6 +317,8 @@ public class PipeGenerator : MonoBehaviour
             }
             else
             {
+                gameTime.Stop();
+                pipeGameOverManager.Setup(gameTime.Elapsed);
                 Debug.Log("game complete");
                 // upload score
                 // return to lab
