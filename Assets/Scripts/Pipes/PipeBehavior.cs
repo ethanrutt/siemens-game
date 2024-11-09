@@ -15,7 +15,7 @@ public class PipeBehavior : MonoBehaviour
     public int col;
 
     private Vector3 rotate90 = new Vector3(0, 0, 90);
-    private Vector3 flipTurnPipe = new Vector3(0, 0, 180);
+    private Vector3 rotateTurnPipe = new Vector3(0, 0, 270);
 
     private Quaternion[] possibleRotations = {
         // up
@@ -69,36 +69,45 @@ public class PipeBehavior : MonoBehaviour
 
     void RotatePipe()
     {
-        // 0 -> 1 means y + 1
-        // 1 -> 2 means x - 1
-        // 2 -> 3 means y - 1
-        // 3 -> 0 means x + 1
         // goes to next clockwise direction in a cycle
         int dir = (((int)pipeInfo.direction) + 1) % 4;
+        Direction newDir = ((Direction)dir);
 
-        if (pipeInfo.type == PipeType.turn) {
-            switch (dir) {
-                case 0:
-                    gameObject.transform.position = new Vector3(gameObject.transform.position.x + 1f, gameObject.transform.position.y, gameObject.transform.position.z);
+        if (pipeInfo.type == PipeType.turn)
+        {
+            // when turning turnpipes, the direction they rotate has to go in the other way with how we defined Direction
+            // The position changes handle the animations so that they stay in the same spot even after rotating
+            switch (newDir)
+            {
+                case Direction.up:
+                    gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1f, gameObject.transform.position.z);
+                    gameObject.transform.Rotate(rotateTurnPipe);
                     break;
-                case 1:
-                    gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1f, gameObject.transform.position.z);
-                    break;
-                case 2:
+                case Direction.right:
+                    gameObject.transform.Rotate(rotateTurnPipe);
                     gameObject.transform.position = new Vector3(gameObject.transform.position.x - 1f, gameObject.transform.position.y, gameObject.transform.position.z);
                     break;
-                case 3:
-                    gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y - 1f, gameObject.transform.position.z);
+                case Direction.down:
+                    gameObject.transform.Rotate(rotateTurnPipe);
+                    gameObject.transform.position = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 1f, gameObject.transform.position.z);
+                    break;
+                case Direction.left:
+                    gameObject.transform.Rotate(rotateTurnPipe);
+                    gameObject.transform.position = new Vector3(gameObject.transform.position.x + 1f, gameObject.transform.position.y, gameObject.transform.position.z);
                     break;
             }
         }
+        else
+        {
+            SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+            sr.flipY = !sr.flipY;
+            gameObject.transform.Rotate(rotate90);
+        }
 
         Debug.Log($"going from direction {(int) pipeInfo.direction} to {dir}");
-        Direction newDir = ((Direction)dir);
         pipeInfo.direction = newDir;
         gameState[row][col].direction = newDir;
-        // FIXME: left is right and right is left on the turn pipes. figure out a way to handle this
-        gameObject.transform.Rotate(rotate90);
+
         Debug.Log(gameState[row][col].direction);
     }
 }
