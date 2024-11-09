@@ -69,7 +69,7 @@ public class PipeGenerator : MonoBehaviour
             emptyRow,
             emptyRow,
             new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.left, PipeType.sink), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.sink), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
             emptyRow
         }
     };
@@ -80,12 +80,14 @@ public class PipeGenerator : MonoBehaviour
             new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
             new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
             new PipeInfo[] {new PipeInfo(Direction.right, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.left, PipeType.sink), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.sink), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
             emptyRow
         }
     };
 
     private PipeInfo[][] currentLevel;
+
+    private ArrayList gameObjects = new ArrayList();
 
     // Start is called before the first frame update
     void Start()
@@ -154,6 +156,14 @@ public class PipeGenerator : MonoBehaviour
         pipeBehavior.col = col;
         pipeBehavior.pipeInfo = new PipeInfo((Direction)dir, type);
         currLevel[row][col].direction = (Direction)dir;
+        gameObjects.Add(pipe);
+
+        // the sprites for right / left are flipped on straight pipes, make sure to handle this properly
+        if ((dir == 1 || dir == 3) && type != PipeType.turn)
+        {
+            SpriteRenderer sr = pipe.GetComponent<SpriteRenderer>();
+            sr.flipY = !sr.flipY;
+        }
     }
 
     void GenerateLevel(PipeInfo[][] currLevel)
@@ -190,14 +200,34 @@ public class PipeGenerator : MonoBehaviour
                         }
                         break;
                     case PipeType.source:
-                        Instantiate(source, getSpawnLocation(PipeType.source, i, j, 0), getSpawnRotation(currLevel, i, j));
+                        Quaternion rot = getSpawnRotation(currLevel, i, j);
+                        GameObject bruh1 = Instantiate(source, getSpawnLocation(PipeType.source, i, j, 0), rot);
+
+                        // the source has the same sprites as straight pipe, so we also need to flip if its right or left
+                        if (rot == possibleRotations[1] || rot == possibleRotations[3])
+                        {
+                            SpriteRenderer sr = bruh1.GetComponent<SpriteRenderer>();
+                            sr.flipY = !sr.flipY;
+                        }
+
+                        gameObjects.Add(bruh1);
                         break;
                     case PipeType.sink:
-                        Instantiate(sink, getSpawnLocation(PipeType.sink, i, j, 0), getSpawnRotation(currLevel, i, j));
+                        GameObject bruh2 = Instantiate(sink, getSpawnLocation(PipeType.sink, i, j, 0), getSpawnRotation(currLevel, i, j));
+                        gameObjects.Add(bruh2);
                         break;
                 }
             }
         }
+    }
+
+    void ClearLevel()
+    {
+        foreach (GameObject g in gameObjects)
+        {
+            Destroy(g);
+        }
+        gameObjects.Clear();
     }
 
     (int row, int col) GetSource(PipeInfo[][] currLevel)
@@ -270,6 +300,7 @@ public class PipeGenerator : MonoBehaviour
     {
         if (CheckSolution(currentLevel))
         {
+            ClearLevel();
             level++;
             if (level == 2)
             {
@@ -288,6 +319,7 @@ public class PipeGenerator : MonoBehaviour
         }
         else
         {
+            // randomize rotations on fail?
             Debug.Log("level failed");
         }
     }

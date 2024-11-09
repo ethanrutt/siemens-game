@@ -99,6 +99,8 @@ public class PipeBehavior : MonoBehaviour
         }
         else
         {
+            SpriteRenderer sr = gameObject.GetComponent<SpriteRenderer>();
+            sr.flipY = !sr.flipY;
             gameObject.transform.Rotate(rotate90);
         }
 
