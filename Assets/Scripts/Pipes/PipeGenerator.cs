@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PipeGenerator : MonoBehaviour
 {
@@ -93,6 +94,8 @@ public class PipeGenerator : MonoBehaviour
 
     public PipeGameOverManager pipeGameOverManager;
 
+    public Button checkSolutionButton;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -153,7 +156,6 @@ public class PipeGenerator : MonoBehaviour
 
     void InstantiatePipe(PipeInfo[][] currLevel, GameObject prefab, Vector3 spawn, Quaternion rotation, int row, int col, int dir, PipeType type)
     {
-        Debug.Log($"instantiating pipe at {row}, {col} with direction {(Direction) dir}");
         GameObject pipe = Instantiate(prefab, spawn, rotation);
         PipeBehavior pipeBehavior = pipe.GetComponent<PipeBehavior>();
         pipeBehavior.gameState = currLevel;
@@ -287,18 +289,36 @@ public class PipeGenerator : MonoBehaviour
     public bool CheckSolution(PipeInfo[][] currLevel)
     {
         var (currRow, currCol) = GetSource(currLevel);
-        Debug.Log($"source = ({currRow}, {currCol})");
         for (int i = 0; i < 100; i++)
         {
-            Debug.Log($"curr location = ({currRow}, {currCol})");
-            if (currLevel[currRow][currCol].type == PipeType.sink)
+            // sometimes we can go out of bounds, so if we do, just return false
+            try
             {
-                return true;
+                if (currLevel[currRow][currCol].type == PipeType.sink)
+                {
+                    return true;
+                }
+            }
+            catch (System.Exception e)
+            {
+                return false;
             }
             (currRow, currCol) = DirectionToMove(currLevel, currRow, currCol);
         }
 
         return false;
+    }
+
+    public IEnumerator ChangeButtonColorOnFail()
+    {
+        Image buttonImage = checkSolutionButton.GetComponent<Image>();
+
+        buttonImage.color = Color.red;
+
+        yield return new WaitForSeconds(1);
+
+        buttonImage.color = Color.white;
+
     }
 
     public void CheckSolutionButton()
@@ -319,15 +339,11 @@ public class PipeGenerator : MonoBehaviour
             {
                 gameTime.Stop();
                 pipeGameOverManager.Setup(gameTime.Elapsed);
-                Debug.Log("game complete");
-                // upload score
-                // return to lab
             }
         }
         else
         {
-            // randomize rotations on fail?
-            Debug.Log("level failed");
+            StartCoroutine(ChangeButtonColorOnFail());
         }
     }
 }

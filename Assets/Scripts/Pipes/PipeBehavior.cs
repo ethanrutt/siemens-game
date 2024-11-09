@@ -104,10 +104,7 @@ public class PipeBehavior : MonoBehaviour
             gameObject.transform.Rotate(rotate90);
         }
 
-        Debug.Log($"going from direction {(int) pipeInfo.direction} to {dir}");
         pipeInfo.direction = newDir;
         gameState[row][col].direction = newDir;
-
-        Debug.Log(gameState[row][col].direction);
     }
 }
