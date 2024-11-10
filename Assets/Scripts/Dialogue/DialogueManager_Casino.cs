@@ -31,6 +31,16 @@ public class DialogueManager_Casino : MonoBehaviour
     // import PlayerMovement script
     [SerializeField] private Character_Movement playerMovement;
 
+    // Modal back
+    [SerializeField] public GameObject backModal;
+
+    // Close choice panel
+    public void CloseChoicePanel()
+    {
+        casinoOwnerChoicePanel.SetActive(false);
+        backModal.SetActive(false);
+    }
+
     // Load in the dialoguePanel
     // Look for UI-Panel Dialogue-Panel and assign it
     public GameObject dialoguePanel;
@@ -43,6 +53,287 @@ public class DialogueManager_Casino : MonoBehaviour
 
     // Casino owner Choice Panel
     public GameObject casinoOwnerChoicePanel;
+
+    // Add all the casino owner sprites
+    [SerializeField] private Sprite[] casinoOwnerSprites; // 0->serious, 1-> serious with hands, 2->charismatic, 3->happy with hands
+
+    // Add all the casino owner dialogues
+    private string[] casinoOwnerInitial = {
+        "What's up, hot stuff. You want to make some money?",
+        "Ignore the first comment if you happen to be a male. If you're a girl, then pretend like it was even more charismatic.",
+        "Anyways, there's really not much else to say. I offer a 1:1 payout on bets. You bet 10 coins, you get 20 coins back.",
+        "Oh yeah, and you're probably wondering what that meter at the top of your screen is. That's the Neuroflux meter.",
+        "Meaning that, the more \"fluxed up\" you are, the higher chance you have of winning. Or at least, that's what some people say.",
+        "Something about \"being in the zone\". I don't know. I'm just here to take your money. And give you some back, I guess.",
+    };
+
+    // Integer list of inital sprites
+    private int[] casinoOwnerInitialSprites = {
+        2, 0, 1, 2, 3, 2
+    };
+
+    // Casino owner one liners dialogues
+    // Make the first three if the player has more losses moneys than wins (we will fix this)
+    private string[] casinoOwnerOneLinersLosing = {
+        "For someone who likes to lose money, you're doing a great job.",
+        "You're like a reverse Robin Hood. Stealing from the poor and giving to the rich. But, want to throw some more money on the table, hotshot?",
+        "Psst. Flux makes you better. But even then, you still seem to suck! How's that for a motivational speech?", // these 3 play if losses > wins
+        "You're on a roll! A really bad one. But hey, you're still here, so you must like losing money. Want to lose some more?",
+        "Losing money isn't my favorite thing to do. But hey, one man's trash is another man's treasure. Too bad you don't seem to have either.",
+        "They say that the more you lose, the more you win. But I don't think that applies to you. Want to try your luck again?" // now let's do wins > losses
+    };
+
+    // losing sprites
+    private int[] casinoOwnerOneLinersLosingSprites = {
+        3, 0, 2, 3, 1, 2
+    };
+
+    // Casino owner one liners dialogues (for winning)
+    private string[] casinoOwnerOneLinersWinning = {
+        "Stay away from this table. You're winning too much. I might have to make some calls if you keep this up.",
+        "Hey, hotshot. You're doing pretty well. But remember, the house always wins. Want to try your luck again?",
+        "I can't tell whether you're fluxed up or not.",
+        "You must seem to like money. Or maybe you like winning. Or maybe you like both. Yeah, you probably like both.",
+        "I know you're winning a lot, but trust me when I say, don't pick Thunderbyte. He might end up losing you some money.",
+        "I heard Nano Mane just got a new upgrade. You might want to bet on him. And no, I'm not lying to you. I'm pretending to lie to you.",
+        "You win a lot for such a loser. I mean, you're not a loser. You're a winner. But you're also a loser. You know what I mean.",
+    };
+
+    // winning sprites
+    private int[] casinoOwnerOneLinersWinningSprites = {
+        0, 2, 2, 2, 1, 1, 0
+    };
+
+    // Casino owner one liners for neutral
+    private string[] casinoOwnerOneLinersNeutral = {
+        "Alright, alright. Let's get this thing started, shall we? You want to bet on some robot horses? You want some flux?",
+        "You're not doing too bad. But you're not doing too good either. You're just... doing.",
+        "You're like a coin. You have two sides. One side is winning, the other side is losing. But you're still a coin.",
+        "I'm not sure how else to motivate you to bet. But, I heard that the more you bet, the more you win. Or lose. But you're probably going to lose. Right, that didn't help.",
+        "I just installed a golden toilet in the back. Only winners allowed. You want to be a winner, right? That's what I thought.",
+    };
+
+    // neutral sprites
+    private int[] casinoOwnerOneLinersNeutralSprites = {
+        2, 2, 2, 0, 3
+    };
+
+    // Make casino owner speak
+    public void CasinoOwnerSpeak()
+    {
+        // Stop player
+        playerMovement.StopPlayer();
+
+        // Turn on the dialogue panel
+        dialoguePanel.SetActive(true);
+
+        // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
+        // If the casino owner has never been interacted with, do the initial coroutine
+        // otherwise just the normal coroutine
+        if (playerData.npc_interactions["casino_owner"] == 0)
+        {
+            StartCoroutine(CasinoOwnerSpeakInitial());
+        }
+        else
+        {
+            StartCoroutine(CasinoOwnerSpeakCoroutine());
+        }
+
+        // Increment the npc_interactions for casino_owner
+        playerData.npc_interactions["casino_owner"] += 1;
+    }
+
+    private IEnumerator CasinoOwnerSpeakInitial()
+    {
+        // Change TTC_Text to "Do Not Tap."
+        TTC_Text.text = "Do Not Tap...";
+
+        for (int i = 0; i < casinoOwnerInitial.Length; i++)
+        {
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
+
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
+
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = casinoOwnerSprites[casinoOwnerInitialSprites[i]];
+
+            // Set the charName to "Casino Owner"
+            charName.text = "Casino Owner";
+
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerInitial[i]));
+
+            // Wait
+            yield return new WaitForSeconds(casinoOwnerInitial[i].Length * typingSpeed + 1.25f);
+
+            // Wait
+            yield return new WaitForSeconds(2);
+        }
+
+        // Change TTC_Text to "Tap to Continue."
+        TTC_Text.text = "Tap to Continue...";
+        
+        // Close the dialogue panel
+        dialoguePanel.SetActive(false);
+
+        // Let player move
+        playerMovement.UnstopPlayer();
+    }
+
+    // Now, thanks for the flux lines
+    public string[] casinoOwnerThanksForFlux = {
+        "You went with the flux, huh? Good choice. You're going to need it.",
+        "You want to be a winner, hey! I like that. Keep it up, champ.",
+        "I see a winner in you now. I had my doubts, but you're proving me wrong.",
+        "You're going to win big. I can feel it. Or maybe I'm just feeling the flux. Either way, you're going to win big.",
+        "There's more where this came from. Keep betting, keep winning. You're going to be rich.",
+    };
+
+    // Now, thanks for the flux sprites
+    public int[] casinoOwnerThanksForFluxSprites = {
+        2, 2, 3, 2, 2
+    };
+
+    // A function to thank the player for using flux
+    public void CasinoOwnerThanksForFlux()
+    {
+        // Stop player
+        playerMovement.StopPlayer();
+
+        // Turn on the dialogue panel
+        dialoguePanel.SetActive(true);
+
+        // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
+        // If the casino owner has never been interacted with, do the initial coroutine
+        // otherwise just the normal coroutine
+        StartCoroutine(CasinoOwnerThanksForFluxCoroutine());
+
+        // Increment the npc_interactions for casino_owner
+        playerData.npc_interactions["casino_owner"] += 1;
+    }
+
+    private IEnumerator CasinoOwnerThanksForFluxCoroutine()
+    {
+        // Change TTC_Text to "Do Not Tap."
+        TTC_Text.text = "Do Not Tap...";
+
+        for (int i = 0; i < casinoOwnerThanksForFlux.Length; i++)
+        {
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
+
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
+
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = casinoOwnerSprites[casinoOwnerThanksForFluxSprites[i]];
+
+            // Set the charName to "Casino Owner"
+            charName.text = "Casino Owner";
+
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerThanksForFlux[i]));
+
+            // Wait
+            yield return new WaitForSeconds(casinoOwnerThanksForFlux[i].Length * typingSpeed + 1.25f);
+
+            // Wait
+            yield return new WaitForSeconds(2);
+        }
+
+        // Change TTC_Text to "Tap to Continue."
+        TTC_Text.text = "Tap to Continue...";
+        
+        // Close the dialogue panel
+        dialoguePanel.SetActive(false);
+
+        // Let player move
+        playerMovement.UnstopPlayer();
+    }
+
+    private IEnumerator CasinoOwnerSpeakCoroutine()
+    {
+        // Basically, we're going to go to playerData casino_winnings (int) and casino_losses (int) and get the ratio for that.
+        // This only applies if we have interacted with the casino owner more than once.
+        float ratio = (float)playerData.casino_winnings / (float)playerData.casino_losses;
+
+        // Change TTC_Text to "Do Not Tap."
+        TTC_Text.text = "Do Not Tap...";
+
+        string[] selectedDialogues;
+        int[] selectedSprites;
+
+        // Determine which dialogues and sprites to use based on the ratio
+        if (ratio < 0.95)
+        {
+            selectedDialogues = casinoOwnerOneLinersLosing;
+            selectedSprites = casinoOwnerOneLinersLosingSprites;
+        }
+        else if (ratio >= 0.95 && ratio <= 1)
+        {
+            selectedDialogues = casinoOwnerOneLinersNeutral;
+            selectedSprites = casinoOwnerOneLinersNeutralSprites;
+        }
+        else
+        {
+            selectedDialogues = casinoOwnerOneLinersWinning;
+            selectedSprites = casinoOwnerOneLinersWinningSprites;
+        }
+
+        // If winnings and losings are both 0, then just do ratio = 1
+        if (playerData.casino_winnings == 0 && playerData.casino_losses == 0)
+        {
+            selectedDialogues = casinoOwnerOneLinersNeutral;
+            selectedSprites = casinoOwnerOneLinersNeutralSprites;
+        }
+
+        // Execute only one oneliner
+        int i = Random.Range(0, selectedDialogues.Length);
+
+        // If the coroutine is not null, stop the coroutine
+        if (typeSentenceCoroutine != null)
+        {
+            StopCoroutine(typeSentenceCoroutine);
+        }
+
+        // Set the dialogueText to an empty string
+        dialogueText.text = "";
+
+        // Set the characterImage to the appropriate sprite
+        characterImage.sprite = casinoOwnerSprites[selectedSprites[i]];
+
+        // Set the charName to "Casino Owner"
+        charName.text = "Casino Owner";
+
+        // Start typing the sentence
+        isTyping = true;
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(selectedDialogues[i]));
+
+        // Wait
+        yield return new WaitForSeconds(selectedDialogues[i].Length * typingSpeed + 1.25f);
+
+        // Wait
+        yield return new WaitForSeconds(2);
+
+        // Show the choice panel
+        casinoOwnerChoicePanel.SetActive(true);
+
+        // modal goes up, and also dialogue is out
+        dialoguePanel.SetActive(false);
+        backModal.SetActive(true);
+    }
+    
+
 
     IEnumerator TypeSentence (string sentence)
     {
