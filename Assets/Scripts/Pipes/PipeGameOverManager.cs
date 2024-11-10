@@ -10,6 +10,8 @@ public class PipeGameOverManager : MonoBehaviour
 
     private string score;
 
+    private PlayerData playerData => PlayerData.Instance;
+
     public void Setup(System.TimeSpan timeSpan)
     {
         timeElapsed.text = "Time: " + System.String.Format("{0:00}:{1:00}.{2:00}",
@@ -23,13 +25,35 @@ public class PipeGameOverManager : MonoBehaviour
 
     public void RestartButton()
     {
-        // uploadTime();
+        // FIXME: use actual userId from playerData
+        uploadTime(12);
         SceneManager.LoadScene("PipeGame");
     }
 
     public void ExitButton()
     {
-        // uploadTime();
+        // FIXME: use actual userId from playerData
+        uploadTime(12);
         SceneManager.LoadScene("Laboratory_Main");
+    }
+
+    /**
+     * uploadTime() is a function that sends a POST request to the backend to upload the time
+     */
+    private void uploadTime(int userId)
+    {
+        string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/ScoreUpload";
+        string jsonData = System.String.Format(@"{{
+            ""user_id"": {0},
+            ""game_id"": {1},
+            ""score"": {2}
+        }}", userId, 5, score);
+        Debug.Log("uploading score " + score);
+        WebRequestUtility.SendWebRequest(this, url, jsonData, OnRequestComplete);
+    }
+
+    void OnRequestComplete(string responseText)
+    {
+        Debug.Log(responseText);
     }
 }
