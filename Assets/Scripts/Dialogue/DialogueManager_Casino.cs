@@ -53,6 +53,8 @@ public class DialogueManager_Casino : MonoBehaviour
 
     // Casino owner Choice Panel
     public GameObject casinoOwnerChoicePanel;
+    // Horse panel choose
+    public GameObject horsePanelChoose;
 
     // Add all the casino owner sprites
     [SerializeField] private Sprite[] casinoOwnerSprites; // 0->serious, 1-> serious with hands, 2->charismatic, 3->happy with hands
@@ -200,6 +202,121 @@ public class DialogueManager_Casino : MonoBehaviour
         2, 2, 3, 2, 2
     };
 
+    // Too poor to buy flux, so hate on the character
+    public string[] casinoOwnerHate = {
+        "Why are you gambling when you don't even want to win?",
+        "You don't have money to buy flux, and you're still gambling? OK.",
+        "... OK. You know what? I'm not even going to say anything. You're just... something else.",
+        "Right... Why are you even here? You don't have money to buy flux, you don't have money to bet. What are you doing?",
+    };
+
+    // Hate sprites
+    public int[] casinoOwnerHateSprites = {
+        0, 0, 1, 0
+    };
+
+    // Buy flux function
+    public void CasinoOwnerBuyFlux()
+    {
+        // Turn off the choice menu
+        casinoOwnerChoicePanel.SetActive(false);
+        // Turn off the modal
+        backModal.SetActive(false);
+
+        // Check if the player has >=10 coins
+        // playerData.flux_meter += 25;
+        if (playerData.coins >= 10)
+        {
+            playerData.coins -= 10;
+            playerData.neuroflux_meter += 25;
+            playerData.casino_winnings += 10;
+            CasinoOwnerThanksForFlux();
+        } else
+        {
+            CasinoOwnerHateOnPlayer();
+        }
+    }
+
+    // Open the horse panel
+    public void CasinoOwnerOpenHorsePanel()
+    {
+        // Turn off the choice menu
+        casinoOwnerChoicePanel.SetActive(false);
+        // Turn on the horse panel
+        horsePanelChoose.SetActive(true);
+    }
+
+    // Close horse panel
+    public void CasinoOwnerCloseHorsePanel()
+    {
+        // Turn off the horse panel
+        horsePanelChoose.SetActive(false);
+        // Now turn off the backModal
+        backModal.SetActive(false);
+    }
+
+    // Hate on the player for not buying flux
+    public void CasinoOwnerHateOnPlayer()
+    {
+        // Stop player
+        playerMovement.StopPlayer();
+
+        // Turn on the dialogue panel
+        dialoguePanel.SetActive(true);
+
+        // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
+        // If the casino owner has never been interacted with, do the initial coroutine
+        // otherwise just the normal coroutine
+        StartCoroutine(CasinoOwnerHateOnPlayerCoroutine());
+
+        // Increment the npc_interactions for casino_owner
+        playerData.npc_interactions["casino_owner"] += 1;
+    }
+
+    private IEnumerator CasinoOwnerHateOnPlayerCoroutine()
+    {
+        // Change TTC_Text to "Do Not Tap."
+        TTC_Text.text = "Do Not Tap...";
+
+        // Choose a random hate dialogue
+        int i = Random.Range(0, casinoOwnerHate.Length);
+
+        // Now choose the sprites for the hate dialogue
+        // If the coroutine is not null, stop the coroutine
+        if (typeSentenceCoroutine != null)
+        {
+            StopCoroutine(typeSentenceCoroutine);
+        }
+
+        // Set the dialogueText to an empty string
+        dialogueText.text = "";
+
+        // Set the characterImage to the appropriate sprite
+        characterImage.sprite = casinoOwnerSprites[casinoOwnerHateSprites[i]];
+
+        // Set the charName to "Casino Owner"
+        charName.text = "Casino Owner";
+
+        // Start typing the sentence
+        isTyping = true;
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerHate[i]));
+
+        // Wait
+        yield return new WaitForSeconds(casinoOwnerHate[i].Length * typingSpeed + 1.25f);
+
+        // Wait
+        // yield return new WaitForSeconds(2);
+
+        // Change TTC_Text to "Tap to Continue."
+        TTC_Text.text = "Tap to Continue...";
+        
+        // Close the dialogue panel
+        dialoguePanel.SetActive(false);
+
+        // Let player move
+        playerMovement.UnstopPlayer();
+    }
+
     // A function to thank the player for using flux
     public void CasinoOwnerThanksForFlux()
     {
@@ -223,33 +340,33 @@ public class DialogueManager_Casino : MonoBehaviour
         // Change TTC_Text to "Do Not Tap."
         TTC_Text.text = "Do Not Tap...";
 
-        for (int i = 0; i < casinoOwnerThanksForFlux.Length; i++)
+        // Choose a random thanks for flux dialogue
+        int i = Random.Range(0, casinoOwnerThanksForFlux.Length);
+
+        // Now choose the sprites for the thanks for flux dialogue
+        // If the coroutine is not null, stop the coroutine
+
+        if (typeSentenceCoroutine != null)
         {
-            // If the coroutine is not null, stop the coroutine
-            if (typeSentenceCoroutine != null)
-            {
-                StopCoroutine(typeSentenceCoroutine);
-            }
-
-            // Set the dialogueText to an empty string
-            dialogueText.text = "";
-
-            // Set the characterImage to the appropriate sprite
-            characterImage.sprite = casinoOwnerSprites[casinoOwnerThanksForFluxSprites[i]];
-
-            // Set the charName to "Casino Owner"
-            charName.text = "Casino Owner";
-
-            // Start typing the sentence
-            isTyping = true;
-            typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerThanksForFlux[i]));
-
-            // Wait
-            yield return new WaitForSeconds(casinoOwnerThanksForFlux[i].Length * typingSpeed + 1.25f);
-
-            // Wait
-            yield return new WaitForSeconds(2);
+            StopCoroutine(typeSentenceCoroutine);
         }
+
+        // Set the dialogueText to an empty string
+        dialogueText.text = "";
+
+        // Set the characterImage to the appropriate sprite
+        characterImage.sprite = casinoOwnerSprites[casinoOwnerThanksForFluxSprites[i]];
+
+        // Set the charName to "Casino Owner"
+        charName.text = "Casino Owner";
+
+        // Start typing the sentence
+        isTyping = true;
+
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerThanksForFlux[i]));
+
+        // Wait
+        yield return new WaitForSeconds(casinoOwnerThanksForFlux[i].Length * typingSpeed + 1.25f);
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
