@@ -47,7 +47,7 @@ public class GameOverManager : MonoBehaviour
     public void RestartButton()
     {
         // FIXME: use actual userId from playerData
-        uploadTime(12);
+        uploadTime(300);
         SceneManager.LoadScene("WireGame");
     }
 
@@ -58,8 +58,8 @@ public class GameOverManager : MonoBehaviour
     public void ExitButton()
     {
         // FIXME: use actual userId from playerData
-        uploadTime(12);
-        SceneManager.LoadScene("Laboratory_L1");
+        uploadTime(300);
+        SceneManager.LoadScene("Laboratory_Main");
     }
 
     /**

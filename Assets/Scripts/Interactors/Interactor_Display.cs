@@ -193,9 +193,14 @@ public class Interactor_Display : MonoBehaviour
 
     }
 
+    public void GetPeculiarPipesLeaderboard()
+    {
+        Debug.Log("getting pipe leaderboard");
+        getLeaderboard(5);
+    }
     public void GetWackyWiresLeaderboard()
     {
-        Debug.Log("getting leaderboard");
+        Debug.Log("getting wire leaderboard");
         getLeaderboard(7);
     }
 
