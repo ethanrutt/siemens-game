@@ -104,7 +104,6 @@ public class WireGenerator : MonoBehaviour
             }
             else
             {
-                // FIXME: setup backend call
                 levelStopwatch.Stop();
                 gameStopwatch.Stop();
                 gameOverManager.Setup(levelStopwatch.Elapsed, gameStopwatch.Elapsed);
