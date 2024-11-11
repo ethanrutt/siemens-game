@@ -35,4 +35,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Junkyard/Town_Square.unity
     guid: 15b3c3877972242a0a500dd1be6ed43a
+  - enabled: 1
+    path: Assets/Scenes/Test-Scenes/EmptyScene.unity
+    guid: 3cfbcc558fa21e6daabeefe9dccbd333
+  - enabled: 1
+    path: Assets/Scenes/Casino/Casino_Main.unity
+    guid: 82300e7448c1d4d1d991dd54ebdf1dff
   m_configObjects: {}

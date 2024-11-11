@@ -9,6 +9,8 @@ using UnityEngine;
 
 public class TutorialManager : MonoBehaviour
 {
+    // Playerdata
+    private PlayerData playerData => PlayerData.Instance;
     // The dialogue panel
     [SerializeField] private GameObject dialoguePanel;
 
@@ -220,6 +222,14 @@ public class TutorialManager : MonoBehaviour
         dialoguePanel.SetActive(false);
         finishTutorialPanel.SetActive(true);
         blackoutPanel.SetActive(true);
+
+        // Also, increment sensei of npc interactions
+        playerData.npc_interactions["sensei"] = 1;
+
+        // Change gameManager's 
+
+        // Unlock tutorial achievement (id = 0)
+        playerData.UnlockAchievement(0);
     }
     
 }

@@ -1,0 +1,13 @@
+fileFormatVersion: 2
+guid: b6bb7245d35631c5aab0906b00f238ff
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - wireEntry: {fileID: 1190209549493248770, guid: 27af46f6af2f96d479e42d2dd9f12bbb, type: 3}
+  - wirePlug: {fileID: 4723306803956187146, guid: 0111be7fe36a2e54391371507b906ecf, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
