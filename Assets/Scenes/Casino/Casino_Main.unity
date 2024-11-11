@@ -1678,6 +1678,7 @@ MonoBehaviour:
   GameOverScreen: {fileID: 850542320}
   horseWinnerText: {fileID: 1931770079}
   coinsLostOrGainedText: {fileID: 143378272}
+  lostGame: 0
 --- !u!1 &143378270
 GameObject:
   m_ObjectHideFlags: 0
@@ -27884,7 +27885,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   username: 
-  coins: 100
+  coins: 1231
   userId: 0
   interactable: none
   wire_puzzle_wins: 0

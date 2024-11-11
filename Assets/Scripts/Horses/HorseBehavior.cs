@@ -26,17 +26,17 @@ public class HorseBehavior : MonoBehaviour
 
     public float[] slowSpeeds =
     {
-        20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f, 42.5f, 45f, 47.5f, 50f
+        20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f
     };
 
     public float[] mediumSpeeds =
     {
-        55f, 60f, 65f, 70f, 75f, 80f, 85f, 90f, 95f, 100f, 105f, 110f, 115f
+        55f, 60f, 65f, 70f, 72.5f, 75f, 77.5f, 80f
     };
 
     public float[] fastSpeeds =
     {
-        120f, 130f, 140f, 150f, 160f, 170f, 180f, 190f, 200f, 210f, 220f, 230f, 240f
+        115f, 120f, 125f, 130f, 135f, 140f, 145f, 150f
     };
 
     // Grab the players neuroflux level. It goes up to 100 (think of percent, but its an integer)
@@ -67,19 +67,22 @@ public class HorseBehavior : MonoBehaviour
             int rand = Random.Range(0, 100);
 
             // Generate a random number that we will test with the neuroflux
-            int test = Random.Range(0, 100);
+            int test = Random.Range(15, 110);
+
+            neurofluxLevel = playerData.neuroflux_meter;
 
             // If test > neurofluxLevel, then we will return a random speed
             if (test > neurofluxLevel)
             {
-                // Return something from small or medium with a 50% chance of each
-                int random = Random.Range(0, 2);
+                // Return something from small or medium with a 75% chance of small
+                int random = Random.Range(0, 4);
                 if (random == 0)
                 {
+                    // Debug.Log("Speed Boost MED!");
                     return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
-                }
-                else
+                } else
                 {
+                    // Debug.Log("Speed Boost SLOW!");
                     return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
                 }
             }
@@ -87,18 +90,36 @@ public class HorseBehavior : MonoBehaviour
             {
                 // If the player is on neuroflux, they have a 50% chance of getting a speed boost
                 // If they do get a speed boost, we will return a random speed
-                return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
+                // fastspeed has a 33% chance of being chosen
+                int rand_2 = Random.Range(0, 3);
+                if (rand_2 == 0)
+                {
+                    return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
+                }
+                else
+                {
+                    // Return something from small or medium with a 25% chance of small
+                    int random = Random.Range(0, 4);
+                    if (random == 0)
+                    {
+                        return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
+                    }
+                    else
+                    {
+                        return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
+                    }
+                }
             }
         }
         else {
-            // If the player is not on neuroflux, they have a 33% chance of being slow, 33% chance of being medium, 33% chance of being fast
-            int random = Random.Range(0, 3);
+            // Make it really rigged against the player. Over 80% chance of being slow
+            int random = Random.Range(0, 10);
 
-            if (random == 0)
+            if (random < 8)
             {
                 return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
             }
-            else if (random == 1)
+            else if (random < 9)
             {
                 return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
             }
@@ -111,24 +132,22 @@ public class HorseBehavior : MonoBehaviour
 
     private float NonChosenHorseSpeed()
     {
-        // If this a horse the player has not chosen, 33% chance of being slow, 33% chance of being medium, 33% chance of being fast
-        int random = Random.Range(0, 3);
+        int random = Random.Range(0, 10);
 
-        if (random == 0)
+        if (random < 5)
         {
-            Debug.Log("slow speed");
             return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
         }
-        else if (random == 1)
+        else if (random >= 5 && random < 9)
         {
-            Debug.Log("medium speed");
             return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
         }
         else
         {
-            Debug.Log("fast speed");
             return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
         }
+
+
     }
 
     void Start()
@@ -149,6 +168,18 @@ public class HorseBehavior : MonoBehaviour
     // Update to check if the horse has reached the finish line
     void Update()
     {
+
+        // change chosen horse
+        if (chosen_horse_ != playerData.chosen_horse)
+        {
+            chosen_horse_ = playerData.chosen_horse;
+        }
+
+        // change bet amount
+        if (betAmount != playerData.bet_amount)
+        {
+            betAmount = playerData.bet_amount;
+        }
         if (horseCrossedFinishLine)
         {
             return;
@@ -273,6 +304,8 @@ public class HorseBehavior : MonoBehaviour
         }
     }
 
+    public bool lostGame = false;
+
     public void EndGame(string winningHorse)
     {
         GameScreen.gameObject.SetActive(false);
@@ -281,12 +314,37 @@ public class HorseBehavior : MonoBehaviour
         if (winningHorse == chosen_horse_)
         {
             int coinsGained = 2 * betAmount;
+            lostGame = false;
             playerData.coins += coinsGained;
-            coinsLostOrGainedText.text = $"You gained {coinsGained} coins!";
+            coinsLostOrGainedText.text = $"You gained {coinsGained} coins!";//achid=13,14
+
+            // add coinsGained to playerData.casino_wins
+            playerData.casino_winnings += coinsGained;
+
+            if (playerData.casino_winnings >= 500 && !playerData.unlocked_achievements.Contains(13))
+            {
+                // unlock achievement 13
+                playerData.UnlockAchievement(13);
+            } else if (playerData.casino_winnings >= 1000 && !playerData.unlocked_achievements.Contains(14))
+            {
+                // unlock achievement 14
+                playerData.UnlockAchievement(14);
+            }
+            
         }
         else
         {
-            coinsLostOrGainedText.text = $"You lost {betAmount} coins!";
+            lostGame = true;
+            coinsLostOrGainedText.text = $"You lost {betAmount} coins!";//achid=12
+
+            // add betAmount to playerData.casino_losses
+            playerData.casino_losses += betAmount;
+
+            if (playerData.casino_losses >= 100 && !playerData.unlocked_achievements.Contains(12))
+            {
+                // unlock achievement 12
+                playerData.UnlockAchievement(12);
+            }
         }
 
         // reset horse positions
@@ -301,6 +359,32 @@ public class HorseBehavior : MonoBehaviour
         GameScreen.gameObject.SetActive(false);
         GameOverScreen.gameObject.SetActive(false);
         horseCrossedFinishLine = false;
+
+        // if the player has won, subtract only 15 from neuroflux
+        if (!lostGame)
+        {
+            if (playerData.neuroflux_meter < 15)
+            {
+                playerData.neuroflux_meter = 0;
+            }
+            else
+            {
+                playerData.neuroflux_meter -= 15;
+            }
+
+        }
+        else
+        {
+            // if the player has lost, subtract 25 from neuroflux
+            if (playerData.neuroflux_meter < 25)
+            {
+                playerData.neuroflux_meter = 0;
+            }
+            else
+            {
+                playerData.neuroflux_meter -= 25;
+            }
+        }
 
         // Unstop   
         playerMovement.UnstopPlayer();
