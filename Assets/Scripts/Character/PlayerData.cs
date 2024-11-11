@@ -9,6 +9,7 @@ public class PlayerData : MonoBehaviour
     // Storing information like the player's username, coins
     public string username;
     public int coins;
+    public int userId;
 
     public static PlayerData Instance;
     
