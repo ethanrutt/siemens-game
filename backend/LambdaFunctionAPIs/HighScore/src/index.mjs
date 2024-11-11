@@ -1,4 +1,6 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
+/* jslint ignore:end */
 
 const getScoreAndRank = async (client, userId, gameId, tableName) => {
     try {

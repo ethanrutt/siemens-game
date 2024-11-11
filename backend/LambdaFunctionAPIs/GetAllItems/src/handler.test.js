@@ -1,6 +1,5 @@
 import { jest } from '@jest/globals';
 import { handler } from '../src/index.mjs';
-import { getSecret, createDbClient } from '../../shared/utils.mjs';
 
 // Mock the utils.mjs functions
 jest.mock('../../shared/utils.mjs', () => {

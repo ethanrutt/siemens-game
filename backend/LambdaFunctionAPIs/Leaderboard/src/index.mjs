@@ -1,5 +1,6 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
-
+/* jslint ignore:end */
 // Function to get top scores for a given game_id
 const getTopScoresByGame = async (client, gameId, tableName = 'game_scores') => {
     try {

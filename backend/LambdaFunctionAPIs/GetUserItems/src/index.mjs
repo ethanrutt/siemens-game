@@ -1,4 +1,6 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
+/* jslint ignore:end */
 
 // Function to get user by employee_id
 const getUserByEmployeeId = async (client, employeeId) => {

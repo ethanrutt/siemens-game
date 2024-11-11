@@ -1,4 +1,6 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
+/* jslint ignore:end */
 
 const getAllItems = async (client) => {
     try {
@@ -11,9 +13,8 @@ const getAllItems = async (client) => {
     }
 };
 
-export const handler = async (event) => {
+export const handler = async () => {
     let client;
-
     try {
         const secret = await getSecret(secret_name);
         console.log("Secret Fetched");

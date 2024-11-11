@@ -1,5 +1,6 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
-
+/* jslint ignore:end */
 // Function to check if the user exists in the database
 const checkUserExists = async (client, userId) => {
     const result = await client.query('SELECT * FROM users WHERE user_id = $1', [userId]);

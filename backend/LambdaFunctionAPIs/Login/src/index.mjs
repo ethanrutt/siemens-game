@@ -1,4 +1,6 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
+/* jslint ignore:end */
 
 const validateLoginCredentials = async (client, user_name, user_password) => {
     const query = 'SELECT * FROM users WHERE user_name = $1 AND user_password = $2';

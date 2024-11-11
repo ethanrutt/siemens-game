@@ -1,4 +1,6 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
+/* jslint ignore:end */
 
 // Function to update the items based on the action (equip/unequip)
 const updateItems = async (client, employeeId, items, action) => {
