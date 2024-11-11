@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class HorseBehavior : MonoBehaviour
 {
     // Grab all HorseObjects (they're Unity UI Images)
     [SerializeField] private GameObject[] horseObjects;
+
+    private Vector2[] horseStartPositions;
 
     // Grab the PlayerData
     private PlayerData playerData => PlayerData.Instance;
@@ -13,50 +17,37 @@ public class HorseBehavior : MonoBehaviour
     // Grab the flags gameObjects
     [SerializeField] private GameObject[] flags;
 
-    // Have a set of speeds for the horses (first, slow speeds)
+    [SerializeField] private TMP_Text horseInLead;
+
     public float[] slowSpeeds =
     {
         20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f, 42.5f, 45f, 47.5f, 50f
     };
 
-    // Have a set of speeds for the horses (second, medium speeds)
     public float[] mediumSpeeds =
     {
         55f, 60f, 65f, 70f, 75f, 80f, 85f, 90f, 95f, 100f, 105f, 110f, 115f
     };
 
-    // Have a set of speeds for the horses (third, fast speeds)
     public float[] fastSpeeds =
     {
         120f, 130f, 140f, 150f, 160f, 170f, 180f, 190f, 200f, 210f, 220f, 230f, 240f
     };
-
-    // Reach Finish Line function (stop the horses)
-    // The Flag GameObject has it's own position
-    // public void ReachFinishLine()
-    // {
-    //     // Stop all horses
-    //     // change this to just stop the horses transform.position in the array
-    //     foreach (GameObject horse in horseObjects)
-    //     {
-    //         horse.GetComponent<HorseBehavior>().enabled = false;
-    //     }
-
-    //     // Stop all flags
-    //     foreach (GameObject flag in flags)
-    //     {
-    //         flag.GetComponent<FlagBehavior>().enabled = false;
-    //     }
-    // }
 
     // Grab the players neuroflux level. It goes up to 100 (think of percent, but its an integer)
     private int neurofluxLevel;
 
     // Grab the player's chosen horse
     private string chosen_horse_; // if it's "blackhoof", "chromeblitz", "robotrotter", "nanomane", "thunderbyte"
-    // blackhoof is the 0th index, chromeblitz is the 1st index, etc.
-    
+    private int betAmount;
 
+    private bool horseCrossedFinishLine;
+
+    [SerializeField] Canvas GameScreen;
+    [SerializeField] Canvas GameOverScreen;
+    [SerializeField] TMP_Text horseWinnerText;
+    [SerializeField] TMP_Text coinsLostOrGainedText;
+    
     // RandomSpeed function
     private float RandomSpeed()
     {
@@ -132,13 +123,101 @@ public class HorseBehavior : MonoBehaviour
         }
     }
 
-    // Start
     void Start()
     {
         neurofluxLevel = playerData.neuroflux_meter;
         chosen_horse_ = playerData.chosen_horse;
-        // Set the speed of the horse
-        // Remember, the horse is a Unity UI Image
+        betAmount = playerData.bet_amount;
+        horseCrossedFinishLine = false;
+
+        horseStartPositions = new Vector2[horseObjects.Length];
+
+        for (int i = 0; i < horseObjects.Length; i++)
+        {
+            horseStartPositions[i] = horseObjects[i].GetComponent<RectTransform>().anchoredPosition;
+        }
+    }
+
+    // Update to check if the horse has reached the finish line
+    void Update()
+    {
+        if (horseCrossedFinishLine)
+        {
+            return;
+        }
+
+        // Check if the horse has reached the finish line
+        for (int i = 0; i < horseObjects.Length; i++)
+        {
+            if (horseObjects[i].transform.position.x >= flags[i].transform.position.x)
+            {
+                horseCrossedFinishLine = true;
+
+                string winningHorse = "";
+                switch (i)
+                {
+                    case 0:
+                        winningHorse = "Blackhoof";
+                        break;
+                    case 1:
+                        winningHorse = "Chromeblitz";
+                        break;
+                    case 2:
+                        winningHorse = "Robotrotter";
+                        break;
+                    case 3:
+                        winningHorse = "Nanomane";
+                        break;
+                    case 4:
+                        winningHorse = "Thunderbyte";
+                        break;
+                }
+
+                EndGame(winningHorse);
+            }
+        }
+
+        if (!horseCrossedFinishLine)
+        {
+            MoveHorses();
+            UpdateLeadHorse();
+        }
+    }
+
+    public void UpdateLeadHorse()
+    {
+        int horseInLeadIdx = 0;
+        for (int i = 0; i < horseObjects.Length; i++)
+        {
+            if (horseObjects[i].transform.position.x > horseObjects[horseInLeadIdx].transform.position.x)
+            {
+                horseInLeadIdx = i;
+            }
+        }
+
+        switch (horseInLeadIdx)
+        {
+            case 0:
+                horseInLead.text = "Blackhoof is in the lead!";
+                break;
+            case 1:
+                horseInLead.text = "Chromeblitz is in the lead!";
+                break;
+            case 2:
+                horseInLead.text = "Robotrotter is in the lead!";
+                break;
+            case 3:
+                horseInLead.text = "Nanomane is in the lead!";
+                break;
+            case 4:
+                horseInLead.text = "Thunderbyte is in the lead!";
+                break;
+        }
+    }
+
+    public void MoveHorses()
+    {
+        Debug.Log("moving horses");
         if (chosen_horse_ == "blackhoof")
         {
             horseObjects[0].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
@@ -186,46 +265,33 @@ public class HorseBehavior : MonoBehaviour
         }
     }
 
-    // Update to check if the horse has reached the finish line
-    void Update()
+    public void EndGame(string winningHorse)
     {
-        // Check if the horse has reached the finish line
-        // Go through all horses and check if their position matches the flag's position
-        // then stop their movement
+        GameScreen.gameObject.SetActive(false);
+        GameOverScreen.gameObject.SetActive(true);
+        horseWinnerText.text = $"{winningHorse} has won!";
+        if (winningHorse == chosen_horse_)
+        {
+            int coinsGained = 2 * betAmount;
+            playerData.coins += coinsGained;
+            coinsLostOrGainedText.text = $"You gained {coinsGained} coins!";
+        }
+        else
+        {
+            coinsLostOrGainedText.text = $"You lost {betAmount} coins!";
+        }
 
-        // Check if the horse has reached the finish line
+        // reset horse positions
         for (int i = 0; i < horseObjects.Length; i++)
         {
-            if (horseObjects[i].transform.position.x >= flags[i].transform.position.x)
-            {
-                // Stop the horse
-                // Change the transofrm position +=
-                horseObjects[i].GetComponent<HorseBehavior>().enabled = false;
-            }
+            horseObjects[i].GetComponent<RectTransform>().anchoredPosition = horseStartPositions[i];
         }
     }
 
-    // Start is called before the first frame update
-
-    // private System.Random rand = new System.Random();
-
-    // public float[] speeds = {55f, 66f, 77f, 88f, 99f, 110f, 121f, 132f, 143f, 154f, 165f, 176f, 187f, 198f};
-
-    // // 
-
-    // public float neurofluxLevel = 0;
-
-    // public Vector3 direction = Vector3.right;
-
-    // // Start is called before the first frame update
-    // void Start()
-    // {
-
-    // }
-
-    // // Update is called once per frame
-    // void Update()
-    // {
-    //     transform.position += direction.normalized * speeds[rand.Next(speeds.Length)] * (1 + neurofluxLevel * rand.Next(2)) * Time.deltaTime;
-    // }
+    public void ExitButton()
+    {
+        GameScreen.gameObject.SetActive(false);
+        GameOverScreen.gameObject.SetActive(false);
+        horseCrossedFinishLine = false;
+    }
 }
