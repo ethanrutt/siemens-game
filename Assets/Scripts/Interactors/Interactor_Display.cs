@@ -51,6 +51,9 @@ public class Interactor_Display : MonoBehaviour
     // and is on DialogueManager object
     [SerializeField] private DialogueManager_TS dialogueManager;
 
+    // Now the dialoguemanager for casino
+    [SerializeField] private DialogueManager_Casino dialogueManagerCasino;
+
     // GameManager
     public GameManager gameManager => GameManager.Instance;
 
@@ -165,9 +168,12 @@ public class Interactor_Display : MonoBehaviour
             // Debug.Log("Enter Casino"); //0.36,-9.37
             gameManager.ChangePlayerSpawnPosition(new Vector2(0.36f, -9.37f));
             SceneManager.LoadScene("Casino_Main");
-        } else if (interactable == "enterwackywires")
+        } else if (interactable == "casinoowner")
         {
             //none
+            // Make sure to call the dialogueManagerCasino.TalkToCasinoOwner() function
+            // to talk to the casino owner
+            dialogueManagerCasino.CasinoOwnerSpeak();
         }
          else {
             // Debug.Log("No Interactable");
