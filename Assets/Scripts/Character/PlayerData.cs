@@ -28,6 +28,10 @@ public class PlayerData : MonoBehaviour
 
     // Movement speed
     public float movement_speed = 5.0f;
+
+    // Storing the player's chosen horse
+    public string chosen_horse = ""; // can be "blackhoof", "chromeblitz", "robotrotter", "nanomane", "thunderbyte"
+    public int bet_amount = 0; // The amount the player is betting on
     
     // Storing neuroflux meter
     public int neuroflux_meter = 0; // Can go max 100
