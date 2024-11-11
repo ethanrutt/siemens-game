@@ -7,10 +7,18 @@ jest.mock('../../shared/utils.mjs', () => ({
   createDbClient: jest.fn(() => ({
     connect: jest.fn(),
     query: jest.fn((query, values) => {
-      // Mock database responses
+      // Mock database responses based on the updated user data
       if (query.includes('SELECT items_owned')) {
-        if (values[0] === 'emp_001') return { rows: [{ items_owned: [1, 2, 3], items_equipped: [] }] };
+        if (values[0] === 'emp_001') return { rows: [{ items_owned: [200, 100], items_equipped: [] }] };
         if (values[0] === 'emp_003') return { rows: [{ items_owned: [], items_equipped: [] }] };
+        if (values[0] === '681278') return { rows: [{ items_owned: [], items_equipped: [] }] };
+        return { rows: [] };
+      }
+      if (query.includes('SELECT * FROM users WHERE employee_id')) {
+        if (values[0] === 'emp_001') return { rows: [{ employee_id: 'emp_001', current_coins: 900, total_coins: 1000 }] };
+        if (values[0] === 'emp_002') return { rows: [{ employee_id: 'emp_002', current_coins: 50, total_coins: 150 }] };
+        if (values[0] === 'emp_003') return { rows: [{ employee_id: 'emp_003', current_coins: 0, total_coins: 0 }] };
+        if (values[0] === '681278') return { rows: [{ employee_id: '681278', current_coins: 1, total_coins: 1 }] };
         return { rows: [] };
       }
       return { rows: [] };
@@ -23,7 +31,7 @@ jest.mock('../../shared/utils.mjs', () => ({
 const mockEventValid = {
   body: JSON.stringify({
     action: 'equip',
-    items: [1, 2], // Items that the user owns
+    items: [200, 100], // Items that the user owns
     employee_id: 'emp_001', // Valid employee_id with owned items
   }),
 };
@@ -31,7 +39,7 @@ const mockEventValid = {
 const mockEventInvalid = {
   body: JSON.stringify({
     action: 'equip',
-    items: [5], // Item not owned by the user
+    items: [300], // Item not owned by the user
     employee_id: 'emp_003', // Valid employee_id but with no owned items
   }),
 };
@@ -39,27 +47,27 @@ const mockEventInvalid = {
 const mockEventNonExistent = {
   body: JSON.stringify({
     action: 'equip',
-    items: [1], // Any item
+    items: [100], // Any item
     employee_id: 'non_existent_emp', // Non-existent employee_id
   }),
 };
 
 describe('Equip Handler Tests', () => {
-  it('should successfully equip items', async () => {
+  it('should successfully equip items for a user with valid items', async () => {
     const response = await handler(mockEventValid);
     expect(response.statusCode).toBe(200);
     const responseBody = JSON.parse(response.body);
     expect(responseBody.message).toContain('Successfully equipped');
   });
 
-  it('should throw an error for an invalid employee_id', async () => {
+  it('should throw an error for a non-existent employee_id', async () => {
     const response = await handler(mockEventNonExistent);
     expect(response.statusCode).toBe(400);
     const responseBody = JSON.parse(response.body);
     expect(responseBody.error).toBe('User not found with the specified employee_id.');
   });
 
-  it('should throw an error if the user does not own the items', async () => {
+  it('should throw an error if the user does not own the specified items', async () => {
     const response = await handler(mockEventInvalid);
     expect(response.statusCode).toBe(400);
     const responseBody = JSON.parse(response.body);

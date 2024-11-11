@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1730087926950" clover="3.2.0">
-  <project timestamp="1730087926950" name="All files">
+<coverage generated="1731300893534" clover="3.2.0">
+  <project timestamp="1731300893534" name="All files">
     <metrics statements="20" coveredstatements="16" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2" elements="24" coveredelements="19" complexity="0" loc="20" ncloc="20" packages="1" files="1" classes="1"/>
     <file name="index.mjs" path="/Users/naveed/Downloads/Capstone/siemens-game/backend/LambdaFunctionAPIs/GetAllItems/src/index.mjs">
       <metrics statements="20" coveredstatements="16" conditionals="2" coveredconditionals="1" methods="2" coveredmethods="2"/>

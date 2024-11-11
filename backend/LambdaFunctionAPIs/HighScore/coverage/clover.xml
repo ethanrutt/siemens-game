@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1730089836551" clover="3.2.0">
-  <project timestamp="1730089836551" name="All files">
-    <metrics statements="35" coveredstatements="31" conditionals="14" coveredconditionals="12" methods="2" coveredmethods="2" elements="51" coveredelements="45" complexity="0" loc="35" ncloc="35" packages="1" files="1" classes="1"/>
+<coverage generated="1731303737625" clover="3.2.0">
+  <project timestamp="1731303737625" name="All files">
+    <metrics statements="35" coveredstatements="31" conditionals="15" coveredconditionals="12" methods="2" coveredmethods="2" elements="52" coveredelements="45" complexity="0" loc="35" ncloc="35" packages="1" files="1" classes="1"/>
     <file name="index.mjs" path="/Users/naveed/Downloads/Capstone/siemens-game/backend/LambdaFunctionAPIs/HighScore/src/index.mjs">
-      <metrics statements="35" coveredstatements="31" conditionals="14" coveredconditionals="12" methods="2" coveredmethods="2"/>
+      <metrics statements="35" coveredstatements="31" conditionals="15" coveredconditionals="12" methods="2" coveredmethods="2"/>
       <line num="3" count="1" type="stmt"/>
       <line num="4" count="2" type="stmt"/>
       <line num="7" count="2" type="cond" truecount="4" falsecount="0"/>
@@ -20,7 +20,7 @@
       <line num="29" count="2" type="stmt"/>
       <line num="31" count="0" type="stmt"/>
       <line num="32" count="0" type="stmt"/>
-      <line num="36" count="1" type="stmt"/>
+      <line num="36" count="1" type="cond" truecount="0" falsecount="1"/>
       <line num="39" count="3" type="stmt"/>
       <line num="40" count="3" type="cond" truecount="1" falsecount="1"/>
       <line num="41" count="0" type="stmt"/>
