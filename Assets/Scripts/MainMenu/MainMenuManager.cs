@@ -4,6 +4,25 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+[System.Serializable]
+public class UserData
+{
+    public int user_id;
+    public string user_name;
+    public string employee_id;
+    public int current_coins;
+    public int total_coins;
+    public List<int> items_owned;
+    public List<int> items_equipped;
+}
+
+[System.Serializable]
+public class LoginResponse
+{
+    public string message;
+    public UserData user;
+}
+
 // Rishi Santhanam
 // Main menu manager script will be responsible for the functions that the
 // buttons on the main menu are assigned to. It will cause certain modals to
@@ -109,6 +128,21 @@ public class MainMenuManager : MonoBehaviour
         blackOutModal.SetActive(true);
     }
 
+    public void CollectLoginInput()
+    {
+        string username = loginUsername.text;
+        string password = loginPassword.text;
+
+        SendLoginRequest(username, password);
+    }
+
+    public void SetupErrorScreen(string errorMessage)
+    {
+        errorScreen.SetActive(true);
+        errorMessage.text = errorMessage;
+    }
+
+
     public void CollectCreateAccountInput()
     {
         string employeeId = createAccountEmployeeId.text;
@@ -118,32 +152,56 @@ public class MainMenuManager : MonoBehaviour
         SendCreateAccountRequest(employeeId, username, password);
     }
 
+    public void SendLoginRequest(string username, string password)
+    {
+        Debug.Log($"sending request to login for {username} {password}");
+
+        string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/Login";
+        string jsonData = System.String.Format(@"{{
+            ""user_name"": ""{0}"",
+            ""user_password"": ""{1}""
+        }}", username, password);
+
+        WebRequestUtility.SendWebRequest(this, url, jsonData, (string response) =>
+        {
+            LoginResponse data = JsonUtility.FromJson<LoginResponse>(response);
+            playerData.username = data.user.user_name;
+            playerData.userId = data.user.user_id;
+            playerData.coins = data.user.current_coins;
+            playerData.unlocked_items = data.user.items_owned;
+            playerData.equipped_items = data.user.items_equipped;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
+        });
+    }
+
     public void SendCreateAccountRequest(string employeeId, string username, string password)
     {
         Debug.Log($"sending request to create account for {employeeId} {username} {password}");
 
         string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/Login";
         string jsonData = System.String.Format(@"{{
-            ""user_name"": {0},
-            ""user_password"": {1},
+            ""user_name"": ""{0}"",
+            ""user_password"": ""{1}"",
             ""employee_id"": {2}
         }}", username, password, employeeId);
 
         WebRequestUtility.SendWebRequest(this, url, jsonData, (string response) =>
         {
-            Debug.Log(response);
+            LoginResponse data = JsonUtility.FromJson<LoginResponse>(response);
+            playerData.username = data.user.user_name;
+            playerData.userId = data.user.user_id;
+            playerData.coins = data.user.current_coins;
+            playerData.unlocked_items = data.user.items_owned;
+            playerData.equipped_items = data.user.items_equipped;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
         });
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        isLoginSuccessful = false;
         createAccountButton.onClick.AddListener(CollectCreateAccountInput);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        loginButton.onClick.AddListener(CollectLoginInput);
     }
 }
