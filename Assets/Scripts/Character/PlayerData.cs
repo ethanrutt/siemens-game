@@ -29,6 +29,10 @@ public class PlayerData : MonoBehaviour
 
     // Movement speed
     public float movement_speed = 5.0f;
+
+    // Storing the player's chosen horse
+    public string chosen_horse = ""; // can be "blackhoof", "chromeblitz", "robotrotter", "nanomane", "thunderbyte"
+    public int bet_amount = 0; // The amount the player is betting on
     
     // Storing neuroflux meter
     public int neuroflux_meter = 0; // Can go max 100
@@ -56,11 +60,11 @@ public class PlayerData : MonoBehaviour
     [SerializeField] public Dictionary<string, int> npc_interactions = new Dictionary<string, int>()
     {
         {"deckmaster", 0},
-        {"casino_owner", 0},
+        {"casino_owner", 1},
         {"shopkeeper", 0},
         {"drunkard", 0},
         {"sensei", 0}, // just for debug
-        {"casinoenter", 0}
+        {"casinoenter", 1}
     };
 
     // Storing the current items the player has unlocked (list of item id's)
