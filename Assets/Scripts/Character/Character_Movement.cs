@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Character_Movement : MonoBehaviour
 {
 	[SerializeField] private float charSpeed = 4f;
@@ -19,9 +20,15 @@ public class Character_Movement : MonoBehaviour
 	private Animator child_ShoeAnimator;
 	private Animator child_HatAnimator;
 
+	// Grab the equipped items dictionary from PlayerData
+	// The PlayerData is a singleton
+	// PlayerData.Instance.equipped_items, PlayerData.Instance.original_load_items
+	private PlayerData playerData => PlayerData.Instance;
+	private List<int> equipped_items => playerData.equipped_items;
+	private List<int> original_load_items = new List<int>();
+
 	private Vector2 movementInputDirection;
 	private Vector2 lastMovementInputDirection;
-
 
 	private Dictionary<Vector2, string> playerMovingAnimations;
 	private Dictionary<Vector2, string> playerIdleAnimations;
@@ -38,8 +45,10 @@ public class Character_Movement : MonoBehaviour
 	private Dictionary<Vector2, string> shoeMovingAnimations;
 	private Dictionary<Vector2, string> shoeIdleAnimations;
 
-
 	private bool syncFlag = false;
+    private bool canMove = true; // New variable to control movement
+
+    private List<GameObject> interactiveButtons = new List<GameObject>();
 	private bool isResettingAnimations;
 	private bool isEmoting;
 
@@ -56,51 +65,304 @@ public class Character_Movement : MonoBehaviour
 
 		lastMovementInputDirection = Vector2.down;
 
-		SetChestSprite(cosmeticHandler.GetChestController(0));
-		SetLegSprite(cosmeticHandler.GetLegController(0));
-		SetShoeSprite(cosmeticHandler.GetShoeController(0));
-		SetHatSprite(cosmeticHandler.GetHatController(0));
+		if (playerData != null)
+		{
+			original_load_items = new List<int>(playerData.equipped_items);
+		}
+
+		// Sort the equipped_items and iterate through 100-499
+		// If the equipped_items contains a number in the 100s, 200s, 300s, 400s
+		// Set the hat, chest, leg, shoe sprites accordingly
+		if (equipped_items.Count != 0)
+		{
+			equipped_items.Sort();
+
+			for (int i = 0; i < equipped_items.Count; i++)
+			{
+				if (equipped_items[i] >= 100 && equipped_items[i] < 200)
+				{
+					SetHatSprite(cosmeticHandler.GetHatController(equipped_items[i] - 100));
+				}
+				if (equipped_items[i] >= 200 && equipped_items[i] < 300)
+				{
+					SetChestSprite(cosmeticHandler.GetChestController(equipped_items[i] - 200));
+				}
+				if (equipped_items[i] >= 300 && equipped_items[i] < 400)
+				{
+					SetLegSprite(cosmeticHandler.GetLegController(equipped_items[i] - 300));
+				}
+				if (equipped_items[i] >= 400 && equipped_items[i] < 500)
+				{
+					SetShoeSprite(cosmeticHandler.GetShoeController(equipped_items[i] - 400));
+				}
+			}
+		}
+	}
+
+	// Use the Start() method
+	private void Start()
+	{
+		if (GameManager.Instance != null)
+		{
+			transform.position = GameManager.Instance.playerSpawnPosition;
+		}
+	}
+
+	// Can't move function
+	public void StopPlayer()
+	{
+		// Stop the player from moving
+		canMove = false;
+
+		// Change movement input direction to zero
+		movementInputDirection = Vector2.zero;
+
+		// Update player animations
+		UpdateAnimator();
+	}
+
+	// Can move function
+	public void UnstopPlayer()
+	{
+		// Allow the player to move
+		canMove = true;
+	}
+
+	// A coroutine to stop the player from moving for a certain amount of time
+	public IEnumerator MoveAndStopForSeconds(int direction, float seconds)
+	{
+		// Set the movement input direction to the correct direction
+		switch (direction)
+		{
+			case 0:
+				movementInputDirection = Vector2.up;
+				break;
+			case 1:
+				movementInputDirection = Vector2.down;
+				break;
+			case 2:
+				movementInputDirection = Vector2.left;
+				break;
+			case 3:
+				movementInputDirection = Vector2.right;
+				break;
+			default:
+				Debug.LogError("Invalid movement direction.");
+				break;
+		}
+
+		// Wait for the seconds
+		yield return new WaitForSeconds(seconds);
+
+		// Stop the player from moving
+		movementInputDirection = Vector2.zero;
+		UpdateAnimator();
+	}
+	
+	// Moving Up (Joystick)
+	public void MoveUp()
+	{
+		// Essentially, Move Up and Stop
+		// Set the movement input direction to up
+		StartCoroutine(MoveAndStopForSeconds(0, 3.0f));
+	}
+
+	// Moving Down (Joystick)
+	public void MoveDown()
+	{
+		StartCoroutine(MoveAndStopForSeconds(1, 3.0f));
+	}
+
+	// Moving Left (Joystick)
+	public void MoveLeft()
+	{
+		StartCoroutine(MoveAndStopForSeconds(2, 3.0f));
+	}
+
+	// Moving Right (Joystick)
+	public void MoveRight()
+	{
+		StartCoroutine(MoveAndStopForSeconds(3, 3.0f));
+	}
+
+	// Stopping the player
+	public void StopMoving()
+	{
+		movementInputDirection = Vector2.zero;
+		HandleMovement(movementInputDirection);
+	}
+
+	// Coroutine to print the equipped items every 3 seconds
+	// private IEnumerator PrintEquippedEvery3Seconds()
+	// {
+	// 	// string that prints like [, , , ,]
+	// 	string equipped_items_string = "EQI: [";
+	// 	string original_load_items_string = "OLI: [";
+
+	// 	yield return new WaitForSeconds(3);
+		
+	// 	// Print the equipped items
+	// 	for (int i = 0; i < equipped_items.Count; i++)
+	// 	{
+	// 		equipped_items_string += equipped_items[i].ToString();
+	// 		if (i != equipped_items.Count - 1)
+	// 		{
+	// 			equipped_items_string += ", ";
+	// 		}
+	// 	}
+
+	// 	// Print the original load items
+	// 	for (int i = 0; i < original_load_items.Count; i++)
+	// 	{
+	// 		original_load_items_string += original_load_items[i].ToString();
+	// 		if (i != original_load_items.Count - 1)
+	// 		{
+	// 			original_load_items_string += ", ";
+	// 		}
+	// 	}
+
+	// 	equipped_items_string += "]";
+	// 	original_load_items_string += "]";
+
+	// 	Debug.Log(equipped_items_string);
+	// 	Debug.Log(original_load_items_string);
+	// }
+
+	// Check if lists are same content
+	private bool AreListsEqual(List<int> list1, List<int> list2)
+	{
+		if (list1.Count != list2.Count)
+		{
+			return false;
+		}
+
+		for (int i = 0; i < list1.Count; i++)
+		{
+			if (list1[i] != list2[i])
+			{
+				return false;
+			}
+		}
+
+		return true;
 	}
 
 	// Use update for animations
 	private void Update()
 	{
-		// Update the animator
-		movementInputDirection = GetInput();
-		UpdateAnimator();
-
-		if (Input.GetKeyDown(KeyCode.Space))
+		// First, check if the equipped items have changed
+		// If they have, update the player's equipped items
+		if (!AreListsEqual(original_load_items, equipped_items))
 		{
-			StopAllCoroutines();
-			isEmoting = false;
+			// Occurs
+			// Organize equippedItems by lowest to highest id
+			equipped_items.Sort();
 
-			SetChestSprite(cosmeticHandler.GetChestController(Random.Range(0, cosmeticHandler.ChestAnimControllerLenght())));
-			SetLegSprite(cosmeticHandler.GetLegController(Random.Range(0, cosmeticHandler.LegAnimControllerLenght())));
-			SetShoeSprite(cosmeticHandler.GetShoeController(Random.Range(0, cosmeticHandler.ShoeControllerLenght())));
-			SetHatSprite(cosmeticHandler.GetHatController(Random.Range(0, cosmeticHandler.HatAnimControllerLenght())));
+			// Check the count of equipped items
+			// and set accordingly for each of the 0, 1, 2, 3 elements
+			// For loop of equipped items
+			// If the equipped item is in the 100s, set the chest sprite, etc
+			for (int i = 0; i < equipped_items.Count; i++)
+			{
+				if (equipped_items[i] >= 100 && equipped_items[i] < 200)
+				{
+					if (equipped_items[i] == 199)
+					{
+						// Disable the hat sprite
+						child_HatAnimator.runtimeAnimatorController = null;
+					} else
+					{
+					child_HatAnimator.runtimeAnimatorController = transform.GetChild(3).GetComponent<Animator>().runtimeAnimatorController;
+					SetHatSprite(cosmeticHandler.GetHatController(equipped_items[i] - 100));
+					}
+				}
+				if (equipped_items[i] >= 200 && equipped_items[i] < 300)
+				{
+					if (equipped_items[i] == 299)
+					{
+						// Disable the chest sprite
+						child_ChestAnimator.runtimeAnimatorController = null;
+					} else
+					{
+					child_ChestAnimator.runtimeAnimatorController = transform.GetChild(0).GetComponent<Animator>().runtimeAnimatorController;
+					SetChestSprite(cosmeticHandler.GetChestController(equipped_items[i] - 200));
+					}
+				}
+				if (equipped_items[i] >= 300 && equipped_items[i] < 400)
+				{
+					if (equipped_items[i] == 399)
+					{
+						// Disable the leg sprite
+						child_LegAnimator.runtimeAnimatorController = null;
+					} else
+					{
+					child_LegAnimator.runtimeAnimatorController = transform.GetChild(1).GetComponent<Animator>().runtimeAnimatorController;
+					SetLegSprite(cosmeticHandler.GetLegController(equipped_items[i] - 300));
+					}
+				}
+				if (equipped_items[i] >= 400 && equipped_items[i] < 500)
+				{
+					if (equipped_items[i] == 499)
+					{
+						// Disable the shoe sprite
+						child_ShoeAnimator.runtimeAnimatorController = null;
+					} else
+					{
+					child_ShoeAnimator.runtimeAnimatorController = transform.GetChild(2).GetComponent<Animator>().runtimeAnimatorController;
+					SetShoeSprite(cosmeticHandler.GetShoeController(equipped_items[i] - 400));
+					}
+				}
+			}
+
+			// Change the original_load_items to the equipped items
+			original_load_items = new List<int>(equipped_items);
 		}
 
-		if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
+		// Update the player's animations
+		if (canMove)
 		{
-			StopAllCoroutines();
-			PerformEmote(1);
+			UpdateAnimator();
 		}
-		if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
+	}
+
+	// Dance emote function
+	// Check the player's equipped items and set the dance emote
+	// If 500, headripper (3), 501, robotdance (2), 502, zenflip (1)
+	public void DanceEmote()
+	{
+		// Check the equipped items
+		// If the player has the headripper, robotdance, or zenflip
+		// Set the dance emote accordingly
+		if (equipped_items.Contains(500))
 		{
-			StopAllCoroutines();
+			PerformEmote(3);
+		}
+		else if (equipped_items.Contains(501))
+		{
 			PerformEmote(2);
 		}
-		if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
+		else if (equipped_items.Contains(502))
 		{
-			StopAllCoroutines();
-			PerformEmote(3);
+			PerformEmote(1);
 		}
 	}
 
 	private void FixedUpdate()
 	{
-		HandleMovement(movementInputDirection);
+		if(canMove)
+            HandleMovement(movementInputDirection);
+        else{
+            Vector2 movementInput = Vector2.zero;
+            HandleMovement(movementInput);
+            isEmoting = false;
+        }
 	}
+
+    // New method to toggle player movement
+    public void ToggleMovement()
+    {
+        canMove = !canMove; // Toggle the movement state
+    }
 
 	private void ChangeAnimationState(Animator animator, string newState, ref string currentState)
 	{
@@ -157,7 +419,11 @@ public class Character_Movement : MonoBehaviour
 		{
 			// Stops emoting
 
-			StopAllCoroutines();
+			// Stops CoRoutines iff emoting
+			if (isEmoting)
+			{
+				StopEmoting();
+			}
 			isEmoting = false;
 		}
 
