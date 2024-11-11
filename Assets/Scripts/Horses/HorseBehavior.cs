@@ -9,9 +9,6 @@ public class HorseBehavior : MonoBehaviour
     // Grab all HorseObjects (they're Unity UI Images)
     [SerializeField] private GameObject[] horseObjects;
 
-    // PlayerMovement
-    [SerializeField] private Character_Movement playerMovement;
-
     private Vector2[] horseStartPositions;
 
     // Grab the PlayerData
@@ -21,8 +18,6 @@ public class HorseBehavior : MonoBehaviour
     [SerializeField] private GameObject[] flags;
 
     [SerializeField] private TMP_Text horseInLead;
-
-    [SerializeField] private GameObject backModal;
 
     public float[] slowSpeeds =
     {
@@ -146,10 +141,6 @@ public class HorseBehavior : MonoBehaviour
     // Update to check if the horse has reached the finish line
     void Update()
     {
-        // Update chosen horses
-        chosen_horse_ = playerData.chosen_horse;
-        betAmount = playerData.bet_amount;
-        
         if (horseCrossedFinishLine)
         {
             return;
@@ -166,19 +157,19 @@ public class HorseBehavior : MonoBehaviour
                 switch (i)
                 {
                     case 0:
-                        winningHorse = "blackhoof";
+                        winningHorse = "Blackhoof";
                         break;
                     case 1:
-                        winningHorse = "chromeblitz";
+                        winningHorse = "Chromeblitz";
                         break;
                     case 2:
-                        winningHorse = "robotrotter";
+                        winningHorse = "Robotrotter";
                         break;
                     case 3:
-                        winningHorse = "nanomane";
+                        winningHorse = "Nanomane";
                         break;
                     case 4:
-                        winningHorse = "thunderbyte";
+                        winningHorse = "Thunderbyte";
                         break;
                 }
 
@@ -301,12 +292,6 @@ public class HorseBehavior : MonoBehaviour
     {
         GameScreen.gameObject.SetActive(false);
         GameOverScreen.gameObject.SetActive(false);
-        // set modalBack
-        backModal.SetActive(false);
-
-        // call unStopPlayer
-        playerMovement.UnstopPlayer();
-
         horseCrossedFinishLine = false;
     }
 }
