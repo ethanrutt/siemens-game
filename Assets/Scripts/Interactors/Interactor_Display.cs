@@ -174,6 +174,18 @@ public class Interactor_Display : MonoBehaviour
             // Make sure to call the dialogueManagerCasino.TalkToCasinoOwner() function
             // to talk to the casino owner
             dialogueManagerCasino.CasinoOwnerSpeak();
+        } else if (interactable == "pipegame")
+        {
+            // Debug.Log("Pipe Game Interact");
+            // Save the current player vector to gamemanager
+            gameManager.ChangePlayerSpawnPosition(player.transform.position);
+            SceneManager.LoadScene("PipeGame");
+        } else if (interactable == "wiregame")
+        {
+            // Debug.Log("Wire Game Interact");
+            // Save the current player vector to gamemanager
+            gameManager.ChangePlayerSpawnPosition(player.transform.position);
+            SceneManager.LoadScene("WireGame");
         }
          else {
             // Debug.Log("No Interactable");
