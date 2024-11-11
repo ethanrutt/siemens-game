@@ -14,6 +14,11 @@ public class HorseBehavior : MonoBehaviour
     // Grab the PlayerData
     private PlayerData playerData => PlayerData.Instance;
 
+    // Grab playerMomvent
+    [SerializeField] private Character_Movement playerMovement;
+    //Modal back
+    [SerializeField] private GameObject modalBack;
+
     // Grab the flags gameObjects
     [SerializeField] private GameObject[] flags;
 
@@ -111,14 +116,17 @@ public class HorseBehavior : MonoBehaviour
 
         if (random == 0)
         {
+            Debug.Log("slow speed");
             return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
         }
         else if (random == 1)
         {
+            Debug.Log("medium speed");
             return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
         }
         else
         {
+            Debug.Log("fast speed");
             return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
         }
     }
@@ -157,19 +165,19 @@ public class HorseBehavior : MonoBehaviour
                 switch (i)
                 {
                     case 0:
-                        winningHorse = "Blackhoof";
+                        winningHorse = "blackhoof";
                         break;
                     case 1:
-                        winningHorse = "Chromeblitz";
+                        winningHorse = "chromeblitz";
                         break;
                     case 2:
-                        winningHorse = "Robotrotter";
+                        winningHorse = "robotrotter";
                         break;
                     case 3:
-                        winningHorse = "Nanomane";
+                        winningHorse = "nanomane";
                         break;
                     case 4:
-                        winningHorse = "Thunderbyte";
+                        winningHorse = "thunderbyte";
                         break;
                 }
 
@@ -201,13 +209,13 @@ public class HorseBehavior : MonoBehaviour
                 horseInLead.text = "Blackhoof is in the lead!";
                 break;
             case 1:
-                horseInLead.text = "Chromeblitz is in the lead!";
+                horseInLead.text = "Chrome Blitz is in the lead!";
                 break;
             case 2:
                 horseInLead.text = "Robotrotter is in the lead!";
                 break;
             case 3:
-                horseInLead.text = "Nanomane is in the lead!";
+                horseInLead.text = "Nano Mane is in the lead!";
                 break;
             case 4:
                 horseInLead.text = "Thunderbyte is in the lead!";
@@ -293,5 +301,9 @@ public class HorseBehavior : MonoBehaviour
         GameScreen.gameObject.SetActive(false);
         GameOverScreen.gameObject.SetActive(false);
         horseCrossedFinishLine = false;
+
+        // Unstop   
+        playerMovement.UnstopPlayer();
+        modalBack.SetActive(false);
     }
 }
