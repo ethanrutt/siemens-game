@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 // Rishi Santhanam
 // Main menu manager script will be responsible for the functions that the
@@ -21,6 +23,16 @@ public class MainMenuManager : MonoBehaviour
     // Serialize the settings and credits panels
     [SerializeField] private GameObject settingsPanel;
     [SerializeField] private GameObject creditsPanel;
+
+    [SerializeField] private TMP_InputField createAccountEmployeeId;
+    [SerializeField] private TMP_InputField createAccountUsername;
+    [SerializeField] private TMP_InputField createAccountPassword;
+
+    [SerializeField] private TMP_InputField loginUsername;
+    [SerializeField] private TMP_InputField loginPassword;
+
+    [SerializeField] private Button createAccountButton;
+    [SerializeField] private Button loginButton;
 
     // For beta testing, without logging in you will go to starting cutscene
     public void PlayGame()
@@ -97,10 +109,36 @@ public class MainMenuManager : MonoBehaviour
         blackOutModal.SetActive(true);
     }
 
+    public void CollectCreateAccountInput()
+    {
+        string employeeId = createAccountEmployeeId.text;
+        string username = createAccountUsername.text;
+        string password = createAccountPassword.text;
+
+        SendCreateAccountRequest(employeeId, username, password);
+    }
+
+    public void SendCreateAccountRequest(string employeeId, string username, string password)
+    {
+        Debug.Log($"sending request to create account for {employeeId} {username} {password}");
+
+        string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/Login";
+        string jsonData = System.String.Format(@"{{
+            ""user_name"": {0},
+            ""user_password"": {1},
+            ""employee_id"": {2}
+        }}", username, password, employeeId);
+
+        WebRequestUtility.SendWebRequest(this, url, jsonData, (string response) =>
+        {
+            Debug.Log(response);
+        });
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        createAccountButton.onClick.AddListener(CollectCreateAccountInput);
     }
 
     // Update is called once per frame
