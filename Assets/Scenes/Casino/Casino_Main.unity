@@ -1524,7 +1524,6 @@ GameObject:
   - component: {fileID: 124275557}
   - component: {fileID: 124275559}
   - component: {fileID: 124275558}
-  - component: {fileID: 124275560}
   m_Layer: 5
   m_Name: Horse-1
   m_TagString: Untagged
@@ -1589,35 +1588,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 124275556}
   m_CullTransparentMesh: 1
---- !u!114 &124275560
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124275556}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320cb8874af74c0468a3ba51b176b294, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speeds:
-  - 55
-  - 66
-  - 77
-  - 88
-  - 99
-  - 110
-  - 121
-  - 132
-  - 143
-  - 154
-  - 165
-  - 176
-  - 187
-  - 198
-  neurofluxLevel: 0
-  direction: {x: 1, y: 0, z: 0}
 --- !u!1 &131710523
 GameObject:
   m_ObjectHideFlags: 0
@@ -1764,6 +1734,66 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 131710523}
   m_CullTransparentMesh: 1
+--- !u!1 &134328934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 134328935}
+  - component: {fileID: 134328936}
+  m_Layer: 5
+  m_Name: GameManager-Horses
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &134328935
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134328934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 443421985}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &134328936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 134328934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 320cb8874af74c0468a3ba51b176b294, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horseObjects:
+  - {fileID: 124275556}
+  - {fileID: 1254838053}
+  - {fileID: 1151581236}
+  - {fileID: 1839228387}
+  - {fileID: 1085385707}
+  flags:
+  - {fileID: 1503532701}
+  - {fileID: 1408223860}
+  - {fileID: 701902524}
+  - {fileID: 2004802931}
+  - {fileID: 500364585}
 --- !u!1 &162860211
 GameObject:
   m_ObjectHideFlags: 0
@@ -5483,7 +5513,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &443421982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5561,6 +5591,7 @@ RectTransform:
   m_Children:
   - {fileID: 548415839}
   - {fileID: 814934543}
+  - {fileID: 134328935}
   m_Father: {fileID: 809646721}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -21445,7 +21476,6 @@ GameObject:
   - component: {fileID: 1254838054}
   - component: {fileID: 1254838056}
   - component: {fileID: 1254838055}
-  - component: {fileID: 1254838057}
   m_Layer: 5
   m_Name: Horse-2
   m_TagString: Untagged
@@ -21510,35 +21540,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1254838053}
   m_CullTransparentMesh: 1
---- !u!114 &1254838057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1254838053}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 320cb8874af74c0468a3ba51b176b294, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speeds:
-  - 55
-  - 66
-  - 77
-  - 88
-  - 99
-  - 110
-  - 121
-  - 132
-  - 143
-  - 154
-  - 165
-  - 176
-  - 187
-  - 198
-  neurofluxLevel: 0.1
-  direction: {x: 1, y: 0, z: 0}
 --- !u!1 &1256075482
 GameObject:
   m_ObjectHideFlags: 0
