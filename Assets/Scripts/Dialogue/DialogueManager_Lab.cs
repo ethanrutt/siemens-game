@@ -2,10 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// This is the DialogueManager for the TownSquare
-// It will store the dialogues for the two NPCs, the Shopowner
-// and the Drunk guy on the building
-public class DialogueManager_Casino : MonoBehaviour
+// This is the DialogueManager for the Lab
+public class DialogueManager_Lab : MonoBehaviour
 {
     // PlayerData
     private PlayerData playerData => PlayerData.Instance;
@@ -39,9 +37,6 @@ public class DialogueManager_Casino : MonoBehaviour
     {
         casinoOwnerChoicePanel.SetActive(false);
         backModal.SetActive(false);
-
-        // Let player move
-        playerMovement.UnstopPlayer();
     }
 
     // Load in the dialoguePanel
@@ -256,9 +251,6 @@ public class DialogueManager_Casino : MonoBehaviour
         horsePanelChoose.SetActive(false);
         // Now turn off the backModal
         backModal.SetActive(false);
-
-        // Let player move
-        playerMovement.UnstopPlayer();
     }
 
     // Hate on the player for not buying flux
