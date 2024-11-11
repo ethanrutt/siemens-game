@@ -39,6 +39,9 @@ public class DialogueManager_Casino : MonoBehaviour
     {
         casinoOwnerChoicePanel.SetActive(false);
         backModal.SetActive(false);
+
+        // Let player move
+        playerMovement.UnstopPlayer();
     }
 
     // Load in the dialoguePanel
@@ -253,6 +256,9 @@ public class DialogueManager_Casino : MonoBehaviour
         horsePanelChoose.SetActive(false);
         // Now turn off the backModal
         backModal.SetActive(false);
+
+        // Let player move
+        playerMovement.UnstopPlayer();
     }
 
     // Hate on the player for not buying flux

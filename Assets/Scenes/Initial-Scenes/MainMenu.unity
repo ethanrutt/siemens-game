@@ -1196,6 +1196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   username: 
   coins: 0
+  userId: 0
   interactable: none
   wire_puzzle_wins: 0
   wire_puzzle_fullround: 0
@@ -1205,6 +1206,8 @@ MonoBehaviour:
   casino_losses: 0
   pipe_puzzle_wins: 0
   movement_speed: 5
+  chosen_horse: 
+  bet_amount: 0
   neuroflux_meter: 0
   item_ids: {fileID: 0}
   danceEmoteButton: {fileID: 0}
@@ -8745,6 +8748,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1012669532}
+  - {fileID: 1488151266}
   - {fileID: 603294401}
   - {fileID: 1183067869}
   - {fileID: 291661530}
@@ -8754,7 +8758,6 @@ RectTransform:
   - {fileID: 834667602}
   - {fileID: 1459340901}
   - {fileID: 351680258}
-  - {fileID: 1488151266}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

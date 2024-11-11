@@ -60,11 +60,11 @@ public class PlayerData : MonoBehaviour
     [SerializeField] public Dictionary<string, int> npc_interactions = new Dictionary<string, int>()
     {
         {"deckmaster", 0},
-        {"casino_owner", 1},
+        {"casino_owner", 0},
         {"shopkeeper", 0},
         {"drunkard", 0},
         {"sensei", 0}, // just for debug
-        {"casinoenter", 1}
+        {"casinoenter", 0}
     };
 
     // Storing the current items the player has unlocked (list of item id's)
@@ -166,29 +166,29 @@ public class PlayerData : MonoBehaviour
         // For just showing how everything works, add all items to unlocked_items
         // if someone pressed Y key
         // DEBUG:::
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            Debug.Log("Adding all items to unlocked items");
-            foreach (KeyValuePair<int, ItemIDs.Item> item in item_database)
-            {
-                if (!unlocked_items.Contains(item.Key))
-                {
-                    unlocked_items.Add(item.Key);
-                }
-            }
+        // if (Input.GetKeyDown(KeyCode.Y))
+        // {
+        //     Debug.Log("Adding all items to unlocked items");
+        //     foreach (KeyValuePair<int, ItemIDs.Item> item in item_database)
+        //     {
+        //         if (!unlocked_items.Contains(item.Key))
+        //         {
+        //             unlocked_items.Add(item.Key);
+        //         }
+        //     }
 
-            // Now call ItemIds FillAllInventoryButtons()
-            item_ids.FillInventoryButtons();
+        //     // Now call ItemIds FillAllInventoryButtons()
+        //     item_ids.FillInventoryButtons();
 
-            // Now, we want to make sure to unlock all achievements that aren't already unlocked
-            for (int i = 0; i < 19; i++)
-            {
-                if (!unlocked_achievements.Contains(i))
-                {
-                    unlocked_achievements.Add(i);
-                }
-            }
-        }
+        //     // Now, we want to make sure to unlock all achievements that aren't already unlocked
+        //     for (int i = 0; i < 19; i++)
+        //     {
+        //         if (!unlocked_achievements.Contains(i))
+        //         {
+        //             unlocked_achievements.Add(i);
+        //         }
+        //     }
+        // }
 
 
         // If any 0's in equipped_items, remove them
