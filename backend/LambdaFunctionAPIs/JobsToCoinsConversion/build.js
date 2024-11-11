@@ -14,7 +14,7 @@ const lambda = new AWS.Lambda({
 });
 
 // Lambda function name (replace this with your actual function name)
-const functionName = 'SeimensAPI';
+const functionName = 'JobsToCoins';
 
 // Build zip file
 const outputZipPath = path.join(__dirname, 'lambda_function.zip');

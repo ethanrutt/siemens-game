@@ -1,19 +1,18 @@
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 
 // Function to get top scores for a given game_id
-const getTopScoresByGame = async (client, gameId) => {
+const getTopScoresByGame = async (client, gameId, tableName = 'game_scores') => {
     try {
-        const sortOrder = gameId === 7 ? 'ASC' : 'DESC'; // Sort ascending for game_id 7
+        const sortOrder = (gameId === 7 || gameId === 5) ? 'ASC' : 'DESC'; // Sort ascending for game_id 7 or 5
 
         const query = `
-            SELECT users.user_name, game_scores.score
-            FROM game_scores
-            JOIN users ON game_scores.user_id = users.user_id
-            WHERE game_scores.game_id = $1
-            ORDER BY game_scores.score ${sortOrder}
+            SELECT users.user_name, ${tableName}.score
+            FROM ${tableName}
+            JOIN users ON ${tableName}.user_id = users.user_id
+            WHERE ${tableName}.game_id = $1
+            ORDER BY ${tableName}.score ${sortOrder}
             LIMIT 10
         `;
-
 
         const result = await client.query(query, [gameId]);
         return result.rows;
@@ -23,7 +22,7 @@ const getTopScoresByGame = async (client, gameId) => {
     }
 };
 
-export const handler = async (event) => {
+export const handler = async (event, tableName = 'game_scores') => {
     let client;
 
     try {
@@ -48,7 +47,7 @@ export const handler = async (event) => {
         console.log("Client connected to DB");
 
         // Fetch the top 10 scores for the provided game_id
-        const topScores = await getTopScoresByGame(client, game_id);
+        const topScores = await getTopScoresByGame(client, game_id, tableName);
 
         return {
             statusCode: 200,

@@ -14,7 +14,8 @@ const updateItems = async (client, employeeId, items, action) => {
         }
 
         let { items_owned, items_equipped } = result.rows[0];
-
+        console.log("Received items_owned: ", items_owned);
+        console.log("Requested items: ", items_equipped);
         // Ensure the user owns all the items
         const itemsNotOwned = items.filter(item => !items_owned.includes(item));
         if (itemsNotOwned.length > 0) {
