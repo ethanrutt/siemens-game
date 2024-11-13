@@ -1195,7 +1195,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   username: 
-  coins: 0
+  coins: 2500
   userId: 0
   interactable: none
   wire_puzzle_wins: 0
@@ -5283,10 +5283,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1964134213}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -0.011565}
-  m_SizeDelta: {x: 1920, y: 1031.7}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1012669533
 MonoBehaviour:
@@ -9213,7 +9213,6 @@ RectTransform:
   - {fileID: 1012669532}
   - {fileID: 1488151266}
   - {fileID: 603294401}
-  - {fileID: 1488151266}
   - {fileID: 1183067869}
   - {fileID: 291661530}
   - {fileID: 759839283}
@@ -9222,6 +9221,7 @@ RectTransform:
   - {fileID: 834667602}
   - {fileID: 1459340901}
   - {fileID: 351680258}
+  - {fileID: 1421329038}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

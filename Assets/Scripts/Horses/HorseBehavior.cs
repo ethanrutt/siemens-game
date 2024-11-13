@@ -67,7 +67,7 @@ public class HorseBehavior : MonoBehaviour
             int rand = Random.Range(0, 100);
 
             // Generate a random number that we will test with the neuroflux
-            int test = Random.Range(15, 110);
+            int test = Random.Range(5, 95);
 
             neurofluxLevel = playerData.neuroflux_meter;
 
@@ -75,8 +75,12 @@ public class HorseBehavior : MonoBehaviour
             if (test > neurofluxLevel)
             {
                 // Return something from small or medium with a 75% chance of small
-                int random = Random.Range(0, 4);
+                int random = Random.Range(0, 6);
                 if (random == 0)
+                {
+                    // Debug.Log("Speed Boost MED!");
+                    return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
+                } else if (random <= 3)
                 {
                     // Debug.Log("Speed Boost MED!");
                     return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
