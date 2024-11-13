@@ -29,9 +29,20 @@ public class HorseBehavior : MonoBehaviour
         20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f
     };
 
+    public float[] slowMediumSpeeds =
+    {
+        20f, 25f, 30f, 32.5f, 35f, 37.5f, 40f, 42.5f, 45f, 47.5f, 50f
+    };
+
     public float[] mediumSpeeds =
     {
-        55f, 60f, 65f, 70f, 72.5f, 75f, 77.5f, 80f
+        45f, 46.25f, 47f, 50f, 55.5f, 60f, 62.5f
+    };
+
+    // slightmedium
+    public float[] slightMediumSpeeds =
+    {
+        37.5f, 35f, 25f, 55.5f, 50f, 46.25f, 43f, 42.5f, 100f, 30f, 34.5f
     };
 
     public float[] fastSpeeds =
@@ -54,84 +65,39 @@ public class HorseBehavior : MonoBehaviour
     [SerializeField] TMP_Text coinsLostOrGainedText;
     
     // RandomSpeed function
-    private float RandomSpeed()
+    private float RandomSpeed(bool isChosen)
     {
-        // Check if the player is on neuroflux
-        bool isFluxed = neurofluxLevel > 0;
+        int baseChance;
+        float[] speedArray = slowSpeeds;
 
-        // If the player has 25 neuroflux, they have a 25% chance of getting a speed boost
-        // If the player has 50 neuroflux, they have a 50% chance of getting a speed boost etc
-        if (isFluxed)
+        neurofluxLevel = playerData.neuroflux_meter;
+
+        if (isChosen)
         {
-            // Random number between 0 and 100
+            // Base chance for slow speeds
+            baseChance = Mathf.Clamp(70 - (neurofluxLevel / 2), 20, 70); // Giving range from 20% to 70%, decreasing as neuroflux increases
+
             int rand = Random.Range(0, 100);
-
-            // Generate a random number that we will test with the neuroflux
-            int test = Random.Range(5, 95);
-
-            neurofluxLevel = playerData.neuroflux_meter;
-
-            // If test > neurofluxLevel, then we will return a random speed
-            if (test > neurofluxLevel)
+            if (rand < baseChance)
             {
-                // Return something from small or medium with a 75% chance of small
-                int random = Random.Range(0, 6);
-                if (random == 0)
-                {
-                    // Debug.Log("Speed Boost MED!");
-                    return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
-                } else if (random <= 3)
-                {
-                    // Debug.Log("Speed Boost MED!");
-                    return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
-                } else
-                {
-                    // Debug.Log("Speed Boost SLOW!");
-                    return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
-                }
+                speedArray = slowSpeeds;
+            }
+            else if (rand < baseChance + 10 + (neurofluxLevel / 10))  // Incremental chance for medium based on neuroflux
+            {
+                speedArray = slowMediumSpeeds;
             }
             else
             {
-                // If the player is on neuroflux, they have a 50% chance of getting a speed boost
-                // If they do get a speed boost, we will return a random speed
-                // fastspeed has a 33% chance of being chosen
-                int rand_2 = Random.Range(0, 3);
-                if (rand_2 == 0)
-                {
-                    return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
-                }
-                else
-                {
-                    // Return something from small or medium with a 25% chance of small
-                    int random = Random.Range(0, 4);
-                    if (random == 0)
-                    {
-                        return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
-                    }
-                    else
-                    {
-                        return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
-                    }
-                }
+                speedArray = slightMediumSpeeds;
             }
         }
-        else {
-            // Make it really rigged against the player. Over 80% chance of being slow
-            int random = Random.Range(0, 10);
+        else
+        {
+            int baseNonChosen = 50; // Non-chosen horses have a fixed lower chance for faster speeds
+            speedArray = Random.Range(0, 100) < baseNonChosen ? slowSpeeds : mediumSpeeds;
+        }
 
-            if (random < 8)
-            {
-                return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
-            }
-            else if (random < 9)
-            {
-                return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
-            }
-            else
-            {
-                return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
-            }
-        }
+        return speedArray[Random.Range(0, speedArray.Length)];
     }
 
     private float NonChosenHorseSpeed()
@@ -219,12 +185,6 @@ public class HorseBehavior : MonoBehaviour
                 EndGame(winningHorse);
             }
         }
-
-        if (!horseCrossedFinishLine)
-        {
-            MoveHorses();
-            UpdateLeadHorse();
-        }
     }
 
     public void UpdateLeadHorse()
@@ -258,55 +218,101 @@ public class HorseBehavior : MonoBehaviour
         }
     }
 
-    public void MoveHorses()
+    // MoveHorses new version where it constantly slides the transform until it needs to recall a random speed
+    // essentially, we're going to move the horses by a certain amount every frame
+    // until we hit a set number of frames, then get the new speed
+    // this means horses will move a set amount every single frame
+    // but until they reach a frame count, they won't get a new speed
+
+    private int frameCount = 0;
+    private void FixedUpdate()
     {
-        Debug.Log("moving horses");
-        if (chosen_horse_ == "blackhoof")
+        if (horseCrossedFinishLine) return;
+
+        frameCount++;
+        if (frameCount >= 30 / horseObjects.Length) // Each horse gets updated in round robin every second
         {
-            horseObjects[0].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-        }
-        else if (chosen_horse_ == "chromeblitz")
-        {
-            horseObjects[1].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-        }
-        else if (chosen_horse_ == "robotrotter")
-        {
-            horseObjects[2].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-        }
-        else if (chosen_horse_ == "nanomane")
-        {
-            horseObjects[3].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-        }
-        else if (chosen_horse_ == "thunderbyte")
-        {
-            horseObjects[4].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
+            MoveHorses();
+            UpdateLeadHorse();
+            frameCount = 0;
         }
     }
+
+    public void MoveHorses()
+    {
+        float deltaTime = Time.deltaTime * 30; // Adjusting for 30 frames per second
+
+        for (int i = 0; i < horseObjects.Length; i++)
+        {
+            bool isChosen = (GetHorseName(i) == chosen_horse_);
+            horseObjects[i].transform.position += Vector3.right * RandomSpeed(isChosen) * deltaTime;
+        }
+    }
+
+    private string GetHorseName(int index)
+    {
+        switch (index)
+        {
+            case 0: return "blackhoof";
+            case 1: return "chromeblitz";
+            case 2: return "robotrotter";
+            case 3: return "nanomane";
+            case 4: return "thunderbyte";
+            default: return "";
+        }
+    }
+
+    // public void MoveHorses()
+    // {
+    //     Debug.Log("moving horses");
+    //     float deltaTime = Time.deltaTime * 60; // Adjusting for 60 frames
+
+    //     if (chosen_horse_ == "blackhoof")
+    //     {
+    //         horseObjects[0].transform.position += Vector3.right * RandomSpeed() * deltaTime;
+    //         // Make the rest of them NonChosen
+    //         horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //     }
+    //     else if (chosen_horse_ == "chromeblitz")
+    //     {
+    //         horseObjects[1].transform.position += Vector3.right * RandomSpeed() * deltaTime;
+    //         // Make the rest of them NonChosen
+    //         horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //     }
+    //     else if (chosen_horse_ == "robotrotter")
+    //     {
+    //         horseObjects[2].transform.position += Vector3.right * RandomSpeed() * deltaTime;
+    //         // Make the rest of them NonChosen
+    //         horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //     }
+    //     else if (chosen_horse_ == "nanomane")
+    //     {
+    //         horseObjects[3].transform.position += Vector3.right * RandomSpeed() * deltaTime;
+    //         // Make the rest of them NonChosen
+    //         horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //     }
+    //     else if (chosen_horse_ == "thunderbyte")
+    //     {
+    //         horseObjects[4].transform.position += Vector3.right * RandomSpeed() * deltaTime;
+    //         // Make the rest of them NonChosen
+    //         horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //         horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
+    //     }
+    // }
 
     public bool lostGame = false;
 
@@ -367,26 +373,26 @@ public class HorseBehavior : MonoBehaviour
         // if the player has won, subtract only 15 from neuroflux
         if (!lostGame)
         {
-            if (playerData.neuroflux_meter < 15)
+            if (playerData.neuroflux_meter < 35)
             {
                 playerData.neuroflux_meter = 0;
             }
             else
             {
-                playerData.neuroflux_meter -= 15;
+                playerData.neuroflux_meter -= 35;
             }
 
         }
         else
         {
             // if the player has lost, subtract 25 from neuroflux
-            if (playerData.neuroflux_meter < 25)
+            if (playerData.neuroflux_meter < 50)
             {
                 playerData.neuroflux_meter = 0;
             }
             else
             {
-                playerData.neuroflux_meter -= 25;
+                playerData.neuroflux_meter -= 50;
             }
         }
 
