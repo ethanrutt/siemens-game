@@ -49,155 +49,152 @@ public class DialogueManager_Lab : MonoBehaviour
 
     // Add all the casino owner dialogues
     private string[] deckMasterInitial = {
-        "",
+        "Hey. I'm the Deckmaster. You want to play some cards?",
+        "I'm the best card player in all of Byte City. I live, eat, and breathe cards.",
+        "Well, not necessarily. I don't live, nor do I eat, nor do I breathe... But that's beside the point.",
+        "Before you even hop into those games, you gotta speak with me. I'll give you a rundown of the rules.",
+        "There are three types of cards in this game: heat cards, pressure cards, and electricity cards.",
+        "Heat beats pressure, pressure beats electricity, and electricity beats heat.",
+        "Each card has its own level of power. The higher the power, the rarer the card is, and therefore, the more useful.",
+        "There are three power cards, one of each rarity. Essentially, power cards decrease the power of the enemy's cards by 2, for two rounds following.",
+        "And with power cards, you're not always guaranteed to win. It's all about strategy. If I had a 13 electricity, and you had a 3 pressure, even though my card is higher power, I lose.",
+        "So, you ready to play? I'm going to give you a few cards from here. You can start playing with them. Bonne chance!"
+    };
+
+    // Deckmaster lines (non-initial), so randomized
+    private string[] deckMasterRandom = {
+        "Cards are like life. You never know what you're going to get. Well, I guess you're about to, since you want to buy some from me.",
+        "I've been playing cards for years. I've seen it all. I've seen the best, and I've seen the worst. And you'll see it too.",
+        "You know, I've been thinking about it. I should probably get a real name. Deckmaster is just... weird. Well, some people say it is.",
+        "Do you like me? Do you hate me? Do you wish I was more charismatic? Well, I'm trying my best.",
+        "I've never done flux before. Come to think of it, I've never done anything before. I'm just a card dealer.",
+        "I used to be a big video game junkie back when I was... a human? Oh right, I used to be a human. What a life.",
+        "Jobs are for people who don't make enough money to sit at home and play cards all day. Am I right?",
+        "Hello, hello, hello... This is the Deckmaster speaking. I'm here to give you some cards. You want some cards? I want some cards. Let's trade.",
+        "Give me money, I give you cards. Give me a middle finger, I give you a middle finger. It's all about the exchange.",
+        "I am your father. Well, I probably was. Who knows? I could be anyone? I could be you. I could be me. I could be the cards I'm holding in my pocket.",
+        "I'm the Deckmaster. I'm the best card player in all of Byte City. I live, eat, and breathe cards. And you are, an amateur. But that's okay. We all start somewhere.",
+        "There used to be this thing called the alphabet. I used to know it. Now I can only count to seventeen, and I forgot the order."
+    };
+
+    private int[] deckMasterRandomSprites = {
+        1, 1, 0, 1, 2, 1, 1, 3, 1, 2, 3, 1
     };
 
     // Integer list of inital sprites
     private int[] deckMasterInitialSprites = {
-        2, 0, 1, 2, 3, 2
+        2, 1, 0, 1, 2, 3, 1, 2, 1, 3
     };
 
+    // Make the deckmaster speak
+    public void DeckMasterSpeak()
+    {
+        // Stop player
+        playerMovement.StopPlayer();
 
-    // Make casino owner speak
-    // public void CasinoOwnerSpeak()
-    // {
-    //     // Stop player
-    //     playerMovement.StopPlayer();
+        // Turn on the dialogue panel
+        dialoguePanel.SetActive(true);
 
-    //     // Turn on the dialogue panel
-    //     dialoguePanel.SetActive(true);
+        // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
+        // If the casino owner has never been interacted with, do the initial coroutine
+        // otherwise just the normal coroutine
+        if (playerData.npc_interactions["deckmaster"] == 0)
+        {
+            StartCoroutine(DeckMasterSpeakInitial());
+        }
+        else
+        {
+            StartCoroutine(DeckMasterSpeakCoroutine());
+        }
 
-    //     // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
-    //     // If the casino owner has never been interacted with, do the initial coroutine
-    //     // otherwise just the normal coroutine
-    //     if (playerData.npc_interactions["casino_owner"] == 0)
-    //     {
-    //         StartCoroutine(CasinoOwnerSpeakInitial());
-    //     }
-    //     else
-    //     {
-    //         StartCoroutine(CasinoOwnerSpeakCoroutine());
-    //     }
+        // Increment the npc_interactions for casino_owner
+        playerData.npc_interactions["deckmaster"] += 1;
 
-    //     // Increment the npc_interactions for casino_owner
-    //     playerData.npc_interactions["casino_owner"] += 1;
-    // }
+        // Whenever you add the cards, you should also add the cards to the player's inventory
+        // ROHAN -> Add your code here.
+    }
+    
+    // Coroutine for typing the sentence
+    private Coroutine typeSentenceCoroutine;
 
-    // private IEnumerator CasinoOwnerSpeakInitial()
-    // {
-    //     // Change TTC_Text to "Do Not Tap."
-    //     TTC_Text.text = "Do Not Tap...";
+    private IEnumerator DeckMasterSpeakInitial()
+    {
+        // Change TTC_Text to "Do Not Tap."
+        TTC_Text.text = "Do Not Tap...";
 
-    //     for (int i = 0; i < casinoOwnerInitial.Length; i++)
-    //     {
-    //         // If the coroutine is not null, stop the coroutine
-    //         if (typeSentenceCoroutine != null)
-    //         {
-    //             StopCoroutine(typeSentenceCoroutine);
-    //         }
+        for (int i = 0; i < deckMasterInitial.Length; i++)
+        {
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
 
-    //         // Set the dialogueText to an empty string
-    //         dialogueText.text = "";
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
 
-    //         // Set the characterImage to the appropriate sprite
-    //         characterImage.sprite = casinoOwnerSprites[casinoOwnerInitialSprites[i]];
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = deckmasterSprites[deckMasterInitialSprites[i]];
 
-    //         // Set the charName to "Casino Owner"
-    //         charName.text = "Casino Owner";
+            // Set the charName to "Deckmaster"
+            charName.text = "Deckmaster";
 
-    //         // Start typing the sentence
-    //         isTyping = true;
-    //         typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerInitial[i]));
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterInitial[i]));
 
-    //         // Wait
-    //         yield return new WaitForSeconds(casinoOwnerInitial[i].Length * typingSpeed + 1.25f);
+            // Wait
+            yield return new WaitForSeconds(deckMasterInitial[i].Length * typingSpeed + 1.25f);
 
-    //         // Wait
-    //         yield return new WaitForSeconds(2);
-    //     }
+            // Wait
+            yield return new WaitForSeconds(2);
+        }
 
-    //     // Change TTC_Text to "Tap to Continue."
-    //     TTC_Text.text = "Tap to Continue...";
+        // Change TTC_Text to "Tap to Continue."
+        TTC_Text.text = "Tap to Continue...";
         
-    //     // Close the dialogue panel
-    //     dialoguePanel.SetActive(false);
+        // Close the dialogue panel
+        dialoguePanel.SetActive(false);
 
-    //     // Let player move
-    //     playerMovement.UnstopPlayer();
-    // }
-    
-    // private IEnumerator CasinoOwnerSpeakCoroutine()
-    // {
-    //     // Basically, we're going to go to playerData casino_winnings (int) and casino_losses (int) and get the ratio for that.
-    //     // This only applies if we have interacted with the casino owner more than once.
-    //     float ratio = (float)playerData.casino_winnings / (float)playerData.casino_losses;
+        // Let player move
+        playerMovement.UnstopPlayer();
+    }
 
-    //     // Change TTC_Text to "Do Not Tap."
-    //     TTC_Text.text = "Do Not Tap...";
+    // Deckmaster coroutine
+    private IEnumerator DeckMasterSpeakCoroutine()
+    {
+        // If the coroutine is not null, stop the coroutine
+        if (typeSentenceCoroutine != null)
+        {
+            StopCoroutine(typeSentenceCoroutine);
+        }
 
-    //     string[] selectedDialogues;
-    //     int[] selectedSprites;
+        // Set the dialogueText to an empty string
+        dialogueText.text = "";
 
-    //     // Determine which dialogues and sprites to use based on the ratio
-    //     if (ratio < 0.95)
-    //     {
-    //         selectedDialogues = casinoOwnerOneLinersLosing;
-    //         selectedSprites = casinoOwnerOneLinersLosingSprites;
-    //     }
-    //     else if (ratio >= 0.95 && ratio <= 1)
-    //     {
-    //         selectedDialogues = casinoOwnerOneLinersNeutral;
-    //         selectedSprites = casinoOwnerOneLinersNeutralSprites;
-    //     }
-    //     else
-    //     {
-    //         selectedDialogues = casinoOwnerOneLinersWinning;
-    //         selectedSprites = casinoOwnerOneLinersWinningSprites;
-    //     }
+        // Set the characterImage to the appropriate sprite
+        int i = Random.Range(0, deckMasterRandom.Length);
+        characterImage.sprite = deckmasterSprites[deckMasterRandomSprites[i]];
 
-    //     // If winnings and losings are both 0, then just do ratio = 1
-    //     if (playerData.casino_winnings == 0 && playerData.casino_losses == 0)
-    //     {
-    //         selectedDialogues = casinoOwnerOneLinersNeutral;
-    //         selectedSprites = casinoOwnerOneLinersNeutralSprites;
-    //     }
+        // Set the charName to "Deckmaster"
+        charName.text = "Deckmaster";
 
-    //     // Execute only one oneliner
-    //     int i = Random.Range(0, selectedDialogues.Length);
+        // Start typing the sentence
+        isTyping = true;
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterRandom[i]));
 
-    //     // If the coroutine is not null, stop the coroutine
-    //     if (typeSentenceCoroutine != null)
-    //     {
-    //         StopCoroutine(typeSentenceCoroutine);
-    //     }
+        // Wait
+        yield return new WaitForSeconds(deckMasterRandom[i].Length * typingSpeed + 1.25f);
 
-    //     // Set the dialogueText to an empty string
-    //     dialogueText.text = "";
+        // Wait
+        yield return new WaitForSeconds(2);
 
-    //     // Set the characterImage to the appropriate sprite
-    //     characterImage.sprite = casinoOwnerSprites[selectedSprites[i]];
+        // Close the dialogue panel
+        dialoguePanel.SetActive(false);
 
-    //     // Set the charName to "Casino Owner"
-    //     charName.text = "Casino Owner";
-
-    //     // Start typing the sentence
-    //     isTyping = true;
-    //     typeSentenceCoroutine = StartCoroutine(TypeSentence(selectedDialogues[i]));
-
-    //     // Wait
-    //     yield return new WaitForSeconds(selectedDialogues[i].Length * typingSpeed + 1.25f);
-
-    //     // Wait
-    //     yield return new WaitForSeconds(2);
-
-    //     // Show the choice panel
-    //     casinoOwnerChoicePanel.SetActive(true);
-
-    //     // modal goes up, and also dialogue is out
-    //     dialoguePanel.SetActive(false);
-    //     backModal.SetActive(true);
-    // }
-    
+        // Let player move
+        playerMovement.UnstopPlayer();
+    }
 
 
     IEnumerator TypeSentence (string sentence)
@@ -217,8 +214,7 @@ public class DialogueManager_Lab : MonoBehaviour
         isTyping = false;
     }
 
-    // Coroutine for typing the sentence
-    private Coroutine typeSentenceCoroutine;
+
         
 
     // Public integer array for each drunkGuySprites[n] to correspond to drunkGuyDialogues[n]

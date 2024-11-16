@@ -65,7 +65,7 @@ public class PlayerData : MonoBehaviour
         {"drunkard", 0},
         {"sensei", 0}, // just for debug
         {"casinoenter", 0},
-        {"labenter", 0}
+        {"labenter", 1}
     };
 
     // Storing the current items the player has unlocked (list of item id's)

@@ -54,6 +54,9 @@ public class Interactor_Display : MonoBehaviour
     // Now the dialoguemanager for casino
     [SerializeField] private DialogueManager_Casino dialogueManagerCasino;
 
+    // Now the dialoguemanager for Lab
+    [SerializeField] private DialogueManager_Lab dialogueManagerLab;
+
     // GameManager
     public GameManager gameManager => GameManager.Instance;
 
@@ -186,6 +189,10 @@ public class Interactor_Display : MonoBehaviour
             // Save the current player vector to gamemanager
             gameManager.ChangePlayerSpawnPosition(player.transform.position);
             SceneManager.LoadScene("WireGame");
+        } else if (interactable == "deckmaster")
+        {
+            // Debug.Log("Deck Master Interact");
+            dialogueManagerLab.DeckMasterSpeak();
         }
          else {
             // Debug.Log("No Interactable");
