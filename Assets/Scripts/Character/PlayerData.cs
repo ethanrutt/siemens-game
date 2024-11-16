@@ -143,6 +143,9 @@ public class PlayerData : MonoBehaviour
     //     UnlockAchievement(achievement_id);
     // }
 
+    // UI Text Object for Coins
+    // private TMPro.TMP_Text currencyText;
+
     // Update is called once per frame
     void Update()
     {
