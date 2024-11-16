@@ -257,7 +257,7 @@ public class DialogueManager_Lab : MonoBehaviour
     }
     
     // GameObjects to pan the Camera to
-    [SerializeField] private GameObject cameraPanTarget; // The area where the casino owner is.
+    [SerializeField] private GameObject[] cameraPanTargets; // Four targets, leaderboards,datacentercomp1,datacentercomp2,deckmaster
 
     // Sensei Town Square tutorial
     public void SenseiTutorial()
@@ -272,7 +272,7 @@ public class DialogueManager_Lab : MonoBehaviour
         StartCoroutine(SenseiTutorialCoroutine());
 
         // Increment the npc_interactions for casinoenter
-        playerData.npc_interactions["casinoenter"] = 1;
+        playerData.npc_interactions["labenter"] = 1;
     }
 
     private IEnumerator SenseiTutorialCoroutine()
@@ -305,13 +305,22 @@ public class DialogueManager_Lab : MonoBehaviour
             yield return new WaitForSeconds(senseiDialogues[i].Length * typingSpeed + 1.25f);
 
             // if i = 2, pan to the casino owner
-            if (i == 1)
+            if (i==4)
             {
-                cameraFollow.PanCamera(cameraPanTarget.transform);
+                cameraFollow.PanCamera(cameraPanTargets[0].transform);
+            } else if (i==5)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[1].transform);
+            } else if (i==6)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[2].transform);
+            } else if (i==7)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[3].transform);
             }
 
             // Wait
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
         }
 
         // Change TTC_Text to "Tap to Continue."
@@ -330,16 +339,20 @@ public class DialogueManager_Lab : MonoBehaviour
 
     // Multiple dialogues for the sensei
     private string[] senseiDialogues = {
-        "Right... Welcome to the casino. You want money? Possibly? Well, you're in the right place.",
-        "There's really only one thing to do here. Bet on robot horses. Yes, it sounds ridiculous, but it's the only way to make money. The table is over there.",
-        "The casino owner offers a 1:1 payout on bets. You basically get twice the amount you bet. Sick, right? Well... There is a catch.",
-        "There's something in this town called Neuroflux. You've probably already noticed the meter at the top of your screen. You can only see this meter in the casino.",
-        "And when you're more \"fluxed up\", you have a higher chance of winning. But hey, flux isn't cheap, so you have to pay to play. Go ask the casino owner for more details.",
-        "Winning big sounds fun, though. But it's much harder than it seems. Good luck, and remember, the house always wins."
+        "You found the lab! That's nice. Welcome to the lab. Or whatever they say.",
+        "Legend says this is where Rishi and his team worked on Protocol Asce–",
+        "Right... I forgot that word was prohibited within Byte City. My apologies. But right, the laboratory...",
+        "You like being competitive? Well, there are minigames here. You won't make any money, but you can be on the leaderboards...",
+        "You might wonder... where are the leaderboards? Well, for all three of the games, you'll find the leaderboards near the entrance, over here.",
+        "You like orienting pipes? There's a nice game for that. Check it out near the data center.",
+        "How about putting wires together? There's a game for that too. You'll find it right about... here.",
+        "And then, for those who enjoy card games, you can talk to the \"Deckmaster\" over there.",
+        "Deckmaster is such a weird name. I don't know why he calls himself that. But he's a nice guy.",
+        "Anyways... Toodles! Or whatever people say in this day and age."
     };
 
     private int[] senseiSpriteIndices = {
-        2, 1, 0, 1, 1, 3
+        3, 2, 1, 2, 2, 3, 2, 1, 0, 3
     };
 
     void Update()
