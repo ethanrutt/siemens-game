@@ -132,5 +132,13 @@ public class ChosenHorse : MonoBehaviour
         {
             bet100Button.interactable = false;
         }
+
+        // DEBUG: If player presses B key it opens up bet panel
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            modalBackground.SetActive(true);
+            horseSelectionScreen.SetActive(true);
+            horseGameScreen.SetActive(false);
+        }
     }
 }
