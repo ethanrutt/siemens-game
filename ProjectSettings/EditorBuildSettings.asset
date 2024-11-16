@@ -41,4 +41,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Casino/Casino_Main.unity
     guid: 82300e7448c1d4d1d991dd54ebdf1dff
+  - enabled: 1
+    path: Assets/Scenes/Game-Scenes/PipeGame.unity
+    guid: dd864c14d8059b04f89f296d13209d47
   m_configObjects: {}
