@@ -51,6 +51,12 @@ public class Interactor_Display : MonoBehaviour
     // and is on DialogueManager object
     [SerializeField] private DialogueManager_TS dialogueManager;
 
+    // Now the dialoguemanager for casino
+    [SerializeField] private DialogueManager_Casino dialogueManagerCasino;
+
+    // Now the dialoguemanager for Lab
+    [SerializeField] private DialogueManager_Lab dialogueManagerLab;
+
     // GameManager
     public GameManager gameManager => GameManager.Instance;
 
@@ -154,6 +160,40 @@ public class Interactor_Display : MonoBehaviour
             // Debug.Log("Shop Owner Interact");
             dialogueManager.TalkToShopOwner();
         }
+        // exit caisno and enter asino
+        else if (interactable == "exitcasino")
+        {
+            // Debug.Log("Exit Casino");
+            gameManager.ChangePlayerSpawnPosition(new Vector2(-22f, -1.5f));
+            SceneManager.LoadScene("Town_Square");
+        } else if (interactable == "entercasino")
+        {
+            // Debug.Log("Enter Casino"); //0.36,-9.37
+            gameManager.ChangePlayerSpawnPosition(new Vector2(0.36f, -9.37f));
+            SceneManager.LoadScene("Casino_Main");
+        } else if (interactable == "casinoowner")
+        {
+            //none
+            // Make sure to call the dialogueManagerCasino.TalkToCasinoOwner() function
+            // to talk to the casino owner
+            dialogueManagerCasino.CasinoOwnerSpeak();
+        } else if (interactable == "pipegame")
+        {
+            // Debug.Log("Pipe Game Interact");
+            // Save the current player vector to gamemanager
+            gameManager.ChangePlayerSpawnPosition(player.transform.position);
+            SceneManager.LoadScene("PipeGame");
+        } else if (interactable == "wiregame")
+        {
+            // Debug.Log("Wire Game Interact");
+            // Save the current player vector to gamemanager
+            gameManager.ChangePlayerSpawnPosition(player.transform.position);
+            SceneManager.LoadScene("WireGame");
+        } else if (interactable == "deckmaster")
+        {
+            // Debug.Log("Deck Master Interact");
+            dialogueManagerLab.DeckMasterSpeak();
+        }
          else {
             // Debug.Log("No Interactable");
         }
@@ -178,9 +218,14 @@ public class Interactor_Display : MonoBehaviour
 
     }
 
+    public void GetPeculiarPipesLeaderboard()
+    {
+        Debug.Log("getting pipe leaderboard");
+        getLeaderboard(5);
+    }
     public void GetWackyWiresLeaderboard()
     {
-        Debug.Log("getting leaderboard");
+        Debug.Log("getting wire leaderboard");
         getLeaderboard(7);
     }
 

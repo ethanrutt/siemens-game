@@ -9,6 +9,7 @@ public class PlayerData : MonoBehaviour
     // Storing information like the player's username, coins
     public string username;
     public int coins;
+    public int userId;
 
     public static PlayerData Instance;
     
@@ -25,6 +26,13 @@ public class PlayerData : MonoBehaviour
     public int casino_winnings = 0; // Total winnings from the casino (coins)
     public int casino_losses = 0; // Total losses from the casino　（coins)
     public int pipe_puzzle_wins = 0; // Wins from the pipe puzzle
+
+    // Movement speed
+    public float movement_speed = 5.0f;
+
+    // Storing the player's chosen horse
+    public string chosen_horse = ""; // can be "blackhoof", "chromeblitz", "robotrotter", "nanomane", "thunderbyte"
+    public int bet_amount = 0; // The amount the player is betting on
     
     // Storing neuroflux meter
     public int neuroflux_meter = 0; // Can go max 100
@@ -55,7 +63,9 @@ public class PlayerData : MonoBehaviour
         {"casino_owner", 0},
         {"shopkeeper", 0},
         {"drunkard", 0},
-        {"sensei", 0} // just for debug
+        {"sensei", 0}, // just for debug
+        {"casinoenter", 0},
+        {"labenter", 0}
     };
 
     // Storing the current items the player has unlocked (list of item id's)
@@ -133,6 +143,9 @@ public class PlayerData : MonoBehaviour
     //     yield return new WaitForSeconds(waitTime);
     //     UnlockAchievement(achievement_id);
     // }
+
+    // UI Text Object for Coins
+    // private TMPro.TMP_Text currencyText;
 
     // Update is called once per frame
     void Update()

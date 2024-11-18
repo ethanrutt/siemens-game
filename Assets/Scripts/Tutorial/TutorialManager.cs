@@ -226,6 +226,8 @@ public class TutorialManager : MonoBehaviour
         // Also, increment sensei of npc interactions
         playerData.npc_interactions["sensei"] = 1;
 
+        // Change gameManager's 
+
         // Unlock tutorial achievement (id = 0)
         playerData.UnlockAchievement(0);
     }

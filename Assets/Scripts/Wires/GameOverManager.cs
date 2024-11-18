@@ -16,6 +16,9 @@ public class GameOverManager : MonoBehaviour
     public TMP_Text gameTimeElapsed;
 
     private string score;
+
+    private PlayerData playerData => PlayerData.Instance;
+
     /**
      * Setup() sets the game over screen to be active so it will actually show up when called.
      *
@@ -43,8 +46,8 @@ public class GameOverManager : MonoBehaviour
      */
     public void RestartButton()
     {
-        // FIXME: replace with current user_id
-        uploadTime(12);
+        // FIXME: use actual userId from playerData
+        uploadTime(300);
         SceneManager.LoadScene("WireGame");
     }
 
@@ -54,9 +57,9 @@ public class GameOverManager : MonoBehaviour
      */
     public void ExitButton()
     {
-        // FIXME: replace with current user_id
-        uploadTime(12);
-        SceneManager.LoadScene("Laboratory_L1");
+        // FIXME: use actual userId from playerData
+        uploadTime(300);
+        SceneManager.LoadScene("Laboratory_Main");
     }
 
     /**

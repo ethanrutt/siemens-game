@@ -22,7 +22,7 @@ using UnityEngine;
  *          ^
  *          |
  *
- * turnpike right
+ * turnpipe right
  *
  *  ->   --|
  *         |
