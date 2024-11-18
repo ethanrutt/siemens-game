@@ -1,6 +1,7 @@
+using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using Unity.Netcode;
 using TMPro;
 
 public class Card : MonoBehaviour
@@ -16,33 +17,38 @@ public class Card : MonoBehaviour
     public string cardName;
     public int cost;
     public int power;
+    public ulong sourceClientId;
 
     private GameManager2 gm;
+    private CardSharingManager cardSharingManager;
     public TextMeshProUGUI nameLabel;
 
-
-    private void Start(){
+    private void Start()
+    {
         gm = FindObjectOfType<GameManager2>();
-        nameLabel.text = cardName;      // Set the text of the label to the card name
+        //cardSharingManager = FindObjectOfType<CardSharingManager>();
+        nameLabel.text = cardName;
         nameLabel.enabled = false;
+        StartCoroutine(FindCardSharingManager());
     }
 
-    private void OnMouseDown(){
-        if(hasBeenPlayed == false){
-            if(isInSlot){
-                gm.UndoPlaySlot(this);    
+    private void OnMouseDown()
+    {
+        if (hasBeenPlayed == false)
+        {
+            if (isInSlot)
+            {
+                gm.UndoPlaySlot(this);
+                cardSharingManager.DeselectCard(this); // Deselect from sharing
             }
-            else{
+            else
+            {
                 gm.MoveToPlaySlot(this);
+                cardSharingManager.SelectCard(this); // Select for sharing
             }
             ignoreExit = true;
             StartCoroutine(ResetIgnoreMouseExit());
-            //transform.position += Vector3.up * 5;
-            //hasBeenPlayed = true;
-            //gm.availableCardSlots[handIndex] = true;
             nameLabel.enabled = false;
-            //Invoke("AutomatedCardDraw", 2f);
-            //Invoke("MoveToDiscardPile", 2f);
         }
     }
 
@@ -50,43 +56,101 @@ public class Card : MonoBehaviour
     {
         if (!hasBeenPlayed)
         {
-            // Move the card up and forward when hovered
             originalPosition = transform.position;
             transform.position += new Vector3(0, 0.05f, -4);
-            // Assuming an offset on the x-axis per index, adjust as needed
-            Vector3 labelOffset = new Vector3(95f + (handIndex * 65f), 0, 0); // Change offset as needed
+            Vector3 labelOffset = new Vector3(95f + (handIndex * 65f), 0, 0);
             nameLabel.transform.position = labelOffset;
             nameLabel.enabled = true;
         }
-        
-
     }
 
     private void OnMouseExit()
     {
         if (!hasBeenPlayed && !ignoreExit)
         {
-            // Return the card to its original position when no longer hovered
             transform.position = originalPosition;
             nameLabel.enabled = false;
         }
     }
 
-    void AutomatedCardDraw(){
-        //if(gm.deck.Count == 0){
-        //    gm.Shuffle();
-        //}
-        gm.DrawCard(handIndex);
-    }
-
-    void MoveToDiscardPile(){
-        gm.discardPile.Add(this);
-        gameObject.SetActive(false);
+    public CardData GetCardData()
+    {
+        return new CardData(id, cost, power, sourceClientId);
     }
 
     private IEnumerator ResetIgnoreMouseExit()
     {
-        yield return new WaitForSeconds(0.1f); // Small delay to allow cursor to re-enter
-        ignoreExit = false; // Re-enable OnMouseExit functionality
+        yield return new WaitForSeconds(0.1f);
+        ignoreExit = false;
+    }
+
+    private IEnumerator FindCardSharingManager()
+    {
+        // Wait until CardSharingManager is spawned and connected to the network
+        while (cardSharingManager == null)
+        {
+            cardSharingManager = FindObjectOfType<CardSharingManager>();
+            yield return null;
+        }
+    }
+}
+
+[Serializable]
+public struct CardData : INetworkSerializable, IEquatable<CardData>
+{
+    public int id;
+    public int cost;
+    public int power;
+    public ulong clientId; // Add clientId field to track the source of the card data
+
+    public CardData(int id, int cost, int power, ulong clientId)
+    {
+        this.id = id;
+        this.cost = cost;
+        this.power = power;
+        this.clientId = clientId;
+    }
+
+    // Implement IEquatable<CardData>
+    public bool Equals(CardData other)
+    {
+        return id == other.id && cost == other.cost && power == other.power && clientId == other.clientId;
+    }
+
+    public override bool Equals(object obj)
+    {
+        return obj is CardData other && Equals(other);
+    }
+
+    public override int GetHashCode()
+    {
+        unchecked
+        {
+            int hash = 17;
+            hash = hash * 23 + id.GetHashCode();
+            hash = hash * 23 + cost.GetHashCode();
+            hash = hash * 23 + power.GetHashCode();
+            hash = hash * 23 + clientId.GetHashCode();
+            return hash;
+        }
+    }
+
+    public static bool operator ==(CardData left, CardData right)
+    {
+        return left.Equals(right);
+    }
+
+    public static bool operator !=(CardData left, CardData right)
+    {
+        return !(left == right);
+    }
+
+    // Implement INetworkSerializable
+    public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+    {
+        serializer.SerializeValue(ref id);
+        serializer.SerializeValue(ref cost);
+        serializer.SerializeValue(ref power);
+        serializer.SerializeValue(ref clientId); // Serialize clientId
     }
 }
