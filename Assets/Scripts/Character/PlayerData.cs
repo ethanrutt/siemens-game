@@ -60,20 +60,12 @@ public class PlayerData : MonoBehaviour
     [SerializeField] public Dictionary<string, int> npc_interactions = new Dictionary<string, int>()
     {
         {"deckmaster", 0},
-<<<<<<< HEAD
         {"casino_owner", 0},
         {"shopkeeper", 0},
         {"drunkard", 0},
         {"sensei", 0}, // just for debug
         {"casinoenter", 0},
         {"labenter", 1}
-=======
-        {"casino_owner",0},
-        {"shopkeeper", 0},
-        {"drunkard", 0},
-        {"sensei", 0}, // just for debug
-        {"casinoenter", 0}
->>>>>>> dev-all
     };
 
     // Storing the current items the player has unlocked (list of item id's)
