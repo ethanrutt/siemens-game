@@ -9,6 +9,8 @@ public class HorseBehavior : MonoBehaviour
     // Grab all HorseObjects (they're Unity UI Images)
     [SerializeField] private GameObject[] horseObjects;
 
+    [SerializeField] private GameObject[] horseTrailPrefabs;
+
     private Vector2[] horseStartPositions;
 
     // Grab the PlayerData
@@ -50,6 +52,10 @@ public class HorseBehavior : MonoBehaviour
         115f, 120f, 125f, 130f, 135f, 140f, 145f, 150f
     };
 
+    public bool lostGame = false;
+
+    private float trailLifetime = 0.2f;
+
     // Grab the players neuroflux level. It goes up to 100 (think of percent, but its an integer)
     private int neurofluxLevel;
 
@@ -59,11 +65,13 @@ public class HorseBehavior : MonoBehaviour
 
     private bool horseCrossedFinishLine;
 
+    private List<GameObject> horseTrails = new List<GameObject>();
+
     [SerializeField] Canvas GameScreen;
     [SerializeField] Canvas GameOverScreen;
     [SerializeField] TMP_Text horseWinnerText;
     [SerializeField] TMP_Text coinsLostOrGainedText;
-    
+
     // RandomSpeed function
     private float RandomSpeed(bool isChosen)
     {
@@ -244,9 +252,24 @@ public class HorseBehavior : MonoBehaviour
 
         for (int i = 0; i < horseObjects.Length; i++)
         {
+            // we need to change the position after the fact, since we are in canvas coordinates, not game coordinates
+            GameObject horseTrail = Instantiate(horseTrailPrefabs[i], Vector3.zero, Quaternion.identity, horseObjects[i].transform.parent.GetComponent<RectTransform>());
+            horseTrail.GetComponent<RectTransform>().anchoredPosition = horseObjects[i].GetComponent<RectTransform>().anchoredPosition - new Vector2(10f, 0f);
+            horseTrails.Add(horseTrail);
+
+
             bool isChosen = (GetHorseName(i) == chosen_horse_);
             horseObjects[i].transform.position += Vector3.right * RandomSpeed(isChosen) * deltaTime;
+
+            StartCoroutine(DestroyAfterDelay(horseTrail));
         }
+    }
+
+    private IEnumerator DestroyAfterDelay(GameObject trail)
+    {
+        yield return new WaitForSeconds(trailLifetime);
+        horseTrails.Remove(trail);
+        Destroy(trail);
     }
 
     private string GetHorseName(int index)
@@ -261,60 +284,6 @@ public class HorseBehavior : MonoBehaviour
             default: return "";
         }
     }
-
-    // public void MoveHorses()
-    // {
-    //     Debug.Log("moving horses");
-    //     float deltaTime = Time.deltaTime * 60; // Adjusting for 60 frames
-
-    //     if (chosen_horse_ == "blackhoof")
-    //     {
-    //         horseObjects[0].transform.position += Vector3.right * RandomSpeed() * deltaTime;
-    //         // Make the rest of them NonChosen
-    //         horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //     }
-    //     else if (chosen_horse_ == "chromeblitz")
-    //     {
-    //         horseObjects[1].transform.position += Vector3.right * RandomSpeed() * deltaTime;
-    //         // Make the rest of them NonChosen
-    //         horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //     }
-    //     else if (chosen_horse_ == "robotrotter")
-    //     {
-    //         horseObjects[2].transform.position += Vector3.right * RandomSpeed() * deltaTime;
-    //         // Make the rest of them NonChosen
-    //         horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //     }
-    //     else if (chosen_horse_ == "nanomane")
-    //     {
-    //         horseObjects[3].transform.position += Vector3.right * RandomSpeed() * deltaTime;
-    //         // Make the rest of them NonChosen
-    //         horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //     }
-    //     else if (chosen_horse_ == "thunderbyte")
-    //     {
-    //         horseObjects[4].transform.position += Vector3.right * RandomSpeed() * deltaTime;
-    //         // Make the rest of them NonChosen
-    //         horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //         horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * deltaTime;
-    //     }
-    // }
-
-    public bool lostGame = false;
 
     public void EndGame(string winningHorse)
     {
@@ -340,7 +309,7 @@ public class HorseBehavior : MonoBehaviour
                 // unlock achievement 14
                 playerData.UnlockAchievement(14);
             }
-            
+
         }
         else
         {
@@ -356,6 +325,13 @@ public class HorseBehavior : MonoBehaviour
                 playerData.UnlockAchievement(12);
             }
         }
+
+        // clean up trails
+        for (int i = 0; i < horseTrails.Count; i++)
+        {
+            Destroy(horseTrails[i]);
+        }
+        horseTrails.Clear();
 
         // reset horse positions
         for (int i = 0; i < horseObjects.Length; i++)
@@ -396,7 +372,7 @@ public class HorseBehavior : MonoBehaviour
             }
         }
 
-        // Unstop   
+        // Unstop
         playerMovement.UnstopPlayer();
         modalBack.SetActive(false);
     }
