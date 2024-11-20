@@ -54,7 +54,7 @@ public class HorseBehavior : MonoBehaviour
 
     public bool lostGame = false;
 
-    private float trailLifetime = 0.2f;
+    private float trailLifetime = 0.1f;
 
     // Grab the players neuroflux level. It goes up to 100 (think of percent, but its an integer)
     private int neurofluxLevel;
