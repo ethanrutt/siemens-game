@@ -1813,10 +1813,6 @@ MonoBehaviour:
   - 35
   - 37.5
   - 40
-  - 42.5
-  - 45
-  - 47.5
-  - 50
   slowMediumSpeeds:
   - 20
   - 25
@@ -1830,40 +1826,24 @@ MonoBehaviour:
   - 47.5
   - 50
   mediumSpeeds:
-  - 55
+  - 45
+  - 46.25
+  - 47
+  - 50
+  - 55.5
   - 60
-  - 65
-  - 70
-  - 75
-  - 80
-  - 85
-  - 90
-  - 95
-  - 100
-  - 105
-  - 110
-  - 115
+  - 62.5
   slightMediumSpeeds:
-  - 80
-  - 81.5
-  - 82.5
-  - 83.5
-  - 84
   - 100
   fastSpeeds:
+  - 115
   - 120
+  - 125
   - 130
+  - 135
   - 140
+  - 145
   - 150
-  - 160
-  - 170
-  - 180
-  - 190
-  - 200
-  - 210
-  - 220
-  - 230
-  - 240
   lostGame: 0
   GameScreen: {fileID: 443421984}
   GameOverScreen: {fileID: 850542320}
@@ -23422,7 +23402,7 @@ MonoBehaviour:
   movement_speed: 5
   chosen_horse: 
   bet_amount: 0
-  neuroflux_meter: 0
+  neuroflux_meter: 100
   item_ids: {fileID: 0}
   danceEmoteButton: {fileID: 0}
   unlocked_items: 
@@ -41855,6 +41835,8 @@ MonoBehaviour:
   charName: {fileID: 1578212546}
   characterImage: {fileID: 1279205770}
   TTC_Text: {fileID: 1543135382}
+  fluxCost: 10
+  fluxCostText: {fileID: 2142758058}
   cameraFollow: {fileID: 1485943743}
   playerMovement: {fileID: 2083988740}
   backModal: {fileID: 1986824704}

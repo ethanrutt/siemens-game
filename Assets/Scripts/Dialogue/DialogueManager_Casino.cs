@@ -28,6 +28,8 @@ public class DialogueManager_Casino : MonoBehaviour
 
     // current flux value (start at 10)
     public int fluxCost = 10;
+    // Text for flux cost
+    public TMPro.TextMeshProUGUI fluxCostText;
 
     // import Camera_Movement script
     [SerializeField] private CameraFollow cameraFollow;
@@ -216,6 +218,20 @@ public class DialogueManager_Casino : MonoBehaviour
         "Right... Why are you even here? You don't have money to buy flux, you don't have money to bet. What are you doing?",
     };
 
+    // Flux is full
+    public string[] casinoOwnerFluxFull = {
+        "You want more flux? Dude. Your eyes are glowing. You're full. You're like a balloon. You're going to pop.",
+        "Flux, flux, flux... That's what you really care about? You're not going to try to win? You're just going to keep buying flux?",
+        "I've heard of addicts like you. You're not going to stop, are you? You're just going to keep buying flux. Sorry, but I can't assist you.",
+        "You're not even a human. Why are you addicted like one?",
+        "Monsieur Addict. Tu veux plus de flux? Tu es plein. Tu vas exploser. Did you know I spoke French?",
+        "Idiot. Idiot. Idiot. You're full! You're going to combust at this rate."
+    };
+
+    public int[] casinoOwnerFluxFullSprites = {
+        0, 1, 0, 0, 0, 1
+    };
+
     // Hate sprites
     public int[] casinoOwnerHateSprites = {
         0, 0, 1, 0
@@ -293,39 +309,68 @@ public class DialogueManager_Casino : MonoBehaviour
         // Change TTC_Text to "Do Not Tap."
         TTC_Text.text = "Do Not Tap...";
 
-        // Choose a random hate dialogue
-        int i = Random.Range(0, casinoOwnerHate.Length);
-
-        // Now choose the sprites for the hate dialogue
-        // If the coroutine is not null, stop the coroutine
-        if (typeSentenceCoroutine != null)
+        // If the player is fluxed up (neuroflux_meter == 100) otherwise we do normal hate
+        if (playerData.neuroflux_meter == 100)
         {
-            StopCoroutine(typeSentenceCoroutine);
+            // Choose a random hate dialogue
+            int i = Random.Range(0, casinoOwnerFluxFull.Length);
+
+            // Now choose the sprites for the hate dialogue
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
+
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
+
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = casinoOwnerSprites[casinoOwnerFluxFullSprites[i]];
+
+            // Set the charName to "Casino Owner"
+            charName.text = "Casino Owner";
+
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerFluxFull[i]));
+
+            // Wait
+            yield return new WaitForSeconds(casinoOwnerFluxFull[i].Length * typingSpeed + 1.25f);
+        } else
+        {
+            // Choose a random hate dialogue
+            int i = Random.Range(0, casinoOwnerHate.Length);
+
+            // Now choose the sprites for the hate dialogue
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
+
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
+
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = casinoOwnerSprites[casinoOwnerHateSprites[i]];
+
+            // Set the charName to "Casino Owner"
+            charName.text = "Casino Owner";
+
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerHate[i]));
+
+            // Wait
+            yield return new WaitForSeconds(casinoOwnerHate[i].Length * typingSpeed + 1.25f);
         }
-
-        // Set the dialogueText to an empty string
-        dialogueText.text = "";
-
-        // Set the characterImage to the appropriate sprite
-        characterImage.sprite = casinoOwnerSprites[casinoOwnerHateSprites[i]];
-
-        // Set the charName to "Casino Owner"
-        charName.text = "Casino Owner";
-
-        // Start typing the sentence
-        isTyping = true;
-        typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerHate[i]));
-
-        // Wait
-        yield return new WaitForSeconds(casinoOwnerHate[i].Length * typingSpeed + 1.25f);
-
-        // Wait
-        // yield return new WaitForSeconds(2);
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
-        
+
         // Close the dialogue panel
+
         dialoguePanel.SetActive(false);
 
         // Let player move
@@ -458,6 +503,15 @@ public class DialogueManager_Casino : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         // Show the choice panel
+        // Before we do choice panel, we need to set the fluxCostText
+        // We will do it based on the current fluxCost
+        // The text is only the number itself to a string
+        // First, determine the fluxCost based on the current playerCoins
+        // initialFluxCost is 10, so 10 + playerCoins*0.1
+        
+        fluxCost = 10 + (int)(playerData.coins * 0.1);
+        fluxCostText.text = fluxCost.ToString();
+
         casinoOwnerChoicePanel.SetActive(true);
 
         // modal goes up, and also dialogue is out
