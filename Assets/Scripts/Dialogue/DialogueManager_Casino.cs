@@ -26,6 +26,9 @@ public class DialogueManager_Casino : MonoBehaviour
     // TTC text
     public TMPro.TextMeshProUGUI TTC_Text;
 
+    // current flux value (start at 10)
+    public int fluxCost = 10;
+
     // import Camera_Movement script
     [SerializeField] private CameraFollow cameraFollow;
     // import PlayerMovement script
@@ -228,11 +231,17 @@ public class DialogueManager_Casino : MonoBehaviour
 
         // Check if the player has >=10 coins
         // playerData.flux_meter += 25;
-        if (playerData.coins >= 10)
+        if (playerData.coins >= fluxCost && playerData.neuroflux_meter < 100)
         {
-            playerData.coins -= 10;
-            playerData.neuroflux_meter += 25;
-            playerData.casino_winnings += 10;
+            playerData.coins -= fluxCost;
+            if (playerData.neuroflux_meter + 25 > 100)
+            {
+                playerData.neuroflux_meter = 100;
+            }
+            else
+            {
+                playerData.neuroflux_meter += 25;
+            }
             CasinoOwnerThanksForFlux();
         } else
         {
