@@ -1803,47 +1803,6 @@ MonoBehaviour:
   - {fileID: 2004802931}
   - {fileID: 500364585}
   horseInLead: {fileID: 2010231362}
-  slowSpeeds:
-  - 20
-  - 22.5
-  - 25
-  - 27.5
-  - 30
-  - 32.5
-  - 35
-  - 37.5
-  - 40
-  slowMediumSpeeds:
-  - 20
-  - 25
-  - 30
-  - 32.5
-  - 35
-  - 37.5
-  - 40
-  - 42.5
-  - 45
-  - 47.5
-  - 50
-  mediumSpeeds:
-  - 45
-  - 46.25
-  - 47
-  - 50
-  - 55.5
-  - 60
-  - 62.5
-  slightMediumSpeeds:
-  - 100
-  fastSpeeds:
-  - 115
-  - 120
-  - 125
-  - 130
-  - 135
-  - 140
-  - 145
-  - 150
   lostGame: 0
   GameScreen: {fileID: 443421984}
   GameOverScreen: {fileID: 850542320}
@@ -23359,71 +23318,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1306642395}
   m_CullTransparentMesh: 1
---- !u!1 &1312566042
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1312566044}
-  - component: {fileID: 1312566043}
-  m_Layer: 0
-  m_Name: PlayerData
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1312566043
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312566042}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d39fd46568824903b7f1ed4cc6a8741, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  username: 
-  coins: 2500
-  userId: 0
-  interactable: none
-  wire_puzzle_wins: 0
-  wire_puzzle_fullround: 0
-  card_game_wins: 0
-  card_game_fullround: 0
-  casino_winnings: 0
-  casino_losses: 0
-  pipe_puzzle_wins: 0
-  movement_speed: 5
-  chosen_horse: 
-  bet_amount: 0
-  neuroflux_meter: 100
-  item_ids: {fileID: 0}
-  danceEmoteButton: {fileID: 0}
-  unlocked_items: 
-  equipped_items: 
-  original_load_items: 
-  unlocked_achievements: 
---- !u!4 &1312566044
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1312566042}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1318167285
 GameObject:
   m_ObjectHideFlags: 0
@@ -41531,51 +41425,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2004802931}
   m_CullTransparentMesh: 1
---- !u!1 &2005600832
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2005600834}
-  - component: {fileID: 2005600833}
-  m_Layer: 0
-  m_Name: GameManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2005600833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005600832}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4d1195b565f974b31aa935bff5f1d82b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerSpawnPosition: {x: -15, y: 2}
---- !u!4 &2005600834
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2005600832}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -29.965088, y: 10.3559265, z: 0.16641903}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009367207
 GameObject:
   m_ObjectHideFlags: 0
@@ -41864,6 +41713,18 @@ MonoBehaviour:
     else.
   - Right... Why are you even here? You don't have money to buy flux, you don't have
     money to bet. What are you doing?
+  casinoOwnerFluxFull:
+  - You want more flux? Dude. Your eyes are glowing. You're full. You're like a balloon.
+    You're going to pop.
+  - Flux, flux, flux... That's what you really care about? You're not going to try
+    to win? You're just going to keep buying flux?
+  - I've heard of addicts like you. You're not going to stop, are you? You're just
+    going to keep buying flux. Sorry, but I can't assist you.
+  - You're not even a human. Why are you addicted like one?
+  - Monsieur Addict. Tu veux plus de flux? Tu es plein. Tu vas exploser. Did you
+    know I spoke French?
+  - Idiot. Idiot. Idiot. You're full! You're going to combust at this rate.
+  casinoOwnerFluxFullSprites: 000000000100000000000000000000000000000001000000
   casinoOwnerHateSprites: 00000000000000000100000000000000
   cameraPanTarget: {fileID: 1183367158}
   senseiSprites:
@@ -43795,5 +43656,3 @@ SceneRoots:
   - {fileID: 2018161909}
   - {fileID: 1647642058}
   - {fileID: 789878262}
-  - {fileID: 2005600834}
-  - {fileID: 1312566044}
