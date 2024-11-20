@@ -46,9 +46,8 @@ public class GameOverManager : MonoBehaviour
      */
     public void RestartButton()
     {
-        // FIXME: use actual userId from playerData
-        uploadTime(300);
-        SceneManager.LoadScene("WireGame");
+        // Scene transition is in the callbacks for the upload time
+        uploadTimeRestart(playerData.userId);
     }
 
     /**
@@ -57,15 +56,14 @@ public class GameOverManager : MonoBehaviour
      */
     public void ExitButton()
     {
-        // FIXME: use actual userId from playerData
-        uploadTime(300);
-        SceneManager.LoadScene("Laboratory_Main");
+        // Scene transition is in the callbacks for the upload time
+        uploadTimeExit(playerData.userId);
     }
 
     /**
      * uploadTime() is a function that sends a POST request to the backend to upload the time
      */
-    private void uploadTime(int userId)
+    private void uploadTimeRestart(int userId)
     {
         string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/ScoreUpload";
         string jsonData = System.String.Format(@"{{
@@ -74,12 +72,50 @@ public class GameOverManager : MonoBehaviour
             ""score"": {2}
         }}", userId, 7, score);
         Debug.Log("uploading score " + score);
-        WebRequestUtility.SendWebRequest(this, url, jsonData, OnRequestComplete);
+        WebRequestUtility.SendWebRequest(this, url, jsonData, OnRestartRequestComplete, OnRestartRequestFail);
     }
 
-    void OnRequestComplete(string responseText)
+    /**
+     * uploadTime() is a function that sends a POST request to the backend to upload the time
+     */
+    private void uploadTimeExit(int userId)
     {
+        string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/ScoreUpload";
+        string jsonData = System.String.Format(@"{{
+            ""user_id"": {0},
+            ""game_id"": {1},
+            ""score"": {2}
+        }}", userId, 7, score);
+        Debug.Log("uploading score " + score);
+        WebRequestUtility.SendWebRequest(this, url, jsonData, OnExitRequestComplete, OnExitRequestFail);
+    }
+
+    void OnExitRequestComplete(string responseText)
+    {
+        Debug.Log("Score successfully uploaded");
         Debug.Log(responseText);
+        SceneManager.LoadScene("Laboratory_Main");
+    }
+
+    void OnExitRequestFail(string responseText)
+    {
+        Debug.Log("failed");
+        Debug.Log(responseText);
+        SceneManager.LoadScene("Laboratory_Main");
+    }
+
+    void OnRestartRequestComplete(string responseText)
+    {
+        Debug.Log("Score successfully uploaded");
+        Debug.Log(responseText);
+        SceneManager.LoadScene("WireGame");
+    }
+
+    void OnRestartRequestFail(string responseText)
+    {
+        Debug.Log("failed");
+        Debug.Log(responseText);
+        SceneManager.LoadScene("WireGame");
     }
 
 }
