@@ -12,7 +12,7 @@ public class PlayerData : MonoBehaviour
     public int userId;
 
     public static PlayerData Instance;
-    
+
     // Storing public information like the current interactable
     public string interactable = "";
 
@@ -33,7 +33,7 @@ public class PlayerData : MonoBehaviour
     // Storing the player's chosen horse
     public string chosen_horse = ""; // can be "blackhoof", "chromeblitz", "robotrotter", "nanomane", "thunderbyte"
     public int bet_amount = 0; // The amount the player is betting on
-    
+
     // Storing neuroflux meter
     public int neuroflux_meter = 0; // Can go max 100
 
