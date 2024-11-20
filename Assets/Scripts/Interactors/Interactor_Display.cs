@@ -236,7 +236,7 @@ public class Interactor_Display : MonoBehaviour
             ""game_id"": {0}
         }}", gameId);
 
-        WebRequestUtility.SendWebRequest(this, url, jsonData, setLeaderboardText);
+        WebRequestUtility.SendWebRequest(this, url, jsonData, setLeaderboardText, OnRequestFail);
     }
 
     void setLeaderboardText(string responseText)
@@ -274,5 +274,10 @@ public class Interactor_Display : MonoBehaviour
             top5.text = top5Text;
             top10.text = top10Text;
         }
+    }
+
+    void OnRequestFail(string responseText)
+    {
+        Debug.Log(responseText);
     }
 }

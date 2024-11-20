@@ -74,10 +74,15 @@ public class GameOverManager : MonoBehaviour
             ""score"": {2}
         }}", userId, 7, score);
         Debug.Log("uploading score " + score);
-        WebRequestUtility.SendWebRequest(this, url, jsonData, OnRequestComplete);
+        WebRequestUtility.SendWebRequest(this, url, jsonData, OnRequestComplete, OnRequestFail);
     }
 
     void OnRequestComplete(string responseText)
+    {
+        Debug.Log(responseText);
+    }
+
+    void OnRequestFail(string responseText)
     {
         Debug.Log(responseText);
     }
