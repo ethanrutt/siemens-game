@@ -509,7 +509,7 @@ public class DialogueManager_Casino : MonoBehaviour
         // First, determine the fluxCost based on the current playerCoins
         // initialFluxCost is 10, so 10 + playerCoins*0.1
         
-        fluxCost = 10 + (int)(playerData.coins * 0.1);
+        fluxCost = 10 + (int)(playerData.coins * 0.05);
         fluxCostText.text = fluxCost.ToString();
 
         casinoOwnerChoicePanel.SetActive(true);
