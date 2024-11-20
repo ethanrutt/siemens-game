@@ -13,7 +13,7 @@ public class WebUtilityTest
         var bruh = new GameObject().AddComponent<DummyMonoBehavior>();
 
         string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/GetAllItems";
-        WebRequestUtility.SendGetWebRequest(bruh, url, null);
+        WebRequestUtility.SendGetWebRequest(bruh, url, null, null);
     }
 
     [Test]
@@ -25,6 +25,30 @@ public class WebUtilityTest
         string jsonData = System.String.Format(@"{{
             ""game_id"": {0},
         }}", 5);
-        WebRequestUtility.SendWebRequest(bruh, url, jsonData, null);
+        WebRequestUtility.SendWebRequest(bruh, url, jsonData, null, null);
+    }
+
+    [Test]
+    public void WebUtilityPostFail()
+    {
+        var bruh = new GameObject().AddComponent<DummyMonoBehavior>();
+
+        string url = "asdf";
+        string jsonData = System.String.Format(@"{{
+            ""game_id"": {0},
+        }}", 5);
+        WebRequestUtility.SendWebRequest(bruh, url, jsonData, null, null);
+    }
+
+    [Test]
+    public void WebUtilityGetFail()
+    {
+        var bruh = new GameObject().AddComponent<DummyMonoBehavior>();
+
+        string url = "asdf";
+        string jsonData = System.String.Format(@"{{
+            ""game_id"": {0},
+        }}", 5);
+        WebRequestUtility.SendGetWebRequest(bruh, url, null, null);
     }
 }
