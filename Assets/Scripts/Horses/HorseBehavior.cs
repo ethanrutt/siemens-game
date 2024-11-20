@@ -6,6 +6,7 @@ using TMPro;
 
 public class HorseBehavior : MonoBehaviour
 {
+    
     // Grab all HorseObjects (they're Unity UI Images)
     [SerializeField] private GameObject[] horseObjects;
 
@@ -26,35 +27,41 @@ public class HorseBehavior : MonoBehaviour
 
     [SerializeField] private TMP_Text horseInLead;
 
-    public float[] slowSpeeds =
+    private float[] slowSpeeds =
     {
-        20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f
+        20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f, 42.5f, 42.5f
     };
 
-    public float[] slowMediumSpeeds =
+    private float[] slowChosenSpeeds =
     {
-        20f, 25f, 30f, 32.5f, 35f, 37.5f, 40f, 42.5f, 45f, 47.5f, 50f
+        20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f, 42.5f, 42.5f, 45f, 60f, 70f, 20f, 22.5f, 30f, 32.5f, 40f, 45f, 100f, 120f, 70f, 50f, 35f, 35f, 23.5f, 40f, 40f, 22.5f
     };
 
-    public float[] mediumSpeeds =
+    private float[] slowMediumSpeeds =
     {
-        45f, 46.25f, 47f, 50f, 55.5f, 60f, 62.5f
+        25f, 30f, 35f, 40f, 45f, 50f, 52.5f, 55.5f, 60f, 62.5f, 70f, 75f
+    };
+
+    private float[] mediumSpeeds =
+    {
+        45f, 46.25f, 47f, 50f, 55.5f, 60f, 62.5f, 65f, 70f, 72.5f, 45f, 50f, 75f, 70f, 55.5f, 60f, 65f, 80f, 60f, 65f, 70f, 50f, 50f, 70f, 65f
     };
 
     // slightmedium
-    public float[] slightMediumSpeeds =
+    private float[] slightMediumSpeeds =
     {
-        37.5f, 35f, 25f, 55.5f, 50f, 46.25f, 43f, 42.5f, 100f, 30f, 34.5f
+        // 37.5f, 35f, 25f, 55.5f, 50f, 46.25f, 43f, 42.5f, 100f, 30f, 34.5f
+        55f, 60f, 65f, 70f, 47.5f, 50f, 60f, 65f, 55f, 65f, 70f, 150f, 45f, 60f, 65f, 60f, 55f, 50f, 70f, 72.5f, 20f, 30f, 40f, 25f, 40f, 100f, 40f, 50f, 60f, 55f, 65f, 50f
     };
 
-    public float[] fastSpeeds =
+    private float[] fastSpeeds =
     {
-        115f, 120f, 125f, 130f, 135f, 140f, 145f, 150f
+        60f, 65f, 70f, 75f, 80f
     };
 
     public bool lostGame = false;
 
-    private float trailLifetime = 0.2f;
+    private float trailLifetime = 0.1f;
 
     // Grab the players neuroflux level. It goes up to 100 (think of percent, but its an integer)
     private int neurofluxLevel;
@@ -88,9 +95,9 @@ public class HorseBehavior : MonoBehaviour
             int rand = Random.Range(0, 100);
             if (rand < baseChance)
             {
-                speedArray = slowSpeeds;
+                speedArray = slowChosenSpeeds;
             }
-            else if (rand < baseChance + 10 + (neurofluxLevel / 10))  // Incremental chance for medium based on neuroflux
+            else if (rand < baseChance + 20)
             {
                 speedArray = slowMediumSpeeds;
             }
@@ -238,7 +245,7 @@ public class HorseBehavior : MonoBehaviour
         if (horseCrossedFinishLine) return;
 
         frameCount++;
-        if (frameCount >= 30 / horseObjects.Length) // Each horse gets updated in round robin every second
+        if (frameCount >= 25 / horseObjects.Length) // Each horse gets updated in round robin every second
         {
             MoveHorses();
             UpdateLeadHorse();
@@ -248,18 +255,29 @@ public class HorseBehavior : MonoBehaviour
 
     public void MoveHorses()
     {
-        float deltaTime = Time.deltaTime * 30; // Adjusting for 30 frames per second
+        float deltaTime = Time.deltaTime * 25; // Adjusting for 25 frames per second
 
         for (int i = 0; i < horseObjects.Length; i++)
         {
             // we need to change the position after the fact, since we are in canvas coordinates, not game coordinates
             GameObject horseTrail = Instantiate(horseTrailPrefabs[i], Vector3.zero, Quaternion.identity, horseObjects[i].transform.parent.GetComponent<RectTransform>());
-            horseTrail.GetComponent<RectTransform>().anchoredPosition = horseObjects[i].GetComponent<RectTransform>().anchoredPosition - new Vector2(10f, 0f);
+            horseTrail.GetComponent<RectTransform>().anchoredPosition = horseObjects[i].GetComponent<RectTransform>().anchoredPosition - new Vector2(15f, 0f);
             horseTrails.Add(horseTrail);
 
 
             bool isChosen = (GetHorseName(i) == chosen_horse_);
-            horseObjects[i].transform.position += Vector3.right * RandomSpeed(isChosen) * deltaTime;
+
+            float speed = isChosen ? RandomSpeed(true) : RandomSpeed(false);
+
+            // DEBUG:
+            // Debug log the speed for the chosen horse
+            // if (isChosen)
+            // {
+            //     Debug.Log($"Chosen horse speed: {speed}");
+            // } else {
+            //     Debug.Log($"Non-chosen horse speed: {speed}");
+            // }
+            horseObjects[i].transform.position += Vector3.right * speed * deltaTime;
 
             StartCoroutine(DestroyAfterDelay(horseTrail));
         }
