@@ -440,6 +440,20 @@ public class ItemIDs : MonoBehaviour
                     inventoryButtons[i].SetActive(true);
                     inventoryButtons[i].GetComponent<Image>().sprite = itemSprite;
                     inventoryButtons[i].GetComponent<InvButtonItem>().item_id = itemID;
+
+                    // Equipping the item
+                    // Capture the current value of i in a new local variable
+                    int buttonIndex = i;
+
+                    // Dynamically change the button's onClick event
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
+
+                    // Add the new listener
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                        inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
+                    );
+
+                    
                 }
                 else
                 {
