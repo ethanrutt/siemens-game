@@ -64,6 +64,21 @@ public class Interactor_Display : MonoBehaviour
     [SerializeField] private GameObject errorScreen;
     [SerializeField] private TMP_Text errorMessageText;
 
+    // PlayerData
+    public PlayerData playerData => PlayerData.Instance;
+
+    // Testing only, remove:
+    public void FluxUP()
+    {
+        playerData.neuroflux_meter = 100;
+    }
+
+    // Add 100 coins
+    public void AddCoins()
+    {
+        playerData.coins += 100;
+    }
+
     // Defining open Menu
     public void OpenMenu()
     {
