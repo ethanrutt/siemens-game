@@ -551,6 +551,11 @@ public class MainMenuManager : MonoBehaviour
     public void SetupErrorScreen(string errorMessage)
     {
         errorScreen.SetActive(true);
+        // Close other
+        loginPanel.SetActive(false);
+        registerPanel.SetActive(false);
+        loginregAbstractPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         errorMessageText.text = errorMessage;
     }
 
