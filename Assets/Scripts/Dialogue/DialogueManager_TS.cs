@@ -516,13 +516,6 @@ public class DialogueManager_TS : MonoBehaviour
             return;
         }
 
-
-        // If player is talking to drunkard, one-liner dialogue
-        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "drunkard")
-        {
-            dialoguePanel.SetActive(false);
-        }
-
         // If player is talking to shopkeeper, one-liner dialogue
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "shopowner" && playerData.npc_interactions["shopkeeper"] > 0)
         {
