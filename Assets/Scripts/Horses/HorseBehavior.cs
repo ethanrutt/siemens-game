@@ -310,7 +310,7 @@ public class HorseBehavior : MonoBehaviour
         horseWinnerText.text = $"{winningHorse} has won!";
         if (winningHorse == chosen_horse_)
         {
-            int coinsGained = 2 * betAmount;
+            int coinsGained = 3 * betAmount;
             lostGame = false;
             playerData.coins += coinsGained;
             coinsLostOrGainedText.text = $"You gained {coinsGained} coins!";//achid=13,14
@@ -364,22 +364,23 @@ public class HorseBehavior : MonoBehaviour
         GameOverScreen.gameObject.SetActive(false);
         horseCrossedFinishLine = false;
 
-        // if the player has won, subtract only 15 from neuroflux
+        // If the player has won, subtract less from neuroflux
         if (!lostGame)
         {
-            if (playerData.neuroflux_meter < 35)
+            if (playerData.neuroflux_meter < 25)
             {
                 playerData.neuroflux_meter = 0;
             }
             else
             {
-                playerData.neuroflux_meter -= 35;
+                playerData.neuroflux_meter -= 25;
             }
 
         }
         else
         {
-            // if the player has lost, subtract 25 from neuroflux
+            // if the player has lost, subtract more from neuroflux
+            // I.E. Their high was too high, and they lost a lot of money
             if (playerData.neuroflux_meter < 50)
             {
                 playerData.neuroflux_meter = 0;

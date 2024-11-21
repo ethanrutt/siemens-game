@@ -71,7 +71,7 @@ public class DialogueManager_Casino : MonoBehaviour
     private string[] casinoOwnerInitial = {
         "What's up, hot stuff. You want to make some money?",
         "Ignore the first comment if you happen to be a male. If you're a girl, then pretend like it was even more charismatic.",
-        "Anyways, there's really not much else to say. I offer a 1:1 payout on bets. You bet 10 coins, you get 20 coins back.",
+        "Anyways, there's really not much else to say. I offer a 2:1 payout on bets. You bet 10 coins, you can win 20 coins. Simple, right?",
         "Oh yeah, and you're probably wondering what that meter at the top of your screen is. That's the Neuroflux meter.",
         "Meaning that, the more \"fluxed up\" you are, the higher chance you have of winning. Or at least, that's what some people say.",
         "Something about \"being in the zone\". I don't know. I'm just here to take your money. And give you some back, I guess.",
@@ -508,8 +508,13 @@ public class DialogueManager_Casino : MonoBehaviour
         // The text is only the number itself to a string
         // First, determine the fluxCost based on the current playerCoins
         // initialFluxCost is 10, so 10 + playerCoins*0.1
-        
+
+        // The max flux cost should never exceed 100
         fluxCost = 10 + (int)(playerData.coins * 0.05);
+        if (fluxCost > 100)
+        {
+            fluxCost = 100;
+        }
         fluxCostText.text = fluxCost.ToString();
 
         casinoOwnerChoicePanel.SetActive(true);
@@ -653,7 +658,7 @@ public class DialogueManager_Casino : MonoBehaviour
     private string[] senseiDialogues = {
         "Right... Welcome to the casino. You want money? Possibly? Well, you're in the right place.",
         "There's really only one thing to do here. Bet on robot horses. Yes, it sounds ridiculous, but it's the only way to make money. The table is over there.",
-        "The casino owner offers a 1:1 payout on bets. You basically get twice the amount you bet. Sick, right? Well... There is a catch.",
+        "The casino owner offers a 2:1 payout on bets. You basically get twice the amount you bet, if you win. Sick, right? Well... There is a catch.",
         "There's something in this town called Neuroflux. You've probably already noticed the meter at the top of your screen. You can only see this meter in the casino.",
         "And when you're more \"fluxed up\", you have a higher chance of winning. But hey, flux isn't cheap, so you have to pay to play. Go ask the casino owner for more details.",
         "Winning big sounds fun, though. But it's much harder than it seems. Good luck, and remember, the house always wins."
