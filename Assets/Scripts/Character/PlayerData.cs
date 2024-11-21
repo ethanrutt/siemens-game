@@ -61,7 +61,7 @@ public class PlayerData : MonoBehaviour
     {
         {"deckmaster", 0},
         {"casino_owner", 1},
-        {"shopkeeper", 0},
+        {"shopkeeper", 2},
         {"drunkard", 0},
         {"sensei", 2}, // just for debug
         {"casinoenter", 1},
