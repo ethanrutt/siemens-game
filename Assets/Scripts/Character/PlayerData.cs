@@ -60,11 +60,11 @@ public class PlayerData : MonoBehaviour
     [SerializeField] public Dictionary<string, int> npc_interactions = new Dictionary<string, int>()
     {
         {"deckmaster", 0},
-        {"casino_owner", 1},
+        {"casino_owner", 0},
         {"shopkeeper", 0},
         {"drunkard", 0},
-        {"sensei", 2}, // just for debug
-        {"casinoenter", 1},
+        {"sensei", 0}, // just for debug
+        {"casinoenter", 0},
         {"labenter", 0}
     };
 
