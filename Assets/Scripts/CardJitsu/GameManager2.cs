@@ -51,7 +51,50 @@ public class GameManager2 : MonoBehaviour
 
     }
 
-    private void Update(){
+    public void Reset(){
+        playTurnButton.gameObject.SetActive(false);
+
+        foreach(Card card in discardPile){
+            card.hasBeenPlayed = false;
+            card.nameLabel.enabled = false;
+        }
+
+        foreach(Card card in currentHand){
+            if(card.isInSlot){
+                card.isInSlot = false;
+                availablePlaySlots[card.playIndex] = true;
+            }  
+            card.hasBeenPlayed = false;
+            availableCardSlots[card.handIndex] = true;
+            card.nameLabel.enabled = false;
+            discardPile.Add(card);
+            card.gameObject.SetActive(false);
+        }
+
+        foreach(Card card in deck){
+            card.hasBeenPlayed = false;
+            card.nameLabel.enabled = false;
+            discardPile.Add(card);
+        }
+
+        currentHand.Clear();
+        deck.Clear();
+
+        Shuffle();
+
+        for(int i = 0; i < handSize; i++){
+            DrawCard(i);
+        }
+
+        resizeCardSlots();
+
+        deckText.text = deck.Count.ToString();
+        discardText.text = discardPile.Count.ToString();
+    }
+
+
+
+    public void Update(){
         CheckPlaySlots();
         if(deck.Count == 0){
             Shuffle();
@@ -106,9 +149,9 @@ public class GameManager2 : MonoBehaviour
         if (screenWidthInWorld < 15.5f && !isBelowThreshold)
         {
             // Run the resize logic for below threshold
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < handSize; i++)
             {
-                cardSlots[i].localPosition = new Vector3(-7.7353f + (i * 1.1272f), cardSlots[i].localPosition.y, cardSlots[i].localPosition.z);
+                cardSlots[i].localPosition = new Vector3(-6.6081f + (i * 1.1272f), cardSlots[i].localPosition.y, cardSlots[i].localPosition.z);
                 if(currentHand[i].isInSlot == false){
                     currentHand[i].transform.position = cardSlots[i].localPosition;
                     currentHand[i].transform.position += new Vector3(3.23f, -2.24f, 6);
@@ -121,9 +164,9 @@ public class GameManager2 : MonoBehaviour
         else if (screenWidthInWorld >= 15.5f && isBelowThreshold)
         {
             // Run the resize logic for above threshold
-            for (int i = 0; i < 9; i++)
+            for (int i = 0; i < handSize; i++)
             {
-                cardSlots[i].localPosition = new Vector3(-9.24f + (i * 1.5f), cardSlots[i].localPosition.y, cardSlots[i].localPosition.z);
+                cardSlots[i].localPosition = new Vector3(-7.74f + (i * 1.5f), cardSlots[i].localPosition.y, cardSlots[i].localPosition.z);
                 if(currentHand[i].isInSlot == false){
                     currentHand[i].transform.position = cardSlots[i].localPosition;
                     currentHand[i].transform.position += new Vector3(3.23f, -2.24f, 6);

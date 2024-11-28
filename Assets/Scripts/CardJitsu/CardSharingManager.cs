@@ -7,11 +7,15 @@ public class CardSharingManager : NetworkBehaviour
 {
     [SerializeField] private string buttonPath = "PlayerOne/PrefabCanvas/PlayTurn";
     [SerializeField] private Button confirmButton;
+    [SerializeField] private GameObject cardSharingManagerPrefab;
+    [SerializeField] private GameObject playerOne; // Reference to the PlayerOne GameObject
+    [SerializeField] private GameManager2 gm; // Reference to the GameManager GameObject
+    private List<GameObject> sharedCardCopies = new List<GameObject>();
 
     private Dictionary<int, Card> cardLookup = new Dictionary<int, Card>();
     private List<CardData> selectedCards = new List<CardData>();
     private NetworkList<CardData> sharedCards;
-    private HashSet<int> displayedCards = new HashSet<int>();
+    private Dictionary<(int cardId, ulong clientId), Card> displayedCards = new Dictionary<(int, ulong), Card>();
     private int cardDisplayOrder = 0;
     private int updateCount = 0;
 
@@ -31,6 +35,7 @@ public class CardSharingManager : NetworkBehaviour
             if (confirmButton != null)
             {
                 confirmButton.onClick.AddListener(OnConfirmButtonPressed);
+                buttonObject.SetActive(false);
             }
         }
         else
@@ -62,6 +67,7 @@ public class CardSharingManager : NetworkBehaviour
         int index = 0;
         foreach (Card card in allCardInstances)
         {
+            //Debug.LogWarning($"Card Object ID: {card.id}. Card {card.cardName}.");
             if (card.gameObject.scene.IsValid())
             {
                 allCards[index++] = card;
@@ -94,13 +100,16 @@ public class CardSharingManager : NetworkBehaviour
 
     private void OnConfirmButtonPressed()
     {
+        
         if (IsOwner)
         {
+
             SubmitCardsToServer(selectedCards);
             selectedCards.Clear();
         }
         else
         {
+
             // Clients send their selected cards to the server
             SubmitCardsToHostServerRpc(selectedCards.ToArray());
             selectedCards.Clear();
@@ -153,6 +162,19 @@ public class CardSharingManager : NetworkBehaviour
                 sharedCards.Add(updatedCardData);
             }
         }
+
+        // Disable playerOne for the corresponding client
+        var clientRpcParams = new ClientRpcParams
+        {
+            Send = new ClientRpcSendParams
+            {
+                TargetClientIds = new[] { rpcParams.Receive.SenderClientId }
+            }
+        };
+
+        SetPlayerOneInactiveClientRpc(clientRpcParams);
+
+        // playerOne.SetActive(false); // Reference to the PlayerOne GameObject
         Debug.Log("Cards from client added to shared list on host.");
     }
 
@@ -171,7 +193,23 @@ public class CardSharingManager : NetworkBehaviour
             sharedCards.Add(cardData); // Add selected cards to the shared network list
         }
 
+        gm.Update();
+        playerOne.SetActive(false);
         Debug.Log($"Selected cards shared with all clients by client {clientId}.");
+    }
+
+    [ClientRpc]
+    private void SetPlayerOneInactiveClientRpc(ClientRpcParams clientRpcParams = default)
+    {
+        if (playerOne != null)
+        {
+            playerOne.SetActive(false);
+            Debug.Log("playerOne object set to inactive for the corresponding client.");
+        }
+        else
+        {
+            Debug.LogWarning("playerOne object is null on this client.");
+        }
     }
 
     private void OnSharedCardsUpdated(NetworkListEvent<CardData> changeEvent)
@@ -202,9 +240,27 @@ public class CardSharingManager : NetworkBehaviour
         }
 
         if(lastCard != null && updateCount % 2 == 0){
-            DisplaySharedCard(lastCard, lastCardData.clientId);
-            displayedCards.Add(lastCardData.id);
+            //DisplaySharedCard(lastCard, lastCardData.clientId);
+            //Debug.Log($"Card with ID {lastCardData.id} and client {lastCardData.clientId}.");
+            var key = (lastCardData.id, lastCardData.clientId);
+            displayedCards[key] = lastCard;
         }
+
+        if(updateCount % 14 == 0){
+            foreach (var entry in displayedCards)
+            {
+                var key = entry.Key; // Composite key (cardId, clientId)
+                Card card = entry.Value; // Card object
+
+                int cardId = key.cardId;
+                ulong clientId = key.clientId;
+                //Debug.Log($"Card with ID {cardId} and client {clientId}.");
+
+                // Display the card using the existing DisplaySharedCard method
+                DisplaySharedCard(card, clientId);
+            }
+        }
+
     }
 
     private void DisplaySharedCard(Card card, ulong sourceClientId)
@@ -215,6 +271,7 @@ public class CardSharingManager : NetworkBehaviour
         GameObject cardCopy = Instantiate(card.gameObject);
         cardCopy.SetActive(true); // Ensure the copied card is active
 
+        sharedCardCopies.Add(cardCopy);
         // Get the Card component from the copied game object
         Card copiedCard = cardCopy.GetComponent<Card>();
 
@@ -224,22 +281,22 @@ public class CardSharingManager : NetworkBehaviour
         if (IsHost && sourceClientId == NetworkManager.Singleton.LocalClientId)
         {
             // Host is displaying its own shared card
-            cardCopy.transform.position = new Vector3(-1 - xOffset, 3, 0); // Host's position for its own card
+            cardCopy.transform.position = new Vector3(2.5f - xOffset, -3, 0); // Host's position for its own card
         }
         else if (IsHost && sourceClientId != NetworkManager.Singleton.LocalClientId)
         {
             // Host is displaying a card shared by a client
-            cardCopy.transform.position = new Vector3(6 - xOffset, 3, 0); // Host's position for a client-shared card
+            cardCopy.transform.position = new Vector3(2.5f - xOffset, 3, 0); // Host's position for a client-shared card
         }
         else if (IsClient && sourceClientId == NetworkManager.Singleton.LocalClientId)
         {
             // Client is displaying its own shared card
-            cardCopy.transform.position = new Vector3(-1 - xOffset, 3, 0); // Client's position for its own card
+            cardCopy.transform.position = new Vector3(2.5f - xOffset, -3, 0); // Client's position for its own card
         }
         else if (IsClient && sourceClientId != NetworkManager.Singleton.LocalClientId)
         {
             // Client is displaying a card shared by the host
-            cardCopy.transform.position = new Vector3(6 - xOffset, 3, 0); // Client's position for a host-shared card
+            cardCopy.transform.position = new Vector3(2.5f - xOffset, 3, 0); // Client's position for a host-shared card
         }
 
         // If needed, update other properties of the copied card
@@ -259,5 +316,19 @@ public class CardSharingManager : NetworkBehaviour
         {
             cardDisplayOrder = 0;
         }
+    }
+
+    public void DestroyAllSharedCards()
+    {
+        foreach (var card in sharedCardCopies)
+        {
+            if (card != null)
+            {
+                Destroy(card);
+            }
+        }
+        sharedCardCopies.Clear();
+        displayedCards.Clear();
+        Debug.Log("All shared cards have been destroyed.");
     }
 }

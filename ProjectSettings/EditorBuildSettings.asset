@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Game-Scenes/CardJitsu.unity
+    guid: 1d0a9862c5a328541a552de103163413
   m_configObjects: {}

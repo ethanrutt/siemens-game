@@ -89,6 +89,7 @@ public class Card : MonoBehaviour
         // Wait until CardSharingManager is spawned and connected to the network
         while (cardSharingManager == null)
         {
+            //Debug.Log("cardsharing activated.");
             cardSharingManager = FindObjectOfType<CardSharingManager>();
             yield return null;
         }
