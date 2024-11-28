@@ -551,6 +551,11 @@ public class MainMenuManager : MonoBehaviour
     public void SetupErrorScreen(string errorMessage)
     {
         errorScreen.SetActive(true);
+        // Close other
+        loginPanel.SetActive(false);
+        registerPanel.SetActive(false);
+        loginregAbstractPanel.SetActive(false);
+        settingsPanel.SetActive(false);
         errorMessageText.text = errorMessage;
     }
 
@@ -564,7 +569,7 @@ public class MainMenuManager : MonoBehaviour
         {
             if (username.Contains(badwords[i]))
             {
-                SetupErrorScreen($"Your username contains {badwords[i]}, an inappropriate word. Please change it");
+                SetupErrorScreen($"Error: Your username contains {badwords[i]}, an inappropriate word. Please change it");
                 return;
             }
         }
@@ -582,16 +587,23 @@ public class MainMenuManager : MonoBehaviour
             ""user_password"": ""{1}""
         }}", username, password);
 
-        WebRequestUtility.SendWebRequest(this, url, jsonData, (string response) =>
-        {
-            LoginResponse data = JsonUtility.FromJson<LoginResponse>(response);
-            playerData.username = data.user.user_name;
-            playerData.userId = data.user.user_id;
-            playerData.coins = data.user.current_coins;
-            playerData.unlocked_items = data.user.items_owned;
-            playerData.equipped_items = data.user.items_equipped;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
-        });
+        WebRequestUtility.SendWebRequest(
+                this,
+                url,
+                jsonData,
+                (string response) => {
+                    LoginResponse data = JsonUtility.FromJson<LoginResponse>(response);
+                    playerData.username = data.user.user_name;
+                    playerData.userId = data.user.user_id;
+                    playerData.coins = data.user.current_coins;
+                    playerData.unlocked_items = data.user.items_owned;
+                    playerData.equipped_items = data.user.items_equipped;
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
+                },
+                (string response) => {
+                    SetupErrorScreen("Error: The request was invalid. Are you sure you have the right username and password?");
+                }
+        );
     }
 
     public void SendCreateAccountRequest(string employeeId, string username, string password)
@@ -605,16 +617,24 @@ public class MainMenuManager : MonoBehaviour
             ""employee_id"": {2}
         }}", username, password, employeeId);
 
-        WebRequestUtility.SendWebRequest(this, url, jsonData, (string response) =>
-        {
-            LoginResponse data = JsonUtility.FromJson<LoginResponse>(response);
-            playerData.username = data.user.user_name;
-            playerData.userId = data.user.user_id;
-            playerData.coins = data.user.current_coins;
-            playerData.unlocked_items = data.user.items_owned;
-            playerData.equipped_items = data.user.items_equipped;
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
-        });
+        WebRequestUtility.SendWebRequest(
+                this,
+                url,
+                jsonData,
+                (string response) => {
+                    LoginResponse data = JsonUtility.FromJson<LoginResponse>(response);
+                    playerData.username = data.user.user_name;
+                    playerData.userId = data.user.user_id;
+                    playerData.coins = data.user.current_coins;
+                    playerData.unlocked_items = data.user.items_owned;
+                    playerData.equipped_items = data.user.items_equipped;
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
+                },
+                (string response) => {
+                    SetupErrorScreen("Error: The request was invalid. Are you sure you have the right employee ID? If so, please contact Sidra Maryam");
+                }
+
+        );
     }
 
     // Start is called before the first frame update

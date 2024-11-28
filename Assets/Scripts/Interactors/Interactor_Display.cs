@@ -60,6 +60,10 @@ public class Interactor_Display : MonoBehaviour
     // GameManager
     public GameManager gameManager => GameManager.Instance;
 
+    // Error screen handling
+    [SerializeField] private GameObject errorScreen;
+    [SerializeField] private TMP_Text errorMessageText;
+
     // Defining open Menu
     public void OpenMenu()
     {
@@ -236,7 +240,7 @@ public class Interactor_Display : MonoBehaviour
             ""game_id"": {0}
         }}", gameId);
 
-        WebRequestUtility.SendWebRequest(this, url, jsonData, setLeaderboardText);
+        WebRequestUtility.SendWebRequest(this, url, jsonData, setLeaderboardText, OnRequestFail);
     }
 
     void setLeaderboardText(string responseText)
@@ -274,5 +278,23 @@ public class Interactor_Display : MonoBehaviour
             top5.text = top5Text;
             top10.text = top10Text;
         }
+    }
+
+    public void OnRequestFail(string responseText)
+    {
+        Debug.LogError($"Request failed with error message {responseText}");
+        SetupErrorScreen("Error: Unable to get leaderboards, please check your internet connection.");
+
+    }
+
+    public void SetupErrorScreen(string errorMessage)
+    {
+        errorScreen.SetActive(true);
+        errorMessageText.text = errorMessage;
+    }
+
+    public void ErrorExitButton()
+    {
+        errorScreen.SetActive(false);
     }
 }

@@ -516,24 +516,18 @@ public class DialogueManager_TS : MonoBehaviour
             return;
         }
 
-
-        // If player is talking to drunkard, one-liner dialogue
-        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "drunkard")
-        {
-            dialoguePanel.SetActive(false);
-        }
-
+        // Unnecessary
         // If player is talking to shopkeeper, one-liner dialogue
-        if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "shopowner" && playerData.npc_interactions["shopkeeper"] > 0)
-        {
-            // If dialogueIndex == shopOwnerOneLiners.Length - 1, increment npc_interactions for shopkeeper
-            if (dialogueIndex == shopOwnerOneLiners.Length - 1)
-            {
-                playerData.npc_interactions["shopkeeper"]++;
-            }
+        // if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "shopowner" && playerData.npc_interactions["shopkeeper"] > 0)
+        // {
+        //     // If dialogueIndex == shopOwnerOneLiners.Length - 1, increment npc_interactions for shopkeeper
+        //     if (dialogueIndex == shopOwnerOneLiners.Length - 1)
+        //     {
+        //         playerData.npc_interactions["shopkeeper"]++;
+        //     }
 
-            dialoguePanel.SetActive(false);
-        }
+        //     dialoguePanel.SetActive(false);
+        // }
 
         
     }
