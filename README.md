@@ -1,8 +1,8 @@
 # ByteCity
 ## Siemens Manufacturing x Texas A&M Computer Science
-### CSCE 482 - 932
+## CSCE 482 - 932
 
-### Table of Contents
+## Table of Contents
 - [Team Members](#team-members)
 - [Background](#background)
 - [Requirements](#requirements)
@@ -10,19 +10,21 @@
 - [Tech Stack](#tech-stack)
 - [Frontend Installation](#frontend-installation)
 - [Backend Installation](#backend-installation)
+- [Testing](#testing)
 - [Frontend Testing](#frontend-testing)
 - [Backend Testing](#backend-testing)
+- [Deployment](#deployment)
 - [Android Deployment](#android-deployment)
 - [iOS Deployment](#ios-deployment)
 - [Future Development](#future-development)
-
-### Team Members
+---
+## Team Members
 * Rohan Ali
 * Naveed Haq
 * Ethan Rutt
 * Rishi Santhanam
-
-### Background
+---
+## Background
 * Siemens came to Texas A&M requesting a project to improve employee morale and
   productivity in their factory line.
 * Siemens already had a way to track which tasks needed to be done for an
@@ -34,32 +36,32 @@
   to hang out with each other, and participate in minigames as well as see the
   leaderboards for who earned the most coins, who has the fastest time in the
   minigame, etc.
-
-### Requirements
+---
+## Requirements
 * Siemens wanted the game to be able to run on mobile devices, both iOS and
   Android.
 * They also wanted to be able to sync in-game currency with what workers
   complete in the factory.
 * They also wanted a fun experience that workers would enjoy playing. This was
   very open-ended.
-
-### Proposal
+---
+## Proposal
 * We proposed an open world RPG game inspired from Club Penguin.
 * It involves a story, achievements, mini-games, an open world to explore, and
   more.
-
-### Tech Stack
-#### Frontend
+---
+## Tech Stack
+### Frontend
 * Since this game is mainly developed for Android and iOS, we decided to use
   the [Unity Engine](https://unity.com/) to develop our game with
   [C#](https://dotnet.microsoft.com/en-us/languages/csharp) as the scripting
   language
 * We are using `Unity Editor Version 2022.3.45f1`
-#### Backend
+### Backend
 * We are using [nodejs](https://nodejs.org/en/), along with AWS Lambda and an
   **naveed fix this part plz**
 
-#### Frontend Installation
+### Frontend Installation
 * Installing Unity is pretty straight forward. Go to
   `https://unity.com/download` or click [here](https://unity.com/download) and
   download `Unity Hub`.
@@ -77,23 +79,24 @@ git clone https://github.com/ethanrutt/siemens-game.git
 git clone git@github.com:ethanrutt/siemens-game.git
 ```
 * Once this is complete, you'll want to 
-* Open up Unity Hub
-* Click `Add` in the top right
-* Click `add project from disk`
-* Find this repository that you just cloned
-* Click add/open
-* Finally, click on the new entry in the projects window of unity hub which
-  should say `siemens-game`
-* The first time you open up Unity, it will need to read all of the packages we
-  have installed from the `Packages/manifest.json` and
-  `Packages/package-lock.json`, as well as compile all of our scripts.
+  * Open up Unity Hub
+  * Click `Add` in the top right
+  * Click `add project from disk`
+  * Find this repository that you just cloned
+  * Click add/open
+  * Finally, click on the new entry in the projects window of unity hub which
+    should say `siemens-game`
+  * The first time you open up Unity, it will need to read all of the packages we
+    have installed from the `Packages/manifest.json` and
+    `Packages/package-lock.json`, as well as compile all of our scripts.
 * Depending on the speed of your computer, this could take up to 10 minutes.
 * Once this is finished, you should be ready to develop, build, and run
   ByteCity!
 
-#### Backend Installation
+### Backend Installation
 * **naveed fix this part plz**
-
+---
+## Testing
 ### Frontend Testing
 * We have a combination of github actions, combined with
   [game-ci](https://game.ci/) to automatically test whenever we push code.
@@ -112,7 +115,8 @@ git clone git@github.com:ethanrutt/siemens-game.git
 ### Backend Testing
 * We use [jest](https://jestjs.io/) to test our backend code combined with
   github actions to get automated testing whenever we push code.
-
+---
+## Deployment
 ### Android Deployment
 * There should already be Android Build Support installed from our packages,
   but if there isn't then you can follow these steps.
@@ -125,19 +129,19 @@ git clone git@github.com:ethanrutt/siemens-game.git
     * Click `Install`
 * After you have installed Android Build Support, open up the Unity Editor by
   clicking on `siemens-game` in Unity Hub
-* Go to File -> Build Settings
-* Click `Android`
-* Click `Switch Platform`
-* Click `Player Settings` in the bottom left
-* Make sure the `Company Name` is set to `Siemens`
-* Make sure the `Product Name` is set to `Byte City`
-* Set the version to whatever version you are releasing
-* Click Build
+  * Go to File -> Build Settings
+  * Click `Android`
+  * Click `Switch Platform`
+  * Click `Player Settings` in the bottom left
+  * Make sure the `Company Name` is set to `Siemens`
+  * Make sure the `Product Name` is set to `Byte City`
+  * Set the version to whatever version you are releasing
+  * Click Build
 * Once the project has successfully been built, you should have a `.apk` file
 * This is how you will install the game onto an Android Device.
-* To distribute this `.apk` file, you can upload it to a file sharing service,
-  or use a usb to directly transfer it to a device. 
-* Once it's on the device, simply running it should install the game as an app.
+  * To distribute this `.apk` file, you can upload it to a file sharing service,
+    or use a usb to directly transfer it to a device. 
+  * Once it's on the device, simply running it should install the game as an app.
 * You might have to scan the file before installing it. This is normal
 * You also might have to allow third-party apps to be installed
     * For the most part, this will just pop up as a prompt whenever you install
@@ -147,8 +151,8 @@ git clone git@github.com:ethanrutt/siemens-game.git
 
 ### iOS Deployment
 * **rishi fix this plz**
-
-### Future Development
+---
+## Future Development
 * The ByteCity team has put tons of hours into this game. We were given nothing
   but an open-ended request with simple constraints, and we have built the
   ByteCity you can play today from scratch. 
