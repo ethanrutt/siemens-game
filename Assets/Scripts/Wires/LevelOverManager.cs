@@ -49,6 +49,6 @@ public class LevelOverManager : MonoBehaviour
      */
     public void ExitButton()
     {
-        SceneManager.LoadScene("Laboratory_L1");
+        SceneManager.LoadScene("Laboratory_Main");
     }
 }

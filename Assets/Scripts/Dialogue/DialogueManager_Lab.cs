@@ -32,13 +32,6 @@ public class DialogueManager_Lab : MonoBehaviour
     // Modal back
     [SerializeField] public GameObject backModal;
 
-    // Close choice panel
-    public void CloseChoicePanel()
-    {
-        casinoOwnerChoicePanel.SetActive(false);
-        backModal.SetActive(false);
-    }
-
     // Load in the dialoguePanel
     // Look for UI-Panel Dialogue-Panel and assign it
     public GameObject dialoguePanel;
@@ -49,77 +42,52 @@ public class DialogueManager_Lab : MonoBehaviour
     // public int dialogueindex
     private int dialogueIndex = 0;
 
-    // Casino owner Choice Panel
-    public GameObject casinoOwnerChoicePanel;
-    // Horse panel choose
-    public GameObject horsePanelChoose;
-
+    // Card view panel
+    [SerializeField] private GameObject cardViewPanel;
     // Add all the casino owner sprites
-    [SerializeField] private Sprite[] casinoOwnerSprites; // 0->serious, 1-> serious with hands, 2->charismatic, 3->happy with hands
+    [SerializeField] private Sprite[] deckmasterSprites; // 0->serious, 1-> serious with hands, 2->charismatic, 3->happy with hands
 
     // Add all the casino owner dialogues
-    private string[] casinoOwnerInitial = {
-        "What's up, hot stuff. You want to make some money?",
-        "Ignore the first comment if you happen to be a male. If you're a girl, then pretend like it was even more charismatic.",
-        "Anyways, there's really not much else to say. I offer a 1:1 payout on bets. You bet 10 coins, you get 20 coins back.",
-        "Oh yeah, and you're probably wondering what that meter at the top of your screen is. That's the Neuroflux meter.",
-        "Meaning that, the more \"fluxed up\" you are, the higher chance you have of winning. Or at least, that's what some people say.",
-        "Something about \"being in the zone\". I don't know. I'm just here to take your money. And give you some back, I guess.",
+    private string[] deckMasterInitial = {
+        "Hey. I'm the Deckmaster. You want to play some cards?",
+        "I'm the best card player in all of Byte City. I live, eat, and breathe cards.",
+        "Well, not necessarily. I don't live, nor do I eat, nor do I breathe... But that's beside the point.",
+        "Before you even hop into those games, you gotta speak with me. I'll give you a rundown of the rules.",
+        "There are three types of cards in this game: heat cards, pressure cards, and electricity cards.",
+        "Heat beats pressure, pressure beats electricity, and electricity beats heat.",
+        "Each card has its own level of power. The higher the power, the rarer the card is, and therefore, the more useful.",
+        "There are three power cards, one of each rarity. Essentially, power cards decrease the power of the enemy's cards by 2, for two rounds following.",
+        "And with power cards, you're not always guaranteed to win. It's all about strategy. If I had a 13 electricity, and you had a 3 pressure, even though my card is higher power, I lose.",
+        "So, you ready to play? I'm going to give you a few cards from here. You can start playing with them. Bonne chance!"
+    };
+
+    // Deckmaster lines (non-initial), so randomized
+    private string[] deckMasterRandom = {
+        "Cards are like life. You never know what you're going to get. Well, I guess you're about to, since you want to buy some from me.",
+        "I've been playing cards for years. I've seen it all. I've seen the best, and I've seen the worst. And you'll see it too.",
+        "You know, I've been thinking about it. I should probably get a real name. Deckmaster is just... weird. Well, some people say it is.",
+        "Do you like me? Do you hate me? Do you wish I was more charismatic? Well, I'm trying my best.",
+        "I've never done flux before. Come to think of it, I've never done anything before. I'm just a card dealer.",
+        "I used to be a big video game junkie back when I was... a human? Oh right, I used to be a human. What a life.",
+        "Jobs are for people who don't make enough money to sit at home and play cards all day. Am I right?",
+        "Hello, hello, hello... This is the Deckmaster speaking. I'm here to give you some cards. You want some cards? I want some cards. Let's trade.",
+        "Give me money, I give you cards. Give me a middle finger, I give you a middle finger. It's all about the exchange.",
+        "I am your father. Well, I probably was. Who knows? I could be anyone? I could be you. I could be me. I could be the cards I'm holding in my pocket.",
+        "I'm the Deckmaster. I'm the best card player in all of Byte City. I live, eat, and breathe cards. And you are, an amateur. But that's okay. We all start somewhere.",
+        "There used to be this thing called the alphabet. I used to know it. Now I can only count to seventeen, and I forgot the order."
+    };
+
+    private int[] deckMasterRandomSprites = {
+        1, 1, 0, 1, 2, 1, 1, 3, 1, 2, 3, 1
     };
 
     // Integer list of inital sprites
-    private int[] casinoOwnerInitialSprites = {
-        2, 0, 1, 2, 3, 2
+    private int[] deckMasterInitialSprites = {
+        2, 1, 0, 1, 2, 3, 1, 2, 1, 3
     };
 
-    // Casino owner one liners dialogues
-    // Make the first three if the player has more losses moneys than wins (we will fix this)
-    private string[] casinoOwnerOneLinersLosing = {
-        "For someone who likes to lose money, you're doing a great job.",
-        "You're like a reverse Robin Hood. Stealing from the poor and giving to the rich. But, want to throw some more money on the table, hotshot?",
-        "Psst. Flux makes you better. But even then, you still seem to suck! How's that for a motivational speech?", // these 3 play if losses > wins
-        "You're on a roll! A really bad one. But hey, you're still here, so you must like losing money. Want to lose some more?",
-        "Losing money isn't my favorite thing to do. But hey, one man's trash is another man's treasure. Too bad you don't seem to have either.",
-        "They say that the more you lose, the more you win. But I don't think that applies to you. Want to try your luck again?" // now let's do wins > losses
-    };
-
-    // losing sprites
-    private int[] casinoOwnerOneLinersLosingSprites = {
-        3, 0, 2, 3, 1, 2
-    };
-
-    // Casino owner one liners dialogues (for winning)
-    private string[] casinoOwnerOneLinersWinning = {
-        "Stay away from this table. You're winning too much. I might have to make some calls if you keep this up.",
-        "Hey, hotshot. You're doing pretty well. But remember, the house always wins. Want to try your luck again?",
-        "I can't tell whether you're fluxed up or not.",
-        "You must seem to like money. Or maybe you like winning. Or maybe you like both. Yeah, you probably like both.",
-        "I know you're winning a lot, but trust me when I say, don't pick Thunderbyte. He might end up losing you some money.",
-        "I heard Nano Mane just got a new upgrade. You might want to bet on him. And no, I'm not lying to you. I'm pretending to lie to you.",
-        "You win a lot for such a loser. I mean, you're not a loser. You're a winner. But you're also a loser. You know what I mean.",
-    };
-
-    // winning sprites
-    private int[] casinoOwnerOneLinersWinningSprites = {
-        0, 2, 2, 2, 1, 1, 0
-    };
-
-    // Casino owner one liners for neutral
-    private string[] casinoOwnerOneLinersNeutral = {
-        "Alright, alright. Let's get this thing started, shall we? You want to bet on some robot horses? You want some flux?",
-        "You're not doing too bad. But you're not doing too good either. You're just... doing.",
-        "You're like a coin. You have two sides. One side is winning, the other side is losing. But you're still a coin.",
-        "I'm not sure how else to motivate you to bet. But, I heard that the more you bet, the more you win. Or lose. But you're probably going to lose. Right, that didn't help.",
-        "I just installed a golden toilet in the back. Only winners allowed. You want to be a winner, right? That's what I thought.",
-    };
-
-    // neutral sprites
-    private int[] casinoOwnerOneLinersNeutralSprites = {
-        2, 2, 2, 0, 3
-    };
-
-    // Make casino owner speak
-    public void CasinoOwnerSpeak()
+    // Make the deckmaster speak
+    public void DeckMasterSpeak()
     {
         // Stop player
         playerMovement.StopPlayer();
@@ -130,25 +98,31 @@ public class DialogueManager_Lab : MonoBehaviour
         // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
         // If the casino owner has never been interacted with, do the initial coroutine
         // otherwise just the normal coroutine
-        if (playerData.npc_interactions["casino_owner"] == 0)
+        if (playerData.npc_interactions["deckmaster"] == 0)
         {
-            StartCoroutine(CasinoOwnerSpeakInitial());
+            StartCoroutine(DeckMasterSpeakInitial());
         }
         else
         {
-            StartCoroutine(CasinoOwnerSpeakCoroutine());
+            StartCoroutine(DeckMasterSpeakCoroutine());
         }
 
         // Increment the npc_interactions for casino_owner
-        playerData.npc_interactions["casino_owner"] += 1;
-    }
+        playerData.npc_interactions["deckmaster"] += 1;
 
-    private IEnumerator CasinoOwnerSpeakInitial()
+        // Whenever you add the cards, you should also add the cards to the player's inventory
+        // ROHAN -> Add your code here.
+    }
+    
+    // Coroutine for typing the sentence
+    private Coroutine typeSentenceCoroutine;
+
+    private IEnumerator DeckMasterSpeakInitial()
     {
         // Change TTC_Text to "Do Not Tap."
         TTC_Text.text = "Do Not Tap...";
 
-        for (int i = 0; i < casinoOwnerInitial.Length; i++)
+        for (int i = 0; i < deckMasterInitial.Length; i++)
         {
             // If the coroutine is not null, stop the coroutine
             if (typeSentenceCoroutine != null)
@@ -160,17 +134,17 @@ public class DialogueManager_Lab : MonoBehaviour
             dialogueText.text = "";
 
             // Set the characterImage to the appropriate sprite
-            characterImage.sprite = casinoOwnerSprites[casinoOwnerInitialSprites[i]];
+            characterImage.sprite = deckmasterSprites[deckMasterInitialSprites[i]];
 
-            // Set the charName to "Casino Owner"
-            charName.text = "Casino Owner";
+            // Set the charName to "Deckmaster"
+            charName.text = "Deckmaster";
 
             // Start typing the sentence
             isTyping = true;
-            typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerInitial[i]));
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterInitial[i]));
 
             // Wait
-            yield return new WaitForSeconds(casinoOwnerInitial[i].Length * typingSpeed + 1.25f);
+            yield return new WaitForSeconds(deckMasterInitial[i].Length * typingSpeed + 1.25f);
 
             // Wait
             yield return new WaitForSeconds(2);
@@ -186,100 +160,9 @@ public class DialogueManager_Lab : MonoBehaviour
         playerMovement.UnstopPlayer();
     }
 
-    // Now, thanks for the flux lines
-    public string[] casinoOwnerThanksForFlux = {
-        "You went with the flux, huh? Good choice. You're going to need it.",
-        "You want to be a winner, hey! I like that. Keep it up, champ.",
-        "I see a winner in you now. I had my doubts, but you're proving me wrong.",
-        "You're going to win big. I can feel it. Or maybe I'm just feeling the flux. Either way, you're going to win big.",
-        "There's more where this came from. Keep betting, keep winning. You're going to be rich.",
-    };
-
-    // Now, thanks for the flux sprites
-    public int[] casinoOwnerThanksForFluxSprites = {
-        2, 2, 3, 2, 2
-    };
-
-    // Too poor to buy flux, so hate on the character
-    public string[] casinoOwnerHate = {
-        "Why are you gambling when you don't even want to win?",
-        "You don't have money to buy flux, and you're still gambling? OK.",
-        "... OK. You know what? I'm not even going to say anything. You're just... something else.",
-        "Right... Why are you even here? You don't have money to buy flux, you don't have money to bet. What are you doing?",
-    };
-
-    // Hate sprites
-    public int[] casinoOwnerHateSprites = {
-        0, 0, 1, 0
-    };
-
-    // Buy flux function
-    public void CasinoOwnerBuyFlux()
+    // Deckmaster coroutine
+    private IEnumerator DeckMasterSpeakCoroutine()
     {
-        // Turn off the choice menu
-        casinoOwnerChoicePanel.SetActive(false);
-        // Turn off the modal
-        backModal.SetActive(false);
-
-        // Check if the player has >=10 coins
-        // playerData.flux_meter += 25;
-        if (playerData.coins >= 10)
-        {
-            playerData.coins -= 10;
-            playerData.neuroflux_meter += 25;
-            playerData.casino_winnings += 10;
-            CasinoOwnerThanksForFlux();
-        } else
-        {
-            CasinoOwnerHateOnPlayer();
-        }
-    }
-
-    // Open the horse panel
-    public void CasinoOwnerOpenHorsePanel()
-    {
-        // Turn off the choice menu
-        casinoOwnerChoicePanel.SetActive(false);
-        // Turn on the horse panel
-        horsePanelChoose.SetActive(true);
-    }
-
-    // Close horse panel
-    public void CasinoOwnerCloseHorsePanel()
-    {
-        // Turn off the horse panel
-        horsePanelChoose.SetActive(false);
-        // Now turn off the backModal
-        backModal.SetActive(false);
-    }
-
-    // Hate on the player for not buying flux
-    public void CasinoOwnerHateOnPlayer()
-    {
-        // Stop player
-        playerMovement.StopPlayer();
-
-        // Turn on the dialogue panel
-        dialoguePanel.SetActive(true);
-
-        // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
-        // If the casino owner has never been interacted with, do the initial coroutine
-        // otherwise just the normal coroutine
-        StartCoroutine(CasinoOwnerHateOnPlayerCoroutine());
-
-        // Increment the npc_interactions for casino_owner
-        playerData.npc_interactions["casino_owner"] += 1;
-    }
-
-    private IEnumerator CasinoOwnerHateOnPlayerCoroutine()
-    {
-        // Change TTC_Text to "Do Not Tap."
-        TTC_Text.text = "Do Not Tap...";
-
-        // Choose a random hate dialogue
-        int i = Random.Range(0, casinoOwnerHate.Length);
-
-        // Now choose the sprites for the hate dialogue
         // If the coroutine is not null, stop the coroutine
         if (typeSentenceCoroutine != null)
         {
@@ -290,164 +173,28 @@ public class DialogueManager_Lab : MonoBehaviour
         dialogueText.text = "";
 
         // Set the characterImage to the appropriate sprite
-        characterImage.sprite = casinoOwnerSprites[casinoOwnerHateSprites[i]];
+        int i = Random.Range(0, deckMasterRandom.Length);
+        characterImage.sprite = deckmasterSprites[deckMasterRandomSprites[i]];
 
-        // Set the charName to "Casino Owner"
-        charName.text = "Casino Owner";
-
-        // Start typing the sentence
-        isTyping = true;
-        typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerHate[i]));
-
-        // Wait
-        yield return new WaitForSeconds(casinoOwnerHate[i].Length * typingSpeed + 1.25f);
-
-        // Wait
-        // yield return new WaitForSeconds(2);
-
-        // Change TTC_Text to "Tap to Continue."
-        TTC_Text.text = "Tap to Continue...";
-        
-        // Close the dialogue panel
-        dialoguePanel.SetActive(false);
-
-        // Let player move
-        playerMovement.UnstopPlayer();
-    }
-
-    // A function to thank the player for using flux
-    public void CasinoOwnerThanksForFlux()
-    {
-        // Stop player
-        playerMovement.StopPlayer();
-
-        // Turn on the dialogue panel
-        dialoguePanel.SetActive(true);
-
-        // First, say the first dialogue, second dialogue, third dialogue, pan(0), fourth dialogue, pan(1), fifth dialogue, pan(2), sixth dialogue
-        // If the casino owner has never been interacted with, do the initial coroutine
-        // otherwise just the normal coroutine
-        StartCoroutine(CasinoOwnerThanksForFluxCoroutine());
-
-        // Increment the npc_interactions for casino_owner
-        playerData.npc_interactions["casino_owner"] += 1;
-    }
-
-    private IEnumerator CasinoOwnerThanksForFluxCoroutine()
-    {
-        // Change TTC_Text to "Do Not Tap."
-        TTC_Text.text = "Do Not Tap...";
-
-        // Choose a random thanks for flux dialogue
-        int i = Random.Range(0, casinoOwnerThanksForFlux.Length);
-
-        // Now choose the sprites for the thanks for flux dialogue
-        // If the coroutine is not null, stop the coroutine
-
-        if (typeSentenceCoroutine != null)
-        {
-            StopCoroutine(typeSentenceCoroutine);
-        }
-
-        // Set the dialogueText to an empty string
-        dialogueText.text = "";
-
-        // Set the characterImage to the appropriate sprite
-        characterImage.sprite = casinoOwnerSprites[casinoOwnerThanksForFluxSprites[i]];
-
-        // Set the charName to "Casino Owner"
-        charName.text = "Casino Owner";
+        // Set the charName to "Deckmaster"
+        charName.text = "Deckmaster";
 
         // Start typing the sentence
         isTyping = true;
-
-        typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerThanksForFlux[i]));
-
-        // Wait
-        yield return new WaitForSeconds(casinoOwnerThanksForFlux[i].Length * typingSpeed + 1.25f);
-
-        // Change TTC_Text to "Tap to Continue."
-        TTC_Text.text = "Tap to Continue...";
-        
-        // Close the dialogue panel
-        dialoguePanel.SetActive(false);
-
-        // Let player move
-        playerMovement.UnstopPlayer();
-    }
-
-    private IEnumerator CasinoOwnerSpeakCoroutine()
-    {
-        // Basically, we're going to go to playerData casino_winnings (int) and casino_losses (int) and get the ratio for that.
-        // This only applies if we have interacted with the casino owner more than once.
-        float ratio = (float)playerData.casino_winnings / (float)playerData.casino_losses;
-
-        // Change TTC_Text to "Do Not Tap."
-        TTC_Text.text = "Do Not Tap...";
-
-        string[] selectedDialogues;
-        int[] selectedSprites;
-
-        // Determine which dialogues and sprites to use based on the ratio
-        if (ratio < 0.95)
-        {
-            selectedDialogues = casinoOwnerOneLinersLosing;
-            selectedSprites = casinoOwnerOneLinersLosingSprites;
-        }
-        else if (ratio >= 0.95 && ratio <= 1)
-        {
-            selectedDialogues = casinoOwnerOneLinersNeutral;
-            selectedSprites = casinoOwnerOneLinersNeutralSprites;
-        }
-        else
-        {
-            selectedDialogues = casinoOwnerOneLinersWinning;
-            selectedSprites = casinoOwnerOneLinersWinningSprites;
-        }
-
-        // If winnings and losings are both 0, then just do ratio = 1
-        if (playerData.casino_winnings == 0 && playerData.casino_losses == 0)
-        {
-            selectedDialogues = casinoOwnerOneLinersNeutral;
-            selectedSprites = casinoOwnerOneLinersNeutralSprites;
-        }
-
-        // Execute only one oneliner
-        int i = Random.Range(0, selectedDialogues.Length);
-
-        // If the coroutine is not null, stop the coroutine
-        if (typeSentenceCoroutine != null)
-        {
-            StopCoroutine(typeSentenceCoroutine);
-        }
-
-        // Set the dialogueText to an empty string
-        dialogueText.text = "";
-
-        // Set the characterImage to the appropriate sprite
-        characterImage.sprite = casinoOwnerSprites[selectedSprites[i]];
-
-        // Set the charName to "Casino Owner"
-        charName.text = "Casino Owner";
-
-        // Start typing the sentence
-        isTyping = true;
-        typeSentenceCoroutine = StartCoroutine(TypeSentence(selectedDialogues[i]));
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterRandom[i]));
 
         // Wait
-        yield return new WaitForSeconds(selectedDialogues[i].Length * typingSpeed + 1.25f);
+        yield return new WaitForSeconds(deckMasterRandom[i].Length * typingSpeed + 1.25f);
 
         // Wait
         yield return new WaitForSeconds(2);
 
-        // Show the choice panel
-        casinoOwnerChoicePanel.SetActive(true);
-
-        // modal goes up, and also dialogue is out
+        // Close the dialogue panel
         dialoguePanel.SetActive(false);
-        backModal.SetActive(true);
+
+        // Let player move
+        playerMovement.UnstopPlayer();
     }
-    
 
 
     IEnumerator TypeSentence (string sentence)
@@ -467,8 +214,7 @@ public class DialogueManager_Lab : MonoBehaviour
         isTyping = false;
     }
 
-    // Coroutine for typing the sentence
-    private Coroutine typeSentenceCoroutine;
+
         
 
     // Public integer array for each drunkGuySprites[n] to correspond to drunkGuyDialogues[n]
@@ -499,7 +245,7 @@ public class DialogueManager_Lab : MonoBehaviour
         }
 
         // if casinoenter=0, start the sensei tutorial
-        if (playerData.npc_interactions["casinoenter"] == 0)
+        if (playerData.npc_interactions["labenter"] == 0)
         {
             // Sensei Tutorial
             SenseiTutorial();
@@ -507,7 +253,7 @@ public class DialogueManager_Lab : MonoBehaviour
     }
     
     // GameObjects to pan the Camera to
-    [SerializeField] private GameObject cameraPanTarget; // The area where the casino owner is.
+    [SerializeField] private GameObject[] cameraPanTargets; // Four targets, leaderboards,datacentercomp1,datacentercomp2,deckmaster
 
     // Sensei Town Square tutorial
     public void SenseiTutorial()
@@ -522,7 +268,7 @@ public class DialogueManager_Lab : MonoBehaviour
         StartCoroutine(SenseiTutorialCoroutine());
 
         // Increment the npc_interactions for casinoenter
-        playerData.npc_interactions["casinoenter"] = 1;
+        playerData.npc_interactions["labenter"] = 1;
     }
 
     private IEnumerator SenseiTutorialCoroutine()
@@ -555,13 +301,22 @@ public class DialogueManager_Lab : MonoBehaviour
             yield return new WaitForSeconds(senseiDialogues[i].Length * typingSpeed + 1.25f);
 
             // if i = 2, pan to the casino owner
-            if (i == 1)
+            if (i==4)
             {
-                cameraFollow.PanCamera(cameraPanTarget.transform);
+                cameraFollow.PanCamera(cameraPanTargets[0].transform);
+            } else if (i==5)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[1].transform);
+            } else if (i==6)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[2].transform);
+            } else if (i==7)
+            {
+                cameraFollow.PanCamera(cameraPanTargets[3].transform);
             }
 
             // Wait
-            yield return new WaitForSeconds(2);
+            yield return new WaitForSeconds(1.5f);
         }
 
         // Change TTC_Text to "Tap to Continue."
@@ -580,16 +335,20 @@ public class DialogueManager_Lab : MonoBehaviour
 
     // Multiple dialogues for the sensei
     private string[] senseiDialogues = {
-        "Right... Welcome to the casino. You want money? Possibly? Well, you're in the right place.",
-        "There's really only one thing to do here. Bet on robot horses. Yes, it sounds ridiculous, but it's the only way to make money. The table is over there.",
-        "The casino owner offers a 1:1 payout on bets. You basically get twice the amount you bet. Sick, right? Well... There is a catch.",
-        "There's something in this town called Neuroflux. You've probably already noticed the meter at the top of your screen. You can only see this meter in the casino.",
-        "And when you're more \"fluxed up\", you have a higher chance of winning. But hey, flux isn't cheap, so you have to pay to play. Go ask the casino owner for more details.",
-        "Winning big sounds fun, though. But it's much harder than it seems. Good luck, and remember, the house always wins."
+        "You found the lab! That's nice. Welcome to the lab. Or whatever they say.",
+        "Legend says this is where Rishi and his team worked on Protocol Asce–",
+        "Right... I forgot that word was prohibited within Byte City. My apologies. But right, the laboratory...",
+        "You like being competitive? Well, there are minigames here. You won't make any money, but you can be on the leaderboards...",
+        "You might wonder... where are the leaderboards? Well, for all three of the games, you'll find the leaderboards near the entrance, over here.",
+        "You like orienting pipes? There's a nice game for that. Check it out near the data center.",
+        "How about putting wires together? There's a game for that too. You'll find it right about... here.",
+        "And then, for those who enjoy card games, you can talk to the \"Deckmaster\" over there.",
+        "Deckmaster is such a weird name. I don't know why he calls himself that. But he's a nice guy.",
+        "Anyways... Toodles! Or whatever people say in this day and age."
     };
 
     private int[] senseiSpriteIndices = {
-        2, 1, 0, 1, 1, 3
+        3, 2, 1, 2, 2, 3, 2, 1, 0, 3
     };
 
     void Update()

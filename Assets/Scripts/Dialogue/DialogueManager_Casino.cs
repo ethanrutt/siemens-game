@@ -26,6 +26,11 @@ public class DialogueManager_Casino : MonoBehaviour
     // TTC text
     public TMPro.TextMeshProUGUI TTC_Text;
 
+    // current flux value (start at 10)
+    public int fluxCost = 10;
+    // Text for flux cost
+    public TMPro.TextMeshProUGUI fluxCostText;
+
     // import Camera_Movement script
     [SerializeField] private CameraFollow cameraFollow;
     // import PlayerMovement script
@@ -66,7 +71,7 @@ public class DialogueManager_Casino : MonoBehaviour
     private string[] casinoOwnerInitial = {
         "What's up, hot stuff. You want to make some money?",
         "Ignore the first comment if you happen to be a male. If you're a girl, then pretend like it was even more charismatic.",
-        "Anyways, there's really not much else to say. I offer a 1:1 payout on bets. You bet 10 coins, you get 20 coins back.",
+        "Anyways, there's really not much else to say. I offer a 2:1 payout on bets. You bet 10 coins, you can win 20 coins. Simple, right?",
         "Oh yeah, and you're probably wondering what that meter at the top of your screen is. That's the Neuroflux meter.",
         "Meaning that, the more \"fluxed up\" you are, the higher chance you have of winning. Or at least, that's what some people say.",
         "Something about \"being in the zone\". I don't know. I'm just here to take your money. And give you some back, I guess.",
@@ -213,6 +218,20 @@ public class DialogueManager_Casino : MonoBehaviour
         "Right... Why are you even here? You don't have money to buy flux, you don't have money to bet. What are you doing?",
     };
 
+    // Flux is full
+    public string[] casinoOwnerFluxFull = {
+        "You want more flux? Dude. Your eyes are glowing. You're full. You're like a balloon. You're going to pop.",
+        "Flux, flux, flux... That's what you really care about? You're not going to try to win? You're just going to keep buying flux?",
+        "I've heard of addicts like you. You're not going to stop, are you? You're just going to keep buying flux. Sorry, but I can't assist you.",
+        "You're not even a human. Why are you addicted like one?",
+        "Monsieur Addict. Tu veux plus de flux? Tu es plein. Tu vas exploser. Did you know I spoke French?",
+        "Idiot. Idiot. Idiot. You're full! You're going to combust at this rate."
+    };
+
+    public int[] casinoOwnerFluxFullSprites = {
+        0, 1, 0, 0, 0, 1
+    };
+
     // Hate sprites
     public int[] casinoOwnerHateSprites = {
         0, 0, 1, 0
@@ -228,11 +247,17 @@ public class DialogueManager_Casino : MonoBehaviour
 
         // Check if the player has >=10 coins
         // playerData.flux_meter += 25;
-        if (playerData.coins >= 10)
+        if (playerData.coins >= fluxCost && playerData.neuroflux_meter < 100)
         {
-            playerData.coins -= 10;
-            playerData.neuroflux_meter += 25;
-            playerData.casino_winnings += 10;
+            playerData.coins -= fluxCost;
+            if (playerData.neuroflux_meter + 25 > 100)
+            {
+                playerData.neuroflux_meter = 100;
+            }
+            else
+            {
+                playerData.neuroflux_meter += 25;
+            }
             CasinoOwnerThanksForFlux();
         } else
         {
@@ -284,39 +309,68 @@ public class DialogueManager_Casino : MonoBehaviour
         // Change TTC_Text to "Do Not Tap."
         TTC_Text.text = "Do Not Tap...";
 
-        // Choose a random hate dialogue
-        int i = Random.Range(0, casinoOwnerHate.Length);
-
-        // Now choose the sprites for the hate dialogue
-        // If the coroutine is not null, stop the coroutine
-        if (typeSentenceCoroutine != null)
+        // If the player is fluxed up (neuroflux_meter == 100) otherwise we do normal hate
+        if (playerData.neuroflux_meter == 100)
         {
-            StopCoroutine(typeSentenceCoroutine);
+            // Choose a random hate dialogue
+            int i = Random.Range(0, casinoOwnerFluxFull.Length);
+
+            // Now choose the sprites for the hate dialogue
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
+
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
+
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = casinoOwnerSprites[casinoOwnerFluxFullSprites[i]];
+
+            // Set the charName to "Casino Owner"
+            charName.text = "Casino Owner";
+
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerFluxFull[i]));
+
+            // Wait
+            yield return new WaitForSeconds(casinoOwnerFluxFull[i].Length * typingSpeed + 1.25f);
+        } else
+        {
+            // Choose a random hate dialogue
+            int i = Random.Range(0, casinoOwnerHate.Length);
+
+            // Now choose the sprites for the hate dialogue
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
+
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
+
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = casinoOwnerSprites[casinoOwnerHateSprites[i]];
+
+            // Set the charName to "Casino Owner"
+            charName.text = "Casino Owner";
+
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerHate[i]));
+
+            // Wait
+            yield return new WaitForSeconds(casinoOwnerHate[i].Length * typingSpeed + 1.25f);
         }
-
-        // Set the dialogueText to an empty string
-        dialogueText.text = "";
-
-        // Set the characterImage to the appropriate sprite
-        characterImage.sprite = casinoOwnerSprites[casinoOwnerHateSprites[i]];
-
-        // Set the charName to "Casino Owner"
-        charName.text = "Casino Owner";
-
-        // Start typing the sentence
-        isTyping = true;
-        typeSentenceCoroutine = StartCoroutine(TypeSentence(casinoOwnerHate[i]));
-
-        // Wait
-        yield return new WaitForSeconds(casinoOwnerHate[i].Length * typingSpeed + 1.25f);
-
-        // Wait
-        // yield return new WaitForSeconds(2);
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
-        
+
         // Close the dialogue panel
+
         dialoguePanel.SetActive(false);
 
         // Let player move
@@ -449,6 +503,20 @@ public class DialogueManager_Casino : MonoBehaviour
         yield return new WaitForSeconds(2);
 
         // Show the choice panel
+        // Before we do choice panel, we need to set the fluxCostText
+        // We will do it based on the current fluxCost
+        // The text is only the number itself to a string
+        // First, determine the fluxCost based on the current playerCoins
+        // initialFluxCost is 10, so 10 + playerCoins*0.1
+
+        // The max flux cost should never exceed 100
+        fluxCost = 10 + (int)(playerData.coins * 0.05);
+        if (fluxCost > 100)
+        {
+            fluxCost = 100;
+        }
+        fluxCostText.text = fluxCost.ToString();
+
         casinoOwnerChoicePanel.SetActive(true);
 
         // modal goes up, and also dialogue is out
@@ -590,7 +658,7 @@ public class DialogueManager_Casino : MonoBehaviour
     private string[] senseiDialogues = {
         "Right... Welcome to the casino. You want money? Possibly? Well, you're in the right place.",
         "There's really only one thing to do here. Bet on robot horses. Yes, it sounds ridiculous, but it's the only way to make money. The table is over there.",
-        "The casino owner offers a 1:1 payout on bets. You basically get twice the amount you bet. Sick, right? Well... There is a catch.",
+        "The casino owner offers a 2:1 payout on bets. You basically get twice the amount you bet, if you win. Sick, right? Well... There is a catch.",
         "There's something in this town called Neuroflux. You've probably already noticed the meter at the top of your screen. You can only see this meter in the casino.",
         "And when you're more \"fluxed up\", you have a higher chance of winning. But hey, flux isn't cheap, so you have to pay to play. Go ask the casino owner for more details.",
         "Winning big sounds fun, though. But it's much harder than it seems. Good luck, and remember, the house always wins."

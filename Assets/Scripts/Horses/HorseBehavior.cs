@@ -6,8 +6,11 @@ using TMPro;
 
 public class HorseBehavior : MonoBehaviour
 {
+    
     // Grab all HorseObjects (they're Unity UI Images)
     [SerializeField] private GameObject[] horseObjects;
+
+    [SerializeField] private GameObject[] horseTrailPrefabs;
 
     private Vector2[] horseStartPositions;
 
@@ -24,20 +27,41 @@ public class HorseBehavior : MonoBehaviour
 
     [SerializeField] private TMP_Text horseInLead;
 
-    public float[] slowSpeeds =
+    private float[] slowSpeeds =
     {
-        20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f
+        20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f, 42.5f, 42.5f
     };
 
-    public float[] mediumSpeeds =
+    private float[] slowChosenSpeeds =
     {
-        55f, 60f, 65f, 70f, 72.5f, 75f, 77.5f, 80f
+        20f, 22.5f, 25f, 27.5f, 30f, 32.5f, 35f, 37.5f, 40f, 42.5f, 42.5f, 45f, 60f, 70f, 20f, 22.5f, 30f, 32.5f, 40f, 45f, 100f, 120f, 70f, 50f, 35f, 35f, 23.5f, 40f, 40f, 22.5f
     };
 
-    public float[] fastSpeeds =
+    private float[] slowMediumSpeeds =
     {
-        115f, 120f, 125f, 130f, 135f, 140f, 145f, 150f
+        25f, 30f, 35f, 40f, 45f, 50f, 52.5f, 55.5f, 60f, 62.5f, 70f, 75f
     };
+
+    private float[] mediumSpeeds =
+    {
+        45f, 46.25f, 47f, 50f, 55.5f, 60f, 62.5f, 65f, 70f, 72.5f, 45f, 50f, 75f, 70f, 55.5f, 60f, 65f, 80f, 60f, 65f, 70f, 50f, 50f, 70f, 65f
+    };
+
+    // slightmedium
+    private float[] slightMediumSpeeds =
+    {
+        // 37.5f, 35f, 25f, 55.5f, 50f, 46.25f, 43f, 42.5f, 100f, 30f, 34.5f
+        55f, 60f, 65f, 70f, 47.5f, 50f, 60f, 65f, 55f, 65f, 70f, 150f, 45f, 60f, 65f, 60f, 55f, 50f, 70f, 72.5f, 20f, 30f, 40f, 25f, 40f, 100f, 40f, 50f, 60f, 55f, 65f, 50f
+    };
+
+    private float[] fastSpeeds =
+    {
+        60f, 65f, 70f, 75f, 80f
+    };
+
+    public bool lostGame = false;
+
+    private float trailLifetime = 0.1f;
 
     // Grab the players neuroflux level. It goes up to 100 (think of percent, but its an integer)
     private int neurofluxLevel;
@@ -48,86 +72,47 @@ public class HorseBehavior : MonoBehaviour
 
     private bool horseCrossedFinishLine;
 
+    private List<GameObject> horseTrails = new List<GameObject>();
+
     [SerializeField] Canvas GameScreen;
     [SerializeField] Canvas GameOverScreen;
     [SerializeField] TMP_Text horseWinnerText;
     [SerializeField] TMP_Text coinsLostOrGainedText;
-    
+
     // RandomSpeed function
-    private float RandomSpeed()
+    private float RandomSpeed(bool isChosen)
     {
-        // Check if the player is on neuroflux
-        bool isFluxed = neurofluxLevel > 0;
+        int baseChance;
+        float[] speedArray = slowSpeeds;
 
-        // If the player has 25 neuroflux, they have a 25% chance of getting a speed boost
-        // If the player has 50 neuroflux, they have a 50% chance of getting a speed boost etc
-        if (isFluxed)
+        neurofluxLevel = playerData.neuroflux_meter;
+
+        if (isChosen)
         {
-            // Random number between 0 and 100
+            // Base chance for slow speeds
+            baseChance = Mathf.Clamp(70 - (neurofluxLevel / 2), 20, 70); // Giving range from 20% to 70%, decreasing as neuroflux increases
+
             int rand = Random.Range(0, 100);
-
-            // Generate a random number that we will test with the neuroflux
-            int test = Random.Range(15, 110);
-
-            neurofluxLevel = playerData.neuroflux_meter;
-
-            // If test > neurofluxLevel, then we will return a random speed
-            if (test > neurofluxLevel)
+            if (rand < baseChance)
             {
-                // Return something from small or medium with a 75% chance of small
-                int random = Random.Range(0, 4);
-                if (random == 0)
-                {
-                    // Debug.Log("Speed Boost MED!");
-                    return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
-                } else
-                {
-                    // Debug.Log("Speed Boost SLOW!");
-                    return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
-                }
+                speedArray = slowChosenSpeeds;
+            }
+            else if (rand < baseChance + 20)
+            {
+                speedArray = slowMediumSpeeds;
             }
             else
             {
-                // If the player is on neuroflux, they have a 50% chance of getting a speed boost
-                // If they do get a speed boost, we will return a random speed
-                // fastspeed has a 33% chance of being chosen
-                int rand_2 = Random.Range(0, 3);
-                if (rand_2 == 0)
-                {
-                    return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
-                }
-                else
-                {
-                    // Return something from small or medium with a 25% chance of small
-                    int random = Random.Range(0, 4);
-                    if (random == 0)
-                    {
-                        return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
-                    }
-                    else
-                    {
-                        return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
-                    }
-                }
+                speedArray = slightMediumSpeeds;
             }
         }
-        else {
-            // Make it really rigged against the player. Over 80% chance of being slow
-            int random = Random.Range(0, 10);
+        else
+        {
+            int baseNonChosen = 50; // Non-chosen horses have a fixed lower chance for faster speeds
+            speedArray = Random.Range(0, 100) < baseNonChosen ? slowSpeeds : mediumSpeeds;
+        }
 
-            if (random < 8)
-            {
-                return slowSpeeds[Random.Range(0, slowSpeeds.Length)];
-            }
-            else if (random < 9)
-            {
-                return mediumSpeeds[Random.Range(0, mediumSpeeds.Length)];
-            }
-            else
-            {
-                return fastSpeeds[Random.Range(0, fastSpeeds.Length)];
-            }
-        }
+        return speedArray[Random.Range(0, speedArray.Length)];
     }
 
     private float NonChosenHorseSpeed()
@@ -215,12 +200,6 @@ public class HorseBehavior : MonoBehaviour
                 EndGame(winningHorse);
             }
         }
-
-        if (!horseCrossedFinishLine)
-        {
-            MoveHorses();
-            UpdateLeadHorse();
-        }
     }
 
     public void UpdateLeadHorse()
@@ -254,57 +233,75 @@ public class HorseBehavior : MonoBehaviour
         }
     }
 
-    public void MoveHorses()
+    // MoveHorses new version where it constantly slides the transform until it needs to recall a random speed
+    // essentially, we're going to move the horses by a certain amount every frame
+    // until we hit a set number of frames, then get the new speed
+    // this means horses will move a set amount every single frame
+    // but until they reach a frame count, they won't get a new speed
+
+    private int frameCount = 0;
+    private void FixedUpdate()
     {
-        Debug.Log("moving horses");
-        if (chosen_horse_ == "blackhoof")
+        if (horseCrossedFinishLine) return;
+
+        frameCount++;
+        if (frameCount >= 25 / horseObjects.Length) // Each horse gets updated in round robin every second
         {
-            horseObjects[0].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-        }
-        else if (chosen_horse_ == "chromeblitz")
-        {
-            horseObjects[1].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-        }
-        else if (chosen_horse_ == "robotrotter")
-        {
-            horseObjects[2].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-        }
-        else if (chosen_horse_ == "nanomane")
-        {
-            horseObjects[3].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[4].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-        }
-        else if (chosen_horse_ == "thunderbyte")
-        {
-            horseObjects[4].transform.position += Vector3.right * RandomSpeed() * Time.deltaTime;
-            // Make the rest of them NonChosen
-            horseObjects[0].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[1].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[2].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
-            horseObjects[3].transform.position += Vector3.right * NonChosenHorseSpeed() * Time.deltaTime;
+            MoveHorses();
+            UpdateLeadHorse();
+            frameCount = 0;
         }
     }
 
-    public bool lostGame = false;
+    public void MoveHorses()
+    {
+        float deltaTime = Time.deltaTime * 25; // Adjusting for 25 frames per second
+
+        for (int i = 0; i < horseObjects.Length; i++)
+        {
+            // we need to change the position after the fact, since we are in canvas coordinates, not game coordinates
+            GameObject horseTrail = Instantiate(horseTrailPrefabs[i], Vector3.zero, Quaternion.identity, horseObjects[i].transform.parent.GetComponent<RectTransform>());
+            horseTrail.GetComponent<RectTransform>().anchoredPosition = horseObjects[i].GetComponent<RectTransform>().anchoredPosition - new Vector2(15f, 0f);
+            horseTrails.Add(horseTrail);
+
+
+            bool isChosen = (GetHorseName(i) == chosen_horse_);
+
+            float speed = isChosen ? RandomSpeed(true) : RandomSpeed(false);
+
+            // DEBUG:
+            // Debug log the speed for the chosen horse
+            // if (isChosen)
+            // {
+            //     Debug.Log($"Chosen horse speed: {speed}");
+            // } else {
+            //     Debug.Log($"Non-chosen horse speed: {speed}");
+            // }
+            horseObjects[i].transform.position += Vector3.right * speed * deltaTime;
+
+            StartCoroutine(DestroyAfterDelay(horseTrail));
+        }
+    }
+
+    private IEnumerator DestroyAfterDelay(GameObject trail)
+    {
+        yield return new WaitForSeconds(trailLifetime);
+        horseTrails.Remove(trail);
+        Destroy(trail);
+    }
+
+    private string GetHorseName(int index)
+    {
+        switch (index)
+        {
+            case 0: return "blackhoof";
+            case 1: return "chromeblitz";
+            case 2: return "robotrotter";
+            case 3: return "nanomane";
+            case 4: return "thunderbyte";
+            default: return "";
+        }
+    }
 
     public void EndGame(string winningHorse)
     {
@@ -313,7 +310,7 @@ public class HorseBehavior : MonoBehaviour
         horseWinnerText.text = $"{winningHorse} has won!";
         if (winningHorse == chosen_horse_)
         {
-            int coinsGained = 2 * betAmount;
+            int coinsGained = 3 * betAmount;
             lostGame = false;
             playerData.coins += coinsGained;
             coinsLostOrGainedText.text = $"You gained {coinsGained} coins!";//achid=13,14
@@ -330,7 +327,7 @@ public class HorseBehavior : MonoBehaviour
                 // unlock achievement 14
                 playerData.UnlockAchievement(14);
             }
-            
+
         }
         else
         {
@@ -347,6 +344,13 @@ public class HorseBehavior : MonoBehaviour
             }
         }
 
+        // clean up trails
+        for (int i = 0; i < horseTrails.Count; i++)
+        {
+            Destroy(horseTrails[i]);
+        }
+        horseTrails.Clear();
+
         // reset horse positions
         for (int i = 0; i < horseObjects.Length; i++)
         {
@@ -360,22 +364,9 @@ public class HorseBehavior : MonoBehaviour
         GameOverScreen.gameObject.SetActive(false);
         horseCrossedFinishLine = false;
 
-        // if the player has won, subtract only 15 from neuroflux
+        // If the player has won, subtract less from neuroflux
         if (!lostGame)
         {
-            if (playerData.neuroflux_meter < 15)
-            {
-                playerData.neuroflux_meter = 0;
-            }
-            else
-            {
-                playerData.neuroflux_meter -= 15;
-            }
-
-        }
-        else
-        {
-            // if the player has lost, subtract 25 from neuroflux
             if (playerData.neuroflux_meter < 25)
             {
                 playerData.neuroflux_meter = 0;
@@ -384,9 +375,23 @@ public class HorseBehavior : MonoBehaviour
             {
                 playerData.neuroflux_meter -= 25;
             }
+
+        }
+        else
+        {
+            // if the player has lost, subtract more from neuroflux
+            // I.E. Their high was too high, and they lost a lot of money
+            if (playerData.neuroflux_meter < 50)
+            {
+                playerData.neuroflux_meter = 0;
+            }
+            else
+            {
+                playerData.neuroflux_meter -= 50;
+            }
         }
 
-        // Unstop   
+        // Unstop
         playerMovement.UnstopPlayer();
         modalBack.SetActive(false);
     }
