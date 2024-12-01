@@ -150,12 +150,31 @@ git clone git@github.com:ethanrutt/siemens-game.git
       installations
 
 ### iOS Deployment
-* **rishi fix this plz**
+* Open Unity Hub
+    * Click on `Installs` on the left
+    * Find the Unity Version used with this project `2022.3.45f1`
+    * Click the gear on the far right of the Unity Version
+    * Click `Add modules`
+    * Click `Android Build Support`
+    * Click `Install`
+* After you have installed Android Build Support, open up the Unity Editor by
+  clicking on `siemens-game` in Unity Hub
+  * Go to File -> Build Settings
+  * Click `iOS`
+  * Click `Switch Platform`
+  * Click `Player Settings` in the bottom left
+  * Make sure the `Company Name` is set to `Siemens`
+  * Make sure the `Product Name` is set to `Byte City`
+  * Set the version to whatever version you are releasing
+  * Click Build
+* You should have an `.xcode` file that you will need to open in XCode.
+* This file will allow you to build the game on iOS, and you should follow the steps that XCode gives you with regards to this process.
+
 ---
 ## Future Development
-* The ByteCity team has put tons of hours into this game. We were given nothing
+* The Byte City team has put tons of hours into this game. We were given nothing
   but an open-ended request with simple constraints, and we have built the
-  ByteCity you can play today from scratch. 
+  Byte City you can play today from scratch. 
 * We are extremely proud of what we were able to accomplish in around 3 months
   while taking other courses.  Balancing development through other classwork,
 exams, and the various organizations we are involved in was a challenge, but
