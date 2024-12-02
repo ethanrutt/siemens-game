@@ -112,12 +112,81 @@ public class DialogueManager_Lab : MonoBehaviour
             StartCoroutine(DeckMasterSpeakCoroutine());
         }
 
-        // Increment the npc_interactions for casino_owner
+        // Increment the npc_interactions for deckmaster
         playerData.npc_interactions["deckmaster"] += 1;
 
         // Whenever you add the cards, you should also add the cards to the player's inventory
         // ROHAN -> Add your code here.
     }
+
+    public void DeckMasterInterrupt()
+    {
+        // Stop player
+        playerMovement.StopPlayer();
+
+        // Turn on the dialogue panel
+        dialoguePanel.SetActive(true);
+
+        // Now just start the coroutine for DeckMasterInterrupt()
+        StartCoroutine(DeckMasterInterruptCoroutine());
+        
+        // That's all.
+    }
+
+    private IEnumerator DeckMasterInterruptCoroutine()
+    {
+        // Change TTC_Text to "Do Not Tap."
+        TTC_Text.text = "Do Not Tap...";
+
+        for (int i = 0; i < deckMasterHaventSpoken.Length; i++)
+        {
+            // If the coroutine is not null, stop the coroutine
+            if (typeSentenceCoroutine != null)
+            {
+                StopCoroutine(typeSentenceCoroutine);
+            }
+
+            // Set the dialogueText to an empty string
+            dialogueText.text = "";
+
+            // Set the characterImage to the appropriate sprite
+            characterImage.sprite = deckmasterSprites[deckMasterHaventSpokenSprites[i]];
+
+            // Set the charName to "Deckmaster"
+            charName.text = "Deckmaster";
+
+            // Start typing the sentence
+            isTyping = true;
+            typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterHaventSpoken[i]));
+
+            // Wait
+            yield return new WaitForSeconds(deckMasterHaventSpoken[i].Length * typingSpeed + 1.25f);
+
+            // Wait
+            yield return new WaitForSeconds(2);
+        }
+
+        // Change TTC_Text to "Tap to Continue."
+        TTC_Text.text = "Tap to Continue...";
+
+        // Close the dialogue panel
+        dialoguePanel.SetActive(false);
+
+        // Let player move
+        playerMovement.UnstopPlayer();
+    }
+
+    // Dialogues for trying to enter the card game without talking to deckmaster
+    private string[] deckMasterHaventSpoken = {
+        "Hey, hey, hey! You can't just walk in here and start playing cards. You gotta talk to me first.",
+        "What you doing? You gotta have a convo with the deckmaster before you get to tossing them cards.",
+        "Hola. You speak Spanish? Tu necesitas hablar conmigo antes de jugar cartas. That's a good Spanish accent, right?",
+        "Ok. You're probably making an honest mistake. I'll forgive that. However, you gotta talk to me before you play cards. That's the rule."
+    };
+    
+    private int[] deckMasterHaventSpokenSprites = {
+        0, 0, 1, 0
+    };
 
     // Coroutine for typing the sentence
     private Coroutine typeSentenceCoroutine;

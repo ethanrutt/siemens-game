@@ -72,6 +72,7 @@ public class Interactor_Display : MonoBehaviour
 
     // GameManager
     public GameManager gameManager => GameManager.Instance;
+    public PlayerData playerData => PlayerData.Instance;
 
     // Error screen handling
     [SerializeField] private GameObject errorScreen;
@@ -210,6 +211,18 @@ public class Interactor_Display : MonoBehaviour
         {
             // Debug.Log("Deck Master Interact");
             dialogueManagerLab.DeckMasterSpeak();
+        } else if (interactable == "cardgame")
+        {
+            // Debug.Log("Card Game Interact");
+            // Save the current player vector to gamemanager
+            gameManager.ChangePlayerSpawnPosition(player.transform.position);
+            if (playerData.npc_interactions["deckmaster"] == 0)
+            {
+                dialogueManagerLab.DeckMasterInterrupt();
+            } else 
+            {
+            SceneManager.LoadScene("CardJitsu");
+            }
         }
          else {
             // Debug.Log("No Interactable");
