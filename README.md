@@ -55,11 +55,11 @@
 * Since this game is mainly developed for Android and iOS, we decided to use
   the [Unity Engine](https://unity.com/) to develop our game with
   [C#](https://dotnet.microsoft.com/en-us/languages/csharp) as the scripting
-  language
-* We are using `Unity Editor Version 2022.3.45f1`
+  language.
+* We are using `Unity Editor Version 2022.3.45f1`.
 ### Backend
 * We are using [nodejs](https://nodejs.org/en/), along with AWS Lambda and an
-  **naveed fix this part plz**
+  **naveed fix this part plz**.
 
 ### Frontend Installation
 * Installing Unity is pretty straight forward. Go to
@@ -68,24 +68,24 @@
 * This will be the main area you launch your Unity Engine from.
 * Once Unity Hub is installed, you'll want to make sure to download Unity
   Editor Version `2022.3.45f1` which is the version that we have developed
-  ByteCity with
-* After this is installed, you'll want to clone this repository
-* Using https
+  ByteCity with.
+* After this is installed, you'll want to clone this repository.
+* Using https.
 ```bash
 git clone https://github.com/ethanrutt/siemens-game.git
 ```
-* Using ssh
+* Using ssh.
 ```bash
 git clone git@github.com:ethanrutt/siemens-game.git
 ```
-* Once this is complete, you'll want to 
-  * Open up Unity Hub
-  * Click `Add` in the top right
-  * Click `add project from disk`
-  * Find this repository that you just cloned
-  * Click add/open
+* Once this is complete, you'll want to
+  * Open up Unity Hub.
+  * Click `Add` in the top right.
+  * Click `add project from disk`.
+  * Find this repository that you just cloned.
+  * Click add/open.
   * Finally, click on the new entry in the projects window of unity hub which
-    should say `siemens-game`
+    should say `siemens-game`.
   * The first time you open up Unity, it will need to read all of the packages we
     have installed from the `Packages/manifest.json` and
     `Packages/package-lock.json`, as well as compile all of our scripts.
@@ -101,8 +101,8 @@ git clone git@github.com:ethanrutt/siemens-game.git
 * We have a combination of github actions, combined with
   [game-ci](https://game.ci/) to automatically test whenever we push code.
 * Inside of Unity itself, there are edit mode tests and play mode tests
-  possible in [Unity Test Runner](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/index.html)
-* Both are essential to testing functionality
+  possible in [Unity Test Runner](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/index.html).
+* Both are essential to testing functionality.
 * The methodology we have used is
   * Play Mode Tests
     * These are for testing in-game functionality such as player movement,
@@ -120,65 +120,69 @@ git clone git@github.com:ethanrutt/siemens-game.git
 ### Android Deployment
 * There should already be Android Build Support installed from our packages,
   but if there isn't then you can follow these steps.
-* Open Unity Hub
-    * Click on `Installs` on the left
-    * Find the Unity Version used with this project `2022.3.45f1`
-    * Click the gear on the far right of the Unity Version
-    * Click `Add modules`
-    * Click `Android Build Support`
-    * Click `Install`
+* Open Unity Hub.
+    * Click on `Installs` on the left.
+    * Find the Unity Version used with this project `2022.3.45f1`.
+    * Click the gear on the far right of the Unity Version.
+    * Click `Add modules`.
+    * Click `Android Build Support`.
+    * Click `Install`.
 * After you have installed Android Build Support, open up the Unity Editor by
-  clicking on `siemens-game` in Unity Hub
-  * Go to File -> Build Settings
-  * Click `Android`
-  * Click `Switch Platform`
-  * Click `Player Settings` in the bottom left
-  * Make sure the `Company Name` is set to `Siemens`
-  * Make sure the `Product Name` is set to `Byte City`
-  * Set the version to whatever version you are releasing
-  * Click Build
-* Once the project has successfully been built, you should have a `.apk` file
+  clicking on `siemens-game` in Unity Hub.
+  * Go to File -> Build Settings.
+  * Click `Android`.
+  * Click `Switch Platform`.
+  * Click `Player Settings` in the bottom left.
+  * Make sure the `Company Name` is set to `Siemens`.
+  * Make sure the `Product Name` is set to `Byte City`.
+  * Set the version to whatever version you are releasing.
+  * Click Build.
+* Once the project has successfully been built, you should have a `.apk` file.
 * This is how you will install the game onto an Android Device.
   * To distribute this `.apk` file, you can upload it to a file sharing service,
-    or use a usb to directly transfer it to a device. 
+    or use a usb to directly transfer it to a device.
   * Once it's on the device, simply running it should install the game as an app.
-* You might have to scan the file before installing it. This is normal
-* You also might have to allow third-party apps to be installed
-    * For the most part, this will just pop up as a prompt whenever you install
-      the `.apk`
-    * There is also an option in settings app to allow third-party app
-      installations
+* When on the android device
+  * You might have to scan the file before installing it. This is normal.
+  * You also might have to allow third-party apps to be installed.
+      * For the most part, this will just pop up as a prompt whenever you install
+        the `.apk`.
+      * There is also an option in settings app to allow third-party app
+        installations.
 
 ### iOS Deployment
-* Open Unity Hub
-    * Click on `Installs` on the left
-    * Find the Unity Version used with this project `2022.3.45f1`
-    * Click the gear on the far right of the Unity Version
-    * Click `Add modules`
-    * Click `Android Build Support`
-    * Click `Install`
-* After you have installed Android Build Support, open up the Unity Editor by
-  clicking on `siemens-game` in Unity Hub
-  * Go to File -> Build Settings
-  * Click `iOS`
-  * Click `Switch Platform`
-  * Click `Player Settings` in the bottom left
-  * Make sure the `Company Name` is set to `Siemens`
-  * Make sure the `Product Name` is set to `Byte City`
-  * Set the version to whatever version you are releasing
-  * Click Build
+* **note that you need to have a macbook or a way to launch xcode to build for
+  iOS**.
+* Open Unity Hub.
+    * Click on `Installs` on the left.
+    * Find the Unity Version used with this project `2022.3.45f1`.
+    * Click the gear on the far right of the Unity Version.
+    * Click `Add modules`.
+    * Click `iOS Build Support`.
+    * Click `Install`.
+* After you have installed iOS Build Support, open up the Unity Editor by
+  clicking on `siemens-game` in Unity Hub.
+  * Go to File -> Build Settings.
+  * Click `iOS`.
+  * Click `Switch Platform`.
+  * Click `Player Settings` in the bottom left.
+  * Make sure the `Company Name` is set to `Siemens`.
+  * Make sure the `Product Name` is set to `Byte City`.
+  * Set the version to whatever version you are releasing.
+  * Click Build.
 * You should have an `.xcode` file that you will need to open in XCode.
-* This file will allow you to build the game on iOS, and you should follow the steps that XCode gives you with regards to this process.
+* This file will allow you to build the game on iOS, and you should follow the
+  steps that XCode gives you with regards to this process.
 
 ---
 ## Future Development
 * The Byte City team has put tons of hours into this game. We were given nothing
   but an open-ended request with simple constraints, and we have built the
-  Byte City you can play today from scratch. 
+  Byte City you can play today from scratch.
 * We are extremely proud of what we were able to accomplish in around 3 months
   while taking other courses.  Balancing development through other classwork,
-exams, and the various organizations we are involved in was a challenge, but
-all of us have grown so much.
+  exams, and the various organizations we are involved in was a challenge, but
+  all of us have grown so much.
 * With that being said, there were still multiple goals that we weren't able to
   complete in our project timeline.
 * These include
@@ -193,8 +197,8 @@ all of us have grown so much.
 * There are also certain aspects of the game that aren't as polished as we
   would like them to be.
     * Peculiar Pipes leaves a lot to be desired, both content-wise and
-      looks-wise
+      looks-wise.
     * Wacky Wires leaves a lot to be desired, both game-mechanic-wise and
-      looks-wise
-    * Some of the dialogue can be a little clunky at times
-    * The movement system can be a little clunky at times
+      looks-wise.
+    * Some of the dialogue can be a little clunky at times.
+    * The movement system can be a little clunky at times.
