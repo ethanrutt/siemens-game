@@ -9,8 +9,11 @@ var searchData=
   ['achievementunlockedscreen_6',['achievementUnlockedScreen',['../class_achievements_handler.html#a16cc8ff9cfa2109ab802dfe349254d65',1,'AchievementsHandler']]],
   ['achievementunlockedtitle_7',['achievementUnlockedTitle',['../class_achievements_handler.html#a5ed63a814d82fe4271c11740d3e57db5',1,'AchievementsHandler']]],
   ['allbuttonlocations_8',['allButtonLocations',['../class_button_location.html#ab443c30d523482e38ba9bbc24752d870',1,'ButtonLocation']]],
-  ['allplugstats_9',['allPlugStats',['../class_wire_generator.html#af94835b719aadf84d63c05e0511cc8db',1,'WireGenerator']]],
-  ['allwires_10',['allWires',['../class_wire_generator.html#a9e3b25cbfad4e057c02ac088b4d864a3',1,'WireGenerator']]],
-  ['animator_11',['animator',['../class_character___movement.html#a9aad13d931c778870faf52a85596d680',1,'Character_Movement.animator'],['../class_dialogue_manager.html#a44c7001a06fbb2b83c492817d2124cd3',1,'DialogueManager.animator']]],
-  ['associatedvalue_12',['associatedValue',['../class_character_image.html#a703c7d0f19f7490d6ddb027ba7991879',1,'CharacterImage']]]
+  ['allcards_9',['allCards',['../class_card_sharing_manager.html#aec5ab5d68fc1a88d4cd706ca1d1d3a6b',1,'CardSharingManager']]],
+  ['allplugstats_10',['allPlugStats',['../class_wire_generator.html#af94835b719aadf84d63c05e0511cc8db',1,'WireGenerator']]],
+  ['allwires_11',['allWires',['../class_wire_generator.html#a9e3b25cbfad4e057c02ac088b4d864a3',1,'WireGenerator']]],
+  ['animator_12',['animator',['../class_character___movement.html#a9aad13d931c778870faf52a85596d680',1,'Character_Movement.animator'],['../class_dialogue_manager.html#a44c7001a06fbb2b83c492817d2124cd3',1,'DialogueManager.animator']]],
+  ['associatedvalue_13',['associatedValue',['../class_character_image.html#a703c7d0f19f7490d6ddb027ba7991879',1,'CharacterImage']]],
+  ['availablecardslots_14',['availableCardSlots',['../class_game_manager2.html#a8d7b9851e2b26296cb43064f5e0d8ed0',1,'GameManager2']]],
+  ['availableplayslots_15',['availablePlaySlots',['../class_game_manager2.html#a4c70e13b3fb7070171fa2057ddcc289d',1,'GameManager2']]]
 ];

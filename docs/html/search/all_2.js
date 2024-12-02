@@ -15,12 +15,15 @@ var searchData=
   ['achievementunlockedtitle_12',['achievementUnlockedTitle',['../class_achievements_handler.html#a5ed63a814d82fe4271c11740d3e57db5',1,'AchievementsHandler']]],
   ['additem_13',['AddItem',['../class_inventory.html#acf08e72bde3a954701df50eded11bac1',1,'Inventory']]],
   ['allbuttonlocations_14',['allButtonLocations',['../class_button_location.html#ab443c30d523482e38ba9bbc24752d870',1,'ButtonLocation']]],
-  ['allplugstats_15',['allPlugStats',['../class_wire_generator.html#af94835b719aadf84d63c05e0511cc8db',1,'WireGenerator']]],
-  ['allwires_16',['allWires',['../class_wire_generator.html#a9e3b25cbfad4e057c02ac088b4d864a3',1,'WireGenerator']]],
-  ['android_20deployment_17',['Android Deployment',['../index.html#autotoc_md24',1,'']]],
-  ['animator_18',['animator',['../class_character___movement.html#a9aad13d931c778870faf52a85596d680',1,'Character_Movement.animator'],['../class_dialogue_manager.html#a44c7001a06fbb2b83c492817d2124cd3',1,'DialogueManager.animator']]],
-  ['arelistsequal_19',['AreListsEqual',['../class_character___movement.html#a8d40ba9d86ec371ed7754e92ee689d05',1,'Character_Movement']]],
-  ['arms_20',['Arms',['../_body_part_8cs.html#a7a4875f2b53773a016c13bcfc2a55ac3a4b9b1c96867f6fbd045f7b450e87b8c6',1,'BodyPart.cs']]],
-  ['associatedvalue_21',['associatedValue',['../class_character_image.html#a703c7d0f19f7490d6ddb027ba7991879',1,'CharacterImage']]],
-  ['awake_22',['Awake',['../class_button_location.html#ab674773720fa6ac168b5938ed4f47f65',1,'ButtonLocation.Awake()'],['../class_character___movement.html#a0fba727cebd4ae2de79baf6c05fcd7da',1,'Character_Movement.Awake()'],['../class_neuroflux_bar.html#afa22104ad2f1dde755446312794eaf1d',1,'NeurofluxBar.Awake()'],['../class_player_data.html#a91c914d556e20d80d9957185bb3a44b1',1,'PlayerData.Awake()'],['../class_game_manager.html#a2959177ee51ac31badbf8b1bc8f7f637',1,'GameManager.Awake()'],['../class_chosen_horse.html#a5fabab987e56ed38d1da481bb1db56bb',1,'ChosenHorse.Awake()'],['../class_achievements_handler.html#acf9ba92d11f45c680b4e492ffe954fdd',1,'AchievementsHandler.Awake()']]]
+  ['allcards_15',['allCards',['../class_card_sharing_manager.html#aec5ab5d68fc1a88d4cd706ca1d1d3a6b',1,'CardSharingManager']]],
+  ['allplugstats_16',['allPlugStats',['../class_wire_generator.html#af94835b719aadf84d63c05e0511cc8db',1,'WireGenerator']]],
+  ['allwires_17',['allWires',['../class_wire_generator.html#a9e3b25cbfad4e057c02ac088b4d864a3',1,'WireGenerator']]],
+  ['android_20deployment_18',['Android Deployment',['../index.html#autotoc_md24',1,'']]],
+  ['animator_19',['animator',['../class_character___movement.html#a9aad13d931c778870faf52a85596d680',1,'Character_Movement.animator'],['../class_dialogue_manager.html#a44c7001a06fbb2b83c492817d2124cd3',1,'DialogueManager.animator']]],
+  ['arelistsequal_20',['AreListsEqual',['../class_character___movement.html#a8d40ba9d86ec371ed7754e92ee689d05',1,'Character_Movement']]],
+  ['arms_21',['Arms',['../_body_part_8cs.html#a7a4875f2b53773a016c13bcfc2a55ac3a4b9b1c96867f6fbd045f7b450e87b8c6',1,'BodyPart.cs']]],
+  ['associatedvalue_22',['associatedValue',['../class_character_image.html#a703c7d0f19f7490d6ddb027ba7991879',1,'CharacterImage']]],
+  ['availablecardslots_23',['availableCardSlots',['../class_game_manager2.html#a8d7b9851e2b26296cb43064f5e0d8ed0',1,'GameManager2']]],
+  ['availableplayslots_24',['availablePlaySlots',['../class_game_manager2.html#a4c70e13b3fb7070171fa2057ddcc289d',1,'GameManager2']]],
+  ['awake_25',['Awake',['../class_broadcast_discovery.html#ac2a0366eaec7097820635dbf15dd9d98',1,'BroadcastDiscovery.Awake()'],['../class_card_sharing_manager.html#ad10a57f3e88cdd416235aa21b0e28d8e',1,'CardSharingManager.Awake()'],['../class_network_manager_u_i.html#a47aabbaa5888ef9821ab2456d37fdfb5',1,'NetworkManagerUI.Awake()'],['../class_button_location.html#ab674773720fa6ac168b5938ed4f47f65',1,'ButtonLocation.Awake()'],['../class_character___movement.html#a0fba727cebd4ae2de79baf6c05fcd7da',1,'Character_Movement.Awake()'],['../class_neuroflux_bar.html#afa22104ad2f1dde755446312794eaf1d',1,'NeurofluxBar.Awake()'],['../class_player_data.html#a91c914d556e20d80d9957185bb3a44b1',1,'PlayerData.Awake()'],['../class_game_manager.html#a2959177ee51ac31badbf8b1bc8f7f637',1,'GameManager.Awake()'],['../class_chosen_horse.html#a5fabab987e56ed38d1da481bb1db56bb',1,'ChosenHorse.Awake()'],['../class_achievements_handler.html#acf9ba92d11f45c680b4e492ffe954fdd',1,'AchievementsHandler.Awake()']]]
 ];

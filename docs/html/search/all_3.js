@@ -26,9 +26,14 @@ var searchData=
   ['bodypartbutton_23',['BodyPartButton',['../class_body_part_button.html',1,'']]],
   ['bodypartbutton_2ecs_24',['BodyPartButton.cs',['../_body_part_button_8cs.html',1,'']]],
   ['bodypartvisibility_25',['bodyPartVisibility',['../class_inventory_u_i.html#aba445e33eec12c77a7f203adffd2818d',1,'InventoryUI']]],
-  ['buttoncontainer_26',['buttonContainer',['../class_inventory_u_i.html#acb50b8700e233c8ee7fb27411707f87a',1,'InventoryUI']]],
-  ['buttonlocation_27',['ButtonLocation',['../class_button_location.html',1,'']]],
-  ['buttonlocation_2ecs_28',['ButtonLocation.cs',['../_button_location_8cs.html',1,'']]],
-  ['buttonprefab_29',['buttonPrefab',['../class_inventory_u_i.html#ab310271fb1fb94d77cc899b8f9bb6e40',1,'InventoryUI']]],
-  ['bytecity_30',['ByteCity',['../index.html',1,'']]]
+  ['broadcastdiscovery_26',['BroadcastDiscovery',['../class_broadcast_discovery.html',1,'']]],
+  ['broadcastdiscovery_2ecs_27',['BroadcastDiscovery.cs',['../_broadcast_discovery_8cs.html',1,'']]],
+  ['broadcastmessage_28',['broadcastMessage',['../class_broadcast_discovery.html#a539066b788e766f51206ba4c5577c923',1,'BroadcastDiscovery']]],
+  ['broadcastport_29',['broadcastPort',['../class_broadcast_discovery.html#a59c1a72f068ae9598ea9c77ec0ba2a32',1,'BroadcastDiscovery']]],
+  ['buttoncontainer_30',['buttonContainer',['../class_inventory_u_i.html#acb50b8700e233c8ee7fb27411707f87a',1,'InventoryUI']]],
+  ['buttonlocation_31',['ButtonLocation',['../class_button_location.html',1,'']]],
+  ['buttonlocation_2ecs_32',['ButtonLocation.cs',['../_button_location_8cs.html',1,'']]],
+  ['buttonpath_33',['buttonPath',['../class_card_sharing_manager.html#ae5906d870f883d3c7740373ba668f4db',1,'CardSharingManager']]],
+  ['buttonprefab_34',['buttonPrefab',['../class_inventory_u_i.html#ab310271fb1fb94d77cc899b8f9bb6e40',1,'InventoryUI']]],
+  ['bytecity_35',['ByteCity',['../index.html',1,'']]]
 ];

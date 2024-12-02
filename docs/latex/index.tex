@@ -20,6 +20,7 @@
 \item Deployment
 \item Android Deployment
 \item i\+OS Deployment
+\item Documentation
 \item Future Development
 \end{DoxyItemize}
 
@@ -202,7 +203,34 @@
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
- \hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{Future Development}{Future Development}}\label{index_autotoc_md27}
+ \hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md27}
+
+\begin{DoxyItemize}
+\item We have generated our documentation using \href{https://www.doxygen.nl/index.html}{\texttt{ doxygen}}.
+\item Make sure that any new code written has \href{https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html}{\texttt{ javadoc style comments}}.
+\item Generate new documentation using our preconfigured {\ttfamily Doxyfile} by running 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{doxygen\ Doxyfile}
+
+\end{DoxyCode}
+
+\item View the documentation {\bfseries{FIXME host the documentation somewhere}}.
+\item Some Notes about the Doxyfile config
+\begin{DoxyItemize}
+\item We are using {\ttfamily .mjs} files for our backend, which aren\textquotesingle{}t recognized by the doxygen parser by default. This line fixes this which just says that {\ttfamily .mjs} files should use the {\ttfamily Javascript} parser. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{EXTENSION\_MAPPING\ \ \ \ \ \ =\ mjs=Javascript}
+
+\end{DoxyCode}
+
+\item The Main Page is set to this readme file.
+\item The backend documentation is found by searching through the files on the doxygen website.
+\item The game documentation is found by searching through the class list on the doxygen website.
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md29}{}\doxysection{\texorpdfstring{Future Development}{Future Development}}\label{index_autotoc_md29}
 
 \begin{DoxyItemize}
 \item The Byte City team has put tons of hours into this game. We were given nothing but an open-\/ended request with simple constraints, and we have built the Byte City you can play today from scratch.

@@ -7,8 +7,9 @@ var searchData=
   ['pausedialogue_4',['PauseDialogue',['../class_dialogue_manager___cutscene.html#acf4445029080330c5981866c6a9eff42',1,'DialogueManager_Cutscene.PauseDialogue()'],['../class_dialogue_manager_tutorial.html#ad3d8a0d1b4edd1a6f1c1bdf31bb5b31e',1,'DialogueManagerTutorial.PauseDialogue()']]],
   ['performemote_5',['PerformEmote',['../class_character___movement.html#ad6374ea8bb39f6d18a89b33d9dbd74c8',1,'Character_Movement']]],
   ['pipeinfo_6',['PipeInfo',['../class_pipe_info.html#aebb8160d186676b227cac050134e2333',1,'PipeInfo']]],
-  ['populatelists_7',['PopulateLists',['../class_achievements_handler.html#a48209c0cc4b6907fa33c3710fa1335c4',1,'AchievementsHandler.PopulateLists()'],['../class_shop_manager.html#a58aa4ee74a955a3dfb9109510d0f3161',1,'ShopManager.PopulateLists()']]],
-  ['populatepanel_8',['PopulatePanel',['../class_achievements_handler.html#a84d8fec78d116222831ea5d028ab3c01',1,'AchievementsHandler']]],
-  ['previouspage_9',['PreviousPage',['../class_shop_manager.html#a5d3aac2f916695fdba25e44abbc8f275',1,'ShopManager']]],
-  ['purchase_10',['Purchase',['../class_shop_manager.html#a961a2528136b9a837229049c7617d7b5',1,'ShopManager']]]
+  ['playturn_7',['PlayTurn',['../class_game_manager2.html#a5e87dab2bb3d56d1b89d38a0329f2866',1,'GameManager2']]],
+  ['populatelists_8',['PopulateLists',['../class_achievements_handler.html#a48209c0cc4b6907fa33c3710fa1335c4',1,'AchievementsHandler.PopulateLists()'],['../class_shop_manager.html#a58aa4ee74a955a3dfb9109510d0f3161',1,'ShopManager.PopulateLists()']]],
+  ['populatepanel_9',['PopulatePanel',['../class_achievements_handler.html#a84d8fec78d116222831ea5d028ab3c01',1,'AchievementsHandler']]],
+  ['previouspage_10',['PreviousPage',['../class_shop_manager.html#a5d3aac2f916695fdba25e44abbc8f275',1,'ShopManager']]],
+  ['purchase_11',['Purchase',['../class_shop_manager.html#a961a2528136b9a837229049c7617d7b5',1,'ShopManager']]]
 ];

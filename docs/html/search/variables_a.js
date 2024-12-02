@@ -31,5 +31,6 @@ var searchData=
   ['loresendertext_28',['loreSenderText',['../class_achievements_handler.html#ac2d5dddbbbac73a7791ead48464dc7b9',1,'AchievementsHandler']]],
   ['loretitle_29',['loreTitle',['../class_achievements_handler.html#a07a4425e1c95be16d93111a5047f903f',1,'AchievementsHandler']]],
   ['loretitletext_30',['loreTitleText',['../class_achievements_handler.html#a5825bfd937e812db58871cb47e08d2ba',1,'AchievementsHandler']]],
-  ['lostgame_31',['lostGame',['../class_horse_behavior.html#a3cad8d9aa7d2efe698a475c09ad7a0eb',1,'HorseBehavior']]]
+  ['losescreen_31',['loseScreen',['../class_card_sharing_manager.html#ae2c246a1d7319f3c9f479fc96dff363c',1,'CardSharingManager.loseScreen'],['../class_network_manager_u_i.html#a388b130b63ec42117f288c7abff619f4',1,'NetworkManagerUI.loseScreen']]],
+  ['lostgame_32',['lostGame',['../class_horse_behavior.html#a3cad8d9aa7d2efe698a475c09ad7a0eb',1,'HorseBehavior']]]
 ];

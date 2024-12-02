@@ -1,0 +1,207 @@
+\doxysection{Card Class Reference}
+\hypertarget{class_card}{}\label{class_card}\index{Card@{Card}}
+Inheritance diagram for Card\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_card}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{struct_card_data}{Card\+Data}} \mbox{\hyperlink{class_card_ad7c1659877e41af6bacecf5a949dc7b5}{Get\+Card\+Data}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_card_aed8c1186b951c74d01dc0fbcf44b05b1}{has\+Been\+Played}}
+\item 
+bool \mbox{\hyperlink{class_card_a293708646134e36a6b9d93fe1a6f96e9}{is\+In\+Slot}}
+\item 
+bool \mbox{\hyperlink{class_card_a6d9668ab8f75ceab99e3855fd79bbbe0}{ignore\+Exit}} = false
+\item 
+int \mbox{\hyperlink{class_card_a087b2812377ddfcd10973d2e8495f675}{hand\+Index}}
+\item 
+int \mbox{\hyperlink{class_card_a7ceae7aad10538bd35014f4497cd4649}{play\+Index}}
+\item 
+int \mbox{\hyperlink{class_card_ad09d1a4e5b94a85eb6cb4db9f22a7397}{id}}
+\item 
+string \mbox{\hyperlink{class_card_ac8d010b4c0062c049f7bc3cab703c233}{card\+Name}}
+\item 
+string \mbox{\hyperlink{class_card_ac76b2d56fcaa9d215ef80bf8b4f52393}{type}}
+\item 
+int \mbox{\hyperlink{class_card_adf42e8f972204b2fbe69a3416d266827}{cost}}
+\item 
+int \mbox{\hyperlink{class_card_a4a041f0d17550c7d3bb6ee1ad3123429}{power}}
+\item 
+ulong \mbox{\hyperlink{class_card_af4d88735ba75abdba4929184ec3b1cd7}{source\+Client\+Id}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_card_aecd9a7ec71a418961cb64f3c09494fe9}{name\+Label}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_card_af323ae559181ccee68cb389d70cde585}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_card_a2ea46efac23666fec94d8ee2b45f87e7}{On\+Mouse\+Down}} ()
+\item 
+void \mbox{\hyperlink{class_card_ae16c6f299192ca2f08ae1760fa1be6ad}{On\+Mouse\+Enter}} ()
+\item 
+void \mbox{\hyperlink{class_card_ac933c63ba5d96668f7582eaf387b7364}{On\+Mouse\+Exit}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_card_a26ed2d84eb9972b081244b058f0e487b}{Reset\+Ignore\+Mouse\+Exit}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_card_a127b4747ee059df03f63e813f1ee0288}{Find\+Card\+Sharing\+Manager}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector3 \mbox{\hyperlink{class_card_a42816ab19fd5859212366e12d9bc7494}{original\+Position}}
+\item 
+\mbox{\hyperlink{class_game_manager2}{Game\+Manager2}} \mbox{\hyperlink{class_card_a56f1f4ba7885cf8b6aba56abf8ebecf8}{gm}}
+\item 
+\mbox{\hyperlink{class_card_sharing_manager}{Card\+Sharing\+Manager}} \mbox{\hyperlink{class_card_aa935d26a806795047fbe2f2752ee7bc8}{card\+Sharing\+Manager}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_card_a127b4747ee059df03f63e813f1ee0288}\index{Card@{Card}!FindCardSharingManager@{FindCardSharingManager}}
+\index{FindCardSharingManager@{FindCardSharingManager}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{FindCardSharingManager()}{FindCardSharingManager()}}
+{\footnotesize\ttfamily \label{class_card_a127b4747ee059df03f63e813f1ee0288} 
+IEnumerator Card.\+Find\+Card\+Sharing\+Manager (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_ad7c1659877e41af6bacecf5a949dc7b5}\index{Card@{Card}!GetCardData@{GetCardData}}
+\index{GetCardData@{GetCardData}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{GetCardData()}{GetCardData()}}
+{\footnotesize\ttfamily \label{class_card_ad7c1659877e41af6bacecf5a949dc7b5} 
+\mbox{\hyperlink{struct_card_data}{Card\+Data}} Card.\+Get\+Card\+Data (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_card_a2ea46efac23666fec94d8ee2b45f87e7}\index{Card@{Card}!OnMouseDown@{OnMouseDown}}
+\index{OnMouseDown@{OnMouseDown}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{OnMouseDown()}{OnMouseDown()}}
+{\footnotesize\ttfamily \label{class_card_a2ea46efac23666fec94d8ee2b45f87e7} 
+void Card.\+On\+Mouse\+Down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_ae16c6f299192ca2f08ae1760fa1be6ad}\index{Card@{Card}!OnMouseEnter@{OnMouseEnter}}
+\index{OnMouseEnter@{OnMouseEnter}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{OnMouseEnter()}{OnMouseEnter()}}
+{\footnotesize\ttfamily \label{class_card_ae16c6f299192ca2f08ae1760fa1be6ad} 
+void Card.\+On\+Mouse\+Enter (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_ac933c63ba5d96668f7582eaf387b7364}\index{Card@{Card}!OnMouseExit@{OnMouseExit}}
+\index{OnMouseExit@{OnMouseExit}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{OnMouseExit()}{OnMouseExit()}}
+{\footnotesize\ttfamily \label{class_card_ac933c63ba5d96668f7582eaf387b7364} 
+void Card.\+On\+Mouse\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_a26ed2d84eb9972b081244b058f0e487b}\index{Card@{Card}!ResetIgnoreMouseExit@{ResetIgnoreMouseExit}}
+\index{ResetIgnoreMouseExit@{ResetIgnoreMouseExit}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{ResetIgnoreMouseExit()}{ResetIgnoreMouseExit()}}
+{\footnotesize\ttfamily \label{class_card_a26ed2d84eb9972b081244b058f0e487b} 
+IEnumerator Card.\+Reset\+Ignore\+Mouse\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_af323ae559181ccee68cb389d70cde585}\index{Card@{Card}!Start@{Start}}
+\index{Start@{Start}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_card_af323ae559181ccee68cb389d70cde585} 
+void Card.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_card_ac8d010b4c0062c049f7bc3cab703c233}\index{Card@{Card}!cardName@{cardName}}
+\index{cardName@{cardName}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{cardName}{cardName}}
+{\footnotesize\ttfamily \label{class_card_ac8d010b4c0062c049f7bc3cab703c233} 
+string Card.\+card\+Name}
+
+\Hypertarget{class_card_aa935d26a806795047fbe2f2752ee7bc8}\index{Card@{Card}!cardSharingManager@{cardSharingManager}}
+\index{cardSharingManager@{cardSharingManager}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{cardSharingManager}{cardSharingManager}}
+{\footnotesize\ttfamily \label{class_card_aa935d26a806795047fbe2f2752ee7bc8} 
+\mbox{\hyperlink{class_card_sharing_manager}{Card\+Sharing\+Manager}} Card.\+card\+Sharing\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_adf42e8f972204b2fbe69a3416d266827}\index{Card@{Card}!cost@{cost}}
+\index{cost@{cost}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{cost}{cost}}
+{\footnotesize\ttfamily \label{class_card_adf42e8f972204b2fbe69a3416d266827} 
+int Card.\+cost}
+
+\Hypertarget{class_card_a56f1f4ba7885cf8b6aba56abf8ebecf8}\index{Card@{Card}!gm@{gm}}
+\index{gm@{gm}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{gm}{gm}}
+{\footnotesize\ttfamily \label{class_card_a56f1f4ba7885cf8b6aba56abf8ebecf8} 
+\mbox{\hyperlink{class_game_manager2}{Game\+Manager2}} Card.\+gm\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_a087b2812377ddfcd10973d2e8495f675}\index{Card@{Card}!handIndex@{handIndex}}
+\index{handIndex@{handIndex}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{handIndex}{handIndex}}
+{\footnotesize\ttfamily \label{class_card_a087b2812377ddfcd10973d2e8495f675} 
+int Card.\+hand\+Index}
+
+\Hypertarget{class_card_aed8c1186b951c74d01dc0fbcf44b05b1}\index{Card@{Card}!hasBeenPlayed@{hasBeenPlayed}}
+\index{hasBeenPlayed@{hasBeenPlayed}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{hasBeenPlayed}{hasBeenPlayed}}
+{\footnotesize\ttfamily \label{class_card_aed8c1186b951c74d01dc0fbcf44b05b1} 
+bool Card.\+has\+Been\+Played}
+
+\Hypertarget{class_card_ad09d1a4e5b94a85eb6cb4db9f22a7397}\index{Card@{Card}!id@{id}}
+\index{id@{id}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{id}{id}}
+{\footnotesize\ttfamily \label{class_card_ad09d1a4e5b94a85eb6cb4db9f22a7397} 
+int Card.\+id}
+
+\Hypertarget{class_card_a6d9668ab8f75ceab99e3855fd79bbbe0}\index{Card@{Card}!ignoreExit@{ignoreExit}}
+\index{ignoreExit@{ignoreExit}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{ignoreExit}{ignoreExit}}
+{\footnotesize\ttfamily \label{class_card_a6d9668ab8f75ceab99e3855fd79bbbe0} 
+bool Card.\+ignore\+Exit = false}
+
+\Hypertarget{class_card_a293708646134e36a6b9d93fe1a6f96e9}\index{Card@{Card}!isInSlot@{isInSlot}}
+\index{isInSlot@{isInSlot}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{isInSlot}{isInSlot}}
+{\footnotesize\ttfamily \label{class_card_a293708646134e36a6b9d93fe1a6f96e9} 
+bool Card.\+is\+In\+Slot}
+
+\Hypertarget{class_card_aecd9a7ec71a418961cb64f3c09494fe9}\index{Card@{Card}!nameLabel@{nameLabel}}
+\index{nameLabel@{nameLabel}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{nameLabel}{nameLabel}}
+{\footnotesize\ttfamily \label{class_card_aecd9a7ec71a418961cb64f3c09494fe9} 
+Text\+Mesh\+Pro\+UGUI Card.\+name\+Label}
+
+\Hypertarget{class_card_a42816ab19fd5859212366e12d9bc7494}\index{Card@{Card}!originalPosition@{originalPosition}}
+\index{originalPosition@{originalPosition}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{originalPosition}{originalPosition}}
+{\footnotesize\ttfamily \label{class_card_a42816ab19fd5859212366e12d9bc7494} 
+Vector3 Card.\+original\+Position\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_a7ceae7aad10538bd35014f4497cd4649}\index{Card@{Card}!playIndex@{playIndex}}
+\index{playIndex@{playIndex}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{playIndex}{playIndex}}
+{\footnotesize\ttfamily \label{class_card_a7ceae7aad10538bd35014f4497cd4649} 
+int Card.\+play\+Index}
+
+\Hypertarget{class_card_a4a041f0d17550c7d3bb6ee1ad3123429}\index{Card@{Card}!power@{power}}
+\index{power@{power}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{power}{power}}
+{\footnotesize\ttfamily \label{class_card_a4a041f0d17550c7d3bb6ee1ad3123429} 
+int Card.\+power}
+
+\Hypertarget{class_card_af4d88735ba75abdba4929184ec3b1cd7}\index{Card@{Card}!sourceClientId@{sourceClientId}}
+\index{sourceClientId@{sourceClientId}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{sourceClientId}{sourceClientId}}
+{\footnotesize\ttfamily \label{class_card_af4d88735ba75abdba4929184ec3b1cd7} 
+ulong Card.\+source\+Client\+Id}
+
+\Hypertarget{class_card_ac76b2d56fcaa9d215ef80bf8b4f52393}\index{Card@{Card}!type@{type}}
+\index{type@{type}!Card@{Card}}
+\doxysubsubsection{\texorpdfstring{type}{type}}
+{\footnotesize\ttfamily \label{class_card_ac76b2d56fcaa9d215ef80bf8b4f52393} 
+string Card.\+type}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Card\+Jitsu/\mbox{\hyperlink{_card_8cs}{Card.\+cs}}\end{DoxyCompactItemize}

@@ -17,5 +17,6 @@ var searchData=
   ['getsecret_14',['getSecret',['../utils_8mjs.html#afdd2b8e6fe1c732729aa13573e4bc134',1,'utils.mjs']]],
   ['gettopscoresbygame_15',['getTopScoresByGame',['../_leaderboard_2src_2index_8mjs.html#a7a3f16a71e56c4f51c8c1df576e677a1',1,'index.mjs']]],
   ['getuserbyemployeeid_16',['getUserByEmployeeId',['../_get_user_items_2src_2index_8mjs.html#a46109985cf44ca26170c0e996e988b04',1,'index.mjs']]],
-  ['globals_17',['globals',['../eslint_8config_8mjs.html#adcac49147fc1b5626b523c33a592d64d',1,'eslint.config.mjs']]]
+  ['globals_17',['globals',['../eslint_8config_8mjs.html#adcac49147fc1b5626b523c33a592d64d',1,'eslint.config.mjs']]],
+  ['gm_18',['gm',['../class_card.html#a56f1f4ba7885cf8b6aba56abf8ebecf8',1,'Card.gm'],['../class_card_sharing_manager.html#aea162c0b8646c0536aca277fc9fa7b94',1,'CardSharingManager.gm'],['../class_network_manager_u_i.html#a07bd61f42f321c9e45a604fa9abf01e8',1,'NetworkManagerUI.gm']]]
 ];

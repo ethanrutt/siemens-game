@@ -1,0 +1,343 @@
+\doxysection{Card\+Sharing\+Manager Class Reference}
+\hypertarget{class_card_sharing_manager}{}\label{class_card_sharing_manager}\index{CardSharingManager@{CardSharingManager}}
+Inheritance diagram for Card\+Sharing\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_card_sharing_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a57327d24c5156dcf027e0463ae266022}{Select\+Card}} (\mbox{\hyperlink{class_card}{Card}} card)
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_aa7adb43129d63df60077547a3fb6f791}{Deselect\+Card}} (\mbox{\hyperlink{class_card}{Card}} card)
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a01cda38fb386379d76ec516d16398643}{Calculate\+Turn}} ()
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a1962170755e796ec1a1b90ae8855643e}{Destroy\+All\+Shared\+Cards}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_card_sharing_manager_a90393e100d1f2ee27782cdbbd2d0719a}{host\+Win}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_card_sharing_manager_a94a9a0840683da73ead297e98c77e36b}{client\+Win}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_card_sharing_manager_a05a44b0c0550216ef305c1cf01886bf3}{win\+Screen}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_card_sharing_manager_ae2c246a1d7319f3c9f479fc96dff363c}{lose\+Screen}}
+\item 
+int \mbox{\hyperlink{class_card_sharing_manager_a705ff76fbefe873ac9f5b2b6ede66167}{hW}} = 0
+\item 
+int \mbox{\hyperlink{class_card_sharing_manager_a567c4ed9a420fe72e6c7b0205e36a665}{cW}} = 0
+\item 
+\mbox{\hyperlink{class_card}{Card}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_card_sharing_manager_aec5ab5d68fc1a88d4cd706ca1d1d3a6b}{all\+Cards}}
+\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{class_card_sharing_manager_a73f9f8927cc40e5fd3646f098b77b2cc}{power\+Slots}} = new List$<$Game\+Object$>$()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_ad10a57f3e88cdd416235aa21b0e28d8e}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_af25b010448752ebc286cf7b5a12a0059}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a52f576951f980e29b98fc6ce6e545350}{On\+Destroy}} ()
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a0122ba3c238b66265436ed3ab41a23ec}{On\+Confirm\+Button\+Pressed}} ()
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a6f2b3e10acfb85345d974ba67bb0f4c1}{Submit\+Cards\+To\+Server}} (List$<$ \mbox{\hyperlink{struct_card_data}{Card\+Data}} $>$ card\+Data\+List)
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a9f193b4a8daf04b93d9abfc0d5a1a46d}{Submit\+Cards\+To\+Host\+Server\+Rpc}} (\mbox{\hyperlink{struct_card_data}{Card\+Data}}\mbox{[}$\,$\mbox{]} card\+Data\+List, Server\+Rpc\+Params rpc\+Params=\mbox{\hyperlink{eslint_8config_8mjs_ac70e2eb891bc2ddb181ad1bdb3f0d9a6}{default}})
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a687d151a4b6f52eb4a0f94e3502f43ec}{Submit\+Cards\+To\+Server\+Rpc}} (int\mbox{[}$\,$\mbox{]} ids, int\mbox{[}$\,$\mbox{]} costs, int\mbox{[}$\,$\mbox{]} powers, Server\+Rpc\+Params rpc\+Params=\mbox{\hyperlink{eslint_8config_8mjs_ac70e2eb891bc2ddb181ad1bdb3f0d9a6}{default}})
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a58f179a8ce42a6859bcbf0e79f3dcb4d}{Set\+Player\+One\+Inactive\+Client\+Rpc}} (Client\+Rpc\+Params client\+Rpc\+Params=\mbox{\hyperlink{eslint_8config_8mjs_ac70e2eb891bc2ddb181ad1bdb3f0d9a6}{default}})
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_ac0d33ad41e58c61685dd527588c5ec35}{On\+Shared\+Cards\+Updated}} (Network\+List\+Event$<$ \mbox{\hyperlink{struct_card_data}{Card\+Data}} $>$ change\+Event)
+\item 
+IEnumerator \mbox{\hyperlink{class_card_sharing_manager_af5dfa5d8c364483f2e64ba1702c6ca15}{Display\+Matchups\+With\+Pause}} ()
+\item 
+bool \mbox{\hyperlink{class_card_sharing_manager_a3cf558c63bc1970c960b7cfdf4d45644}{compare\+Types}} (string t1, string t2)
+\item 
+void \mbox{\hyperlink{class_card_sharing_manager_a2a4d2dc1d024f7254bad4cffef9c13f1}{Display\+Shared\+Card}} (\mbox{\hyperlink{class_card}{Card}} card, ulong source\+Client\+Id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_card_sharing_manager_ae5906d870f883d3c7740373ba668f4db}{button\+Path}} = "{}Player\+One/Prefab\+Canvas/Play\+Turn"{}
+\item 
+Button \mbox{\hyperlink{class_card_sharing_manager_ab4c4f1b205b8095e2868b4a55eeee80b}{confirm\+Button}}
+\item 
+Button \mbox{\hyperlink{class_card_sharing_manager_a25c54d224b1c6e44cdf46aed1b671131}{disconnect\+Button}}
+\item 
+Game\+Object \mbox{\hyperlink{class_card_sharing_manager_af436eeea311f43302e6e54f9137e4df4}{card\+Sharing\+Manager\+Prefab}}
+\item 
+Game\+Object \mbox{\hyperlink{class_card_sharing_manager_ac227c47633276e7522da153b9434ce70}{player\+One}}
+\item 
+Game\+Object \mbox{\hyperlink{class_card_sharing_manager_a9c1cb8bea33c604413ff5830ae5d8243}{deck\+Overlay}}
+\item 
+Game\+Object \mbox{\hyperlink{class_card_sharing_manager_a6aabfd1f12665d69b5338031115516cb}{discard\+Overlay}}
+\item 
+\mbox{\hyperlink{class_game_manager2}{Game\+Manager2}} \mbox{\hyperlink{class_card_sharing_manager_aea162c0b8646c0536aca277fc9fa7b94}{gm}}
+\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{class_card_sharing_manager_aa5d5dc855afa0b59f5e95842481b2520}{shared\+Card\+Copies}} = new List$<$Game\+Object$>$()
+\item 
+Dictionary$<$(int card\+Id, ulong client\+Id), \mbox{\hyperlink{class_card}{Card}} $>$ \mbox{\hyperlink{class_card_sharing_manager_a75b973e72319820a738142c3aef67967}{displayed\+Cards}} = new Dictionary$<$(int, ulong), \mbox{\hyperlink{class_card}{Card}}$>$()
+\item 
+Dictionary$<$ int, \mbox{\hyperlink{class_card}{Card}} $>$ \mbox{\hyperlink{class_card_sharing_manager_a35d2f337516f3ae4fa6f5df4ceb3a4af}{card\+Lookup}} = new Dictionary$<$int, \mbox{\hyperlink{class_card}{Card}}$>$()
+\item 
+List$<$ \mbox{\hyperlink{struct_card_data}{Card\+Data}} $>$ \mbox{\hyperlink{class_card_sharing_manager_ae66b8694bb5092313c27f18ac0cfc550}{selected\+Cards}} = new List$<$\mbox{\hyperlink{struct_card_data}{Card\+Data}}$>$()
+\item 
+Network\+List$<$ \mbox{\hyperlink{struct_card_data}{Card\+Data}} $>$ \mbox{\hyperlink{class_card_sharing_manager_ad1332abb680ac9de386432263e15921c}{shared\+Cards}}
+\item 
+int \mbox{\hyperlink{class_card_sharing_manager_a595f687841b5ba866020b7fac58f48e0}{card\+Display\+Order}} = 0
+\item 
+int \mbox{\hyperlink{class_card_sharing_manager_ab86dd11612baae735635ab7eea1af687}{update\+Count}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_card_sharing_manager_ad10a57f3e88cdd416235aa21b0e28d8e}\index{CardSharingManager@{CardSharingManager}!Awake@{Awake}}
+\index{Awake@{Awake}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ad10a57f3e88cdd416235aa21b0e28d8e} 
+void Card\+Sharing\+Manager.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a01cda38fb386379d76ec516d16398643}\index{CardSharingManager@{CardSharingManager}!CalculateTurn@{CalculateTurn}}
+\index{CalculateTurn@{CalculateTurn}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{CalculateTurn()}{CalculateTurn()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a01cda38fb386379d76ec516d16398643} 
+void Card\+Sharing\+Manager.\+Calculate\+Turn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_card_sharing_manager_a3cf558c63bc1970c960b7cfdf4d45644}\index{CardSharingManager@{CardSharingManager}!compareTypes@{compareTypes}}
+\index{compareTypes@{compareTypes}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{compareTypes()}{compareTypes()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a3cf558c63bc1970c960b7cfdf4d45644} 
+bool Card\+Sharing\+Manager.\+compare\+Types (\begin{DoxyParamCaption}\item[{string}]{t1}{, }\item[{string}]{t2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_aa7adb43129d63df60077547a3fb6f791}\index{CardSharingManager@{CardSharingManager}!DeselectCard@{DeselectCard}}
+\index{DeselectCard@{DeselectCard}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{DeselectCard()}{DeselectCard()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_aa7adb43129d63df60077547a3fb6f791} 
+void Card\+Sharing\+Manager.\+Deselect\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_card}{Card}}}]{card}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_card_sharing_manager_a1962170755e796ec1a1b90ae8855643e}\index{CardSharingManager@{CardSharingManager}!DestroyAllSharedCards@{DestroyAllSharedCards}}
+\index{DestroyAllSharedCards@{DestroyAllSharedCards}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{DestroyAllSharedCards()}{DestroyAllSharedCards()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a1962170755e796ec1a1b90ae8855643e} 
+void Card\+Sharing\+Manager.\+Destroy\+All\+Shared\+Cards (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_card_sharing_manager_af5dfa5d8c364483f2e64ba1702c6ca15}\index{CardSharingManager@{CardSharingManager}!DisplayMatchupsWithPause@{DisplayMatchupsWithPause}}
+\index{DisplayMatchupsWithPause@{DisplayMatchupsWithPause}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{DisplayMatchupsWithPause()}{DisplayMatchupsWithPause()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_af5dfa5d8c364483f2e64ba1702c6ca15} 
+IEnumerator Card\+Sharing\+Manager.\+Display\+Matchups\+With\+Pause (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a2a4d2dc1d024f7254bad4cffef9c13f1}\index{CardSharingManager@{CardSharingManager}!DisplaySharedCard@{DisplaySharedCard}}
+\index{DisplaySharedCard@{DisplaySharedCard}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{DisplaySharedCard()}{DisplaySharedCard()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a2a4d2dc1d024f7254bad4cffef9c13f1} 
+void Card\+Sharing\+Manager.\+Display\+Shared\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_card}{Card}}}]{card}{, }\item[{ulong}]{source\+Client\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a0122ba3c238b66265436ed3ab41a23ec}\index{CardSharingManager@{CardSharingManager}!OnConfirmButtonPressed@{OnConfirmButtonPressed}}
+\index{OnConfirmButtonPressed@{OnConfirmButtonPressed}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{OnConfirmButtonPressed()}{OnConfirmButtonPressed()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a0122ba3c238b66265436ed3ab41a23ec} 
+void Card\+Sharing\+Manager.\+On\+Confirm\+Button\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a52f576951f980e29b98fc6ce6e545350}\index{CardSharingManager@{CardSharingManager}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a52f576951f980e29b98fc6ce6e545350} 
+void Card\+Sharing\+Manager.\+On\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_ac0d33ad41e58c61685dd527588c5ec35}\index{CardSharingManager@{CardSharingManager}!OnSharedCardsUpdated@{OnSharedCardsUpdated}}
+\index{OnSharedCardsUpdated@{OnSharedCardsUpdated}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{OnSharedCardsUpdated()}{OnSharedCardsUpdated()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ac0d33ad41e58c61685dd527588c5ec35} 
+void Card\+Sharing\+Manager.\+On\+Shared\+Cards\+Updated (\begin{DoxyParamCaption}\item[{Network\+List\+Event$<$ \mbox{\hyperlink{struct_card_data}{Card\+Data}} $>$}]{change\+Event}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a57327d24c5156dcf027e0463ae266022}\index{CardSharingManager@{CardSharingManager}!SelectCard@{SelectCard}}
+\index{SelectCard@{SelectCard}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{SelectCard()}{SelectCard()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a57327d24c5156dcf027e0463ae266022} 
+void Card\+Sharing\+Manager.\+Select\+Card (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_card}{Card}}}]{card}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_card_sharing_manager_a58f179a8ce42a6859bcbf0e79f3dcb4d}\index{CardSharingManager@{CardSharingManager}!SetPlayerOneInactiveClientRpc@{SetPlayerOneInactiveClientRpc}}
+\index{SetPlayerOneInactiveClientRpc@{SetPlayerOneInactiveClientRpc}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{SetPlayerOneInactiveClientRpc()}{SetPlayerOneInactiveClientRpc()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a58f179a8ce42a6859bcbf0e79f3dcb4d} 
+void Card\+Sharing\+Manager.\+Set\+Player\+One\+Inactive\+Client\+Rpc (\begin{DoxyParamCaption}\item[{Client\+Rpc\+Params}]{client\+Rpc\+Params}{ = {\ttfamily \mbox{\hyperlink{eslint_8config_8mjs_ac70e2eb891bc2ddb181ad1bdb3f0d9a6}{default}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_af25b010448752ebc286cf7b5a12a0059}\index{CardSharingManager@{CardSharingManager}!Start@{Start}}
+\index{Start@{Start}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_af25b010448752ebc286cf7b5a12a0059} 
+void Card\+Sharing\+Manager.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a9f193b4a8daf04b93d9abfc0d5a1a46d}\index{CardSharingManager@{CardSharingManager}!SubmitCardsToHostServerRpc@{SubmitCardsToHostServerRpc}}
+\index{SubmitCardsToHostServerRpc@{SubmitCardsToHostServerRpc}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{SubmitCardsToHostServerRpc()}{SubmitCardsToHostServerRpc()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a9f193b4a8daf04b93d9abfc0d5a1a46d} 
+void Card\+Sharing\+Manager.\+Submit\+Cards\+To\+Host\+Server\+Rpc (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_card_data}{Card\+Data}}\mbox{[}$\,$\mbox{]}}]{card\+Data\+List}{, }\item[{Server\+Rpc\+Params}]{rpc\+Params}{ = {\ttfamily \mbox{\hyperlink{eslint_8config_8mjs_ac70e2eb891bc2ddb181ad1bdb3f0d9a6}{default}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a6f2b3e10acfb85345d974ba67bb0f4c1}\index{CardSharingManager@{CardSharingManager}!SubmitCardsToServer@{SubmitCardsToServer}}
+\index{SubmitCardsToServer@{SubmitCardsToServer}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{SubmitCardsToServer()}{SubmitCardsToServer()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a6f2b3e10acfb85345d974ba67bb0f4c1} 
+void Card\+Sharing\+Manager.\+Submit\+Cards\+To\+Server (\begin{DoxyParamCaption}\item[{List$<$ \mbox{\hyperlink{struct_card_data}{Card\+Data}} $>$}]{card\+Data\+List}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a687d151a4b6f52eb4a0f94e3502f43ec}\index{CardSharingManager@{CardSharingManager}!SubmitCardsToServerRpc@{SubmitCardsToServerRpc}}
+\index{SubmitCardsToServerRpc@{SubmitCardsToServerRpc}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{SubmitCardsToServerRpc()}{SubmitCardsToServerRpc()}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a687d151a4b6f52eb4a0f94e3502f43ec} 
+void Card\+Sharing\+Manager.\+Submit\+Cards\+To\+Server\+Rpc (\begin{DoxyParamCaption}\item[{int\mbox{[}$\,$\mbox{]}}]{ids}{, }\item[{int\mbox{[}$\,$\mbox{]}}]{costs}{, }\item[{int\mbox{[}$\,$\mbox{]}}]{powers}{, }\item[{Server\+Rpc\+Params}]{rpc\+Params}{ = {\ttfamily \mbox{\hyperlink{eslint_8config_8mjs_ac70e2eb891bc2ddb181ad1bdb3f0d9a6}{default}}}}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_card_sharing_manager_aec5ab5d68fc1a88d4cd706ca1d1d3a6b}\index{CardSharingManager@{CardSharingManager}!allCards@{allCards}}
+\index{allCards@{allCards}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{allCards}{allCards}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_aec5ab5d68fc1a88d4cd706ca1d1d3a6b} 
+\mbox{\hyperlink{class_card}{Card}} \mbox{[}$\,$\mbox{]} Card\+Sharing\+Manager.\+all\+Cards}
+
+\Hypertarget{class_card_sharing_manager_ae5906d870f883d3c7740373ba668f4db}\index{CardSharingManager@{CardSharingManager}!buttonPath@{buttonPath}}
+\index{buttonPath@{buttonPath}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{buttonPath}{buttonPath}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ae5906d870f883d3c7740373ba668f4db} 
+string Card\+Sharing\+Manager.\+button\+Path = "{}Player\+One/Prefab\+Canvas/Play\+Turn"{}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a595f687841b5ba866020b7fac58f48e0}\index{CardSharingManager@{CardSharingManager}!cardDisplayOrder@{cardDisplayOrder}}
+\index{cardDisplayOrder@{cardDisplayOrder}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{cardDisplayOrder}{cardDisplayOrder}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a595f687841b5ba866020b7fac58f48e0} 
+int Card\+Sharing\+Manager.\+card\+Display\+Order = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a35d2f337516f3ae4fa6f5df4ceb3a4af}\index{CardSharingManager@{CardSharingManager}!cardLookup@{cardLookup}}
+\index{cardLookup@{cardLookup}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{cardLookup}{cardLookup}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a35d2f337516f3ae4fa6f5df4ceb3a4af} 
+Dictionary$<$int, \mbox{\hyperlink{class_card}{Card}}$>$ Card\+Sharing\+Manager.\+card\+Lookup = new Dictionary$<$int, \mbox{\hyperlink{class_card}{Card}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_af436eeea311f43302e6e54f9137e4df4}\index{CardSharingManager@{CardSharingManager}!cardSharingManagerPrefab@{cardSharingManagerPrefab}}
+\index{cardSharingManagerPrefab@{cardSharingManagerPrefab}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{cardSharingManagerPrefab}{cardSharingManagerPrefab}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_af436eeea311f43302e6e54f9137e4df4} 
+Game\+Object Card\+Sharing\+Manager.\+card\+Sharing\+Manager\+Prefab\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a94a9a0840683da73ead297e98c77e36b}\index{CardSharingManager@{CardSharingManager}!clientWin@{clientWin}}
+\index{clientWin@{clientWin}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{clientWin}{clientWin}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a94a9a0840683da73ead297e98c77e36b} 
+Text\+Mesh\+Pro\+UGUI Card\+Sharing\+Manager.\+client\+Win}
+
+\Hypertarget{class_card_sharing_manager_ab4c4f1b205b8095e2868b4a55eeee80b}\index{CardSharingManager@{CardSharingManager}!confirmButton@{confirmButton}}
+\index{confirmButton@{confirmButton}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{confirmButton}{confirmButton}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ab4c4f1b205b8095e2868b4a55eeee80b} 
+Button Card\+Sharing\+Manager.\+confirm\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a567c4ed9a420fe72e6c7b0205e36a665}\index{CardSharingManager@{CardSharingManager}!cW@{cW}}
+\index{cW@{cW}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{cW}{cW}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a567c4ed9a420fe72e6c7b0205e36a665} 
+int Card\+Sharing\+Manager.\+cW = 0}
+
+\Hypertarget{class_card_sharing_manager_a9c1cb8bea33c604413ff5830ae5d8243}\index{CardSharingManager@{CardSharingManager}!deckOverlay@{deckOverlay}}
+\index{deckOverlay@{deckOverlay}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{deckOverlay}{deckOverlay}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a9c1cb8bea33c604413ff5830ae5d8243} 
+Game\+Object Card\+Sharing\+Manager.\+deck\+Overlay\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a6aabfd1f12665d69b5338031115516cb}\index{CardSharingManager@{CardSharingManager}!discardOverlay@{discardOverlay}}
+\index{discardOverlay@{discardOverlay}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{discardOverlay}{discardOverlay}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a6aabfd1f12665d69b5338031115516cb} 
+Game\+Object Card\+Sharing\+Manager.\+discard\+Overlay\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a25c54d224b1c6e44cdf46aed1b671131}\index{CardSharingManager@{CardSharingManager}!disconnectButton@{disconnectButton}}
+\index{disconnectButton@{disconnectButton}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{disconnectButton}{disconnectButton}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a25c54d224b1c6e44cdf46aed1b671131} 
+Button Card\+Sharing\+Manager.\+disconnect\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a75b973e72319820a738142c3aef67967}\index{CardSharingManager@{CardSharingManager}!displayedCards@{displayedCards}}
+\index{displayedCards@{displayedCards}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{displayedCards}{displayedCards}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a75b973e72319820a738142c3aef67967} 
+Dictionary$<$(int card\+Id, ulong client\+Id), \mbox{\hyperlink{class_card}{Card}}$>$ Card\+Sharing\+Manager.\+displayed\+Cards = new Dictionary$<$(int, ulong), \mbox{\hyperlink{class_card}{Card}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_aea162c0b8646c0536aca277fc9fa7b94}\index{CardSharingManager@{CardSharingManager}!gm@{gm}}
+\index{gm@{gm}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{gm}{gm}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_aea162c0b8646c0536aca277fc9fa7b94} 
+\mbox{\hyperlink{class_game_manager2}{Game\+Manager2}} Card\+Sharing\+Manager.\+gm\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a90393e100d1f2ee27782cdbbd2d0719a}\index{CardSharingManager@{CardSharingManager}!hostWin@{hostWin}}
+\index{hostWin@{hostWin}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{hostWin}{hostWin}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a90393e100d1f2ee27782cdbbd2d0719a} 
+Text\+Mesh\+Pro\+UGUI Card\+Sharing\+Manager.\+host\+Win}
+
+\Hypertarget{class_card_sharing_manager_a705ff76fbefe873ac9f5b2b6ede66167}\index{CardSharingManager@{CardSharingManager}!hW@{hW}}
+\index{hW@{hW}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{hW}{hW}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a705ff76fbefe873ac9f5b2b6ede66167} 
+int Card\+Sharing\+Manager.\+hW = 0}
+
+\Hypertarget{class_card_sharing_manager_ae2c246a1d7319f3c9f479fc96dff363c}\index{CardSharingManager@{CardSharingManager}!loseScreen@{loseScreen}}
+\index{loseScreen@{loseScreen}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{loseScreen}{loseScreen}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ae2c246a1d7319f3c9f479fc96dff363c} 
+Text\+Mesh\+Pro\+UGUI Card\+Sharing\+Manager.\+lose\+Screen}
+
+\Hypertarget{class_card_sharing_manager_ac227c47633276e7522da153b9434ce70}\index{CardSharingManager@{CardSharingManager}!playerOne@{playerOne}}
+\index{playerOne@{playerOne}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{playerOne}{playerOne}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ac227c47633276e7522da153b9434ce70} 
+Game\+Object Card\+Sharing\+Manager.\+player\+One\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a73f9f8927cc40e5fd3646f098b77b2cc}\index{CardSharingManager@{CardSharingManager}!powerSlots@{powerSlots}}
+\index{powerSlots@{powerSlots}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{powerSlots}{powerSlots}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a73f9f8927cc40e5fd3646f098b77b2cc} 
+List$<$Game\+Object$>$ Card\+Sharing\+Manager.\+power\+Slots = new List$<$Game\+Object$>$()}
+
+\Hypertarget{class_card_sharing_manager_ae66b8694bb5092313c27f18ac0cfc550}\index{CardSharingManager@{CardSharingManager}!selectedCards@{selectedCards}}
+\index{selectedCards@{selectedCards}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{selectedCards}{selectedCards}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ae66b8694bb5092313c27f18ac0cfc550} 
+List$<$\mbox{\hyperlink{struct_card_data}{Card\+Data}}$>$ Card\+Sharing\+Manager.\+selected\+Cards = new List$<$\mbox{\hyperlink{struct_card_data}{Card\+Data}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_aa5d5dc855afa0b59f5e95842481b2520}\index{CardSharingManager@{CardSharingManager}!sharedCardCopies@{sharedCardCopies}}
+\index{sharedCardCopies@{sharedCardCopies}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{sharedCardCopies}{sharedCardCopies}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_aa5d5dc855afa0b59f5e95842481b2520} 
+List$<$Game\+Object$>$ Card\+Sharing\+Manager.\+shared\+Card\+Copies = new List$<$Game\+Object$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_ad1332abb680ac9de386432263e15921c}\index{CardSharingManager@{CardSharingManager}!sharedCards@{sharedCards}}
+\index{sharedCards@{sharedCards}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{sharedCards}{sharedCards}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ad1332abb680ac9de386432263e15921c} 
+Network\+List$<$\mbox{\hyperlink{struct_card_data}{Card\+Data}}$>$ Card\+Sharing\+Manager.\+shared\+Cards\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_ab86dd11612baae735635ab7eea1af687}\index{CardSharingManager@{CardSharingManager}!updateCount@{updateCount}}
+\index{updateCount@{updateCount}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{updateCount}{updateCount}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_ab86dd11612baae735635ab7eea1af687} 
+int Card\+Sharing\+Manager.\+update\+Count = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_card_sharing_manager_a05a44b0c0550216ef305c1cf01886bf3}\index{CardSharingManager@{CardSharingManager}!winScreen@{winScreen}}
+\index{winScreen@{winScreen}!CardSharingManager@{CardSharingManager}}
+\doxysubsubsection{\texorpdfstring{winScreen}{winScreen}}
+{\footnotesize\ttfamily \label{class_card_sharing_manager_a05a44b0c0550216ef305c1cf01886bf3} 
+Text\+Mesh\+Pro\+UGUI Card\+Sharing\+Manager.\+win\+Screen}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Card\+Jitsu/\mbox{\hyperlink{_card_sharing_manager_8cs}{Card\+Sharing\+Manager.\+cs}}\end{DoxyCompactItemize}

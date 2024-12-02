@@ -109,6 +109,7 @@ Table of Contents</h1>
 <li>Deployment</li>
 <li>Android Deployment</li>
 <li>iOS Deployment</li>
+<li>Documentation</li>
 <li>Future Development</li>
 </ul>
 <hr  />
@@ -284,6 +285,24 @@ iOS Deployment</h2>
 </ul>
 <hr  />
  <h1><a class="anchor" id="autotoc_md27"></a>
+Documentation</h1>
+<ul>
+<li>We have generated our documentation using <a href="https://www.doxygen.nl/index.html">doxygen</a>.</li>
+<li>Make sure that any new code written has <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html">javadoc style comments</a>.</li>
+<li>Generate new documentation using our preconfigured <code>Doxyfile</code> by running <div class="fragment"><div class="line">doxygen Doxyfile</div>
+</div><!-- fragment --></li>
+<li>View the documentation <b>FIXME host the documentation somewhere</b>.</li>
+<li>Some Notes about the Doxyfile config<ul>
+<li>We are using <code>.mjs</code> files for our backend, which aren't recognized by the doxygen parser by default. This line fixes this which just says that <code>.mjs</code> files should use the <code>Javascript</code> parser. <div class="fragment"><div class="line">EXTENSION_MAPPING      = mjs=Javascript</div>
+</div><!-- fragment --></li>
+<li>The Main Page is set to this readme file.</li>
+<li>The backend documentation is found by searching through the files on the doxygen website.</li>
+<li>The game documentation is found by searching through the class list on the doxygen website.</li>
+</ul>
+</li>
+</ul>
+<hr  />
+ <h1><a class="anchor" id="autotoc_md29"></a>
 Future Development</h1>
 <ul>
 <li>The Byte City team has put tons of hours into this game. We were given nothing but an open-ended request with simple constraints, and we have built the Byte City you can play today from scratch.</li>
