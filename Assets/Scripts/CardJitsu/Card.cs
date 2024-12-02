@@ -15,6 +15,7 @@ public class Card : MonoBehaviour
 
     public int id;
     public string cardName;
+    public string type;
     public int cost;
     public int power;
     public ulong sourceClientId;

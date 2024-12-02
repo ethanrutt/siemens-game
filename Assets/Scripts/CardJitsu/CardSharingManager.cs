@@ -1,25 +1,41 @@
+using TMPro;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
 using Unity.Netcode;
 using UnityEngine.UI;
+
 
 public class CardSharingManager : NetworkBehaviour
 {
     [SerializeField] private string buttonPath = "PlayerOne/PrefabCanvas/PlayTurn";
     [SerializeField] private Button confirmButton;
+    [SerializeField] private Button disconnectButton;
     [SerializeField] private GameObject cardSharingManagerPrefab;
     [SerializeField] private GameObject playerOne; // Reference to the PlayerOne GameObject
+    [SerializeField] private GameObject deckOverlay; // Reference to the PlayerOne GameObject
+    [SerializeField] private GameObject discardOverlay; // Reference to the PlayerOne GameObject
+    [SerializeField] public TextMeshProUGUI hostWin; 
+    [SerializeField] public TextMeshProUGUI clientWin;
+    [SerializeField] public TextMeshProUGUI winScreen; 
+    [SerializeField] public TextMeshProUGUI loseScreen;  
     [SerializeField] private GameManager2 gm; // Reference to the GameManager GameObject
-    private List<GameObject> sharedCardCopies = new List<GameObject>();
 
+    private List<GameObject> sharedCardCopies = new List<GameObject>();
+    private Dictionary<(int cardId, ulong clientId), Card> displayedCards = new Dictionary<(int, ulong), Card>();
+    
     private Dictionary<int, Card> cardLookup = new Dictionary<int, Card>();
     private List<CardData> selectedCards = new List<CardData>();
     private NetworkList<CardData> sharedCards;
-    private Dictionary<(int cardId, ulong clientId), Card> displayedCards = new Dictionary<(int, ulong), Card>();
+    
     private int cardDisplayOrder = 0;
     private int updateCount = 0;
+    public int hW = 0;
+    public int cW = 0;
+
 
     public Card[] allCards;
+    public List<GameObject> powerSlots = new List<GameObject>();
 
     
 
@@ -88,6 +104,10 @@ public class CardSharingManager : NetworkBehaviour
         }
     }
 
+    //public void Update(){
+    //    CheckAndResetGame();
+    //}
+
     private void OnDestroy()
     {
         if (sharedCards != null)
@@ -103,7 +123,6 @@ public class CardSharingManager : NetworkBehaviour
         
         if (IsOwner)
         {
-
             SubmitCardsToServer(selectedCards);
             selectedCards.Clear();
         }
@@ -259,8 +278,136 @@ public class CardSharingManager : NetworkBehaviour
                 // Display the card using the existing DisplaySharedCard method
                 DisplaySharedCard(card, clientId);
             }
+            hostWin.gameObject.SetActive(true);
+            clientWin.gameObject.SetActive(true);
+
+            CalculateTurn();
+            
         }
 
+    }
+
+    public void CalculateTurn(){
+        StartCoroutine(DisplayMatchupsWithPause());
+    }
+
+    private IEnumerator DisplayMatchupsWithPause()
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if(hW == 7 || cW == 7){
+                break;
+            }
+            if(i == 0){
+                yield return new WaitForSeconds(2.5f);     
+            }
+
+            Card c1 = sharedCardCopies[i].GetComponent<Card>();
+            Card c2 = sharedCardCopies[i + 3].GetComponent<Card>();
+
+            Debug.Log($"Displaying matchup {i + 1}: {c1.cardName} {c1.sourceClientId}  - {c2.cardName} {c2.sourceClientId}");
+            
+            if(compareTypes(c1.type, c2.type)){
+                c1.power = c1.power * 2;
+
+                powerSlots[i].SetActive(true);
+                powerSlots[i].transform.position = sharedCardCopies[i].transform.position;
+                powerSlots[i].transform.position += new Vector3(-0.8f, 1.1f, -8f);
+
+                yield return new WaitForSeconds(2.5f);  
+            }
+            else if(compareTypes(c2.type, c1.type)){
+                c2.power = c2.power * 2;
+
+                powerSlots[i].SetActive(true);
+                powerSlots[i].transform.position = sharedCardCopies[i + 3].transform.position;
+                powerSlots[i].transform.position += new Vector3(-0.8f, 1.1f, -8f);
+
+                yield return new WaitForSeconds(2.5f);  
+            }
+
+
+            if (c1.power > c2.power)
+            {
+                if(c1.sourceClientId == 0){
+                    hW++;
+                    hostWin.text = hW.ToString();
+                }
+                else{
+                    cW++;
+                    clientWin.text = cW.ToString();
+                }
+
+                c2.gameObject.SetActive(false);
+
+                if(compareTypes(c2.type, c1.type))
+                    powerSlots[i].SetActive(false);
+            }
+            else if (c2.power > c1.power)
+            {
+                if(c2.sourceClientId == 0){
+                    hW++;
+                    hostWin.text = hW.ToString();
+                }
+                else{
+                    cW++;
+                    clientWin.text = cW.ToString();
+                }
+                
+                c1.gameObject.SetActive(false);
+                
+                if(compareTypes(c1.type, c2.type))
+                    powerSlots[i].SetActive(false);
+            }
+
+            // Pause before the next matchup
+            yield return new WaitForSeconds(2.5f); // Adjust the duration as needed
+        }
+        
+        hostWin.gameObject.SetActive(false);
+        clientWin.gameObject.SetActive(false);
+        if(hW == 7 || cW == 7){
+            deckOverlay.SetActive(false);
+            discardOverlay.SetActive(false);
+            disconnectButton.gameObject.SetActive(true);
+            if(hW == 7){
+                if(IsHost){
+                    winScreen.gameObject.SetActive(true);
+                }
+                else{
+                    loseScreen.gameObject.SetActive(true);
+                }
+            }
+            else if(cW == 7){
+                if(IsHost){
+                    loseScreen.gameObject.SetActive(true);
+                }
+                else{
+                    winScreen.gameObject.SetActive(true);
+                }
+            }
+        }
+        else{
+            playerOne.SetActive(true);
+        }
+        DestroyAllSharedCards();
+        
+
+
+    }
+
+    private bool compareTypes(string t1, string t2){
+        if(t1 == "Heat" && t2 == "Pressure"){
+            return true;
+        }
+        if(t1 == "Pressure" && t2 == "Electrical"){
+            return true;
+        }
+        if(t1 == "Electrical" && t2 == "Heat"){
+            return true;
+        }
+
+        return false;
     }
 
     private void DisplaySharedCard(Card card, ulong sourceClientId)
@@ -305,6 +452,7 @@ public class CardSharingManager : NetworkBehaviour
         copiedCard.cardName = card.cardName;
         copiedCard.cost = card.cost;
         copiedCard.power = card.power;
+        copiedCard.sourceClientId = sourceClientId;
 
         // Optionally, parent the cardCopy to a specific container or UI element
         // cardCopy.transform.SetParent(transform, worldPositionStays: true);
@@ -320,6 +468,14 @@ public class CardSharingManager : NetworkBehaviour
 
     public void DestroyAllSharedCards()
     {
+        foreach (var slot in powerSlots)
+        {
+            if (slot != null)
+            {
+                slot.SetActive(false);
+            }
+        }
+        
         foreach (var card in sharedCardCopies)
         {
             if (card != null)
@@ -331,4 +487,6 @@ public class CardSharingManager : NetworkBehaviour
         displayedCards.Clear();
         Debug.Log("All shared cards have been destroyed.");
     }
+
+
 }

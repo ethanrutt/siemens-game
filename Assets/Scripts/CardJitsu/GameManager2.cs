@@ -203,6 +203,9 @@ public class GameManager2 : MonoBehaviour
             Card card = currentHand[i];
 
             if(card.isInSlot == true){
+                if(deck.Count == 0){
+                    Shuffle();
+                }
                 
                 card.hasBeenPlayed = true;
                 card.isInSlot = false;
