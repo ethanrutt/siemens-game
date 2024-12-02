@@ -6,6 +6,8 @@ using TMPro;
 
 public class GameManager2 : MonoBehaviour
 {
+    private PlayerData playerData => PlayerData.Instance;
+    
     public Camera mainCamera; // Reference to the Main Camera
     private bool isBelowThreshold = false;
 
@@ -13,6 +15,8 @@ public class GameManager2 : MonoBehaviour
     public List<Card> discardPile  = new List<Card>();
     public List<Card> currentHand  = new List<Card>();
     public List<Card> playerDeck  = new List<Card>();
+    public List<int> playerUnlocks  = new List<int>();
+
     public int[] cardId;   
     public int[] cardCost;
     public int[] cardPower;
@@ -35,6 +39,9 @@ public class GameManager2 : MonoBehaviour
     private void Start(){
         playTurnButton.gameObject.SetActive(false);
 
+        playerUnlocks = playerData.unlocked_cards;
+
+
         int j = 0;
         foreach(Card card in deck){
             card.id = cardId[j];
@@ -44,13 +51,12 @@ public class GameManager2 : MonoBehaviour
             j++;
         }
 
-        for(int i = 0; i < 7; i++){
-            Card randCard = deck[Random.Range(0, deck.Count)];
+        for(int i = 0; i < playerUnlocks.Count; i++){
+            Card randCard = deck[playerUnlocks[i]];
             playerDeck.Add(randCard);
             
             deck.Remove(randCard);
         }
-
 
 
         for(int i = 0; i < handSize; i++){

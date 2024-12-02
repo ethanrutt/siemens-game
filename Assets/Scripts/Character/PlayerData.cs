@@ -99,10 +99,10 @@ public class PlayerData : MonoBehaviour
         public enum Element { Electrical, Pressure, Heat };
         public Element element; // Add this line
         public string name;
-        public UnityEngine.UI.Image image;
+        public Sprite image;
         public ulong clientId; // Add clientId field to track the source of the card data
 
-        public Card(int id, int rarity, int power, Element element, string name, UnityEngine.UI.Image image, ulong clientId)
+        public Card(int id, int rarity, int power, Element element, string name, Sprite image, ulong clientId)
         {
             this.id = id;
             this.rarity = rarity;
@@ -160,7 +160,7 @@ public class PlayerData : MonoBehaviour
     // Store the card images
     // and the dictionary, where we will populate the dictionary
     // and then we will populate the images on Awake
-    [SerializeField] private List<UnityEngine.UI.Image> card_images = new List<UnityEngine.UI.Image>();
+    [SerializeField] private List<Sprite> card_images = new List<Sprite>();
     private Dictionary<int, Card> cards;
 
     // Now unlocked cards
