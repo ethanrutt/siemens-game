@@ -194,7 +194,7 @@ doxygen Doxyfile
 * Some Notes about the Doxyfile config
   * We are using `.mjs` files for our backend, which aren't recognized by the doxygen parser by default. This line fixes this which just says that `.mjs` files should use the `Javascript` parser.
   ```
-  EXTENSION_MAPPING      = mjs=Javascript
+  EXTENSION_MAPPING = mjs=Javascript
   ```
   * The Main Page is set to this readme file.
   * The backend documentation is found by searching through the files on the doxygen website.
