@@ -6,6 +6,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
+/**
+ * @brief This class handles character movement. This script will be attached
+ * to the player object
+ *
+ * There are lots of moving parts, since we have separate entities for the
+ * player's head, chest, arms, legs, as well as handling movement for all of
+ * their cosmetics. Emotes are also handled in this class.
+ *
+ * @see CosmeticHandler
+ */
 public class Character_Movement : MonoBehaviour
 {
 	//charSpeed is gotten from playerData.movement_speed
@@ -129,37 +139,6 @@ public class Character_Movement : MonoBehaviour
 		canMove = true;
 	}
 
-	// // A coroutine to stop the player from moving for a certain amount of time
-	// public IEnumerator MoveAndStopForSeconds(int direction, float seconds)
-	// {
-	// 	// Set the movement input direction to the correct direction
-	// 	switch (direction)
-	// 	{
-	// 		case 0:
-	// 			movementInputDirection = Vector2.up;
-	// 			break;
-	// 		case 1:
-	// 			movementInputDirection = Vector2.down;
-	// 			break;
-	// 		case 2:
-	// 			movementInputDirection = Vector2.left;
-	// 			break;
-	// 		case 3:
-	// 			movementInputDirection = Vector2.right;
-	// 			break;
-	// 		default:
-	// 			Debug.LogError("Invalid movement direction.");
-	// 			break;
-	// 	}
-
-	// 	// Wait for the seconds
-	// 	yield return new WaitForSeconds(seconds);
-
-	// 	// Stop the player from moving
-	// 	movementInputDirection = Vector2.zero;
-	// 	UpdateAnimator();
-	// }
-	
 	// Moving Up (Joystick)
 	public void MoveUp()
 	{
@@ -212,42 +191,6 @@ public class Character_Movement : MonoBehaviour
 		movementInputDirection = Vector2.zero;
 		HandleMovement(movementInputDirection);
 	}
-
-	// Coroutine to print the equipped items every 3 seconds
-	// private IEnumerator PrintEquippedEvery3Seconds()
-	// {
-	// 	// string that prints like [, , , ,]
-	// 	string equipped_items_string = "EQI: [";
-	// 	string original_load_items_string = "OLI: [";
-
-	// 	yield return new WaitForSeconds(3);
-		
-	// 	// Print the equipped items
-	// 	for (int i = 0; i < equipped_items.Count; i++)
-	// 	{
-	// 		equipped_items_string += equipped_items[i].ToString();
-	// 		if (i != equipped_items.Count - 1)
-	// 		{
-	// 			equipped_items_string += ", ";
-	// 		}
-	// 	}
-
-	// 	// Print the original load items
-	// 	for (int i = 0; i < original_load_items.Count; i++)
-	// 	{
-	// 		original_load_items_string += original_load_items[i].ToString();
-	// 		if (i != original_load_items.Count - 1)
-	// 		{
-	// 			original_load_items_string += ", ";
-	// 		}
-	// 	}
-
-	// 	equipped_items_string += "]";
-	// 	original_load_items_string += "]";
-
-	// 	Debug.Log(equipped_items_string);
-	// 	Debug.Log(original_load_items_string);
-	// }
 
 	// Check if lists are same content
 	private bool AreListsEqual(List<int> list1, List<int> list2)

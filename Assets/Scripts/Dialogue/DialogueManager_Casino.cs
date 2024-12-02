@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// This is the DialogueManager for the TownSquare
-// It will store the dialogues for the two NPCs, the Shopowner
-// and the Drunk guy on the building
+/**
+ * @brief This is the DialogueManager for the Town Square. This holds the
+ * dialogues for sensei in the casino, and the casino owner's dialogue
+ */
 public class DialogueManager_Casino : MonoBehaviour
 {
     // PlayerData
@@ -188,7 +189,7 @@ public class DialogueManager_Casino : MonoBehaviour
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
-        
+
         // Close the dialogue panel
         dialoguePanel.SetActive(false);
 
@@ -430,7 +431,7 @@ public class DialogueManager_Casino : MonoBehaviour
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
-        
+
         // Close the dialogue panel
         dialoguePanel.SetActive(false);
 
@@ -523,7 +524,7 @@ public class DialogueManager_Casino : MonoBehaviour
         dialoguePanel.SetActive(false);
         backModal.SetActive(true);
     }
-    
+
 
 
     IEnumerator TypeSentence (string sentence)
@@ -539,13 +540,13 @@ public class DialogueManager_Casino : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        
+
         isTyping = false;
     }
 
     // Coroutine for typing the sentence
     private Coroutine typeSentenceCoroutine;
-        
+
 
     // Public integer array for each drunkGuySprites[n] to correspond to drunkGuyDialogues[n]
 
@@ -581,7 +582,7 @@ public class DialogueManager_Casino : MonoBehaviour
             SenseiTutorial();
         }
     }
-    
+
     // GameObjects to pan the Camera to
     [SerializeField] private GameObject cameraPanTarget; // The area where the casino owner is.
 
@@ -642,7 +643,7 @@ public class DialogueManager_Casino : MonoBehaviour
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
-        
+
         // Close the dialogue panel
         dialoguePanel.SetActive(false);
 

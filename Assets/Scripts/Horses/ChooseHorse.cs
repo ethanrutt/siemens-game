@@ -1,10 +1,15 @@
-// public string chosen_horse = ""; // can be "blackhoof", "chromeblitz", "robotrotter", "nanomane", "thunderbyte"
-// on PlayerData
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @brief This handles choosing the horse during the initial scene when
+ * starting the horse game in the casino. The chosen horse and bet amount are
+ * stored in playerData so that we can access them after this instance is
+ * destroyed
+ *
+ * @see PlayerData
+ */
 public class ChosenHorse : MonoBehaviour
 {
     public string chosen_horse = ""; // can be "blackhoof", "chromeblitz", "robotrotter", "nanomane", "thunderbyte"
@@ -133,7 +138,6 @@ public class ChosenHorse : MonoBehaviour
             bet100Button.interactable = false;
         }
 
-        // DEBUG: If player presses B key it opens up bet panel
         if (Input.GetKeyDown(KeyCode.B))
         {
             modalBackground.SetActive(true);

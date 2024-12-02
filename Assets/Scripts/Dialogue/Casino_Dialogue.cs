@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @brief This class handles the casino dialogue
+ */
 public class Casino_Dialogue : MonoBehaviour
 {
     // PlayerData global singleton
@@ -25,7 +28,6 @@ public class Casino_Dialogue : MonoBehaviour
         interactButton.SetActive(false);
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +36,5 @@ public class Casino_Dialogue : MonoBehaviour
         {
             interactButton = GameObject.Find("UI_Button_Interact");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

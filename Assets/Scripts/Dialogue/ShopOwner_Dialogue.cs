@@ -2,6 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @brief This handles the business logic for the shop owner in the town square
+ *
+ * @see DialogueManager
+ * @see DialogueManager_TS
+ */
 public class ShopOwner_Dialogue : MonoBehaviour
 {
     // PlayerData global singleton
@@ -25,7 +31,6 @@ public class ShopOwner_Dialogue : MonoBehaviour
         interactButton.SetActive(false);
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +39,5 @@ public class ShopOwner_Dialogue : MonoBehaviour
         {
             interactButton = GameObject.Find("UI_Button_Interact");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -2,7 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// This is the DialogueManager for the Lab
+/**
+ * @brief This handles the dialogue in the Laboratory. This consists of
+ * sensei's dialogue at the beginning as well as the deckmaster's dialogue
+ *
+ * @see DialogueManager
+ */
 public class DialogueManager_Lab : MonoBehaviour
 {
     // PlayerData
@@ -113,7 +118,7 @@ public class DialogueManager_Lab : MonoBehaviour
         // Whenever you add the cards, you should also add the cards to the player's inventory
         // ROHAN -> Add your code here.
     }
-    
+
     // Coroutine for typing the sentence
     private Coroutine typeSentenceCoroutine;
 
@@ -152,7 +157,7 @@ public class DialogueManager_Lab : MonoBehaviour
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
-        
+
         // Close the dialogue panel
         dialoguePanel.SetActive(false);
 
@@ -210,12 +215,12 @@ public class DialogueManager_Lab : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        
+
         isTyping = false;
     }
 
 
-        
+
 
     // Public integer array for each drunkGuySprites[n] to correspond to drunkGuyDialogues[n]
 
@@ -251,7 +256,7 @@ public class DialogueManager_Lab : MonoBehaviour
             SenseiTutorial();
         }
     }
-    
+
     // GameObjects to pan the Camera to
     [SerializeField] private GameObject[] cameraPanTargets; // Four targets, leaderboards,datacentercomp1,datacentercomp2,deckmaster
 
@@ -321,7 +326,7 @@ public class DialogueManager_Lab : MonoBehaviour
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
-        
+
         // Close the dialogue panel
         dialoguePanel.SetActive(false);
 

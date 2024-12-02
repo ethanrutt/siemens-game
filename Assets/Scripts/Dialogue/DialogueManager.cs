@@ -4,6 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/**
+ * @brief This class handles the dialogue. It involves methods for opening
+ * dialogue boxes, handling the "typing" of text, the skip buttons, and
+ * cleaning up dialogue objects when the dialogue is finished
+ */
 public class DialogueManager : MonoBehaviour
 {
     [SerializeField] private Character_Movement playerMovement;
@@ -13,13 +18,13 @@ public class DialogueManager : MonoBehaviour
     public Image characterImage;
 
     public Animator animator;
-    
+
     private Queue<string> sentences = new Queue<string>();
 
     private List<GameObject> interactiveButtons = new List<GameObject>();
 
     private Queue<CharacterImage> characterImages = new Queue<CharacterImage>();
-    
+
 
     void Start()
     {
@@ -30,20 +35,16 @@ public class DialogueManager : MonoBehaviour
             interactiveButtons.Add(button.gameObject);
             button.gameObject.SetActive(false); // Hide buttons initially
         }
-        
+
         if (playerMovement == null)
         {
             playerMovement = FindObjectOfType<Character_Movement>(); // Optional: Find the Player_Movement component in the scene
         }
     }
 
-    void Update(){
-
-    }
-
     public void StartDialogue (Dialogue dialogue) {
         animator.SetBool("IsOpen", true);
-        
+
         nameText.text = dialogue.name;
         sentences.Clear();
         characterImages.Clear();
@@ -54,7 +55,7 @@ public class DialogueManager : MonoBehaviour
 
         foreach (CharacterImage characterImage in dialogue.characterImages) {
             for(int i = 0; i <= characterImage.associatedValue; i++)
-                characterImages.Enqueue(characterImage); 
+                characterImages.Enqueue(characterImage);
         }
 
         DisplayNextSentence();

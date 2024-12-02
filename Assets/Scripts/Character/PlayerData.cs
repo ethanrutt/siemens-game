@@ -4,6 +4,23 @@ using UnityEngine;
 
 // Rishi Santhanam
 // Player data storage. All player data is stored here.
+//
+/**
+ * @brief Rishi Santhanam - player data storage. All player data is stored here
+ *
+ * This includes the players username (used for api calls), coins, userid, etc.
+ * This also tracks what npcs the player has talked to previously. as well as what areas they've previously visited
+ *
+ * These values are populated on login
+ *
+ * This is a singleton pattern.
+ *
+ * To use this in another script, grab the singleton instance by adding this
+ * line as a member in your class
+ * ```
+ * private PlayerData playerData => PlayerData.Instance;
+ * ```
+ */
 public class PlayerData : MonoBehaviour
 {
     // Storing information like the player's username, coins
@@ -128,24 +145,7 @@ public class PlayerData : MonoBehaviour
         {
             danceEmoteButton.interactable = false;
         }
-
-        // DEBUG:
-        // Give the player all unlocked achievements from 0->11
-        // for testing purposes
-        // StartCoroutine(WaitAndUnlockAchievement(3.0f, 2));
-        //     unlocked_achievements.Add(i);
-        // }
     }
-
-    // Wait and unlock achievement DEBUG
-    // private IEnumerator WaitAndUnlockAchievement(float waitTime, int achievement_id)
-    // {
-    //     yield return new WaitForSeconds(waitTime);
-    //     UnlockAchievement(achievement_id);
-    // }
-
-    // UI Text Object for Coins
-    // private TMPro.TMP_Text currencyText;
 
     // Update is called once per frame
     void Update()
