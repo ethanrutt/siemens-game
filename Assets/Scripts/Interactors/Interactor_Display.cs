@@ -98,10 +98,50 @@ public class Interactor_Display : MonoBehaviour
         player.GetComponent<Character_Movement>().UnstopPlayer();
     }
 
+    private void uploadPlayerDataOnExit()
+    {
+        string url = "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/PlayerDataUpload";
+        string jsonData = System.String.Format(@"{{
+            ""user_id"": {0},
+            ""current_coins"": {1},
+            ""items_owned"": {2},
+            ""items_equipped"": {3},
+            ""cards_owned"": {4},
+            ""achievements_complete"": {5},
+            ""achievements"": {6},
+            ""has_finished_cutscene"": {7},
+            ""location_x"": {8},
+            ""location_y"": {9},
+            ""current_scene"": {10},
+            ""interactions"": {11}
+        }}",
+            playerData.userId.ToString(),
+            playerData.coins.ToString(),
+            "[" + string.Join(", ", playerData.unlocked_items) + "]",
+            "[" + string.Join(", ", playerData.equipped_items) + "]",
+            "[]",
+            "[" + string.Join(", ", playerData.unlocked_achievements) + "]",
+            "{}",
+            "true",
+            player.transform.position.x,
+            player.transform.position.y,
+            "\"Town_Square\"",
+            "{" + string.Join(", ", playerData.npc_interactions.Select(kvp => $"\"{kvp.Key}\": {kvp.Value}")) + "}"
+        );
+        Debug.Log(jsonData);
+        WebRequestUtility.SendWebRequest(this, url, jsonData, onExitRequestComplete, onExitRequestComplete);
+    }
+
+    public void onExitRequestComplete(string responseText)
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
     // Defining the Exit Out for the Game
     public void ExitGame()
     {
-        SceneManager.LoadScene("MainMenu");
+        // need to upload player data on returning to main menu so that the database stays updated
+        uploadPlayerDataOnExit();
     }
 
     // Defining the Exit Out for Leaderboards
@@ -219,7 +259,7 @@ public class Interactor_Display : MonoBehaviour
             if (playerData.npc_interactions["deckmaster"] == 0)
             {
                 dialogueManagerLab.DeckMasterInterrupt();
-            } else 
+            } else
             {
             SceneManager.LoadScene("CardJitsu");
             }
