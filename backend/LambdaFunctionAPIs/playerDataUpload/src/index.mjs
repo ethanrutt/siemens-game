@@ -2,7 +2,7 @@
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 /* jslint ignore:end */
 
-const updatePlayerData = async (client, user_id, current_coins, items_owned, items_equipped, cards_owned, achievements_complete, achievements, has_finished_cutscene, location_x, location_y, current_scene) => {
+const updatePlayerData = async (client, user_id, current_coins, items_owned, items_equipped, cards_owned, achievements_complete, achievements, has_finished_cutscene, location_x, location_y, current_scene, interactions) => {
     const query = `
         UPDATE users
         SET 
@@ -15,8 +15,9 @@ const updatePlayerData = async (client, user_id, current_coins, items_owned, ite
             has_finished_cutscene = $7,
             location_x = $8,
             location_y = $9,
-            current_scene = $10
-        WHERE user_id = $11
+            current_scene = $10,
+            interactions = $11
+        WHERE user_id = $12
         RETURNING *;
     `;
     const values = [
@@ -30,6 +31,7 @@ const updatePlayerData = async (client, user_id, current_coins, items_owned, ite
         location_x, 
         location_y, 
         current_scene, 
+        interactions,
         user_id
     ];
 
@@ -59,7 +61,8 @@ const errorCheck = (event) => {
         has_finished_cutscene, 
         location_x, 
         location_y, 
-        current_scene 
+        current_scene, 
+        interactions 
     } = requestBody;
 
     if (!user_id) {
@@ -77,7 +80,8 @@ const errorCheck = (event) => {
         has_finished_cutscene, 
         location_x, 
         location_y, 
-        current_scene 
+        current_scene, 
+        interactions 
     };
 };
 
@@ -97,7 +101,8 @@ export const handler = async (event) => {
             has_finished_cutscene, 
             location_x, 
             location_y, 
-            current_scene 
+            current_scene, 
+            interactions 
         } = errorCheck(event);
 
         // Fetch secrets from Secrets Manager
@@ -122,7 +127,8 @@ export const handler = async (event) => {
             has_finished_cutscene, 
             location_x, 
             location_y, 
-            current_scene
+            current_scene, 
+            interactions
         );
 
         // Successful response
@@ -145,7 +151,5 @@ export const handler = async (event) => {
         }
     }
 };
-
-
 
 

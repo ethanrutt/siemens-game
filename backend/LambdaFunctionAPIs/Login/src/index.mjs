@@ -56,10 +56,11 @@ const createUser = async (client, employee_id, user_name, user_password) => {
             has_finished_cutscene, 
             location_x, 
             location_y, 
-            current_scene
+            current_scene,
+            interactions
         ) 
         VALUES 
-        ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14) 
+        ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15) 
         RETURNING *
     `;
     const values = [
@@ -76,7 +77,8 @@ const createUser = async (client, employee_id, user_name, user_password) => {
         false, 
         0.0, 
         0.0, 
-        'MainMenu'
+        'MainMenu',
+        '{}'
     ];
 
     const insertResult = await client.query(insertQuery, values);
@@ -156,6 +158,7 @@ export const handler = async (event) => {
                     location_x: user.location_x,
                     location_y: user.location_y,
                     current_scene: user.current_scene,
+                    interactions: user.interactions,
                 },
             }),
         };
