@@ -1,0 +1,287 @@
+\doxysection{Network\+Manager\+UI Class Reference}
+\hypertarget{classNetworkManagerUI}{}\label{classNetworkManagerUI}\index{NetworkManagerUI@{NetworkManagerUI}}
+Inheritance diagram for Network\+Manager\+UI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classNetworkManagerUI}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classNetworkManagerUI_a6a1e93bd7654c34d05718d5cd6c97b05}{win\+Screen}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classNetworkManagerUI_a388b130b63ec42117f288c7abff619f4}{lose\+Screen}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_a47aabbaa5888ef9821ab2456d37fdfb5}{Awake}} ()
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_aafed38ac0d1cd5932970a141a82fdc26}{Start}} ()
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_a452444a04ec3290fb958d8e1900a7364}{On\+Destroy}} ()
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_af52034ff165372e2606fc68cc7f96b88}{On\+Connect\+Button\+Pressed}} ()
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_a81fbd65688e75bdcd160bad41a24414e}{On\+Disconnect\+Button\+Pressed}} ()
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_aa905420c00c8f746aedc53c775a0db71}{Log\+Network\+Config}} ()
+\item 
+\mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}} void \mbox{\hyperlink{classNetworkManagerUI_a721ad8222585a3139bb5b6955d586d37}{Start\+Client\+With\+Fallback\+To\+Host}} (string ip\+Address)
+\item 
+\mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}} void \mbox{\hyperlink{classNetworkManagerUI_a3dbe02abecb28d909e90b2f63da8d24b}{Start\+Host}} ()
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_ab07520b92a840f651cbe60e7ee1a1c8f}{On\+Client\+Connected}} (ulong client\+Id)
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_afc6da35db8f1c60d8b49273fd7c4de4f}{On\+Client\+Disconnected}} (ulong client\+Id)
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_a178a5820fdb103e8984f1655ab42a37c}{On\+Host\+Initialized\+Changed}} (bool previous\+Value, bool new\+Value)
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_acc92b836ecf170401e5bb0a6713f7319}{On\+Clients\+Count\+Changed}} (int previous\+Count, int new\+Count)
+\item 
+void \mbox{\hyperlink{classNetworkManagerUI_aff2eabe0dbd91c4dca430ebdd28e4abb}{Check\+And\+Activate\+Player\+One}} ()
+\item 
+string \mbox{\hyperlink{classNetworkManagerUI_a755da31d3d24f6e7851043089e9efdef}{Get\+Local\+IPAddress}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Button \mbox{\hyperlink{classNetworkManagerUI_a4697a89c6181be32a13f821b862a36dd}{connect\+Button}}
+\item 
+Button \mbox{\hyperlink{classNetworkManagerUI_a05e6c0fdbf202f94007f0e455d9e8377}{disconnect\+Button}}
+\item 
+TMP\+\_\+\+Input\+Field \mbox{\hyperlink{classNetworkManagerUI_a834b6814dcb0c27373211cbd1b1da44d}{ip\+Address\+Field}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classNetworkManagerUI_a7b93e6af23206cdd4d034a8a726a5aa4}{connect\+Message}}
+\item 
+Game\+Object \mbox{\hyperlink{classNetworkManagerUI_a10b7812c2df92cea156f546cd3223ac8}{player\+One}}
+\item 
+Game\+Object \mbox{\hyperlink{classNetworkManagerUI_a54857c66306491caa1bad82e87501887}{deck\+Overlay}}
+\item 
+Game\+Object \mbox{\hyperlink{classNetworkManagerUI_aa875ab30c593ac16e72448dfe34ea5f7}{discard\+Overlay}}
+\item 
+\mbox{\hyperlink{classCardSharingManager}{Card\+Sharing\+Manager}} \mbox{\hyperlink{classNetworkManagerUI_a3efbc1efa73d0f83090fbea134846b15}{card\+Share}}
+\item 
+\mbox{\hyperlink{classGameManager2}{Game\+Manager2}} \mbox{\hyperlink{classNetworkManagerUI_a07bd61f42f321c9e45a604fa9abf01e8}{gm}}
+\item 
+ushort \mbox{\hyperlink{classNetworkManagerUI_aa6e752318d0effbd31c262b743a6a9ac}{port}} = 7777
+\item 
+bool \mbox{\hyperlink{classNetworkManagerUI_abde4802cd9cf997b1ff3e7195a65768f}{connection\+Attempt\+Failed}} = false
+\item 
+int \mbox{\hyperlink{classNetworkManagerUI_af60d55a93178f45dadb9dfb830587837}{retry\+Count}} = 0
+\item 
+Network\+Variable$<$ bool $>$ \mbox{\hyperlink{classNetworkManagerUI_aa7936de0fce78d5661e4f68a812cc2a3}{host\+Initialized}} = new Network\+Variable$<$bool$>$(false)
+\item 
+Network\+Variable$<$ int $>$ \mbox{\hyperlink{classNetworkManagerUI_aa2a6203094d0884b15d475a3c4e46cd7}{synchronized\+Clients\+Count}} = new Network\+Variable$<$int$>$(0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} int \mbox{\hyperlink{classNetworkManagerUI_a129e7e5805acafdf653c8f4636d6a972}{max\+Retries}} = 1
+\item 
+static bool \mbox{\hyperlink{classNetworkManagerUI_acb626ca39a427f78773fd83e3cab6469}{is\+Shutting\+Down}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classNetworkManagerUI_a47aabbaa5888ef9821ab2456d37fdfb5}\index{NetworkManagerUI@{NetworkManagerUI}!Awake@{Awake}}
+\index{Awake@{Awake}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a47aabbaa5888ef9821ab2456d37fdfb5} 
+void Network\+Manager\+UI.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_aff2eabe0dbd91c4dca430ebdd28e4abb}\index{NetworkManagerUI@{NetworkManagerUI}!CheckAndActivatePlayerOne@{CheckAndActivatePlayerOne}}
+\index{CheckAndActivatePlayerOne@{CheckAndActivatePlayerOne}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{CheckAndActivatePlayerOne()}{CheckAndActivatePlayerOne()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_aff2eabe0dbd91c4dca430ebdd28e4abb} 
+void Network\+Manager\+UI.\+Check\+And\+Activate\+Player\+One (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a755da31d3d24f6e7851043089e9efdef}\index{NetworkManagerUI@{NetworkManagerUI}!GetLocalIPAddress@{GetLocalIPAddress}}
+\index{GetLocalIPAddress@{GetLocalIPAddress}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{GetLocalIPAddress()}{GetLocalIPAddress()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a755da31d3d24f6e7851043089e9efdef} 
+string Network\+Manager\+UI.\+Get\+Local\+IPAddress (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_aa905420c00c8f746aedc53c775a0db71}\index{NetworkManagerUI@{NetworkManagerUI}!LogNetworkConfig@{LogNetworkConfig}}
+\index{LogNetworkConfig@{LogNetworkConfig}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{LogNetworkConfig()}{LogNetworkConfig()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_aa905420c00c8f746aedc53c775a0db71} 
+void Network\+Manager\+UI.\+Log\+Network\+Config (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_ab07520b92a840f651cbe60e7ee1a1c8f}\index{NetworkManagerUI@{NetworkManagerUI}!OnClientConnected@{OnClientConnected}}
+\index{OnClientConnected@{OnClientConnected}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{OnClientConnected()}{OnClientConnected()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_ab07520b92a840f651cbe60e7ee1a1c8f} 
+void Network\+Manager\+UI.\+On\+Client\+Connected (\begin{DoxyParamCaption}\item[{ulong}]{client\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_afc6da35db8f1c60d8b49273fd7c4de4f}\index{NetworkManagerUI@{NetworkManagerUI}!OnClientDisconnected@{OnClientDisconnected}}
+\index{OnClientDisconnected@{OnClientDisconnected}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{OnClientDisconnected()}{OnClientDisconnected()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_afc6da35db8f1c60d8b49273fd7c4de4f} 
+void Network\+Manager\+UI.\+On\+Client\+Disconnected (\begin{DoxyParamCaption}\item[{ulong}]{client\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_acc92b836ecf170401e5bb0a6713f7319}\index{NetworkManagerUI@{NetworkManagerUI}!OnClientsCountChanged@{OnClientsCountChanged}}
+\index{OnClientsCountChanged@{OnClientsCountChanged}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{OnClientsCountChanged()}{OnClientsCountChanged()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_acc92b836ecf170401e5bb0a6713f7319} 
+void Network\+Manager\+UI.\+On\+Clients\+Count\+Changed (\begin{DoxyParamCaption}\item[{int}]{previous\+Count}{, }\item[{int}]{new\+Count}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_af52034ff165372e2606fc68cc7f96b88}\index{NetworkManagerUI@{NetworkManagerUI}!OnConnectButtonPressed@{OnConnectButtonPressed}}
+\index{OnConnectButtonPressed@{OnConnectButtonPressed}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{OnConnectButtonPressed()}{OnConnectButtonPressed()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_af52034ff165372e2606fc68cc7f96b88} 
+void Network\+Manager\+UI.\+On\+Connect\+Button\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a452444a04ec3290fb958d8e1900a7364}\index{NetworkManagerUI@{NetworkManagerUI}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a452444a04ec3290fb958d8e1900a7364} 
+void Network\+Manager\+UI.\+On\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a81fbd65688e75bdcd160bad41a24414e}\index{NetworkManagerUI@{NetworkManagerUI}!OnDisconnectButtonPressed@{OnDisconnectButtonPressed}}
+\index{OnDisconnectButtonPressed@{OnDisconnectButtonPressed}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{OnDisconnectButtonPressed()}{OnDisconnectButtonPressed()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a81fbd65688e75bdcd160bad41a24414e} 
+void Network\+Manager\+UI.\+On\+Disconnect\+Button\+Pressed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a178a5820fdb103e8984f1655ab42a37c}\index{NetworkManagerUI@{NetworkManagerUI}!OnHostInitializedChanged@{OnHostInitializedChanged}}
+\index{OnHostInitializedChanged@{OnHostInitializedChanged}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{OnHostInitializedChanged()}{OnHostInitializedChanged()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a178a5820fdb103e8984f1655ab42a37c} 
+void Network\+Manager\+UI.\+On\+Host\+Initialized\+Changed (\begin{DoxyParamCaption}\item[{bool}]{previous\+Value}{, }\item[{bool}]{new\+Value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_aafed38ac0d1cd5932970a141a82fdc26}\index{NetworkManagerUI@{NetworkManagerUI}!Start@{Start}}
+\index{Start@{Start}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_aafed38ac0d1cd5932970a141a82fdc26} 
+void Network\+Manager\+UI.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a721ad8222585a3139bb5b6955d586d37}\index{NetworkManagerUI@{NetworkManagerUI}!StartClientWithFallbackToHost@{StartClientWithFallbackToHost}}
+\index{StartClientWithFallbackToHost@{StartClientWithFallbackToHost}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{StartClientWithFallbackToHost()}{StartClientWithFallbackToHost()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a721ad8222585a3139bb5b6955d586d37} 
+\mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}} void Network\+Manager\+UI.\+Start\+Client\+With\+Fallback\+To\+Host (\begin{DoxyParamCaption}\item[{string}]{ip\+Address}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a3dbe02abecb28d909e90b2f63da8d24b}\index{NetworkManagerUI@{NetworkManagerUI}!StartHost@{StartHost}}
+\index{StartHost@{StartHost}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{StartHost()}{StartHost()}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a3dbe02abecb28d909e90b2f63da8d24b} 
+\mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}} void Network\+Manager\+UI.\+Start\+Host (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classNetworkManagerUI_a3efbc1efa73d0f83090fbea134846b15}\index{NetworkManagerUI@{NetworkManagerUI}!cardShare@{cardShare}}
+\index{cardShare@{cardShare}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{cardShare}{cardShare}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a3efbc1efa73d0f83090fbea134846b15} 
+\mbox{\hyperlink{classCardSharingManager}{Card\+Sharing\+Manager}} Network\+Manager\+UI.\+card\+Share\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a4697a89c6181be32a13f821b862a36dd}\index{NetworkManagerUI@{NetworkManagerUI}!connectButton@{connectButton}}
+\index{connectButton@{connectButton}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{connectButton}{connectButton}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a4697a89c6181be32a13f821b862a36dd} 
+Button Network\+Manager\+UI.\+connect\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_abde4802cd9cf997b1ff3e7195a65768f}\index{NetworkManagerUI@{NetworkManagerUI}!connectionAttemptFailed@{connectionAttemptFailed}}
+\index{connectionAttemptFailed@{connectionAttemptFailed}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{connectionAttemptFailed}{connectionAttemptFailed}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_abde4802cd9cf997b1ff3e7195a65768f} 
+bool Network\+Manager\+UI.\+connection\+Attempt\+Failed = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a7b93e6af23206cdd4d034a8a726a5aa4}\index{NetworkManagerUI@{NetworkManagerUI}!connectMessage@{connectMessage}}
+\index{connectMessage@{connectMessage}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{connectMessage}{connectMessage}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a7b93e6af23206cdd4d034a8a726a5aa4} 
+Text\+Mesh\+Pro\+UGUI Network\+Manager\+UI.\+connect\+Message\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a54857c66306491caa1bad82e87501887}\index{NetworkManagerUI@{NetworkManagerUI}!deckOverlay@{deckOverlay}}
+\index{deckOverlay@{deckOverlay}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{deckOverlay}{deckOverlay}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a54857c66306491caa1bad82e87501887} 
+Game\+Object Network\+Manager\+UI.\+deck\+Overlay\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_aa875ab30c593ac16e72448dfe34ea5f7}\index{NetworkManagerUI@{NetworkManagerUI}!discardOverlay@{discardOverlay}}
+\index{discardOverlay@{discardOverlay}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{discardOverlay}{discardOverlay}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_aa875ab30c593ac16e72448dfe34ea5f7} 
+Game\+Object Network\+Manager\+UI.\+discard\+Overlay\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a05e6c0fdbf202f94007f0e455d9e8377}\index{NetworkManagerUI@{NetworkManagerUI}!disconnectButton@{disconnectButton}}
+\index{disconnectButton@{disconnectButton}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{disconnectButton}{disconnectButton}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a05e6c0fdbf202f94007f0e455d9e8377} 
+Button Network\+Manager\+UI.\+disconnect\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a07bd61f42f321c9e45a604fa9abf01e8}\index{NetworkManagerUI@{NetworkManagerUI}!gm@{gm}}
+\index{gm@{gm}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{gm}{gm}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a07bd61f42f321c9e45a604fa9abf01e8} 
+\mbox{\hyperlink{classGameManager2}{Game\+Manager2}} Network\+Manager\+UI.\+gm\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_aa7936de0fce78d5661e4f68a812cc2a3}\index{NetworkManagerUI@{NetworkManagerUI}!hostInitialized@{hostInitialized}}
+\index{hostInitialized@{hostInitialized}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{hostInitialized}{hostInitialized}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_aa7936de0fce78d5661e4f68a812cc2a3} 
+Network\+Variable$<$bool$>$ Network\+Manager\+UI.\+host\+Initialized = new Network\+Variable$<$bool$>$(false)\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a834b6814dcb0c27373211cbd1b1da44d}\index{NetworkManagerUI@{NetworkManagerUI}!ipAddressField@{ipAddressField}}
+\index{ipAddressField@{ipAddressField}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{ipAddressField}{ipAddressField}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a834b6814dcb0c27373211cbd1b1da44d} 
+TMP\+\_\+\+Input\+Field Network\+Manager\+UI.\+ip\+Address\+Field\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_acb626ca39a427f78773fd83e3cab6469}\index{NetworkManagerUI@{NetworkManagerUI}!isShuttingDown@{isShuttingDown}}
+\index{isShuttingDown@{isShuttingDown}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{isShuttingDown}{isShuttingDown}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_acb626ca39a427f78773fd83e3cab6469} 
+bool Network\+Manager\+UI.\+is\+Shutting\+Down = false\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a388b130b63ec42117f288c7abff619f4}\index{NetworkManagerUI@{NetworkManagerUI}!loseScreen@{loseScreen}}
+\index{loseScreen@{loseScreen}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{loseScreen}{loseScreen}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a388b130b63ec42117f288c7abff619f4} 
+Text\+Mesh\+Pro\+UGUI Network\+Manager\+UI.\+lose\+Screen}
+
+\Hypertarget{classNetworkManagerUI_a129e7e5805acafdf653c8f4636d6a972}\index{NetworkManagerUI@{NetworkManagerUI}!maxRetries@{maxRetries}}
+\index{maxRetries@{maxRetries}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{maxRetries}{maxRetries}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a129e7e5805acafdf653c8f4636d6a972} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} int Network\+Manager\+UI.\+max\+Retries = 1\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a10b7812c2df92cea156f546cd3223ac8}\index{NetworkManagerUI@{NetworkManagerUI}!playerOne@{playerOne}}
+\index{playerOne@{playerOne}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{playerOne}{playerOne}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a10b7812c2df92cea156f546cd3223ac8} 
+Game\+Object Network\+Manager\+UI.\+player\+One\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_aa6e752318d0effbd31c262b743a6a9ac}\index{NetworkManagerUI@{NetworkManagerUI}!port@{port}}
+\index{port@{port}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{port}{port}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_aa6e752318d0effbd31c262b743a6a9ac} 
+ushort Network\+Manager\+UI.\+port = 7777\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_af60d55a93178f45dadb9dfb830587837}\index{NetworkManagerUI@{NetworkManagerUI}!retryCount@{retryCount}}
+\index{retryCount@{retryCount}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{retryCount}{retryCount}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_af60d55a93178f45dadb9dfb830587837} 
+int Network\+Manager\+UI.\+retry\+Count = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_aa2a6203094d0884b15d475a3c4e46cd7}\index{NetworkManagerUI@{NetworkManagerUI}!synchronizedClientsCount@{synchronizedClientsCount}}
+\index{synchronizedClientsCount@{synchronizedClientsCount}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{synchronizedClientsCount}{synchronizedClientsCount}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_aa2a6203094d0884b15d475a3c4e46cd7} 
+Network\+Variable$<$int$>$ Network\+Manager\+UI.\+synchronized\+Clients\+Count = new Network\+Variable$<$int$>$(0)\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classNetworkManagerUI_a6a1e93bd7654c34d05718d5cd6c97b05}\index{NetworkManagerUI@{NetworkManagerUI}!winScreen@{winScreen}}
+\index{winScreen@{winScreen}!NetworkManagerUI@{NetworkManagerUI}}
+\doxysubsubsection{\texorpdfstring{winScreen}{winScreen}}
+{\footnotesize\ttfamily \label{classNetworkManagerUI_a6a1e93bd7654c34d05718d5cd6c97b05} 
+Text\+Mesh\+Pro\+UGUI Network\+Manager\+UI.\+win\+Screen}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Card\+Jitsu/\mbox{\hyperlink{NetworkManagerUI_8cs}{Network\+Manager\+UI.\+cs}}\end{DoxyCompactItemize}

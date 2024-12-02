@@ -7,7 +7,7 @@ using UnityEngine.Networking;
 using TMPro;
 
 /**
- * This class handles the game over screen and behavior. It is called by the WireGenerator
+ * @brief This class handles the game over screen and behavior. It is called by the WireGenerator
  * @see WireGenerator
  */
 public class GameOverManager : MonoBehaviour

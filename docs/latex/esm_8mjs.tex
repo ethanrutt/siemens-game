@@ -1,0 +1,180 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/node\+\_\+modules/yargs/lib/platform-\/shims/esm.mjs File Reference}
+\hypertarget{esm_8mjs}{}\label{esm_8mjs}\index{backend/LambdaFunctionAPIs/node\_modules/yargs/lib/platform-\/shims/esm.mjs@{backend/LambdaFunctionAPIs/node\_modules/yargs/lib/platform-\/shims/esm.mjs}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{esm_8mjs_a5bf45fc51bc0426586792b5f9cb95431}{catch}} (\mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_afcb17ef535f4d2d7143af7a41956a399}{e}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+use \mbox{\hyperlink{node__modules_2yargs_2index_8mjs_ae2475e10618961c050dcba04e8c42331}{strict}} \mbox{\hyperlink{esm_8mjs_aa2f30af07f4643a7f6a47dcaee56174f}{import}}
+\item 
+\mbox{\hyperlink{esm_8mjs_abe4cc9788f52e49485473dc699537388}{try}}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{esm_8mjs_ab52855add7f714eb47c8ea6b15b6e733}{main\+Filename}} = \+\_\+\+\_\+dirname.\+substring(0, \+\_\+\+\_\+dirname.\+last\+Index\+Of(\textquotesingle{}node\+\_\+modules\textquotesingle{}))
+\item 
+export \mbox{\hyperlink{esm_8mjs_ac0348aea6d467e57dfae8c2b689b2229}{default}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_a3309ba74b8f91bcc27ffbdf29d6b450d}{inspect}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_adf2562094cde47ee7a4421a5842e46ce}{get\+Caller\+File}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_a53c34214e2cb1dfeb3a7a7f758767ca1}{get\+Process\+Argv\+Bin}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_ad50016df52936b8678a09d0aa9b51ef0}{Parser}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_a4ca901fe30bc6a8d59e44f1e45abbf0c}{path}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_a34cf377001407540de08870610cd9f89}{dirname}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_a4af8e18d1c029c49f7039c152017d829}{extname}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_a313d3d7866ce6b7546c4932d166214af}{relative}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_ab2dffd225c7835ac54b00ca1bb8d83cf}{resolve}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_a07d42e55e73aff66ad50e3144c7cdb05}{process}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_ab903b9b0ad2253ce5059d7c4fc64421b}{cwd}}
+\item 
+export \mbox{\hyperlink{esm_8mjs_a1182f792620d3dc4755ee480ffcf19d7}{emit\+Warning}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{esm_8mjs_a5bf45fc51bc0426586792b5f9cb95431}\index{esm.mjs@{esm.mjs}!catch@{catch}}
+\index{catch@{catch}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{catch()}{catch()}}
+{\footnotesize\ttfamily \label{esm_8mjs_a5bf45fc51bc0426586792b5f9cb95431} 
+catch (\begin{DoxyParamCaption}\item[{}]{e}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{esm_8mjs_ab903b9b0ad2253ce5059d7c4fc64421b}\index{esm.mjs@{esm.mjs}!cwd@{cwd}}
+\index{cwd@{cwd}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{cwd}{cwd}}
+{\footnotesize\ttfamily \label{esm_8mjs_ab903b9b0ad2253ce5059d7c4fc64421b} 
+export cwd}
+
+\Hypertarget{esm_8mjs_ac0348aea6d467e57dfae8c2b689b2229}\index{esm.mjs@{esm.mjs}!default@{default}}
+\index{default@{default}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{default}{default}}
+{\footnotesize\ttfamily \label{esm_8mjs_ac0348aea6d467e57dfae8c2b689b2229} 
+export default}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ assert:\ \{}
+\DoxyCodeLine{\ \ \ \ notStrictEqual,}
+\DoxyCodeLine{\ \ \ \ strictEqual}
+\DoxyCodeLine{\ \ \},}
+\DoxyCodeLine{\ \ cliui,}
+\DoxyCodeLine{\ \ findUp:\ escalade,}
+\DoxyCodeLine{\ \ \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_aa899ff976d6188ae9cb35167d36c8c27}{getEnv}}:\ (\mbox{\hyperlink{index_8min_8mjs_aa3284bd5ae917593d1f1757477368bab}{key}})\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{esm_8mjs_a07d42e55e73aff66ad50e3144c7cdb05}{process}}.env[\mbox{\hyperlink{index_8min_8mjs_aa3284bd5ae917593d1f1757477368bab}{key}}]}
+\DoxyCodeLine{\ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{esm_8mjs_a34cf377001407540de08870610cd9f89}\index{esm.mjs@{esm.mjs}!dirname@{dirname}}
+\index{dirname@{dirname}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{dirname}{dirname}}
+{\footnotesize\ttfamily \label{esm_8mjs_a34cf377001407540de08870610cd9f89} 
+export dirname}
+
+\Hypertarget{esm_8mjs_a1182f792620d3dc4755ee480ffcf19d7}\index{esm.mjs@{esm.mjs}!emitWarning@{emitWarning}}
+\index{emitWarning@{emitWarning}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{emitWarning}{emitWarning}}
+{\footnotesize\ttfamily \label{esm_8mjs_a1182f792620d3dc4755ee480ffcf19d7} 
+export emit\+Warning}
+
+\Hypertarget{esm_8mjs_a4af8e18d1c029c49f7039c152017d829}\index{esm.mjs@{esm.mjs}!extname@{extname}}
+\index{extname@{extname}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{extname}{extname}}
+{\footnotesize\ttfamily \label{esm_8mjs_a4af8e18d1c029c49f7039c152017d829} 
+export extname}
+
+\Hypertarget{esm_8mjs_adf2562094cde47ee7a4421a5842e46ce}\index{esm.mjs@{esm.mjs}!getCallerFile@{getCallerFile}}
+\index{getCallerFile@{getCallerFile}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{getCallerFile}{getCallerFile}}
+{\footnotesize\ttfamily \label{esm_8mjs_adf2562094cde47ee7a4421a5842e46ce} 
+export get\+Caller\+File}
+
+\Hypertarget{esm_8mjs_a53c34214e2cb1dfeb3a7a7f758767ca1}\index{esm.mjs@{esm.mjs}!getProcessArgvBin@{getProcessArgvBin}}
+\index{getProcessArgvBin@{getProcessArgvBin}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{getProcessArgvBin}{getProcessArgvBin}}
+{\footnotesize\ttfamily \label{esm_8mjs_a53c34214e2cb1dfeb3a7a7f758767ca1} 
+export get\+Process\+Argv\+Bin}
+
+\Hypertarget{esm_8mjs_aa2f30af07f4643a7f6a47dcaee56174f}\index{esm.mjs@{esm.mjs}!import@{import}}
+\index{import@{import}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{esm_8mjs_aa2f30af07f4643a7f6a47dcaee56174f} 
+import \mbox{\hyperlink{helpers_8mjs_a149822062ffaaed24fea31059d2e7a2f}{Parser}} from yargs \mbox{\hyperlink{helpers_8mjs_a5215ae8140681632f4528e66008f81bb}{parser}} import}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{\ notStrictEqual,\ strictEqual\ \}\ from\ \textcolor{stringliteral}{'assert'}}
+\DoxyCodeLine{\textcolor{keyword}{import}\ cliui\ from\ \textcolor{stringliteral}{'cliui'}}
+\DoxyCodeLine{\textcolor{keyword}{import}\ escalade\ from\ \textcolor{stringliteral}{'escalade/sync'}}
+\DoxyCodeLine{\textcolor{keyword}{import}\ \{\ \mbox{\hyperlink{esm_8mjs_a3309ba74b8f91bcc27ffbdf29d6b450d}{inspect}}\ \}\ from\ \textcolor{stringliteral}{'util'}}
+\DoxyCodeLine{\textcolor{keyword}{import}\ \{\ readFileSync\ \}\ from\ \textcolor{stringliteral}{'fs'}}
+\DoxyCodeLine{\textcolor{keyword}{import}\ \{\ fileURLToPath\ \}\ from\ \textcolor{stringliteral}{'url'}}
+
+\end{DoxyCode}
+\Hypertarget{esm_8mjs_a3309ba74b8f91bcc27ffbdf29d6b450d}\index{esm.mjs@{esm.mjs}!inspect@{inspect}}
+\index{inspect@{inspect}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{inspect}{inspect}}
+{\footnotesize\ttfamily \label{esm_8mjs_a3309ba74b8f91bcc27ffbdf29d6b450d} 
+export inspect}
+
+\Hypertarget{esm_8mjs_ab52855add7f714eb47c8ea6b15b6e733}\index{esm.mjs@{esm.mjs}!mainFilename@{mainFilename}}
+\index{mainFilename@{mainFilename}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{mainFilename}{mainFilename}}
+{\footnotesize\ttfamily \label{esm_8mjs_ab52855add7f714eb47c8ea6b15b6e733} 
+export main\+Filename = \+\_\+\+\_\+dirname.\+substring(0, \+\_\+\+\_\+dirname.\+last\+Index\+Of(\textquotesingle{}node\+\_\+modules\textquotesingle{}))}
+
+\Hypertarget{esm_8mjs_ad50016df52936b8678a09d0aa9b51ef0}\index{esm.mjs@{esm.mjs}!Parser@{Parser}}
+\index{Parser@{Parser}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{Parser}{Parser}}
+{\footnotesize\ttfamily \label{esm_8mjs_ad50016df52936b8678a09d0aa9b51ef0} 
+export Parser}
+
+\Hypertarget{esm_8mjs_a4ca901fe30bc6a8d59e44f1e45abbf0c}\index{esm.mjs@{esm.mjs}!path@{path}}
+\index{path@{path}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{path}{path}}
+{\footnotesize\ttfamily \label{esm_8mjs_a4ca901fe30bc6a8d59e44f1e45abbf0c} 
+export path}
+
+\Hypertarget{esm_8mjs_a07d42e55e73aff66ad50e3144c7cdb05}\index{esm.mjs@{esm.mjs}!process@{process}}
+\index{process@{process}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{process}{process}}
+{\footnotesize\ttfamily \label{esm_8mjs_a07d42e55e73aff66ad50e3144c7cdb05} 
+export process}
+
+\Hypertarget{esm_8mjs_a313d3d7866ce6b7546c4932d166214af}\index{esm.mjs@{esm.mjs}!relative@{relative}}
+\index{relative@{relative}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{relative}{relative}}
+{\footnotesize\ttfamily \label{esm_8mjs_a313d3d7866ce6b7546c4932d166214af} 
+export relative}
+
+\Hypertarget{esm_8mjs_ab2dffd225c7835ac54b00ca1bb8d83cf}\index{esm.mjs@{esm.mjs}!resolve@{resolve}}
+\index{resolve@{resolve}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{resolve}{resolve}}
+{\footnotesize\ttfamily \label{esm_8mjs_ab2dffd225c7835ac54b00ca1bb8d83cf} 
+export resolve}
+
+\Hypertarget{esm_8mjs_abe4cc9788f52e49485473dc699537388}\index{esm.mjs@{esm.mjs}!try@{try}}
+\index{try@{try}!esm.mjs@{esm.mjs}}
+\doxysubsubsection{\texorpdfstring{try}{try}}
+{\footnotesize\ttfamily \label{esm_8mjs_abe4cc9788f52e49485473dc699537388} 
+try}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \_\_dirname\ =\ fileURLToPath(\textcolor{keyword}{import}.meta.url)}
+
+\end{DoxyCode}

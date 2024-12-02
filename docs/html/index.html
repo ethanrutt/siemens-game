@@ -88,7 +88,7 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">ByteCity </div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><p><a class="anchor" id="md__r_e_a_d_m_e"></a></p>
+<div class="textblock"><p><a class="anchor" id="md_README"></a></p>
 <h1><a class="anchor" id="autotoc_md1"></a>
 Siemens Manufacturing x Texas A&amp;M Computer Science</h1>
 <h1><a class="anchor" id="autotoc_md2"></a>
@@ -291,9 +291,9 @@ Documentation</h1>
 <li>Make sure that any new code written has <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html">javadoc style comments</a>.</li>
 <li>Generate new documentation using our preconfigured <code>Doxyfile</code> by running <div class="fragment"><div class="line">doxygen Doxyfile</div>
 </div><!-- fragment --></li>
-<li>View the documentation <b>FIXME host the documentation somewhere</b>.</li>
+<li>View the documentation <a href="https://ethanrutt.github.io/bytecity_docs/html/index.html">here</a></li>
 <li>Some Notes about the Doxyfile config<ul>
-<li>We are using <code>.mjs</code> files for our backend, which aren't recognized by the doxygen parser by default. This line fixes this which just says that <code>.mjs</code> files should use the <code>Javascript</code> parser. <div class="fragment"><div class="line">EXTENSION_MAPPING      = mjs=Javascript</div>
+<li>We are using <code>.mjs</code> files for our backend, which aren't recognized by the doxygen parser by default. This line fixes this which just says that <code>.mjs</code> files should use the <code>Javascript</code> parser. <div class="fragment"><div class="line">EXTENSION_MAPPING = mjs=Javascript</div>
 </div><!-- fragment --></li>
 <li>The Main Page is set to this readme file.</li>
 <li>The backend documentation is found by searching through the files on the doxygen website.</li>

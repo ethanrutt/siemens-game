@@ -1,0 +1,103 @@
+\doxysection{Button\+Location Class Reference}
+\hypertarget{classButtonLocation}{}\label{classButtonLocation}\index{ButtonLocation@{ButtonLocation}}
+
+
+This class finds the button locations for when we have different dialogue interactables available in an area.  
+
+
+Inheritance diagram for Button\+Location\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classButtonLocation}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+Vector2 \mbox{\hyperlink{classButtonLocation_a11d80cf2beb3576fc1b21204765ed8e1}{Get\+Button\+Position}} ()
+\item 
+void \mbox{\hyperlink{classButtonLocation_a51476aa975108f743f8622c81d336f57}{On\+Button\+Clicked}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classButtonLocation_a887586011dbe9ee79ef59f0ac7753701}{Set\+Clicked\+For\+All\+Buttons}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classButtonLocation_a7e4c740743bec828565f77a886030895}{interaction\+Distance}}
+\item 
+bool \mbox{\hyperlink{classButtonLocation_a852f7dbc4072faf73a81c4fe451cca4d}{clicked}} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classButtonLocation_ab674773720fa6ac168b5938ed4f47f65}{Awake}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static List$<$ \mbox{\hyperlink{classButtonLocation}{Button\+Location}} $>$ \mbox{\hyperlink{classButtonLocation_ab443c30d523482e38ba9bbc24752d870}{all\+Button\+Locations}} = new List$<$\mbox{\hyperlink{classButtonLocation}{Button\+Location}}$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class finds the button locations for when we have different dialogue interactables available in an area. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classDialogueManager}{Dialogue\+Manager} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classButtonLocation_ab674773720fa6ac168b5938ed4f47f65}\index{ButtonLocation@{ButtonLocation}!Awake@{Awake}}
+\index{Awake@{Awake}!ButtonLocation@{ButtonLocation}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{classButtonLocation_ab674773720fa6ac168b5938ed4f47f65} 
+void Button\+Location.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classButtonLocation_a11d80cf2beb3576fc1b21204765ed8e1}\index{ButtonLocation@{ButtonLocation}!GetButtonPosition@{GetButtonPosition}}
+\index{GetButtonPosition@{GetButtonPosition}!ButtonLocation@{ButtonLocation}}
+\doxysubsubsection{\texorpdfstring{GetButtonPosition()}{GetButtonPosition()}}
+{\footnotesize\ttfamily \label{classButtonLocation_a11d80cf2beb3576fc1b21204765ed8e1} 
+Vector2 Button\+Location.\+Get\+Button\+Position (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classButtonLocation_a51476aa975108f743f8622c81d336f57}\index{ButtonLocation@{ButtonLocation}!OnButtonClicked@{OnButtonClicked}}
+\index{OnButtonClicked@{OnButtonClicked}!ButtonLocation@{ButtonLocation}}
+\doxysubsubsection{\texorpdfstring{OnButtonClicked()}{OnButtonClicked()}}
+{\footnotesize\ttfamily \label{classButtonLocation_a51476aa975108f743f8622c81d336f57} 
+void Button\+Location.\+On\+Button\+Clicked (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classButtonLocation_a887586011dbe9ee79ef59f0ac7753701}\index{ButtonLocation@{ButtonLocation}!SetClickedForAllButtons@{SetClickedForAllButtons}}
+\index{SetClickedForAllButtons@{SetClickedForAllButtons}!ButtonLocation@{ButtonLocation}}
+\doxysubsubsection{\texorpdfstring{SetClickedForAllButtons()}{SetClickedForAllButtons()}}
+{\footnotesize\ttfamily \label{classButtonLocation_a887586011dbe9ee79ef59f0ac7753701} 
+static void Button\+Location.\+Set\+Clicked\+For\+All\+Buttons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classButtonLocation_ab443c30d523482e38ba9bbc24752d870}\index{ButtonLocation@{ButtonLocation}!allButtonLocations@{allButtonLocations}}
+\index{allButtonLocations@{allButtonLocations}!ButtonLocation@{ButtonLocation}}
+\doxysubsubsection{\texorpdfstring{allButtonLocations}{allButtonLocations}}
+{\footnotesize\ttfamily \label{classButtonLocation_ab443c30d523482e38ba9bbc24752d870} 
+List$<$\mbox{\hyperlink{classButtonLocation}{Button\+Location}}$>$ Button\+Location.\+all\+Button\+Locations = new List$<$\mbox{\hyperlink{classButtonLocation}{Button\+Location}}$>$()\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{classButtonLocation_a852f7dbc4072faf73a81c4fe451cca4d}\index{ButtonLocation@{ButtonLocation}!clicked@{clicked}}
+\index{clicked@{clicked}!ButtonLocation@{ButtonLocation}}
+\doxysubsubsection{\texorpdfstring{clicked}{clicked}}
+{\footnotesize\ttfamily \label{classButtonLocation_a852f7dbc4072faf73a81c4fe451cca4d} 
+bool Button\+Location.\+clicked = false}
+
+\Hypertarget{classButtonLocation_a7e4c740743bec828565f77a886030895}\index{ButtonLocation@{ButtonLocation}!interactionDistance@{interactionDistance}}
+\index{interactionDistance@{interactionDistance}!ButtonLocation@{ButtonLocation}}
+\doxysubsubsection{\texorpdfstring{interactionDistance}{interactionDistance}}
+{\footnotesize\ttfamily \label{classButtonLocation_a7e4c740743bec828565f77a886030895} 
+float Button\+Location.\+interaction\+Distance}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Character/\mbox{\hyperlink{ButtonLocation_8cs}{Button\+Location.\+cs}}\end{DoxyCompactItemize}

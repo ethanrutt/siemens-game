@@ -1,0 +1,78 @@
+\doxysection{Powered\+Wire\+Stats Class Reference}
+\hypertarget{classPoweredWireStats}{}\label{classPoweredWireStats}\index{PoweredWireStats@{PoweredWireStats}}
+
+
+Statistics class for powered wires. This is mainly a dataclass that keeps track of the wires start position and other helpful flags for an individual wire.  
+
+
+Inheritance diagram for Powered\+Wire\+Stats\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPoweredWireStats}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classPoweredWireStats_a801ad9c0a79fa9a415ccca28d1b9af5f}{movable}} = false
+\item 
+bool \mbox{\hyperlink{classPoweredWireStats_a7c85b32af50e5bf3aba99d44bfdf00b9}{moving}} = false
+\item 
+bool \mbox{\hyperlink{classPoweredWireStats_a21b35965962b121e97554ab78ca2bfa0}{connected}} = false
+\item 
+Vector3 \mbox{\hyperlink{classPoweredWireStats_ab417583668c59f2f0ec327d894469204}{start\+Position}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPoweredWireStats_a6c341d44984dc99af18277a286b8dfa9}{Start}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Statistics class for powered wires. This is mainly a dataclass that keeps track of the wires start position and other helpful flags for an individual wire. 
+
+All logic for moving the wire is in \doxylink{classPoweredWireBehavior}{Powered\+Wire\+Behavior} \begin{DoxySeeAlso}{See also}
+\doxylink{classPoweredWireBehavior}{Powered\+Wire\+Behavior} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPoweredWireStats_a6c341d44984dc99af18277a286b8dfa9}\index{PoweredWireStats@{PoweredWireStats}!Start@{Start}}
+\index{Start@{Start}!PoweredWireStats@{PoweredWireStats}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classPoweredWireStats_a6c341d44984dc99af18277a286b8dfa9} 
+void Powered\+Wire\+Stats.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPoweredWireStats_a6c341d44984dc99af18277a286b8dfa9}{Start()} is a Unity function that is called before the first frame update. All that happens inside this is that the start\+Position member is set to the current transform.\+position 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classPoweredWireStats_a21b35965962b121e97554ab78ca2bfa0}\index{PoweredWireStats@{PoweredWireStats}!connected@{connected}}
+\index{connected@{connected}!PoweredWireStats@{PoweredWireStats}}
+\doxysubsubsection{\texorpdfstring{connected}{connected}}
+{\footnotesize\ttfamily \label{classPoweredWireStats_a21b35965962b121e97554ab78ca2bfa0} 
+bool Powered\+Wire\+Stats.\+connected = false}
+
+\Hypertarget{classPoweredWireStats_a801ad9c0a79fa9a415ccca28d1b9af5f}\index{PoweredWireStats@{PoweredWireStats}!movable@{movable}}
+\index{movable@{movable}!PoweredWireStats@{PoweredWireStats}}
+\doxysubsubsection{\texorpdfstring{movable}{movable}}
+{\footnotesize\ttfamily \label{classPoweredWireStats_a801ad9c0a79fa9a415ccca28d1b9af5f} 
+bool Powered\+Wire\+Stats.\+movable = false}
+
+\Hypertarget{classPoweredWireStats_a7c85b32af50e5bf3aba99d44bfdf00b9}\index{PoweredWireStats@{PoweredWireStats}!moving@{moving}}
+\index{moving@{moving}!PoweredWireStats@{PoweredWireStats}}
+\doxysubsubsection{\texorpdfstring{moving}{moving}}
+{\footnotesize\ttfamily \label{classPoweredWireStats_a7c85b32af50e5bf3aba99d44bfdf00b9} 
+bool Powered\+Wire\+Stats.\+moving = false}
+
+\Hypertarget{classPoweredWireStats_ab417583668c59f2f0ec327d894469204}\index{PoweredWireStats@{PoweredWireStats}!startPosition@{startPosition}}
+\index{startPosition@{startPosition}!PoweredWireStats@{PoweredWireStats}}
+\doxysubsubsection{\texorpdfstring{startPosition}{startPosition}}
+{\footnotesize\ttfamily \label{classPoweredWireStats_ab417583668c59f2f0ec327d894469204} 
+Vector3 Powered\+Wire\+Stats.\+start\+Position}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Wires/\mbox{\hyperlink{PoweredWireStats_8cs}{Powered\+Wire\+Stats.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,102 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/\+Get\+All\+Items/src/index.mjs File Reference}
+\hypertarget{GetAllItems_2src_2index_8mjs}{}\label{GetAllItems_2src_2index_8mjs}\index{backend/LambdaFunctionAPIs/GetAllItems/src/index.mjs@{backend/LambdaFunctionAPIs/GetAllItems/src/index.mjs}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{GetAllItems_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488}{import}} \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/\mbox{\hyperlink{browser_8mjs_a9714695853ac8b11f91a97f47fd765f0}{utils.\+mjs}}\textquotesingle{}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{GetAllItems_2src_2index_8mjs_a7f4b34a30caae351065a9da38ec220e7}{get\+All\+Items}}
+\item 
+export \mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{GetAllItems_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}{handler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{GetAllItems_2src_2index_8mjs_a7f4b34a30caae351065a9da38ec220e7}\index{index.mjs@{index.mjs}!getAllItems@{getAllItems}}
+\index{getAllItems@{getAllItems}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{getAllItems}{getAllItems}}
+{\footnotesize\ttfamily \label{GetAllItems_2src_2index_8mjs_a7f4b34a30caae351065a9da38ec220e7} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} get\+All\+Items}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}}\ (client)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ result\ =\ await\ client.query(\textcolor{stringliteral}{'SELECT\ *\ FROM\ store'});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log(\textcolor{stringliteral}{"{}All\ items\ retrieved\ from\ the\ store."{}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result.rows;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.error(\textcolor{stringliteral}{'Error\ fetching\ items\ from\ store:'},\ err);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ err;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Fetches all items from the {\ttfamily store} table in the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & client -\/ The Postgre\+SQL client used to interact with the database. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object\mbox{[}$\,$\mbox{]}$>$\} -\/ Returns an array of objects, each representing an item from the store table. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the query fails. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{GetAllItems_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}\index{index.mjs@{index.mjs}!handler@{handler}}
+\index{handler@{handler}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{handler}{handler}}
+{\footnotesize\ttfamily \label{GetAllItems_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d} 
+export \mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} handler}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}}\ ()\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ let\ client;}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ secret\ =\ await\ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{getSecret}}(\mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\_name}});}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log(\textcolor{stringliteral}{"{}Secret\ Fetched"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ client\ =\ \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{createDbClient}}(secret);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ await\ client.connect();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.log(\textcolor{stringliteral}{"{}Client\ connected\ to\ DB"{}});}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ items\ =\ await\ \mbox{\hyperlink{GetAllItems_2src_2index_8mjs_a7f4b34a30caae351065a9da38ec220e7}{getAllItems}}(client);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ statusCode:\ 200,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ body:\ JSON.stringify(items),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.error(\textcolor{stringliteral}{'Error\ querying\ the\ database:'},\ err);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ statusCode:\ 500,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ body:\ \textcolor{stringliteral}{'Error\ querying\ the\ database'},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{finally}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (client)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ await\ client.end();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Lambda function handler to retrieve all items from the store.
+
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} -\/ Returns an object containing the HTTP status code and a JSON body with the list of items. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if database connection or query fails. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{GetAllItems_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488}\index{index.mjs@{index.mjs}!import@{import}}
+\index{import@{import}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{GetAllItems_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488} 
+import \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/\mbox{\hyperlink{browser_8mjs_a9714695853ac8b11f91a97f47fd765f0}{utils.\+mjs}}\textquotesingle{}}
+

@@ -5,8 +5,8 @@ using UnityEngine.Networking;
 using UnityEngine;
 
 /**
- * Behavior logic for a poweredWire
- * 
+ * @brief Behavior logic for a poweredWire
+ *
  * Makes heavy use of the PoweredWireStats class to keep track of variables
  * @see PoweredWireStats
  */
@@ -23,7 +23,7 @@ public class PoweredWireBehavior : MonoBehaviour
 
     /**
      * Start() is a Unity function that is called before the first frame update
-     * 
+     *
      * This just grabs the appropriate members using the GetComponent() Unity function
      * both powerWireStats and the LineRenderer are grabbed
      */
@@ -45,7 +45,7 @@ public class PoweredWireBehavior : MonoBehaviour
 
     /**
      * OnMouseDown() is a Unity function that runs whenever the mouse is down
-     * 
+     *
      * This just sets the mouseDown variable to true
      */
     void OnMouseDown()
@@ -55,7 +55,7 @@ public class PoweredWireBehavior : MonoBehaviour
 
     /**
      * OnMouseOver() is a Unity function that runs whenever the mouse is over this gameObject
-     * 
+     *
      * This sets the wire to be movable if it's not already connected
      */
     void OnMouseOver()
@@ -70,7 +70,7 @@ public class PoweredWireBehavior : MonoBehaviour
 
     /**
      * OnMouseExit() is a Unity function that runs whenever the mouse stops hovering over the GUI element
-     * 
+     *
      * This sets the wire to no longer be movable if it's not currently moving
      */
     void OnMouseExit()
@@ -88,7 +88,7 @@ public class PoweredWireBehavior : MonoBehaviour
 
     /**
      * OnMouseUp() is a Unity function that runs whenever the user has released the mouse button
-     * 
+     *
      * This resets the wire to its start position and calls the UpdateLine() function
      */
     void OnMouseUp()
@@ -105,7 +105,7 @@ public class PoweredWireBehavior : MonoBehaviour
 
     /**
      * MoveWire() handles the logic for moving the wire
-     * 
+     *
      * The wire will follow the position of the Input, which is normally the mouse or the finger
      */
     void MoveWire()

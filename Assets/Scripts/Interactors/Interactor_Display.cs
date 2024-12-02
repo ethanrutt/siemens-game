@@ -6,6 +6,15 @@ using TMPro;
 using System.Linq;
 using UnityEngine.SceneManagement;
 
+/**
+ * @class UserScoreList
+ * @brief This class contains a list of `UserScore` objects
+ * @details This class is used with the json utility to parse the user scores
+ * that are returned from the API endpoint. It is important that these member
+ * names stay the same (i.e. don't change to camel case) since they have to be
+ * consistent with what's returned from the API
+ * @see UserScore
+ */
 [System.Serializable]
 public class UserScoreList
 {
