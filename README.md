@@ -190,7 +190,7 @@ git clone git@github.com:ethanrutt/siemens-game.git
 ```
 doxygen Doxyfile
 ```
-* View the documentation **FIXME host the documentation somewhere**.
+* View the documentation [here](https://ethanrutt.github.io/bytecity_docs/html/index.html)
 * Some Notes about the Doxyfile config
   * We are using `.mjs` files for our backend, which aren't recognized by the doxygen parser by default. This line fixes this which just says that `.mjs` files should use the `Javascript` parser.
   ```
