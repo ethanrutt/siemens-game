@@ -7,5 +7,15 @@ var searchData=
   ['gamestate_4',['gameState',['../class_pipe_behavior.html#ab8a7b58b644caf990714a40280920361',1,'PipeBehavior']]],
   ['gamestopwatch_5',['gameStopwatch',['../class_wire_generator.html#aaf61b52eea6a0956dd9d758db59c3284',1,'WireGenerator']]],
   ['gametime_6',['gameTime',['../class_pipe_generator.html#a570de16c4eb8c0d3c9c01efcd2f5d271',1,'PipeGenerator']]],
-  ['gametimeelapsed_7',['gameTimeElapsed',['../class_game_over_manager.html#a5b659f86f4539c9b100f981898c14978',1,'GameOverManager']]]
+  ['gametimeelapsed_7',['gameTimeElapsed',['../class_game_over_manager.html#a5b659f86f4539c9b100f981898c14978',1,'GameOverManager']]],
+  ['getallitems_8',['getAllItems',['../_get_all_items_2src_2index_8mjs.html#a7f4b34a30caae351065a9da38ec220e7',1,'index.mjs']]],
+  ['getexistingscore_9',['getExistingScore',['../_score_upload_2src_2index_8mjs.html#a948775b60badaa6eafaa29cf348983fa',1,'index.mjs']]],
+  ['getitemnamesbyids_10',['getItemNamesByIds',['../_get_user_items_2src_2index_8mjs.html#aab52c13f295e85b6f5ee7c14445138fa',1,'index.mjs']]],
+  ['getitemsbycategory_11',['getItemsByCategory',['../_get_items_by_category_2src_2index_8mjs.html#a6ec004325373eef620d65f1d2c255004',1,'index.mjs']]],
+  ['getrandomuser_12',['getRandomUser',['../_test_2src_2index_8mjs.html#adb1c652002defd081bb29bde543bbcbc',1,'index.mjs']]],
+  ['getscoreandrank_13',['getScoreAndRank',['../_high_score_2src_2index_8mjs.html#a5d40223f262882b12c7d2b8db9786076',1,'index.mjs']]],
+  ['getsecret_14',['getSecret',['../utils_8mjs.html#afdd2b8e6fe1c732729aa13573e4bc134',1,'utils.mjs']]],
+  ['gettopscoresbygame_15',['getTopScoresByGame',['../_leaderboard_2src_2index_8mjs.html#a7a3f16a71e56c4f51c8c1df576e677a1',1,'index.mjs']]],
+  ['getuserbyemployeeid_16',['getUserByEmployeeId',['../_get_user_items_2src_2index_8mjs.html#a46109985cf44ca26170c0e996e988b04',1,'index.mjs']]],
+  ['globals_17',['globals',['../eslint_8config_8mjs.html#adcac49147fc1b5626b523c33a592d64d',1,'eslint.config.mjs']]]
 ];

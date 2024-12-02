@@ -89,9 +89,78 @@ $(function(){ initResizable(false); });
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">index.mjs File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a59be084da8908b7d77ff34b25cd84488" id="r_a59be084da8908b7d77ff34b25cd84488"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59be084da8908b7d77ff34b25cd84488">import</a> { <a class="el" href="utils_8mjs.html#afdd2b8e6fe1c732729aa13573e4bc134">getSecret</a>, <a class="el" href="utils_8mjs.html#a025520d777e24dc89c6f4852b5d9dc63">createDbClient</a>, <a class="el" href="utils_8mjs.html#a417b5eff0e338b080a36d75e82da9ba6">secret_name</a> } from './shared/utils.mjs'</td></tr>
+<tr class="separator:a59be084da8908b7d77ff34b25cd84488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb1c652002defd081bb29bde543bbcbc" id="r_adb1c652002defd081bb29bde543bbcbc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adb1c652002defd081bb29bde543bbcbc">getRandomUser</a></td></tr>
+<tr class="separator:adb1c652002defd081bb29bde543bbcbc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a696ed2287cb97f6b73ce36a583c4102d" id="r_a696ed2287cb97f6b73ce36a583c4102d"><td class="memItemLeft" align="right" valign="top">export <a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a696ed2287cb97f6b73ce36a583c4102d">handler</a></td></tr>
+<tr class="separator:a696ed2287cb97f6b73ce36a583c4102d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="adb1c652002defd081bb29bde543bbcbc" name="adb1c652002defd081bb29bde543bbcbc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb1c652002defd081bb29bde543bbcbc">&#9670;&#160;</a></span>getRandomUser</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a> getRandomUser</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= async (client) =&gt; {</div>
+<div class="line">    <span class="keywordflow">try</span> {</div>
+<div class="line">        <span class="keyword">const</span> result = await client.query(<span class="stringliteral">&#39;SELECT * FROM users ORDER BY RANDOM() LIMIT 1&#39;</span>);</div>
+<div class="line">        console.log(<span class="stringliteral">&quot;Query Finished&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span> (result.rows.length &gt; 0) {</div>
+<div class="line">            <span class="keywordflow">return</span> result.rows[0];</div>
+<div class="line">        } <span class="keywordflow">else</span> {</div>
+<div class="line">            <span class="keywordflow">throw</span> <span class="keyword">new</span> Error(<span class="stringliteral">&#39;No users found&#39;</span>);</div>
+<div class="line">        }</div>
+<div class="line">    } <span class="keywordflow">catch</span> (err) {</div>
+<div class="line">        console.error(<span class="stringliteral">&#39;Error fetching random user:&#39;</span>, err);</div>
+<div class="line">        <span class="keywordflow">throw</span> err;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+</div><!-- fragment -->
+</div>
+</div>
+<a id="a696ed2287cb97f6b73ce36a583c4102d" name="a696ed2287cb97f6b73ce36a583c4102d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a696ed2287cb97f6b73ce36a583c4102d">&#9670;&#160;</a></span>handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">export <a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a> handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a59be084da8908b7d77ff34b25cd84488" name="a59be084da8908b7d77ff34b25cd84488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59be084da8908b7d77ff34b25cd84488">&#9670;&#160;</a></span>import</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">import { <a class="el" href="utils_8mjs.html#afdd2b8e6fe1c732729aa13573e4bc134">getSecret</a>, <a class="el" href="utils_8mjs.html#a025520d777e24dc89c6f4852b5d9dc63">createDbClient</a>, <a class="el" href="utils_8mjs.html#a417b5eff0e338b080a36d75e82da9ba6">secret_name</a> } from './shared/utils.mjs'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

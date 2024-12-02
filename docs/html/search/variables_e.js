@@ -1,13 +1,20 @@
 var searchData=
 [
-  ['rand_0',['rand',['../class_pipe_generator.html#a3e1b5b19ff133b5c375d2cdd24697edc',1,'PipeGenerator.rand'],['../class_wire_generator.html#a50e56968babde70c41d9f688311348cb',1,'WireGenerator.rand']]],
-  ['rb_1',['rb',['../class_character___movement.html#a9a27bb32869bd41c7a75a1c2918ff814',1,'Character_Movement']]],
-  ['receivers_2',['receivers',['../struct_item_i_ds_1_1_lore_object.html#a6a466b1e760cf5c62bf952432faf4e04',1,'ItemIDs::LoreObject']]],
-  ['rectangleholders_3',['rectangleHolders',['../class_achievements_handler.html#ac15512626c7e886b83be8771adf55f94',1,'AchievementsHandler']]],
-  ['registerpanel_4',['registerPanel',['../class_main_menu_manager.html#ac7cdcc0530d5d56794941e5917b765e1',1,'MainMenuManager']]],
-  ['rightbutton_5',['rightButton',['../class_achievements_handler.html#a3cf4f8c61606c963b1a7b0e1a3d61b39',1,'AchievementsHandler.rightButton'],['../class_shop_manager.html#ac483d06d3d523e50065b1dca32baf565',1,'ShopManager.rightButton']]],
-  ['roomid_6',['roomID',['../class_laboratory___room_enter_exit.html#ac7d4c0eaecf82c4a18f946e67974a8e8',1,'Laboratory_RoomEnterExit']]],
-  ['rotate90_7',['rotate90',['../class_pipe_behavior.html#a57fc6f6c793f9e99ed60012cc8d5a5e2',1,'PipeBehavior']]],
-  ['rotateturnpipe_8',['rotateTurnPipe',['../class_pipe_behavior.html#a8b740138e21eb0a0d67e8fa7735b7003',1,'PipeBehavior']]],
-  ['row_9',['row',['../class_pipe_behavior.html#a5438f83e1f3730031eca5a479c6fb0cd',1,'PipeBehavior.row'],['../class_pipe_generator.html#a5b51c1b05dca7a9d9fde19c92672b30b',1,'PipeGenerator.row']]]
+  ['pagecounter_0',['pageCounter',['../class_achievements_handler.html#ab49c96daea911c8879d80840f735011a',1,'AchievementsHandler']]],
+  ['pages_1',['pages',['../class_shop_manager.html#a252fed149d3d871895395cb7bd159ecb',1,'ShopManager']]],
+  ['pg_2',['pg',['../utils_8mjs.html#a1162b8fff7159c57d1e00179b39da966',1,'utils.mjs']]],
+  ['pipe_5fpuzzle_5fwins_3',['pipe_puzzle_wins',['../class_player_data.html#a97f75fa10d409c1051c2d585171d5c54',1,'PlayerData']]],
+  ['pipegameovermanager_4',['pipeGameOverManager',['../class_pipe_generator.html#ad613bb936ad8efb48d95e7235a76817d',1,'PipeGenerator']]],
+  ['pipeinfo_5',['pipeInfo',['../class_pipe_behavior.html#af35dbf1ade7ff0b4797fe9d72c803116',1,'PipeBehavior']]],
+  ['player_6',['player',['../class_deckmaster___interact.html#a0c21e1db3d43e32878c98ef56b37e7a9',1,'Deckmaster_Interact.player'],['../class_interactor___display.html#a9f3b15e9646b7ef1038c053253ba833e',1,'Interactor_Display.player'],['../class_leaderboard___interact.html#a55b84905e276f4806c98c9cdc5167336',1,'Leaderboard_Interact.player'],['../class_pipe___interact.html#a30126fa9b1c54cd4d94dab06465e41ba',1,'Pipe_Interact.player'],['../class_laboratory___room_enter_exit.html#a737321e85cad59e756380a8651c1764c',1,'Laboratory_RoomEnterExit.player'],['../class_shop_manager.html#a87af1efecf2ca740625cf1c1e1b7cfd9',1,'ShopManager.player'],['../class_wire___interact.html#add35f6da09890624b6e35d63af83165f',1,'Wire_Interact.player'],['../class_u_d_l_r.html#a834590e64c6e83a3c310ec8f66456702',1,'UDLR.player'],['../class_tutorial_manager.html#af5944cfe8483ff155527dc218b21ea24',1,'TutorialManager.player']]],
+  ['playeridleanimations_7',['playerIdleAnimations',['../class_character___movement.html#a2ade0bf84361763acd2bae37ceaa647e',1,'Character_Movement']]],
+  ['playerinzone_8',['playerInZone',['../class_laboratory_scene_transition.html#a866bc5c37c52192678eb9bacb96c130d',1,'LaboratorySceneTransition']]],
+  ['playermovement_9',['playerMovement',['../class_dialogue_manager.html#a6157d5a14aa4c230c843e2a8e1a0441d',1,'DialogueManager.playerMovement'],['../class_dialogue_manager___casino.html#a362dabe0ed014f0ac2648239bebd9be7',1,'DialogueManager_Casino.playerMovement'],['../class_dialogue_manager___lab.html#a5af4e42875a49360194df25544aff73a',1,'DialogueManager_Lab.playerMovement'],['../class_dialogue_manager___t_s.html#a586a931b68aed9643329434f16e5739f',1,'DialogueManager_TS.playerMovement'],['../class_dialogue_manager_tutorial.html#a22a3a23b2bfa3a1780ebfd4488820328',1,'DialogueManagerTutorial.playerMovement'],['../class_horse_behavior.html#a381fde59c32b4407762552cb49706d44',1,'HorseBehavior.playerMovement'],['../class_achievements_handler.html#a63134cad71c93a4ad224cb92bf0551cd',1,'AchievementsHandler.playerMovement']]],
+  ['playermovinganimations_10',['playerMovingAnimations',['../class_character___movement.html#a67eb54155814d5a7b4ce174646e7cb4a',1,'Character_Movement']]],
+  ['playerspawnposition_11',['playerSpawnPosition',['../class_game_manager.html#a7eae6cffbe071dc3de15b6cdb1ef37c3',1,'GameManager']]],
+  ['plugs_12',['plugS',['../class_plug_behavior.html#a44340be13444a2f545366a7fc1ffd320',1,'PlugBehavior']]],
+  ['poolsize_13',['poolSize',['../class_trail_prefab.html#ad7ee44224e67b45ab37cc6bd6ea9dc6a',1,'TrailPrefab']]],
+  ['possiblerotations_14',['possibleRotations',['../class_pipe_behavior.html#a1b6778e442b4f43f9c0faa0310958ba1',1,'PipeBehavior.possibleRotations'],['../class_pipe_generator.html#a8b23b944983b7c79b210388fbcbf1c2a',1,'PipeGenerator.possibleRotations']]],
+  ['powerwires_15',['powerWireS',['../class_powered_wire_behavior.html#a9a99e4ca57c6df7732fd37865139fe2e',1,'PoweredWireBehavior']]],
+  ['purchasebutton_16',['purchaseButton',['../class_shop_manager.html#af6645c0edc3acb72c63fb23e2575d180',1,'ShopManager']]]
 ];

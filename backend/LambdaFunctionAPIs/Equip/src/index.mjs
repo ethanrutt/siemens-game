@@ -5,7 +5,7 @@ import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 // Function to update the items based on the action (equip/unequip)
 /**
  * Updates the items_equipped for a user based on the action (equip/unequip).
- * 
+ *
  * @param {Object} client - The PostgreSQL client used to interact with the database.
  * @param {string} employeeId - The employee ID of the user.
  * @param {number[]} items - Array of item IDs to be equipped or unequipped.
@@ -63,7 +63,7 @@ const updateItems = async (client, employeeId, items, action) => {
 
 /**
  * Lambda function handler for processing equip/unequip item requests.
- * 
+ *
  * @param {Object} event - The event object containing the request payload.
  * @param {string} event.body - JSON string containing the action, items, and employee_id.
  * @returns {Promise<Object>} - Returns a response object containing the status code and a JSON body.
@@ -71,7 +71,7 @@ const updateItems = async (client, employeeId, items, action) => {
  */
 export const handler = async (event) => {
     let client;
-    
+
     try {
         // Parse the event body to get action, items, and employee_id
         const requestBody = JSON.parse(event.body);

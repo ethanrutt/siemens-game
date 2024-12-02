@@ -89,9 +89,203 @@ $(function(){ initResizable(false); });
 </div><!-- top -->
 <div id="doc-content">
 <div class="header">
+  <div class="summary">
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle"><div class="title">index.mjs File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="var-members" name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a59be084da8908b7d77ff34b25cd84488" id="r_a59be084da8908b7d77ff34b25cd84488"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a59be084da8908b7d77ff34b25cd84488">import</a> { <a class="el" href="utils_8mjs.html#afdd2b8e6fe1c732729aa13573e4bc134">getSecret</a>, <a class="el" href="utils_8mjs.html#a025520d777e24dc89c6f4852b5d9dc63">createDbClient</a>, <a class="el" href="utils_8mjs.html#a417b5eff0e338b080a36d75e82da9ba6">secret_name</a> } from './shared/utils.mjs'</td></tr>
+<tr class="separator:a59be084da8908b7d77ff34b25cd84488"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a26ec2d09b31b1f83fafe68f73a24e40c" id="r_a26ec2d09b31b1f83fafe68f73a24e40c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26ec2d09b31b1f83fafe68f73a24e40c">checkUserExists</a></td></tr>
+<tr class="separator:a26ec2d09b31b1f83fafe68f73a24e40c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a948775b60badaa6eafaa29cf348983fa" id="r_a948775b60badaa6eafaa29cf348983fa"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a948775b60badaa6eafaa29cf348983fa">getExistingScore</a></td></tr>
+<tr class="separator:a948775b60badaa6eafaa29cf348983fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae45f983a90131f4410ff148f67183b01" id="r_ae45f983a90131f4410ff148f67183b01"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae45f983a90131f4410ff148f67183b01">upsertGameScore</a></td></tr>
+<tr class="separator:ae45f983a90131f4410ff148f67183b01"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9efce641f1a2aaab036bce693f8d1847" id="r_a9efce641f1a2aaab036bce693f8d1847"><td class="memItemLeft" align="right" valign="top"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9efce641f1a2aaab036bce693f8d1847">handleScoreInsert</a></td></tr>
+<tr class="separator:a9efce641f1a2aaab036bce693f8d1847"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a696ed2287cb97f6b73ce36a583c4102d" id="r_a696ed2287cb97f6b73ce36a583c4102d"><td class="memItemLeft" align="right" valign="top">export <a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a696ed2287cb97f6b73ce36a583c4102d">handler</a></td></tr>
+<tr class="separator:a696ed2287cb97f6b73ce36a583c4102d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a26ec2d09b31b1f83fafe68f73a24e40c" name="a26ec2d09b31b1f83fafe68f73a24e40c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a26ec2d09b31b1f83fafe68f73a24e40c">&#9670;&#160;</a></span>checkUserExists</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a> checkUserExists</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= async (client, userId) =&gt; {</div>
+<div class="line">    <span class="keyword">const</span> result = await client.query(<span class="stringliteral">&#39;SELECT * FROM users WHERE user_id = $1&#39;</span>, [userId]);</div>
+<div class="line">    <span class="keywordflow">return</span> result.rows.length &gt; 0;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Checks if a user exists in the database.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>client - PostgreSQL client for database operations. </td></tr>
+    <tr><td class="paramname">{number}</td><td>userId - The ID of the user to check. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;boolean&gt;} - Resolves to true if the user exists, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a948775b60badaa6eafaa29cf348983fa" name="a948775b60badaa6eafaa29cf348983fa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a948775b60badaa6eafaa29cf348983fa">&#9670;&#160;</a></span>getExistingScore</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a> getExistingScore</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= async (client, userId, gameId, tableName = <span class="stringliteral">&#39;game_scores&#39;</span>) =&gt; {</div>
+<div class="line">    <span class="keyword">const</span> result = await client.query(</div>
+<div class="line">        `SELECT score FROM ${tableName} WHERE user_id = $1 AND game_id = $2`,</div>
+<div class="line">        [userId, gameId]</div>
+<div class="line">    );</div>
+<div class="line">    <span class="keywordflow">return</span> result.rows[0]?.score || <span class="keyword">null</span>;</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Retrieves the existing score for a user and game from the database.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>client - PostgreSQL client for database operations. </td></tr>
+    <tr><td class="paramname">{number}</td><td>userId - The ID of the user. </td></tr>
+    <tr><td class="paramname">{number}</td><td>gameId - The ID of the game. </td></tr>
+    <tr><td class="paramname">{string}</td><td>[tableName='game_scores'] - The name of the table to query. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;number|null&gt;} - The existing score or null if no score exists. </dd></dl>
+
+</div>
+</div>
+<a id="a696ed2287cb97f6b73ce36a583c4102d" name="a696ed2287cb97f6b73ce36a583c4102d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a696ed2287cb97f6b73ce36a583c4102d">&#9670;&#160;</a></span>handler</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">export <a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a> handler</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Lambda function handler to manage game score operations.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>event - The Lambda event object containing the request data. </td></tr>
+    <tr><td class="paramname">{string}</td><td>[tableName='game_scores'] - The name of the table to operate on. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;Object&gt;} - HTTP response object with status and score operation result. </dd></dl>
+
+</div>
+</div>
+<a id="a9efce641f1a2aaab036bce693f8d1847" name="a9efce641f1a2aaab036bce693f8d1847"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9efce641f1a2aaab036bce693f8d1847">&#9670;&#160;</a></span>handleScoreInsert</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a> handleScoreInsert</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= async (client, userId, gameId, newScore, tableName = <span class="stringliteral">&#39;game_scores&#39;</span>) =&gt; {</div>
+<div class="line">    <span class="keyword">const</span> existingScore = await <a class="code hl_variable" href="#a948775b60badaa6eafaa29cf348983fa">getExistingScore</a>(client, userId, gameId, tableName);</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">if</span> (gameId === 5 || gameId === 7) {</div>
+<div class="line">        <span class="keywordflow">if</span> (existingScore !== <span class="keyword">null</span> &amp;&amp; newScore &gt;= existingScore) {</div>
+<div class="line">            <span class="keywordflow">return</span> { message: <span class="stringliteral">&quot;No Score Uploaded, not the lowest score.&quot;</span> };</div>
+<div class="line">        }</div>
+<div class="line">    } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (gameId === 6) {</div>
+<div class="line">        <span class="keyword">const</span> updatedScore = (existingScore || 0) + 1;</div>
+<div class="line">        <span class="keywordflow">return</span> await <a class="code hl_variable" href="#ae45f983a90131f4410ff148f67183b01">upsertGameScore</a>(client, userId, gameId, updatedScore, tableName);</div>
+<div class="line">    }</div>
+<div class="line"> </div>
+<div class="line">    <span class="keywordflow">return</span> await <a class="code hl_variable" href="#ae45f983a90131f4410ff148f67183b01">upsertGameScore</a>(client, userId, gameId, newScore, tableName);</div>
+<div class="line">}</div>
+<div class="ttc" id="a_score_upload_2src_2index_8mjs_html_a948775b60badaa6eafaa29cf348983fa"><div class="ttname"><a href="#a948775b60badaa6eafaa29cf348983fa">getExistingScore</a></div><div class="ttdeci">const getExistingScore</div><div class="ttdef"><b>Definition</b> index.mjs:28</div></div>
+<div class="ttc" id="a_score_upload_2src_2index_8mjs_html_ae45f983a90131f4410ff148f67183b01"><div class="ttname"><a href="#ae45f983a90131f4410ff148f67183b01">upsertGameScore</a></div><div class="ttdeci">const upsertGameScore</div><div class="ttdef"><b>Definition</b> index.mjs:48</div></div>
+</div><!-- fragment --><p>Handles the score logic based on game-specific conditions.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>client - PostgreSQL client for database operations. </td></tr>
+    <tr><td class="paramname">{number}</td><td>userId - The ID of the user. </td></tr>
+    <tr><td class="paramname">{number}</td><td>gameId - The ID of the game. </td></tr>
+    <tr><td class="paramname">{number}</td><td>newScore - The new score to evaluate. </td></tr>
+    <tr><td class="paramname">{string}</td><td>[tableName='game_scores'] - The name of the table to update. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;Object&gt;} - The result of the score operation, including the upserted score. </dd></dl>
+
+</div>
+</div>
+<a id="a59be084da8908b7d77ff34b25cd84488" name="a59be084da8908b7d77ff34b25cd84488"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a59be084da8908b7d77ff34b25cd84488">&#9670;&#160;</a></span>import</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">import { <a class="el" href="utils_8mjs.html#afdd2b8e6fe1c732729aa13573e4bc134">getSecret</a>, <a class="el" href="utils_8mjs.html#a025520d777e24dc89c6f4852b5d9dc63">createDbClient</a>, <a class="el" href="utils_8mjs.html#a417b5eff0e338b080a36d75e82da9ba6">secret_name</a> } from './shared/utils.mjs'</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="ae45f983a90131f4410ff148f67183b01" name="ae45f983a90131f4410ff148f67183b01"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae45f983a90131f4410ff148f67183b01">&#9670;&#160;</a></span>upsertGameScore</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="utils_8mjs.html#a92b303b76a3f942ea819498907d5e83c">const</a> upsertGameScore</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<b>Initial value:</b><div class="fragment"><div class="line">= async (client, userId, gameId, score, tableName = <span class="stringliteral">&#39;game_scores&#39;</span>) =&gt; {</div>
+<div class="line">    <span class="keyword">const</span> query = `</div>
+<div class="line">        INSERT INTO ${tableName} (user_id, game_id, score)</div>
+<div class="line"> </div>
+<div class="line">        ON CONFLICT (user_id, game_id) </div>
+<div class="line">        DO UPDATE SET score = $3</div>
+<div class="line">        RETURNING *;</div>
+<div class="line">    `;</div>
+<div class="line">    <span class="keyword">const</span> result = await client.query(query, [userId, gameId, score]);</div>
+<div class="line">    <span class="keywordflow">return</span> result.rows[0];</div>
+<div class="line">}</div>
+</div><!-- fragment --><p>Inserts or updates the score using UPSERT logic.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">{Object}</td><td>client - PostgreSQL client for database operations. </td></tr>
+    <tr><td class="paramname">{number}</td><td>userId - The ID of the user. </td></tr>
+    <tr><td class="paramname">{number}</td><td>gameId - The ID of the game. </td></tr>
+    <tr><td class="paramname">{number}</td><td>score - The score to insert or update. </td></tr>
+    <tr><td class="paramname">{string}</td><td>[tableName='game_scores'] - The name of the table to update. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>{Promise&lt;Object&gt;} - The inserted or updated score record. </dd></dl>
+
+</div>
+</div>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -1,2 +1,92 @@
 \doxysection{backend/\+Lambda\+Function\+APIs/\+Leaderboard/src/index.mjs File Reference}
 \hypertarget{_leaderboard_2src_2index_8mjs}{}\label{_leaderboard_2src_2index_8mjs}\index{backend/LambdaFunctionAPIs/Leaderboard/src/index.mjs@{backend/LambdaFunctionAPIs/Leaderboard/src/index.mjs}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_leaderboard_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488}{import}} \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/utils.\+mjs\textquotesingle{}
+\item 
+\mbox{\hyperlink{utils_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{_leaderboard_2src_2index_8mjs_a7a3f16a71e56c4f51c8c1df576e677a1}{get\+Top\+Scores\+By\+Game}}
+\item 
+export \mbox{\hyperlink{utils_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{_leaderboard_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}{handler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_leaderboard_2src_2index_8mjs_a7a3f16a71e56c4f51c8c1df576e677a1}\index{index.mjs@{index.mjs}!getTopScoresByGame@{getTopScoresByGame}}
+\index{getTopScoresByGame@{getTopScoresByGame}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{getTopScoresByGame}{getTopScoresByGame}}
+{\footnotesize\ttfamily \label{_leaderboard_2src_2index_8mjs_a7a3f16a71e56c4f51c8c1df576e677a1} 
+\mbox{\hyperlink{utils_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} get\+Top\+Scores\+By\+Game}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ async\ (client,\ gameId,\ tableName\ =\ \textcolor{stringliteral}{'game\_scores'})\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{try}\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ sortOrder\ =\ (gameId\ ===\ 7\ ||\ gameId\ ===\ 5)\ ?\ \textcolor{stringliteral}{'ASC'}\ :\ \textcolor{stringliteral}{'DESC'};\ }
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ query\ =\ \`{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ SELECT\ users.user\_name,\ \$\{tableName\}.score}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ FROM\ \$\{tableName\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ JOIN\ users\ ON\ \$\{tableName\}.user\_id\ =\ users.user\_id}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ WHERE\ \$\{tableName\}.game\_id\ =\ \$1}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ORDER\ BY\ \$\{tableName\}.score\ \$\{sortOrder\}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ LIMIT\ 10}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \`{};}
+\DoxyCodeLine{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ result\ =\ await\ client.query(query,\ [gameId]);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ result.rows;}
+\DoxyCodeLine{\ \ \ \ \}\ \textcolor{keywordflow}{catch}\ (err)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ console.error(\textcolor{stringliteral}{'Error\ fetching\ top\ scores\ by\ game:'},\ err);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{throw}\ err;}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Retrieves the top scores for a given game ID from the specified table.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & client -\/ The Postgre\+SQL client for database operations. \\
+\hline
+{\em \{number\}} & game\+Id -\/ The ID of the game for which to fetch top scores. \\
+\hline
+{\em \{string\}} & \mbox{[}table\+Name=\textquotesingle{}game\+\_\+scores\textquotesingle{}\mbox{]} -\/ The name of the database table containing game scores. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Array$>$\} -\/ A promise that resolves to an array of objects containing user names and scores. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the query fails. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{_leaderboard_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}\index{index.mjs@{index.mjs}!handler@{handler}}
+\index{handler@{handler}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{handler}{handler}}
+{\footnotesize\ttfamily \label{_leaderboard_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d} 
+export \mbox{\hyperlink{utils_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} handler}
+
+Lambda function handler to retrieve the top scores for a specific game ID.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & event -\/ The Lambda event object containing the request data. \\
+\hline
+{\em \{string\}} & \mbox{[}table\+Name=\textquotesingle{}game\+\_\+scores\textquotesingle{}\mbox{]} -\/ The name of the database table containing game scores. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} -\/ Returns a response object with HTTP status code and the top scores. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the request body is invalid or the database query fails. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{_leaderboard_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488}\index{index.mjs@{index.mjs}!import@{import}}
+\index{import@{import}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_leaderboard_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488} 
+import \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/utils.\+mjs\textquotesingle{}}
+
