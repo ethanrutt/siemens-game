@@ -1,0 +1,104 @@
+\doxysection{Camera\+Follow Class Reference}
+\hypertarget{class_camera_follow}{}\label{class_camera_follow}\index{CameraFollow@{CameraFollow}}
+
+
+This class is for tutorial and the start of scenes where we want to show the different interactables available in an area. It\textquotesingle{}s used to pan the camera around to the different areas and then reset back to the player.  
+
+
+Inheritance diagram for Camera\+Follow\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_camera_follow}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_camera_follow_a7512bb87e309b0d24ef3ca44c5752fed}{Pan\+Camera}} (Transform new\+Target)
+\begin{DoxyCompactList}\small\item\em Coroutine to switch target for a certain duration and switch back to old target. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_camera_follow_a6146170558408b22b084ba1ff5b8ec29}{Switch\+Target}} (Transform new\+Target)
+\item 
+IEnumerator \mbox{\hyperlink{class_camera_follow_a5c5713d91b3fd1575ab513556f06ab53}{Pan\+Camera\+Coroutine}} (Transform new\+Target)
+\item 
+void \mbox{\hyperlink{class_camera_follow_ab8ce2043b1a47917b8b970f5579af9ec}{Fixed\+Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Transform \mbox{\hyperlink{class_camera_follow_a2ef2d3655fd0cb86d18e6324b75c0a59}{target}}
+\item 
+float \mbox{\hyperlink{class_camera_follow_a924c2f26a261004c89aa63ca0c89d454}{smooth\+Speed}} = 0.\+125f
+\item 
+Vector3 \mbox{\hyperlink{class_camera_follow_ae4f97609d08d1933161b1c4da36b2018}{offset}}
+\item 
+float \mbox{\hyperlink{class_camera_follow_aad199350c38e215b0886ca548dc14aa3}{camera\+Zoom\+Size}} = 3.\+0f
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is for tutorial and the start of scenes where we want to show the different interactables available in an area. It\textquotesingle{}s used to pan the camera around to the different areas and then reset back to the player. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_camera_follow_ab8ce2043b1a47917b8b970f5579af9ec}\index{CameraFollow@{CameraFollow}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!CameraFollow@{CameraFollow}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily \label{class_camera_follow_ab8ce2043b1a47917b8b970f5579af9ec} 
+void Camera\+Follow.\+Fixed\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_camera_follow_a7512bb87e309b0d24ef3ca44c5752fed}\index{CameraFollow@{CameraFollow}!PanCamera@{PanCamera}}
+\index{PanCamera@{PanCamera}!CameraFollow@{CameraFollow}}
+\doxysubsubsection{\texorpdfstring{PanCamera()}{PanCamera()}}
+{\footnotesize\ttfamily \label{class_camera_follow_a7512bb87e309b0d24ef3ca44c5752fed} 
+void Camera\+Follow.\+Pan\+Camera (\begin{DoxyParamCaption}\item[{Transform}]{new\+Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Coroutine to switch target for a certain duration and switch back to old target. 
+
+\Hypertarget{class_camera_follow_a5c5713d91b3fd1575ab513556f06ab53}\index{CameraFollow@{CameraFollow}!PanCameraCoroutine@{PanCameraCoroutine}}
+\index{PanCameraCoroutine@{PanCameraCoroutine}!CameraFollow@{CameraFollow}}
+\doxysubsubsection{\texorpdfstring{PanCameraCoroutine()}{PanCameraCoroutine()}}
+{\footnotesize\ttfamily \label{class_camera_follow_a5c5713d91b3fd1575ab513556f06ab53} 
+IEnumerator Camera\+Follow.\+Pan\+Camera\+Coroutine (\begin{DoxyParamCaption}\item[{Transform}]{new\+Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_camera_follow_a6146170558408b22b084ba1ff5b8ec29}\index{CameraFollow@{CameraFollow}!SwitchTarget@{SwitchTarget}}
+\index{SwitchTarget@{SwitchTarget}!CameraFollow@{CameraFollow}}
+\doxysubsubsection{\texorpdfstring{SwitchTarget()}{SwitchTarget()}}
+{\footnotesize\ttfamily \label{class_camera_follow_a6146170558408b22b084ba1ff5b8ec29} 
+void Camera\+Follow.\+Switch\+Target (\begin{DoxyParamCaption}\item[{Transform}]{new\+Target}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_camera_follow_aad199350c38e215b0886ca548dc14aa3}\index{CameraFollow@{CameraFollow}!cameraZoomSize@{cameraZoomSize}}
+\index{cameraZoomSize@{cameraZoomSize}!CameraFollow@{CameraFollow}}
+\doxysubsubsection{\texorpdfstring{cameraZoomSize}{cameraZoomSize}}
+{\footnotesize\ttfamily \label{class_camera_follow_aad199350c38e215b0886ca548dc14aa3} 
+float Camera\+Follow.\+camera\+Zoom\+Size = 3.\+0f\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_camera_follow_ae4f97609d08d1933161b1c4da36b2018}\index{CameraFollow@{CameraFollow}!offset@{offset}}
+\index{offset@{offset}!CameraFollow@{CameraFollow}}
+\doxysubsubsection{\texorpdfstring{offset}{offset}}
+{\footnotesize\ttfamily \label{class_camera_follow_ae4f97609d08d1933161b1c4da36b2018} 
+Vector3 Camera\+Follow.\+offset\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_camera_follow_a924c2f26a261004c89aa63ca0c89d454}\index{CameraFollow@{CameraFollow}!smoothSpeed@{smoothSpeed}}
+\index{smoothSpeed@{smoothSpeed}!CameraFollow@{CameraFollow}}
+\doxysubsubsection{\texorpdfstring{smoothSpeed}{smoothSpeed}}
+{\footnotesize\ttfamily \label{class_camera_follow_a924c2f26a261004c89aa63ca0c89d454} 
+float Camera\+Follow.\+smooth\+Speed = 0.\+125f\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_camera_follow_a2ef2d3655fd0cb86d18e6324b75c0a59}\index{CameraFollow@{CameraFollow}!target@{target}}
+\index{target@{target}!CameraFollow@{CameraFollow}}
+\doxysubsubsection{\texorpdfstring{target}{target}}
+{\footnotesize\ttfamily \label{class_camera_follow_a2ef2d3655fd0cb86d18e6324b75c0a59} 
+Transform Camera\+Follow.\+target\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Camera/\mbox{\hyperlink{_camera___movement_8cs}{Camera\+\_\+\+Movement.\+cs}}\end{DoxyCompactItemize}

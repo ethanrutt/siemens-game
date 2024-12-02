@@ -1,0 +1,123 @@
+\doxysection{Pipe\+Game\+Over\+Manager Class Reference}
+\hypertarget{class_pipe_game_over_manager}{}\label{class_pipe_game_over_manager}\index{PipeGameOverManager@{PipeGameOverManager}}
+
+
+This handles the completion criteria for when the pipe game is finished.  
+
+
+Inheritance diagram for Pipe\+Game\+Over\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pipe_game_over_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_pipe_game_over_manager_a0c037ba00e4a2d17c70371211b274872}{Setup}} (System.\+Time\+Span time\+Span)
+\item 
+void \mbox{\hyperlink{class_pipe_game_over_manager_aad8ba522b8700545ac1cf2b1cb2ae3d4}{Restart\+Button}} ()
+\item 
+void \mbox{\hyperlink{class_pipe_game_over_manager_ad2406907b9d0fde7a244d9acbb657252}{Exit\+Button}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{class_pipe_game_over_manager_a493716f49b3ed1a62fbc227680bbb89d}{time\+Elapsed}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} \mbox{\hyperlink{class_pipe_game_over_manager_a2dd370c196e7776ae067573bd564ccce}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_pipe_game_over_manager_a0fac9f74d706c7246999ac71a7aa6c15}{upload\+Time}} (int user\+Id)
+\begin{DoxyCompactList}\small\item\em \doxylink{class_pipe_game_over_manager_a0fac9f74d706c7246999ac71a7aa6c15}{upload\+Time()} is a function that sends a POST request to the backend to upload the time \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_pipe_game_over_manager_a395e75a8520987d06dacde55621931f6}{On\+Request\+Complete}} (string response\+Text)
+\item 
+void \mbox{\hyperlink{class_pipe_game_over_manager_a1746ff37e38c3e9edf6b9732be210f9c}{On\+Request\+Fail}} (string response\+Text)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_pipe_game_over_manager_a86774e9efdbe609475523f9c43d90555}{score}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This handles the completion criteria for when the pipe game is finished. 
+
+Handles the restart button, exit button, as well as uploading the score to the database for populating the leaderboard 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pipe_game_over_manager_ad2406907b9d0fde7a244d9acbb657252}\index{PipeGameOverManager@{PipeGameOverManager}!ExitButton@{ExitButton}}
+\index{ExitButton@{ExitButton}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{ExitButton()}{ExitButton()}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_ad2406907b9d0fde7a244d9acbb657252} 
+void Pipe\+Game\+Over\+Manager.\+Exit\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_pipe_game_over_manager_a395e75a8520987d06dacde55621931f6}\index{PipeGameOverManager@{PipeGameOverManager}!OnRequestComplete@{OnRequestComplete}}
+\index{OnRequestComplete@{OnRequestComplete}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{OnRequestComplete()}{OnRequestComplete()}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_a395e75a8520987d06dacde55621931f6} 
+void Pipe\+Game\+Over\+Manager.\+On\+Request\+Complete (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_pipe_game_over_manager_a1746ff37e38c3e9edf6b9732be210f9c}\index{PipeGameOverManager@{PipeGameOverManager}!OnRequestFail@{OnRequestFail}}
+\index{OnRequestFail@{OnRequestFail}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{OnRequestFail()}{OnRequestFail()}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_a1746ff37e38c3e9edf6b9732be210f9c} 
+void Pipe\+Game\+Over\+Manager.\+On\+Request\+Fail (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_pipe_game_over_manager_aad8ba522b8700545ac1cf2b1cb2ae3d4}\index{PipeGameOverManager@{PipeGameOverManager}!RestartButton@{RestartButton}}
+\index{RestartButton@{RestartButton}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{RestartButton()}{RestartButton()}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_aad8ba522b8700545ac1cf2b1cb2ae3d4} 
+void Pipe\+Game\+Over\+Manager.\+Restart\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_pipe_game_over_manager_a0c037ba00e4a2d17c70371211b274872}\index{PipeGameOverManager@{PipeGameOverManager}!Setup@{Setup}}
+\index{Setup@{Setup}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{Setup()}{Setup()}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_a0c037ba00e4a2d17c70371211b274872} 
+void Pipe\+Game\+Over\+Manager.\+Setup (\begin{DoxyParamCaption}\item[{System.\+Time\+Span}]{time\+Span}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_pipe_game_over_manager_a0fac9f74d706c7246999ac71a7aa6c15}\index{PipeGameOverManager@{PipeGameOverManager}!uploadTime@{uploadTime}}
+\index{uploadTime@{uploadTime}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{uploadTime()}{uploadTime()}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_a0fac9f74d706c7246999ac71a7aa6c15} 
+void Pipe\+Game\+Over\+Manager.\+upload\+Time (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxylink{class_pipe_game_over_manager_a0fac9f74d706c7246999ac71a7aa6c15}{upload\+Time()} is a function that sends a POST request to the backend to upload the time 
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pipe_game_over_manager_a86774e9efdbe609475523f9c43d90555}\index{PipeGameOverManager@{PipeGameOverManager}!score@{score}}
+\index{score@{score}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_a86774e9efdbe609475523f9c43d90555} 
+string Pipe\+Game\+Over\+Manager.\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_pipe_game_over_manager_a493716f49b3ed1a62fbc227680bbb89d}\index{PipeGameOverManager@{PipeGameOverManager}!timeElapsed@{timeElapsed}}
+\index{timeElapsed@{timeElapsed}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{timeElapsed}{timeElapsed}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_a493716f49b3ed1a62fbc227680bbb89d} 
+TMP\+\_\+\+Text Pipe\+Game\+Over\+Manager.\+time\+Elapsed}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_pipe_game_over_manager_a2dd370c196e7776ae067573bd564ccce}\index{PipeGameOverManager@{PipeGameOverManager}!playerData@{playerData}}
+\index{playerData@{playerData}!PipeGameOverManager@{PipeGameOverManager}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{class_pipe_game_over_manager_a2dd370c196e7776ae067573bd564ccce} 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} Pipe\+Game\+Over\+Manager.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Pipes/\mbox{\hyperlink{_pipe_game_over_manager_8cs}{Pipe\+Game\+Over\+Manager.\+cs}}\end{DoxyCompactItemize}

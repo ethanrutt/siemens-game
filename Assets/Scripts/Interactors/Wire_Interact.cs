@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @class Wire_Interact
+ * @brief This handles display of the interact button for entering the wire
+ * game when getting near the wire game area.
+ */
 public class Wire_Interact : MonoBehaviour
 {
     // The player object
@@ -10,29 +15,6 @@ public class Wire_Interact : MonoBehaviour
     // and change it to "leaderboard"
     [SerializeField] public GameObject player;
     [SerializeField] private GameObject interactButton;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Debug.Log("Leaderboard Interact script loaded");
-    }
-
-    // Update is called once per frame
-    // If the player walks into the collider for leaderboard,
-    // we will change the player's interactable to "leaderboard"
-    // and if walks away, the interactable is nothing, and the
-    // interact button disappears.
-    void Update()
-    {
-        
-    }
-
-    // Grab the PlayerData object (this is a DoNotDestroyOnLoad object)
-    // and set the player object to the player object in the scene
-    // The PlayerData is a singelton
-
-
-
 
     // When the player walks into the collider for the leaderboard,
     // we will change the player's interactable to "leaderboard"

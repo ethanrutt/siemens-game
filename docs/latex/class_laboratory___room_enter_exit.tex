@@ -1,0 +1,123 @@
+\doxysection{Laboratory\+\_\+\+Room\+Enter\+Exit Class Reference}
+\hypertarget{class_laboratory___room_enter_exit}{}\label{class_laboratory___room_enter_exit}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+
+
+This handles the enter and exit script for the laboratory room which allows players to see what area of the room they are in.  
+
+
+Inheritance diagram for Laboratory\+\_\+\+Room\+Enter\+Exit\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_laboratory___room_enter_exit}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{class_laboratory___room_enter_exit_ace8fe573114c2ae477274c4df9ed489f}{Fade\+Text\+To\+Zero\+Alpha}} (float t, TMPro.\+Text\+Mesh\+Pro\+UGUI text)
+\item 
+IEnumerator \mbox{\hyperlink{class_laboratory___room_enter_exit_a43cae0db9d04e7eee02f9d62db1ad5bb}{Fade\+Text\+To\+Full\+Alpha}} (float t, TMPro.\+Text\+Mesh\+Pro\+UGUI text)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_laboratory___room_enter_exit_ac63061d7be2d3baaa81e2c9e45b77233}{On\+Trigger\+Enter2D}} (Collider2D other)
+\item 
+void \mbox{\hyperlink{class_laboratory___room_enter_exit_a654c097ee8474dac840267739606e8aa}{On\+Trigger\+Exit2D}} (Collider2D other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_laboratory___room_enter_exit_a737321e85cad59e756380a8651c1764c}{player}}
+\item 
+Game\+Object \mbox{\hyperlink{class_laboratory___room_enter_exit_ab86c9bf17f8fc1144e8190237183c817}{current\+Room\+Object}}
+\item 
+Game\+Object \mbox{\hyperlink{class_laboratory___room_enter_exit_a7a57c4439fa5014a1783e3cab3209b18}{text\+\_\+\+Title}}
+\item 
+Game\+Object \mbox{\hyperlink{class_laboratory___room_enter_exit_a6022b865f0cab6196ceca74516ee2207}{text\+\_\+\+Description}}
+\item 
+string \mbox{\hyperlink{class_laboratory___room_enter_exit_ac7d4c0eaecf82c4a18f946e67974a8e8}{room\+ID}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This handles the enter and exit script for the laboratory room which allows players to see what area of the room they are in. 
+
+on entering a new area, some text at the bottom will be displayed that tells which section you\textquotesingle{}re in. Room ID Dictionary\+:
+\begin{DoxyItemize}
+\item 0 -\/\texorpdfstring{$>$}{>} Automation Station (Top left)
+\item 1 -\/\texorpdfstring{$>$}{>} Synthesis Chamber (Top right)
+\item 2 -\/\texorpdfstring{$>$}{>} Main Hallway (Middle)
+\item 3 -\/\texorpdfstring{$>$}{>} Data Center (Bottom left)
+\item 4 -\/\texorpdfstring{$>$}{>} Digital Command Room (Middle bottom)
+\item 5 -\/\texorpdfstring{$>$}{>} Integration Zone (Bottom right) TOWN SQUARE
+\item 10 -\/\texorpdfstring{$>$}{>} The Reclamation Zone
+\item 11 -\/\texorpdfstring{$>$}{>} Casino
+\item 12 -\/\texorpdfstring{$>$}{>} Scavenger Shop
+\item 13 -\/\texorpdfstring{$>$}{>} Tipsy Tower
+\item 14 -\/\texorpdfstring{$>$}{>} Laboratory 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_laboratory___room_enter_exit_a43cae0db9d04e7eee02f9d62db1ad5bb}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!FadeTextToFullAlpha@{FadeTextToFullAlpha}}
+\index{FadeTextToFullAlpha@{FadeTextToFullAlpha}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{FadeTextToFullAlpha()}{FadeTextToFullAlpha()}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_a43cae0db9d04e7eee02f9d62db1ad5bb} 
+IEnumerator Laboratory\+\_\+\+Room\+Enter\+Exit.\+Fade\+Text\+To\+Full\+Alpha (\begin{DoxyParamCaption}\item[{float}]{t}{, }\item[{TMPro.\+Text\+Mesh\+Pro\+UGUI}]{text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_laboratory___room_enter_exit_ace8fe573114c2ae477274c4df9ed489f}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!FadeTextToZeroAlpha@{FadeTextToZeroAlpha}}
+\index{FadeTextToZeroAlpha@{FadeTextToZeroAlpha}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{FadeTextToZeroAlpha()}{FadeTextToZeroAlpha()}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_ace8fe573114c2ae477274c4df9ed489f} 
+IEnumerator Laboratory\+\_\+\+Room\+Enter\+Exit.\+Fade\+Text\+To\+Zero\+Alpha (\begin{DoxyParamCaption}\item[{float}]{t}{, }\item[{TMPro.\+Text\+Mesh\+Pro\+UGUI}]{text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_laboratory___room_enter_exit_ac63061d7be2d3baaa81e2c9e45b77233}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_ac63061d7be2d3baaa81e2c9e45b77233} 
+void Laboratory\+\_\+\+Room\+Enter\+Exit.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_laboratory___room_enter_exit_a654c097ee8474dac840267739606e8aa}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!OnTriggerExit2D@{OnTriggerExit2D}}
+\index{OnTriggerExit2D@{OnTriggerExit2D}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit2D()}{OnTriggerExit2D()}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_a654c097ee8474dac840267739606e8aa} 
+void Laboratory\+\_\+\+Room\+Enter\+Exit.\+On\+Trigger\+Exit2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_laboratory___room_enter_exit_ab86c9bf17f8fc1144e8190237183c817}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!currentRoomObject@{currentRoomObject}}
+\index{currentRoomObject@{currentRoomObject}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{currentRoomObject}{currentRoomObject}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_ab86c9bf17f8fc1144e8190237183c817} 
+Game\+Object Laboratory\+\_\+\+Room\+Enter\+Exit.\+current\+Room\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_laboratory___room_enter_exit_a737321e85cad59e756380a8651c1764c}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!player@{player}}
+\index{player@{player}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_a737321e85cad59e756380a8651c1764c} 
+Game\+Object Laboratory\+\_\+\+Room\+Enter\+Exit.\+player\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_laboratory___room_enter_exit_ac7d4c0eaecf82c4a18f946e67974a8e8}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!roomID@{roomID}}
+\index{roomID@{roomID}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{roomID}{roomID}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_ac7d4c0eaecf82c4a18f946e67974a8e8} 
+string Laboratory\+\_\+\+Room\+Enter\+Exit.\+room\+ID\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_laboratory___room_enter_exit_a6022b865f0cab6196ceca74516ee2207}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!text\_Description@{text\_Description}}
+\index{text\_Description@{text\_Description}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{text\_Description}{text\_Description}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_a6022b865f0cab6196ceca74516ee2207} 
+Game\+Object Laboratory\+\_\+\+Room\+Enter\+Exit.\+text\+\_\+\+Description\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_laboratory___room_enter_exit_a7a57c4439fa5014a1783e3cab3209b18}\index{Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}!text\_Title@{text\_Title}}
+\index{text\_Title@{text\_Title}!Laboratory\_RoomEnterExit@{Laboratory\_RoomEnterExit}}
+\doxysubsubsection{\texorpdfstring{text\_Title}{text\_Title}}
+{\footnotesize\ttfamily \label{class_laboratory___room_enter_exit_a7a57c4439fa5014a1783e3cab3209b18} 
+Game\+Object Laboratory\+\_\+\+Room\+Enter\+Exit.\+text\+\_\+\+Title\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Interactors/\mbox{\hyperlink{_room_enter_exit_8cs}{Room\+Enter\+Exit.\+cs}}\end{DoxyCompactItemize}

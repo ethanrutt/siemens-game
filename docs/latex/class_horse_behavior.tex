@@ -1,0 +1,395 @@
+\doxysection{Horse\+Behavior Class Reference}
+\hypertarget{class_horse_behavior}{}\label{class_horse_behavior}\index{HorseBehavior@{HorseBehavior}}
+
+
+This contains the logic for running the horse game. This handles moving the horses across the screen using a fixed update. It also tracks which horse is in the lead, as well as awarding bets when finished.  
+
+
+Inheritance diagram for Horse\+Behavior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_horse_behavior}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_horse_behavior_a14eea99db88d5cfbf4559d15ce81cdd8}{Update\+Lead\+Horse}} ()
+\item 
+void \mbox{\hyperlink{class_horse_behavior_a7810a6960aad2a910bbb7291d81f0fa7}{Move\+Horses}} ()
+\item 
+void \mbox{\hyperlink{class_horse_behavior_a6febd134d69c53d884e0859e521d0eab}{End\+Game}} (string winning\+Horse)
+\item 
+void \mbox{\hyperlink{class_horse_behavior_a49b700be11147b5ef8cba4edaf6eef05}{Exit\+Button}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_horse_behavior_a3cad8d9aa7d2efe698a475c09ad7a0eb}{lost\+Game}} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} \mbox{\hyperlink{class_horse_behavior_acdc886c5ba1f8c278d2bb44d3434531e}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_horse_behavior_a6dda99ad4c42400d3892c2ccd33a8c37}{Random\+Speed}} (bool is\+Chosen)
+\item 
+float \mbox{\hyperlink{class_horse_behavior_a7eb5ad4680b2bf7a39eb044765c8d652}{Non\+Chosen\+Horse\+Speed}} ()
+\item 
+void \mbox{\hyperlink{class_horse_behavior_a15b2add271cd43db51cc12112adc05ed}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_horse_behavior_ac968331a09f324c6932a1d2249553eac}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_horse_behavior_ab13ec584644ecf5f0a56c9e2e658fbf9}{Fixed\+Update}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_horse_behavior_a7e5123c6aad36c369b7e82c2aa28fa14}{Destroy\+After\+Delay}} (Game\+Object trail)
+\item 
+string \mbox{\hyperlink{class_horse_behavior_a75f8c09c29b727412792e02a88573e2f}{Get\+Horse\+Name}} (int index)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_a92a95f22cb403ce296522d4b7c971141}{horse\+Objects}}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_a7ee74ccf7fa1c696de344447433e749f}{horse\+Trail\+Prefabs}}
+\item 
+Vector2\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_a7e7ae1cdb60d478a99de1f8ebddc0f4f}{horse\+Start\+Positions}}
+\item 
+\mbox{\hyperlink{class_character___movement}{Character\+\_\+\+Movement}} \mbox{\hyperlink{class_horse_behavior_a381fde59c32b4407762552cb49706d44}{player\+Movement}}
+\item 
+Game\+Object \mbox{\hyperlink{class_horse_behavior_aa61b171fb3e3309d9d91ab3e58f0580b}{modal\+Back}}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_a08d888a4d8d389ab58ab81f51d16cc15}{flags}}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{class_horse_behavior_aed5860ead666bb5e202ded993d958f22}{horse\+In\+Lead}}
+\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_a27bda7732e9cfb07ecac85f6e7d26306}{slow\+Speeds}}
+\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_acd5004cc47a7394ebc21117892c05f7c}{slow\+Chosen\+Speeds}}
+\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_adf522359271d96902471fbd522d74b48}{slow\+Medium\+Speeds}}
+\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_ade8de6eb532248ba7f18e1e052723e80}{medium\+Speeds}}
+\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_a01e747b3be898cd21e900141beb5736b}{slight\+Medium\+Speeds}}
+\item 
+float\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_horse_behavior_a7c20519246944c446da06b7e0d0ae7f1}{fast\+Speeds}}
+\item 
+float \mbox{\hyperlink{class_horse_behavior_ac6f8b65c3e35ffdcf7d0a6a30447854b}{trail\+Lifetime}} = 0.\+1f
+\item 
+int \mbox{\hyperlink{class_horse_behavior_a6aa14aec95d4e6b5d2f3f863ec843e2a}{neuroflux\+Level}}
+\item 
+string \mbox{\hyperlink{class_horse_behavior_af4291ddfac45b1cb9d6c921844c1e265}{chosen\+\_\+horse\+\_\+}}
+\item 
+int \mbox{\hyperlink{class_horse_behavior_a1f9aea1016e929217d68ba839667ae14}{bet\+Amount}}
+\item 
+bool \mbox{\hyperlink{class_horse_behavior_a4dd8b94e3021020c25c9ae5ed29bbccf}{horse\+Crossed\+Finish\+Line}}
+\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{class_horse_behavior_ac9930c1fd0086674a00eb70cf6fa3e17}{horse\+Trails}} = new List$<$Game\+Object$>$()
+\item 
+Canvas \mbox{\hyperlink{class_horse_behavior_a20977e2519bf36304fce5a516871beb8}{Game\+Screen}}
+\item 
+Canvas \mbox{\hyperlink{class_horse_behavior_a15e207ef24df752661133a06b07071d8}{Game\+Over\+Screen}}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{class_horse_behavior_a3150f614ba8c707b2c0a9f7b08d4f0ce}{horse\+Winner\+Text}}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{class_horse_behavior_aaeda9b9f514cf60c388ba29a020a042b}{coins\+Lost\+Or\+Gained\+Text}}
+\item 
+int \mbox{\hyperlink{class_horse_behavior_aa95e978a4673c59c14741d7f030edd10}{frame\+Count}} = 0
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This contains the logic for running the horse game. This handles moving the horses across the screen using a fixed update. It also tracks which horse is in the lead, as well as awarding bets when finished. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_trail_prefab}{Trail\+Prefab} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_horse_behavior_a7e5123c6aad36c369b7e82c2aa28fa14}\index{HorseBehavior@{HorseBehavior}!DestroyAfterDelay@{DestroyAfterDelay}}
+\index{DestroyAfterDelay@{DestroyAfterDelay}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{DestroyAfterDelay()}{DestroyAfterDelay()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a7e5123c6aad36c369b7e82c2aa28fa14} 
+IEnumerator Horse\+Behavior.\+Destroy\+After\+Delay (\begin{DoxyParamCaption}\item[{Game\+Object}]{trail}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a6febd134d69c53d884e0859e521d0eab}\index{HorseBehavior@{HorseBehavior}!EndGame@{EndGame}}
+\index{EndGame@{EndGame}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{EndGame()}{EndGame()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a6febd134d69c53d884e0859e521d0eab} 
+void Horse\+Behavior.\+End\+Game (\begin{DoxyParamCaption}\item[{string}]{winning\+Horse}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_horse_behavior_a49b700be11147b5ef8cba4edaf6eef05}\index{HorseBehavior@{HorseBehavior}!ExitButton@{ExitButton}}
+\index{ExitButton@{ExitButton}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{ExitButton()}{ExitButton()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a49b700be11147b5ef8cba4edaf6eef05} 
+void Horse\+Behavior.\+Exit\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_horse_behavior_ab13ec584644ecf5f0a56c9e2e658fbf9}\index{HorseBehavior@{HorseBehavior}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_ab13ec584644ecf5f0a56c9e2e658fbf9} 
+void Horse\+Behavior.\+Fixed\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a75f8c09c29b727412792e02a88573e2f}\index{HorseBehavior@{HorseBehavior}!GetHorseName@{GetHorseName}}
+\index{GetHorseName@{GetHorseName}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{GetHorseName()}{GetHorseName()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a75f8c09c29b727412792e02a88573e2f} 
+string Horse\+Behavior.\+Get\+Horse\+Name (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a7810a6960aad2a910bbb7291d81f0fa7}\index{HorseBehavior@{HorseBehavior}!MoveHorses@{MoveHorses}}
+\index{MoveHorses@{MoveHorses}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{MoveHorses()}{MoveHorses()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a7810a6960aad2a910bbb7291d81f0fa7} 
+void Horse\+Behavior.\+Move\+Horses (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_horse_behavior_a7eb5ad4680b2bf7a39eb044765c8d652}\index{HorseBehavior@{HorseBehavior}!NonChosenHorseSpeed@{NonChosenHorseSpeed}}
+\index{NonChosenHorseSpeed@{NonChosenHorseSpeed}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{NonChosenHorseSpeed()}{NonChosenHorseSpeed()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a7eb5ad4680b2bf7a39eb044765c8d652} 
+float Horse\+Behavior.\+Non\+Chosen\+Horse\+Speed (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a6dda99ad4c42400d3892c2ccd33a8c37}\index{HorseBehavior@{HorseBehavior}!RandomSpeed@{RandomSpeed}}
+\index{RandomSpeed@{RandomSpeed}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{RandomSpeed()}{RandomSpeed()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a6dda99ad4c42400d3892c2ccd33a8c37} 
+float Horse\+Behavior.\+Random\+Speed (\begin{DoxyParamCaption}\item[{bool}]{is\+Chosen}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a15b2add271cd43db51cc12112adc05ed}\index{HorseBehavior@{HorseBehavior}!Start@{Start}}
+\index{Start@{Start}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a15b2add271cd43db51cc12112adc05ed} 
+void Horse\+Behavior.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_ac968331a09f324c6932a1d2249553eac}\index{HorseBehavior@{HorseBehavior}!Update@{Update}}
+\index{Update@{Update}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_ac968331a09f324c6932a1d2249553eac} 
+void Horse\+Behavior.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a14eea99db88d5cfbf4559d15ce81cdd8}\index{HorseBehavior@{HorseBehavior}!UpdateLeadHorse@{UpdateLeadHorse}}
+\index{UpdateLeadHorse@{UpdateLeadHorse}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{UpdateLeadHorse()}{UpdateLeadHorse()}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a14eea99db88d5cfbf4559d15ce81cdd8} 
+void Horse\+Behavior.\+Update\+Lead\+Horse (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_horse_behavior_a1f9aea1016e929217d68ba839667ae14}\index{HorseBehavior@{HorseBehavior}!betAmount@{betAmount}}
+\index{betAmount@{betAmount}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{betAmount}{betAmount}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a1f9aea1016e929217d68ba839667ae14} 
+int Horse\+Behavior.\+bet\+Amount\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_af4291ddfac45b1cb9d6c921844c1e265}\index{HorseBehavior@{HorseBehavior}!chosen\_horse\_@{chosen\_horse\_}}
+\index{chosen\_horse\_@{chosen\_horse\_}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{chosen\_horse\_}{chosen\_horse\_}}
+{\footnotesize\ttfamily \label{class_horse_behavior_af4291ddfac45b1cb9d6c921844c1e265} 
+string Horse\+Behavior.\+chosen\+\_\+horse\+\_\+\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_aaeda9b9f514cf60c388ba29a020a042b}\index{HorseBehavior@{HorseBehavior}!coinsLostOrGainedText@{coinsLostOrGainedText}}
+\index{coinsLostOrGainedText@{coinsLostOrGainedText}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{coinsLostOrGainedText}{coinsLostOrGainedText}}
+{\footnotesize\ttfamily \label{class_horse_behavior_aaeda9b9f514cf60c388ba29a020a042b} 
+TMP\+\_\+\+Text Horse\+Behavior.\+coins\+Lost\+Or\+Gained\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a7c20519246944c446da06b7e0d0ae7f1}\index{HorseBehavior@{HorseBehavior}!fastSpeeds@{fastSpeeds}}
+\index{fastSpeeds@{fastSpeeds}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{fastSpeeds}{fastSpeeds}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a7c20519246944c446da06b7e0d0ae7f1} 
+float \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+fast\+Speeds\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 60f,\ 65f,\ 70f,\ 75f,\ 80f}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_horse_behavior_a08d888a4d8d389ab58ab81f51d16cc15}\index{HorseBehavior@{HorseBehavior}!flags@{flags}}
+\index{flags@{flags}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a08d888a4d8d389ab58ab81f51d16cc15} 
+Game\+Object \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+flags\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_aa95e978a4673c59c14741d7f030edd10}\index{HorseBehavior@{HorseBehavior}!frameCount@{frameCount}}
+\index{frameCount@{frameCount}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{frameCount}{frameCount}}
+{\footnotesize\ttfamily \label{class_horse_behavior_aa95e978a4673c59c14741d7f030edd10} 
+int Horse\+Behavior.\+frame\+Count = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a15e207ef24df752661133a06b07071d8}\index{HorseBehavior@{HorseBehavior}!GameOverScreen@{GameOverScreen}}
+\index{GameOverScreen@{GameOverScreen}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{GameOverScreen}{GameOverScreen}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a15e207ef24df752661133a06b07071d8} 
+Canvas Horse\+Behavior.\+Game\+Over\+Screen\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a20977e2519bf36304fce5a516871beb8}\index{HorseBehavior@{HorseBehavior}!GameScreen@{GameScreen}}
+\index{GameScreen@{GameScreen}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{GameScreen}{GameScreen}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a20977e2519bf36304fce5a516871beb8} 
+Canvas Horse\+Behavior.\+Game\+Screen\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a4dd8b94e3021020c25c9ae5ed29bbccf}\index{HorseBehavior@{HorseBehavior}!horseCrossedFinishLine@{horseCrossedFinishLine}}
+\index{horseCrossedFinishLine@{horseCrossedFinishLine}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{horseCrossedFinishLine}{horseCrossedFinishLine}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a4dd8b94e3021020c25c9ae5ed29bbccf} 
+bool Horse\+Behavior.\+horse\+Crossed\+Finish\+Line\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_aed5860ead666bb5e202ded993d958f22}\index{HorseBehavior@{HorseBehavior}!horseInLead@{horseInLead}}
+\index{horseInLead@{horseInLead}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{horseInLead}{horseInLead}}
+{\footnotesize\ttfamily \label{class_horse_behavior_aed5860ead666bb5e202ded993d958f22} 
+TMP\+\_\+\+Text Horse\+Behavior.\+horse\+In\+Lead\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a92a95f22cb403ce296522d4b7c971141}\index{HorseBehavior@{HorseBehavior}!horseObjects@{horseObjects}}
+\index{horseObjects@{horseObjects}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{horseObjects}{horseObjects}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a92a95f22cb403ce296522d4b7c971141} 
+Game\+Object \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+horse\+Objects\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a7e7ae1cdb60d478a99de1f8ebddc0f4f}\index{HorseBehavior@{HorseBehavior}!horseStartPositions@{horseStartPositions}}
+\index{horseStartPositions@{horseStartPositions}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{horseStartPositions}{horseStartPositions}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a7e7ae1cdb60d478a99de1f8ebddc0f4f} 
+Vector2 \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+horse\+Start\+Positions\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a7ee74ccf7fa1c696de344447433e749f}\index{HorseBehavior@{HorseBehavior}!horseTrailPrefabs@{horseTrailPrefabs}}
+\index{horseTrailPrefabs@{horseTrailPrefabs}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{horseTrailPrefabs}{horseTrailPrefabs}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a7ee74ccf7fa1c696de344447433e749f} 
+Game\+Object \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+horse\+Trail\+Prefabs\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_ac9930c1fd0086674a00eb70cf6fa3e17}\index{HorseBehavior@{HorseBehavior}!horseTrails@{horseTrails}}
+\index{horseTrails@{horseTrails}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{horseTrails}{horseTrails}}
+{\footnotesize\ttfamily \label{class_horse_behavior_ac9930c1fd0086674a00eb70cf6fa3e17} 
+List$<$Game\+Object$>$ Horse\+Behavior.\+horse\+Trails = new List$<$Game\+Object$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a3150f614ba8c707b2c0a9f7b08d4f0ce}\index{HorseBehavior@{HorseBehavior}!horseWinnerText@{horseWinnerText}}
+\index{horseWinnerText@{horseWinnerText}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{horseWinnerText}{horseWinnerText}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a3150f614ba8c707b2c0a9f7b08d4f0ce} 
+TMP\+\_\+\+Text Horse\+Behavior.\+horse\+Winner\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a3cad8d9aa7d2efe698a475c09ad7a0eb}\index{HorseBehavior@{HorseBehavior}!lostGame@{lostGame}}
+\index{lostGame@{lostGame}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{lostGame}{lostGame}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a3cad8d9aa7d2efe698a475c09ad7a0eb} 
+bool Horse\+Behavior.\+lost\+Game = false}
+
+\Hypertarget{class_horse_behavior_ade8de6eb532248ba7f18e1e052723e80}\index{HorseBehavior@{HorseBehavior}!mediumSpeeds@{mediumSpeeds}}
+\index{mediumSpeeds@{mediumSpeeds}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{mediumSpeeds}{mediumSpeeds}}
+{\footnotesize\ttfamily \label{class_horse_behavior_ade8de6eb532248ba7f18e1e052723e80} 
+float \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+medium\+Speeds\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 45f,\ 46.25f,\ 47f,\ 50f,\ 55.5f,\ 60f,\ 62.5f,\ 65f,\ 70f,\ 72.5f,\ 45f,\ 50f,\ 75f,\ 70f,\ 55.5f,\ 60f,\ 65f,\ 80f,\ 60f,\ 65f,\ 70f,\ 50f,\ 50f,\ 70f,\ 65f}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_horse_behavior_aa61b171fb3e3309d9d91ab3e58f0580b}\index{HorseBehavior@{HorseBehavior}!modalBack@{modalBack}}
+\index{modalBack@{modalBack}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{modalBack}{modalBack}}
+{\footnotesize\ttfamily \label{class_horse_behavior_aa61b171fb3e3309d9d91ab3e58f0580b} 
+Game\+Object Horse\+Behavior.\+modal\+Back\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a6aa14aec95d4e6b5d2f3f863ec843e2a}\index{HorseBehavior@{HorseBehavior}!neurofluxLevel@{neurofluxLevel}}
+\index{neurofluxLevel@{neurofluxLevel}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{neurofluxLevel}{neurofluxLevel}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a6aa14aec95d4e6b5d2f3f863ec843e2a} 
+int Horse\+Behavior.\+neuroflux\+Level\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a381fde59c32b4407762552cb49706d44}\index{HorseBehavior@{HorseBehavior}!playerMovement@{playerMovement}}
+\index{playerMovement@{playerMovement}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{playerMovement}{playerMovement}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a381fde59c32b4407762552cb49706d44} 
+\mbox{\hyperlink{class_character___movement}{Character\+\_\+\+Movement}} Horse\+Behavior.\+player\+Movement\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_horse_behavior_a01e747b3be898cd21e900141beb5736b}\index{HorseBehavior@{HorseBehavior}!slightMediumSpeeds@{slightMediumSpeeds}}
+\index{slightMediumSpeeds@{slightMediumSpeeds}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{slightMediumSpeeds}{slightMediumSpeeds}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a01e747b3be898cd21e900141beb5736b} 
+float \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+slight\+Medium\+Speeds\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 55f,\ 60f,\ 65f,\ 70f,\ 47.5f,\ 50f,\ 60f,\ 65f,\ 55f,\ 65f,\ 70f,\ 150f,\ 45f,\ 60f,\ 65f,\ 60f,\ 55f,\ 50f,\ 70f,\ 72.5f,\ 20f,\ 30f,\ 40f,\ 25f,\ 40f,\ 100f,\ 40f,\ 50f,\ 60f,\ 55f,\ 65f,\ 50f}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_horse_behavior_acd5004cc47a7394ebc21117892c05f7c}\index{HorseBehavior@{HorseBehavior}!slowChosenSpeeds@{slowChosenSpeeds}}
+\index{slowChosenSpeeds@{slowChosenSpeeds}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{slowChosenSpeeds}{slowChosenSpeeds}}
+{\footnotesize\ttfamily \label{class_horse_behavior_acd5004cc47a7394ebc21117892c05f7c} 
+float \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+slow\+Chosen\+Speeds\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 20f,\ 22.5f,\ 25f,\ 27.5f,\ 30f,\ 32.5f,\ 35f,\ 37.5f,\ 40f,\ 42.5f,\ 42.5f,\ 45f,\ 60f,\ 70f,\ 20f,\ 22.5f,\ 30f,\ 32.5f,\ 40f,\ 45f,\ 100f,\ 120f,\ 70f,\ 50f,\ 35f,\ 35f,\ 23.5f,\ 40f,\ 40f,\ 22.5f}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_horse_behavior_adf522359271d96902471fbd522d74b48}\index{HorseBehavior@{HorseBehavior}!slowMediumSpeeds@{slowMediumSpeeds}}
+\index{slowMediumSpeeds@{slowMediumSpeeds}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{slowMediumSpeeds}{slowMediumSpeeds}}
+{\footnotesize\ttfamily \label{class_horse_behavior_adf522359271d96902471fbd522d74b48} 
+float \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+slow\+Medium\+Speeds\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 25f,\ 30f,\ 35f,\ 40f,\ 45f,\ 50f,\ 52.5f,\ 55.5f,\ 60f,\ 62.5f,\ 70f,\ 75f}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_horse_behavior_a27bda7732e9cfb07ecac85f6e7d26306}\index{HorseBehavior@{HorseBehavior}!slowSpeeds@{slowSpeeds}}
+\index{slowSpeeds@{slowSpeeds}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{slowSpeeds}{slowSpeeds}}
+{\footnotesize\ttfamily \label{class_horse_behavior_a27bda7732e9cfb07ecac85f6e7d26306} 
+float \mbox{[}$\,$\mbox{]} Horse\+Behavior.\+slow\+Speeds\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 20f,\ 22.5f,\ 25f,\ 27.5f,\ 30f,\ 32.5f,\ 35f,\ 37.5f,\ 40f,\ 42.5f,\ 42.5f}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_horse_behavior_ac6f8b65c3e35ffdcf7d0a6a30447854b}\index{HorseBehavior@{HorseBehavior}!trailLifetime@{trailLifetime}}
+\index{trailLifetime@{trailLifetime}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{trailLifetime}{trailLifetime}}
+{\footnotesize\ttfamily \label{class_horse_behavior_ac6f8b65c3e35ffdcf7d0a6a30447854b} 
+float Horse\+Behavior.\+trail\+Lifetime = 0.\+1f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_horse_behavior_acdc886c5ba1f8c278d2bb44d3434531e}\index{HorseBehavior@{HorseBehavior}!playerData@{playerData}}
+\index{playerData@{playerData}!HorseBehavior@{HorseBehavior}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{class_horse_behavior_acdc886c5ba1f8c278d2bb44d3434531e} 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} Horse\+Behavior.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Horses/\mbox{\hyperlink{_horse_behavior_8cs}{Horse\+Behavior.\+cs}}\end{DoxyCompactItemize}

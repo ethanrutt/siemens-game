@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @brief This is a constructor to assign a sprite to a dialogue image for the
+ * character
+ */
 [System.Serializable]
 public class CharacterImage
 {

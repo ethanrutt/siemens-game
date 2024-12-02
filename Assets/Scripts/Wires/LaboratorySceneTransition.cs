@@ -18,7 +18,7 @@ public class LaboratorySceneTransition : MonoBehaviour
      *
      * This handles the zone for starting the wire game. When a player enters
      * this area, a button will pop up which allows them to enter the wire game
-     * 
+     *
      * @param other The other Collider2D that is currently colliding with this gameObject
      */
     public void OnTriggerEnter2D(Collider2D other)
@@ -33,7 +33,7 @@ public class LaboratorySceneTransition : MonoBehaviour
      *
      * This handles the zone for starting the wire game. When a player leaves
      * this area, the button should become inactive again
-     * 
+     *
      * @param other The other Collider2D that is currently colliding with this gameObject
      */
     public void OnTriggerExit2D(Collider2D other)

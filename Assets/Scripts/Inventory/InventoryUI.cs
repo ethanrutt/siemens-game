@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro; // For TextMeshPro
 
+/**
+ * @class InventoryUI
+ * @brief This class handles the UI buttons on the inventory modal.
+ *
+ * @see Inventory
+ * @see BodyPart
+ */
 public class InventoryUI : MonoBehaviour
 {
     public Inventory inventory; // Reference to the Inventory
@@ -43,13 +50,13 @@ public class InventoryUI : MonoBehaviour
         {
             GameObject newButtonObject = Instantiate(buttonPrefab, buttonContainer);
             Button newButton = newButtonObject.GetComponent<Button>();
-            
+
             //TextMeshProUGUI buttonText = newButtonObject.GetComponentInChildren<TextMeshProUGUI>();
             //buttonText.text = item.itemName;
-            
+
             Image iconImage = newButtonObject.transform.Find("IconImage").GetComponent<Image>();
             iconImage.sprite = item.itemIcon; // Set the cosmetic item's icon
-            
+
             bool shouldShow = bodyPartVisibility[item.bodyPart];
             newButtonObject.SetActive(shouldShow);
 
@@ -58,7 +65,7 @@ public class InventoryUI : MonoBehaviour
             itemButtons.Add(newButton); // Add to the list
         }
     }
-    
+
     private void OnItemClicked(CosmeticItem item)
     {
         // Handle item click logic here
@@ -78,13 +85,13 @@ public class InventoryUI : MonoBehaviour
     {
         // Create a temporary list of keys to avoid modifying the dictionary while iterating
         List<BodyPart> keys = new List<BodyPart>(bodyPartVisibility.Keys);
-        
+
         foreach (BodyPart part in keys)
         {
             bodyPartVisibility[part] = true; // Set all body parts to visible
         }
     }
-    
+
     // Call this method to show all cosmetics
     public void ShowAll()
     {

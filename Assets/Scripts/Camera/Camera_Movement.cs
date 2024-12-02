@@ -2,6 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @brief This class is for tutorial and the start of scenes where we want to
+ * show the different interactables available in an area. It's used to pan the
+ * camera around to the different areas and then reset back to the player
+ */
 public class CameraFollow : MonoBehaviour
 {
     // Other fields
@@ -11,14 +16,17 @@ public class CameraFollow : MonoBehaviour
 
     // How much the camera takes up on the screen
     private float cameraZoomSize = 3.0f;
-    
+
     // Given a target, pan the camera to the target
     private void SwitchTarget(Transform newTarget)
     {
         target = newTarget;
     }
 
-    // Coroutine to switch target for a certain duration and switch back to old target
+    /**
+     * @brief Coroutine to switch target for a certain duration and switch back
+     * to old target
+     */
     public void PanCamera(Transform newTarget)
     {
         // Call the coroutine

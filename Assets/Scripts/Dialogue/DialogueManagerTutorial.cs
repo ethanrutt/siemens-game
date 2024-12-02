@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Rishi Santhanam
-// This is for the sensei at the tutorial portion of the game.
+/**
+ * @brief This handles the dialogue for sensei during the tutorial scene
+ *
+ * @see DialogueManager
+ */
 public class DialogueManagerTutorial : MonoBehaviour
 {
     // SerializeFields all things
@@ -18,7 +21,7 @@ public class DialogueManagerTutorial : MonoBehaviour
 
     // Serialize the dialogue array text
     [SerializeField] private string[] dialogues;
-    
+
     // Serialize the character image it's associated with (in the array)
     [SerializeField] private int[] characterImageAssociations;
 
@@ -55,7 +58,7 @@ public class DialogueManagerTutorial : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        
+
         isTyping = false;
     }
 
@@ -72,38 +75,30 @@ public class DialogueManagerTutorial : MonoBehaviour
         characterImage.sprite = characterImages[characterImageAssociations[dialogueIndex]];
     }
 
-    // Display the next sentence 
+    // Display the next sentence
     public void DisplayNextSentence()
     {
-        // DEBUG: Just use if needed, the tutorial is autoended.
-        // if (dialogueIndex < dialogues.Length - 1)
-        // {
-            // Stop all coroutines
-            StopAllCoroutines();
-            
-            // Start Coroutine
-            ClearDialogue();
-            dialogueIndex++;
+        // Stop all coroutines
+        StopAllCoroutines();
 
-            // Typing the sentence
-            isTyping = true;
-            // if index is not out of the bounds
-            if (dialogueIndex < dialogues.Length)
-            {
-                StartCoroutine(TypeSentence(dialogues[dialogueIndex]));
-            }
-            else
-            {
-                EndDialogue();
-            }
+        // Start Coroutine
+        ClearDialogue();
+        dialogueIndex++;
 
-            // Set the character image
-            characterImage.sprite = characterImages[characterImageAssociations[dialogueIndex]];
-        // }
-        // else
-        // {
-        //     EndDialogue();
-        // }
+        // Typing the sentence
+        isTyping = true;
+        // if index is not out of the bounds
+        if (dialogueIndex < dialogues.Length)
+        {
+            StartCoroutine(TypeSentence(dialogues[dialogueIndex]));
+        }
+        else
+        {
+            EndDialogue();
+        }
+
+        // Set the character image
+        characterImage.sprite = characterImages[characterImageAssociations[dialogueIndex]];
     }
 
     // Clear the dialogue

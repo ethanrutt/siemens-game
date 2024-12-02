@@ -21,7 +21,7 @@ public class WireConnectionTest : MonoBehaviour
     public IEnumerator SetUp()
     {
         Debug.Log("setting up");
-        SceneManager.LoadScene("EmptyScene");
+        SceneManager.LoadScene("WireGame");
         yield return null;
 
         wireEntry = AssetDatabase.LoadAssetAtPath<GameObject>(wireEntryPrefabPath);

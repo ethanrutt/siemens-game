@@ -2,9 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @class FinishTutorial
+ * @brief This class handles logic for when the tutorial is finished
+ * @details On completion, the aggie football helmet is unlocked, so that is
+ * handled here
+ */
 public class FinishTutorial : MonoBehaviour
 {
-
     // Grab playerData
     public PlayerData playerData => PlayerData.Instance;
 

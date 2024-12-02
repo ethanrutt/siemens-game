@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// For the cutscene (there is no player on this scene)
-// Just tapping the screen to go to the next dialogue
+/**
+ * @brief This class handles the dialogue when there is no player on the screen.
+ */
 public class DialogueManager_Cutscene : MonoBehaviour
 {
     // Get the dialogue panel, the textmeshpro text for the current dialogue
@@ -15,7 +16,7 @@ public class DialogueManager_Cutscene : MonoBehaviour
 
     // Serialize the dialogue array text
     [SerializeField] private string[] dialogues;
-    
+
     // Serialize the character image it's associated with (in the array)
     [SerializeField] private int[] characterImageAssociations;
 
@@ -52,7 +53,7 @@ public class DialogueManager_Cutscene : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        
+
         isTyping = false;
     }
 
@@ -68,25 +69,22 @@ public class DialogueManager_Cutscene : MonoBehaviour
     // Display the next sentence
     public void DisplayNextSentence()
     {
-        // DEBUG: Just use if needed, the tutorial is autoended.
-        // if (dialogueIndex < dialogues.Length - 1)
-        // {
-            // Stop all coroutines
-            StopAllCoroutines();
-            
-            // Start Coroutine
-            ClearDialogue();
-            dialogueIndex++;
+        // Stop all coroutines
+        StopAllCoroutines();
 
-            // Typing the sentence
-            isTyping = true;
-            StartCoroutine(TypeSentence(dialogues[dialogueIndex]));
+        // Start Coroutine
+        ClearDialogue();
+        dialogueIndex++;
 
-            // Set the character image
-            characterImage.sprite = characterImages[characterImageAssociations[dialogueIndex]];
+        // Typing the sentence
+        isTyping = true;
+        StartCoroutine(TypeSentence(dialogues[dialogueIndex]));
 
-            // Set the cutscene image
-            cutsceneImage.sprite = cutsceneImages[cutsceneImageAssociations[dialogueIndex]];
+        // Set the character image
+        characterImage.sprite = characterImages[characterImageAssociations[dialogueIndex]];
+
+        // Set the cutscene image
+        cutsceneImage.sprite = cutsceneImages[cutsceneImageAssociations[dialogueIndex]];
     }
 
     // Clear the dialogue

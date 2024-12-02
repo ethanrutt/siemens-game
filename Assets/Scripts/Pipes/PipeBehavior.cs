@@ -2,6 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @class PipeBehavior
+ * @brief This handles the behavior of an individual pipe
+ * @details When clicking on a pipe, the pipe rotates 90 degrees. There is also
+ * synchronization with the global game state that lives in PipeGenerator. When
+ * clicking turn pipes, the sprite image needs to be flipped to keep it
+ * consistent with what's displayed at the screen
+ *
+ * @see PipeGenerator
+ */
 public class PipeBehavior : MonoBehaviour
 {
     public PipeInfo pipeInfo;

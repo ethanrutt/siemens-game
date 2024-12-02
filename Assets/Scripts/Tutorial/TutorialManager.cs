@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Essentially, want to have a tutorial manager that allows for Sensei to give the
-// player instructions through dialogue. This will be done through a dialogue manager
-// that will be called by the tutorial manager. The tutorial manager will be responsible
-// for managing the tutorial, panning the camera, and other tutorial-related tasks.
-
+/**
+ * @class TutorialManager
+ * @brief Essentially, want to have a tutorial manager that allows for Sensei
+ * to give the player instructions through dialogue. This will be done through
+ * a dialogue manager that will be called by the tutorial manager. The tutorial
+ * manager will be responsible for managing the tutorial, panning the camera,
+ * and other tutorial-related tasks.
+ */
 public class TutorialManager : MonoBehaviour
 {
     // Playerdata
@@ -61,7 +64,7 @@ public class TutorialManager : MonoBehaviour
     {
         // First, stop the player and wait for 1.5 seconds
         player.StopPlayer();
-        
+
         // Wait for 3 seconds
         StartCoroutine(WaitForSeconds(3.0f));
 
@@ -95,8 +98,8 @@ public class TutorialManager : MonoBehaviour
 
             // Let player move
             player.UnstopPlayer();
-        } 
-            
+        }
+
         else if (dialogueIndex == 5 && waitingOnObjective)
         {
             // Check if the player is near the flag
@@ -226,10 +229,10 @@ public class TutorialManager : MonoBehaviour
         // Also, increment sensei of npc interactions
         playerData.npc_interactions["sensei"] = 1;
 
-        // Change gameManager's 
+        // Change gameManager's
 
         // Unlock tutorial achievement (id = 0)
         playerData.UnlockAchievement(0);
     }
-    
+
 }

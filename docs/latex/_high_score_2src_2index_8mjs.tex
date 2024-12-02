@@ -1,0 +1,70 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/\+High\+Score/src/index.mjs File Reference}
+\hypertarget{_high_score_2src_2index_8mjs}{}\label{_high_score_2src_2index_8mjs}\index{backend/LambdaFunctionAPIs/HighScore/src/index.mjs@{backend/LambdaFunctionAPIs/HighScore/src/index.mjs}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_high_score_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488}{import}} \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/utils.\+mjs\textquotesingle{}
+\item 
+\mbox{\hyperlink{utils_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{_high_score_2src_2index_8mjs_a5d40223f262882b12c7d2b8db9786076}{get\+Score\+And\+Rank}}
+\item 
+export \mbox{\hyperlink{utils_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{_high_score_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}{handler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{_high_score_2src_2index_8mjs_a5d40223f262882b12c7d2b8db9786076}\index{index.mjs@{index.mjs}!getScoreAndRank@{getScoreAndRank}}
+\index{getScoreAndRank@{getScoreAndRank}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{getScoreAndRank}{getScoreAndRank}}
+{\footnotesize\ttfamily \label{_high_score_2src_2index_8mjs_a5d40223f262882b12c7d2b8db9786076} 
+\mbox{\hyperlink{utils_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} get\+Score\+And\+Rank}
+
+Retrieves the score and rank for a user in a specific game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & client -\/ The Postgre\+SQL client for database operations. \\
+\hline
+{\em \{number\}} & user\+Id -\/ The ID of the user. \\
+\hline
+{\em \{number\}} & game\+Id -\/ The ID of the game. \\
+\hline
+{\em \{string\}} & table\+Name -\/ The name of the table to query (default\+: \textquotesingle{}game\+\_\+scores\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} -\/ An object containing the target score and rank of the user. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the query fails or no scores are found for the user. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{_high_score_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}\index{index.mjs@{index.mjs}!handler@{handler}}
+\index{handler@{handler}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{handler}{handler}}
+{\footnotesize\ttfamily \label{_high_score_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d} 
+export \mbox{\hyperlink{utils_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} handler}
+
+Lambda function handler for retrieving a user\textquotesingle{}s score and rank in a specific game.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & event -\/ The Lambda event object containing the request data. \\
+\hline
+{\em \{string\}} & table\+Name -\/ The name of the database table to query (default\+: \textquotesingle{}game\+\_\+scores\textquotesingle{}). \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} -\/ Returns a response object containing the score and rank. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the request body is invalid or the database query fails. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{_high_score_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488}\index{index.mjs@{index.mjs}!import@{import}}
+\index{import@{import}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{_high_score_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488} 
+import \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/utils.\+mjs\textquotesingle{}}
+

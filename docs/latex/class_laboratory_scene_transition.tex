@@ -1,0 +1,89 @@
+\doxysection{Laboratory\+Scene\+Transition Class Reference}
+\hypertarget{class_laboratory_scene_transition}{}\label{class_laboratory_scene_transition}\index{LaboratorySceneTransition@{LaboratorySceneTransition}}
+Inheritance diagram for Laboratory\+Scene\+Transition\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_laboratory_scene_transition}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_laboratory_scene_transition_a1fa351312bc2d2690b25288f9ba9fe68}{On\+Trigger\+Enter2D}} (Collider2D other)
+\item 
+void \mbox{\hyperlink{class_laboratory_scene_transition_aeef9e888bbd6e46934ab80a204f2558d}{On\+Trigger\+Exit2D}} (Collider2D other)
+\item 
+void \mbox{\hyperlink{class_laboratory_scene_transition_a0e62f4d33b12537580de21f32714339f}{Start\+Wire\+Game}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Button \mbox{\hyperlink{class_laboratory_scene_transition_ac22215a29a9213f89383d6eec2651da8}{wire\+Game\+Start\+Button}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_laboratory_scene_transition_a866bc5c37c52192678eb9bacb96c130d}{player\+In\+Zone}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles the scene transition from the laboratory to the wire game 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_laboratory_scene_transition_a1fa351312bc2d2690b25288f9ba9fe68}\index{LaboratorySceneTransition@{LaboratorySceneTransition}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!LaboratorySceneTransition@{LaboratorySceneTransition}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{class_laboratory_scene_transition_a1fa351312bc2d2690b25288f9ba9fe68} 
+void Laboratory\+Scene\+Transition.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{class_laboratory_scene_transition_a1fa351312bc2d2690b25288f9ba9fe68}{On\+Trigger\+Enter2\+D()} is a Unity function that runs when another Collider2D enters the zone of this game\+Object\textquotesingle{}s Collider2D
+
+This handles the zone for starting the wire game. When a player enters this area, a button will pop up which allows them to enter the wire game
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other Collider2D that is currently colliding with this game\+Object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_laboratory_scene_transition_aeef9e888bbd6e46934ab80a204f2558d}\index{LaboratorySceneTransition@{LaboratorySceneTransition}!OnTriggerExit2D@{OnTriggerExit2D}}
+\index{OnTriggerExit2D@{OnTriggerExit2D}!LaboratorySceneTransition@{LaboratorySceneTransition}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit2D()}{OnTriggerExit2D()}}
+{\footnotesize\ttfamily \label{class_laboratory_scene_transition_aeef9e888bbd6e46934ab80a204f2558d} 
+void Laboratory\+Scene\+Transition.\+On\+Trigger\+Exit2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{class_laboratory_scene_transition_aeef9e888bbd6e46934ab80a204f2558d}{On\+Trigger\+Exit2\+D()} is a Unity function that runs when another Collider2D exits the zone of this game\+Object\textquotesingle{}s Collider2D
+
+This handles the zone for starting the wire game. When a player leaves this area, the button should become inactive again
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other Collider2D that is currently colliding with this game\+Object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_laboratory_scene_transition_a0e62f4d33b12537580de21f32714339f}\index{LaboratorySceneTransition@{LaboratorySceneTransition}!StartWireGame@{StartWireGame}}
+\index{StartWireGame@{StartWireGame}!LaboratorySceneTransition@{LaboratorySceneTransition}}
+\doxysubsubsection{\texorpdfstring{StartWireGame()}{StartWireGame()}}
+{\footnotesize\ttfamily \label{class_laboratory_scene_transition_a0e62f4d33b12537580de21f32714339f} 
+void Laboratory\+Scene\+Transition.\+Start\+Wire\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{class_laboratory_scene_transition_a0e62f4d33b12537580de21f32714339f}{Start\+Wire\+Game()} is a function that is attached to the Wire\+Game\+Button in the laboratory. When this button is pressed, the player will load into the wire game scene 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_laboratory_scene_transition_a866bc5c37c52192678eb9bacb96c130d}\index{LaboratorySceneTransition@{LaboratorySceneTransition}!playerInZone@{playerInZone}}
+\index{playerInZone@{playerInZone}!LaboratorySceneTransition@{LaboratorySceneTransition}}
+\doxysubsubsection{\texorpdfstring{playerInZone}{playerInZone}}
+{\footnotesize\ttfamily \label{class_laboratory_scene_transition_a866bc5c37c52192678eb9bacb96c130d} 
+bool Laboratory\+Scene\+Transition.\+player\+In\+Zone = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_laboratory_scene_transition_ac22215a29a9213f89383d6eec2651da8}\index{LaboratorySceneTransition@{LaboratorySceneTransition}!wireGameStartButton@{wireGameStartButton}}
+\index{wireGameStartButton@{wireGameStartButton}!LaboratorySceneTransition@{LaboratorySceneTransition}}
+\doxysubsubsection{\texorpdfstring{wireGameStartButton}{wireGameStartButton}}
+{\footnotesize\ttfamily \label{class_laboratory_scene_transition_ac22215a29a9213f89383d6eec2651da8} 
+Button Laboratory\+Scene\+Transition.\+wire\+Game\+Start\+Button}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Wires/\mbox{\hyperlink{_laboratory_scene_transition_8cs}{Laboratory\+Scene\+Transition.\+cs}}\end{DoxyCompactItemize}

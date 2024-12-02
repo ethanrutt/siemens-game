@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-// Rishi Santhanam
-// The Up Down Left Right buttons (using PointerDown) to move the player
-// The OnCLick of the button is already on the Movement of the Player
+/**
+ * @class UDLR
+ * @brief UDLR (up down left right) handles the buttons to move the player
+ * note that OnClick of the button is already on the Movement of the Player
+ *
+ * @see Character_Movement
+ */
 public class UDLR : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     [SerializeField] private GameObject player;

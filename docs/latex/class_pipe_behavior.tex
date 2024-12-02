@@ -1,0 +1,185 @@
+\doxysection{Pipe\+Behavior Class Reference}
+\hypertarget{class_pipe_behavior}{}\label{class_pipe_behavior}\index{PipeBehavior@{PipeBehavior}}
+
+
+This handles the behavior of an individual pipe.  
+
+
+Inheritance diagram for Pipe\+Behavior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pipe_behavior}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_pipe_info}{Pipe\+Info}} \mbox{\hyperlink{class_pipe_behavior_af35dbf1ade7ff0b4797fe9d72c803116}{pipe\+Info}}
+\item 
+\mbox{\hyperlink{class_pipe_info}{Pipe\+Info}}\mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_pipe_behavior_ab8a7b58b644caf990714a40280920361}{game\+State}}
+\item 
+int \mbox{\hyperlink{class_pipe_behavior_a5438f83e1f3730031eca5a479c6fb0cd}{row}}
+\item 
+int \mbox{\hyperlink{class_pipe_behavior_a3beef5e0a0d9884a465db1b65a62d0a9}{col}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_pipe_behavior_ae8f3466ca5d5b980666879888b608a8c}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_pipe_behavior_a832be21dc87f59d632f7c05d1fbeffab}{Update}} ()
+\item 
+void \mbox{\hyperlink{class_pipe_behavior_ac73d9e43af752b02b243a4cc2dd99574}{On\+Mouse\+Over}} ()
+\item 
+void \mbox{\hyperlink{class_pipe_behavior_a8e674987d962c7204950de53547db08d}{On\+Mouse\+Exit}} ()
+\item 
+void \mbox{\hyperlink{class_pipe_behavior_affb7061bdd8159e3ad3cd2e1559046cf}{On\+Mouse\+Down}} ()
+\item 
+void \mbox{\hyperlink{class_pipe_behavior_a8391349c160d7b11b02d32db3edb4a3b}{On\+Mouse\+Up}} ()
+\item 
+void \mbox{\hyperlink{class_pipe_behavior_a457b1b5a97d3d8ddbd5fdc0336de96a3}{Rotate\+Pipe}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_pipe_behavior_a4c1a13ed721f3fdd0cfeb429b56e2cc6}{mouse\+Down}}
+\item 
+bool \mbox{\hyperlink{class_pipe_behavior_a879a86d9bd66edbbb97f2c8392e7f6f5}{movable}}
+\item 
+Vector3 \mbox{\hyperlink{class_pipe_behavior_a57fc6f6c793f9e99ed60012cc8d5a5e2}{rotate90}} = new Vector3(0, 0, 90)
+\item 
+Vector3 \mbox{\hyperlink{class_pipe_behavior_a8b740138e21eb0a0d67e8fa7735b7003}{rotate\+Turn\+Pipe}} = new Vector3(0, 0, 270)
+\item 
+Quaternion\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_pipe_behavior_a1b6778e442b4f43f9c0faa0310958ba1}{possible\+Rotations}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This handles the behavior of an individual pipe. 
+
+When clicking on a pipe, the pipe rotates 90 degrees. There is also synchronization with the global game state that lives in \doxylink{class_pipe_generator}{Pipe\+Generator}. When clicking turn pipes, the sprite image needs to be flipped to keep it consistent with what\textquotesingle{}s displayed at the screen
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_pipe_generator}{Pipe\+Generator} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pipe_behavior_affb7061bdd8159e3ad3cd2e1559046cf}\index{PipeBehavior@{PipeBehavior}!OnMouseDown@{OnMouseDown}}
+\index{OnMouseDown@{OnMouseDown}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{OnMouseDown()}{OnMouseDown()}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_affb7061bdd8159e3ad3cd2e1559046cf} 
+void Pipe\+Behavior.\+On\+Mouse\+Down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_a8e674987d962c7204950de53547db08d}\index{PipeBehavior@{PipeBehavior}!OnMouseExit@{OnMouseExit}}
+\index{OnMouseExit@{OnMouseExit}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{OnMouseExit()}{OnMouseExit()}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a8e674987d962c7204950de53547db08d} 
+void Pipe\+Behavior.\+On\+Mouse\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_ac73d9e43af752b02b243a4cc2dd99574}\index{PipeBehavior@{PipeBehavior}!OnMouseOver@{OnMouseOver}}
+\index{OnMouseOver@{OnMouseOver}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{OnMouseOver()}{OnMouseOver()}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_ac73d9e43af752b02b243a4cc2dd99574} 
+void Pipe\+Behavior.\+On\+Mouse\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_a8391349c160d7b11b02d32db3edb4a3b}\index{PipeBehavior@{PipeBehavior}!OnMouseUp@{OnMouseUp}}
+\index{OnMouseUp@{OnMouseUp}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{OnMouseUp()}{OnMouseUp()}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a8391349c160d7b11b02d32db3edb4a3b} 
+void Pipe\+Behavior.\+On\+Mouse\+Up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_a457b1b5a97d3d8ddbd5fdc0336de96a3}\index{PipeBehavior@{PipeBehavior}!RotatePipe@{RotatePipe}}
+\index{RotatePipe@{RotatePipe}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{RotatePipe()}{RotatePipe()}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a457b1b5a97d3d8ddbd5fdc0336de96a3} 
+void Pipe\+Behavior.\+Rotate\+Pipe (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_ae8f3466ca5d5b980666879888b608a8c}\index{PipeBehavior@{PipeBehavior}!Start@{Start}}
+\index{Start@{Start}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_ae8f3466ca5d5b980666879888b608a8c} 
+void Pipe\+Behavior.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_a832be21dc87f59d632f7c05d1fbeffab}\index{PipeBehavior@{PipeBehavior}!Update@{Update}}
+\index{Update@{Update}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a832be21dc87f59d632f7c05d1fbeffab} 
+void Pipe\+Behavior.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_pipe_behavior_a3beef5e0a0d9884a465db1b65a62d0a9}\index{PipeBehavior@{PipeBehavior}!col@{col}}
+\index{col@{col}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{col}{col}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a3beef5e0a0d9884a465db1b65a62d0a9} 
+int Pipe\+Behavior.\+col}
+
+\Hypertarget{class_pipe_behavior_ab8a7b58b644caf990714a40280920361}\index{PipeBehavior@{PipeBehavior}!gameState@{gameState}}
+\index{gameState@{gameState}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{gameState}{gameState}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_ab8a7b58b644caf990714a40280920361} 
+\mbox{\hyperlink{class_pipe_info}{Pipe\+Info}} \mbox{[}$\,$\mbox{]}\mbox{[}$\,$\mbox{]} Pipe\+Behavior.\+game\+State}
+
+\Hypertarget{class_pipe_behavior_a4c1a13ed721f3fdd0cfeb429b56e2cc6}\index{PipeBehavior@{PipeBehavior}!mouseDown@{mouseDown}}
+\index{mouseDown@{mouseDown}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{mouseDown}{mouseDown}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a4c1a13ed721f3fdd0cfeb429b56e2cc6} 
+bool Pipe\+Behavior.\+mouse\+Down\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_a879a86d9bd66edbbb97f2c8392e7f6f5}\index{PipeBehavior@{PipeBehavior}!movable@{movable}}
+\index{movable@{movable}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{movable}{movable}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a879a86d9bd66edbbb97f2c8392e7f6f5} 
+bool Pipe\+Behavior.\+movable\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_af35dbf1ade7ff0b4797fe9d72c803116}\index{PipeBehavior@{PipeBehavior}!pipeInfo@{pipeInfo}}
+\index{pipeInfo@{pipeInfo}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{pipeInfo}{pipeInfo}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_af35dbf1ade7ff0b4797fe9d72c803116} 
+\mbox{\hyperlink{class_pipe_info}{Pipe\+Info}} Pipe\+Behavior.\+pipe\+Info}
+
+\Hypertarget{class_pipe_behavior_a1b6778e442b4f43f9c0faa0310958ba1}\index{PipeBehavior@{PipeBehavior}!possibleRotations@{possibleRotations}}
+\index{possibleRotations@{possibleRotations}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{possibleRotations}{possibleRotations}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a1b6778e442b4f43f9c0faa0310958ba1} 
+Quaternion \mbox{[}$\,$\mbox{]} Pipe\+Behavior.\+possible\+Rotations\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Quaternion.Euler(0,\ 0,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Quaternion.Euler(0,\ 0,\ 90),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Quaternion.Euler(0,\ 0,\ 180),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Quaternion.Euler(0,\ 0,\ -\/90)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_pipe_behavior_a57fc6f6c793f9e99ed60012cc8d5a5e2}\index{PipeBehavior@{PipeBehavior}!rotate90@{rotate90}}
+\index{rotate90@{rotate90}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{rotate90}{rotate90}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a57fc6f6c793f9e99ed60012cc8d5a5e2} 
+Vector3 Pipe\+Behavior.\+rotate90 = new Vector3(0, 0, 90)\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_a8b740138e21eb0a0d67e8fa7735b7003}\index{PipeBehavior@{PipeBehavior}!rotateTurnPipe@{rotateTurnPipe}}
+\index{rotateTurnPipe@{rotateTurnPipe}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{rotateTurnPipe}{rotateTurnPipe}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a8b740138e21eb0a0d67e8fa7735b7003} 
+Vector3 Pipe\+Behavior.\+rotate\+Turn\+Pipe = new Vector3(0, 0, 270)\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_pipe_behavior_a5438f83e1f3730031eca5a479c6fb0cd}\index{PipeBehavior@{PipeBehavior}!row@{row}}
+\index{row@{row}!PipeBehavior@{PipeBehavior}}
+\doxysubsubsection{\texorpdfstring{row}{row}}
+{\footnotesize\ttfamily \label{class_pipe_behavior_a5438f83e1f3730031eca5a479c6fb0cd} 
+int Pipe\+Behavior.\+row}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Pipes/\mbox{\hyperlink{_pipe_behavior_8cs}{Pipe\+Behavior.\+cs}}\end{DoxyCompactItemize}

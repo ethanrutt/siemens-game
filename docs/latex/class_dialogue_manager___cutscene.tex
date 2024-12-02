@@ -1,0 +1,199 @@
+\doxysection{Dialogue\+Manager\+\_\+\+Cutscene Class Reference}
+\hypertarget{class_dialogue_manager___cutscene}{}\label{class_dialogue_manager___cutscene}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+
+
+This class handles the dialogue when there is no player on the screen.  
+
+
+Inheritance diagram for Dialogue\+Manager\+\_\+\+Cutscene\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dialogue_manager___cutscene}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___cutscene_abdf6971b76d18c16fd77c82145faf17c}{Start\+Dialogue}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___cutscene_afe47a305b1d7b3f2768bd562ee415e36}{Display\+Next\+Sentence}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___cutscene_a3c04076a45effdbced217b0151ad5974}{Clear\+Dialogue}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___cutscene_ac8899ed9faaf6ba45a2ad540b2402be0}{End\+Dialogue}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___cutscene_acf4445029080330c5981866c6a9eff42}{Pause\+Dialogue}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___cutscene_acfc756dcd0853a16132b8e30fd111b91}{Resume\+Dialogue}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_dialogue_manager___cutscene_ad80ae5a14acd01994e7bb63968e8797e}{dialogue\+Index}} = 0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{class_dialogue_manager___cutscene_a08b615e571098a2c82e263ee1175fa62}{Type\+Sentence}} (string sentence)
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___cutscene_aabfb91dd37e889f54797f41977e25c9f}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_dialogue_manager___cutscene_a14e85bdc7ff2f88da1cca0c494170115}{dialogue\+Panel}}
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_dialogue_manager___cutscene_a1bb779ae8ab2bf35350b24b4a24ca91b}{dialogue\+Text}}
+\item 
+Unity\+Engine.\+UI.\+Image \mbox{\hyperlink{class_dialogue_manager___cutscene_ac36c298599d64fd5d26fb7f76bd51885}{character\+Image}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___cutscene_ae76bf95826172ebf88c95370387e6412}{dialogues}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___cutscene_a6067cbc01ca674ae71b5a4e9b3c5b43d}{character\+Image\+Associations}}
+\item 
+Sprite\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___cutscene_acd506940188ef4b913eada8768a02d94}{character\+Images}} = new Sprite\mbox{[}2\mbox{]}
+\item 
+float \mbox{\hyperlink{class_dialogue_manager___cutscene_ac2ec3050f086d47da40ff957b1640c62}{typing\+Speed}} = 0.\+05f
+\item 
+Unity\+Engine.\+UI.\+Image \mbox{\hyperlink{class_dialogue_manager___cutscene_abcabf09def9b0127ecfda8d13ac8634a}{cutscene\+Image}}
+\item 
+Sprite\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___cutscene_a7ce0234cf3bee0051d6ea23a034fb778}{cutscene\+Images}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___cutscene_a405331fefa84788fce3065af63e056f1}{cutscene\+Image\+Associations}}
+\item 
+bool \mbox{\hyperlink{class_dialogue_manager___cutscene_a8fdb5528aa14ba22d203b7366a2b84fd}{is\+Typing}} = true
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles the dialogue when there is no player on the screen. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dialogue_manager___cutscene_a3c04076a45effdbced217b0151ad5974}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!ClearDialogue@{ClearDialogue}}
+\index{ClearDialogue@{ClearDialogue}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{ClearDialogue()}{ClearDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_a3c04076a45effdbced217b0151ad5974} 
+void Dialogue\+Manager\+\_\+\+Cutscene.\+Clear\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_afe47a305b1d7b3f2768bd562ee415e36}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!DisplayNextSentence@{DisplayNextSentence}}
+\index{DisplayNextSentence@{DisplayNextSentence}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{DisplayNextSentence()}{DisplayNextSentence()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_afe47a305b1d7b3f2768bd562ee415e36} 
+void Dialogue\+Manager\+\_\+\+Cutscene.\+Display\+Next\+Sentence (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_ac8899ed9faaf6ba45a2ad540b2402be0}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!EndDialogue@{EndDialogue}}
+\index{EndDialogue@{EndDialogue}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{EndDialogue()}{EndDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_ac8899ed9faaf6ba45a2ad540b2402be0} 
+void Dialogue\+Manager\+\_\+\+Cutscene.\+End\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_acf4445029080330c5981866c6a9eff42}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!PauseDialogue@{PauseDialogue}}
+\index{PauseDialogue@{PauseDialogue}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{PauseDialogue()}{PauseDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_acf4445029080330c5981866c6a9eff42} 
+void Dialogue\+Manager\+\_\+\+Cutscene.\+Pause\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_acfc756dcd0853a16132b8e30fd111b91}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!ResumeDialogue@{ResumeDialogue}}
+\index{ResumeDialogue@{ResumeDialogue}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{ResumeDialogue()}{ResumeDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_acfc756dcd0853a16132b8e30fd111b91} 
+void Dialogue\+Manager\+\_\+\+Cutscene.\+Resume\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_abdf6971b76d18c16fd77c82145faf17c}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!StartDialogue@{StartDialogue}}
+\index{StartDialogue@{StartDialogue}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{StartDialogue()}{StartDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_abdf6971b76d18c16fd77c82145faf17c} 
+void Dialogue\+Manager\+\_\+\+Cutscene.\+Start\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_a08b615e571098a2c82e263ee1175fa62}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!TypeSentence@{TypeSentence}}
+\index{TypeSentence@{TypeSentence}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{TypeSentence()}{TypeSentence()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_a08b615e571098a2c82e263ee1175fa62} 
+IEnumerator Dialogue\+Manager\+\_\+\+Cutscene.\+Type\+Sentence (\begin{DoxyParamCaption}\item[{string}]{sentence}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_aabfb91dd37e889f54797f41977e25c9f}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!Update@{Update}}
+\index{Update@{Update}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_aabfb91dd37e889f54797f41977e25c9f} 
+void Dialogue\+Manager\+\_\+\+Cutscene.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_dialogue_manager___cutscene_ac36c298599d64fd5d26fb7f76bd51885}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!characterImage@{characterImage}}
+\index{characterImage@{characterImage}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{characterImage}{characterImage}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_ac36c298599d64fd5d26fb7f76bd51885} 
+Unity\+Engine.\+UI.\+Image Dialogue\+Manager\+\_\+\+Cutscene.\+character\+Image\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_a6067cbc01ca674ae71b5a4e9b3c5b43d}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!characterImageAssociations@{characterImageAssociations}}
+\index{characterImageAssociations@{characterImageAssociations}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{characterImageAssociations}{characterImageAssociations}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_a6067cbc01ca674ae71b5a4e9b3c5b43d} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Cutscene.\+character\+Image\+Associations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_acd506940188ef4b913eada8768a02d94}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!characterImages@{characterImages}}
+\index{characterImages@{characterImages}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{characterImages}{characterImages}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_acd506940188ef4b913eada8768a02d94} 
+Sprite \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Cutscene.\+character\+Images = new Sprite\mbox{[}2\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_abcabf09def9b0127ecfda8d13ac8634a}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!cutsceneImage@{cutsceneImage}}
+\index{cutsceneImage@{cutsceneImage}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{cutsceneImage}{cutsceneImage}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_abcabf09def9b0127ecfda8d13ac8634a} 
+Unity\+Engine.\+UI.\+Image Dialogue\+Manager\+\_\+\+Cutscene.\+cutscene\+Image\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_a405331fefa84788fce3065af63e056f1}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!cutsceneImageAssociations@{cutsceneImageAssociations}}
+\index{cutsceneImageAssociations@{cutsceneImageAssociations}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{cutsceneImageAssociations}{cutsceneImageAssociations}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_a405331fefa84788fce3065af63e056f1} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Cutscene.\+cutscene\+Image\+Associations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_a7ce0234cf3bee0051d6ea23a034fb778}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!cutsceneImages@{cutsceneImages}}
+\index{cutsceneImages@{cutsceneImages}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{cutsceneImages}{cutsceneImages}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_a7ce0234cf3bee0051d6ea23a034fb778} 
+Sprite \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Cutscene.\+cutscene\+Images\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_ad80ae5a14acd01994e7bb63968e8797e}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!dialogueIndex@{dialogueIndex}}
+\index{dialogueIndex@{dialogueIndex}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{dialogueIndex}{dialogueIndex}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_ad80ae5a14acd01994e7bb63968e8797e} 
+int Dialogue\+Manager\+\_\+\+Cutscene.\+dialogue\+Index = 0}
+
+\Hypertarget{class_dialogue_manager___cutscene_a14e85bdc7ff2f88da1cca0c494170115}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!dialoguePanel@{dialoguePanel}}
+\index{dialoguePanel@{dialoguePanel}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{dialoguePanel}{dialoguePanel}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_a14e85bdc7ff2f88da1cca0c494170115} 
+Game\+Object Dialogue\+Manager\+\_\+\+Cutscene.\+dialogue\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_ae76bf95826172ebf88c95370387e6412}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!dialogues@{dialogues}}
+\index{dialogues@{dialogues}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{dialogues}{dialogues}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_ae76bf95826172ebf88c95370387e6412} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Cutscene.\+dialogues\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_a1bb779ae8ab2bf35350b24b4a24ca91b}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!dialogueText@{dialogueText}}
+\index{dialogueText@{dialogueText}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{dialogueText}{dialogueText}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_a1bb779ae8ab2bf35350b24b4a24ca91b} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+\_\+\+Cutscene.\+dialogue\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_a8fdb5528aa14ba22d203b7366a2b84fd}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!isTyping@{isTyping}}
+\index{isTyping@{isTyping}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{isTyping}{isTyping}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_a8fdb5528aa14ba22d203b7366a2b84fd} 
+bool Dialogue\+Manager\+\_\+\+Cutscene.\+is\+Typing = true\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___cutscene_ac2ec3050f086d47da40ff957b1640c62}\index{DialogueManager\_Cutscene@{DialogueManager\_Cutscene}!typingSpeed@{typingSpeed}}
+\index{typingSpeed@{typingSpeed}!DialogueManager\_Cutscene@{DialogueManager\_Cutscene}}
+\doxysubsubsection{\texorpdfstring{typingSpeed}{typingSpeed}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___cutscene_ac2ec3050f086d47da40ff957b1640c62} 
+float Dialogue\+Manager\+\_\+\+Cutscene.\+typing\+Speed = 0.\+05f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Cutscenes/\mbox{\hyperlink{_dialogue_manager___cutscene_8cs}{Dialogue\+Manager\+\_\+\+Cutscene.\+cs}}\end{DoxyCompactItemize}

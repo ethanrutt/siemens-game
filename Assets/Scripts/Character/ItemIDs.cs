@@ -10,16 +10,17 @@ using UnityEngine.UI;
 
 // Defines all ItemIDs for the game
 // This includes all items, dances, and unlockables
+//
 
+/**
+ * @brief ItemIds holds the encoding for the various items. This includes all
+ * of the cosmetic items. It also holds the LoreObject which will be the
+ * various emails from the original project team that have to do with the Lore.
+ * It also holds the achievement descriptions which trigger when the player
+ * does various things.
+ */
 public class ItemIDs : MonoBehaviour
 {
-    // Each item will have an ID, a name, and a type
-    // Types: "hat", "chest", "leggings", "shoes", "dance", "unlockable"
-
-    // Will be defined in an item database/dictionary that will have an integer id linked to
-    // a object struct that contains name, type, and other information
-    
-    // Create the object struct
     public struct Item
     {
         public string name; // The name of the item
@@ -79,17 +80,11 @@ public class ItemIDs : MonoBehaviour
         {18, new Achievement{title = "Weirdo", description = "Find the drunkard and speak with him.", lore_linker = 17}}
     };
 
-// how do I quote iwthin a quote?
-// a: if you have two quotes?
-// q: yes, like if I have my main quote ""
-// a: you can use single quotes ''
-// but what if I want to use double quotes?
-
     // Public Dictionary int -> LoreObject (for all lore objects)
     public Dictionary<int, LoreObject> lore_database = new Dictionary<int, LoreObject>()
     {
-        {0, new LoreObject("Dr. Santhanam", "Long Time No See...", 
-        "Hey team,\n\nLong time no see. Well, I'm not sure if we'll see again. You know – when we started this project, we were all excited. To be able to remove the shackles of mortality from mankind... But now, I've lost my way.\n\nOn another note, I've transferred parts of my consciousness into the robot \"Sensei\". Take care of Keiko for me.\n\nI suppose this is goodbye,\nYour buddy", 
+        {0, new LoreObject("Dr. Santhanam", "Long Time No See...",
+        "Hey team,\n\nLong time no see. Well, I'm not sure if we'll see again. You know – when we started this project, we were all excited. To be able to remove the shackles of mortality from mankind... But now, I've lost my way.\n\nOn another note, I've transferred parts of my consciousness into the robot \"Sensei\". Take care of Keiko for me.\n\nI suppose this is goodbye,\nYour buddy",
         "Dec. 17, 2054", new string[]{"Ethan", "Rohan", "Naveed"})},
         {1, new LoreObject("Dr. Santhanam", "Come to the Lab! (URGENT)", "Rohan, can you come to the lab around 5 PM? I've made good progress on the protocol we discussed back in October. I think you'll be pleased with the results.\n\nBest,\nDr. Santhanam", "Nov. 13, 2053", new string[]{"Rohan"})},
         {2, new LoreObject("Dr. Santhanam", "Vacation Time", "Ethan. Me and my wife Keiko are going back to visit her family in Niigata. I was wondering if you'd like to come along.\n\nThat stipend from Project Elysium should be more than enough to cover the trip.\n\nKindest regards,\nRishi", "Mar. 28, 2051", new string[]{"Ethan"})},
@@ -243,7 +238,7 @@ public class ItemIDs : MonoBehaviour
                     inventoryButtons[i].SetActive(true);
                     inventoryButtons[i].GetComponent<Image>().sprite = itemSprite;
                     inventoryButtons[i].GetComponent<InvButtonItem>().item_id = itemID;
-                    
+
                     // Capture the current value of i in a new local variable
                     int buttonIndex = i;
 
@@ -251,7 +246,7 @@ public class ItemIDs : MonoBehaviour
                     inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
 
                     // Add the new listener
-                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() =>
                         inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
                     );
                 }
@@ -289,12 +284,9 @@ public class ItemIDs : MonoBehaviour
                     inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
 
                     // Add the new listener
-                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() =>
                         inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
                     );
-
-                    // Debug
-                    // Debug.Log("Button Index: " + buttonIndex);
                 }
                 else
                 {
@@ -303,9 +295,9 @@ public class ItemIDs : MonoBehaviour
             }
 
         } else if (selectedType == "chest") {
-                
+
                 List<int> displayItems = new List<int>();
-    
+
                 for (int i = 0; i < ownedItems.Count; i++)
                 {
                     if (ownedItems[i] >= 200 && ownedItems[i] < 300)
@@ -313,7 +305,7 @@ public class ItemIDs : MonoBehaviour
                         displayItems.Add(ownedItems[i]);
                     }
                 }
-    
+
                 for (int i = 0; i < inventoryButtons.Length; i++)
                 {
                     if (i < displayItems.Count)
@@ -331,7 +323,7 @@ public class ItemIDs : MonoBehaviour
                         inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
 
                         // Add the new listener
-                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() =>
                             inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
                         );
                     }
@@ -340,11 +332,11 @@ public class ItemIDs : MonoBehaviour
                         inventoryButtons[i].SetActive(false);
                     }
                 }
-    
+
             } else if (selectedType == "leggings") {
-    
+
                 List<int> displayItems = new List<int>();
-    
+
                 for (int i = 0; i < ownedItems.Count; i++)
                 {
                     if (ownedItems[i] >= 300 && ownedItems[i] < 400)
@@ -352,7 +344,7 @@ public class ItemIDs : MonoBehaviour
                         displayItems.Add(ownedItems[i]);
                     }
                 }
-    
+
                 for (int i = 0; i < inventoryButtons.Length; i++)
                 {
                     if (i < displayItems.Count)
@@ -370,7 +362,7 @@ public class ItemIDs : MonoBehaviour
                         inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
 
                         // Add the new listener
-                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() =>
                             inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
                         );
                     }
@@ -379,11 +371,11 @@ public class ItemIDs : MonoBehaviour
                         inventoryButtons[i].SetActive(false);
                     }
                 }
-    
+
             } else if (selectedType == "shoes") {
-    
+
                 List<int> displayItems = new List<int>();
-    
+
                 for (int i = 0; i < ownedItems.Count; i++)
                 {
                     if (ownedItems[i] >= 400 && ownedItems[i] < 500)
@@ -391,7 +383,7 @@ public class ItemIDs : MonoBehaviour
                         displayItems.Add(ownedItems[i]);
                     }
                 }
-    
+
                 for (int i = 0; i < inventoryButtons.Length; i++)
                 {
                     if (i < displayItems.Count)
@@ -409,7 +401,7 @@ public class ItemIDs : MonoBehaviour
                         inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
 
                         // Add the new listener
-                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                        inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() =>
                             inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
                         );
                     }
@@ -420,9 +412,9 @@ public class ItemIDs : MonoBehaviour
                 }
         }
         else if (selectedType == "unlockable") {
-    
+
             List<int> displayItems = new List<int>();
-    
+
             for (int i = 0; i < ownedItems.Count; i++)
             {
                 if (ownedItems[i] >= 500)
@@ -430,7 +422,7 @@ public class ItemIDs : MonoBehaviour
                     displayItems.Add(ownedItems[i]);
                 }
             }
-    
+
             for (int i = 0; i < inventoryButtons.Length; i++)
             {
                 if (i < displayItems.Count)
@@ -449,11 +441,11 @@ public class ItemIDs : MonoBehaviour
                     inventoryButtons[buttonIndex].GetComponent<Button>().onClick.RemoveAllListeners();
 
                     // Add the new listener
-                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() => 
+                    inventoryButtons[buttonIndex].GetComponent<Button>().onClick.AddListener(() =>
                         inventoryButtons[buttonIndex].GetComponent<InvButtonItem>().EquipItem(itemID)
                     );
 
-                    
+
                 }
                 else
                 {
@@ -469,9 +461,6 @@ public class ItemIDs : MonoBehaviour
     {
         // selectedType = all
         selectedType = "all";
-
-        // DEBUG: Equip a dance
-        // playerData.equipped_items.Add(500);
 
         if (!isSorted(playerData.unlocked_items))
         {
@@ -506,15 +495,10 @@ public class ItemIDs : MonoBehaviour
             playerData.unlocked_items.Sort();
         }
 
-        // DEBUG LOG for selectedType
-        // Debug.Log("Selected Type: " + selectedType);
         if (selectedType != newselectedType)
         {
             FillInventoryButtons();
             newselectedType = selectedType;
         }
-
-        // DEBUG LOG
-        // Debug.Log("Selected Type: " + selectedType);
     }
 }

@@ -4,6 +4,12 @@ using UnityEngine;
 
 using UnityEngine.SceneManagement;
 
+/**
+ * @brief This class handles cutscenes. When going to the tutorial and the town
+ * square, we pan the camera to show the various interactable areas or show
+ * flags in the tutorial. This will handle the scenes starting so that we can
+ * pan to the proper areas.
+ */
 public class CutsceneManager : MonoBehaviour
 {
     // Grab the dialogueManager
@@ -20,7 +26,7 @@ public class CutsceneManager : MonoBehaviour
 
     // Grab ModalBack and active it
     [SerializeField] private GameObject modalBack;
-    
+
     // Start
     void Start()
     {
@@ -39,7 +45,6 @@ public class CutsceneManager : MonoBehaviour
         }
     }
 
-    // Take to Tutorial Scene or Laboratory-L1
     public void toTutorialScene()
     {
         // Load the tutorial scene
@@ -48,13 +53,10 @@ public class CutsceneManager : MonoBehaviour
         UnityEngine.SceneManagement.SceneManager.LoadScene("Tutorial");
     }
 
-    // Take to Laboratory-L1
     public void toTownSquare()
     {
         // Load the laboratory-l1 scene
         gameManager.ChangePlayerSpawnPosition(new Vector2(-30.1f, 20.49f));
         UnityEngine.SceneManagement.SceneManager.LoadScene("Town_Square");
     }
-
-    
 }

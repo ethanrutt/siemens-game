@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// This is the DialogueManager for the TownSquare
-// It will store the dialogues for the two NPCs, the Shopowner
-// and the Drunk guy on the building
+/**
+ * @brief This handles the dialogue for the town square. This involves sensei's
+ * dialogue, the shop owner, and the drunkard on top of the building
+ *
+ * @see DialogueManager
+ */
 public class DialogueManager_TS : MonoBehaviour
 {
     // Load the sprites in an array for the two NPCs
@@ -166,7 +169,7 @@ public class DialogueManager_TS : MonoBehaviour
 
         // Make the dialoguePanel type something
         isTyping = true;
-        
+
         // Make the sentence type and just stop it after (like the yield wait for + 1)
         typeSentenceCoroutine = StartCoroutine(DrunkGuyDialogue());
     }
@@ -188,7 +191,7 @@ public class DialogueManager_TS : MonoBehaviour
         // Start typing the sentence
         isTyping = true;
         // Start a random dialogue
-        
+
         // define randomIndex
         int randomIndex = Random.Range(0, drunkGuyDialogues.Length);
 
@@ -215,13 +218,13 @@ public class DialogueManager_TS : MonoBehaviour
     public void TalkToShopOwner()
     {
         dialoguePanel.SetActive(true);
-        
+
         // Check if the player has talked to the shop owner before
         if (playerData.npc_interactions["shopkeeper"] == 0)
         {
             // Initialize the dialogue index for new interaction.
             dialogueIndex = 0;
-            
+
             // Start initial long dialogue with multiple parts
             StartCoroutine(InitialShopOwnerDialogue());
         }
@@ -239,19 +242,19 @@ public class DialogueManager_TS : MonoBehaviour
 
         if (typeSentenceCoroutine != null)
             StopCoroutine(typeSentenceCoroutine);
-        
+
         // Random index for one-liners
         int randomIndex = Random.Range(0, shopOwnerOneLiners.Length);
         string randomDialogue = shopOwnerOneLiners[randomIndex];
-        
+
         // Set sprite and character name
         characterImage.sprite = shopOwnerSprites[shopOwnerSpriteIndices_OneLiners[randomIndex]];
         charName.text = "Ethan";
-        
+
         // Typing the sentence
         isTyping = true;
         typeSentenceCoroutine = StartCoroutine(TypeSentence(randomDialogue));
-        
+
         // Wait for user interaction for closing or opening the shop
         StartCoroutine(WaitForUserInput());
     }
@@ -260,7 +263,7 @@ public class DialogueManager_TS : MonoBehaviour
     {
         // Wait for a mouse click or screen tap
         yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && Input.GetTouch(0).phase == TouchPhase.Began));
-        
+
         dialoguePanel.SetActive(false);
         shopPanel.SetActive(true);
 
@@ -341,7 +344,7 @@ public class DialogueManager_TS : MonoBehaviour
             dialogueText.text += letter;
             yield return new WaitForSeconds(typingSpeed);
         }
-        
+
         isTyping = false;
     }
 
@@ -370,7 +373,7 @@ public class DialogueManager_TS : MonoBehaviour
         isTyping = true;
         typeSentenceCoroutine = StartCoroutine(TypeSentence(shopOwnerOneLiners[dialogueIndex]));
     }
-        
+
 
     // Public integer array for each drunkGuySprites[n] to correspond to drunkGuyDialogues[n]
 
@@ -406,7 +409,7 @@ public class DialogueManager_TS : MonoBehaviour
             SenseiTutorial();
         }
     }
-    
+
     // GameObjects to pan the Camera to
     [SerializeField] private GameObject[] cameraPanTargets; // should be three, scavenge shop, casino, laboratory
 
@@ -508,27 +511,11 @@ public class DialogueManager_TS : MonoBehaviour
 
     void Update()
     {
-
         // If player is talking to sensei, no matter if they click or tap, Do NOT close the dialogue
         if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "sensei")
         {
             // Do nothing
             return;
         }
-
-        // Unnecessary
-        // If player is talking to shopkeeper, one-liner dialogue
-        // if (Input.GetMouseButtonDown(0) || Input.touchCount > 0 && playerData.interactable == "shopowner" && playerData.npc_interactions["shopkeeper"] > 0)
-        // {
-        //     // If dialogueIndex == shopOwnerOneLiners.Length - 1, increment npc_interactions for shopkeeper
-        //     if (dialogueIndex == shopOwnerOneLiners.Length - 1)
-        //     {
-        //         playerData.npc_interactions["shopkeeper"]++;
-        //     }
-
-        //     dialoguePanel.SetActive(false);
-        // }
-
-        
     }
 }

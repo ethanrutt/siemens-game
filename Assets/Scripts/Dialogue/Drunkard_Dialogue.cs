@@ -2,6 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @brief This handles the business logic for the drunkard on top of the
+ * building. The actual dialogue sentences are in DialogueManager_TS
+ *
+ * @see DialogueManager
+ * @see DialogueManager_TS
+ */
 public class Drunkard_Dialogue : MonoBehaviour
 {
     // PlayerData global singleton
@@ -25,7 +32,6 @@ public class Drunkard_Dialogue : MonoBehaviour
         interactButton.SetActive(false);
     }
 
-
     // Start is called before the first frame update
     void Start()
     {
@@ -34,11 +40,5 @@ public class Drunkard_Dialogue : MonoBehaviour
         {
             interactButton = GameObject.Find("UI_Button_Interact");
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

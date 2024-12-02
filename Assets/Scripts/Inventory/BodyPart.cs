@@ -1,3 +1,6 @@
+/**
+ * @brief enumeration for the body parts of the player
+ */
 public enum BodyPart
 {
     Head,
@@ -5,5 +8,4 @@ public enum BodyPart
     Arms,
     Legs,
     Accessories
-    // Add more body parts as needed
 }

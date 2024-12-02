@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * @class TrailPrefab
+ * @brief This class handles the instantiating and destroying of the horse
+ * trails during the horse game
+ * @details There is an object pool of horse trail prefabs. These will spawn
+ * and then fade out after a set period of time
+ *
+ * @see HorseBehavior
+ */
 public class TrailPrefab : MonoBehaviour
 {
     public GameObject trailPrefab; // The prefab for the trail

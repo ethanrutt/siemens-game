@@ -1,0 +1,212 @@
+\doxysection{Dialogue\+Manager\+Tutorial Class Reference}
+\hypertarget{class_dialogue_manager_tutorial}{}\label{class_dialogue_manager_tutorial}\index{DialogueManagerTutorial@{DialogueManagerTutorial}}
+
+
+This handles the dialogue for sensei during the tutorial scene.  
+
+
+Inheritance diagram for Dialogue\+Manager\+Tutorial\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dialogue_manager_tutorial}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_dialogue_manager_tutorial_ac9b135bc7721d71840d095efc54ee505}{Start\+Dialogue}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager_tutorial_a45e57b11b5ddc60e8f6ba365484618a3}{Display\+Next\+Sentence}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager_tutorial_ad6eaf6a1d640c6ba72cf88a50ab1722a}{Clear\+Dialogue}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager_tutorial_ad3d8a0d1b4edd1a6f1c1bdf31bb5b31e}{Pause\+Dialogue}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager_tutorial_a446a3dfb2af07a55526694059c72b9fa}{Resume\+Dialogue}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_dialogue_manager_tutorial_a919c2c4bca5aaba6330d0c462a1965e3}{dialogue\+Index}} = 0
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{class_dialogue_manager_tutorial_ad1bb613c8e5ea6a38b56a2251fe0d87d}{Type\+Sentence}} (string sentence)
+\item 
+void \mbox{\hyperlink{class_dialogue_manager_tutorial_a366d9b8f8f42a0e660d8529f9c7f2bf1}{End\+Dialogue}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager_tutorial_a734163e2ebd49ac68fc7b1ed558ace0d}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager_tutorial_a378a43e24ccaaef2bcd6e2172106da28}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_character___movement}{Character\+\_\+\+Movement}} \mbox{\hyperlink{class_dialogue_manager_tutorial_a22a3a23b2bfa3a1780ebfd4488820328}{player\+Movement}}
+\item 
+Game\+Object \mbox{\hyperlink{class_dialogue_manager_tutorial_a4ab6799efd0d76f7db98d037bde9395f}{dialogue\+Panel}}
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_dialogue_manager_tutorial_aa08e2c39e95f9548eef7349f751126c1}{dialogue\+Text}}
+\item 
+Unity\+Engine.\+UI.\+Image \mbox{\hyperlink{class_dialogue_manager_tutorial_acd3ab2bbde1ac387b7b92520fd7035c5}{character\+Image}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager_tutorial_a1c445013c6cc012ba5bb847d19490c1d}{dialogues}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager_tutorial_aa562623bca336553751c159fcd797da1}{character\+Image\+Associations}}
+\item 
+Sprite\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager_tutorial_ad047ad2b69c63c97c5829bd3be976560}{character\+Images}} = new Sprite\mbox{[}4\mbox{]}
+\item 
+Game\+Object \mbox{\hyperlink{class_dialogue_manager_tutorial_adbe43074b1104c178b566332682e444c}{UI}}
+\item 
+float \mbox{\hyperlink{class_dialogue_manager_tutorial_a8da82e0181d6ae2b367d37e899eefef9}{typing\+Speed}} = 0.\+05f
+\item 
+bool \mbox{\hyperlink{class_dialogue_manager_tutorial_acb76494ee47856fc91cbc169204e88e4}{is\+Typing}} = true
+\item 
+bool \mbox{\hyperlink{class_dialogue_manager_tutorial_ad17cd96b09bdfc878c8b7edc6182a24b}{dialogue\+Paused}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This handles the dialogue for sensei during the tutorial scene. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_dialogue_manager}{Dialogue\+Manager} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dialogue_manager_tutorial_ad6eaf6a1d640c6ba72cf88a50ab1722a}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!ClearDialogue@{ClearDialogue}}
+\index{ClearDialogue@{ClearDialogue}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{ClearDialogue()}{ClearDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_ad6eaf6a1d640c6ba72cf88a50ab1722a} 
+void Dialogue\+Manager\+Tutorial.\+Clear\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a45e57b11b5ddc60e8f6ba365484618a3}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!DisplayNextSentence@{DisplayNextSentence}}
+\index{DisplayNextSentence@{DisplayNextSentence}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{DisplayNextSentence()}{DisplayNextSentence()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a45e57b11b5ddc60e8f6ba365484618a3} 
+void Dialogue\+Manager\+Tutorial.\+Display\+Next\+Sentence (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a366d9b8f8f42a0e660d8529f9c7f2bf1}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!EndDialogue@{EndDialogue}}
+\index{EndDialogue@{EndDialogue}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{EndDialogue()}{EndDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a366d9b8f8f42a0e660d8529f9c7f2bf1} 
+void Dialogue\+Manager\+Tutorial.\+End\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_ad3d8a0d1b4edd1a6f1c1bdf31bb5b31e}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!PauseDialogue@{PauseDialogue}}
+\index{PauseDialogue@{PauseDialogue}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{PauseDialogue()}{PauseDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_ad3d8a0d1b4edd1a6f1c1bdf31bb5b31e} 
+void Dialogue\+Manager\+Tutorial.\+Pause\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a446a3dfb2af07a55526694059c72b9fa}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!ResumeDialogue@{ResumeDialogue}}
+\index{ResumeDialogue@{ResumeDialogue}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{ResumeDialogue()}{ResumeDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a446a3dfb2af07a55526694059c72b9fa} 
+void Dialogue\+Manager\+Tutorial.\+Resume\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a734163e2ebd49ac68fc7b1ed558ace0d}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!Start@{Start}}
+\index{Start@{Start}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a734163e2ebd49ac68fc7b1ed558ace0d} 
+void Dialogue\+Manager\+Tutorial.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_ac9b135bc7721d71840d095efc54ee505}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!StartDialogue@{StartDialogue}}
+\index{StartDialogue@{StartDialogue}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{StartDialogue()}{StartDialogue()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_ac9b135bc7721d71840d095efc54ee505} 
+void Dialogue\+Manager\+Tutorial.\+Start\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_ad1bb613c8e5ea6a38b56a2251fe0d87d}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!TypeSentence@{TypeSentence}}
+\index{TypeSentence@{TypeSentence}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{TypeSentence()}{TypeSentence()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_ad1bb613c8e5ea6a38b56a2251fe0d87d} 
+IEnumerator Dialogue\+Manager\+Tutorial.\+Type\+Sentence (\begin{DoxyParamCaption}\item[{string}]{sentence}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a378a43e24ccaaef2bcd6e2172106da28}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!Update@{Update}}
+\index{Update@{Update}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a378a43e24ccaaef2bcd6e2172106da28} 
+void Dialogue\+Manager\+Tutorial.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_dialogue_manager_tutorial_acd3ab2bbde1ac387b7b92520fd7035c5}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!characterImage@{characterImage}}
+\index{characterImage@{characterImage}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{characterImage}{characterImage}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_acd3ab2bbde1ac387b7b92520fd7035c5} 
+Unity\+Engine.\+UI.\+Image Dialogue\+Manager\+Tutorial.\+character\+Image\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_aa562623bca336553751c159fcd797da1}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!characterImageAssociations@{characterImageAssociations}}
+\index{characterImageAssociations@{characterImageAssociations}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{characterImageAssociations}{characterImageAssociations}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_aa562623bca336553751c159fcd797da1} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+Tutorial.\+character\+Image\+Associations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_ad047ad2b69c63c97c5829bd3be976560}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!characterImages@{characterImages}}
+\index{characterImages@{characterImages}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{characterImages}{characterImages}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_ad047ad2b69c63c97c5829bd3be976560} 
+Sprite \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+Tutorial.\+character\+Images = new Sprite\mbox{[}4\mbox{]}\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a919c2c4bca5aaba6330d0c462a1965e3}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!dialogueIndex@{dialogueIndex}}
+\index{dialogueIndex@{dialogueIndex}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{dialogueIndex}{dialogueIndex}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a919c2c4bca5aaba6330d0c462a1965e3} 
+int Dialogue\+Manager\+Tutorial.\+dialogue\+Index = 0}
+
+\Hypertarget{class_dialogue_manager_tutorial_a4ab6799efd0d76f7db98d037bde9395f}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!dialoguePanel@{dialoguePanel}}
+\index{dialoguePanel@{dialoguePanel}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{dialoguePanel}{dialoguePanel}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a4ab6799efd0d76f7db98d037bde9395f} 
+Game\+Object Dialogue\+Manager\+Tutorial.\+dialogue\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_ad17cd96b09bdfc878c8b7edc6182a24b}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!dialoguePaused@{dialoguePaused}}
+\index{dialoguePaused@{dialoguePaused}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{dialoguePaused}{dialoguePaused}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_ad17cd96b09bdfc878c8b7edc6182a24b} 
+bool Dialogue\+Manager\+Tutorial.\+dialogue\+Paused = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a1c445013c6cc012ba5bb847d19490c1d}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!dialogues@{dialogues}}
+\index{dialogues@{dialogues}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{dialogues}{dialogues}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a1c445013c6cc012ba5bb847d19490c1d} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+Tutorial.\+dialogues\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_aa08e2c39e95f9548eef7349f751126c1}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!dialogueText@{dialogueText}}
+\index{dialogueText@{dialogueText}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{dialogueText}{dialogueText}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_aa08e2c39e95f9548eef7349f751126c1} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+Tutorial.\+dialogue\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_acb76494ee47856fc91cbc169204e88e4}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!isTyping@{isTyping}}
+\index{isTyping@{isTyping}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{isTyping}{isTyping}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_acb76494ee47856fc91cbc169204e88e4} 
+bool Dialogue\+Manager\+Tutorial.\+is\+Typing = true\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a22a3a23b2bfa3a1780ebfd4488820328}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!playerMovement@{playerMovement}}
+\index{playerMovement@{playerMovement}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{playerMovement}{playerMovement}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a22a3a23b2bfa3a1780ebfd4488820328} 
+\mbox{\hyperlink{class_character___movement}{Character\+\_\+\+Movement}} Dialogue\+Manager\+Tutorial.\+player\+Movement\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_a8da82e0181d6ae2b367d37e899eefef9}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!typingSpeed@{typingSpeed}}
+\index{typingSpeed@{typingSpeed}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{typingSpeed}{typingSpeed}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_a8da82e0181d6ae2b367d37e899eefef9} 
+float Dialogue\+Manager\+Tutorial.\+typing\+Speed = 0.\+05f\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager_tutorial_adbe43074b1104c178b566332682e444c}\index{DialogueManagerTutorial@{DialogueManagerTutorial}!UI@{UI}}
+\index{UI@{UI}!DialogueManagerTutorial@{DialogueManagerTutorial}}
+\doxysubsubsection{\texorpdfstring{UI}{UI}}
+{\footnotesize\ttfamily \label{class_dialogue_manager_tutorial_adbe43074b1104c178b566332682e444c} 
+Game\+Object Dialogue\+Manager\+Tutorial.\+UI\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Dialogue/\mbox{\hyperlink{_dialogue_manager_tutorial_8cs}{Dialogue\+Manager\+Tutorial.\+cs}}\end{DoxyCompactItemize}

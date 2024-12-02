@@ -4,8 +4,15 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-// Rishi Santhanam
-// Main Script for Managing the Shop
+/**
+ * @class ShopManager
+ * @brief This handles the interactions with the shop in the town square
+ * @details This will handle initializing the shop, buying items, and keeping
+ * track of which items are already owned. These values will be stored in
+ * PlayerData, which this class grabs the singleton instance of
+ *
+ * @see PlayerData
+ */
 public class ShopManager : MonoBehaviour
 {
     // Since this will only be on the Town Square
@@ -43,7 +50,7 @@ public class ShopManager : MonoBehaviour
     // then we will not show some of the objHolders.
 
     // The objHolders will be changed to the icons of the itemId, which is assigned
-    // in the itemIds script as SerializeFields. 
+    // in the itemIds script as SerializeFields.
 
     // The PlayerData has the unlocked_items which will be used to determine
     // which items to display or not to display
@@ -192,15 +199,6 @@ public class ShopManager : MonoBehaviour
         // Populate the lists
         PopulateLists();
 
-        // DEBUG:!
-        // for (int pageIndex = 0; pageIndex < pages.Count; pageIndex++)
-        // {
-        //     foreach (int id in pages[pageIndex])
-        //     {
-        //     Debug.Log("Page: " + pageIndex + " ID: " + id);
-        //     }
-        // }
-
         // Update the objHolders
         UpdateObjHolders();
     }
@@ -242,7 +240,7 @@ public class ShopManager : MonoBehaviour
     }
 
 
-    
+
 
     public void NextPage()
     {

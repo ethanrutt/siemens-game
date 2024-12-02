@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * @class CosmeticItem
+ * @brief Dataclass for cosmetic items
+ */
 [System.Serializable]
 public class CosmeticItem
 {

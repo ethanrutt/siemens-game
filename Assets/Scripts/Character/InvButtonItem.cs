@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Rishi Santhanam
-// Equipping items from the inventory
+/**
+ * @brief Rishi Santhanam - Equipping items for the inventory
+ */
 public class InvButtonItem : MonoBehaviour
 {
     // Serialized Fields
@@ -19,6 +20,10 @@ public class InvButtonItem : MonoBehaviour
     // to change the sprite of the playerObject to the sprite of the item
     // that the button represents
 
+    /**
+     * @brief Equip the item that the player clicked on. If the item is already
+     * equipped, then it will be unequipped.
+     */
     public void EquipItem(int item_id)
     {
         // If item is already equipped, unequip it
@@ -32,11 +37,7 @@ public class InvButtonItem : MonoBehaviour
             playerData.equipped_items.Add(item_id / 100 * 100 + 99);
             return;
         }
-        // Debug.Log("Equipping item: " + item_id);
-        // Equip the item and remove any items within the same 100's range
-        // For example if a previous item from the equipped_items list has 200
-        // And we're equipping 203, we should remove 200 from the equipped_items list
-        
+
         // Remove any items within the same 100's range
         List<int> toRemove = new List<int>();
 
@@ -58,23 +59,5 @@ public class InvButtonItem : MonoBehaviour
         playerData.equipped_items.Add(item_id);
         playerData.equipped_items.Sort();
 
-        // Print all the equipped items
-        // Debug.Log("EQUIPPED::::");
-        // for (int i = 0; i < playerData.equipped_items.Count; i++)
-        // {
-        //     Debug.Log("Equipped item: " + playerData.equipped_items[i]);
-        // }
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -2,11 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Rishi Santhanam
-// This is the code for the enter exit script for the laboratory room
-// basically allowing for players to see what area of the room they are in
-// etc.
-
+/**
+ * @class Laboratory_RoomEnterExit
+ * @brief This handles the enter and exit script for the laboratory room which
+ * allows players to see what area of the room they are in
+ * @details on entering a new area, some text at the bottom will be displayed that tells which section you're in.
+ * Room ID Dictionary:
+ * - 0 -> Automation Station (Top left)
+ * - 1 -> Synthesis Chamber (Top right)
+ * - 2 -> Main Hallway (Middle)
+ * - 3 -> Data Center (Bottom left)
+ * - 4 -> Digital Command Room (Middle bottom)
+ * - 5 -> Integration Zone (Bottom right)
+ * TOWN SQUARE
+ * - 10 -> The Reclamation Zone
+ * - 11 -> Casino
+ * - 12 -> Scavenger Shop
+ * - 13 -> Tipsy Tower
+ * - 14 -> Laboratory
+ */
 public class Laboratory_RoomEnterExit : MonoBehaviour
 {
 
@@ -15,24 +29,10 @@ public class Laboratory_RoomEnterExit : MonoBehaviour
     [SerializeField] private GameObject currentRoomObject;
     [SerializeField] private GameObject text_Title;
     [SerializeField] private GameObject text_Description;
-    
+
     // Serialize the roomID
     [SerializeField] private string roomID;
 
-    // Room ID Dictionary:
-    // 0 -> Automation Station (Top left)
-    // 1 -> Synthesis Chamber (Top right)
-    // 2 -> Main Hallway (Middle)
-    // 3 -> Data Center (Bottom left)
-    // 4 -> Digital Command Room (Middle bottom)
-    // 5 -> Integration Zone (Bottom right)
-
-    // TOWN SQUARE
-    // 10 -> The Reclamation Zone
-    // 11 -> Casino
-    // 12 -> Scavenger Shop
-    // 13 -> Tipsy Tower
-    // 14 -> Laboratory
 
     // Fading text
     public IEnumerator FadeTextToZeroAlpha(float t, TMPro.TextMeshProUGUI text)
@@ -128,25 +128,8 @@ public class Laboratory_RoomEnterExit : MonoBehaviour
     // On a 2D colliderExit (.setText() TMP)
     private void OnTriggerExit2D(Collider2D other)
     {
-        // Debug.Log("Player exited room: " + roomID);
-        // If the player exits the collider
-        // Set currentRoomObject (which stores the current room object) to inactive
-        // Stop all coroutines
         StopAllCoroutines();
         StartCoroutine(FadeTextToZeroAlpha(1f, text_Title.GetComponent<TMPro.TextMeshProUGUI>()));
         StartCoroutine(FadeTextToZeroAlpha(1f, text_Description.GetComponent<TMPro.TextMeshProUGUI>()));
-    }
-
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Debug.Log("Laboratory Room Enter Exit script loaded");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

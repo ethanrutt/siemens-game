@@ -4,9 +4,15 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+/**
+ * @brief This contains the logic for running the horse game. This handles
+ * moving the horses across the screen using a fixed update. It also tracks
+ * which horse is in the lead, as well as awarding bets when finished
+ *
+ * @see TrailPrefab
+ */
 public class HorseBehavior : MonoBehaviour
 {
-    
     // Grab all HorseObjects (they're Unity UI Images)
     [SerializeField] private GameObject[] horseObjects;
 
@@ -233,12 +239,6 @@ public class HorseBehavior : MonoBehaviour
         }
     }
 
-    // MoveHorses new version where it constantly slides the transform until it needs to recall a random speed
-    // essentially, we're going to move the horses by a certain amount every frame
-    // until we hit a set number of frames, then get the new speed
-    // this means horses will move a set amount every single frame
-    // but until they reach a frame count, they won't get a new speed
-
     private int frameCount = 0;
     private void FixedUpdate()
     {
@@ -269,14 +269,6 @@ public class HorseBehavior : MonoBehaviour
 
             float speed = isChosen ? RandomSpeed(true) : RandomSpeed(false);
 
-            // DEBUG:
-            // Debug log the speed for the chosen horse
-            // if (isChosen)
-            // {
-            //     Debug.Log($"Chosen horse speed: {speed}");
-            // } else {
-            //     Debug.Log($"Non-chosen horse speed: {speed}");
-            // }
             horseObjects[i].transform.position += Vector3.right * speed * deltaTime;
 
             StartCoroutine(DestroyAfterDelay(horseTrail));

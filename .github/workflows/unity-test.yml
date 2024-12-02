@@ -9,7 +9,7 @@ on:
   pull_request:
     branches:
       - dev-all
-      - master-all
+      - main
 
 jobs:
   test:

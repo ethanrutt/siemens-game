@@ -4,6 +4,13 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * @class UserData
+ * @brief This is a dataclass used to work with the json utility in Unity.
+ * @details The fields in this class are synced up with the fields in the json
+ * response from the API. It is important to not change these names (i.e. to
+ * camelcase) because they are serialized directly from the json response.
+ */
 [System.Serializable]
 public class UserData
 {
@@ -16,6 +23,18 @@ public class UserData
     public List<int> items_equipped;
 }
 
+/**
+ * @class LoginResponse
+ * @brief This is a dataclass used to work with the json utility in Unity.
+ * @details The fields in this class are synced up with the fields in the json
+ * response from the API. It is important to not change these names (i.e. to
+ * camelcase) because they are serialized directly from the json response.
+ * Becuase of the way that the login response is formed, this class mainly uses
+ * the UserData class to hold the relevant information. This is effectively a
+ * wrapper around the UserData dataclass.
+ *
+ * @see UserData
+ */
 [System.Serializable]
 public class LoginResponse
 {
@@ -28,6 +47,23 @@ public class LoginResponse
 // buttons on the main menu are assigned to. It will cause certain modals to
 // appear and disappear, and will also load the game scene when the play button
 // is clicked.
+/**
+ * @class MainMenuManager
+ * @brief This handles the login and entering into the introduction cutscene at
+ * the start of the game
+ * @details This class handles the display of the login modals as well as
+ * sending the login api request.
+ * - On new user creation, the username is checked against a bad word list seen
+ *   below.
+ * - Once the player is successfully logged in, we populate PlayerData with the
+ *   values we get back from the API
+ * - If the login is unsuccessful, error screens are shown
+ * - If login is successful, then the player data is populated and the starting
+ *   cutscene is loaded
+ *
+ * @see UserData
+ * @see PlayerData
+ */
 public class MainMenuManager : MonoBehaviour
 {
     // Serialize all panels in the game needed

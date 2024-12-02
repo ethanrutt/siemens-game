@@ -1,5 +1,12 @@
 using UnityEngine;
 
+/**
+ * @brief This class handles the cosmetics for the various parts of the
+ * player. This works in tandem with the Character_Movement class to handle
+ * cosmetic movement
+ *
+ * @see Character_Movement
+ */
 public class CosmeticHandler : MonoBehaviour
 {
 	// List of chest prefabs that have different appearances

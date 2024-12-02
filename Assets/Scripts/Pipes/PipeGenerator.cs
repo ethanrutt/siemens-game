@@ -5,6 +5,19 @@ using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * @class PipeGenerator
+ * @brief Main driver class for generating and checking solutions for the pipe
+ * game
+ * @details This handles generation, moving onto the next level, checking
+ * solutions, as well as maintaining global game state in memory as well as
+ * what is happening on the screen
+ *
+ * @see PipeBehavior
+ * @see Direction
+ * @see PipeType
+ * @see PipeInfo
+ */
 public class PipeGenerator : MonoBehaviour
 {
     public System.Random rand = new System.Random();

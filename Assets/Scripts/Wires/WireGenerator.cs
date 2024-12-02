@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Driver class for WireGame generation and success criteria.
+ * @class WireGenerator
+ * @brief Driver class for WireGame generation and success criteria.
  */
 public class WireGenerator : MonoBehaviour
 {
