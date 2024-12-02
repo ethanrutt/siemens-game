@@ -17,12 +17,14 @@
 - [Android Deployment](#android-deployment)
 - [iOS Deployment](#ios-deployment)
 - [Future Development](#future-development)
+
 ---
 ## Team Members
 * Rohan Ali
 * Naveed Haq
 * Ethan Rutt
 * Rishi Santhanam
+
 ---
 ## Background
 * Siemens came to Texas A&M requesting a project to improve employee morale and
@@ -36,6 +38,7 @@
   to hang out with each other, and participate in minigames as well as see the
   leaderboards for who earned the most coins, who has the fastest time in the
   minigame, etc.
+
 ---
 ## Requirements
 * Siemens wanted the game to be able to run on mobile devices, both iOS and
@@ -44,11 +47,13 @@
   complete in the factory.
 * They also wanted a fun experience that workers would enjoy playing. This was
   very open-ended.
+
 ---
 ## Proposal
 * We proposed an open world RPG game inspired from Club Penguin.
 * It involves a story, achievements, mini-games, an open world to explore, and
   more.
+
 ---
 ## Tech Stack
 ### Frontend
@@ -95,6 +100,7 @@ git clone git@github.com:ethanrutt/siemens-game.git
 
 ### Backend Installation
 * **naveed fix this part plz**
+
 ---
 ## Testing
 ### Frontend Testing
@@ -115,6 +121,7 @@ git clone git@github.com:ethanrutt/siemens-game.git
 ### Backend Testing
 * We use [jest](https://jestjs.io/) to test our backend code combined with
   github actions to get automated testing whenever we push code.
+
 ---
 ## Deployment
 ### Android Deployment

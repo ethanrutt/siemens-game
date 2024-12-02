@@ -1,24 +1,4 @@
 var searchData=
 [
-  ['accessories_0',['Accessories',['../_body_part_8cs.html#a7a4875f2b53773a016c13bcfc2a55ac3a98edb85b00d9527ad5acebe451b3fae6',1,'BodyPart.cs']]],
-  ['achievement_1',['Achievement',['../struct_item_i_ds_1_1_achievement.html',1,'ItemIDs']]],
-  ['achievement_5fdatabase_2',['achievement_database',['../class_item_i_ds.html#aca6500e265471e6a39ad216bb75006b6',1,'ItemIDs']]],
-  ['achievementdescriptions_3',['achievementDescriptions',['../class_achievements_handler.html#a84c48fd5c424ac3f93120dbff8718d3f',1,'AchievementsHandler']]],
-  ['achievementpages_4',['achievementPages',['../class_achievements_handler.html#a796e7748644741200c851024dc27ac99',1,'AchievementsHandler']]],
-  ['achievementshandler_5',['AchievementsHandler',['../class_achievements_handler.html',1,'']]],
-  ['achievementshandler_2ecs_6',['AchievementsHandler.cs',['../_achievements_handler_8cs.html',1,'']]],
-  ['achievementspanel_7',['achievementsPanel',['../class_achievements_handler.html#a4f9f2432ff8c28279cec035e541bb2d4',1,'AchievementsHandler']]],
-  ['achievementtitles_8',['achievementTitles',['../class_achievements_handler.html#abca44bd8ddd1ecd528a2433ec990f039',1,'AchievementsHandler']]],
-  ['achievementunlockeddescription_9',['achievementUnlockedDescription',['../class_achievements_handler.html#a0624b502dd8e4df7ed4749010f668cc5',1,'AchievementsHandler']]],
-  ['achievementunlockedscreen_10',['achievementUnlockedScreen',['../class_achievements_handler.html#a16cc8ff9cfa2109ab802dfe349254d65',1,'AchievementsHandler']]],
-  ['achievementunlockedtitle_11',['achievementUnlockedTitle',['../class_achievements_handler.html#a5ed63a814d82fe4271c11740d3e57db5',1,'AchievementsHandler']]],
-  ['additem_12',['AddItem',['../class_inventory.html#acf08e72bde3a954701df50eded11bac1',1,'Inventory']]],
-  ['allbuttonlocations_13',['allButtonLocations',['../class_button_location.html#ab443c30d523482e38ba9bbc24752d870',1,'ButtonLocation']]],
-  ['allplugstats_14',['allPlugStats',['../class_wire_generator.html#af94835b719aadf84d63c05e0511cc8db',1,'WireGenerator']]],
-  ['allwires_15',['allWires',['../class_wire_generator.html#a9e3b25cbfad4e057c02ac088b4d864a3',1,'WireGenerator']]],
-  ['animator_16',['animator',['../class_character___movement.html#a9aad13d931c778870faf52a85596d680',1,'Character_Movement.animator'],['../class_dialogue_manager.html#a44c7001a06fbb2b83c492817d2124cd3',1,'DialogueManager.animator']]],
-  ['arelistsequal_17',['AreListsEqual',['../class_character___movement.html#a8d40ba9d86ec371ed7754e92ee689d05',1,'Character_Movement']]],
-  ['arms_18',['Arms',['../_body_part_8cs.html#a7a4875f2b53773a016c13bcfc2a55ac3a4b9b1c96867f6fbd045f7b450e87b8c6',1,'BodyPart.cs']]],
-  ['associatedvalue_19',['associatedValue',['../class_character_image.html#a703c7d0f19f7490d6ddb027ba7991879',1,'CharacterImage']]],
-  ['awake_20',['Awake',['../class_button_location.html#ab674773720fa6ac168b5938ed4f47f65',1,'ButtonLocation.Awake()'],['../class_character___movement.html#a0fba727cebd4ae2de79baf6c05fcd7da',1,'Character_Movement.Awake()'],['../class_neuroflux_bar.html#afa22104ad2f1dde755446312794eaf1d',1,'NeurofluxBar.Awake()'],['../class_player_data.html#a91c914d556e20d80d9957185bb3a44b1',1,'PlayerData.Awake()'],['../class_game_manager.html#a2959177ee51ac31badbf8b1bc8f7f637',1,'GameManager.Awake()'],['../class_chosen_horse.html#a5fabab987e56ed38d1da481bb1db56bb',1,'ChosenHorse.Awake()'],['../class_achievements_handler.html#acf9ba92d11f45c680b4e492ffe954fdd',1,'AchievementsHandler.Awake()']]]
+  ['482_20932_0',['CSCE 482 - 932',['../index.html#autotoc_md2',1,'']]]
 ];

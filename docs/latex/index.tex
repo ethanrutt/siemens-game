@@ -1,0 +1,233 @@
+\chapter{Byte\+City}
+\hypertarget{index}{}\label{index}\index{ByteCity@{ByteCity}}
+\label{index_md__r_e_a_d_m_e}%
+\Hypertarget{index_md__r_e_a_d_m_e}%
+\hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Siemens Manufacturing x Texas A\&M Computer Science}{Siemens Manufacturing x Texas A\&M Computer Science}}\label{index_autotoc_md1}
+\hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{CSCE 482 -\/ 932}{CSCE 482 -\/ 932}}\label{index_autotoc_md2}
+\hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{index_autotoc_md3}
+
+\begin{DoxyItemize}
+\item Team Members
+\item Background
+\item Requirements
+\item Proposal
+\item Tech Stack
+\item Frontend Installation
+\item Backend Installation
+\item Testing
+\item Frontend Testing
+\item Backend Testing
+\item Deployment
+\item Android Deployment
+\item i\+OS Deployment
+\item Future Development
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md5}{}\doxysection{\texorpdfstring{Team Members}{Team Members}}\label{index_autotoc_md5}
+
+\begin{DoxyItemize}
+\item Rohan Ali
+\item Naveed Haq
+\item Ethan Rutt
+\item Rishi Santhanam
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md7}{}\doxysection{\texorpdfstring{Background}{Background}}\label{index_autotoc_md7}
+
+\begin{DoxyItemize}
+\item Siemens came to Texas A\&M requesting a project to improve employee morale and productivity in their factory line.
+\item Siemens already had a way to track which tasks needed to be done for an order. They had a system in place to have these tasks in some type of queue, load them in to the computers, assign them to a worker, and have the worker track when the tasks are complete.
+\item Siemens proposed to link this data to a game, where we could convert these task completion data to in game currency. The employees would also have a way to hang out with each other, and participate in minigames as well as see the leaderboards for who earned the most coins, who has the fastest time in the minigame, etc.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md9}{}\doxysection{\texorpdfstring{Requirements}{Requirements}}\label{index_autotoc_md9}
+
+\begin{DoxyItemize}
+\item Siemens wanted the game to be able to run on mobile devices, both i\+OS and Android.
+\item They also wanted to be able to sync in-\/game currency with what workers complete in the factory.
+\item They also wanted a fun experience that workers would enjoy playing. This was very open-\/ended.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md11}{}\doxysection{\texorpdfstring{Proposal}{Proposal}}\label{index_autotoc_md11}
+
+\begin{DoxyItemize}
+\item We proposed an open world RPG game inspired from Club Penguin.
+\item It involves a story, achievements, mini-\/games, an open world to explore, and more.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md13}{}\doxysection{\texorpdfstring{Tech Stack}{Tech Stack}}\label{index_autotoc_md13}
+\hypertarget{index_autotoc_md14}{}\doxysubsection{\texorpdfstring{Frontend}{Frontend}}\label{index_autotoc_md14}
+
+\begin{DoxyItemize}
+\item Since this game is mainly developed for Android and i\+OS, we decided to use the \href{https://unity.com/}{\texttt{ Unity Engine}} to develop our game with \href{https://dotnet.microsoft.com/en-us/languages/csharp}{\texttt{ C\#}} as the scripting language.
+\item We are using {\ttfamily Unity Editor Version 2022.\+3.\+45f1}. 
+\end{DoxyItemize}\hypertarget{index_autotoc_md15}{}\doxysubsection{\texorpdfstring{Backend}{Backend}}\label{index_autotoc_md15}
+
+\begin{DoxyItemize}
+\item We are using \href{https://nodejs.org/en/}{\texttt{ nodejs}}, along with AWS Lambda and an {\bfseries{naveed fix this part plz}}.
+\end{DoxyItemize}\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{Frontend Installation}{Frontend Installation}}\label{index_autotoc_md16}
+
+\begin{DoxyItemize}
+\item Installing Unity is pretty straight forward. Go to {\ttfamily \href{https://unity.com/download}{\texttt{ https\+://unity.\+com/download}}} or click \href{https://unity.com/download}{\texttt{ here}} and download {\ttfamily Unity Hub}.
+\item This will be the main area you launch your Unity Engine from.
+\item Once Unity Hub is installed, you\textquotesingle{}ll want to make sure to download Unity Editor Version {\ttfamily 2022.\+3.\+45f1} which is the version that we have developed Byte\+City with.
+\item After this is installed, you\textquotesingle{}ll want to clone this repository.
+\item Using https. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ https://github.com/ethanrutt/siemens-\/game.git}
+
+\end{DoxyCode}
+
+\item Using ssh. 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{git\ clone\ git@github.com:ethanrutt/siemens-\/game.git}
+
+\end{DoxyCode}
+
+\item Once this is complete, you\textquotesingle{}ll want to
+\begin{DoxyItemize}
+\item Open up Unity Hub.
+\item Click {\ttfamily Add} in the top right.
+\item Click {\ttfamily add project from disk}.
+\item Find this repository that you just cloned.
+\item Click add/open.
+\item Finally, click on the new entry in the projects window of unity hub which should say {\ttfamily siemens-\/game}.
+\item The first time you open up Unity, it will need to read all of the packages we have installed from the {\ttfamily Packages/manifest.\+json} and {\ttfamily Packages/package-\/lock.\+json}, as well as compile all of our scripts.
+\end{DoxyItemize}
+\item Depending on the speed of your computer, this could take up to 10 minutes.
+\item Once this is finished, you should be ready to develop, build, and run Byte\+City!
+\end{DoxyItemize}\hypertarget{index_autotoc_md17}{}\doxysubsection{\texorpdfstring{Backend Installation}{Backend Installation}}\label{index_autotoc_md17}
+
+\begin{DoxyItemize}
+\item {\bfseries{naveed fix this part plz}}
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md19}{}\doxysection{\texorpdfstring{Testing}{Testing}}\label{index_autotoc_md19}
+\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Frontend Testing}{Frontend Testing}}\label{index_autotoc_md20}
+
+\begin{DoxyItemize}
+\item We have a combination of github actions, combined with \href{https://game.ci/}{\texttt{ game-\/ci}} to automatically test whenever we push code.
+\item Inside of Unity itself, there are edit mode tests and play mode tests possible in \href{https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/index.html}{\texttt{ Unity Test Runner}}.
+\item Both are essential to testing functionality.
+\item The methodology we have used is
+\begin{DoxyItemize}
+\item Play Mode Tests
+\begin{DoxyItemize}
+\item These are for testing in-\/game functionality such as player movement, connecting wires, etc.
+\end{DoxyItemize}
+\item Edit Mode Tests
+\begin{DoxyItemize}
+\item These are for making sure that assets can be properly loaded, they are in the right place and other things that you could test without actually playing the game.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md21}{}\doxysubsection{\texorpdfstring{Backend Testing}{Backend Testing}}\label{index_autotoc_md21}
+
+\begin{DoxyItemize}
+\item We use \href{https://jestjs.io/}{\texttt{ jest}} to test our backend code combined with github actions to get automated testing whenever we push code.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md23}{}\doxysection{\texorpdfstring{Deployment}{Deployment}}\label{index_autotoc_md23}
+\hypertarget{index_autotoc_md24}{}\doxysubsection{\texorpdfstring{Android Deployment}{Android Deployment}}\label{index_autotoc_md24}
+
+\begin{DoxyItemize}
+\item There should already be Android Build Support installed from our packages, but if there isn\textquotesingle{}t then you can follow these steps.
+\item Open Unity Hub.
+\begin{DoxyItemize}
+\item Click on {\ttfamily Installs} on the left.
+\item Find the Unity Version used with this project {\ttfamily 2022.\+3.\+45f1}.
+\item Click the gear on the far right of the Unity Version.
+\item Click {\ttfamily Add modules}.
+\item Click {\ttfamily Android Build Support}.
+\item Click {\ttfamily Install}.
+\end{DoxyItemize}
+\item After you have installed Android Build Support, open up the Unity Editor by clicking on {\ttfamily siemens-\/game} in Unity Hub.
+\begin{DoxyItemize}
+\item Go to File -\/\texorpdfstring{$>$}{>} Build Settings.
+\item Click {\ttfamily Android}.
+\item Click {\ttfamily Switch Platform}.
+\item Click {\ttfamily Player Settings} in the bottom left.
+\item Make sure the {\ttfamily Company Name} is set to {\ttfamily Siemens}.
+\item Make sure the {\ttfamily Product Name} is set to {\ttfamily Byte City}.
+\item Set the version to whatever version you are releasing.
+\item Click Build.
+\end{DoxyItemize}
+\item Once the project has successfully been built, you should have a {\ttfamily .apk} file.
+\item This is how you will install the game onto an Android Device.
+\begin{DoxyItemize}
+\item To distribute this {\ttfamily .apk} file, you can upload it to a file sharing service, or use a usb to directly transfer it to a device.
+\item Once it\textquotesingle{}s on the device, simply running it should install the game as an app.
+\end{DoxyItemize}
+\item When on the android device
+\begin{DoxyItemize}
+\item You might have to scan the file before installing it. This is normal.
+\item You also might have to allow third-\/party apps to be installed.
+\begin{DoxyItemize}
+\item For the most part, this will just pop up as a prompt whenever you install the {\ttfamily .apk}.
+\item There is also an option in settings app to allow third-\/party app installations.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{i\+OS Deployment}{i\+OS Deployment}}\label{index_autotoc_md25}
+
+\begin{DoxyItemize}
+\item {\bfseries{note that you need to have a macbook or a way to launch xcode to build for i\+OS}}.
+\item Open Unity Hub.
+\begin{DoxyItemize}
+\item Click on {\ttfamily Installs} on the left.
+\item Find the Unity Version used with this project {\ttfamily 2022.\+3.\+45f1}.
+\item Click the gear on the far right of the Unity Version.
+\item Click {\ttfamily Add modules}.
+\item Click {\ttfamily i\+OS Build Support}.
+\item Click {\ttfamily Install}.
+\end{DoxyItemize}
+\item After you have installed i\+OS Build Support, open up the Unity Editor by clicking on {\ttfamily siemens-\/game} in Unity Hub.
+\begin{DoxyItemize}
+\item Go to File -\/\texorpdfstring{$>$}{>} Build Settings.
+\item Click {\ttfamily i\+OS}.
+\item Click {\ttfamily Switch Platform}.
+\item Click {\ttfamily Player Settings} in the bottom left.
+\item Make sure the {\ttfamily Company Name} is set to {\ttfamily Siemens}.
+\item Make sure the {\ttfamily Product Name} is set to {\ttfamily Byte City}.
+\item Set the version to whatever version you are releasing.
+\item Click Build.
+\end{DoxyItemize}
+\item You should have an {\ttfamily .xcode} file that you will need to open in XCode.
+\item This file will allow you to build the game on i\+OS, and you should follow the steps that XCode gives you with regards to this process.
+\end{DoxyItemize}
+
+\DoxyHorRuler{0}
+ \hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{Future Development}{Future Development}}\label{index_autotoc_md27}
+
+\begin{DoxyItemize}
+\item The Byte City team has put tons of hours into this game. We were given nothing but an open-\/ended request with simple constraints, and we have built the Byte City you can play today from scratch.
+\item We are extremely proud of what we were able to accomplish in around 3 months while taking other courses. Balancing development through other classwork, exams, and the various organizations we are involved in was a challenge, but all of us have grown so much.
+\item With that being said, there were still multiple goals that we weren\textquotesingle{}t able to complete in our project timeline.
+\item These include
+\begin{DoxyItemize}
+\item Open World Multiplayer
+\begin{DoxyItemize}
+\item This will require a dedicated multiplayer server, syncing player positions, animations, and more.
+\end{DoxyItemize}
+\item Friends List
+\begin{DoxyItemize}
+\item Allowing users to add their friends by username.
+\end{DoxyItemize}
+\item Chat Rooms
+\begin{DoxyItemize}
+\item Allowing users to have private messages, group chats, and even a global chat.
+\end{DoxyItemize}
+\end{DoxyItemize}
+\item There are also certain aspects of the game that aren\textquotesingle{}t as polished as we would like them to be.
+\begin{DoxyItemize}
+\item Peculiar Pipes leaves a lot to be desired, both content-\/wise and looks-\/wise.
+\item Wacky Wires leaves a lot to be desired, both game-\/mechanic-\/wise and looks-\/wise.
+\item Some of the dialogue can be a little clunky at times.
+\item The movement system can be a little clunky at times. 
+\end{DoxyItemize}
+\end{DoxyItemize}
