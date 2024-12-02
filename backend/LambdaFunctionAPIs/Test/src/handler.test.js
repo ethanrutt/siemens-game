@@ -1,5 +1,5 @@
 import { handler } from './index.mjs';
-import { SecretsManagerClient, GetSecretValueCommand } from '@aws-sdk/client-secrets-manager';
+import { SecretsManagerClient } from '@aws-sdk/client-secrets-manager';
 import pkg from 'pg';
 
 const { Client } = pkg;

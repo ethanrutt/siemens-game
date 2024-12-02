@@ -1,6 +1,5 @@
 import { jest } from '@jest/globals';
 import { handler } from './index.mjs';
-import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 
 // Mocking utils functions
 jest.mock('./shared/utils.mjs', () => ({
@@ -76,7 +75,6 @@ describe('Login and Signup Handler Tests', () => {
     const response = await handler(mockEvent);
 
     expect(response.statusCode).toBe(400);
-    const responseBody = JSON.parse(response.body);
 
   });
 

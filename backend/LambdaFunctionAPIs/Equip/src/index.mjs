@@ -1,6 +1,18 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
+/* jslint ignore:end */
 
 // Function to update the items based on the action (equip/unequip)
+/**
+ * Updates the items_equipped for a user based on the action (equip/unequip).
+ * 
+ * @param {Object} client - The PostgreSQL client used to interact with the database.
+ * @param {string} employeeId - The employee ID of the user.
+ * @param {number[]} items - Array of item IDs to be equipped or unequipped.
+ * @param {string} action - The action to perform, either 'equip' or 'unequip'.
+ * @returns {Promise<Object>} - Returns an object containing the status code, a message, and the updated items_equipped array.
+ * @throws {Error} - Throws an error if the user is not found, items are not owned, or an invalid action is provided.
+ */
 const updateItems = async (client, employeeId, items, action) => {
     try {
         // Get the current items_owned and items_equipped for the user
@@ -14,7 +26,8 @@ const updateItems = async (client, employeeId, items, action) => {
         }
 
         let { items_owned, items_equipped } = result.rows[0];
-
+        console.log("Received items_owned: ", items_owned);
+        console.log("Requested items: ", items_equipped);
         // Ensure the user owns all the items
         const itemsNotOwned = items.filter(item => !items_owned.includes(item));
         if (itemsNotOwned.length > 0) {
@@ -48,6 +61,14 @@ const updateItems = async (client, employeeId, items, action) => {
     }
 };
 
+/**
+ * Lambda function handler for processing equip/unequip item requests.
+ * 
+ * @param {Object} event - The event object containing the request payload.
+ * @param {string} event.body - JSON string containing the action, items, and employee_id.
+ * @returns {Promise<Object>} - Returns a response object containing the status code and a JSON body.
+ * @throws {Error} - Throws an error if the request payload is invalid or if the database operation fails.
+ */
 export const handler = async (event) => {
     let client;
     

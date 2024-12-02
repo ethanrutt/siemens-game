@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "@aws-sdk/client-secrets-manager": "^3.682.0",
+    "archiver": "^7.0.1",
+    "aws-sdk": "^2.1691.0",
+    "pg": "^8.13.1"
+  }
+}

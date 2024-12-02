@@ -1,4 +1,6 @@
+/* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
+/* jslint ignore:end */
 
 const getRandomUser = async (client) => {
     try {
@@ -15,9 +17,9 @@ const getRandomUser = async (client) => {
     }
 };
 
-export const handler = async (event) => {
+export const handler = async () => {
     let client; // Declare the client variable here
-
+    
     try {
         // Fetch secrets from Secrets Manager
         const secret = await getSecret(secret_name);

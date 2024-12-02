@@ -40,18 +40,18 @@ jest.mock('../../shared/utils.mjs', () => ({
 describe('getTopScoresByGame Lambda Tests', () => {
   it('should return the top scores for game_id 7 (ascending)', async () => {
     const mockEvent = { body: JSON.stringify({ game_id: 7 }) };
-    const response = await handler(mockEvent);
+    const response = await handler(mockEvent, 'test_game_scores');
 
     expect(response.statusCode).toBe(200);
     const responseBody = JSON.parse(response.body);
-    expect(responseBody).toHaveLength(2);
+    expect(responseBody).toHaveLength(3);
     expect(responseBody[0]).toEqual({ user_name: 'test_user_1', score: '4.43' });
-    expect(responseBody[1]).toEqual({ user_name: 'test_user_3', score: '12.32' });
+    expect(responseBody[1]).toEqual({ user_name: 'testuser2', score: '5.98' });
   });
 
   it('should return the top scores for game_id 6 (descending)', async () => {
     const mockEvent = { body: JSON.stringify({ game_id: 6 }) };
-    const response = await handler(mockEvent);
+    const response = await handler(mockEvent, 'test_game_scores');
 
     expect(response.statusCode).toBe(200);
     const responseBody = JSON.parse(response.body);
@@ -64,7 +64,7 @@ describe('getTopScoresByGame Lambda Tests', () => {
 
   it('should return 400 if game_id is missing', async () => {
     const mockEvent = { body: JSON.stringify({}) };
-    const response = await handler(mockEvent);
+    const response = await handler(mockEvent, 'test_game_scores');
 
     expect(response.statusCode).toBe(400);
     const responseBody = JSON.parse(response.body);
