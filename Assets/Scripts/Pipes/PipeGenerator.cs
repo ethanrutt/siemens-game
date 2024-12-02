@@ -14,8 +14,6 @@ using UnityEngine.UI;
  * what is happening on the screen
  *
  * @see PipeBehavior
- * @see Direction
- * @see PipeType
  * @see PipeInfo
  */
 public class PipeGenerator : MonoBehaviour

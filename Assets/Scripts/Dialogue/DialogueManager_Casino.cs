@@ -5,6 +5,8 @@ using UnityEngine;
 /**
  * @brief This is the DialogueManager for the Town Square. This holds the
  * dialogues for sensei in the casino, and the casino owner's dialogue
+ *
+ * @see DialogueManager
  */
 public class DialogueManager_Casino : MonoBehaviour
 {

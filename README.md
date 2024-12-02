@@ -16,6 +16,7 @@
 - [Deployment](#deployment)
 - [Android Deployment](#android-deployment)
 - [iOS Deployment](#ios-deployment)
+- [Documentation](#documentation)
 - [Future Development](#future-development)
 
 ---
@@ -180,6 +181,24 @@ git clone git@github.com:ethanrutt/siemens-game.git
 * You should have an `.xcode` file that you will need to open in XCode.
 * This file will allow you to build the game on iOS, and you should follow the
   steps that XCode gives you with regards to this process.
+
+---
+## Documentation
+* We have generated our documentation using [doxygen](https://www.doxygen.nl/index.html).
+* Make sure that any new code written has [javadoc style comments](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html).
+* Generate new documentation using our preconfigured `Doxyfile` by running
+```
+doxygen Doxyfile
+```
+* View the documentation **FIXME host the documentation somewhere**.
+* Some Notes about the Doxyfile config
+  * We are using `.mjs` files for our backend, which aren't recognized by the doxygen parser by default. This line fixes this which just says that `.mjs` files should use the `Javascript` parser.
+  ```
+  EXTENSION_MAPPING      = mjs=Javascript
+  ```
+  * The Main Page is set to this readme file.
+  * The backend documentation is found by searching through the files on the doxygen website.
+  * The game documentation is found by searching through the class list on the doxygen website.
 
 ---
 ## Future Development
