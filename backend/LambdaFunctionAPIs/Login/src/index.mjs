@@ -2,6 +2,15 @@
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 /* jslint ignore:end */
 
+/**
+ * Validates user login credentials by checking the database.
+ *
+ * @param {Object} client - PostgreSQL client for database operations.
+ * @param {string} user_name - The username to validate.
+ * @param {string} user_password - The password to validate.
+ * @returns {Promise<Object>} - Resolves with user details if credentials are valid.
+ * @throws {Error} - Throws an error if credentials are invalid or query fails.
+ */
 const validateLoginCredentials = async (client, user_name, user_password) => {
     const query = `
         SELECT * FROM users 
@@ -18,6 +27,17 @@ const validateLoginCredentials = async (client, user_name, user_password) => {
     }
 };
 
+
+/**
+ * Creates a new user in the database.
+ *
+ * @param {Object} client - PostgreSQL client for database operations.
+ * @param {string} employee_id - The employee ID for the new user.
+ * @param {string} user_name - The username for the new user.
+ * @param {string} user_password - The password for the new user.
+ * @returns {Promise<Object>} - Resolves with the newly created user's details.
+ * @throws {Error} - Throws an error if the employee ID is invalid or already exists.
+ */
 const createUser = async (client, employee_id, user_name, user_password) => {
 
     const checkQuery = `
@@ -86,6 +106,13 @@ const createUser = async (client, employee_id, user_name, user_password) => {
     return insertResult.rows[0];
 };
 
+/**
+ * Validates and extracts required parameters from the event request.
+ *
+ * @param {Object} event - The Lambda event object.
+ * @returns {Object} - Returns the extracted parameters.
+ * @throws {Error} - Throws an error if required parameters are missing or invalid.
+ */
 const errorCheck = (event) => {
     if (!event.body) {
         throw new Error('Request body is missing.');
@@ -109,6 +136,13 @@ const errorCheck = (event) => {
     };
 };
 
+/**
+ * Lambda function handler for user login and signup.
+ *
+ * @param {Object} event - The Lambda event object containing request data.
+ * @returns {Promise<Object>} - Returns a response object with HTTP status and user details.
+ * @throws {Error} - Throws an error if request parameters are invalid or database operations fail.
+ */
 export const handler = async (event) => {
     let client;
 

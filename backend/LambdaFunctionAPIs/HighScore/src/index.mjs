@@ -2,6 +2,17 @@
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 /* jslint ignore:end */
 
+
+/**
+ * Retrieves the score and rank for a user in a specific game.
+ *
+ * @param {Object} client - The PostgreSQL client for database operations.
+ * @param {number} userId - The ID of the user.
+ * @param {number} gameId - The ID of the game.
+ * @param {string} tableName - The name of the table to query (default: 'game_scores').
+ * @returns {Promise<Object>} - An object containing the target score and rank of the user.
+ * @throws {Error} - Throws an error if the query fails or no scores are found for the user.
+ */
 const getScoreAndRank = async (client, userId, gameId, tableName) => {
     try {
         let scoreQuery, rankQuery;
@@ -35,6 +46,14 @@ const getScoreAndRank = async (client, userId, gameId, tableName) => {
     }
 };
 
+/**
+ * Lambda function handler for retrieving a user's score and rank in a specific game.
+ *
+ * @param {Object} event - The Lambda event object containing the request data.
+ * @param {string} tableName - The name of the database table to query (default: 'game_scores').
+ * @returns {Promise<Object>} - Returns a response object containing the score and rank.
+ * @throws {Error} - Throws an error if the request body is invalid or the database query fails.
+ */
 export const handler = async (event, tableName = 'game_scores') => {
     let client;
 

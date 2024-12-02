@@ -2,6 +2,25 @@
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 /* jslint ignore:end */
 
+/**
+ * Updates the player data in the database.
+ *
+ * @param {Object} client - PostgreSQL client for database operations.
+ * @param {number} user_id - The ID of the user.
+ * @param {number} current_coins - The current coin count for the user.
+ * @param {Array<number>} items_owned - Array of item IDs the user owns.
+ * @param {Array<number>} items_equipped - Array of item IDs the user has equipped.
+ * @param {Array<number>} cards_owned - Array of card IDs the user owns.
+ * @param {Array<number>} achievements_complete - Array of completed achievement IDs.
+ * @param {Object} achievements - Dictionary of achievements and their progress.
+ * @param {boolean} has_finished_cutscene - Whether the user has finished the cutscene.
+ * @param {number} location_x - The user's X-coordinate in the game world.
+ * @param {number} location_y - The user's Y-coordinate in the game world.
+ * @param {string} current_scene - The current scene the user is in.
+ * @param {Object} interactions - Dictionary of user interactions and their counts.
+ * @returns {Promise<Object>} - Resolves with the updated user data.
+ * @throws {Error} - Throws an error if the user is not found or the query fails.
+ */
 const updatePlayerData = async (client, user_id, current_coins, items_owned, items_equipped, cards_owned, achievements_complete, achievements, has_finished_cutscene, location_x, location_y, current_scene, interactions) => {
     const query = `
         UPDATE users
@@ -85,6 +104,14 @@ const errorCheck = (event) => {
     };
 };
 
+
+/**
+ * Validates and extracts the request body parameters.
+ *
+ * @param {Object} event - The Lambda event object containing the request data.
+ * @returns {Object} - Extracted parameters from the request body.
+ * @throws {Error} - Throws an error if the request body or required parameters are missing.
+ */
 export const handler = async (event) => {
     let client;
 

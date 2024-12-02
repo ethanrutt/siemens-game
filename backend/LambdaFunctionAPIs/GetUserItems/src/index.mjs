@@ -2,7 +2,14 @@
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 /* jslint ignore:end */
 
-// Function to get user by employee_id
+/**
+ * Fetches user information from the `users` table based on the provided `employee_id`.
+ *
+ * @param {Object} client - The PostgreSQL client used to interact with the database.
+ * @param {string} employeeId - The `employee_id` to query.
+ * @returns {Promise<Object>} - Returns the user object if found.
+ * @throws {Error} - Throws an error if the query fails or no user is found.
+ */
 const getUserByEmployeeId = async (client, employeeId) => {
     try {
         const result = await client.query(
@@ -21,7 +28,14 @@ const getUserByEmployeeId = async (client, employeeId) => {
     }
 };
 
-// Function to get item names from the store based on item IDs
+/**
+ * Fetches item names from the `store` table based on an array of item IDs.
+ *
+ * @param {Object} client - The PostgreSQL client used to interact with the database.
+ * @param {number[]} itemIds - An array of item IDs to query.
+ * @returns {Promise<Object>} - Returns a mapping of item IDs to item names.
+ * @throws {Error} - Throws an error if the query fails.
+ */
 const getItemNamesByIds = async (client, itemIds) => {
     try {
         const result = await client.query(
@@ -39,6 +53,14 @@ const getItemNamesByIds = async (client, itemIds) => {
     }
 };
 
+
+/**
+ * Lambda function handler to fetch user details and associated item names.
+ *
+ * @param {Object} event - The Lambda event object, containing the request body with the `employee_id`.
+ * @returns {Promise<Object>} - Returns an object containing user details and item names.
+ * @throws {Error} - Throws an error if the `employee_id` is invalid or database queries fail.
+ */
 export const handler = async (event) => {
     let client;
 

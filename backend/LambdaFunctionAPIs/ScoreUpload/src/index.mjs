@@ -1,13 +1,30 @@
 /* jslint ignore:start */
 import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
 /* jslint ignore:end */
+
 // Function to check if the user exists in the database
+/**
+ * Checks if a user exists in the database.
+ *
+ * @param {Object} client - PostgreSQL client for database operations.
+ * @param {number} userId - The ID of the user to check.
+ * @returns {Promise<boolean>} - Resolves to true if the user exists, false otherwise.
+ */
 const checkUserExists = async (client, userId) => {
     const result = await client.query('SELECT * FROM users WHERE user_id = $1', [userId]);
     return result.rows.length > 0;
 };
 
 // Function to get the existing score
+/**
+ * Retrieves the existing score for a user and game from the database.
+ *
+ * @param {Object} client - PostgreSQL client for database operations.
+ * @param {number} userId - The ID of the user.
+ * @param {number} gameId - The ID of the game.
+ * @param {string} [tableName='game_scores'] - The name of the table to query.
+ * @returns {Promise<number|null>} - The existing score or null if no score exists.
+ */
 const getExistingScore = async (client, userId, gameId, tableName = 'game_scores') => {
     const result = await client.query(
         `SELECT score FROM ${tableName} WHERE user_id = $1 AND game_id = $2`,
@@ -18,6 +35,16 @@ const getExistingScore = async (client, userId, gameId, tableName = 'game_scores
 
 
 // Function to insert or update the score using UPSERT logic
+/**
+ * Inserts or updates the score using UPSERT logic.
+ *
+ * @param {Object} client - PostgreSQL client for database operations.
+ * @param {number} userId - The ID of the user.
+ * @param {number} gameId - The ID of the game.
+ * @param {number} score - The score to insert or update.
+ * @param {string} [tableName='game_scores'] - The name of the table to update.
+ * @returns {Promise<Object>} - The inserted or updated score record.
+ */
 const upsertGameScore = async (client, userId, gameId, score, tableName = 'game_scores') => {
     const query = `
         INSERT INTO ${tableName} (user_id, game_id, score)
@@ -30,7 +57,16 @@ const upsertGameScore = async (client, userId, gameId, score, tableName = 'game_
     return result.rows[0];
 };
 
-// Function to handle the score logic based on game_id conditions
+/**
+ * Handles the score logic based on game-specific conditions.
+ *
+ * @param {Object} client - PostgreSQL client for database operations.
+ * @param {number} userId - The ID of the user.
+ * @param {number} gameId - The ID of the game.
+ * @param {number} newScore - The new score to evaluate.
+ * @param {string} [tableName='game_scores'] - The name of the table to update.
+ * @returns {Promise<Object>} - The result of the score operation, including the upserted score.
+ */
 const handleScoreInsert = async (client, userId, gameId, newScore, tableName = 'game_scores') => {
     const existingScore = await getExistingScore(client, userId, gameId, tableName);
 
@@ -46,6 +82,13 @@ const handleScoreInsert = async (client, userId, gameId, newScore, tableName = '
     return await upsertGameScore(client, userId, gameId, newScore, tableName);
 };
 
+/**
+ * Lambda function handler to manage game score operations.
+ *
+ * @param {Object} event - The Lambda event object containing the request data.
+ * @param {string} [tableName='game_scores'] - The name of the table to operate on.
+ * @returns {Promise<Object>} - HTTP response object with status and score operation result.
+ */
 export const handler = async (event, tableName = 'game_scores') => {
     let client;
 
