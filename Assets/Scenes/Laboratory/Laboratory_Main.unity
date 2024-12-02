@@ -10631,6 +10631,71 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6930256, y: 1.8675518}
   m_EdgeRadius: 0
+--- !u!1 &859728368
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 859728370}
+  - component: {fileID: 859728369}
+  m_Layer: 0
+  m_Name: PlayerData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &859728369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859728368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d39fd46568824903b7f1ed4cc6a8741, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  username: 
+  coins: 2500
+  userId: 0
+  interactable: none
+  wire_puzzle_wins: 0
+  wire_puzzle_fullround: 0
+  card_game_wins: 0
+  card_game_fullround: 0
+  casino_winnings: 0
+  casino_losses: 0
+  pipe_puzzle_wins: 0
+  movement_speed: 5
+  chosen_horse: 
+  bet_amount: 0
+  neuroflux_meter: 0
+  item_ids: {fileID: 0}
+  danceEmoteButton: {fileID: 0}
+  unlocked_items: 
+  equipped_items: 
+  original_load_items: 
+  unlocked_achievements: 
+--- !u!4 &859728370
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 859728368}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &873306993
 GameObject:
   m_ObjectHideFlags: 0
@@ -35299,6 +35364,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item_id: 0
+--- !u!1 &1643968494
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1643968496}
+  - component: {fileID: 1643968495}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1643968495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643968494}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d1195b565f974b31aa935bff5f1d82b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerSpawnPosition: {x: -8, y: -8}
+--- !u!4 &1643968496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1643968494}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -29.965088, y: 10.3559265, z: 0.16641903}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1645212674
 GameObject:
   m_ObjectHideFlags: 0
@@ -43541,3 +43651,5 @@ SceneRoots:
   - {fileID: 280268178}
   - {fileID: 1040591270}
   - {fileID: 1778816322}
+  - {fileID: 1643968496}
+  - {fileID: 859728370}

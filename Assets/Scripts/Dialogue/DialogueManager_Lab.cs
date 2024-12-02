@@ -138,33 +138,31 @@ public class DialogueManager_Lab : MonoBehaviour
         // Change TTC_Text to "Do Not Tap."
         TTC_Text.text = "Do Not Tap...";
 
-        for (int i = 0; i < deckMasterHaventSpoken.Length; i++)
+        // Just one dialogue
+        // If the coroutine is not null, stop the coroutine
+        if (typeSentenceCoroutine != null)
         {
-            // If the coroutine is not null, stop the coroutine
-            if (typeSentenceCoroutine != null)
-            {
-                StopCoroutine(typeSentenceCoroutine);
-            }
-
-            // Set the dialogueText to an empty string
-            dialogueText.text = "";
-
-            // Set the characterImage to the appropriate sprite
-            characterImage.sprite = deckmasterSprites[deckMasterHaventSpokenSprites[i]];
-
-            // Set the charName to "Deckmaster"
-            charName.text = "Deckmaster";
-
-            // Start typing the sentence
-            isTyping = true;
-            typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterHaventSpoken[i]));
-
-            // Wait
-            yield return new WaitForSeconds(deckMasterHaventSpoken[i].Length * typingSpeed + 1.25f);
-
-            // Wait
-            yield return new WaitForSeconds(2);
+            StopCoroutine(typeSentenceCoroutine);
         }
+
+        // Set the dialogueText to an empty string
+        dialogueText.text = "";
+
+        // Pick a random length
+        int i = Random.Range(0, deckMasterHaventSpoken.Length);
+
+        // Now set the characterImage to the appropriate sprite
+        characterImage.sprite = deckmasterSprites[deckMasterHaventSpokenSprites[i]];
+
+        // Set the charName to "Deckmaster"
+        charName.text = "Deckmaster";
+
+        // Start typing the sentence
+        isTyping = true;
+        typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterHaventSpoken[i]));
+
+        // Wait
+        yield return new WaitForSeconds(deckMasterHaventSpoken[i].Length * typingSpeed + 1.25f);
 
         // Change TTC_Text to "Tap to Continue."
         TTC_Text.text = "Tap to Continue...";
@@ -183,7 +181,7 @@ public class DialogueManager_Lab : MonoBehaviour
         "Hola. You speak Spanish? Tu necesitas hablar conmigo antes de jugar cartas. That's a good Spanish accent, right?",
         "Ok. You're probably making an honest mistake. I'll forgive that. However, you gotta talk to me before you play cards. That's the rule."
     };
-    
+
     private int[] deckMasterHaventSpokenSprites = {
         0, 0, 1, 0
     };
