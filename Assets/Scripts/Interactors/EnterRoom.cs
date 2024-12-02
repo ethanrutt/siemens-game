@@ -7,13 +7,17 @@ using UnityEngine.SceneManagement;
 
 // Rishi Santhanam
 // This script is used to load the next scene
+/**
+ * @class EnterRoom
+ * @brief This class is used to load the next scene when entering/exiting a room
+ */
 public class EnterRoom : MonoBehaviour
 {
     // Essentially, this script is used to load the next scene
     // Whether entering or exiting a room
     // PlayerData
     public PlayerData playerData => PlayerData.Instance;
-    
+
     // GameManager
     public GameManager gameManager => GameManager.Instance;
 
@@ -57,17 +61,5 @@ public class EnterRoom : MonoBehaviour
     {
         playerData.interactable = "";
         interactButton.SetActive(false);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -1,14 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// TMP
 using TMPro;
 
+/**
+ * @class AchievementsHandler
+ * @brief This class is responsible for handling the achievements panel and lore objects
+ * @details This class will handle
+ * - Opening and closing the achievements panel
+ * - Opening and closing the lore object panel
+ * - Populating the achievements panel with the achievements
+ * - Populating the lore object panel with the lore object
+ * - Managing the achievements and lore objects
+ */
 public class AchievementsHandler : MonoBehaviour
 {
     // Grab playerData
     private PlayerData playerData => PlayerData.Instance;
-    //[SerializeField] public List<string> unlocked_achievements = new List<int>(); // by the ids, 0 , 1, 2, etc... is on PlayerData
 
     // Grab itemIDS
     [SerializeField] private ItemIDs itemIDS;
@@ -21,7 +29,7 @@ public class AchievementsHandler : MonoBehaviour
 
     // Grab the blackoutModal
     [SerializeField] private GameObject blackoutModal;
-    
+
     // Grab the UI Object (because we're going to) deactivate it
     [SerializeField] private GameObject uiObject;
 
@@ -130,14 +138,11 @@ public class AchievementsHandler : MonoBehaviour
     // and populate the buttons with open(loreID)
     public void PopulatePanel()
     {
-        // Basically, will populate the texts 
+        // Basically, will populate the texts
         // and the buttons with the loreID
         // for each achievement
         for (int i = 0; i < achievementPages[pageCounter].Count; i++)
         {
-            // DEBUG
-            // Debug.Log("Achievement: " + achievementPages[pageCounter][i]);
-
             // Set the achievement title and description
             achievementTitles[i].text = itemIDS.achievement_database[achievementPages[pageCounter][i]].title;
             achievementDescriptions[i].text = itemIDS.achievement_database[achievementPages[pageCounter][i]].description;
@@ -212,7 +217,7 @@ public class AchievementsHandler : MonoBehaviour
             rightButton.interactable = true;
         }
     }
-    
+
     // PageBack
     public void PageBack()
     {
@@ -275,13 +280,13 @@ public class AchievementsHandler : MonoBehaviour
     {
         canvasGroup = achievementUnlockedScreen.AddComponent<CanvasGroup>();
     }
-    
+
     // Fade in
     canvasGroup.alpha = 0f;  // Start with fully transparent
     achievementUnlockedScreen.SetActive(true);  // Ensure it's visible
     float fadeDuration = 1f;  // Adjust how long the fade will take (in seconds)
     float startTime = Time.time;
-    
+
     // Gradually fade in over 'fadeDuration' seconds
     while (Time.time - startTime < fadeDuration)
     {
@@ -295,7 +300,7 @@ public class AchievementsHandler : MonoBehaviour
 
     // Fade out
     startTime = Time.time;
-    
+
     // Gradually fade out over 'fadeDuration' seconds
     while (Time.time - startTime < fadeDuration)
     {
@@ -303,7 +308,7 @@ public class AchievementsHandler : MonoBehaviour
         yield return null;
     }
     canvasGroup.alpha = 0f;  // Ensure it's fully transparent when done
-    
+
     achievementUnlockedScreen.SetActive(false);  // Hide the screen once the fade-out is complete
     }
 

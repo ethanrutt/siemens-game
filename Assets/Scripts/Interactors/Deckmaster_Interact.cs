@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * @class Deckmaster_Interact
+ * @brief This class handles the interaction between the player and the Deckmaster.
+ * @details This class is attached to the Deckmaster GameObject in the scene.
+ * When the player walks into the collider for the Deckmaster, the player's
+ * interactable is set to "deckmaster" and the interact button is shown. When
+ * the player walks away from the collider for the Deckmaster, the player's
+ * interactable is set to nothing and the interact button is hidden.
+ */
 public class Deckmaster_Interact : MonoBehaviour
 {
     // The player object
@@ -10,29 +19,6 @@ public class Deckmaster_Interact : MonoBehaviour
     // and change it to "leaderboard"
     [SerializeField] public GameObject player;
     [SerializeField] private GameObject interactButton;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        // Debug.Log("Leaderboard Interact script loaded");
-    }
-
-    // Update is called once per frame
-    // If the player walks into the collider for leaderboard,
-    // we will change the player's interactable to "leaderboard"
-    // and if walks away, the interactable is nothing, and the
-    // interact button disappears.
-    void Update()
-    {
-        
-    }
-
-    // Grab the PlayerData object (this is a DoNotDestroyOnLoad object)
-    // and set the player object to the player object in the scene
-    // The PlayerData is a singelton
-
-
-
 
     // When the player walks into the collider for the leaderboard,
     // we will change the player's interactable to "leaderboard"

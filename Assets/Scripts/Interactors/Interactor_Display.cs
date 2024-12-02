@@ -12,6 +12,15 @@ public class UserScoreList
     public List<UserScore> users;
 }
 
+/**
+ * @class UserScore
+ * @brief This class is used to store the user's score and name
+ * for the leaderboard
+ * @details This class is used with the json utility to parse the userscores
+ * that are returned from the API endpoint. It is important that these members
+ * stay the same (i.e. don't change to camel case since they have to be
+ * consistent with what's returned from the API)
+ */
 [System.Serializable]
 public class UserScore
 {
@@ -23,6 +32,10 @@ public class UserScore
 }
 
 
+/**
+ * @class Interactor_Display
+ * @brief This class is used to handle the display of the leaderboards
+ */
 public class Interactor_Display : MonoBehaviour
 {
     // Call the GameObject for Leaderboards
@@ -214,12 +227,6 @@ public class Interactor_Display : MonoBehaviour
                 dialogueManager = GameObject.Find("DialogueManager").GetComponent<DialogueManager_TS>();
             }
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void GetPeculiarPipesLeaderboard()
