@@ -12,6 +12,7 @@ public class GameManager2 : MonoBehaviour
     public List<Card> deck  = new List<Card>();
     public List<Card> discardPile  = new List<Card>();
     public List<Card> currentHand  = new List<Card>();
+    public List<Card> playerDeck  = new List<Card>();
     public int[] cardId;   
     public int[] cardCost;
     public int[] cardPower;
@@ -43,6 +44,15 @@ public class GameManager2 : MonoBehaviour
             j++;
         }
 
+        for(int i = 0; i < 7; i++){
+            Card randCard = deck[Random.Range(0, deck.Count)];
+            playerDeck.Add(randCard);
+            
+            deck.Remove(randCard);
+        }
+
+
+
         for(int i = 0; i < handSize; i++){
             DrawCard(i);
         }
@@ -71,14 +81,14 @@ public class GameManager2 : MonoBehaviour
             card.gameObject.SetActive(false);
         }
 
-        foreach(Card card in deck){
+        foreach(Card card in playerDeck){
             card.hasBeenPlayed = false;
             card.nameLabel.enabled = false;
             discardPile.Add(card);
         }
 
         currentHand.Clear();
-        deck.Clear();
+        playerDeck.Clear();
 
         Shuffle();
 
@@ -88,7 +98,7 @@ public class GameManager2 : MonoBehaviour
 
         resizeCardSlots();
 
-        deckText.text = deck.Count.ToString();
+        deckText.text = playerDeck.Count.ToString();
         discardText.text = discardPile.Count.ToString();
     }
 
@@ -96,13 +106,13 @@ public class GameManager2 : MonoBehaviour
 
     public void Update(){
         CheckPlaySlots();
-        if(deck.Count == 0){
+        if(playerDeck.Count == 0){
             Shuffle();
         }
 
         resizeCardSlots();
 
-        deckText.text = deck.Count.ToString();
+        deckText.text = playerDeck.Count.ToString();
         discardText.text = discardPile.Count.ToString();
     }
 
@@ -120,8 +130,8 @@ public class GameManager2 : MonoBehaviour
     }
 
     public void DrawCard(int index){
-        if(deck.Count >= 1){
-            Card randCard = deck[Random.Range(0, deck.Count)];
+        if(playerDeck.Count >= 1){
+            Card randCard = playerDeck[Random.Range(0, playerDeck.Count)];
             if(availableCardSlots[index] == true){
                 randCard.gameObject.SetActive(true);
                 randCard.handIndex = index;
@@ -131,7 +141,7 @@ public class GameManager2 : MonoBehaviour
                 randCard.hasBeenPlayed = false;
                 randCard.isInSlot = false;
                 availableCardSlots[index] = false;
-                deck.Remove(randCard);
+                playerDeck.Remove(randCard);
                 currentHand.Insert(index, randCard);
             }
         }
@@ -151,7 +161,7 @@ public class GameManager2 : MonoBehaviour
             // Run the resize logic for below threshold
             for (int i = 0; i < handSize; i++)
             {
-                cardSlots[i].localPosition = new Vector3(-6.6081f + (i * 1.1272f), cardSlots[i].localPosition.y, cardSlots[i].localPosition.z);
+                cardSlots[i].localPosition = new Vector3(-4.353f + (i * 1.1272f), cardSlots[i].localPosition.y, cardSlots[i].localPosition.z);
                 if(currentHand[i].isInSlot == false){
                     currentHand[i].transform.position = cardSlots[i].localPosition;
                     currentHand[i].transform.position += new Vector3(3.23f, -2.24f, 6);
@@ -166,7 +176,7 @@ public class GameManager2 : MonoBehaviour
             // Run the resize logic for above threshold
             for (int i = 0; i < handSize; i++)
             {
-                cardSlots[i].localPosition = new Vector3(-7.74f + (i * 1.5f), cardSlots[i].localPosition.y, cardSlots[i].localPosition.z);
+                cardSlots[i].localPosition = new Vector3(-4.74f + (i * 1.5f), cardSlots[i].localPosition.y, cardSlots[i].localPosition.z);
                 if(currentHand[i].isInSlot == false){
                     currentHand[i].transform.position = cardSlots[i].localPosition;
                     currentHand[i].transform.position += new Vector3(3.23f, -2.24f, 6);
@@ -179,7 +189,7 @@ public class GameManager2 : MonoBehaviour
     }
 
     public void MoveToPlaySlot(Card playCard){
-        for(int i = 0; i < 3; i++){
+        for(int i = 0; i < 1; i++){
             if(availablePlaySlots[i] == true){
                 playCard.transform.position = playSlots[i].position;
                 playCard.transform.position += new Vector3(0, 0, 6);
@@ -203,7 +213,7 @@ public class GameManager2 : MonoBehaviour
             Card card = currentHand[i];
 
             if(card.isInSlot == true){
-                if(deck.Count == 0){
+                if(playerDeck.Count == 0){
                     Shuffle();
                 }
                 
@@ -225,7 +235,7 @@ public class GameManager2 : MonoBehaviour
     public void Shuffle(){
         if(discardPile.Count >= 1){
             foreach(Card card in discardPile){
-                deck.Add(card);
+                playerDeck.Add(card);
             }
             discardPile.Clear();
         }

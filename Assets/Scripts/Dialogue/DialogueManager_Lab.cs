@@ -59,10 +59,10 @@ public class DialogueManager_Lab : MonoBehaviour
         "Well, not necessarily. I don't live, nor do I eat, nor do I breathe... But that's beside the point.",
         "Before you even hop into those games, you gotta speak with me. I'll give you a rundown of the rules.",
         "There are three types of cards in this game: heat cards, pressure cards, and electricity cards.",
-        "Heat beats pressure, pressure beats electricity, and electricity beats heat.",
+        "Heat quadruples in power against pressure, pressure quadruples against electricity, and electricity quadruples against heat.",
         "Each card has its own level of power. The higher the power, the rarer the card is, and therefore, the more useful.",
-        "There are three power cards, one of each rarity. Essentially, power cards decrease the power of the enemy's cards by 2, for two rounds following.",
-        "And with power cards, you're not always guaranteed to win. It's all about strategy. If I had a 13 electricity, and you had a 3 pressure, even though my card is higher power, I lose.",
+        "There are three power ranges that dictate card rarity. Cards with power from 3-6 are common. Cards with power from 7-10 are rare. And cards with power from 11+ are legendary.",
+        "Even with legendary cards, you're not always guaranteed to win. It's all about strategy. If I had a 11 electricity, and you had a 3 pressure, even though my card is higher power, I lose.",
         "So, you ready to play? I'm going to give you a few cards from here. You can start playing with them. Bonne chance!"
     };
 

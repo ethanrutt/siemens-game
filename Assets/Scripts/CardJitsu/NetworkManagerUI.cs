@@ -7,7 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
-using Unity.Engine.SceneManagement;
+using UnityEngine.SceneManagement;
 
 public class NetworkManagerUI : NetworkBehaviour
 {
@@ -38,7 +38,7 @@ public class NetworkManagerUI : NetworkBehaviour
     {
         connectButton.onClick.AddListener(OnConnectButtonPressed);
         disconnectButton.onClick.AddListener(OnDisconnectButtonPressed); // Add listener for the disconnect button
-        disconnectButton.gameObject.SetActive(false); // Hide the button initially
+        disconnectButton.gameObject.SetActive(true); // Hide the button initially
         playerOne.SetActive(false); // Ensure PlayerOne is inactive by default
         deckOverlay.SetActive(false);
         discardOverlay.SetActive(false);
@@ -98,6 +98,8 @@ public class NetworkManagerUI : NetworkBehaviour
 
         connectButton.gameObject.SetActive(false);
         ipAddressField.gameObject.SetActive(false);
+        disconnectButton.gameObject.SetActive(false);
+        
 
         StartClientWithFallbackToHost(ipAddress);
     }
@@ -109,32 +111,60 @@ public class NetworkManagerUI : NetworkBehaviour
             Debug.Log("Disconnecting as Host...");
             NetworkManager.Singleton.Shutdown(); // Shut down the host
 
+
             SceneManager.LoadScene("Laboratory_Main");
+
+            disconnectButton.gameObject.SetActive(false); // Hide the disconnect button
+            //connectButton.gameObject.SetActive(true);
+            //ipAddressField.gameObject.SetActive(true);
+            //winScreen.gameObject.SetActive(false);
+            //loseScreen.gameObject.SetActive(false);
+            //connectMessage.gameObject.SetActive(false);
         }
         else if (NetworkManager.Singleton.IsClient)
         {
             Debug.Log("Disconnecting as Client...");
             NetworkManager.Singleton.Shutdown(); // Shut down the client connection
 
+            RequestHostShutdownServerRpc();
+
             SceneManager.LoadScene("Laboratory_Main");
+
+            disconnectButton.gameObject.SetActive(false); // Hide the disconnect button
+            connectButton.gameObject.SetActive(false);
+            ipAddressField.gameObject.SetActive(false);
+            //winScreen.gameObject.SetActive(false);
+            //loseScreen.gameObject.SetActive(false);
+            //connectMessage.gameObject.SetActive(false);
         }
         else
         {
             Debug.LogWarning("No active network connection to disconnect.");
+
+            SceneManager.LoadScene("Laboratory_Main");
+
+            disconnectButton.gameObject.SetActive(false); // Hide the disconnect button
+            connectButton.gameObject.SetActive(false);
+            ipAddressField.gameObject.SetActive(false);
+            //connectButton.gameObject.SetActive(true);
+            //ipAddressField.gameObject.SetActive(true);
+            //winScreen.gameObject.SetActive(false);
+            //loseScreen.gameObject.SetActive(false);
+            //connectMessage.gameObject.SetActive(false);
         }
 
-        // Reset UI
-        connectButton.gameObject.SetActive(true);
-        ipAddressField.gameObject.SetActive(true);
-        disconnectButton.gameObject.SetActive(false); // Hide the disconnect button
-        winScreen.gameObject.SetActive(false);
-        loseScreen.gameObject.SetActive(false);
-        connectMessage.gameObject.SetActive(false);
-        //playerOne.SetActive(false);
-        //deckOverlay.SetActive(false);
-        //discardOverlay.SetActive(false);
-
         Debug.Log("Disconnected successfully.");
+    }
+
+    [ServerRpc(RequireOwnership = false)]
+    private void RequestHostShutdownServerRpc()
+    {
+        if (NetworkManager.Singleton.IsHost)
+        {
+            Debug.Log("Host is shutting down as requested by client.");
+            connectMessage.gameObject.SetActive(false);
+            NetworkManager.Singleton.Shutdown();
+        }
     }
 
     private void LogNetworkConfig()
@@ -176,6 +206,8 @@ public class NetworkManagerUI : NetworkBehaviour
             else
             {
                 Debug.Log("Successfully connected as Client.");
+                connectMessage.text = "Client Connected";
+                connectMessage.gameObject.SetActive(true);
                 break;
             }
         }
@@ -216,8 +248,6 @@ public class NetworkManagerUI : NetworkBehaviour
         }
 
         Debug.Log($"Client connected with ID: {clientId}");
-        connectMessage.text = "Client Connected";
-        connectMessage.gameObject.SetActive(true);
 
         if (IsHost)
         {
@@ -246,19 +276,21 @@ public class NetworkManagerUI : NetworkBehaviour
         cardShare.clientWin.text = "0";
         cardShare.hW = 0;
         cardShare.cW = 0;
-        winScreen.gameObject.SetActive(false);
-        loseScreen.gameObject.SetActive(false);
-        disconnectButton.gameObject.SetActive(false);
+        //disconnectButton.gameObject.SetActive(false);
 
         if (isShuttingDown || !NetworkManager.Singleton || !NetworkManager.Singleton.IsHost)
         {
             Debug.LogWarning("NetworkManager is not active or host is shutting down. Skipping disconnection handling.");
             
-
+            winScreen.gameObject.SetActive(false);
+            loseScreen.gameObject.SetActive(false);
             connectButton.gameObject.SetActive(true);
+            disconnectButton.gameObject.SetActive(true);
             ipAddressField.gameObject.SetActive(true);
             connectMessage.gameObject.SetActive(false);
             playerOne.SetActive(false);
+
+
             return;
         }
 
@@ -305,6 +337,7 @@ public class NetworkManagerUI : NetworkBehaviour
             if (playerOne.activeSelf)
             {
                 playerOne.SetActive(false);
+                disconnectButton.gameObject.SetActive(true);
                 Debug.Log("PlayerOne deactivated: Host not initialized or no clients connected.");
             }
         }
