@@ -3,6 +3,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+/**
+ * @class WebRequestUtility
+ * @brief This is a wrapper around the UnityWebRequest to make sending web
+ * requests easier
+ * @details A MonoBehavior child is needed to be passed in to this class, since
+ * WebRequests in Unity must be Coroutines. There is also a callback for
+ * success and failure callback. This is done since the return type of these
+ * functions must be `IEnumerator` type, making it a Coroutine, so we can't
+ * collect the response from the API call how we normally would.
+ * Using this WebRequestUtility is done like so
+ * ```
+ *   string url = "url";
+ *   string jsonData = System.String.Format(@"{{
+ *       ""user_id"": {0},
+ *       ""game_id"": {1},
+ *       ""score"": {2}
+ *   }}", data1, data2, data3);
+ *   WebRequestUtility.SendWebRequest(this, url, jsonData, successCallbackFunction, failCallbackFunction);
+ * ```
+ */
 public static class WebRequestUtility
 {
     public static void SendWebRequest(MonoBehaviour monoBehaviour, string url, string jsonData, System.Action<string> successCallback, System.Action<string> failCallback)

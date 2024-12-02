@@ -8,7 +8,7 @@ using TMPro;
 /**
  * This class handles the level over screen and behavior. It is called by the
  * WireGenerator and also calls the WireGenerator when we want to start a new
- * level 
+ * level
  * @see WireGenerator
  */
 public class LevelOverManager : MonoBehaviour
@@ -20,7 +20,7 @@ public class LevelOverManager : MonoBehaviour
      * Setup() sets up the screen for the level being over. This sets up a
      * level over screen that gives the amount of time the player took on the
      * level, and a Next and Exit button.
-     * 
+     *
      * @param levelTimeSpan The System.TimeSpan of the level time
      */
     public void Setup(System.TimeSpan levelTimeSpan)

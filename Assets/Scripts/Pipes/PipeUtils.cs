@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Direction handles the direction of the pipe in the pipe game. This game
- * works by making sure that whatever is flowing through the pipes can only
- * flow in one direction.
+ * @brief Direction handles the direction of the pipe in the pipe game.
+ * @details This game works by making sure that whatever is flowing through
+ * the pipes can only flow in one direction.
  *
- * For straight pipes, this is rather straight forward, if the pipe is up, then
- * it's in a shape like | and it flows upwards.
+ * For straight pipes, this is rather straight forward, if the pipe is up,
+ * then it's in a shape like | and it flows upwards.
  *
  * Turn pipes are a little different. A diagram is drawn below. The | and --
  * indicate the pipe itself, while arrows such as ->, <-,
@@ -81,7 +81,7 @@ public enum Direction
 }
 
 /**
- * PipeType determines if the type is a straight pipe, turn pipe, source, or sink
+ * @brief PipeType determines if the type is a straight pipe, turn pipe, source, or sink
  * @see Direction
  */
 public enum PipeType
@@ -93,7 +93,13 @@ public enum PipeType
     empty
 }
 
-// FIXME: write javadoc string here
+/**
+ * @class PipeInfo
+ * @brief This is a dataclass for keeping track of a pipes direction and type
+ *
+ * @see Direction
+ * @see PipeType
+ */
 public class PipeInfo
 {
     public Direction direction;

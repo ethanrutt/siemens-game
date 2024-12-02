@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+/**
+ * @class ShowAllButton
+ * @brief This handles the show all button used in the inventory modal
+ *
+ * @see InventoryUI
+ */
 public class ShowAllButton : MonoBehaviour
 {
     public InventoryUI inventoryUI; // Reference to the InventoryUI script

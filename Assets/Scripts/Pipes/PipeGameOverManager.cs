@@ -4,6 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 
+/**
+ * @class PipeGameOverManager
+ * @brief This handles the completion criteria for when the pipe game is
+ * finished
+ * @details Handles the restart button, exit button, as well as uploading the
+ * score to the database for populating the leaderboard
+ */
 public class PipeGameOverManager : MonoBehaviour
 {
     public TMP_Text timeElapsed;
@@ -38,7 +45,8 @@ public class PipeGameOverManager : MonoBehaviour
     }
 
     /**
-     * uploadTime() is a function that sends a POST request to the backend to upload the time
+     * @brief uploadTime() is a function that sends a POST request to the
+     * backend to upload the time
      */
     private void uploadTime(int userId)
     {

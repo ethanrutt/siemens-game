@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-// Rishi Santhanam
-// Manages the tutorial aspect of the inventory, basically if you press the inventory button
-// the inventory panel should open, etc. and once the back button is pressed, it will remove
-// the whole inventory interface and change its main boolean (public) to false, so the
-// tutorial manager script can move on and finish the tutorial.
-
+/**
+ * @class InventoryUI_Tutorial
+ * @brief Manages the tutorial aspect of the inventory, basically if you press
+ * the inventory button the inventory panel should open, etc. and once the back
+ * button is pressed, it will remove the whole inventory interface and change
+ * its main boolean (public) to false, so the tutorial manager script can move
+ * on and finish the tutorial.
+ */
 public class InventoryUI_Tutorial : MonoBehaviour
 {
     // SerializeField all the UI objects
@@ -58,5 +60,5 @@ public class InventoryUI_Tutorial : MonoBehaviour
         // Set the inventory panel to false
         inventoryPanel.SetActive(false);
     }
-    
+
 }
