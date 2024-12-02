@@ -1,0 +1,16 @@
+curl -X POST "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/Login" \
+-H "Content-Type: application/json" \
+-d '{
+  "user_name": "newuser",
+  "user_password": "securepassword"
+}'
+
+Signup:
+
+curl -X POST "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/Login" \
+-H "Content-Type: application/json" \
+-d '{
+  "user_name": "newuser",
+  "user_password": "securepassword",
+  "employee_id": 9500
+}'
