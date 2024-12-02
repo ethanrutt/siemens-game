@@ -14,33 +14,33 @@ env:
   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
 jobs:
-  # equip-test:
-  #   name: Run Equip
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/Equip/package-lock.json"
-  #
-  #     - name: Install Shared Deps
-  #       working-directory: backend/LambdaFunctionAPIs/shared
-  #       run: npm install
-  #
-  #     - name: Install Test Deps
-  #       working-directory: backend/LambdaFunctionAPIs/Equip
-  #       run: npm install
-  #
-  #     - name: Run Jest Tests
-  #       working-directory: backend/LambdaFunctionAPIs/Equip
-  #       run: npm test
+  equip-test:
+    name: Run Equip
+    permissions: write-all
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'
+          cache: npm
+          cache-dependency-path: "backend/LambdaFunctionAPIs/Equip/package-lock.json"
+
+      - name: Install Shared Deps
+        working-directory: backend/LambdaFunctionAPIs/shared
+        run: npm install
+
+      - name: Install Test Deps
+        working-directory: backend/LambdaFunctionAPIs/Equip
+        run: npm install
+
+      - name: Run Jest Tests
+        working-directory: backend/LambdaFunctionAPIs/Equip
+        run: npm test
 
   get-all-items-test:
     name: Run GetAllItems
@@ -182,8 +182,8 @@ jobs:
         working-directory: backend/LambdaFunctionAPIs/Login
         run: npm test
 
-  purchase-test:
-    name: Run Purchase
+  score-upload-test:
+    name: Run ScoreUpload
     permissions: write-all
     runs-on: ubuntu-latest
 
@@ -196,45 +196,17 @@ jobs:
         with:
           node-version: '14'
           cache: npm
-          cache-dependency-path: "backend/LambdaFunctionAPIs/Purchase/package-lock.json"
+          cache-dependency-path: "backend/LambdaFunctionAPIs/ScoreUpload/package-lock.json"
 
       - name: Install Shared Deps
         working-directory: backend/LambdaFunctionAPIs/shared
         run: npm install
 
       - name: Install Test Deps
-        working-directory: backend/LambdaFunctionAPIs/Purchase
+        working-directory: backend/LambdaFunctionAPIs/ScoreUpload
         run: npm install
 
       - name: Run Jest Tests
-        working-directory: backend/LambdaFunctionAPIs/Purchase
+        working-directory: backend/LambdaFunctionAPIs/ScoreUpload
         run: npm test
 
-  # score-upload-test:
-  #   name: Run ScoreUpload
-  #   permissions: write-all
-  #   runs-on: ubuntu-latest
-  #
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #
-  #     - name: Setup Node
-  #       uses: actions/setup-node@v3
-  #       with:
-  #         node-version: '14'
-  #         cache: npm
-  #         cache-dependency-path: "backend/LambdaFunctionAPIs/ScoreUpload/package-lock.json"
-  #
-  #     - name: Install Shared Deps
-  #       working-directory: backend/LambdaFunctionAPIs/shared
-  #       run: npm install
-  #
-  #     - name: Install Test Deps
-  #       working-directory: backend/LambdaFunctionAPIs/ScoreUpload
-  #       run: npm install
-  #
-  #     - name: Run Jest Tests
-  #       working-directory: backend/LambdaFunctionAPIs/ScoreUpload
-  #       run: npm test
-  #
