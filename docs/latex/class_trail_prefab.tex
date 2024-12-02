@@ -1,0 +1,123 @@
+\doxysection{Trail\+Prefab Class Reference}
+\hypertarget{class_trail_prefab}{}\label{class_trail_prefab}\index{TrailPrefab@{TrailPrefab}}
+
+
+This class handles the instantiating and destroying of the horse trails during the horse game.  
+
+
+Inheritance diagram for Trail\+Prefab\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_trail_prefab}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_trail_prefab_aae91ccebafc636f6b9d016b72331121d}{trail\+Prefab}}
+\item 
+float \mbox{\hyperlink{class_trail_prefab_af5e2b725f50e21dd24c133f0199c6df1}{spawn\+Rate}} = 0.\+1f
+\item 
+float \mbox{\hyperlink{class_trail_prefab_abedd527cf589c021411a5f5c88949230}{fade\+Time}} = 0.\+5f
+\item 
+int \mbox{\hyperlink{class_trail_prefab_ad7ee44224e67b45ab37cc6bd6ea9dc6a}{pool\+Size}} = 10
+\item 
+Vector3 \mbox{\hyperlink{class_trail_prefab_a97fa84f3bfb326d736abc1d2a743acfd}{trail\+Offset}} = new Vector3(0, -\/0.\+5f, 0)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_trail_prefab_a97200b664a07b11a2f5710657384d3e1}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_trail_prefab_abb8d9de8420cb2c69982f33f5f208870}{Update}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_trail_prefab_a2f041004c2188a75b77392bdad5032eb}{Fade\+And\+Shrink\+Trail}} (Game\+Object trail)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{class_trail_prefab_a2a3c8f98e32c1637fb3dc6b53d636922}{next\+Time\+To\+Spawn}} = 0f
+\item 
+Queue$<$ Game\+Object $>$ \mbox{\hyperlink{class_trail_prefab_a5863e3f9507dc4273fea5ca560e24b82}{trail\+Pool}} = new Queue$<$Game\+Object$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles the instantiating and destroying of the horse trails during the horse game. 
+
+There is an object pool of horse trail prefabs. These will spawn and then fade out after a set period of time
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{class_horse_behavior}{Horse\+Behavior} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_trail_prefab_a2f041004c2188a75b77392bdad5032eb}\index{TrailPrefab@{TrailPrefab}!FadeAndShrinkTrail@{FadeAndShrinkTrail}}
+\index{FadeAndShrinkTrail@{FadeAndShrinkTrail}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{FadeAndShrinkTrail()}{FadeAndShrinkTrail()}}
+{\footnotesize\ttfamily \label{class_trail_prefab_a2f041004c2188a75b77392bdad5032eb} 
+IEnumerator Trail\+Prefab.\+Fade\+And\+Shrink\+Trail (\begin{DoxyParamCaption}\item[{Game\+Object}]{trail}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_trail_prefab_a97200b664a07b11a2f5710657384d3e1}\index{TrailPrefab@{TrailPrefab}!Start@{Start}}
+\index{Start@{Start}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_trail_prefab_a97200b664a07b11a2f5710657384d3e1} 
+void Trail\+Prefab.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_trail_prefab_abb8d9de8420cb2c69982f33f5f208870}\index{TrailPrefab@{TrailPrefab}!Update@{Update}}
+\index{Update@{Update}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_trail_prefab_abb8d9de8420cb2c69982f33f5f208870} 
+void Trail\+Prefab.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_trail_prefab_abedd527cf589c021411a5f5c88949230}\index{TrailPrefab@{TrailPrefab}!fadeTime@{fadeTime}}
+\index{fadeTime@{fadeTime}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{fadeTime}{fadeTime}}
+{\footnotesize\ttfamily \label{class_trail_prefab_abedd527cf589c021411a5f5c88949230} 
+float Trail\+Prefab.\+fade\+Time = 0.\+5f}
+
+\Hypertarget{class_trail_prefab_a2a3c8f98e32c1637fb3dc6b53d636922}\index{TrailPrefab@{TrailPrefab}!nextTimeToSpawn@{nextTimeToSpawn}}
+\index{nextTimeToSpawn@{nextTimeToSpawn}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{nextTimeToSpawn}{nextTimeToSpawn}}
+{\footnotesize\ttfamily \label{class_trail_prefab_a2a3c8f98e32c1637fb3dc6b53d636922} 
+float Trail\+Prefab.\+next\+Time\+To\+Spawn = 0f\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_trail_prefab_ad7ee44224e67b45ab37cc6bd6ea9dc6a}\index{TrailPrefab@{TrailPrefab}!poolSize@{poolSize}}
+\index{poolSize@{poolSize}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{poolSize}{poolSize}}
+{\footnotesize\ttfamily \label{class_trail_prefab_ad7ee44224e67b45ab37cc6bd6ea9dc6a} 
+int Trail\+Prefab.\+pool\+Size = 10}
+
+\Hypertarget{class_trail_prefab_af5e2b725f50e21dd24c133f0199c6df1}\index{TrailPrefab@{TrailPrefab}!spawnRate@{spawnRate}}
+\index{spawnRate@{spawnRate}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{spawnRate}{spawnRate}}
+{\footnotesize\ttfamily \label{class_trail_prefab_af5e2b725f50e21dd24c133f0199c6df1} 
+float Trail\+Prefab.\+spawn\+Rate = 0.\+1f}
+
+\Hypertarget{class_trail_prefab_a97fa84f3bfb326d736abc1d2a743acfd}\index{TrailPrefab@{TrailPrefab}!trailOffset@{trailOffset}}
+\index{trailOffset@{trailOffset}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{trailOffset}{trailOffset}}
+{\footnotesize\ttfamily \label{class_trail_prefab_a97fa84f3bfb326d736abc1d2a743acfd} 
+Vector3 Trail\+Prefab.\+trail\+Offset = new Vector3(0, -\/0.\+5f, 0)}
+
+\Hypertarget{class_trail_prefab_a5863e3f9507dc4273fea5ca560e24b82}\index{TrailPrefab@{TrailPrefab}!trailPool@{trailPool}}
+\index{trailPool@{trailPool}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{trailPool}{trailPool}}
+{\footnotesize\ttfamily \label{class_trail_prefab_a5863e3f9507dc4273fea5ca560e24b82} 
+Queue$<$Game\+Object$>$ Trail\+Prefab.\+trail\+Pool = new Queue$<$Game\+Object$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_trail_prefab_aae91ccebafc636f6b9d016b72331121d}\index{TrailPrefab@{TrailPrefab}!trailPrefab@{trailPrefab}}
+\index{trailPrefab@{trailPrefab}!TrailPrefab@{TrailPrefab}}
+\doxysubsubsection{\texorpdfstring{trailPrefab}{trailPrefab}}
+{\footnotesize\ttfamily \label{class_trail_prefab_aae91ccebafc636f6b9d016b72331121d} 
+Game\+Object Trail\+Prefab.\+trail\+Prefab}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Horses/\mbox{\hyperlink{_trail_prefab_8cs}{Trail\+Prefab.\+cs}}\end{DoxyCompactItemize}

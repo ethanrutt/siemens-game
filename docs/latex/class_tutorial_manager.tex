@@ -1,0 +1,202 @@
+\doxysection{Tutorial\+Manager Class Reference}
+\hypertarget{class_tutorial_manager}{}\label{class_tutorial_manager}\index{TutorialManager@{TutorialManager}}
+
+
+Essentially, want to have a tutorial manager that allows for Sensei to give the player instructions through dialogue. This will be done through a dialogue manager that will be called by the tutorial manager. The tutorial manager will be responsible for managing the tutorial, panning the camera, and other tutorial-\/related tasks.  
+
+
+Inheritance diagram for Tutorial\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_tutorial_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_tutorial_manager_a1ea0f9e9d679ce30485954f6d80698cd}{End\+Tutorial}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} \mbox{\hyperlink{class_tutorial_manager_a299a944eac4c59d1d4bd729445069801}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+int \mbox{\hyperlink{class_tutorial_manager_a36c11ab08f04732ee2b722f7204f1e7e}{dialogue\+Index}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+bool \mbox{\hyperlink{class_tutorial_manager_a01d3e77c3a56efca9c77c1438a58b97a}{inventory\+Closed}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_tutorial_manager_a380e9730ddf301feadf93e6fedb3ef93}{On\+Mouse\+Down}} ()
+\item 
+void \mbox{\hyperlink{class_tutorial_manager_a51ab9e8dbee6bbd7a9e59a1e86c62c72}{Start}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_tutorial_manager_a6346f069aa6952be223ed6da4a305151}{Wait\+For\+Seconds}} (float seconds)
+\item 
+void \mbox{\hyperlink{class_tutorial_manager_a1afb4727c17e0b78186a92ce48bebace}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{class_tutorial_manager_aec31304e750da9f87d98859ae38f9018}{dialogue\+Panel}}
+\item 
+\mbox{\hyperlink{class_dialogue_manager_tutorial}{Dialogue\+Manager\+Tutorial}} \mbox{\hyperlink{class_tutorial_manager_a00fe2a12c9a100c3e2359e72c4b4ad1a}{dialogue\+Manager}}
+\item 
+int \mbox{\hyperlink{class_tutorial_manager_aec0ab270314e3c59b8ec63418db000b4}{flag\+Index}} = 0
+\item 
+\mbox{\hyperlink{class_character___movement}{Character\+\_\+\+Movement}} \mbox{\hyperlink{class_tutorial_manager_af5944cfe8483ff155527dc218b21ea24}{player}}
+\item 
+\mbox{\hyperlink{class_camera_follow}{Camera\+Follow}} \mbox{\hyperlink{class_tutorial_manager_acf91719362604116ff601a4acf92011a}{camera}}
+\item 
+\mbox{\hyperlink{class_inventory_u_i___tutorial}{Inventory\+UI\+\_\+\+Tutorial}} \mbox{\hyperlink{class_tutorial_manager_a623fd1342f764431a55943b0462c41bb}{inventory\+UI}}
+\item 
+Game\+Object \mbox{\hyperlink{class_tutorial_manager_a04c4494854b55ea17bb5588c3bd40eee}{inventory\+Button}}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_tutorial_manager_a833b67303a79abb233c02655cc40900f}{flags}}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_tutorial_manager_ac62401dae74872ad4901751865403c20}{flag\+Activate\+Objects}}
+\item 
+Game\+Object \mbox{\hyperlink{class_tutorial_manager_ab1f0ae9a4fad97a1083122f56338b1b1}{finish\+Tutorial\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{class_tutorial_manager_a8f7e03dfa0e82c8e253e44efddb2db58}{blackout\+Panel}}
+\item 
+bool \mbox{\hyperlink{class_tutorial_manager_a6b972b304f976661c6cac2cf7bf92534}{waiting\+On\+Objective}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Essentially, want to have a tutorial manager that allows for Sensei to give the player instructions through dialogue. This will be done through a dialogue manager that will be called by the tutorial manager. The tutorial manager will be responsible for managing the tutorial, panning the camera, and other tutorial-\/related tasks. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_tutorial_manager_a1ea0f9e9d679ce30485954f6d80698cd}\index{TutorialManager@{TutorialManager}!EndTutorial@{EndTutorial}}
+\index{EndTutorial@{EndTutorial}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{EndTutorial()}{EndTutorial()}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a1ea0f9e9d679ce30485954f6d80698cd} 
+void Tutorial\+Manager.\+End\+Tutorial (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_tutorial_manager_a380e9730ddf301feadf93e6fedb3ef93}\index{TutorialManager@{TutorialManager}!OnMouseDown@{OnMouseDown}}
+\index{OnMouseDown@{OnMouseDown}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{OnMouseDown()}{OnMouseDown()}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a380e9730ddf301feadf93e6fedb3ef93} 
+void Tutorial\+Manager.\+On\+Mouse\+Down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a51ab9e8dbee6bbd7a9e59a1e86c62c72}\index{TutorialManager@{TutorialManager}!Start@{Start}}
+\index{Start@{Start}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a51ab9e8dbee6bbd7a9e59a1e86c62c72} 
+void Tutorial\+Manager.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a1afb4727c17e0b78186a92ce48bebace}\index{TutorialManager@{TutorialManager}!Update@{Update}}
+\index{Update@{Update}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a1afb4727c17e0b78186a92ce48bebace} 
+void Tutorial\+Manager.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a6346f069aa6952be223ed6da4a305151}\index{TutorialManager@{TutorialManager}!WaitForSeconds@{WaitForSeconds}}
+\index{WaitForSeconds@{WaitForSeconds}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{WaitForSeconds()}{WaitForSeconds()}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a6346f069aa6952be223ed6da4a305151} 
+IEnumerator Tutorial\+Manager.\+Wait\+For\+Seconds (\begin{DoxyParamCaption}\item[{float}]{seconds}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_tutorial_manager_a8f7e03dfa0e82c8e253e44efddb2db58}\index{TutorialManager@{TutorialManager}!blackoutPanel@{blackoutPanel}}
+\index{blackoutPanel@{blackoutPanel}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{blackoutPanel}{blackoutPanel}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a8f7e03dfa0e82c8e253e44efddb2db58} 
+Game\+Object Tutorial\+Manager.\+blackout\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_acf91719362604116ff601a4acf92011a}\index{TutorialManager@{TutorialManager}!camera@{camera}}
+\index{camera@{camera}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{camera}{camera}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_acf91719362604116ff601a4acf92011a} 
+\mbox{\hyperlink{class_camera_follow}{Camera\+Follow}} Tutorial\+Manager.\+camera\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a00fe2a12c9a100c3e2359e72c4b4ad1a}\index{TutorialManager@{TutorialManager}!dialogueManager@{dialogueManager}}
+\index{dialogueManager@{dialogueManager}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{dialogueManager}{dialogueManager}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a00fe2a12c9a100c3e2359e72c4b4ad1a} 
+\mbox{\hyperlink{class_dialogue_manager_tutorial}{Dialogue\+Manager\+Tutorial}} Tutorial\+Manager.\+dialogue\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_aec31304e750da9f87d98859ae38f9018}\index{TutorialManager@{TutorialManager}!dialoguePanel@{dialoguePanel}}
+\index{dialoguePanel@{dialoguePanel}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{dialoguePanel}{dialoguePanel}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_aec31304e750da9f87d98859ae38f9018} 
+Game\+Object Tutorial\+Manager.\+dialogue\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_ab1f0ae9a4fad97a1083122f56338b1b1}\index{TutorialManager@{TutorialManager}!finishTutorialPanel@{finishTutorialPanel}}
+\index{finishTutorialPanel@{finishTutorialPanel}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{finishTutorialPanel}{finishTutorialPanel}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_ab1f0ae9a4fad97a1083122f56338b1b1} 
+Game\+Object Tutorial\+Manager.\+finish\+Tutorial\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_ac62401dae74872ad4901751865403c20}\index{TutorialManager@{TutorialManager}!flagActivateObjects@{flagActivateObjects}}
+\index{flagActivateObjects@{flagActivateObjects}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{flagActivateObjects}{flagActivateObjects}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_ac62401dae74872ad4901751865403c20} 
+Game\+Object \mbox{[}$\,$\mbox{]} Tutorial\+Manager.\+flag\+Activate\+Objects\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_aec0ab270314e3c59b8ec63418db000b4}\index{TutorialManager@{TutorialManager}!flagIndex@{flagIndex}}
+\index{flagIndex@{flagIndex}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{flagIndex}{flagIndex}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_aec0ab270314e3c59b8ec63418db000b4} 
+int Tutorial\+Manager.\+flag\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a833b67303a79abb233c02655cc40900f}\index{TutorialManager@{TutorialManager}!flags@{flags}}
+\index{flags@{flags}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{flags}{flags}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a833b67303a79abb233c02655cc40900f} 
+Game\+Object \mbox{[}$\,$\mbox{]} Tutorial\+Manager.\+flags\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a04c4494854b55ea17bb5588c3bd40eee}\index{TutorialManager@{TutorialManager}!inventoryButton@{inventoryButton}}
+\index{inventoryButton@{inventoryButton}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{inventoryButton}{inventoryButton}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a04c4494854b55ea17bb5588c3bd40eee} 
+Game\+Object Tutorial\+Manager.\+inventory\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a623fd1342f764431a55943b0462c41bb}\index{TutorialManager@{TutorialManager}!inventoryUI@{inventoryUI}}
+\index{inventoryUI@{inventoryUI}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{inventoryUI}{inventoryUI}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a623fd1342f764431a55943b0462c41bb} 
+\mbox{\hyperlink{class_inventory_u_i___tutorial}{Inventory\+UI\+\_\+\+Tutorial}} Tutorial\+Manager.\+inventory\+UI\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_af5944cfe8483ff155527dc218b21ea24}\index{TutorialManager@{TutorialManager}!player@{player}}
+\index{player@{player}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_af5944cfe8483ff155527dc218b21ea24} 
+\mbox{\hyperlink{class_character___movement}{Character\+\_\+\+Movement}} Tutorial\+Manager.\+player\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a6b972b304f976661c6cac2cf7bf92534}\index{TutorialManager@{TutorialManager}!waitingOnObjective@{waitingOnObjective}}
+\index{waitingOnObjective@{waitingOnObjective}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{waitingOnObjective}{waitingOnObjective}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a6b972b304f976661c6cac2cf7bf92534} 
+bool Tutorial\+Manager.\+waiting\+On\+Objective = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_tutorial_manager_a36c11ab08f04732ee2b722f7204f1e7e}\index{TutorialManager@{TutorialManager}!dialogueIndex@{dialogueIndex}}
+\index{dialogueIndex@{dialogueIndex}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{dialogueIndex}{dialogueIndex}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a36c11ab08f04732ee2b722f7204f1e7e} 
+int Tutorial\+Manager.\+dialogue\+Index\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a01d3e77c3a56efca9c77c1438a58b97a}\index{TutorialManager@{TutorialManager}!inventoryClosed@{inventoryClosed}}
+\index{inventoryClosed@{inventoryClosed}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{inventoryClosed}{inventoryClosed}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a01d3e77c3a56efca9c77c1438a58b97a} 
+bool Tutorial\+Manager.\+inventory\+Closed\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+\Hypertarget{class_tutorial_manager_a299a944eac4c59d1d4bd729445069801}\index{TutorialManager@{TutorialManager}!playerData@{playerData}}
+\index{playerData@{playerData}!TutorialManager@{TutorialManager}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{class_tutorial_manager_a299a944eac4c59d1d4bd729445069801} 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} Tutorial\+Manager.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Tutorial/\mbox{\hyperlink{_tutorial_manager_8cs}{Tutorial\+Manager.\+cs}}\end{DoxyCompactItemize}

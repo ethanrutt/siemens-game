@@ -1,0 +1,69 @@
+\doxysection{Web\+Request\+Utility Class Reference}
+\hypertarget{class_web_request_utility}{}\label{class_web_request_utility}\index{WebRequestUtility@{WebRequestUtility}}
+
+
+This is a wrapper around the Unity\+Web\+Request to make sending web requests easier.  
+
+
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{class_web_request_utility_a3b2d7b9d9d3edeeb3afa72acbe381a11}{Send\+Web\+Request}} (Mono\+Behaviour mono\+Behaviour, string url, string json\+Data, System.\+Action$<$ string $>$ success\+Callback, System.\+Action$<$ string $>$ fail\+Callback)
+\item 
+static void \mbox{\hyperlink{class_web_request_utility_a65aa49e60e0cfefa396aa320a43576cd}{Send\+Get\+Web\+Request}} (Mono\+Behaviour monobehavior, string url, System.\+Action$<$ string $>$ success\+Callback, System.\+Action$<$ string $>$ fail\+Callback)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static IEnumerator \mbox{\hyperlink{class_web_request_utility_a9159adce7ba7da4743acc5eb56410064}{Send\+Web\+Request\+Coroutine}} (string url, string json\+Data, System.\+Action$<$ string $>$ success\+Callback, System.\+Action$<$ string $>$ fail\+Callback)
+\item 
+static IEnumerator \mbox{\hyperlink{class_web_request_utility_ac5ccfe07da5905d0f416480d475efb40}{Send\+Get\+Web\+Request\+Coroutine}} (string url, System.\+Action$<$ string $>$ success\+Callback, System.\+Action$<$ string $>$ fail\+Callback)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a wrapper around the Unity\+Web\+Request to make sending web requests easier. 
+
+A Mono\+Behavior child is needed to be passed in to this class, since Web\+Requests in Unity must be Coroutines. There is also a callback for success and failure callback. This is done since the return type of these functions must be {\ttfamily IEnumerator} type, making it a Coroutine, so we can\textquotesingle{}t collect the response from the API call how we normally would. Using this \doxylink{class_web_request_utility}{Web\+Request\+Utility} is done like so 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keywordtype}{string}\ url\ =\ \textcolor{stringliteral}{"{}url"{}};}
+\DoxyCodeLine{\textcolor{keywordtype}{string}\ jsonData\ =\ System.String.Format(\textcolor{stringliteral}{@"{}\{\{}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}"{}user\_id"{}"{}:\ \{0\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}"{}game\_id"{}"{}:\ \{1\},}}
+\DoxyCodeLine{\textcolor{stringliteral}{\ \ \ \ "{}"{}score"{}"{}:\ \{2\}}}
+\DoxyCodeLine{\textcolor{stringliteral}{\}\}"{}},\ data1,\ data2,\ data3);}
+\DoxyCodeLine{\mbox{\hyperlink{class_web_request_utility}{WebRequestUtility}}.\mbox{\hyperlink{class_web_request_utility_a3b2d7b9d9d3edeeb3afa72acbe381a11}{SendWebRequest}}(\textcolor{keyword}{this},\ url,\ jsonData,\ successCallbackFunction,\ failCallbackFunction);}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_web_request_utility_a65aa49e60e0cfefa396aa320a43576cd}\index{WebRequestUtility@{WebRequestUtility}!SendGetWebRequest@{SendGetWebRequest}}
+\index{SendGetWebRequest@{SendGetWebRequest}!WebRequestUtility@{WebRequestUtility}}
+\doxysubsubsection{\texorpdfstring{SendGetWebRequest()}{SendGetWebRequest()}}
+{\footnotesize\ttfamily \label{class_web_request_utility_a65aa49e60e0cfefa396aa320a43576cd} 
+static void Web\+Request\+Utility.\+Send\+Get\+Web\+Request (\begin{DoxyParamCaption}\item[{Mono\+Behaviour}]{monobehavior}{, }\item[{string}]{url}{, }\item[{System.\+Action$<$ string $>$}]{success\+Callback}{, }\item[{System.\+Action$<$ string $>$}]{fail\+Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_web_request_utility_ac5ccfe07da5905d0f416480d475efb40}\index{WebRequestUtility@{WebRequestUtility}!SendGetWebRequestCoroutine@{SendGetWebRequestCoroutine}}
+\index{SendGetWebRequestCoroutine@{SendGetWebRequestCoroutine}!WebRequestUtility@{WebRequestUtility}}
+\doxysubsubsection{\texorpdfstring{SendGetWebRequestCoroutine()}{SendGetWebRequestCoroutine()}}
+{\footnotesize\ttfamily \label{class_web_request_utility_ac5ccfe07da5905d0f416480d475efb40} 
+static IEnumerator Web\+Request\+Utility.\+Send\+Get\+Web\+Request\+Coroutine (\begin{DoxyParamCaption}\item[{string}]{url}{, }\item[{System.\+Action$<$ string $>$}]{success\+Callback}{, }\item[{System.\+Action$<$ string $>$}]{fail\+Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{class_web_request_utility_a3b2d7b9d9d3edeeb3afa72acbe381a11}\index{WebRequestUtility@{WebRequestUtility}!SendWebRequest@{SendWebRequest}}
+\index{SendWebRequest@{SendWebRequest}!WebRequestUtility@{WebRequestUtility}}
+\doxysubsubsection{\texorpdfstring{SendWebRequest()}{SendWebRequest()}}
+{\footnotesize\ttfamily \label{class_web_request_utility_a3b2d7b9d9d3edeeb3afa72acbe381a11} 
+static void Web\+Request\+Utility.\+Send\+Web\+Request (\begin{DoxyParamCaption}\item[{Mono\+Behaviour}]{mono\+Behaviour}{, }\item[{string}]{url}{, }\item[{string}]{json\+Data}{, }\item[{System.\+Action$<$ string $>$}]{success\+Callback}{, }\item[{System.\+Action$<$ string $>$}]{fail\+Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+\Hypertarget{class_web_request_utility_a9159adce7ba7da4743acc5eb56410064}\index{WebRequestUtility@{WebRequestUtility}!SendWebRequestCoroutine@{SendWebRequestCoroutine}}
+\index{SendWebRequestCoroutine@{SendWebRequestCoroutine}!WebRequestUtility@{WebRequestUtility}}
+\doxysubsubsection{\texorpdfstring{SendWebRequestCoroutine()}{SendWebRequestCoroutine()}}
+{\footnotesize\ttfamily \label{class_web_request_utility_a9159adce7ba7da4743acc5eb56410064} 
+static IEnumerator Web\+Request\+Utility.\+Send\+Web\+Request\+Coroutine (\begin{DoxyParamCaption}\item[{string}]{url}{, }\item[{string}]{json\+Data}{, }\item[{System.\+Action$<$ string $>$}]{success\+Callback}{, }\item[{System.\+Action$<$ string $>$}]{fail\+Callback}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Utility/\mbox{\hyperlink{_web_request_utility_8cs}{Web\+Request\+Utility.\+cs}}\end{DoxyCompactItemize}

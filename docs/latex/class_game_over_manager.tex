@@ -1,0 +1,156 @@
+\doxysection{Game\+Over\+Manager Class Reference}
+\hypertarget{class_game_over_manager}{}\label{class_game_over_manager}\index{GameOverManager@{GameOverManager}}
+Inheritance diagram for Game\+Over\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_over_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_over_manager_a50307244e8abfecd31e6010c41cb0cd2}{Setup}} (System.\+Time\+Span level\+Time\+Span, System.\+Time\+Span game\+Time\+Span)
+\item 
+void \mbox{\hyperlink{class_game_over_manager_a16c06ade99e8eba651adee75f50630f9}{Restart\+Button}} ()
+\item 
+void \mbox{\hyperlink{class_game_over_manager_a0e8de543ceada0c5fcfe11beaeaed270}{Exit\+Button}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{class_game_over_manager_aa8520971f2a5c5e26ed1b55796656486}{level\+Time\+Elapsed}}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{class_game_over_manager_a5b659f86f4539c9b100f981898c14978}{game\+Time\+Elapsed}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} \mbox{\hyperlink{class_game_over_manager_aff66a58750fb656abb63a59ee72d2d29}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_over_manager_ae7c244e9064ba7a3ce246fe946d43014}{upload\+Time\+Restart}} (int user\+Id)
+\item 
+void \mbox{\hyperlink{class_game_over_manager_ada10201bbf22f1b67fdf02d772b921ea}{upload\+Time\+Exit}} (int user\+Id)
+\item 
+void \mbox{\hyperlink{class_game_over_manager_a3d563c7fed9c8d1a57ac926f88f70b7d}{On\+Exit\+Request\+Complete}} (string response\+Text)
+\item 
+void \mbox{\hyperlink{class_game_over_manager_a1b1d7037987fb34de509bc2e08ee656c}{On\+Exit\+Request\+Fail}} (string response\+Text)
+\item 
+void \mbox{\hyperlink{class_game_over_manager_a65900262677ff4d47f72d6047540bf81}{On\+Restart\+Request\+Complete}} (string response\+Text)
+\item 
+void \mbox{\hyperlink{class_game_over_manager_aa173641e2923159f18f38db63e8b92c8}{On\+Restart\+Request\+Fail}} (string response\+Text)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_game_over_manager_a7633e6607f7d131dd9ff4e47d05e331d}{score}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles the game over screen and behavior. It is called by the \doxylink{class_wire_generator}{Wire\+Generator} \begin{DoxySeeAlso}{See also}
+\doxylink{class_wire_generator}{Wire\+Generator} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_over_manager_a0e8de543ceada0c5fcfe11beaeaed270}\index{GameOverManager@{GameOverManager}!ExitButton@{ExitButton}}
+\index{ExitButton@{ExitButton}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{ExitButton()}{ExitButton()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_a0e8de543ceada0c5fcfe11beaeaed270} 
+void Game\+Over\+Manager.\+Exit\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{class_game_over_manager_a0e8de543ceada0c5fcfe11beaeaed270}{Exit\+Button()} is a function that is attached to the Exit button on the game over screen. When this button is pressed, the player will be returned to the Laboratory via the Scene\+Manager \Hypertarget{class_game_over_manager_a3d563c7fed9c8d1a57ac926f88f70b7d}\index{GameOverManager@{GameOverManager}!OnExitRequestComplete@{OnExitRequestComplete}}
+\index{OnExitRequestComplete@{OnExitRequestComplete}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{OnExitRequestComplete()}{OnExitRequestComplete()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_a3d563c7fed9c8d1a57ac926f88f70b7d} 
+void Game\+Over\+Manager.\+On\+Exit\+Request\+Complete (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_game_over_manager_a1b1d7037987fb34de509bc2e08ee656c}\index{GameOverManager@{GameOverManager}!OnExitRequestFail@{OnExitRequestFail}}
+\index{OnExitRequestFail@{OnExitRequestFail}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{OnExitRequestFail()}{OnExitRequestFail()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_a1b1d7037987fb34de509bc2e08ee656c} 
+void Game\+Over\+Manager.\+On\+Exit\+Request\+Fail (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_game_over_manager_a65900262677ff4d47f72d6047540bf81}\index{GameOverManager@{GameOverManager}!OnRestartRequestComplete@{OnRestartRequestComplete}}
+\index{OnRestartRequestComplete@{OnRestartRequestComplete}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{OnRestartRequestComplete()}{OnRestartRequestComplete()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_a65900262677ff4d47f72d6047540bf81} 
+void Game\+Over\+Manager.\+On\+Restart\+Request\+Complete (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_game_over_manager_aa173641e2923159f18f38db63e8b92c8}\index{GameOverManager@{GameOverManager}!OnRestartRequestFail@{OnRestartRequestFail}}
+\index{OnRestartRequestFail@{OnRestartRequestFail}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{OnRestartRequestFail()}{OnRestartRequestFail()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_aa173641e2923159f18f38db63e8b92c8} 
+void Game\+Over\+Manager.\+On\+Restart\+Request\+Fail (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_game_over_manager_a16c06ade99e8eba651adee75f50630f9}\index{GameOverManager@{GameOverManager}!RestartButton@{RestartButton}}
+\index{RestartButton@{RestartButton}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{RestartButton()}{RestartButton()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_a16c06ade99e8eba651adee75f50630f9} 
+void Game\+Over\+Manager.\+Restart\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{class_game_over_manager_a16c06ade99e8eba651adee75f50630f9}{Restart\+Button()} is a function that is attached to the Restart button on the game over screen. When this button is pressed, the scene is reloaded using the Scene\+Manager \Hypertarget{class_game_over_manager_a50307244e8abfecd31e6010c41cb0cd2}\index{GameOverManager@{GameOverManager}!Setup@{Setup}}
+\index{Setup@{Setup}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{Setup()}{Setup()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_a50307244e8abfecd31e6010c41cb0cd2} 
+void Game\+Over\+Manager.\+Setup (\begin{DoxyParamCaption}\item[{System.\+Time\+Span}]{level\+Time\+Span}{, }\item[{System.\+Time\+Span}]{game\+Time\+Span}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{class_game_over_manager_a50307244e8abfecd31e6010c41cb0cd2}{Setup()} sets the game over screen to be active so it will actually show up when called.
+
+
+\begin{DoxyParams}{Parameters}
+{\em level\+Time\+Span} & The timespan of the elapsed time spent on a level \\
+\hline
+{\em game\+Time\+Span} & The timespan of the elapsed time spent on the entire game \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_game_over_manager_ada10201bbf22f1b67fdf02d772b921ea}\index{GameOverManager@{GameOverManager}!uploadTimeExit@{uploadTimeExit}}
+\index{uploadTimeExit@{uploadTimeExit}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{uploadTimeExit()}{uploadTimeExit()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_ada10201bbf22f1b67fdf02d772b921ea} 
+void Game\+Over\+Manager.\+upload\+Time\+Exit (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+upload\+Time() is a function that sends a POST request to the backend to upload the time \Hypertarget{class_game_over_manager_ae7c244e9064ba7a3ce246fe946d43014}\index{GameOverManager@{GameOverManager}!uploadTimeRestart@{uploadTimeRestart}}
+\index{uploadTimeRestart@{uploadTimeRestart}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{uploadTimeRestart()}{uploadTimeRestart()}}
+{\footnotesize\ttfamily \label{class_game_over_manager_ae7c244e9064ba7a3ce246fe946d43014} 
+void Game\+Over\+Manager.\+upload\+Time\+Restart (\begin{DoxyParamCaption}\item[{int}]{user\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+upload\+Time() is a function that sends a POST request to the backend to upload the time 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_over_manager_a5b659f86f4539c9b100f981898c14978}\index{GameOverManager@{GameOverManager}!gameTimeElapsed@{gameTimeElapsed}}
+\index{gameTimeElapsed@{gameTimeElapsed}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{gameTimeElapsed}{gameTimeElapsed}}
+{\footnotesize\ttfamily \label{class_game_over_manager_a5b659f86f4539c9b100f981898c14978} 
+TMP\+\_\+\+Text Game\+Over\+Manager.\+game\+Time\+Elapsed}
+
+\Hypertarget{class_game_over_manager_aa8520971f2a5c5e26ed1b55796656486}\index{GameOverManager@{GameOverManager}!levelTimeElapsed@{levelTimeElapsed}}
+\index{levelTimeElapsed@{levelTimeElapsed}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{levelTimeElapsed}{levelTimeElapsed}}
+{\footnotesize\ttfamily \label{class_game_over_manager_aa8520971f2a5c5e26ed1b55796656486} 
+TMP\+\_\+\+Text Game\+Over\+Manager.\+level\+Time\+Elapsed}
+
+\Hypertarget{class_game_over_manager_a7633e6607f7d131dd9ff4e47d05e331d}\index{GameOverManager@{GameOverManager}!score@{score}}
+\index{score@{score}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{score}{score}}
+{\footnotesize\ttfamily \label{class_game_over_manager_a7633e6607f7d131dd9ff4e47d05e331d} 
+string Game\+Over\+Manager.\+score\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_game_over_manager_aff66a58750fb656abb63a59ee72d2d29}\index{GameOverManager@{GameOverManager}!playerData@{playerData}}
+\index{playerData@{playerData}!GameOverManager@{GameOverManager}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{class_game_over_manager_aff66a58750fb656abb63a59ee72d2d29} 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} Game\+Over\+Manager.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Wires/\mbox{\hyperlink{_game_over_manager_8cs}{Game\+Over\+Manager.\+cs}}\end{DoxyCompactItemize}

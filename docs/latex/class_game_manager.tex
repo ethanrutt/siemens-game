@@ -1,0 +1,81 @@
+\doxysection{Game\+Manager Class Reference}
+\hypertarget{class_game_manager}{}\label{class_game_manager}\index{GameManager@{GameManager}}
+
+
+The Game Manager script is responsible for managing the game state. This allows for states to persist between scenes. This is a singleton class. The main part of this class is the {\ttfamily player\+Spawn\+Position} member, which holds the players position. This is mainly used in transitions between scenes so that we can spawn the player back where they were before they entered the scene.  
+
+
+Inheritance diagram for Game\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_game_manager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_manager_a0ae5550768b6939281e801c0cfaf8687}{Change\+Player\+Spawn\+Position}} (Vector2 new\+Position)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Vector2 \mbox{\hyperlink{class_game_manager_a7eae6cffbe071dc3de15b6cdb1ef37c3}{player\+Spawn\+Position}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_game_manager}{Game\+Manager}} \mbox{\hyperlink{class_game_manager_ad3e717f4fb0f378b969f4457de81f23e}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_game_manager_a2959177ee51ac31badbf8b1bc8f7f637}{Awake}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+The Game Manager script is responsible for managing the game state. This allows for states to persist between scenes. This is a singleton class. The main part of this class is the {\ttfamily player\+Spawn\+Position} member, which holds the players position. This is mainly used in transitions between scenes so that we can spawn the player back where they were before they entered the scene. 
+
+Rishi Santhanam 
+
+i.\+e. This code snippet will change the spawn position so that when we enter into the lab we are in the right position 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{gameManager.ChangePlayerSpawnPosition(\textcolor{keyword}{new}\ Vector2(-\/33f,\ 10.25f));}
+\DoxyCodeLine{SceneManager.LoadScene(\textcolor{stringliteral}{"{}Laboratory\_Main"{}});}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_game_manager_a2959177ee51ac31badbf8b1bc8f7f637}\index{GameManager@{GameManager}!Awake@{Awake}}
+\index{Awake@{Awake}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_game_manager_a2959177ee51ac31badbf8b1bc8f7f637} 
+void Game\+Manager.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_game_manager_a0ae5550768b6939281e801c0cfaf8687}\index{GameManager@{GameManager}!ChangePlayerSpawnPosition@{ChangePlayerSpawnPosition}}
+\index{ChangePlayerSpawnPosition@{ChangePlayerSpawnPosition}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{ChangePlayerSpawnPosition()}{ChangePlayerSpawnPosition()}}
+{\footnotesize\ttfamily \label{class_game_manager_a0ae5550768b6939281e801c0cfaf8687} 
+void Game\+Manager.\+Change\+Player\+Spawn\+Position (\begin{DoxyParamCaption}\item[{Vector2}]{new\+Position}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_game_manager_ad3e717f4fb0f378b969f4457de81f23e}\index{GameManager@{GameManager}!Instance@{Instance}}
+\index{Instance@{Instance}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_game_manager_ad3e717f4fb0f378b969f4457de81f23e} 
+\mbox{\hyperlink{class_game_manager}{Game\+Manager}} Game\+Manager.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_game_manager_a7eae6cffbe071dc3de15b6cdb1ef37c3}\index{GameManager@{GameManager}!playerSpawnPosition@{playerSpawnPosition}}
+\index{playerSpawnPosition@{playerSpawnPosition}!GameManager@{GameManager}}
+\doxysubsubsection{\texorpdfstring{playerSpawnPosition}{playerSpawnPosition}}
+{\footnotesize\ttfamily \label{class_game_manager_a7eae6cffbe071dc3de15b6cdb1ef37c3} 
+Vector2 Game\+Manager.\+player\+Spawn\+Position}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\mbox{\hyperlink{_game_manager_8cs}{Game\+Manager.\+cs}}\end{DoxyCompactItemize}

@@ -1,0 +1,142 @@
+\doxysection{Assets/\+Scripts/\+Pipes/\+Pipe\+Utils.cs File Reference}
+\hypertarget{_pipe_utils_8cs}{}\label{_pipe_utils_8cs}\index{Assets/Scripts/Pipes/PipeUtils.cs@{Assets/Scripts/Pipes/PipeUtils.cs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_pipe_info}{Pipe\+Info}}
+\begin{DoxyCompactList}\small\item\em This is a dataclass for keeping track of a pipes direction and type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}} \{ \mbox{\hyperlink{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aaa46c48bec0d282018b9d167eef7711b2c}{up}}
+, \mbox{\hyperlink{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aaa7c4f29407893c334a6cb7a87bf045c0d}{right}}
+, \mbox{\hyperlink{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aaa74e8333ad11685ff3bdae589c8f6e34d}{down}}
+, \mbox{\hyperlink{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aaa811882fecd5c7618d7099ebbd39ea254}{left}}
+ \}
+\begin{DoxyCompactList}\small\item\em Direction handles the direction of the pipe in the pipe game. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69}{Pipe\+Type}} \{ \newline
+\mbox{\hyperlink{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69a3a7ec495eedbc3be120e8fd13e007b92}{straight}}
+, \mbox{\hyperlink{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69aa850c17cba5eb16b0d3d40a106333bd5}{turn}}
+, \mbox{\hyperlink{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69a36cd38f49b9afa08222c0dc9ebfe35eb}{source}}
+, \mbox{\hyperlink{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69af6e041176f8cc2998f9465ede0dfeeb1}{sink}}
+, \newline
+\mbox{\hyperlink{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69aa2e4822a98337283e39f7b60acf85ec9}{empty}}
+ \}
+\begin{DoxyCompactList}\small\item\em Pipe\+Type determines if the type is a straight pipe, turn pipe, source, or sink. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\Hypertarget{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa}\index{PipeUtils.cs@{PipeUtils.cs}!Direction@{Direction}}
+\index{Direction@{Direction}!PipeUtils.cs@{PipeUtils.cs}}
+\doxysubsubsection{\texorpdfstring{Direction}{Direction}}
+{\footnotesize\ttfamily \label{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa} 
+enum \mbox{\hyperlink{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa}{Direction}}}
+
+
+
+Direction handles the direction of the pipe in the pipe game. 
+
+This game works by making sure that whatever is flowing through the pipes can only flow in one direction.
+
+For straight pipes, this is rather straight forward, if the pipe is up, then it\textquotesingle{}s in a shape like \texorpdfstring{$\vert$}{|} and it flows upwards.
+
+Turn pipes are a little different. A diagram is drawn below. The \texorpdfstring{$\vert$}{|} and -- indicate the pipe itself, while arrows such as -\/\texorpdfstring{$>$}{>}, \texorpdfstring{$<$}{<}-\/, \texorpdfstring{$^\wedge$}{\string^} \texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}, and v, indicate flow.
+
+turn\+Pipe up \texorpdfstring{$\vert$}{|}-- -\/\texorpdfstring{$>$}{>} \texorpdfstring{$\vert$}{|}
+
+\texorpdfstring{$^\wedge$}{\string^} \texorpdfstring{$\vert$}{|}
+
+turnpipe right
+
+-\/\texorpdfstring{$>$}{>} --\texorpdfstring{$\vert$}{|} \texorpdfstring{$\vert$}{|}
+
+\texorpdfstring{$\vert$}{|} v
+
+turnpipe down \begin{DoxyVerb}      |
+      v
+
+      |
+\end{DoxyVerb}
+ \texorpdfstring{$<$}{<}-\/ --\texorpdfstring{$\vert$}{|}
+
+turnpipe left \begin{DoxyVerb}   ^
+   |
+
+   |
+   |--  <-
+\end{DoxyVerb}
+
+
+Notice that the flow starts in the direction of the Direction, and ends 90 deg clockwise
+
+For source and sink nodes, it is also a little different For source nodes, the direction will be where the water must flow and it will come out of the bottom of the triangle For sink nodes, the direction will be where the water must flow into and it will flow into the bottom of the triangle
+
+Down direction for sink node \begin{DoxyVerb}    |
+    v
+
+  ----
+  \  /
+   \/
+\end{DoxyVerb}
+
+
+Down direction for source node \begin{DoxyVerb}   /\
+  /  \
+  ----
+
+   |
+   v
+\end{DoxyVerb}
+ \begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{up@{up}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!up@{up}}}\Hypertarget{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aaa46c48bec0d282018b9d167eef7711b2c}\label{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa} 
+up&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{right@{right}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!right@{right}}}\Hypertarget{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aaa7c4f29407893c334a6cb7a87bf045c0d}\label{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa} 
+right&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{down@{down}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!down@{down}}}\Hypertarget{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aaa74e8333ad11685ff3bdae589c8f6e34d}\label{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa} 
+down&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{left@{left}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!left@{left}}}\Hypertarget{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aaa811882fecd5c7618d7099ebbd39ea254}\label{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa} 
+left&\\
+\hline
+
+\end{DoxyEnumFields}
+\Hypertarget{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69}\index{PipeUtils.cs@{PipeUtils.cs}!PipeType@{PipeType}}
+\index{PipeType@{PipeType}!PipeUtils.cs@{PipeUtils.cs}}
+\doxysubsubsection{\texorpdfstring{PipeType}{PipeType}}
+{\footnotesize\ttfamily \label{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69} 
+enum \mbox{\hyperlink{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69}{Pipe\+Type}}}
+
+
+
+Pipe\+Type determines if the type is a straight pipe, turn pipe, source, or sink. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{_pipe_utils_8cs_a224b9163917ac32fc95a60d8c1eec3aa}{Direction} 
+\end{DoxySeeAlso}
+\begin{DoxyEnumFields}[2]{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{straight@{straight}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!straight@{straight}}}\Hypertarget{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69a3a7ec495eedbc3be120e8fd13e007b92}\label{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69} 
+straight&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{turn@{turn}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!turn@{turn}}}\Hypertarget{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69aa850c17cba5eb16b0d3d40a106333bd5}\label{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69} 
+turn&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{source@{source}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!source@{source}}}\Hypertarget{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69a36cd38f49b9afa08222c0dc9ebfe35eb}\label{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69} 
+source&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{sink@{sink}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!sink@{sink}}}\Hypertarget{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69af6e041176f8cc2998f9465ede0dfeeb1}\label{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69} 
+sink&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{empty@{empty}!PipeUtils.cs@{PipeUtils.cs}}\index{PipeUtils.cs@{PipeUtils.cs}!empty@{empty}}}\Hypertarget{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69aa2e4822a98337283e39f7b60acf85ec9}\label{_pipe_utils_8cs_a66f0d6eb7162b131ee64066734931c69} 
+empty&\\
+\hline
+
+\end{DoxyEnumFields}

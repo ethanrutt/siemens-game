@@ -1,0 +1,610 @@
+\doxysection{Dialogue\+Manager\+\_\+\+Casino Class Reference}
+\hypertarget{class_dialogue_manager___casino}{}\label{class_dialogue_manager___casino}\index{DialogueManager\_Casino@{DialogueManager\_Casino}}
+
+
+This is the \doxylink{class_dialogue_manager}{Dialogue\+Manager} for the Town Square. This holds the dialogues for sensei in the casino, and the casino owner\textquotesingle{}s dialogue.  
+
+
+Inheritance diagram for Dialogue\+Manager\+\_\+\+Casino\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_dialogue_manager___casino}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_ae6323faa37f22e034c6de410bc639bb1}{Close\+Choice\+Panel}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_a0d506f9c3eff2a4ca8c09b0fe7080bed}{Casino\+Owner\+Speak}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_a17b83f3298833173a241d552f5d1e6c5}{Casino\+Owner\+Buy\+Flux}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_a5e9d62b2b7e1902c34cdef3a3514ac29}{Casino\+Owner\+Open\+Horse\+Panel}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_a3dfa50a91cff8afbdba918dab21cb2b4}{Casino\+Owner\+Close\+Horse\+Panel}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_af48a9f88ae5e2426a01aa43695aa5c06}{Casino\+Owner\+Hate\+On\+Player}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_acd5cbc3d86f45660a566f7858a30b5b2}{Casino\+Owner\+Thanks\+For\+Flux}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_a313944aea2db226af2d35ef3357f62d3}{Sensei\+Tutorial}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_dialogue_manager___casino_a07c26e3b0063c00b8334744fc1fbd3ac}{dialogue\+Text}}
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_dialogue_manager___casino_a18f479218979f003a9a295b5b24821eb}{char\+Name}}
+\item 
+Unity\+Engine.\+UI.\+Image \mbox{\hyperlink{class_dialogue_manager___casino_a960ef47275b28c07ae3f02ddfdf6c688}{character\+Image}}
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_dialogue_manager___casino_adde13ec97c9b4ca5f430699147991038}{TTC\+\_\+\+Text}}
+\item 
+int \mbox{\hyperlink{class_dialogue_manager___casino_ab4d4af0a7cbc891856a0043f1a959d73}{flux\+Cost}} = 10
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{class_dialogue_manager___casino_aedf46680803f89ab957c3134addd42d8}{flux\+Cost\+Text}}
+\item 
+Game\+Object \mbox{\hyperlink{class_dialogue_manager___casino_ab8d8c11bbdd917ab1bf42f0bacd6522b}{back\+Modal}}
+\item 
+Game\+Object \mbox{\hyperlink{class_dialogue_manager___casino_aae1d433a13ff2b79193844e41833921f}{dialogue\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{class_dialogue_manager___casino_abd38dd3431600be723c137b40553a4c5}{casino\+Owner\+Choice\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{class_dialogue_manager___casino_a1a7824688df52d6dee1e6fde35c565e7}{horse\+Panel\+Choose}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_ac52bdfe5c4850cbd89ccca3ff7d0c215}{casino\+Owner\+Thanks\+For\+Flux}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a4ec4152a82887669325342d9be3d17b2}{casino\+Owner\+Thanks\+For\+Flux\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_aa738c84f9c8cfe0b92ec72e859bb2c6a}{casino\+Owner\+Hate}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_ab190e213664f7748cb2b4d94118f99a2}{casino\+Owner\+Flux\+Full}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a8832607bd7d68179c542aafff0fc8644}{casino\+Owner\+Flux\+Full\+Sprites}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a92be933cd0d44cb479dabbaa5cad3f1f}{casino\+Owner\+Hate\+Sprites}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} \mbox{\hyperlink{class_dialogue_manager___casino_a6d898f3505e34fef443c0e6a39b235d4}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{class_dialogue_manager___casino_a2a8984d988c1cfd1ac8f7a598757366b}{Casino\+Owner\+Speak\+Initial}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_dialogue_manager___casino_ad4e7691fd8bb203d72d2b2fe43a087f2}{Casino\+Owner\+Hate\+On\+Player\+Coroutine}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_dialogue_manager___casino_a6ede2620ea968999d42b97c832daa585}{Casino\+Owner\+Thanks\+For\+Flux\+Coroutine}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_dialogue_manager___casino_af62abcc3091a687a836d0712092c2dfb}{Casino\+Owner\+Speak\+Coroutine}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_dialogue_manager___casino_a40e8dccfb74ea89e68f1c19aa31fc3cb}{Type\+Sentence}} (string sentence)
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_adaa7f8640293e7a463a41d7771afc045}{Start}} ()
+\item 
+IEnumerator \mbox{\hyperlink{class_dialogue_manager___casino_a8aeee97d4b1c24965affa00d5a393827}{Sensei\+Tutorial\+Coroutine}} ()
+\item 
+void \mbox{\hyperlink{class_dialogue_manager___casino_adeebb13a643feaf4f2359c54a3431cf4}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_dialogue_manager___casino_a1250285e56cc1bc60fc536c6f91712df}{is\+Typing}} = true
+\item 
+float \mbox{\hyperlink{class_dialogue_manager___casino_acc2c6e583896d5fae2b42c23ddc52ed8}{typing\+Speed}} = 0.\+025f
+\item 
+\mbox{\hyperlink{class_camera_follow}{Camera\+Follow}} \mbox{\hyperlink{class_dialogue_manager___casino_a7dbd5c90c39fcdae9f59c20cde85259d}{camera\+Follow}}
+\item 
+\mbox{\hyperlink{class_character___movement}{Character\+\_\+\+Movement}} \mbox{\hyperlink{class_dialogue_manager___casino_a362dabe0ed014f0ac2648239bebd9be7}{player\+Movement}}
+\item 
+int \mbox{\hyperlink{class_dialogue_manager___casino_a55bc774b34c67adfdbf06d661e2102d9}{dialogue\+Index}} = 0
+\item 
+Sprite\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a9a3f50d7d54603d641768ae84812c857}{casino\+Owner\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_acfc96d045c8294de3d5b267ebf7c41bc}{casino\+Owner\+Initial}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_ac20a116fd5696acd3f29b30a31fc2756}{casino\+Owner\+Initial\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a16d6cb47d3784cf79f0a0195b2ee14aa}{casino\+Owner\+One\+Liners\+Losing}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a48bfdf317ad9b918c5511132810a7daa}{casino\+Owner\+One\+Liners\+Losing\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a439aef03dc1bcef3615b91808ad8fc47}{casino\+Owner\+One\+Liners\+Winning}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_ad18715fa5ba8945aa75b8715c6095078}{casino\+Owner\+One\+Liners\+Winning\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a30467d5b7941d6d95d20fda71e746496}{casino\+Owner\+One\+Liners\+Neutral}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a1cf3af1c66bf48b07ee21d384276d507}{casino\+Owner\+One\+Liners\+Neutral\+Sprites}}
+\item 
+Coroutine \mbox{\hyperlink{class_dialogue_manager___casino_aa57326b75aacd340e824d171f2be0886}{type\+Sentence\+Coroutine}}
+\item 
+Game\+Object \mbox{\hyperlink{class_dialogue_manager___casino_a8376338943f62b914129dbe3203a5fcf}{camera\+Pan\+Target}}
+\item 
+Sprite\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_ad900e1243887154ce660f7683d5b0014}{sensei\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_a9930ac7be9429df6a042c2039af78a06}{sensei\+Dialogues}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{class_dialogue_manager___casino_ab1cee7cf954eb0f909af112c9cf27245}{sensei\+Sprite\+Indices}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is the \doxylink{class_dialogue_manager}{Dialogue\+Manager} for the Town Square. This holds the dialogues for sensei in the casino, and the casino owner\textquotesingle{}s dialogue. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_dialogue_manager___casino_a17b83f3298833173a241d552f5d1e6c5}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerBuyFlux@{CasinoOwnerBuyFlux}}
+\index{CasinoOwnerBuyFlux@{CasinoOwnerBuyFlux}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerBuyFlux()}{CasinoOwnerBuyFlux()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a17b83f3298833173a241d552f5d1e6c5} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Buy\+Flux (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___casino_a3dfa50a91cff8afbdba918dab21cb2b4}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerCloseHorsePanel@{CasinoOwnerCloseHorsePanel}}
+\index{CasinoOwnerCloseHorsePanel@{CasinoOwnerCloseHorsePanel}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerCloseHorsePanel()}{CasinoOwnerCloseHorsePanel()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a3dfa50a91cff8afbdba918dab21cb2b4} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Close\+Horse\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___casino_af48a9f88ae5e2426a01aa43695aa5c06}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerHateOnPlayer@{CasinoOwnerHateOnPlayer}}
+\index{CasinoOwnerHateOnPlayer@{CasinoOwnerHateOnPlayer}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerHateOnPlayer()}{CasinoOwnerHateOnPlayer()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_af48a9f88ae5e2426a01aa43695aa5c06} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Hate\+On\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___casino_ad4e7691fd8bb203d72d2b2fe43a087f2}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerHateOnPlayerCoroutine@{CasinoOwnerHateOnPlayerCoroutine}}
+\index{CasinoOwnerHateOnPlayerCoroutine@{CasinoOwnerHateOnPlayerCoroutine}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerHateOnPlayerCoroutine()}{CasinoOwnerHateOnPlayerCoroutine()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ad4e7691fd8bb203d72d2b2fe43a087f2} 
+IEnumerator Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Hate\+On\+Player\+Coroutine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_a5e9d62b2b7e1902c34cdef3a3514ac29}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerOpenHorsePanel@{CasinoOwnerOpenHorsePanel}}
+\index{CasinoOwnerOpenHorsePanel@{CasinoOwnerOpenHorsePanel}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerOpenHorsePanel()}{CasinoOwnerOpenHorsePanel()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a5e9d62b2b7e1902c34cdef3a3514ac29} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Open\+Horse\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___casino_a0d506f9c3eff2a4ca8c09b0fe7080bed}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerSpeak@{CasinoOwnerSpeak}}
+\index{CasinoOwnerSpeak@{CasinoOwnerSpeak}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerSpeak()}{CasinoOwnerSpeak()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a0d506f9c3eff2a4ca8c09b0fe7080bed} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Speak (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___casino_af62abcc3091a687a836d0712092c2dfb}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerSpeakCoroutine@{CasinoOwnerSpeakCoroutine}}
+\index{CasinoOwnerSpeakCoroutine@{CasinoOwnerSpeakCoroutine}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerSpeakCoroutine()}{CasinoOwnerSpeakCoroutine()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_af62abcc3091a687a836d0712092c2dfb} 
+IEnumerator Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Speak\+Coroutine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_a2a8984d988c1cfd1ac8f7a598757366b}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerSpeakInitial@{CasinoOwnerSpeakInitial}}
+\index{CasinoOwnerSpeakInitial@{CasinoOwnerSpeakInitial}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerSpeakInitial()}{CasinoOwnerSpeakInitial()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a2a8984d988c1cfd1ac8f7a598757366b} 
+IEnumerator Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Speak\+Initial (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_acd5cbc3d86f45660a566f7858a30b5b2}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerThanksForFlux@{CasinoOwnerThanksForFlux}}
+\index{CasinoOwnerThanksForFlux@{CasinoOwnerThanksForFlux}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerThanksForFlux()}{CasinoOwnerThanksForFlux()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_acd5cbc3d86f45660a566f7858a30b5b2} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Thanks\+For\+Flux (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___casino_a6ede2620ea968999d42b97c832daa585}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CasinoOwnerThanksForFluxCoroutine@{CasinoOwnerThanksForFluxCoroutine}}
+\index{CasinoOwnerThanksForFluxCoroutine@{CasinoOwnerThanksForFluxCoroutine}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CasinoOwnerThanksForFluxCoroutine()}{CasinoOwnerThanksForFluxCoroutine()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a6ede2620ea968999d42b97c832daa585} 
+IEnumerator Dialogue\+Manager\+\_\+\+Casino.\+Casino\+Owner\+Thanks\+For\+Flux\+Coroutine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_ae6323faa37f22e034c6de410bc639bb1}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!CloseChoicePanel@{CloseChoicePanel}}
+\index{CloseChoicePanel@{CloseChoicePanel}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{CloseChoicePanel()}{CloseChoicePanel()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ae6323faa37f22e034c6de410bc639bb1} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Close\+Choice\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___casino_a313944aea2db226af2d35ef3357f62d3}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!SenseiTutorial@{SenseiTutorial}}
+\index{SenseiTutorial@{SenseiTutorial}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{SenseiTutorial()}{SenseiTutorial()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a313944aea2db226af2d35ef3357f62d3} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Sensei\+Tutorial (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_dialogue_manager___casino_a8aeee97d4b1c24965affa00d5a393827}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!SenseiTutorialCoroutine@{SenseiTutorialCoroutine}}
+\index{SenseiTutorialCoroutine@{SenseiTutorialCoroutine}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{SenseiTutorialCoroutine()}{SenseiTutorialCoroutine()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a8aeee97d4b1c24965affa00d5a393827} 
+IEnumerator Dialogue\+Manager\+\_\+\+Casino.\+Sensei\+Tutorial\+Coroutine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_adaa7f8640293e7a463a41d7771afc045}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!Start@{Start}}
+\index{Start@{Start}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_adaa7f8640293e7a463a41d7771afc045} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_a40e8dccfb74ea89e68f1c19aa31fc3cb}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!TypeSentence@{TypeSentence}}
+\index{TypeSentence@{TypeSentence}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{TypeSentence()}{TypeSentence()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a40e8dccfb74ea89e68f1c19aa31fc3cb} 
+IEnumerator Dialogue\+Manager\+\_\+\+Casino.\+Type\+Sentence (\begin{DoxyParamCaption}\item[{string}]{sentence}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_adeebb13a643feaf4f2359c54a3431cf4}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!Update@{Update}}
+\index{Update@{Update}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_adeebb13a643feaf4f2359c54a3431cf4} 
+void Dialogue\+Manager\+\_\+\+Casino.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_dialogue_manager___casino_ab8d8c11bbdd917ab1bf42f0bacd6522b}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!backModal@{backModal}}
+\index{backModal@{backModal}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{backModal}{backModal}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ab8d8c11bbdd917ab1bf42f0bacd6522b} 
+Game\+Object Dialogue\+Manager\+\_\+\+Casino.\+back\+Modal}
+
+\Hypertarget{class_dialogue_manager___casino_a7dbd5c90c39fcdae9f59c20cde85259d}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!cameraFollow@{cameraFollow}}
+\index{cameraFollow@{cameraFollow}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{cameraFollow}{cameraFollow}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a7dbd5c90c39fcdae9f59c20cde85259d} 
+\mbox{\hyperlink{class_camera_follow}{Camera\+Follow}} Dialogue\+Manager\+\_\+\+Casino.\+camera\+Follow\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_a8376338943f62b914129dbe3203a5fcf}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!cameraPanTarget@{cameraPanTarget}}
+\index{cameraPanTarget@{cameraPanTarget}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{cameraPanTarget}{cameraPanTarget}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a8376338943f62b914129dbe3203a5fcf} 
+Game\+Object Dialogue\+Manager\+\_\+\+Casino.\+camera\+Pan\+Target\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_abd38dd3431600be723c137b40553a4c5}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerChoicePanel@{casinoOwnerChoicePanel}}
+\index{casinoOwnerChoicePanel@{casinoOwnerChoicePanel}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerChoicePanel}{casinoOwnerChoicePanel}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_abd38dd3431600be723c137b40553a4c5} 
+Game\+Object Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Choice\+Panel}
+
+\Hypertarget{class_dialogue_manager___casino_ab190e213664f7748cb2b4d94118f99a2}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerFluxFull@{casinoOwnerFluxFull}}
+\index{casinoOwnerFluxFull@{casinoOwnerFluxFull}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerFluxFull}{casinoOwnerFluxFull}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ab190e213664f7748cb2b4d94118f99a2} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Flux\+Full}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ want\ more\ flux?\ Dude.\ Your\ eyes\ are\ glowing.\ You're\ full.\ You're\ like\ a\ balloon.\ You're\ going\ to\ pop."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Flux,\ flux,\ flux...\ That's\ what\ you\ really\ care\ about?\ You're\ not\ going\ to\ try\ to\ win?\ You're\ just\ going\ to\ keep\ buying\ flux?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I've\ heard\ of\ addicts\ like\ you.\ You're\ not\ going\ to\ stop,\ are\ you?\ You're\ just\ going\ to\ keep\ buying\ flux.\ Sorry,\ but\ I\ can't\ assist\ you."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You're\ not\ even\ a\ human.\ Why\ are\ you\ addicted\ like\ one?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Monsieur\ Addict.\ Tu\ veux\ plus\ de\ flux?\ Tu\ es\ plein.\ Tu\ vas\ exploser.\ Did\ you\ know\ I\ spoke\ French?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Idiot.\ Idiot.\ Idiot.\ You're\ full!\ You're\ going\ to\ combust\ at\ this\ rate."{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a8832607bd7d68179c542aafff0fc8644}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerFluxFullSprites@{casinoOwnerFluxFullSprites}}
+\index{casinoOwnerFluxFullSprites@{casinoOwnerFluxFullSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerFluxFullSprites}{casinoOwnerFluxFullSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a8832607bd7d68179c542aafff0fc8644} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Flux\+Full\+Sprites}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0,\ 1,\ 0,\ 0,\ 0,\ 1}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_aa738c84f9c8cfe0b92ec72e859bb2c6a}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerHate@{casinoOwnerHate}}
+\index{casinoOwnerHate@{casinoOwnerHate}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerHate}{casinoOwnerHate}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_aa738c84f9c8cfe0b92ec72e859bb2c6a} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Hate}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Why\ are\ you\ gambling\ when\ you\ don't\ even\ want\ to\ win?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ don't\ have\ money\ to\ buy\ flux,\ and\ you're\ still\ gambling?\ OK."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}...\ OK.\ You\ know\ what?\ I'm\ not\ even\ going\ to\ say\ anything.\ You're\ just...\ something\ else."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Right...\ Why\ are\ you\ even\ here?\ You\ don't\ have\ money\ to\ buy\ flux,\ you\ don't\ have\ money\ to\ bet.\ What\ are\ you\ doing?"{}},}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a92be933cd0d44cb479dabbaa5cad3f1f}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerHateSprites@{casinoOwnerHateSprites}}
+\index{casinoOwnerHateSprites@{casinoOwnerHateSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerHateSprites}{casinoOwnerHateSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a92be933cd0d44cb479dabbaa5cad3f1f} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Hate\+Sprites}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0,\ 0,\ 1,\ 0}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_acfc96d045c8294de3d5b267ebf7c41bc}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerInitial@{casinoOwnerInitial}}
+\index{casinoOwnerInitial@{casinoOwnerInitial}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerInitial}{casinoOwnerInitial}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_acfc96d045c8294de3d5b267ebf7c41bc} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Initial\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}What's\ up,\ hot\ stuff.\ You\ want\ to\ make\ some\ money?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Ignore\ the\ first\ comment\ if\ you\ happen\ to\ be\ a\ male.\ If\ you're\ a\ girl,\ then\ pretend\ like\ it\ was\ even\ more\ charismatic."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Anyways,\ there's\ really\ not\ much\ else\ to\ say.\ I\ offer\ a\ 2:1\ payout\ on\ bets.\ You\ bet\ 10\ coins,\ you\ can\ win\ 20\ coins.\ Simple,\ right?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Oh\ yeah,\ and\ you're\ probably\ wondering\ what\ that\ meter\ at\ the\ top\ of\ your\ screen\ is.\ That's\ the\ Neuroflux\ meter."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Meaning\ that,\ the\ more\ \(\backslash\)"{}fluxed\ up\(\backslash\)"{}\ you\ are,\ the\ higher\ chance\ you\ have\ of\ winning.\ Or\ at\ least,\ that's\ what\ some\ people\ say."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Something\ about\ \(\backslash\)"{}being\ in\ the\ zone\(\backslash\)"{}.\ I\ don't\ know.\ I'm\ just\ here\ to\ take\ your\ money.\ And\ give\ you\ some\ back,\ I\ guess."{}},}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_ac20a116fd5696acd3f29b30a31fc2756}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerInitialSprites@{casinoOwnerInitialSprites}}
+\index{casinoOwnerInitialSprites@{casinoOwnerInitialSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerInitialSprites}{casinoOwnerInitialSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ac20a116fd5696acd3f29b30a31fc2756} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Initial\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 2,\ 0,\ 1,\ 2,\ 3,\ 2}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a16d6cb47d3784cf79f0a0195b2ee14aa}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerOneLinersLosing@{casinoOwnerOneLinersLosing}}
+\index{casinoOwnerOneLinersLosing@{casinoOwnerOneLinersLosing}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerOneLinersLosing}{casinoOwnerOneLinersLosing}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a16d6cb47d3784cf79f0a0195b2ee14aa} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+One\+Liners\+Losing\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}For\ someone\ who\ likes\ to\ lose\ money,\ you're\ doing\ a\ great\ job."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You're\ like\ a\ reverse\ Robin\ Hood.\ Stealing\ from\ the\ poor\ and\ giving\ to\ the\ rich.\ But,\ want\ to\ throw\ some\ more\ money\ on\ the\ table,\ hotshot?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Psst.\ Flux\ makes\ you\ better.\ But\ even\ then,\ you\ still\ seem\ to\ suck!\ How's\ that\ for\ a\ motivational\ speech?"{}},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You're\ on\ a\ roll!\ A\ really\ bad\ one.\ But\ hey,\ you're\ still\ here,\ so\ you\ must\ like\ losing\ money.\ Want\ to\ lose\ some\ more?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Losing\ money\ isn't\ my\ favorite\ thing\ to\ do.\ But\ hey,\ one\ man's\ trash\ is\ another\ man's\ treasure.\ Too\ bad\ you\ don't\ seem\ to\ have\ either."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}They\ say\ that\ the\ more\ you\ lose,\ the\ more\ you\ win.\ But\ I\ don't\ think\ that\ applies\ to\ you.\ Want\ to\ try\ your\ luck\ again?"{}}\ }
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a48bfdf317ad9b918c5511132810a7daa}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerOneLinersLosingSprites@{casinoOwnerOneLinersLosingSprites}}
+\index{casinoOwnerOneLinersLosingSprites@{casinoOwnerOneLinersLosingSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerOneLinersLosingSprites}{casinoOwnerOneLinersLosingSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a48bfdf317ad9b918c5511132810a7daa} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+One\+Liners\+Losing\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 3,\ 0,\ 2,\ 3,\ 1,\ 2}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a30467d5b7941d6d95d20fda71e746496}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerOneLinersNeutral@{casinoOwnerOneLinersNeutral}}
+\index{casinoOwnerOneLinersNeutral@{casinoOwnerOneLinersNeutral}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerOneLinersNeutral}{casinoOwnerOneLinersNeutral}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a30467d5b7941d6d95d20fda71e746496} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+One\+Liners\+Neutral\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Alright,\ alright.\ Let's\ get\ this\ thing\ started,\ shall\ we?\ You\ want\ to\ bet\ on\ some\ robot\ horses?\ You\ want\ some\ flux?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You're\ not\ doing\ too\ bad.\ But\ you're\ not\ doing\ too\ good\ either.\ You're\ just...\ doing."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You're\ like\ a\ coin.\ You\ have\ two\ sides.\ One\ side\ is\ winning,\ the\ other\ side\ is\ losing.\ But\ you're\ still\ a\ coin."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I'm\ not\ sure\ how\ else\ to\ motivate\ you\ to\ bet.\ But,\ I\ heard\ that\ the\ more\ you\ bet,\ the\ more\ you\ win.\ Or\ lose.\ But\ you're\ probably\ going\ to\ lose.\ Right,\ that\ didn't\ help."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I\ just\ installed\ a\ golden\ toilet\ in\ the\ back.\ Only\ winners\ allowed.\ You\ want\ to\ be\ a\ winner,\ right?\ That's\ what\ I\ thought."{}},}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a1cf3af1c66bf48b07ee21d384276d507}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerOneLinersNeutralSprites@{casinoOwnerOneLinersNeutralSprites}}
+\index{casinoOwnerOneLinersNeutralSprites@{casinoOwnerOneLinersNeutralSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerOneLinersNeutralSprites}{casinoOwnerOneLinersNeutralSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a1cf3af1c66bf48b07ee21d384276d507} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+One\+Liners\+Neutral\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 2,\ 2,\ 2,\ 0,\ 3}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a439aef03dc1bcef3615b91808ad8fc47}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerOneLinersWinning@{casinoOwnerOneLinersWinning}}
+\index{casinoOwnerOneLinersWinning@{casinoOwnerOneLinersWinning}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerOneLinersWinning}{casinoOwnerOneLinersWinning}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a439aef03dc1bcef3615b91808ad8fc47} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+One\+Liners\+Winning\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Stay\ away\ from\ this\ table.\ You're\ winning\ too\ much.\ I\ might\ have\ to\ make\ some\ calls\ if\ you\ keep\ this\ up."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hey,\ hotshot.\ You're\ doing\ pretty\ well.\ But\ remember,\ the\ house\ always\ wins.\ Want\ to\ try\ your\ luck\ again?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I\ can't\ tell\ whether\ you're\ fluxed\ up\ or\ not."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ must\ seem\ to\ like\ money.\ Or\ maybe\ you\ like\ winning.\ Or\ maybe\ you\ like\ both.\ Yeah,\ you\ probably\ like\ both."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I\ know\ you're\ winning\ a\ lot,\ but\ trust\ me\ when\ I\ say,\ don't\ pick\ Thunderbyte.\ He\ might\ end\ up\ losing\ you\ some\ money."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I\ heard\ Nano\ Mane\ just\ got\ a\ new\ upgrade.\ You\ might\ want\ to\ bet\ on\ him.\ And\ no,\ I'm\ not\ lying\ to\ you.\ I'm\ pretending\ to\ lie\ to\ you."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ win\ a\ lot\ for\ such\ a\ loser.\ I\ mean,\ you're\ not\ a\ loser.\ You're\ a\ winner.\ But\ you're\ also\ a\ loser.\ You\ know\ what\ I\ mean."{}},}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_ad18715fa5ba8945aa75b8715c6095078}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerOneLinersWinningSprites@{casinoOwnerOneLinersWinningSprites}}
+\index{casinoOwnerOneLinersWinningSprites@{casinoOwnerOneLinersWinningSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerOneLinersWinningSprites}{casinoOwnerOneLinersWinningSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ad18715fa5ba8945aa75b8715c6095078} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+One\+Liners\+Winning\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0,\ 2,\ 2,\ 2,\ 1,\ 1,\ 0}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a9a3f50d7d54603d641768ae84812c857}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerSprites@{casinoOwnerSprites}}
+\index{casinoOwnerSprites@{casinoOwnerSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerSprites}{casinoOwnerSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a9a3f50d7d54603d641768ae84812c857} 
+Sprite \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_ac52bdfe5c4850cbd89ccca3ff7d0c215}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerThanksForFlux@{casinoOwnerThanksForFlux}}
+\index{casinoOwnerThanksForFlux@{casinoOwnerThanksForFlux}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerThanksForFlux}{casinoOwnerThanksForFlux}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ac52bdfe5c4850cbd89ccca3ff7d0c215} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Thanks\+For\+Flux}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ went\ with\ the\ flux,\ huh?\ Good\ choice.\ You're\ going\ to\ need\ it."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ want\ to\ be\ a\ winner,\ hey!\ I\ like\ that.\ Keep\ it\ up,\ champ."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I\ see\ a\ winner\ in\ you\ now.\ I\ had\ my\ doubts,\ but\ you're\ proving\ me\ wrong."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You're\ going\ to\ win\ big.\ I\ can\ feel\ it.\ Or\ maybe\ I'm\ just\ feeling\ the\ flux.\ Either\ way,\ you're\ going\ to\ win\ big."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}There's\ more\ where\ this\ came\ from.\ Keep\ betting,\ keep\ winning.\ You're\ going\ to\ be\ rich."{}},}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a4ec4152a82887669325342d9be3d17b2}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!casinoOwnerThanksForFluxSprites@{casinoOwnerThanksForFluxSprites}}
+\index{casinoOwnerThanksForFluxSprites@{casinoOwnerThanksForFluxSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{casinoOwnerThanksForFluxSprites}{casinoOwnerThanksForFluxSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a4ec4152a82887669325342d9be3d17b2} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+casino\+Owner\+Thanks\+For\+Flux\+Sprites}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 2,\ 2,\ 3,\ 2,\ 2}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_a960ef47275b28c07ae3f02ddfdf6c688}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!characterImage@{characterImage}}
+\index{characterImage@{characterImage}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{characterImage}{characterImage}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a960ef47275b28c07ae3f02ddfdf6c688} 
+Unity\+Engine.\+UI.\+Image Dialogue\+Manager\+\_\+\+Casino.\+character\+Image}
+
+\Hypertarget{class_dialogue_manager___casino_a18f479218979f003a9a295b5b24821eb}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!charName@{charName}}
+\index{charName@{charName}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{charName}{charName}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a18f479218979f003a9a295b5b24821eb} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+\_\+\+Casino.\+char\+Name}
+
+\Hypertarget{class_dialogue_manager___casino_a55bc774b34c67adfdbf06d661e2102d9}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!dialogueIndex@{dialogueIndex}}
+\index{dialogueIndex@{dialogueIndex}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{dialogueIndex}{dialogueIndex}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a55bc774b34c67adfdbf06d661e2102d9} 
+int Dialogue\+Manager\+\_\+\+Casino.\+dialogue\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_aae1d433a13ff2b79193844e41833921f}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!dialoguePanel@{dialoguePanel}}
+\index{dialoguePanel@{dialoguePanel}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{dialoguePanel}{dialoguePanel}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_aae1d433a13ff2b79193844e41833921f} 
+Game\+Object Dialogue\+Manager\+\_\+\+Casino.\+dialogue\+Panel}
+
+\Hypertarget{class_dialogue_manager___casino_a07c26e3b0063c00b8334744fc1fbd3ac}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!dialogueText@{dialogueText}}
+\index{dialogueText@{dialogueText}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{dialogueText}{dialogueText}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a07c26e3b0063c00b8334744fc1fbd3ac} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+\_\+\+Casino.\+dialogue\+Text}
+
+\Hypertarget{class_dialogue_manager___casino_ab4d4af0a7cbc891856a0043f1a959d73}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!fluxCost@{fluxCost}}
+\index{fluxCost@{fluxCost}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{fluxCost}{fluxCost}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ab4d4af0a7cbc891856a0043f1a959d73} 
+int Dialogue\+Manager\+\_\+\+Casino.\+flux\+Cost = 10}
+
+\Hypertarget{class_dialogue_manager___casino_aedf46680803f89ab957c3134addd42d8}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!fluxCostText@{fluxCostText}}
+\index{fluxCostText@{fluxCostText}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{fluxCostText}{fluxCostText}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_aedf46680803f89ab957c3134addd42d8} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+\_\+\+Casino.\+flux\+Cost\+Text}
+
+\Hypertarget{class_dialogue_manager___casino_a1a7824688df52d6dee1e6fde35c565e7}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!horsePanelChoose@{horsePanelChoose}}
+\index{horsePanelChoose@{horsePanelChoose}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{horsePanelChoose}{horsePanelChoose}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a1a7824688df52d6dee1e6fde35c565e7} 
+Game\+Object Dialogue\+Manager\+\_\+\+Casino.\+horse\+Panel\+Choose}
+
+\Hypertarget{class_dialogue_manager___casino_a1250285e56cc1bc60fc536c6f91712df}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!isTyping@{isTyping}}
+\index{isTyping@{isTyping}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{isTyping}{isTyping}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a1250285e56cc1bc60fc536c6f91712df} 
+bool Dialogue\+Manager\+\_\+\+Casino.\+is\+Typing = true\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_a362dabe0ed014f0ac2648239bebd9be7}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!playerMovement@{playerMovement}}
+\index{playerMovement@{playerMovement}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{playerMovement}{playerMovement}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a362dabe0ed014f0ac2648239bebd9be7} 
+\mbox{\hyperlink{class_character___movement}{Character\+\_\+\+Movement}} Dialogue\+Manager\+\_\+\+Casino.\+player\+Movement\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_a9930ac7be9429df6a042c2039af78a06}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!senseiDialogues@{senseiDialogues}}
+\index{senseiDialogues@{senseiDialogues}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{senseiDialogues}{senseiDialogues}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a9930ac7be9429df6a042c2039af78a06} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+sensei\+Dialogues\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Right...\ Welcome\ to\ the\ casino.\ You\ want\ money?\ Possibly?\ Well,\ you're\ in\ the\ right\ place."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}There's\ really\ only\ one\ thing\ to\ do\ here.\ Bet\ on\ robot\ horses.\ Yes,\ it\ sounds\ ridiculous,\ but\ it's\ the\ only\ way\ to\ make\ money.\ The\ table\ is\ over\ there."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}The\ casino\ owner\ offers\ a\ 2:1\ payout\ on\ bets.\ You\ basically\ get\ twice\ the\ amount\ you\ bet,\ if\ you\ win.\ Sick,\ right?\ Well...\ There\ is\ a\ catch."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}There's\ something\ in\ this\ town\ called\ Neuroflux.\ You've\ probably\ already\ noticed\ the\ meter\ at\ the\ top\ of\ your\ screen.\ You\ can\ only\ see\ this\ meter\ in\ the\ casino."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}And\ when\ you're\ more\ \(\backslash\)"{}fluxed\ up\(\backslash\)"{},\ you\ have\ a\ higher\ chance\ of\ winning.\ But\ hey,\ flux\ isn't\ cheap,\ so\ you\ have\ to\ pay\ to\ play.\ Go\ ask\ the\ casino\ owner\ for\ more\ details."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Winning\ big\ sounds\ fun,\ though.\ But\ it's\ much\ harder\ than\ it\ seems.\ Good\ luck,\ and\ remember,\ the\ house\ always\ wins."{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_ab1cee7cf954eb0f909af112c9cf27245}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!senseiSpriteIndices@{senseiSpriteIndices}}
+\index{senseiSpriteIndices@{senseiSpriteIndices}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{senseiSpriteIndices}{senseiSpriteIndices}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ab1cee7cf954eb0f909af112c9cf27245} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+sensei\+Sprite\+Indices\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 2,\ 1,\ 0,\ 1,\ 1,\ 3}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_dialogue_manager___casino_ad900e1243887154ce660f7683d5b0014}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!senseiSprites@{senseiSprites}}
+\index{senseiSprites@{senseiSprites}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{senseiSprites}{senseiSprites}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_ad900e1243887154ce660f7683d5b0014} 
+Sprite \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Casino.\+sensei\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_adde13ec97c9b4ca5f430699147991038}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!TTC\_Text@{TTC\_Text}}
+\index{TTC\_Text@{TTC\_Text}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{TTC\_Text}{TTC\_Text}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_adde13ec97c9b4ca5f430699147991038} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+\_\+\+Casino.\+TTC\+\_\+\+Text}
+
+\Hypertarget{class_dialogue_manager___casino_aa57326b75aacd340e824d171f2be0886}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!typeSentenceCoroutine@{typeSentenceCoroutine}}
+\index{typeSentenceCoroutine@{typeSentenceCoroutine}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{typeSentenceCoroutine}{typeSentenceCoroutine}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_aa57326b75aacd340e824d171f2be0886} 
+Coroutine Dialogue\+Manager\+\_\+\+Casino.\+type\+Sentence\+Coroutine\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_dialogue_manager___casino_acc2c6e583896d5fae2b42c23ddc52ed8}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!typingSpeed@{typingSpeed}}
+\index{typingSpeed@{typingSpeed}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{typingSpeed}{typingSpeed}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_acc2c6e583896d5fae2b42c23ddc52ed8} 
+float Dialogue\+Manager\+\_\+\+Casino.\+typing\+Speed = 0.\+025f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_dialogue_manager___casino_a6d898f3505e34fef443c0e6a39b235d4}\index{DialogueManager\_Casino@{DialogueManager\_Casino}!playerData@{playerData}}
+\index{playerData@{playerData}!DialogueManager\_Casino@{DialogueManager\_Casino}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{class_dialogue_manager___casino_a6d898f3505e34fef443c0e6a39b235d4} 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} Dialogue\+Manager\+\_\+\+Casino.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Dialogue/\mbox{\hyperlink{_dialogue_manager___casino_8cs}{Dialogue\+Manager\+\_\+\+Casino.\+cs}}\end{DoxyCompactItemize}

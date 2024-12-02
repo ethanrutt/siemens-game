@@ -1,0 +1,307 @@
+\doxysection{Player\+Data Class Reference}
+\hypertarget{class_player_data}{}\label{class_player_data}\index{PlayerData@{PlayerData}}
+
+
+Rishi Santhanam -\/ player data storage. All player data is stored here.  
+
+
+Inheritance diagram for Player\+Data\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_player_data}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_player_data_ae51ddc31ede21cae03e66fe5583dd75b}{Unlock\+Achievement}} (int achievement\+\_\+id)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{class_player_data_a31b1523d02d1004e9219ca423c42eee0}{username}}
+\item 
+int \mbox{\hyperlink{class_player_data_acb3a3963b08f2938ed8a2bc42174c60a}{coins}}
+\item 
+int \mbox{\hyperlink{class_player_data_ac47a815bf40f21aed6234b1d3d5c4dbe}{user\+Id}}
+\item 
+string \mbox{\hyperlink{class_player_data_ab3e18bd09a0d669dc7a5016899c6f951}{interactable}} = "{}"{}
+\item 
+int \mbox{\hyperlink{class_player_data_ad533d5cb46e059ba7168436be0516a13}{wire\+\_\+puzzle\+\_\+wins}} = 0
+\item 
+int \mbox{\hyperlink{class_player_data_aba50c5294cb390721f2661d34f0ebffc}{wire\+\_\+puzzle\+\_\+fullround}} = 0
+\item 
+int \mbox{\hyperlink{class_player_data_a5cab1e33f0b379e2d70aaf4a405115a9}{card\+\_\+game\+\_\+wins}} = 0
+\item 
+int \mbox{\hyperlink{class_player_data_a38086918b819b46248453bb33d59084a}{card\+\_\+game\+\_\+fullround}} = 0
+\item 
+int \mbox{\hyperlink{class_player_data_a8268781aa90e7c93953df01ca85b0f83}{casino\+\_\+winnings}} = 0
+\item 
+int \mbox{\hyperlink{class_player_data_a1ff97f82367ab293f74fc8bb866ddfab}{casino\+\_\+losses}} = 0
+\item 
+int \mbox{\hyperlink{class_player_data_a97f75fa10d409c1051c2d585171d5c54}{pipe\+\_\+puzzle\+\_\+wins}} = 0
+\item 
+float \mbox{\hyperlink{class_player_data_aa9f1093890fe0c501c5e36791c125bbb}{movement\+\_\+speed}} = 5.\+0f
+\item 
+string \mbox{\hyperlink{class_player_data_af144f7be7eee3c7c80ef1bfa3d07f28b}{chosen\+\_\+horse}} = "{}"{}
+\item 
+int \mbox{\hyperlink{class_player_data_ab31a1e449a0a3964a9ce661209bae184}{bet\+\_\+amount}} = 0
+\item 
+int \mbox{\hyperlink{class_player_data_ac95dac7e879d212da0b72362393aa79b}{neuroflux\+\_\+meter}} = 0
+\item 
+Dictionary$<$ string, int $>$ \mbox{\hyperlink{class_player_data_accfa27516c3bb14ff3d88713b9e66bd8}{npc\+\_\+interactions}}
+\item 
+List$<$ int $>$ \mbox{\hyperlink{class_player_data_a677e184ae217916c72982ed499e93a3f}{unlocked\+\_\+items}} = new List$<$int$>$()
+\item 
+List$<$ int $>$ \mbox{\hyperlink{class_player_data_a1af603a188bfef07f5e0e067c6c01a1e}{equipped\+\_\+items}} = new List$<$int$>$()
+\item 
+List$<$ int $>$ \mbox{\hyperlink{class_player_data_aa6a4c4671d9d17939d0bc1e30b5636f7}{original\+\_\+load\+\_\+items}} = new List$<$int$>$()
+\item 
+List$<$ int $>$ \mbox{\hyperlink{class_player_data_a715369144142843703b96b1a281c5fd0}{unlocked\+\_\+achievements}} = new List$<$int$>$()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{class_player_data}{Player\+Data}} \mbox{\hyperlink{class_player_data_a960036f5b7cbb8500efb2ea04422e036}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ int, \mbox{\hyperlink{struct_item_i_ds_1_1_item}{Item\+IDs.\+Item}} $>$ \mbox{\hyperlink{class_player_data_ac225215637c1d7d89d29569fad1be83b}{item\+\_\+database}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_player_data_a91c914d556e20d80d9957185bb3a44b1}{Awake}} ()
+\item 
+void \mbox{\hyperlink{class_player_data_affa0e333196e194ff2527213059bf8a0}{Start}} ()
+\item 
+void \mbox{\hyperlink{class_player_data_a12e3928714432b7354271f1b98a2a0e3}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TMPro.\+TMP\+\_\+\+Text \mbox{\hyperlink{class_player_data_a1b197ac93762fefde59ed112abda189f}{currency\+Text}}
+\item 
+\mbox{\hyperlink{class_item_i_ds}{Item\+IDs}} \mbox{\hyperlink{class_player_data_af94ea7eb56020398ae85e00c5860af4f}{item\+\_\+ids}} = new \mbox{\hyperlink{class_item_i_ds}{Item\+IDs}}()
+\item 
+Unity\+Engine.\+UI.\+Button \mbox{\hyperlink{class_player_data_a24a720e359d8c9b9ca213b84f862874e}{dance\+Emote\+Button}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Rishi Santhanam -\/ player data storage. All player data is stored here. 
+
+This includes the players username (used for api calls), coins, userid, etc. This also tracks what npcs the player has talked to previously. as well as what areas they\textquotesingle{}ve previously visited
+
+These values are populated on login
+
+This is a singleton pattern.
+
+To use this in another script, grab the singleton instance by adding this line as a member in your class 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\textcolor{keyword}{private}\ \mbox{\hyperlink{class_player_data}{PlayerData}}\ playerData\ =>\ \mbox{\hyperlink{class_player_data}{PlayerData}}.\mbox{\hyperlink{class_player_data_a960036f5b7cbb8500efb2ea04422e036}{Instance}};}
+
+\end{DoxyCode}
+ 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_player_data_a91c914d556e20d80d9957185bb3a44b1}\index{PlayerData@{PlayerData}!Awake@{Awake}}
+\index{Awake@{Awake}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{class_player_data_a91c914d556e20d80d9957185bb3a44b1} 
+void Player\+Data.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_player_data_affa0e333196e194ff2527213059bf8a0}\index{PlayerData@{PlayerData}!Start@{Start}}
+\index{Start@{Start}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{class_player_data_affa0e333196e194ff2527213059bf8a0} 
+void Player\+Data.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{class_player_data_ae51ddc31ede21cae03e66fe5583dd75b}\index{PlayerData@{PlayerData}!UnlockAchievement@{UnlockAchievement}}
+\index{UnlockAchievement@{UnlockAchievement}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{UnlockAchievement()}{UnlockAchievement()}}
+{\footnotesize\ttfamily \label{class_player_data_ae51ddc31ede21cae03e66fe5583dd75b} 
+void Player\+Data.\+Unlock\+Achievement (\begin{DoxyParamCaption}\item[{int}]{achievement\+\_\+id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{class_player_data_a12e3928714432b7354271f1b98a2a0e3}\index{PlayerData@{PlayerData}!Update@{Update}}
+\index{Update@{Update}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{class_player_data_a12e3928714432b7354271f1b98a2a0e3} 
+void Player\+Data.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_player_data_ab31a1e449a0a3964a9ce661209bae184}\index{PlayerData@{PlayerData}!bet\_amount@{bet\_amount}}
+\index{bet\_amount@{bet\_amount}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{bet\_amount}{bet\_amount}}
+{\footnotesize\ttfamily \label{class_player_data_ab31a1e449a0a3964a9ce661209bae184} 
+int Player\+Data.\+bet\+\_\+amount = 0}
+
+\Hypertarget{class_player_data_a38086918b819b46248453bb33d59084a}\index{PlayerData@{PlayerData}!card\_game\_fullround@{card\_game\_fullround}}
+\index{card\_game\_fullround@{card\_game\_fullround}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{card\_game\_fullround}{card\_game\_fullround}}
+{\footnotesize\ttfamily \label{class_player_data_a38086918b819b46248453bb33d59084a} 
+int Player\+Data.\+card\+\_\+game\+\_\+fullround = 0}
+
+\Hypertarget{class_player_data_a5cab1e33f0b379e2d70aaf4a405115a9}\index{PlayerData@{PlayerData}!card\_game\_wins@{card\_game\_wins}}
+\index{card\_game\_wins@{card\_game\_wins}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{card\_game\_wins}{card\_game\_wins}}
+{\footnotesize\ttfamily \label{class_player_data_a5cab1e33f0b379e2d70aaf4a405115a9} 
+int Player\+Data.\+card\+\_\+game\+\_\+wins = 0}
+
+\Hypertarget{class_player_data_a1ff97f82367ab293f74fc8bb866ddfab}\index{PlayerData@{PlayerData}!casino\_losses@{casino\_losses}}
+\index{casino\_losses@{casino\_losses}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{casino\_losses}{casino\_losses}}
+{\footnotesize\ttfamily \label{class_player_data_a1ff97f82367ab293f74fc8bb866ddfab} 
+int Player\+Data.\+casino\+\_\+losses = 0}
+
+\Hypertarget{class_player_data_a8268781aa90e7c93953df01ca85b0f83}\index{PlayerData@{PlayerData}!casino\_winnings@{casino\_winnings}}
+\index{casino\_winnings@{casino\_winnings}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{casino\_winnings}{casino\_winnings}}
+{\footnotesize\ttfamily \label{class_player_data_a8268781aa90e7c93953df01ca85b0f83} 
+int Player\+Data.\+casino\+\_\+winnings = 0}
+
+\Hypertarget{class_player_data_af144f7be7eee3c7c80ef1bfa3d07f28b}\index{PlayerData@{PlayerData}!chosen\_horse@{chosen\_horse}}
+\index{chosen\_horse@{chosen\_horse}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{chosen\_horse}{chosen\_horse}}
+{\footnotesize\ttfamily \label{class_player_data_af144f7be7eee3c7c80ef1bfa3d07f28b} 
+string Player\+Data.\+chosen\+\_\+horse = "{}"{}}
+
+\Hypertarget{class_player_data_acb3a3963b08f2938ed8a2bc42174c60a}\index{PlayerData@{PlayerData}!coins@{coins}}
+\index{coins@{coins}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{coins}{coins}}
+{\footnotesize\ttfamily \label{class_player_data_acb3a3963b08f2938ed8a2bc42174c60a} 
+int Player\+Data.\+coins}
+
+\Hypertarget{class_player_data_a1b197ac93762fefde59ed112abda189f}\index{PlayerData@{PlayerData}!currencyText@{currencyText}}
+\index{currencyText@{currencyText}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{currencyText}{currencyText}}
+{\footnotesize\ttfamily \label{class_player_data_a1b197ac93762fefde59ed112abda189f} 
+TMPro.\+TMP\+\_\+\+Text Player\+Data.\+currency\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_player_data_a24a720e359d8c9b9ca213b84f862874e}\index{PlayerData@{PlayerData}!danceEmoteButton@{danceEmoteButton}}
+\index{danceEmoteButton@{danceEmoteButton}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{danceEmoteButton}{danceEmoteButton}}
+{\footnotesize\ttfamily \label{class_player_data_a24a720e359d8c9b9ca213b84f862874e} 
+Unity\+Engine.\+UI.\+Button Player\+Data.\+dance\+Emote\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_player_data_a1af603a188bfef07f5e0e067c6c01a1e}\index{PlayerData@{PlayerData}!equipped\_items@{equipped\_items}}
+\index{equipped\_items@{equipped\_items}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{equipped\_items}{equipped\_items}}
+{\footnotesize\ttfamily \label{class_player_data_a1af603a188bfef07f5e0e067c6c01a1e} 
+List$<$int$>$ Player\+Data.\+equipped\+\_\+items = new List$<$int$>$()}
+
+\Hypertarget{class_player_data_a960036f5b7cbb8500efb2ea04422e036}\index{PlayerData@{PlayerData}!Instance@{Instance}}
+\index{Instance@{Instance}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{class_player_data_a960036f5b7cbb8500efb2ea04422e036} 
+\mbox{\hyperlink{class_player_data}{Player\+Data}} Player\+Data.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{class_player_data_ab3e18bd09a0d669dc7a5016899c6f951}\index{PlayerData@{PlayerData}!interactable@{interactable}}
+\index{interactable@{interactable}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{interactable}{interactable}}
+{\footnotesize\ttfamily \label{class_player_data_ab3e18bd09a0d669dc7a5016899c6f951} 
+string Player\+Data.\+interactable = "{}"{}}
+
+\Hypertarget{class_player_data_af94ea7eb56020398ae85e00c5860af4f}\index{PlayerData@{PlayerData}!item\_ids@{item\_ids}}
+\index{item\_ids@{item\_ids}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{item\_ids}{item\_ids}}
+{\footnotesize\ttfamily \label{class_player_data_af94ea7eb56020398ae85e00c5860af4f} 
+\mbox{\hyperlink{class_item_i_ds}{Item\+IDs}} Player\+Data.\+item\+\_\+ids = new \mbox{\hyperlink{class_item_i_ds}{Item\+IDs}}()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{class_player_data_aa9f1093890fe0c501c5e36791c125bbb}\index{PlayerData@{PlayerData}!movement\_speed@{movement\_speed}}
+\index{movement\_speed@{movement\_speed}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{movement\_speed}{movement\_speed}}
+{\footnotesize\ttfamily \label{class_player_data_aa9f1093890fe0c501c5e36791c125bbb} 
+float Player\+Data.\+movement\+\_\+speed = 5.\+0f}
+
+\Hypertarget{class_player_data_ac95dac7e879d212da0b72362393aa79b}\index{PlayerData@{PlayerData}!neuroflux\_meter@{neuroflux\_meter}}
+\index{neuroflux\_meter@{neuroflux\_meter}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{neuroflux\_meter}{neuroflux\_meter}}
+{\footnotesize\ttfamily \label{class_player_data_ac95dac7e879d212da0b72362393aa79b} 
+int Player\+Data.\+neuroflux\+\_\+meter = 0}
+
+\Hypertarget{class_player_data_accfa27516c3bb14ff3d88713b9e66bd8}\index{PlayerData@{PlayerData}!npc\_interactions@{npc\_interactions}}
+\index{npc\_interactions@{npc\_interactions}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{npc\_interactions}{npc\_interactions}}
+{\footnotesize\ttfamily \label{class_player_data_accfa27516c3bb14ff3d88713b9e66bd8} 
+Dictionary$<$string, int$>$ Player\+Data.\+npc\+\_\+interactions}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ Dictionary<string,\ int>()}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}deckmaster"{}},\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}casino\_owner"{}},\ 1\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}shopkeeper"{}},\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}drunkard"{}},\ 0\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}sensei"{}},\ 2\},\ }
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}casinoenter"{}},\ 1\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{\textcolor{stringliteral}{"{}labenter"{}},\ 0\}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{class_player_data_aa6a4c4671d9d17939d0bc1e30b5636f7}\index{PlayerData@{PlayerData}!original\_load\_items@{original\_load\_items}}
+\index{original\_load\_items@{original\_load\_items}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{original\_load\_items}{original\_load\_items}}
+{\footnotesize\ttfamily \label{class_player_data_aa6a4c4671d9d17939d0bc1e30b5636f7} 
+List$<$int$>$ Player\+Data.\+original\+\_\+load\+\_\+items = new List$<$int$>$()}
+
+\Hypertarget{class_player_data_a97f75fa10d409c1051c2d585171d5c54}\index{PlayerData@{PlayerData}!pipe\_puzzle\_wins@{pipe\_puzzle\_wins}}
+\index{pipe\_puzzle\_wins@{pipe\_puzzle\_wins}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{pipe\_puzzle\_wins}{pipe\_puzzle\_wins}}
+{\footnotesize\ttfamily \label{class_player_data_a97f75fa10d409c1051c2d585171d5c54} 
+int Player\+Data.\+pipe\+\_\+puzzle\+\_\+wins = 0}
+
+\Hypertarget{class_player_data_a715369144142843703b96b1a281c5fd0}\index{PlayerData@{PlayerData}!unlocked\_achievements@{unlocked\_achievements}}
+\index{unlocked\_achievements@{unlocked\_achievements}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{unlocked\_achievements}{unlocked\_achievements}}
+{\footnotesize\ttfamily \label{class_player_data_a715369144142843703b96b1a281c5fd0} 
+List$<$int$>$ Player\+Data.\+unlocked\+\_\+achievements = new List$<$int$>$()}
+
+\Hypertarget{class_player_data_a677e184ae217916c72982ed499e93a3f}\index{PlayerData@{PlayerData}!unlocked\_items@{unlocked\_items}}
+\index{unlocked\_items@{unlocked\_items}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{unlocked\_items}{unlocked\_items}}
+{\footnotesize\ttfamily \label{class_player_data_a677e184ae217916c72982ed499e93a3f} 
+List$<$int$>$ Player\+Data.\+unlocked\+\_\+items = new List$<$int$>$()}
+
+\Hypertarget{class_player_data_ac47a815bf40f21aed6234b1d3d5c4dbe}\index{PlayerData@{PlayerData}!userId@{userId}}
+\index{userId@{userId}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{userId}{userId}}
+{\footnotesize\ttfamily \label{class_player_data_ac47a815bf40f21aed6234b1d3d5c4dbe} 
+int Player\+Data.\+user\+Id}
+
+\Hypertarget{class_player_data_a31b1523d02d1004e9219ca423c42eee0}\index{PlayerData@{PlayerData}!username@{username}}
+\index{username@{username}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{username}{username}}
+{\footnotesize\ttfamily \label{class_player_data_a31b1523d02d1004e9219ca423c42eee0} 
+string Player\+Data.\+username}
+
+\Hypertarget{class_player_data_aba50c5294cb390721f2661d34f0ebffc}\index{PlayerData@{PlayerData}!wire\_puzzle\_fullround@{wire\_puzzle\_fullround}}
+\index{wire\_puzzle\_fullround@{wire\_puzzle\_fullround}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{wire\_puzzle\_fullround}{wire\_puzzle\_fullround}}
+{\footnotesize\ttfamily \label{class_player_data_aba50c5294cb390721f2661d34f0ebffc} 
+int Player\+Data.\+wire\+\_\+puzzle\+\_\+fullround = 0}
+
+\Hypertarget{class_player_data_ad533d5cb46e059ba7168436be0516a13}\index{PlayerData@{PlayerData}!wire\_puzzle\_wins@{wire\_puzzle\_wins}}
+\index{wire\_puzzle\_wins@{wire\_puzzle\_wins}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{wire\_puzzle\_wins}{wire\_puzzle\_wins}}
+{\footnotesize\ttfamily \label{class_player_data_ad533d5cb46e059ba7168436be0516a13} 
+int Player\+Data.\+wire\+\_\+puzzle\+\_\+wins = 0}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{class_player_data_ac225215637c1d7d89d29569fad1be83b}\index{PlayerData@{PlayerData}!item\_database@{item\_database}}
+\index{item\_database@{item\_database}!PlayerData@{PlayerData}}
+\doxysubsubsection{\texorpdfstring{item\_database}{item\_database}}
+{\footnotesize\ttfamily \label{class_player_data_ac225215637c1d7d89d29569fad1be83b} 
+Dictionary$<$int, \mbox{\hyperlink{struct_item_i_ds_1_1_item}{Item\+IDs.\+Item}}$>$ Player\+Data.\+item\+\_\+database\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Character/\mbox{\hyperlink{_player_data_8cs}{Player\+Data.\+cs}}\end{DoxyCompactItemize}
