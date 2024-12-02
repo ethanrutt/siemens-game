@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.Engine.SceneManagement;
 
 public class NetworkManagerUI : NetworkBehaviour
 {
@@ -107,11 +108,15 @@ public class NetworkManagerUI : NetworkBehaviour
         {
             Debug.Log("Disconnecting as Host...");
             NetworkManager.Singleton.Shutdown(); // Shut down the host
+
+            SceneManager.LoadScene("Laboratory_Main");
         }
         else if (NetworkManager.Singleton.IsClient)
         {
             Debug.Log("Disconnecting as Client...");
             NetworkManager.Singleton.Shutdown(); // Shut down the client connection
+
+            SceneManager.LoadScene("Laboratory_Main");
         }
         else
         {
