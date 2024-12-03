@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Netcode
+using Unity.Netcode;
+
 // Rishi Santhanam
 // Player data storage. All player data is stored here.
 //
@@ -85,6 +88,80 @@ public class PlayerData : MonoBehaviour
         {"labenter", 1}
     };
 
+    // We are going to store the cards from the card game using a specific struct
+    // This struct contains the card id, cost, power, and clientId
+    private struct Card : INetworkSerializable, IEquatable<Card>
+    {
+        public int id;
+        public int cost;
+        public int power;
+        public string name;
+        public UnityEngine.UI.Image image;
+        public ulong clientId; // Add clientId field to track the source of the card data
+
+        public Card(int id, int cost, int power, string name, UnityEngine.UI.Image image, ulong clientId)
+        {
+            this.id = id;
+            this.cost = cost;
+            this.power = power;
+            this.name = name;
+            this.image = image;
+            this.clientId = clientId;
+        }
+
+        // Implement IEquatable<Card>
+        public bool Equals(Card other)
+        {
+            return id == other.id && cost == other.cost && power == other.power && clientId == other.clientId;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Card other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + id.GetHashCode();
+                hash = hash * 23 + cost.GetHashCode();
+                hash = hash * 23 + power.GetHashCode();
+                hash = hash * 23 + clientId.GetHashCode();
+                return hash;
+            }
+        }
+
+        public static bool operator ==(Card left, Card right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Card left, Card right)
+        {
+            return !(left == right);
+        }
+
+        // Implement INetworkSerializable
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+        {
+            serializer.SerializeValue(ref id);
+            serializer.SerializeValue(ref cost);
+            serializer.SerializeValue(ref power);
+            serializer.SerializeValue(ref clientId); // Serialize clientId
+        }
+    };
+
+    // Store the card images
+    // and the dictionary, where we will populate the dictionary
+    // and then we will populate the images on Awake
+    [SerializeField] private List<UnityEngine.UI.Image> card_images = new List<UnityEngine.UI.Image>();
+    private Dictionary<int, Card> cards = new Dictionary<int, Card>();
+
+    // Now we're going to define all the cards
+    // TODO: Rohan
+
     // Storing the current items the player has unlocked (list of item id's)
     [SerializeField] public List<int> unlocked_items = new List<int>();
 
@@ -135,6 +212,10 @@ public class PlayerData : MonoBehaviour
 
         // Don't destroy this object when loading a new scene
         DontDestroyOnLoad(gameObject);
+
+        // We will now populate the cards
+        // We will loop through the card images and create a card for each image
+
     }
 
     // Start is called before the first frame update
@@ -226,3 +307,66 @@ public class PlayerData : MonoBehaviour
         }
     }
 }
+
+
+
+
+// [Serializable]
+// public struct CardData : INetworkSerializable, IEquatable<CardData>
+// {
+//     public int id;
+//     public int cost;
+//     public int power;
+//     public ulong clientId; // Add clientId field to track the source of the card data
+
+//     public CardData(int id, int cost, int power, ulong clientId)
+//     {
+//         this.id = id;
+//         this.cost = cost;
+//         this.power = power;
+//         this.clientId = clientId;
+//     }
+
+//     // Implement IEquatable<CardData>
+//     public bool Equals(CardData other)
+//     {
+//         return id == other.id && cost == other.cost && power == other.power && clientId == other.clientId;
+//     }
+
+//     public override bool Equals(object obj)
+//     {
+//         return obj is CardData other && Equals(other);
+//     }
+
+//     public override int GetHashCode()
+//     {
+//         unchecked
+//         {
+//             int hash = 17;
+//             hash = hash * 23 + id.GetHashCode();
+//             hash = hash * 23 + cost.GetHashCode();
+//             hash = hash * 23 + power.GetHashCode();
+//             hash = hash * 23 + clientId.GetHashCode();
+//             return hash;
+//         }
+//     }
+
+//     public static bool operator ==(CardData left, CardData right)
+//     {
+//         return left.Equals(right);
+//     }
+
+//     public static bool operator !=(CardData left, CardData right)
+//     {
+//         return !(left == right);
+//     }
+
+//     // Implement INetworkSerializable
+//     public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+//     {
+//         serializer.SerializeValue(ref id);
+//         serializer.SerializeValue(ref cost);
+//         serializer.SerializeValue(ref power);
+//         serializer.SerializeValue(ref clientId); // Serialize clientId
+//     }
+// }
