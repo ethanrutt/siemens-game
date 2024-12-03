@@ -63,12 +63,6 @@
   language.
 * We are using `Unity Editor Version 2022.3.45f1`.
 ### Backend
-<<<<<<< HEAD
-* We are using [nodejs](https://nodejs.org/en/), along with AWS Lambda and an
-  **naveed fix this part plz**.
-
-### Frontend Installation
-=======
 * We are using [nodejs](https://nodejs.org/en/) to define HTTP APIs to connect to the Database
 * Code
   * NodeJS, npm
@@ -79,10 +73,9 @@
   * Secrets Manager for authentication
   * RDS Proxy for Connection Management
   * RDS DB for the Database
- 
+
 
 ## Frontend Installation
->>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
 * Installing Unity is pretty straight forward. Go to
   `https://unity.com/download` or click [here](https://unity.com/download) and
   download `Unity Hub`.
@@ -114,12 +107,6 @@ git clone git@github.com:ethanrutt/siemens-game.git
 * Once this is finished, you should be ready to develop, build, and run
   ByteCity!
 
-<<<<<<< HEAD
-### Backend Installation
-* **naveed fix this part plz**
-
----
-=======
 ## Backend Installation
 
 ### Prerequisites
@@ -194,7 +181,7 @@ The backend includes the following AWS services:
 - AWSLambdaVPCAccessExecutionRole
 - CloudFrontFullAccess  (for logging)
 - SecretsManagerReadWrite
-- Custom Inline Role: 
+- Custom Inline Role:
 Json'
 {
     "Version": "2012-10-17",
@@ -208,14 +195,14 @@ Json'
         }
     ]
 }'
-3. 
+3.
 
 ### Create Lambda Functions:
 1. For every single folder in siemens-game/backend/LambdaFunctionAPIs except for "shared" and "Test": create a lambda function(step 2)
 2. Go to the lambda console in AWS
     -  click "Create Function"
     -  Choose a Function Name, it should equal  the variable "const functionName" in the build.js(line 17) file in the corresponding folder
-    - Runtime: Node.js 
+    - Runtime: Node.js
     - Archetecture x86_64
     - Change default Excecution Role and choose the role you created above
     - Create Function
@@ -226,7 +213,7 @@ Json'
 ### Deploy the Functions:
 1. Navigate to the folder you want to deploy(Ex: Equip )
 2. npm init -y
-3. npm install archiver aws-sdk pg @aws-sdk/client-secrets-manager 
+3. npm install archiver aws-sdk pg @aws-sdk/client-secrets-manager
 4. npm install jest @jest/globals --save-dev
 5. npm run deploy (runs the build.js file and should upload your function lambda)
 
@@ -259,7 +246,6 @@ Json'
 ### Security Groups:
 - Allow traffic between **Lambda** and **RDS Proxy** on port `5432`.
 
->>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
 ## Testing
 ### Frontend Testing
 * We have a combination of github actions, combined with
@@ -279,8 +265,6 @@ Json'
 ### Backend Testing
 * We use [jest](https://jestjs.io/) to test our backend code combined with
   github actions to get automated testing whenever we push code.
-<<<<<<< HEAD
-=======
 * Testing framework: [Jest](https://jestjs.io/).
 * Automated testing with GitHub Actions for every push to the repository.
 * Folders containing tests (siemens-game/backend/LambdaFunctionAPIs):
@@ -291,13 +275,12 @@ Json'
   * HighScore
   * Leaderboard
   * Login
-  * playerDataUpload 
+  * playerDataUpload
   * ScoreUpload
 * Focus areas:
   * Unit tests for functions like `updatePlayerData` and `getTopScoresByGame`.
   * Integration tests for AWS Lambda handlers.
   * API tests for endpoints.
->>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
 
 ---
 ## Deployment
