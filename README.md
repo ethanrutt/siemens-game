@@ -167,6 +167,7 @@ The backend includes the following AWS services:
            }
        ]
    }
+   ```
 ---
 
 ## 3. Deploy Lambda Functions
