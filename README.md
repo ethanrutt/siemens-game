@@ -182,7 +182,7 @@ The backend includes the following AWS services:
 - CloudFrontFullAccess  (for logging)
 - SecretsManagerReadWrite
 - Custom Inline Role:
-Json'
+```json
 {
     "Version": "2012-10-17",
     "Statement": [
@@ -194,8 +194,8 @@ Json'
             "Resource": "arn:aws:rds:us-east-1:<awsaccountid>:db-proxy:<proxyid>"
         }
     ]
-}'
-3.
+}
+```
 
 ### Create Lambda Functions:
 1. For every single folder in siemens-game/backend/LambdaFunctionAPIs except for "shared" and "Test": create a lambda function(step 2)
@@ -203,7 +203,7 @@ Json'
     -  click "Create Function"
     -  Choose a Function Name, it should equal  the variable "const functionName" in the build.js(line 17) file in the corresponding folder
     - Runtime: Node.js
-    - Archetecture x86_64
+    - Architecture x86_64
     - Change default Excecution Role and choose the role you created above
     - Create Function
 2. Example environment variables:
@@ -212,10 +212,10 @@ Json'
 
 ### Deploy the Functions:
 1. Navigate to the folder you want to deploy(Ex: Equip )
-2. npm init -y
-3. npm install archiver aws-sdk pg @aws-sdk/client-secrets-manager
-4. npm install jest @jest/globals --save-dev
-5. npm run deploy (runs the build.js file and should upload your function lambda)
+2. `npm init -y`
+3. `npm install archiver aws-sdk pg @aws-sdk/client-secrets-manager`
+4. `npm install jest @jest/globals --save-dev`
+5. `npm run deploy` (runs the build.js file and should upload your function lambda)
 
 ---
 
@@ -227,7 +227,7 @@ Json'
 ### Create Routes:
 1. Map each Lambda function to a route.
 2. Example routes:
-   - look at the APIPayload.txt to see the type and how its structure
+   - look at the `APIPayload.txt` to see the type and how its structure
    - `/login` → Login Lambda Function.
 
 ### Integrate API with Lambda:
