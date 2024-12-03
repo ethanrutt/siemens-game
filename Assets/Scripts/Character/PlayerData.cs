@@ -1,6 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+
+// Netcode
+using Unity.Netcode;
 
 // Rishi Santhanam
 // Player data storage. All player data is stored here.
@@ -76,14 +80,92 @@ public class PlayerData : MonoBehaviour
     // Storing the interaction_times with each NPC (starting at 0)
     [SerializeField] public Dictionary<string, int> npc_interactions = new Dictionary<string, int>()
     {
-        {"deckmaster", 1},
-        {"casino_owner", 1},
+        {"deckmaster", 0},
+        {"casino_owner", 0},
         {"shopkeeper", 0},
         {"drunkard", 0},
-        {"sensei", 2}, // just for debug
-        {"casinoenter", 1},
-        {"labenter", 1}
+        {"sensei", 0}, // just for debug
+        {"casinoenter", 0},
+        {"labenter", 0}
     };
+
+    // We are going to store the cards from the card game using a specific struct
+    // This struct contains the card id, cost, power, and clientId
+    private struct Card : INetworkSerializable, IEquatable<Card>
+    {
+        public int id;
+        public int rarity;
+        public int power;
+        public enum Element { Electrical, Pressure, Heat };
+        public Element element; // Add this line
+        public string name;
+        public Sprite image;
+        public ulong clientId; // Add clientId field to track the source of the card data
+
+        public Card(int id, int rarity, int power, Element element, string name, Sprite image, ulong clientId)
+        {
+            this.id = id;
+            this.rarity = rarity;
+            this.power = power;
+            this.element = element;
+            this.name = name;
+            this.image = image;
+            this.clientId = clientId;
+        }
+
+        // Implement IEquatable<Card>
+        public bool Equals(Card other)
+        {
+            return id == other.id && rarity == other.rarity && power == other.power && clientId == other.clientId;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is Card other && Equals(other);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int hash = 17;
+                hash = hash * 23 + id.GetHashCode();
+                hash = hash * 23 + rarity.GetHashCode();
+                hash = hash * 23 + power.GetHashCode();
+                hash = hash * 23 + clientId.GetHashCode();
+                return hash;
+            }
+        }
+
+        public static bool operator ==(Card left, Card right)
+        {
+            return left.Equals(right);
+        }
+
+        public static bool operator !=(Card left, Card right)
+        {
+            return !(left == right);
+        }
+
+        // Implement INetworkSerializable
+        public void NetworkSerialize<T>(BufferSerializer<T> serializer) where T : IReaderWriter
+        {
+            serializer.SerializeValue(ref id);
+            serializer.SerializeValue(ref rarity);
+            serializer.SerializeValue(ref power);
+            serializer.SerializeValue(ref clientId); // Serialize clientId
+        }
+    };
+
+    // Store the card images
+    // and the dictionary, where we will populate the dictionary
+    // and then we will populate the images on Awake
+    [SerializeField] private List<Sprite> card_images = new List<Sprite>();
+    private Dictionary<int, Card> cards;
+
+    // Now unlocked cards
+    // Storing the current cards the player has unlocked (list of card id's)
+    [SerializeField] public List<int> unlocked_cards = new List<int>();
 
     // Storing the current items the player has unlocked (list of item id's)
     [SerializeField] public List<int> unlocked_items = new List<int>();
@@ -135,6 +217,30 @@ public class PlayerData : MonoBehaviour
 
         // Don't destroy this object when loading a new scene
         DontDestroyOnLoad(gameObject);
+
+        // Populate cards
+        //
+        cards = new Dictionary<int, Card>
+        {
+            {0, new Card(0, 1, 3, Card.Element.Electrical, "Circuit Breaker", card_images[0], 0)},
+            {1, new Card(1, 2, 6, Card.Element.Pressure, "Compression Burst", card_images[1], 0)},
+            {2, new Card(2, 3, 8, Card.Element.Pressure, "Cyclone Force", card_images[2], 0)},
+            {3, new Card(3, 4, 13, Card.Element.Electrical, "Electro Shield", card_images[3], 0)},
+            {4, new Card(4, 1, 3, Card.Element.Pressure, "Gear Shift", card_images[4], 0)},
+            {5, new Card(5, 4, 13, Card.Element.Heat, "Heat Eyes", card_images[5], 0)},
+            {6, new Card(6, 2, 5, Card.Element.Heat, "Heatwave Radiator", card_images[6], 0)},
+            {7, new Card(7, 3, 10, Card.Element.Pressure, "Hydraulic Crash", card_images[7], 0)},
+            {8, new Card(8, 3, 8, Card.Element.Electrical, "Lights Off", card_images[8], 0)},
+            {9, new Card(9, 1, 3, Card.Element.Heat, "Meltdown", card_images[9], 0)},
+            {10, new Card(10, 3, 10, Card.Element.Heat, "Overheat", card_images[10], 0)},
+            {11, new Card(11, 2, 6, Card.Element.Electrical, "Power Grid", card_images[11], 0)},
+            {12, new Card(12, 4, 12, Card.Element.Pressure, "Pressure Disruptor", card_images[12], 0)},
+            {13, new Card(13, 1, 4, Card.Element.Pressure, "Pressure Valve", card_images[13], 0)},
+            {14, new Card(14, 2, 6, Card.Element.Heat, "Radiant Blaze", card_images[14], 0)},
+            {15, new Card(15, 3, 11, Card.Element.Electrical, "Surge Strike", card_images[15], 0)},
+            {16, new Card(16, 2, 5, Card.Element.Electrical, "Flux Grip", card_images[16], 0)},
+            {17, new Card(17, 3, 8, Card.Element.Heat, "Welding Fury", card_images[17], 0)}
+        };
     }
 
     // Start is called before the first frame update

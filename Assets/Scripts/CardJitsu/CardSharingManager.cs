@@ -250,6 +250,7 @@ public class CardSharingManager : NetworkBehaviour
                     lastCardData = cardData;
                     //DisplaySharedCard(card, cardData.clientId);
                     //displayedCards.Add(cardData.id); // Mark this card as displayed
+                    //Debug.Log($"Card with ID {cardData.id} and client {cardData.clientId}.");
                 }
                 else
                 {
@@ -260,12 +261,13 @@ public class CardSharingManager : NetworkBehaviour
 
         if(lastCard != null && updateCount % 2 == 0){
             //DisplaySharedCard(lastCard, lastCardData.clientId);
+            //Debug.Log($"Update: {updateCount}");
             //Debug.Log($"Card with ID {lastCardData.id} and client {lastCardData.clientId}.");
             var key = (lastCardData.id, lastCardData.clientId);
             displayedCards[key] = lastCard;
         }
 
-        if(updateCount % 14 == 0){
+        if(updateCount % 6 == 0){
             foreach (var entry in displayedCards)
             {
                 var key = entry.Key; // Composite key (cardId, clientId)
@@ -293,7 +295,7 @@ public class CardSharingManager : NetworkBehaviour
 
     private IEnumerator DisplayMatchupsWithPause()
     {
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < 1; i++)
         {
             if(hW == 7 || cW == 7){
                 break;
@@ -303,12 +305,12 @@ public class CardSharingManager : NetworkBehaviour
             }
 
             Card c1 = sharedCardCopies[i].GetComponent<Card>();
-            Card c2 = sharedCardCopies[i + 3].GetComponent<Card>();
+            Card c2 = sharedCardCopies[i + 1].GetComponent<Card>();
 
             Debug.Log($"Displaying matchup {i + 1}: {c1.cardName} {c1.sourceClientId}  - {c2.cardName} {c2.sourceClientId}");
             
             if(compareTypes(c1.type, c2.type)){
-                c1.power = c1.power * 2;
+                c1.power = c1.power * 4;
 
                 powerSlots[i].SetActive(true);
                 powerSlots[i].transform.position = sharedCardCopies[i].transform.position;
@@ -317,10 +319,10 @@ public class CardSharingManager : NetworkBehaviour
                 yield return new WaitForSeconds(2.5f);  
             }
             else if(compareTypes(c2.type, c1.type)){
-                c2.power = c2.power * 2;
+                c2.power = c2.power * 4;
 
                 powerSlots[i].SetActive(true);
-                powerSlots[i].transform.position = sharedCardCopies[i + 3].transform.position;
+                powerSlots[i].transform.position = sharedCardCopies[i + 1].transform.position;
                 powerSlots[i].transform.position += new Vector3(-0.8f, 1.1f, -8f);
 
                 yield return new WaitForSeconds(2.5f);  
@@ -366,11 +368,11 @@ public class CardSharingManager : NetworkBehaviour
         
         hostWin.gameObject.SetActive(false);
         clientWin.gameObject.SetActive(false);
-        if(hW == 7 || cW == 7){
+        if(hW == 5 || cW == 5){
             deckOverlay.SetActive(false);
             discardOverlay.SetActive(false);
             disconnectButton.gameObject.SetActive(true);
-            if(hW == 7){
+            if(hW == 5){
                 if(IsHost){
                     winScreen.gameObject.SetActive(true);
                 }
@@ -378,7 +380,7 @@ public class CardSharingManager : NetworkBehaviour
                     loseScreen.gameObject.SetActive(true);
                 }
             }
-            else if(cW == 7){
+            else if(cW == 5){
                 if(IsHost){
                     loseScreen.gameObject.SetActive(true);
                 }
@@ -423,7 +425,7 @@ public class CardSharingManager : NetworkBehaviour
         Card copiedCard = cardCopy.GetComponent<Card>();
 
         // Update the display position based on client or host
-        float xOffset = 5 - (cardDisplayOrder * 2.5f);
+        float xOffset = 5 - (cardDisplayOrder * 2.5f) - 2.5f;
 
         if (IsHost && sourceClientId == NetworkManager.Singleton.LocalClientId)
         {
@@ -460,7 +462,7 @@ public class CardSharingManager : NetworkBehaviour
         cardDisplayOrder++; // Increment the order for the next card
 
         // Reset the display order if you want to start over at some point
-        if (cardDisplayOrder >= 3)
+        if (cardDisplayOrder >= 1)
         {
             cardDisplayOrder = 0;
         }

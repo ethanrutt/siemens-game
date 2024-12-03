@@ -1211,6 +1211,26 @@ MonoBehaviour:
   neuroflux_meter: 0
   item_ids: {fileID: 0}
   danceEmoteButton: {fileID: 0}
+  card_images:
+  - {fileID: 21300000, guid: 02c86cfc450984032a3d0849ec1fb489, type: 3}
+  - {fileID: 21300000, guid: 8b74bd54e7c6847a4b667a0eac0838af, type: 3}
+  - {fileID: 21300000, guid: 7109f7c9e9a06400892821d476882daf, type: 3}
+  - {fileID: 21300000, guid: 360baa00a43044f41a11a3080efaeba0, type: 3}
+  - {fileID: 21300000, guid: ea366287232d94d979de3394d0df6de5, type: 3}
+  - {fileID: 21300000, guid: b9984ac3a483c45c09f47abca8951a7e, type: 3}
+  - {fileID: 21300000, guid: f11a320d0b8e84b8ca3a015c4197a699, type: 3}
+  - {fileID: 21300000, guid: ed5a42302defd42b9a8c044101dd8668, type: 3}
+  - {fileID: 21300000, guid: 106b707c3201648058da2320d4e03fb9, type: 3}
+  - {fileID: 21300000, guid: abc7d702bd858407d8defd0fec434cf4, type: 3}
+  - {fileID: 21300000, guid: 9b54fadb3edd04ca7bc4063eaa6e230f, type: 3}
+  - {fileID: 21300000, guid: 524be313f2ee44657b57cf87eaebc716, type: 3}
+  - {fileID: 21300000, guid: a08bee9595a444051bd8ae00dc3235f8, type: 3}
+  - {fileID: 21300000, guid: 851582501283149f4abcf657e93e7e20, type: 3}
+  - {fileID: 21300000, guid: 82811291563de41d0ac0e99c0970af77, type: 3}
+  - {fileID: 21300000, guid: e6cd52243ed0546d6b83b75673491af0, type: 3}
+  - {fileID: 21300000, guid: 0c77083c8d27b41d0ac4f84b80bb82f1, type: 3}
+  - {fileID: 21300000, guid: f966a304cea8a4a0dbe37fe84d6bbc22, type: 3}
+  unlocked_cards: 00000000010000000200000003000000040000000500000006000000
   unlocked_items: 
   equipped_items: 
   original_load_items: 
