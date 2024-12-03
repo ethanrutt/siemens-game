@@ -329,6 +329,7 @@ public class NetworkManagerUI : NetworkBehaviour
                 playerOne.SetActive(true);
                 deckOverlay.SetActive(true);
                 discardOverlay.SetActive(true);
+                disconnectButton.gameObject.SetActive(false);
                 Debug.Log("PlayerOne activated: Host initialized and at least one client connected.");
             }
         }
