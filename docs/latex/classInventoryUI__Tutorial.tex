@@ -1,0 +1,111 @@
+\doxysection{Inventory\+UI\+\_\+\+Tutorial Class Reference}
+\hypertarget{classInventoryUI__Tutorial}{}\label{classInventoryUI__Tutorial}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+
+
+Manages the tutorial aspect of the inventory, basically if you press the inventory button the inventory panel should open, etc. and once the back button is pressed, it will remove the whole inventory interface and change its main boolean (public) to false, so the tutorial manager script can move on and finish the tutorial.  
+
+
+Inheritance diagram for Inventory\+UI\+\_\+\+Tutorial\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classInventoryUI__Tutorial}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classInventoryUI__Tutorial_ac39f3ea22d961453e55b589696165d73}{Open\+Inventory}} ()
+\item 
+void \mbox{\hyperlink{classInventoryUI__Tutorial_a4051aefa21566baa8a09257c7cfad245}{Close\+Inventory}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classInventoryUI__Tutorial_aeaa10252799b0445bb518a0234f4faa3}{inventory\+Closed}} = false
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classInventoryUI__Tutorial_af1af471d7e2e0557f3f35ff38283c967}{Start}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classInventoryUI__Tutorial_af3fb648c2bcf29fbcc7279780077dd3c}{inventory\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classInventoryUI__Tutorial_a51a81537aa3e98faba9800d21c60f563}{inventory\+Button}}
+\item 
+Game\+Object \mbox{\hyperlink{classInventoryUI__Tutorial_a1748771976f54e9cb64f2006c6cfdbbb}{blackout\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classInventoryUI__Tutorial_a4ebd621ef5ab1e410477e482d7062f7f}{close\+Button}}
+\item 
+\mbox{\hyperlink{classTutorialManager}{Tutorial\+Manager}} \mbox{\hyperlink{classInventoryUI__Tutorial_ab1887d43d380c30dc209584095fe2603}{tutorial\+Manager}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Manages the tutorial aspect of the inventory, basically if you press the inventory button the inventory panel should open, etc. and once the back button is pressed, it will remove the whole inventory interface and change its main boolean (public) to false, so the tutorial manager script can move on and finish the tutorial. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInventoryUI__Tutorial_a4051aefa21566baa8a09257c7cfad245}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!CloseInventory@{CloseInventory}}
+\index{CloseInventory@{CloseInventory}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{CloseInventory()}{CloseInventory()}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_a4051aefa21566baa8a09257c7cfad245} 
+void Inventory\+UI\+\_\+\+Tutorial.\+Close\+Inventory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInventoryUI__Tutorial_ac39f3ea22d961453e55b589696165d73}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!OpenInventory@{OpenInventory}}
+\index{OpenInventory@{OpenInventory}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{OpenInventory()}{OpenInventory()}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_ac39f3ea22d961453e55b589696165d73} 
+void Inventory\+UI\+\_\+\+Tutorial.\+Open\+Inventory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInventoryUI__Tutorial_af1af471d7e2e0557f3f35ff38283c967}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!Start@{Start}}
+\index{Start@{Start}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_af1af471d7e2e0557f3f35ff38283c967} 
+void Inventory\+UI\+\_\+\+Tutorial.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classInventoryUI__Tutorial_a1748771976f54e9cb64f2006c6cfdbbb}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!blackoutPanel@{blackoutPanel}}
+\index{blackoutPanel@{blackoutPanel}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{blackoutPanel}{blackoutPanel}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_a1748771976f54e9cb64f2006c6cfdbbb} 
+Game\+Object Inventory\+UI\+\_\+\+Tutorial.\+blackout\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInventoryUI__Tutorial_a4ebd621ef5ab1e410477e482d7062f7f}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!closeButton@{closeButton}}
+\index{closeButton@{closeButton}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{closeButton}{closeButton}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_a4ebd621ef5ab1e410477e482d7062f7f} 
+Game\+Object Inventory\+UI\+\_\+\+Tutorial.\+close\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInventoryUI__Tutorial_a51a81537aa3e98faba9800d21c60f563}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!inventoryButton@{inventoryButton}}
+\index{inventoryButton@{inventoryButton}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{inventoryButton}{inventoryButton}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_a51a81537aa3e98faba9800d21c60f563} 
+Game\+Object Inventory\+UI\+\_\+\+Tutorial.\+inventory\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInventoryUI__Tutorial_aeaa10252799b0445bb518a0234f4faa3}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!inventoryClosed@{inventoryClosed}}
+\index{inventoryClosed@{inventoryClosed}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{inventoryClosed}{inventoryClosed}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_aeaa10252799b0445bb518a0234f4faa3} 
+bool Inventory\+UI\+\_\+\+Tutorial.\+inventory\+Closed = false}
+
+\Hypertarget{classInventoryUI__Tutorial_af3fb648c2bcf29fbcc7279780077dd3c}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!inventoryPanel@{inventoryPanel}}
+\index{inventoryPanel@{inventoryPanel}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{inventoryPanel}{inventoryPanel}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_af3fb648c2bcf29fbcc7279780077dd3c} 
+Game\+Object Inventory\+UI\+\_\+\+Tutorial.\+inventory\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInventoryUI__Tutorial_ab1887d43d380c30dc209584095fe2603}\index{InventoryUI\_Tutorial@{InventoryUI\_Tutorial}!tutorialManager@{tutorialManager}}
+\index{tutorialManager@{tutorialManager}!InventoryUI\_Tutorial@{InventoryUI\_Tutorial}}
+\doxysubsubsection{\texorpdfstring{tutorialManager}{tutorialManager}}
+{\footnotesize\ttfamily \label{classInventoryUI__Tutorial_ab1887d43d380c30dc209584095fe2603} 
+\mbox{\hyperlink{classTutorialManager}{Tutorial\+Manager}} Inventory\+UI\+\_\+\+Tutorial.\+tutorial\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Tutorial/\mbox{\hyperlink{InventoryUI__Tutorial_8cs}{Inventory\+UI\+\_\+\+Tutorial.\+cs}}\end{DoxyCompactItemize}

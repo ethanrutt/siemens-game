@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['quitgame_0',['QuitGame',['../class_main_menu.html#a485db7cf60c0b93ecc87b9273bcce78b',1,'MainMenu']]]
+  ['key_0',['key',['../index_8min_8mjs.html#aa3284bd5ae917593d1f1757477368bab',1,'key:&#160;index.min.mjs'],['../node__modules_2json5_2dist_2index_8mjs.html#aa3284bd5ae917593d1f1757477368bab',1,'key:&#160;index.mjs']]]
 ];

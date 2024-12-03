@@ -15,15 +15,15 @@ public class NetworkManagerUI : NetworkBehaviour
     [SerializeField] private Button disconnectButton;
     [SerializeField] private TMP_InputField ipAddressField; // Input for the host IP address
     [SerializeField] private TextMeshProUGUI connectMessage;
-    [SerializeField] public TextMeshProUGUI winScreen; 
-    [SerializeField] public TextMeshProUGUI loseScreen;   
+    [SerializeField] public TextMeshProUGUI winScreen;
+    [SerializeField] public TextMeshProUGUI loseScreen;
     [SerializeField] private GameObject playerOne; // Reference to the PlayerOne GameObject
     [SerializeField] private GameObject deckOverlay; // Reference to the PlayerOne GameObject
     [SerializeField] private GameObject discardOverlay; // Reference to the PlayerOne GameObject
     [SerializeField] private CardSharingManager cardShare; // Reference to the PlayerOne GameObject
     [SerializeField] private GameManager2 gm; // Reference to the PlayerOne GameObject
     [SerializeField] private ushort port = 7777; // Default port for LAN communication
-    
+
 
     private bool connectionAttemptFailed = false;
     private int retryCount = 0;
@@ -217,7 +217,7 @@ public class NetworkManagerUI : NetworkBehaviour
             Debug.LogWarning("All client connection attempts failed. Starting as Host...");
             StartHost();
         }
-        
+
         if(hostInitialized.Value == false && connectionAttemptFailed){
             connectButton.gameObject.SetActive(true);
             ipAddressField.gameObject.SetActive(true);
@@ -301,7 +301,7 @@ public class NetworkManagerUI : NetworkBehaviour
             // Increment the synchronizedClientsCount
             synchronizedClientsCount.Value--;
             Debug.Log($"Updated synchronizedClientsCount: {synchronizedClientsCount.Value}");
-            
+
         }
 
         // Check conditions to activate PlayerOne

@@ -1,0 +1,254 @@
+\doxysection{Item\+IDs Class Reference}
+\hypertarget{classItemIDs}{}\label{classItemIDs}\index{ItemIDs@{ItemIDs}}
+
+
+Item\+Ids holds the encoding for the various items. This includes all of the cosmetic items. It also holds the \doxylink{structItemIDs_1_1LoreObject}{Lore\+Object} which will be the various emails from the original project team that have to do with the Lore. It also holds the achievement descriptions which trigger when the player does various things.  
+
+
+Inheritance diagram for Item\+IDs\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classItemIDs}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structItemIDs_1_1Achievement}{Achievement}}
+\begin{DoxyCompactList}\small\item\em struct for defining achievements \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structItemIDs_1_1Item}{Item}}
+\begin{DoxyCompactList}\small\item\em struct for defining items \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structItemIDs_1_1ItemSprite}{Item\+Sprite}}
+\begin{DoxyCompactList}\small\item\em sprite and sprite id linker struct \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structItemIDs_1_1LoreObject}{Lore\+Object}}
+\begin{DoxyCompactList}\small\item\em struct for defining lore objects \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classItemIDs_ad5e49a7383d5c549761d0970b4d8473f}{set\+Hat}} ()
+\item 
+void \mbox{\hyperlink{classItemIDs_af296d2e32fd684b80b00bcddf89e9410}{set\+Chest}} ()
+\item 
+void \mbox{\hyperlink{classItemIDs_afec7e37fd4a0615b5c317de852aac0cc}{set\+Leggings}} ()
+\item 
+void \mbox{\hyperlink{classItemIDs_a0eb11eba39ec0e332501a78af5f85192}{set\+Shoes}} ()
+\item 
+void \mbox{\hyperlink{classItemIDs_ae94dc7923f243d8fe00f0fafdc5a6e52}{set\+Unlockable}} ()
+\item 
+Sprite \mbox{\hyperlink{classItemIDs_a5ade753145082adeb73df334638e743b}{Get\+Item\+Sprite}} (int item\+ID)
+\item 
+void \mbox{\hyperlink{classItemIDs_ab0bddfdff148291b94fc3e4d2ddd1649}{Fill\+Inventory\+Buttons}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Dictionary$<$ int, \mbox{\hyperlink{structItemIDs_1_1Achievement}{Achievement}} $>$ \mbox{\hyperlink{classItemIDs_aca6500e265471e6a39ad216bb75006b6}{achievement\+\_\+database}}
+\item 
+Dictionary$<$ int, \mbox{\hyperlink{structItemIDs_1_1LoreObject}{Lore\+Object}} $>$ \mbox{\hyperlink{classItemIDs_a070121bda209892398bf671caffacae0}{lore\+\_\+database}}
+\item 
+Dictionary$<$ int, \mbox{\hyperlink{structItemIDs_1_1Item}{Item}} $>$ \mbox{\hyperlink{classItemIDs_a269ceb8112257491b48660fb9961b258}{item\+\_\+database}}
+\item 
+string \mbox{\hyperlink{classItemIDs_abd82665121faf31bc57451820b11517d}{selected\+Type}} = "{}all"{}
+\item 
+string \mbox{\hyperlink{classItemIDs_abeae8c97a2956914b49d241d86467b35}{newselected\+Type}} = "{}all"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} \mbox{\hyperlink{classItemIDs_a7ce0db4494c2194d7c3e75c77d6093dd}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classItemIDs_a428da1a81aaaa5ffa87c15e960573e4a}{Start}} ()
+\item 
+bool \mbox{\hyperlink{classItemIDs_a36b1355feade1d0f51adff66ed409909}{is\+Sorted}} (List$<$ int $>$ list)
+\item 
+void \mbox{\hyperlink{classItemIDs_a88c08bec3eb83a2b9ebd208ceea916b2}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structItemIDs_1_1ItemSprite}{Item\+Sprite}}\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classItemIDs_acf55f05fc156b634f1034ec5f0a14a87}{item\+Sprites}}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classItemIDs_af52202b02550d23e3e435e9ac04f37d3}{inventory\+Buttons}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Item\+Ids holds the encoding for the various items. This includes all of the cosmetic items. It also holds the \doxylink{structItemIDs_1_1LoreObject}{Lore\+Object} which will be the various emails from the original project team that have to do with the Lore. It also holds the achievement descriptions which trigger when the player does various things. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classItemIDs_ab0bddfdff148291b94fc3e4d2ddd1649}\index{ItemIDs@{ItemIDs}!FillInventoryButtons@{FillInventoryButtons}}
+\index{FillInventoryButtons@{FillInventoryButtons}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{FillInventoryButtons()}{FillInventoryButtons()}}
+{\footnotesize\ttfamily \label{classItemIDs_ab0bddfdff148291b94fc3e4d2ddd1649} 
+void Item\+IDs.\+Fill\+Inventory\+Buttons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classItemIDs_a5ade753145082adeb73df334638e743b}\index{ItemIDs@{ItemIDs}!GetItemSprite@{GetItemSprite}}
+\index{GetItemSprite@{GetItemSprite}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{GetItemSprite()}{GetItemSprite()}}
+{\footnotesize\ttfamily \label{classItemIDs_a5ade753145082adeb73df334638e743b} 
+Sprite Item\+IDs.\+Get\+Item\+Sprite (\begin{DoxyParamCaption}\item[{int}]{item\+ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classItemIDs_a36b1355feade1d0f51adff66ed409909}\index{ItemIDs@{ItemIDs}!isSorted@{isSorted}}
+\index{isSorted@{isSorted}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{isSorted()}{isSorted()}}
+{\footnotesize\ttfamily \label{classItemIDs_a36b1355feade1d0f51adff66ed409909} 
+bool Item\+IDs.\+is\+Sorted (\begin{DoxyParamCaption}\item[{List$<$ int $>$}]{list}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classItemIDs_af296d2e32fd684b80b00bcddf89e9410}\index{ItemIDs@{ItemIDs}!setChest@{setChest}}
+\index{setChest@{setChest}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{setChest()}{setChest()}}
+{\footnotesize\ttfamily \label{classItemIDs_af296d2e32fd684b80b00bcddf89e9410} 
+void Item\+IDs.\+set\+Chest (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classItemIDs_ad5e49a7383d5c549761d0970b4d8473f}\index{ItemIDs@{ItemIDs}!setHat@{setHat}}
+\index{setHat@{setHat}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{setHat()}{setHat()}}
+{\footnotesize\ttfamily \label{classItemIDs_ad5e49a7383d5c549761d0970b4d8473f} 
+void Item\+IDs.\+set\+Hat (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classItemIDs_afec7e37fd4a0615b5c317de852aac0cc}\index{ItemIDs@{ItemIDs}!setLeggings@{setLeggings}}
+\index{setLeggings@{setLeggings}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{setLeggings()}{setLeggings()}}
+{\footnotesize\ttfamily \label{classItemIDs_afec7e37fd4a0615b5c317de852aac0cc} 
+void Item\+IDs.\+set\+Leggings (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classItemIDs_a0eb11eba39ec0e332501a78af5f85192}\index{ItemIDs@{ItemIDs}!setShoes@{setShoes}}
+\index{setShoes@{setShoes}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{setShoes()}{setShoes()}}
+{\footnotesize\ttfamily \label{classItemIDs_a0eb11eba39ec0e332501a78af5f85192} 
+void Item\+IDs.\+set\+Shoes (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classItemIDs_ae94dc7923f243d8fe00f0fafdc5a6e52}\index{ItemIDs@{ItemIDs}!setUnlockable@{setUnlockable}}
+\index{setUnlockable@{setUnlockable}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{setUnlockable()}{setUnlockable()}}
+{\footnotesize\ttfamily \label{classItemIDs_ae94dc7923f243d8fe00f0fafdc5a6e52} 
+void Item\+IDs.\+set\+Unlockable (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classItemIDs_a428da1a81aaaa5ffa87c15e960573e4a}\index{ItemIDs@{ItemIDs}!Start@{Start}}
+\index{Start@{Start}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classItemIDs_a428da1a81aaaa5ffa87c15e960573e4a} 
+void Item\+IDs.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classItemIDs_a88c08bec3eb83a2b9ebd208ceea916b2}\index{ItemIDs@{ItemIDs}!Update@{Update}}
+\index{Update@{Update}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{classItemIDs_a88c08bec3eb83a2b9ebd208ceea916b2} 
+void Item\+IDs.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classItemIDs_aca6500e265471e6a39ad216bb75006b6}\index{ItemIDs@{ItemIDs}!achievement\_database@{achievement\_database}}
+\index{achievement\_database@{achievement\_database}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{achievement\_database}{achievement\_database}}
+{\footnotesize\ttfamily \label{classItemIDs_aca6500e265471e6a39ad216bb75006b6} 
+Dictionary$<$int, \mbox{\hyperlink{structItemIDs_1_1Achievement}{Achievement}}$>$ Item\+IDs.\+achievement\+\_\+database}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ Dictionary<int,\ Achievement>()}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{0,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Tutorial"{}},\ description\ =\ \textcolor{stringliteral}{"{}Complete\ the\ tutorial."{}},\ lore\_linker\ =\ 0\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{1,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Wire\ Wiggler"{}},\ description\ =\ \textcolor{stringliteral}{"{}Beat\ all\ levels\ of\ the\ wire\ game."{}},\ lore\_linker\ =\ 2\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{2,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Wire\ Wizard"{}},\ description\ =\ \textcolor{stringliteral}{"{}Beat\ all\ levels\ of\ the\ wire\ game\ five\ times."{}},\ lore\_linker\ =\ 5\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{3,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Wire\ Warrior"{}},\ description\ =\ \textcolor{stringliteral}{"{}Beat\ all\ levels\ of\ the\ wire\ game\ ten\ times."{}},\ lore\_linker\ =\ 3\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{4,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Piping\ Pupil"{}},\ description\ =\ \textcolor{stringliteral}{"{}Beat\ all\ levels\ of\ the\ pipe\ game\ once."{}},\ lore\_linker\ =\ 6\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{5,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Piping\ Prodigy"{}},\ description\ =\ \textcolor{stringliteral}{"{}Beat\ all\ levels\ of\ the\ pipe\ game\ five\ times."{}},\ lore\_linker\ =\ 7\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{6,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Piping\ Pro"{}},\ description\ =\ \textcolor{stringliteral}{"{}Beat\ all\ levels\ of\ the\ pipe\ game\ ten\ times."{}},\ lore\_linker\ =\ 8\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{7,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Fluxed\ Up"{}},\ description\ =\ \textcolor{stringliteral}{"{}Take\ the\ neuroflux\ meter\ to\ 100."{}},\ lore\_linker\ =\ 15\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{8,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Shopaholic"{}},\ description\ =\ \textcolor{stringliteral}{"{}Buy\ five\ items\ from\ the\ shop."{}},\ lore\_linker\ =\ 12\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{9,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Retail\ Therapy"{}},\ description\ =\ \textcolor{stringliteral}{"{}Buy\ ten\ items\ from\ the\ shop."{}},\ lore\_linker\ =\ 13\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{10,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Richie\ Rich"{}},\ description\ =\ \textcolor{stringliteral}{"{}Have\ 1000\ coins\ in\ your\ inventory."{}},\ lore\_linker\ =\ 11\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{11,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Lucky\ Strike"{}},\ description\ =\ \textcolor{stringliteral}{"{}Win\ 100\ coins\ from\ the\ casino."{}},\ lore\_linker\ =\ 1\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{12,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Where's\ my\ Money?"{}},\ description\ =\ \textcolor{stringliteral}{"{}Lose\ 100\ coins\ from\ the\ casino."{}},\ lore\_linker\ =\ 16\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{13,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Casino\ King"{}},\ description\ =\ \textcolor{stringliteral}{"{}Win\ 500\ coins\ from\ the\ casino."{}},\ lore\_linker\ =\ 9\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{14,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Casino\ God"{}},\ description\ =\ \textcolor{stringliteral}{"{}Win\ 1000\ coins\ from\ the\ casino."{}},\ lore\_linker\ =\ 10\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{15,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Factory\ Fury"{}},\ description\ =\ \textcolor{stringliteral}{"{}Win\ a\ match\ of\ the\ card\ game."{}},\ lore\_linker\ =\ 4\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{16,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Card\ Shark"{}},\ description\ =\ \textcolor{stringliteral}{"{}Win\ five\ matches\ of\ the\ card\ game."{}},\ lore\_linker\ =\ 14\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{17,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Card\ Collector"{}},\ description\ =\ \textcolor{stringliteral}{"{}Collect\ all\ cards\ from\ the\ deckmaster."{}},\ lore\_linker\ =\ 18\}\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{18,\ \textcolor{keyword}{new}\ Achievement\{title\ =\ \textcolor{stringliteral}{"{}Weirdo"{}},\ description\ =\ \textcolor{stringliteral}{"{}Find\ the\ drunkard\ and\ speak\ with\ him."{}},\ lore\_linker\ =\ 17\}\}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classItemIDs_af52202b02550d23e3e435e9ac04f37d3}\index{ItemIDs@{ItemIDs}!inventoryButtons@{inventoryButtons}}
+\index{inventoryButtons@{inventoryButtons}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{inventoryButtons}{inventoryButtons}}
+{\footnotesize\ttfamily \label{classItemIDs_af52202b02550d23e3e435e9ac04f37d3} 
+Game\+Object \mbox{[}$\,$\mbox{]} Item\+IDs.\+inventory\+Buttons\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classItemIDs_a269ceb8112257491b48660fb9961b258}\index{ItemIDs@{ItemIDs}!item\_database@{item\_database}}
+\index{item\_database@{item\_database}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{item\_database}{item\_database}}
+{\footnotesize\ttfamily \label{classItemIDs_a269ceb8112257491b48660fb9961b258} 
+Dictionary$<$int, \mbox{\hyperlink{structItemIDs_1_1Item}{Item}}$>$ Item\+IDs.\+item\+\_\+database}
+
+\Hypertarget{classItemIDs_acf55f05fc156b634f1034ec5f0a14a87}\index{ItemIDs@{ItemIDs}!itemSprites@{itemSprites}}
+\index{itemSprites@{itemSprites}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{itemSprites}{itemSprites}}
+{\footnotesize\ttfamily \label{classItemIDs_acf55f05fc156b634f1034ec5f0a14a87} 
+\mbox{\hyperlink{structItemIDs_1_1ItemSprite}{Item\+Sprite}} \mbox{[}$\,$\mbox{]} Item\+IDs.\+item\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classItemIDs_a070121bda209892398bf671caffacae0}\index{ItemIDs@{ItemIDs}!lore\_database@{lore\_database}}
+\index{lore\_database@{lore\_database}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{lore\_database}{lore\_database}}
+{\footnotesize\ttfamily \label{classItemIDs_a070121bda209892398bf671caffacae0} 
+Dictionary$<$int, \mbox{\hyperlink{structItemIDs_1_1LoreObject}{Lore\+Object}}$>$ Item\+IDs.\+lore\+\_\+database}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{new}\ Dictionary<int,\ LoreObject>()}
+\DoxyCodeLine{\ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{0,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Dr.\ Santhanam"{}},\ \textcolor{stringliteral}{"{}Long\ Time\ No\ See..."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hey\ team,\(\backslash\)n\(\backslash\)nLong\ time\ no\ see.\ Well,\ I'm\ not\ sure\ if\ we'll\ see\ again.\ You\ know\ –\ when\ we\ started\ this\ project,\ we\ were\ all\ excited.\ To\ be\ able\ to\ remove\ the\ shackles\ of\ mortality\ from\ mankind...\ But\ now,\ I've\ lost\ my\ way.\(\backslash\)n\(\backslash\)nOn\ another\ note,\ I've\ transferred\ parts\ of\ my\ consciousness\ into\ the\ robot\ \(\backslash\)"{}Sensei\(\backslash\)"{}.\ Take\ care\ of\ Keiko\ for\ me.\(\backslash\)n\(\backslash\)nI\ suppose\ this\ is\ goodbye,\(\backslash\)nYour\ buddy"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Dec.\ 17,\ 2054"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Rohan"{}},\ \textcolor{stringliteral}{"{}Naveed"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{1,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Dr.\ Santhanam"{}},\ \textcolor{stringliteral}{"{}Come\ to\ the\ Lab!\ (URGENT)"{}},\ \textcolor{stringliteral}{"{}Rohan,\ can\ you\ come\ to\ the\ lab\ around\ 5\ PM?\ I've\ made\ good\ progress\ on\ the\ protocol\ we\ discussed\ back\ in\ October.\ I\ think\ you'll\ be\ pleased\ with\ the\ results.\(\backslash\)n\(\backslash\)nBest,\(\backslash\)nDr.\ Santhanam"{}},\ \textcolor{stringliteral}{"{}Nov.\ 13,\ 2053"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Rohan"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{2,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Dr.\ Santhanam"{}},\ \textcolor{stringliteral}{"{}Vacation\ Time"{}},\ \textcolor{stringliteral}{"{}Ethan.\ Me\ and\ my\ wife\ Keiko\ are\ going\ back\ to\ visit\ her\ family\ in\ Niigata.\ I\ was\ wondering\ if\ you'd\ like\ to\ come\ along.\(\backslash\)n\(\backslash\)nThat\ stipend\ from\ Project\ Elysium\ should\ be\ more\ than\ enough\ to\ cover\ the\ trip.\(\backslash\)n\(\backslash\)nKindest\ regards,\(\backslash\)nRishi"{}},\ \textcolor{stringliteral}{"{}Mar.\ 28,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Ethan"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{3,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Dr.\ Santhanam"{}},\ \textcolor{stringliteral}{"{}Souvenirs?"{}},\ \textcolor{stringliteral}{"{}Hey,\ team.\(\backslash\)n\(\backslash\)nKeiko\ and\ I\ bought\ a\ lot\ of\ souvenirs\ for\ you\ all.\ I\ was\ wondering\ if\ you\ wanted\ to\ hop\ on\ a\ call\ and\ talk\ about\ which\ ones\ you'd\ like\ to\ take.\ Rohan,\ I\ got\ you\ that\ sword\ you\ wanted.\ Man,\ life\ is\ good...\(\backslash\)n\(\backslash\)nDrinking\ party\ on\ Sunday?\(\backslash\)nRishi"{}},\ \textcolor{stringliteral}{"{}Apr.\ 05,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Rohan"{}},\ \textcolor{stringliteral}{"{}Naveed"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{4,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}What\ are\ we\ doing?"{}},\ \textcolor{stringliteral}{"{}Hey,\ Rishi.\(\backslash\)n\(\backslash\)nI've\ been\ thinking\ about\ the\ project\ a\ lot.\ The\ possible\ implications,\ it's\ making\ me\ uneasy.\ When\ I\ started\ this,\ I\ wanted\ to\ make\ a\ difference\ in\ the\ world.\ I\ fear\ that\ we\ might\ make\ a\ difference,\ but\ it\ might\ not\ be\ a\ good\ one.\(\backslash\)n\(\backslash\)nLet\ me\ know\ your\ thoughts,\(\backslash\)nEthan"{}},\ \textcolor{stringliteral}{"{}Jul.\ 24,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Rishi"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{5,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Re:\ Vacation\ Time"{}},\ \textcolor{stringliteral}{"{}Hey,\ Rishi.\(\backslash\)n\(\backslash\)nThanks\ for\ the\ invite.\ Can\ we\ stop\ by\ Osaka\ castle?\ I\ got\ a\ recommendation\ from\ a\ friend,\ and\ I\ want\ to\ try\ on\ some\ nice\ samurai\ clothes\ lol.\(\backslash\)n\(\backslash\)nBest,\(\backslash\)nEthan"{}},\ \textcolor{stringliteral}{"{}Mar.\ 29,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Rishi"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{6,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Naveed"{}},\ \textcolor{stringliteral}{"{}I'm\ irritated"{}},\ \textcolor{stringliteral}{"{}Hey,\ guys\(\backslash\)n\(\backslash\)nIs\ anyone\ else\ getting\ frustrated?\ I've\ been\ working\ my\ butt\ off\ with\ no\ progress.\ Can\ I\ make\ a\ robot\ girlfriend?\ Is\ that\ even\ possible?\(\backslash\)n\(\backslash\)nIrritated\ regards,\(\backslash\)nNaveed"{}},\ \textcolor{stringliteral}{"{}Aug.\ 24,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Rishi"{}},\ \textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Rohan"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{7,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Naveed"{}},\ \textcolor{stringliteral}{"{}Robot\ Girlfriend?"{}},\ \textcolor{stringliteral}{"{}Yo,\ Ethan\(\backslash\)n\(\backslash\)nYou're\ okay\ with\ the\ robot\ girlfriend\ idea,\ right?\ I'm\ thinking\ of\ calling\ her\ Mrs.\ Haq.\ Get\ it?\ Cause\ my\ last\ name\ is...\ Oh\ what's\ the\ point\ in\ even\ explaining.\ Just\ let\ me\ know.\ Rishi\ isn't\ green\ lighting\ it.\(\backslash\)n\(\backslash\)nRegards,\(\backslash\)nNaveed"{}},\ \textcolor{stringliteral}{"{}Aug.\ 25,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Ethan"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{8,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Re:\ Robot\ Girlfriend?"{}},\ \textcolor{stringliteral}{"{}Naveed,\(\backslash\)n\(\backslash\)nI'm\ not\ sure\ about\ the\ robot\ girlfriend\ idea.\ I\ think\ we\ should\ focus\ on\ the\ project.\ We're\ making\ good\ progress,\ and\ I\ think\ we\ can\ make\ a\ difference\ in\ the\ world.\(\backslash\)n\(\backslash\)nBest,\(\backslash\)nEthan"{}},\ \textcolor{stringliteral}{"{}Sep.\ 1,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Naveed"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{9,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Project\ Update"{}},\ \textcolor{stringliteral}{"{}Hey,\ team.\(\backslash\)n\(\backslash\)nI'm\ at\ the\ lab\ with\ Rohan\ right\ now.\(\backslash\)n\(\backslash\)nWe\ just\ successfully\ transferred\ consciousness\ into\ a\ robot.\ The\ issue\ is,\ the\ consciousness\ isn't\ able\ to\ do\ anything\ yet.\ But\ at\ least\ it's\ there.\ This\ is\ a\ huge\ milestone,\ and\ I\ think\ we\ can\ do\ this\ thing.\(\backslash\)n\(\backslash\)nDrinks\ on\ me\ at\ the\ casino,\(\backslash\)nEthan"{}},\ \textcolor{stringliteral}{"{}Dec.\ 24,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Rishi"{}},\ \textcolor{stringliteral}{"{}Rohan"{}},\ \textcolor{stringliteral}{"{}Naveed"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{10,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Issue:\ Is\ this\ normal?"{}},\ \textcolor{stringliteral}{"{}Hey,\ Rishi.\(\backslash\)n\(\backslash\)nWas\ working\ late\ at\ the\ lab\ last\ night.\ I\ swear\ I\ shut\ all\ the\ robots\ off,\ and\ while\ on\ my\ way\ out,\ I\ saw\ Mrs.\ Haq\ behind\ one\ of\ the\ desks.\ I\ swear\ I\ turned\ her\ off,\ and\ didn't\ move\ her\ at\ all.\ She\ started\ writing\ random\ things\ on\ the\ paper.\ We'll\ talk\ about\ the\ contents\ later.\(\backslash\)n\(\backslash\)nBest,\(\backslash\)nEthan"{}},\ \textcolor{stringliteral}{"{}Feb.\ 14,\ 2052"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Rishi"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{11,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Dr.\ Santhanam"{}},\ \textcolor{stringliteral}{"{}Re:\ Issue:\ Is\ this\ normal?"{}},\ \textcolor{stringliteral}{"{}Hey,\ Ethan\(\backslash\)n\(\backslash\)nI'm\ not\ sure\ what's\ going\ on.\ It\ might\ an\ issue\ with\ the\ MOSFET\ diode\ that\ deals\ with\ the\ battery.\ I'll\ take\ a\ look\ at\ it\ tomorrow.\(\backslash\)n\(\backslash\)nBest,\(\backslash\)nRishi"{}},\ \textcolor{stringliteral}{"{}Feb.\ 15,\ 2052"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Ethan"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{12,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Where's\ Rishi?"{}},\ \textcolor{stringliteral}{"{}Hey,\ team.\(\backslash\)n\(\backslash\)nRishi\ hasn't\ been\ in\ the\ lab\ for\ a\ few\ days.\ He\ isn't\ returning\ any\ of\ my\ e-\/mails,\ and\ I\ can't\ seem\ to\ get\ a\ hold\ of\ him.\ Did\ you\ guys\ see\ what\ he\ sent\ earlier?\ I'm\ worried.\(\backslash\)n\(\backslash\)nLet\ me\ know,\(\backslash\)nEthan"{}},\ \textcolor{stringliteral}{"{}Dec.\ 23,\ 2054"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Rohan"{}},\ \textcolor{stringliteral}{"{}Naveed"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{13,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Naveed"{}},\ \textcolor{stringliteral}{"{}Re:\ Where's\ Rishi"{}},\ \textcolor{stringliteral}{"{}Well,\ that's\ good\ news.\ At\ least\ I\ can\ make\ infinite\ wives\ now.\(\backslash\)n\(\backslash\)nBut\ seriously,\ what's\ going\ on?\ I\ haven't\ seen\ him\ either.\ I'll\ check\ the\ casino.\(\backslash\)n\(\backslash\)nRegards,\(\backslash\)nNaveed"{}},\ \textcolor{stringliteral}{"{}Dec.\ 23,\ 2054"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Rohan"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{14,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Rohan"{}},\ \textcolor{stringliteral}{"{}Re:\ Where's\ Rishi"{}},\ \textcolor{stringliteral}{"{}Hey\ team,\(\backslash\)n\(\backslash\)nRishi\ and\ I\ got\ on\ a\ call\ that\ day.\ I'm\ not\ sure\ how\ else\ to\ say\ this...\ I\ think\ Midra\ got\ a\ hold\ of\ him.\ The\ call\ ended\ abruptly,\ and\ I\ heard\ a\ few\ screams.\ I'm\ scared.\ If\ he's\ gone,\ what's\ going\ to\ happen\ to\ the\ rest\ of\ us?\(\backslash\)n\(\backslash\)nCall\ me\ ASAP,\(\backslash\)nRohan"{}},\ \textcolor{stringliteral}{"{}Dec.\ 23,\ 2054"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Naveed"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{15,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Naveed"{}},\ \textcolor{stringliteral}{"{}Football\ game?"{}},\ \textcolor{stringliteral}{"{}Texans\ just\ won\ the\ championship.\ Anyone\ down\ to\ go\ to\ the\ casino\ later\ tonight\ and\ buy\ some\ drinks?\ First\ round's\ on\ me.\(\backslash\)n\(\backslash\)nBest,\(\backslash\)nNaveed"{}},\ \textcolor{stringliteral}{"{}Feb.\ 5,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Rishi"{}},\ \textcolor{stringliteral}{"{}Ethan"{}},\ \textcolor{stringliteral}{"{}Rohan"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{16,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Rohan"{}},\ \textcolor{stringliteral}{"{}Re:\ Football\ game?"{}},\ \textcolor{stringliteral}{"{}Hey\ Naveed,\(\backslash\)n\(\backslash\)nI'm\ interested,\ but\ I\ have\ some\ work\ at\ the\ lab.\ Rishi\ told\ me\ he's\ hitting\ some\ sort\ of\ 'big\ break'\ and\ he\ needs\ my\ assistance.\(\backslash\)n\(\backslash\)nMy\ apologies,\(\backslash\)nRohan"{}},\ \textcolor{stringliteral}{"{}Feb.\ 5,\ 2051"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Naveed"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{17,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Dr.\ Santhanam"{}},\ \textcolor{stringliteral}{"{}Project\ Success"{}},\ \textcolor{stringliteral}{"{}Hello\ Midra,\(\backslash\)n\(\backslash\)nI'm\ pleased\ to\ announce\ that\ Project\ Elysium\ is\ a\ success.\ We\ have\ a\ demo\ ready\ for\ you\ to\ present,\ and\ Rohan\ my\ assistant\ will\ be\ present\ at\ the\ demo.\ We're\ preparing\ to\ transfer\ the\ first\ five\ employees\ by\ this\ Friday.\(\backslash\)n\(\backslash\)nThanks\ for\ being\ there,\(\backslash\)nRishi"{}},\ \textcolor{stringliteral}{"{}Apr.\ 29,\ 2052"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Midra"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{18,\ \textcolor{keyword}{new}\ LoreObject(\textcolor{stringliteral}{"{}Rishi"{}},\ \textcolor{stringliteral}{"{}To\ my\ love"{}},\ \textcolor{stringliteral}{"{}Keiko,\ \(\backslash\)n\(\backslash\)nI'm\ sorry.\ I'm\ sorry\ for\ everything.\ I'm\ sorry\ it\ had\ to\ come\ to\ this.\(\backslash\)n\(\backslash\)nTo\ be\ honest,\ Keiko,\ I've\ been\ feeling\ like\ I've\ been\ losing\ myself.\ My\ mind\ is\ in\ a\ bunch\ of\ pieces.\ Take\ the\ kids\ back\ to\ Japan.\ But\ no\ matter\ what\ happens,\ I\ love\ you.\ And\ I'll\ always\ love\ you.\ I'm\ so\ glad\ I\ met\ you\ that\ one\ fateful\ day.\ Even\ if\ this\ is\ the\ end,\ just\ know,\ I'll\ always\ be\ by\ your\ side."{}},\ \textcolor{stringliteral}{"{}Dec.\ 17,\ 2054"{}},\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{string}[]\{\textcolor{stringliteral}{"{}Keiko"{}}\})\},}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classItemIDs_abeae8c97a2956914b49d241d86467b35}\index{ItemIDs@{ItemIDs}!newselectedType@{newselectedType}}
+\index{newselectedType@{newselectedType}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{newselectedType}{newselectedType}}
+{\footnotesize\ttfamily \label{classItemIDs_abeae8c97a2956914b49d241d86467b35} 
+string Item\+IDs.\+newselected\+Type = "{}all"{}}
+
+\Hypertarget{classItemIDs_abd82665121faf31bc57451820b11517d}\index{ItemIDs@{ItemIDs}!selectedType@{selectedType}}
+\index{selectedType@{selectedType}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{selectedType}{selectedType}}
+{\footnotesize\ttfamily \label{classItemIDs_abd82665121faf31bc57451820b11517d} 
+string Item\+IDs.\+selected\+Type = "{}all"{}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classItemIDs_a7ce0db4494c2194d7c3e75c77d6093dd}\index{ItemIDs@{ItemIDs}!playerData@{playerData}}
+\index{playerData@{playerData}!ItemIDs@{ItemIDs}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{classItemIDs_a7ce0db4494c2194d7c3e75c77d6093dd} 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} Item\+IDs.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Character/\mbox{\hyperlink{ItemIDs_8cs}{Item\+IDs.\+cs}}\end{DoxyCompactItemize}

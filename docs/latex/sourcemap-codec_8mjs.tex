@@ -1,0 +1,275 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/node\+\_\+modules/@jridgewell/sourcemap-\/codec/dist/sourcemap-\/codec.mjs File Reference}
+\hypertarget{sourcemap-codec_8mjs}{}\label{sourcemap-codec_8mjs}\index{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/sourcemap-\/codec/dist/sourcemap-\/codec.mjs@{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/sourcemap-\/codec/dist/sourcemap-\/codec.mjs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classStringWriter}{String\+Writer}}
+\item 
+class \mbox{\hyperlink{classStringReader}{String\+Reader}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{sourcemap-codec_8mjs_a7b42ea2ab77d2f5f504e6912ec771e7e}{for}} (let \mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}=0;\mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}$<$ chars.\+length;\mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}++)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_ab37af37ab40de93a86d7bf6441cc9549}{decode\+Integer}} (reader, \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_ad77cf1decf1c7d55b123ebef81096b46}{relative}})
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_a598a080bdb30fccbe52992de7d617dfe}{encode\+Integer}} (builder, num, \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_ad77cf1decf1c7d55b123ebef81096b46}{relative}})
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_a3915b5594d5ff4ec0a40e64f42571e05}{has\+More\+Vlq}} (reader, max)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_a2ffd71775ebafc804d62c992d9e51b5e}{decode\+Original\+Scopes}} (input)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_a582a2c29a333e0fadcb60f94c70cb97f}{encode\+Original\+Scopes}} (scopes)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_a3873b1686be45ef423d6da343ba6e846}{\+\_\+encode\+Original\+Scopes}} (scopes, index, writer, state)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_a2cde99741b9caf1f6ec3244f2d3b06a6}{decode\+Generated\+Ranges}} (input)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_ae277acb919d50ffc25aa6f3ca228cca3}{encode\+Generated\+Ranges}} (ranges)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_a5a269738e660badf5c3ba5bf574a21e9}{\+\_\+encode\+Generated\+Ranges}} (ranges, index, writer, state)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_ab747f2b18ff91f03bf40eac3603b9555}{catchup\+Line}} (writer, last\+Line, \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}})
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_aa1f9591e6a7784e91355384ceba96300}{decode}} (mappings)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_ab1c58018d3a3cfb91d61872650e5fa23}{sort}} (\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}})
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_aeb35dffe19729fc47f70f75ead912859}{sort\+Comparator}} (a, b)
+\item 
+function \mbox{\hyperlink{sourcemap-codec_8mjs_ab0d106f61e8433e600e0b7978eefc54e}{encode}} (decoded)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{sourcemap-codec_8mjs_a5ef2e0a6481db2a4178f8959a249568d}{comma}} = \textquotesingle{},\textquotesingle{}.char\+Code\+At(0)
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{sourcemap-codec_8mjs_ab015d772a1dfbbb7f1c9066921e10245}{semicolon}} = \textquotesingle{};\textquotesingle{}.char\+Code\+At(0)
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{sourcemap-codec_8mjs_adfc0d1bd9ea8c68bbce5910857a19339}{chars}} = \textquotesingle{}ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\textquotesingle{}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{sourcemap-codec_8mjs_aca46d38b2a6c3486dbf0963ace8061c9}{int\+To\+Char}} = new Uint8\+Array(64)
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{sourcemap-codec_8mjs_a79a4a5bc88be83c79f1ab631e1f28334}{char\+To\+Int}} = new Uint8\+Array(128)
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{sourcemap-codec_8mjs_a621f374b65ecf695ab2cfd9efa18f36f}{buf\+Length}} = 1024 \texorpdfstring{$\ast$}{*} 16
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{sourcemap-codec_8mjs_aaff8b45f8cb28c9ed77750bc8e3e20b4}{td}}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{sourcemap-codec_8mjs_aab83498427d3a800db7d84d0eedf14a2}{EMPTY}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{sourcemap-codec_8mjs_a739275c68bf50273757891827753bf82}{decode}}
+\item 
+\mbox{\hyperlink{sourcemap-codec_8mjs_a662bb3d102a1af24907cbc63c72721c3}{decode\+Generated\+Ranges}}
+\item 
+\mbox{\hyperlink{sourcemap-codec_8mjs_a2b14203797e7b16712c201f0ed1b2d44}{decode\+Original\+Scopes}}
+\item 
+\mbox{\hyperlink{sourcemap-codec_8mjs_ab441d4eced7b779bcc1a3515598670e3}{encode}}
+\item 
+\mbox{\hyperlink{sourcemap-codec_8mjs_afbce09468e24179af52dae201e170984}{encode\+Generated\+Ranges}}
+\item 
+\mbox{\hyperlink{sourcemap-codec_8mjs_aad594cc37c32f60c065b796c1e58cbf8}{encode\+Original\+Scopes}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{sourcemap-codec_8mjs_a5a269738e660badf5c3ba5bf574a21e9}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!\_encodeGeneratedRanges@{\_encodeGeneratedRanges}}
+\index{\_encodeGeneratedRanges@{\_encodeGeneratedRanges}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{\_encodeGeneratedRanges()}{\_encodeGeneratedRanges()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a5a269738e660badf5c3ba5bf574a21e9} 
+function \+\_\+encode\+Generated\+Ranges (\begin{DoxyParamCaption}\item[{}]{ranges}{, }\item[{}]{index}{, }\item[{}]{writer}{, }\item[{}]{state}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_a3873b1686be45ef423d6da343ba6e846}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!\_encodeOriginalScopes@{\_encodeOriginalScopes}}
+\index{\_encodeOriginalScopes@{\_encodeOriginalScopes}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{\_encodeOriginalScopes()}{\_encodeOriginalScopes()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a3873b1686be45ef423d6da343ba6e846} 
+function \+\_\+encode\+Original\+Scopes (\begin{DoxyParamCaption}\item[{}]{scopes}{, }\item[{}]{index}{, }\item[{}]{writer}{, }\item[{}]{state}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_ab747f2b18ff91f03bf40eac3603b9555}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!catchupLine@{catchupLine}}
+\index{catchupLine@{catchupLine}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{catchupLine()}{catchupLine()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_ab747f2b18ff91f03bf40eac3603b9555} 
+function catchup\+Line (\begin{DoxyParamCaption}\item[{}]{writer}{, }\item[{}]{last\+Line}{, }\item[{}]{line}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_aa1f9591e6a7784e91355384ceba96300}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!decode@{decode}}
+\index{decode@{decode}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_aa1f9591e6a7784e91355384ceba96300} 
+function decode (\begin{DoxyParamCaption}\item[{}]{mappings}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_a2cde99741b9caf1f6ec3244f2d3b06a6}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!decodeGeneratedRanges@{decodeGeneratedRanges}}
+\index{decodeGeneratedRanges@{decodeGeneratedRanges}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{decodeGeneratedRanges()}{decodeGeneratedRanges()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a2cde99741b9caf1f6ec3244f2d3b06a6} 
+function decode\+Generated\+Ranges (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_ab37af37ab40de93a86d7bf6441cc9549}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!decodeInteger@{decodeInteger}}
+\index{decodeInteger@{decodeInteger}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{decodeInteger()}{decodeInteger()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_ab37af37ab40de93a86d7bf6441cc9549} 
+function decode\+Integer (\begin{DoxyParamCaption}\item[{}]{reader}{, }\item[{}]{relative}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_a2ffd71775ebafc804d62c992d9e51b5e}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!decodeOriginalScopes@{decodeOriginalScopes}}
+\index{decodeOriginalScopes@{decodeOriginalScopes}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{decodeOriginalScopes()}{decodeOriginalScopes()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a2ffd71775ebafc804d62c992d9e51b5e} 
+function decode\+Original\+Scopes (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_ab0d106f61e8433e600e0b7978eefc54e}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!encode@{encode}}
+\index{encode@{encode}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{encode()}{encode()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_ab0d106f61e8433e600e0b7978eefc54e} 
+function encode (\begin{DoxyParamCaption}\item[{}]{decoded}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_ae277acb919d50ffc25aa6f3ca228cca3}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!encodeGeneratedRanges@{encodeGeneratedRanges}}
+\index{encodeGeneratedRanges@{encodeGeneratedRanges}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{encodeGeneratedRanges()}{encodeGeneratedRanges()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_ae277acb919d50ffc25aa6f3ca228cca3} 
+function encode\+Generated\+Ranges (\begin{DoxyParamCaption}\item[{}]{ranges}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_a598a080bdb30fccbe52992de7d617dfe}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!encodeInteger@{encodeInteger}}
+\index{encodeInteger@{encodeInteger}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{encodeInteger()}{encodeInteger()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a598a080bdb30fccbe52992de7d617dfe} 
+function encode\+Integer (\begin{DoxyParamCaption}\item[{}]{builder}{, }\item[{}]{num}{, }\item[{}]{relative}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_a582a2c29a333e0fadcb60f94c70cb97f}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!encodeOriginalScopes@{encodeOriginalScopes}}
+\index{encodeOriginalScopes@{encodeOriginalScopes}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{encodeOriginalScopes()}{encodeOriginalScopes()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a582a2c29a333e0fadcb60f94c70cb97f} 
+function encode\+Original\+Scopes (\begin{DoxyParamCaption}\item[{}]{scopes}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_a7b42ea2ab77d2f5f504e6912ec771e7e}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!for@{for}}
+\index{for@{for}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{for()}{for()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a7b42ea2ab77d2f5f504e6912ec771e7e} 
+for (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_a3915b5594d5ff4ec0a40e64f42571e05}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!hasMoreVlq@{hasMoreVlq}}
+\index{hasMoreVlq@{hasMoreVlq}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{hasMoreVlq()}{hasMoreVlq()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a3915b5594d5ff4ec0a40e64f42571e05} 
+function has\+More\+Vlq (\begin{DoxyParamCaption}\item[{}]{reader}{, }\item[{}]{max}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_ab1c58018d3a3cfb91d61872650e5fa23}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!sort@{sort}}
+\index{sort@{sort}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{sort()}{sort()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_ab1c58018d3a3cfb91d61872650e5fa23} 
+function sort (\begin{DoxyParamCaption}\item[{}]{line}{}\end{DoxyParamCaption})}
+
+\Hypertarget{sourcemap-codec_8mjs_aeb35dffe19729fc47f70f75ead912859}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!sortComparator@{sortComparator}}
+\index{sortComparator@{sortComparator}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{sortComparator()}{sortComparator()}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_aeb35dffe19729fc47f70f75ead912859} 
+function sort\+Comparator (\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{sourcemap-codec_8mjs_a621f374b65ecf695ab2cfd9efa18f36f}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!bufLength@{bufLength}}
+\index{bufLength@{bufLength}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{bufLength}{bufLength}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a621f374b65ecf695ab2cfd9efa18f36f} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} buf\+Length = 1024 \texorpdfstring{$\ast$}{*} 16}
+
+\Hypertarget{sourcemap-codec_8mjs_adfc0d1bd9ea8c68bbce5910857a19339}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!chars@{chars}}
+\index{chars@{chars}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{chars}{chars}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_adfc0d1bd9ea8c68bbce5910857a19339} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} chars = \textquotesingle{}ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/\textquotesingle{}}
+
+\Hypertarget{sourcemap-codec_8mjs_a79a4a5bc88be83c79f1ab631e1f28334}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!charToInt@{charToInt}}
+\index{charToInt@{charToInt}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{charToInt}{charToInt}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a79a4a5bc88be83c79f1ab631e1f28334} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} char\+To\+Int = new Uint8\+Array(128)}
+
+\Hypertarget{sourcemap-codec_8mjs_a5ef2e0a6481db2a4178f8959a249568d}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!comma@{comma}}
+\index{comma@{comma}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{comma}{comma}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a5ef2e0a6481db2a4178f8959a249568d} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} comma = \textquotesingle{},\textquotesingle{}.char\+Code\+At(0)}
+
+\Hypertarget{sourcemap-codec_8mjs_a739275c68bf50273757891827753bf82}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!decode@{decode}}
+\index{decode@{decode}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{decode}{decode}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a739275c68bf50273757891827753bf82} 
+decode}
+
+\Hypertarget{sourcemap-codec_8mjs_a662bb3d102a1af24907cbc63c72721c3}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!decodeGeneratedRanges@{decodeGeneratedRanges}}
+\index{decodeGeneratedRanges@{decodeGeneratedRanges}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{decodeGeneratedRanges}{decodeGeneratedRanges}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a662bb3d102a1af24907cbc63c72721c3} 
+decode\+Generated\+Ranges}
+
+\Hypertarget{sourcemap-codec_8mjs_a2b14203797e7b16712c201f0ed1b2d44}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!decodeOriginalScopes@{decodeOriginalScopes}}
+\index{decodeOriginalScopes@{decodeOriginalScopes}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{decodeOriginalScopes}{decodeOriginalScopes}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_a2b14203797e7b16712c201f0ed1b2d44} 
+decode\+Original\+Scopes}
+
+\Hypertarget{sourcemap-codec_8mjs_aab83498427d3a800db7d84d0eedf14a2}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!EMPTY@{EMPTY}}
+\index{EMPTY@{EMPTY}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{EMPTY}{EMPTY}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_aab83498427d3a800db7d84d0eedf14a2} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} EMPTY = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{sourcemap-codec_8mjs_ab441d4eced7b779bcc1a3515598670e3}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!encode@{encode}}
+\index{encode@{encode}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{encode}{encode}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_ab441d4eced7b779bcc1a3515598670e3} 
+encode}
+
+\Hypertarget{sourcemap-codec_8mjs_afbce09468e24179af52dae201e170984}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!encodeGeneratedRanges@{encodeGeneratedRanges}}
+\index{encodeGeneratedRanges@{encodeGeneratedRanges}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{encodeGeneratedRanges}{encodeGeneratedRanges}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_afbce09468e24179af52dae201e170984} 
+encode\+Generated\+Ranges}
+
+\Hypertarget{sourcemap-codec_8mjs_aad594cc37c32f60c065b796c1e58cbf8}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!encodeOriginalScopes@{encodeOriginalScopes}}
+\index{encodeOriginalScopes@{encodeOriginalScopes}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{encodeOriginalScopes}{encodeOriginalScopes}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_aad594cc37c32f60c065b796c1e58cbf8} 
+encode\+Original\+Scopes}
+
+\Hypertarget{sourcemap-codec_8mjs_aca46d38b2a6c3486dbf0963ace8061c9}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!intToChar@{intToChar}}
+\index{intToChar@{intToChar}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{intToChar}{intToChar}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_aca46d38b2a6c3486dbf0963ace8061c9} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} int\+To\+Char = new Uint8\+Array(64)}
+
+\Hypertarget{sourcemap-codec_8mjs_ab015d772a1dfbbb7f1c9066921e10245}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!semicolon@{semicolon}}
+\index{semicolon@{semicolon}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{semicolon}{semicolon}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_ab015d772a1dfbbb7f1c9066921e10245} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} semicolon = \textquotesingle{};\textquotesingle{}.char\+Code\+At(0)}
+
+\Hypertarget{sourcemap-codec_8mjs_aaff8b45f8cb28c9ed77750bc8e3e20b4}\index{sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}!td@{td}}
+\index{td@{td}!sourcemap-\/codec.mjs@{sourcemap-\/codec.mjs}}
+\doxysubsubsection{\texorpdfstring{td}{td}}
+{\footnotesize\ttfamily \label{sourcemap-codec_8mjs_aaff8b45f8cb28c9ed77750bc8e3e20b4} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} td}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ typeof\ TextDecoder\ !==\ \textcolor{stringliteral}{'undefined'}}
+\DoxyCodeLine{\ \ \ \ ?\ \ \textcolor{keyword}{new}\ TextDecoder()}
+\DoxyCodeLine{\ \ \ \ :\ typeof\ Buffer\ !==\ \textcolor{stringliteral}{'undefined'}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ?\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sourcemap-codec_8mjs_a739275c68bf50273757891827753bf82}{decode}}(buf)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ out\ =\ Buffer.from(buf.buffer,\ buf.byteOffset,\ buf.byteLength);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out.toString();}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ :\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{sourcemap-codec_8mjs_a739275c68bf50273757891827753bf82}{decode}}(buf)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ let\ out\ =\ \textcolor{stringliteral}{''};}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (let\ \mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}\ =\ 0;\ \mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}\ <\ buf.length;\ \mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}++)\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ out\ +=\ String.fromCharCode(buf[\mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}]);}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ out;}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+
+\end{DoxyCode}

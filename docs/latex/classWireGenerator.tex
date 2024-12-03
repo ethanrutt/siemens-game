@@ -1,0 +1,275 @@
+\doxysection{Wire\+Generator Class Reference}
+\hypertarget{classWireGenerator}{}\label{classWireGenerator}\index{WireGenerator@{WireGenerator}}
+
+
+Driver class for Wire\+Game generation and success criteria.  
+
+
+Inheritance diagram for Wire\+Generator\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classWireGenerator}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWireGenerator_a69656ef7ef6e411d6249be9e7628f703}{Start\+Level}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+System.\+Random \mbox{\hyperlink{classWireGenerator_a50e56968babde70c41d9f688311348cb}{rand}} = new System.\+Random()
+\item 
+System.\+Diagnostics.\+Stopwatch \mbox{\hyperlink{classWireGenerator_aeb26401d49900a8e7f8344de5657968d}{level\+Stopwatch}} = new System.\+Diagnostics.\+Stopwatch()
+\item 
+System.\+Diagnostics.\+Stopwatch \mbox{\hyperlink{classWireGenerator_aaf61b52eea6a0956dd9d758db59c3284}{game\+Stopwatch}} = new System.\+Diagnostics.\+Stopwatch()
+\item 
+Game\+Object \mbox{\hyperlink{classWireGenerator_aff8a07ca0aefbd74dbe07f79ddd878b4}{wire\+Entry}}
+\item 
+Game\+Object \mbox{\hyperlink{classWireGenerator_a6893f9294c8cd6e97764f04e56339f2d}{wire\+Plug}}
+\item 
+int \mbox{\hyperlink{classWireGenerator_a59d8219740b20a93743331036017ba67}{level}}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classWireGenerator_ab38ba408317c68f7ccecaf5ed25cdf7b}{line2nd\+Point\+Spawns}}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classWireGenerator_a6a33b0803b2857a994b1380de1b7bcca}{entry\+Spawns}}
+\item 
+Vector3\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classWireGenerator_a49d71faeba8f9bb8025ea9d8602b3ce5}{exit\+Spawns}}
+\item 
+Color\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classWireGenerator_a1a54ff2161ff5368ccc162159f281b47}{colors}}
+\item 
+\mbox{\hyperlink{classLevelOverManager}{Level\+Over\+Manager}} \mbox{\hyperlink{classWireGenerator_acfb7257b0d38ac8c59de1a4fa8a068b4}{level\+Over\+Manager}}
+\item 
+\mbox{\hyperlink{classGameOverManager}{Game\+Over\+Manager}} \mbox{\hyperlink{classWireGenerator_a5ec53292542e1727d86971a01ff6fd00}{game\+Over\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWireGenerator_a5e0beefe1f5c3184aeb17cfc91ad9816}{Start}} ()
+\item 
+void \mbox{\hyperlink{classWireGenerator_a8bed2ee29fb6eb8cc5743d4b11a3abad}{Update}} ()
+\item 
+void \mbox{\hyperlink{classWireGenerator_a0b045755702f60c08e9eb3cd6a70f3fa}{clear\+Wires}} ()
+\item 
+void \mbox{\hyperlink{classWireGenerator_a408ca3718734288a40e913bc3a3d790b}{spawn\+Objects}} ()
+\item 
+T\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classWireGenerator_a19ce579b75fd16cc8d75323e57571455}{shuffle$<$ T $>$}} (T\mbox{[}$\,$\mbox{]} source\+Array, int num\+Elements)
+\item 
+bool \mbox{\hyperlink{classWireGenerator_affadb20a8114ed680145c29f324db5b5}{check\+Connection}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ \mbox{\hyperlink{classPlugStats}{Plug\+Stats}} $>$ \mbox{\hyperlink{classWireGenerator_af94835b719aadf84d63c05e0511cc8db}{all\+Plug\+Stats}} = new List$<$\mbox{\hyperlink{classPlugStats}{Plug\+Stats}}$>$()
+\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{classWireGenerator_a9e3b25cbfad4e057c02ac088b4d864a3}{all\+Wires}} = new List$<$Game\+Object$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Driver class for Wire\+Game generation and success criteria. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classWireGenerator_affadb20a8114ed680145c29f324db5b5}\index{WireGenerator@{WireGenerator}!checkConnection@{checkConnection}}
+\index{checkConnection@{checkConnection}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{checkConnection()}{checkConnection()}}
+{\footnotesize\ttfamily \label{classWireGenerator_affadb20a8114ed680145c29f324db5b5} 
+bool Wire\+Generator.\+check\+Connection (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classWireGenerator_affadb20a8114ed680145c29f324db5b5}{check\+Connection()} checks the connection of all the wires in the all\+Plug\+Stats member
+
+\begin{DoxyReturn}{Returns}
+a boolean, true if all wires are connected, false otherwise 
+\end{DoxyReturn}
+\Hypertarget{classWireGenerator_a0b045755702f60c08e9eb3cd6a70f3fa}\index{WireGenerator@{WireGenerator}!clearWires@{clearWires}}
+\index{clearWires@{clearWires}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{clearWires()}{clearWires()}}
+{\footnotesize\ttfamily \label{classWireGenerator_a0b045755702f60c08e9eb3cd6a70f3fa} 
+void Wire\+Generator.\+clear\+Wires (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classWireGenerator_a0b045755702f60c08e9eb3cd6a70f3fa}{clear\+Wires()} destroys all game objects to prepare for the next level makes use of the all\+Wires class member to keep track and destroy game\+Objects \Hypertarget{classWireGenerator_a19ce579b75fd16cc8d75323e57571455}\index{WireGenerator@{WireGenerator}!shuffle$<$ T $>$@{shuffle$<$ T $>$}}
+\index{shuffle$<$ T $>$@{shuffle$<$ T $>$}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{shuffle$<$ T $>$()}{shuffle< T >()}}
+{\footnotesize\ttfamily \label{classWireGenerator_a19ce579b75fd16cc8d75323e57571455} 
+T\mbox{[}$\,$\mbox{]} Wire\+Generator.\+shuffle$<$ T $>$ (\begin{DoxyParamCaption}\item[{T\mbox{[}$\,$\mbox{]}}]{source\+Array}{, }\item[{int}]{num\+Elements}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+shuffle() is a template function that shuffles an array This is to be used in the \doxylink{classWireGenerator_a408ca3718734288a40e913bc3a3d790b}{spawn\+Objects()} function so that we can get random positions for the colors and exit spawns The Fisher-\/\+Yates algorithm is utilized in this function
+
+
+\begin{DoxyParams}{Parameters}
+{\em source\+Array} & The source array that wants to be shuffled \\
+\hline
+{\em num\+Elements} & The number of elements in the source array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A new array that is a shuffled version of the source Array 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{https://stackoverflow.com/questions/108819/best-way-to-randomize-an-array-with-net}{\texttt{ https\+://stackoverflow.\+com/questions/108819/best-\/way-\/to-\/randomize-\/an-\/array-\/with-\/net}} 
+\end{DoxySeeAlso}
+\Hypertarget{classWireGenerator_a408ca3718734288a40e913bc3a3d790b}\index{WireGenerator@{WireGenerator}!spawnObjects@{spawnObjects}}
+\index{spawnObjects@{spawnObjects}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{spawnObjects()}{spawnObjects()}}
+{\footnotesize\ttfamily \label{classWireGenerator_a408ca3718734288a40e913bc3a3d790b} 
+void Wire\+Generator.\+spawn\+Objects (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classWireGenerator_a408ca3718734288a40e913bc3a3d790b}{spawn\+Objects()} spawns the objects for the game to function. This starts by shuffling the colors and exit spawns, then instantiates {\ttfamily level} wires. \Hypertarget{classWireGenerator_a5e0beefe1f5c3184aeb17cfc91ad9816}\index{WireGenerator@{WireGenerator}!Start@{Start}}
+\index{Start@{Start}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classWireGenerator_a5e0beefe1f5c3184aeb17cfc91ad9816} 
+void Wire\+Generator.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classWireGenerator_a5e0beefe1f5c3184aeb17cfc91ad9816}{Start()} is a Unity function that runs before the first frame update of this scene This method just starts the first level by calling the \doxylink{classWireGenerator_a69656ef7ef6e411d6249be9e7628f703}{Start\+Level()} function \Hypertarget{classWireGenerator_a69656ef7ef6e411d6249be9e7628f703}\index{WireGenerator@{WireGenerator}!StartLevel@{StartLevel}}
+\index{StartLevel@{StartLevel}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{StartLevel()}{StartLevel()}}
+{\footnotesize\ttfamily \label{classWireGenerator_a69656ef7ef6e411d6249be9e7628f703} 
+void Wire\+Generator.\+Start\+Level (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{classWireGenerator_a69656ef7ef6e411d6249be9e7628f703}{Start\+Level()} contains the logic for starting the level and is called at \doxylink{classWireGenerator_a5e0beefe1f5c3184aeb17cfc91ad9816}{Start()} and whenever a new level needs to be generated \Hypertarget{classWireGenerator_a8bed2ee29fb6eb8cc5743d4b11a3abad}\index{WireGenerator@{WireGenerator}!Update@{Update}}
+\index{Update@{Update}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{classWireGenerator_a8bed2ee29fb6eb8cc5743d4b11a3abad} 
+void Wire\+Generator.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classWireGenerator_a8bed2ee29fb6eb8cc5743d4b11a3abad}{Update()} is a Unity function that runs on every frame update. This function checks the connections of the wires, and if they are all connected then the game\+Over\+Manager member is called to end the level If performance becomes an issue, \doxylink{classWireGenerator_affadb20a8114ed680145c29f324db5b5}{check\+Connection()} can be moved to the wire connection behavior function. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classWireGenerator_af94835b719aadf84d63c05e0511cc8db}\index{WireGenerator@{WireGenerator}!allPlugStats@{allPlugStats}}
+\index{allPlugStats@{allPlugStats}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{allPlugStats}{allPlugStats}}
+{\footnotesize\ttfamily \label{classWireGenerator_af94835b719aadf84d63c05e0511cc8db} 
+List$<$\mbox{\hyperlink{classPlugStats}{Plug\+Stats}}$>$ Wire\+Generator.\+all\+Plug\+Stats = new List$<$\mbox{\hyperlink{classPlugStats}{Plug\+Stats}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classWireGenerator_a9e3b25cbfad4e057c02ac088b4d864a3}\index{WireGenerator@{WireGenerator}!allWires@{allWires}}
+\index{allWires@{allWires}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{allWires}{allWires}}
+{\footnotesize\ttfamily \label{classWireGenerator_a9e3b25cbfad4e057c02ac088b4d864a3} 
+List$<$Game\+Object$>$ Wire\+Generator.\+all\+Wires = new List$<$Game\+Object$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classWireGenerator_a1a54ff2161ff5368ccc162159f281b47}\index{WireGenerator@{WireGenerator}!colors@{colors}}
+\index{colors@{colors}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{colors}{colors}}
+{\footnotesize\ttfamily \label{classWireGenerator_a1a54ff2161ff5368ccc162159f281b47} 
+Color \mbox{[}$\,$\mbox{]} Wire\+Generator.\+colors}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Color.red,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Color.green,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Color.yellow,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Color.blue,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Color.white,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ Color.magenta}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWireGenerator_a6a33b0803b2857a994b1380de1b7bcca}\index{WireGenerator@{WireGenerator}!entrySpawns@{entrySpawns}}
+\index{entrySpawns@{entrySpawns}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{entrySpawns}{entrySpawns}}
+{\footnotesize\ttfamily \label{classWireGenerator_a6a33b0803b2857a994b1380de1b7bcca} 
+Vector3 \mbox{[}$\,$\mbox{]} Wire\+Generator.\+entry\+Spawns}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/12,\ 5,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/12,\ 3,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/12,\ 1,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/12,\ -\/1,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/12,\ -\/3,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/12,\ -\/5,\ 0)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWireGenerator_a49d71faeba8f9bb8025ea9d8602b3ce5}\index{WireGenerator@{WireGenerator}!exitSpawns@{exitSpawns}}
+\index{exitSpawns@{exitSpawns}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{exitSpawns}{exitSpawns}}
+{\footnotesize\ttfamily \label{classWireGenerator_a49d71faeba8f9bb8025ea9d8602b3ce5} 
+Vector3 \mbox{[}$\,$\mbox{]} Wire\+Generator.\+exit\+Spawns}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(12,\ 5,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(12,\ 3,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(12,\ 1,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(12,\ -\/1,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(12,\ -\/3,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(12,\ -\/5,\ 0)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWireGenerator_a5ec53292542e1727d86971a01ff6fd00}\index{WireGenerator@{WireGenerator}!gameOverManager@{gameOverManager}}
+\index{gameOverManager@{gameOverManager}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{gameOverManager}{gameOverManager}}
+{\footnotesize\ttfamily \label{classWireGenerator_a5ec53292542e1727d86971a01ff6fd00} 
+\mbox{\hyperlink{classGameOverManager}{Game\+Over\+Manager}} Wire\+Generator.\+game\+Over\+Manager}
+
+\Hypertarget{classWireGenerator_aaf61b52eea6a0956dd9d758db59c3284}\index{WireGenerator@{WireGenerator}!gameStopwatch@{gameStopwatch}}
+\index{gameStopwatch@{gameStopwatch}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{gameStopwatch}{gameStopwatch}}
+{\footnotesize\ttfamily \label{classWireGenerator_aaf61b52eea6a0956dd9d758db59c3284} 
+System.\+Diagnostics.\+Stopwatch Wire\+Generator.\+game\+Stopwatch = new System.\+Diagnostics.\+Stopwatch()}
+
+\Hypertarget{classWireGenerator_a59d8219740b20a93743331036017ba67}\index{WireGenerator@{WireGenerator}!level@{level}}
+\index{level@{level}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{level}{level}}
+{\footnotesize\ttfamily \label{classWireGenerator_a59d8219740b20a93743331036017ba67} 
+int Wire\+Generator.\+level}
+
+\Hypertarget{classWireGenerator_acfb7257b0d38ac8c59de1a4fa8a068b4}\index{WireGenerator@{WireGenerator}!levelOverManager@{levelOverManager}}
+\index{levelOverManager@{levelOverManager}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{levelOverManager}{levelOverManager}}
+{\footnotesize\ttfamily \label{classWireGenerator_acfb7257b0d38ac8c59de1a4fa8a068b4} 
+\mbox{\hyperlink{classLevelOverManager}{Level\+Over\+Manager}} Wire\+Generator.\+level\+Over\+Manager}
+
+\Hypertarget{classWireGenerator_aeb26401d49900a8e7f8344de5657968d}\index{WireGenerator@{WireGenerator}!levelStopwatch@{levelStopwatch}}
+\index{levelStopwatch@{levelStopwatch}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{levelStopwatch}{levelStopwatch}}
+{\footnotesize\ttfamily \label{classWireGenerator_aeb26401d49900a8e7f8344de5657968d} 
+System.\+Diagnostics.\+Stopwatch Wire\+Generator.\+level\+Stopwatch = new System.\+Diagnostics.\+Stopwatch()}
+
+\Hypertarget{classWireGenerator_ab38ba408317c68f7ccecaf5ed25cdf7b}\index{WireGenerator@{WireGenerator}!line2ndPointSpawns@{line2ndPointSpawns}}
+\index{line2ndPointSpawns@{line2ndPointSpawns}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{line2ndPointSpawns}{line2ndPointSpawns}}
+{\footnotesize\ttfamily \label{classWireGenerator_ab38ba408317c68f7ccecaf5ed25cdf7b} 
+Vector3 \mbox{[}$\,$\mbox{]} Wire\+Generator.\+line2nd\+Point\+Spawns}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/10,\ 5,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/10,\ 3,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/10,\ 1,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/10,\ -\/1,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/10,\ -\/3,\ 0),}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keyword}{new}\ Vector3(-\/10,\ -\/5,\ 0)}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classWireGenerator_a50e56968babde70c41d9f688311348cb}\index{WireGenerator@{WireGenerator}!rand@{rand}}
+\index{rand@{rand}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{rand}{rand}}
+{\footnotesize\ttfamily \label{classWireGenerator_a50e56968babde70c41d9f688311348cb} 
+System.\+Random Wire\+Generator.\+rand = new System.\+Random()}
+
+\Hypertarget{classWireGenerator_aff8a07ca0aefbd74dbe07f79ddd878b4}\index{WireGenerator@{WireGenerator}!wireEntry@{wireEntry}}
+\index{wireEntry@{wireEntry}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{wireEntry}{wireEntry}}
+{\footnotesize\ttfamily \label{classWireGenerator_aff8a07ca0aefbd74dbe07f79ddd878b4} 
+Game\+Object Wire\+Generator.\+wire\+Entry}
+
+\Hypertarget{classWireGenerator_a6893f9294c8cd6e97764f04e56339f2d}\index{WireGenerator@{WireGenerator}!wirePlug@{wirePlug}}
+\index{wirePlug@{wirePlug}!WireGenerator@{WireGenerator}}
+\doxysubsubsection{\texorpdfstring{wirePlug}{wirePlug}}
+{\footnotesize\ttfamily \label{classWireGenerator_a6893f9294c8cd6e97764f04e56339f2d} 
+Game\+Object Wire\+Generator.\+wire\+Plug}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Wires/\mbox{\hyperlink{WireGenerator_8cs}{Wire\+Generator.\+cs}}\end{DoxyCompactItemize}

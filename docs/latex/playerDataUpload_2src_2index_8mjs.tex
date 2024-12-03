@@ -1,0 +1,94 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/player\+Data\+Upload/src/index.mjs File Reference}
+\hypertarget{playerDataUpload_2src_2index_8mjs}{}\label{playerDataUpload_2src_2index_8mjs}\index{backend/LambdaFunctionAPIs/playerDataUpload/src/index.mjs@{backend/LambdaFunctionAPIs/playerDataUpload/src/index.mjs}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{playerDataUpload_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488}{import}} \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/\mbox{\hyperlink{browser_8mjs_a9714695853ac8b11f91a97f47fd765f0}{utils.\+mjs}}\textquotesingle{}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{playerDataUpload_2src_2index_8mjs_a9d572dfe428a9c063729ed6177db8add}{update\+Player\+Data}}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{playerDataUpload_2src_2index_8mjs_a84b9117dcb6396a86d0d18941f526c57}{error\+Check}}
+\item 
+export \mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{playerDataUpload_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}{handler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{playerDataUpload_2src_2index_8mjs_a84b9117dcb6396a86d0d18941f526c57}\index{index.mjs@{index.mjs}!errorCheck@{errorCheck}}
+\index{errorCheck@{errorCheck}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{errorCheck}{errorCheck}}
+{\footnotesize\ttfamily \label{playerDataUpload_2src_2index_8mjs_a84b9117dcb6396a86d0d18941f526c57} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} error\+Check}
+
+\Hypertarget{playerDataUpload_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}\index{index.mjs@{index.mjs}!handler@{handler}}
+\index{handler@{handler}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{handler}{handler}}
+{\footnotesize\ttfamily \label{playerDataUpload_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d} 
+export \mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} handler}
+
+Validates and extracts the request body parameters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & event -\/ The Lambda event object containing the request data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Object\} -\/ Extracted parameters from the request body. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the request body or required parameters are missing. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{playerDataUpload_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488}\index{index.mjs@{index.mjs}!import@{import}}
+\index{import@{import}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{playerDataUpload_2src_2index_8mjs_a59be084da8908b7d77ff34b25cd84488} 
+import \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/\mbox{\hyperlink{browser_8mjs_a9714695853ac8b11f91a97f47fd765f0}{utils.\+mjs}}\textquotesingle{}}
+
+\Hypertarget{playerDataUpload_2src_2index_8mjs_a9d572dfe428a9c063729ed6177db8add}\index{index.mjs@{index.mjs}!updatePlayerData@{updatePlayerData}}
+\index{updatePlayerData@{updatePlayerData}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{updatePlayerData}{updatePlayerData}}
+{\footnotesize\ttfamily \label{playerDataUpload_2src_2index_8mjs_a9d572dfe428a9c063729ed6177db8add} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} update\+Player\+Data}
+
+Updates the player data in the database.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & client -\/ Postgre\+SQL client for database operations. \\
+\hline
+{\em \{number\}} & user\+\_\+id -\/ The ID of the user. \\
+\hline
+{\em \{number\}} & current\+\_\+coins -\/ The current coin count for the user. \\
+\hline
+{\em \{\+Array$<$number$>$\}} & items\+\_\+owned -\/ Array of item IDs the user owns. \\
+\hline
+{\em \{\+Array$<$number$>$\}} & items\+\_\+equipped -\/ Array of item IDs the user has equipped. \\
+\hline
+{\em \{\+Array$<$number$>$\}} & cards\+\_\+owned -\/ Array of card IDs the user owns. \\
+\hline
+{\em \{\+Array$<$number$>$\}} & achievements\+\_\+complete -\/ Array of completed achievement IDs. \\
+\hline
+{\em \{\+Object\}} & achievements -\/ Dictionary of achievements and their progress. \\
+\hline
+{\em \{boolean\}} & has\+\_\+finished\+\_\+cutscene -\/ Whether the user has finished the cutscene. \\
+\hline
+{\em \{number\}} & location\+\_\+x -\/ The user\textquotesingle{}s X-\/coordinate in the game world. \\
+\hline
+{\em \{number\}} & location\+\_\+y -\/ The user\textquotesingle{}s Y-\/coordinate in the game world. \\
+\hline
+{\em \{string\}} & current\+\_\+scene -\/ The current scene the user is in. \\
+\hline
+{\em \{\+Object\}} & interactions -\/ Dictionary of user interactions and their counts. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} -\/ Resolves with the updated user data. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the user is not found or the query fails. \\
+\hline
+\end{DoxyExceptions}

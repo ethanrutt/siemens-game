@@ -1,0 +1,76 @@
+\doxysection{Plug\+Behavior Class Reference}
+\hypertarget{classPlugBehavior}{}\label{classPlugBehavior}\index{PlugBehavior@{PlugBehavior}}
+
+
+Behavior logic for a wire\+Plug.  
+
+
+Inheritance diagram for Plug\+Behavior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPlugBehavior}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPlugBehavior_a5f0a377ae718ca89f6b0a1ac8e0fe907}{On\+Trigger\+Enter2D}} (Collider2D other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlugStats}{Plug\+Stats}} \mbox{\hyperlink{classPlugBehavior_a44340be13444a2f545366a7fc1ffd320}{plugS}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPlugBehavior_a95524d710f2928da4bb89f7b92dde842}{Start}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Behavior logic for a wire\+Plug. 
+
+Makes use of the \doxylink{classPlugStats}{Plug\+Stats} class to keep track of variables \begin{DoxySeeAlso}{See also}
+\doxylink{classPlugStats}{Plug\+Stats} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPlugBehavior_a5f0a377ae718ca89f6b0a1ac8e0fe907}\index{PlugBehavior@{PlugBehavior}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!PlugBehavior@{PlugBehavior}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{classPlugBehavior_a5f0a377ae718ca89f6b0a1ac8e0fe907} 
+void Plug\+Behavior.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{classPlugBehavior_a5f0a377ae718ca89f6b0a1ac8e0fe907}{On\+Trigger\+Enter2\+D()} is a Unity function that runs when another Collider2D enters the zone of this game\+Object\textquotesingle{}s Collider2D
+
+This function handles the collision of a wire\+Entry and a wire\+Plug. If they are the same color then they are locked into place and are marked as connected, otherwise nothing happens.
+
+
+\begin{DoxyParams}{Parameters}
+{\em other} & The other Collider2D that is currently colliding with this game\+Object \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classPlugBehavior_a95524d710f2928da4bb89f7b92dde842}\index{PlugBehavior@{PlugBehavior}!Start@{Start}}
+\index{Start@{Start}!PlugBehavior@{PlugBehavior}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classPlugBehavior_a95524d710f2928da4bb89f7b92dde842} 
+void Plug\+Behavior.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPlugBehavior_a95524d710f2928da4bb89f7b92dde842}{Start()} is a Unity function that is called before the first frame update
+
+This just grabs the appropriate members using the Get\+Component() Unity function \doxylink{classPlugStats}{Plug\+Stats} for the wire is grabbed 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classPlugBehavior_a44340be13444a2f545366a7fc1ffd320}\index{PlugBehavior@{PlugBehavior}!plugS@{plugS}}
+\index{plugS@{plugS}!PlugBehavior@{PlugBehavior}}
+\doxysubsubsection{\texorpdfstring{plugS}{plugS}}
+{\footnotesize\ttfamily \label{classPlugBehavior_a44340be13444a2f545366a7fc1ffd320} 
+\mbox{\hyperlink{classPlugStats}{Plug\+Stats}} Plug\+Behavior.\+plugS}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Wires/\mbox{\hyperlink{PlugBehavior_8cs}{Plug\+Behavior.\+cs}}\end{DoxyCompactItemize}

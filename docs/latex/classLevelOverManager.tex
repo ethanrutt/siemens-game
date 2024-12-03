@@ -1,0 +1,85 @@
+\doxysection{Level\+Over\+Manager Class Reference}
+\hypertarget{classLevelOverManager}{}\label{classLevelOverManager}\index{LevelOverManager@{LevelOverManager}}
+
+
+This class handles the level over screen and behavior. It is called by the \doxylink{classWireGenerator}{Wire\+Generator} and also calls the \doxylink{classWireGenerator}{Wire\+Generator} when we want to start a new level.  
+
+
+Inheritance diagram for Level\+Over\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classLevelOverManager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classLevelOverManager_a09d023d5dcdbf6e9a733fcfbb92078c1}{Setup}} (System.\+Time\+Span level\+Time\+Span)
+\item 
+void \mbox{\hyperlink{classLevelOverManager_a0300c41a2b4812c3876ee5e3810d7731}{Next\+Button}} ()
+\item 
+void \mbox{\hyperlink{classLevelOverManager_aef8c66e3949cb235bc36f8d51bb0c71e}{Exit\+Button}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{classLevelOverManager_ac33d13b232a212492e551466d340a638}{level\+Time\+Elapsed}}
+\item 
+\mbox{\hyperlink{classWireGenerator}{Wire\+Generator}} \mbox{\hyperlink{classLevelOverManager_ab79869ba0167fc246d7b444723d60826}{wire\+Generator}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles the level over screen and behavior. It is called by the \doxylink{classWireGenerator}{Wire\+Generator} and also calls the \doxylink{classWireGenerator}{Wire\+Generator} when we want to start a new level. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classWireGenerator}{Wire\+Generator} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classLevelOverManager_aef8c66e3949cb235bc36f8d51bb0c71e}\index{LevelOverManager@{LevelOverManager}!ExitButton@{ExitButton}}
+\index{ExitButton@{ExitButton}!LevelOverManager@{LevelOverManager}}
+\doxysubsubsection{\texorpdfstring{ExitButton()}{ExitButton()}}
+{\footnotesize\ttfamily \label{classLevelOverManager_aef8c66e3949cb235bc36f8d51bb0c71e} 
+void Level\+Over\+Manager.\+Exit\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{classLevelOverManager_aef8c66e3949cb235bc36f8d51bb0c71e}{Exit\+Button()} is a function that is attached to the Exit button on the game over screen. When this button is pressed, the player will be returned to the Laboratory via the Scene\+Manager \Hypertarget{classLevelOverManager_a0300c41a2b4812c3876ee5e3810d7731}\index{LevelOverManager@{LevelOverManager}!NextButton@{NextButton}}
+\index{NextButton@{NextButton}!LevelOverManager@{LevelOverManager}}
+\doxysubsubsection{\texorpdfstring{NextButton()}{NextButton()}}
+{\footnotesize\ttfamily \label{classLevelOverManager_a0300c41a2b4812c3876ee5e3810d7731} 
+void Level\+Over\+Manager.\+Next\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{classLevelOverManager_a0300c41a2b4812c3876ee5e3810d7731}{Next\+Button()} is a function that is attached to the Next button on the level over screen. When this button is pressed, the level over screen becomes inactive and the next level is loaded \Hypertarget{classLevelOverManager_a09d023d5dcdbf6e9a733fcfbb92078c1}\index{LevelOverManager@{LevelOverManager}!Setup@{Setup}}
+\index{Setup@{Setup}!LevelOverManager@{LevelOverManager}}
+\doxysubsubsection{\texorpdfstring{Setup()}{Setup()}}
+{\footnotesize\ttfamily \label{classLevelOverManager_a09d023d5dcdbf6e9a733fcfbb92078c1} 
+void Level\+Over\+Manager.\+Setup (\begin{DoxyParamCaption}\item[{System.\+Time\+Span}]{level\+Time\+Span}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{classLevelOverManager_a09d023d5dcdbf6e9a733fcfbb92078c1}{Setup()} sets up the screen for the level being over. This sets up a level over screen that gives the amount of time the player took on the level, and a Next and Exit button.
+
+
+\begin{DoxyParams}{Parameters}
+{\em level\+Time\+Span} & The System.\+Time\+Span of the level time \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classLevelOverManager_ac33d13b232a212492e551466d340a638}\index{LevelOverManager@{LevelOverManager}!levelTimeElapsed@{levelTimeElapsed}}
+\index{levelTimeElapsed@{levelTimeElapsed}!LevelOverManager@{LevelOverManager}}
+\doxysubsubsection{\texorpdfstring{levelTimeElapsed}{levelTimeElapsed}}
+{\footnotesize\ttfamily \label{classLevelOverManager_ac33d13b232a212492e551466d340a638} 
+TMP\+\_\+\+Text Level\+Over\+Manager.\+level\+Time\+Elapsed}
+
+\Hypertarget{classLevelOverManager_ab79869ba0167fc246d7b444723d60826}\index{LevelOverManager@{LevelOverManager}!wireGenerator@{wireGenerator}}
+\index{wireGenerator@{wireGenerator}!LevelOverManager@{LevelOverManager}}
+\doxysubsubsection{\texorpdfstring{wireGenerator}{wireGenerator}}
+{\footnotesize\ttfamily \label{classLevelOverManager_ab79869ba0167fc246d7b444723d60826} 
+\mbox{\hyperlink{classWireGenerator}{Wire\+Generator}} Level\+Over\+Manager.\+wire\+Generator}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Wires/\mbox{\hyperlink{LevelOverManager_8cs}{Level\+Over\+Manager.\+cs}}\end{DoxyCompactItemize}

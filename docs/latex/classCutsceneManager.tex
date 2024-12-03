@@ -1,0 +1,117 @@
+\doxysection{Cutscene\+Manager Class Reference}
+\hypertarget{classCutsceneManager}{}\label{classCutsceneManager}\index{CutsceneManager@{CutsceneManager}}
+
+
+This class handles cutscenes. When going to the tutorial and the town square, we pan the camera to show the various interactable areas or show flags in the tutorial. This will handle the scenes starting so that we can pan to the proper areas.  
+
+
+Inheritance diagram for Cutscene\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCutsceneManager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCutsceneManager_a970c16b4a6198c01af60d1a3a4bc92c6}{to\+Tutorial\+Scene}} ()
+\item 
+void \mbox{\hyperlink{classCutsceneManager_a40eabb794073d40ffd974a8f029967af}{to\+Town\+Square}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDialogueManager__Cutscene}{Dialogue\+Manager\+\_\+\+Cutscene}} \mbox{\hyperlink{classCutsceneManager_a901ed64a972ac681b813bd86a9c84f50}{dialogue\+Manager}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameManager}{Game\+Manager}} \mbox{\hyperlink{classCutsceneManager_a750bd211b7fe4cd86253032e26292e64}{game\+Manager}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+int \mbox{\hyperlink{classCutsceneManager_a34282dfa8f42aa1327f677f237010146}{dialogue\+Index}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCutsceneManager_ac9777b769370e0c60d6e1f42fa630cbb}{Start}} ()
+\item 
+void \mbox{\hyperlink{classCutsceneManager_a50f98828785b24d1c2445181b63b51d8}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classCutsceneManager_a5daf82a48dee505a2e2e0a3746622dba}{finish\+Intro\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classCutsceneManager_a4ad3b2ea90024ac1b6be27d97a6a41e2}{modal\+Back}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles cutscenes. When going to the tutorial and the town square, we pan the camera to show the various interactable areas or show flags in the tutorial. This will handle the scenes starting so that we can pan to the proper areas. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCutsceneManager_ac9777b769370e0c60d6e1f42fa630cbb}\index{CutsceneManager@{CutsceneManager}!Start@{Start}}
+\index{Start@{Start}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classCutsceneManager_ac9777b769370e0c60d6e1f42fa630cbb} 
+void Cutscene\+Manager.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCutsceneManager_a40eabb794073d40ffd974a8f029967af}\index{CutsceneManager@{CutsceneManager}!toTownSquare@{toTownSquare}}
+\index{toTownSquare@{toTownSquare}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{toTownSquare()}{toTownSquare()}}
+{\footnotesize\ttfamily \label{classCutsceneManager_a40eabb794073d40ffd974a8f029967af} 
+void Cutscene\+Manager.\+to\+Town\+Square (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCutsceneManager_a970c16b4a6198c01af60d1a3a4bc92c6}\index{CutsceneManager@{CutsceneManager}!toTutorialScene@{toTutorialScene}}
+\index{toTutorialScene@{toTutorialScene}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{toTutorialScene()}{toTutorialScene()}}
+{\footnotesize\ttfamily \label{classCutsceneManager_a970c16b4a6198c01af60d1a3a4bc92c6} 
+void Cutscene\+Manager.\+to\+Tutorial\+Scene (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCutsceneManager_a50f98828785b24d1c2445181b63b51d8}\index{CutsceneManager@{CutsceneManager}!Update@{Update}}
+\index{Update@{Update}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{classCutsceneManager_a50f98828785b24d1c2445181b63b51d8} 
+void Cutscene\+Manager.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCutsceneManager_a901ed64a972ac681b813bd86a9c84f50}\index{CutsceneManager@{CutsceneManager}!dialogueManager@{dialogueManager}}
+\index{dialogueManager@{dialogueManager}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{dialogueManager}{dialogueManager}}
+{\footnotesize\ttfamily \label{classCutsceneManager_a901ed64a972ac681b813bd86a9c84f50} 
+\mbox{\hyperlink{classDialogueManager__Cutscene}{Dialogue\+Manager\+\_\+\+Cutscene}} Cutscene\+Manager.\+dialogue\+Manager}
+
+\Hypertarget{classCutsceneManager_a5daf82a48dee505a2e2e0a3746622dba}\index{CutsceneManager@{CutsceneManager}!finishIntroPanel@{finishIntroPanel}}
+\index{finishIntroPanel@{finishIntroPanel}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{finishIntroPanel}{finishIntroPanel}}
+{\footnotesize\ttfamily \label{classCutsceneManager_a5daf82a48dee505a2e2e0a3746622dba} 
+Game\+Object Cutscene\+Manager.\+finish\+Intro\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCutsceneManager_a4ad3b2ea90024ac1b6be27d97a6a41e2}\index{CutsceneManager@{CutsceneManager}!modalBack@{modalBack}}
+\index{modalBack@{modalBack}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{modalBack}{modalBack}}
+{\footnotesize\ttfamily \label{classCutsceneManager_a4ad3b2ea90024ac1b6be27d97a6a41e2} 
+Game\+Object Cutscene\+Manager.\+modal\+Back\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classCutsceneManager_a34282dfa8f42aa1327f677f237010146}\index{CutsceneManager@{CutsceneManager}!dialogueIndex@{dialogueIndex}}
+\index{dialogueIndex@{dialogueIndex}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{dialogueIndex}{dialogueIndex}}
+{\footnotesize\ttfamily \label{classCutsceneManager_a34282dfa8f42aa1327f677f237010146} 
+int Cutscene\+Manager.\+dialogue\+Index\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+\Hypertarget{classCutsceneManager_a750bd211b7fe4cd86253032e26292e64}\index{CutsceneManager@{CutsceneManager}!gameManager@{gameManager}}
+\index{gameManager@{gameManager}!CutsceneManager@{CutsceneManager}}
+\doxysubsubsection{\texorpdfstring{gameManager}{gameManager}}
+{\footnotesize\ttfamily \label{classCutsceneManager_a750bd211b7fe4cd86253032e26292e64} 
+\mbox{\hyperlink{classGameManager}{Game\+Manager}} Cutscene\+Manager.\+game\+Manager\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Cutscenes/\mbox{\hyperlink{CutsceneManager_8cs}{Cutscene\+Manager.\+cs}}\end{DoxyCompactItemize}

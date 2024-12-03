@@ -1,0 +1,99 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/node\+\_\+modules/@jridgewell/set-\/array/dist/set-\/array.mjs File Reference}
+\hypertarget{set-array_8mjs}{}\label{set-array_8mjs}\index{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/set-\/array/dist/set-\/array.mjs@{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/set-\/array/dist/set-\/array.mjs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSetArray}{Set\+Array}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{set-array_8mjs_a98181e7166c78a2a0fc1b21b37254327}{cast}} (set)
+\item 
+function \mbox{\hyperlink{set-array_8mjs_a4904ec2144af3b5e947c80df4cb930b4}{get}} (setarr, \mbox{\hyperlink{index_8min_8mjs_aa3284bd5ae917593d1f1757477368bab}{key}})
+\item 
+function \mbox{\hyperlink{set-array_8mjs_af1f9862cc43cdeac3349609e63a2a10b}{put}} (setarr, \mbox{\hyperlink{index_8min_8mjs_aa3284bd5ae917593d1f1757477368bab}{key}})
+\item 
+function \mbox{\hyperlink{set-array_8mjs_ab0b18a7dad011a399f048f47b6da6657}{pop}} (setarr)
+\item 
+function \mbox{\hyperlink{set-array_8mjs_a52913815240e15fc88a3725f81ee0bb9}{remove}} (setarr, \mbox{\hyperlink{index_8min_8mjs_aa3284bd5ae917593d1f1757477368bab}{key}})
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{set-array_8mjs_a93766a6ecfd31909248753afe9cc7e8c}{Set\+Array}}
+\item 
+\mbox{\hyperlink{set-array_8mjs_a9c57eef25270a48365249a68581a1247}{get}}
+\item 
+\mbox{\hyperlink{set-array_8mjs_a23acc33d21869c517c7eb8114b3d8072}{pop}}
+\item 
+\mbox{\hyperlink{set-array_8mjs_aab5de7f226167a5951571bdf8606cba0}{put}}
+\item 
+\mbox{\hyperlink{set-array_8mjs_aced660190aa41c91691cb3371e3c5644}{remove}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{set-array_8mjs_a98181e7166c78a2a0fc1b21b37254327}\index{set-\/array.mjs@{set-\/array.mjs}!cast@{cast}}
+\index{cast@{cast}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{cast()}{cast()}}
+{\footnotesize\ttfamily \label{set-array_8mjs_a98181e7166c78a2a0fc1b21b37254327} 
+function cast (\begin{DoxyParamCaption}\item[{}]{set}{}\end{DoxyParamCaption})}
+
+Typescript doesn\textquotesingle{}t allow friend access to private fields, so this just casts the set into a type with public access modifiers. \Hypertarget{set-array_8mjs_a4904ec2144af3b5e947c80df4cb930b4}\index{set-\/array.mjs@{set-\/array.mjs}!get@{get}}
+\index{get@{get}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily \label{set-array_8mjs_a4904ec2144af3b5e947c80df4cb930b4} 
+function get (\begin{DoxyParamCaption}\item[{}]{setarr}{, }\item[{}]{key}{}\end{DoxyParamCaption})}
+
+Gets the index associated with {\ttfamily key} in the backing array, if it is already present. \Hypertarget{set-array_8mjs_ab0b18a7dad011a399f048f47b6da6657}\index{set-\/array.mjs@{set-\/array.mjs}!pop@{pop}}
+\index{pop@{pop}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{set-array_8mjs_ab0b18a7dad011a399f048f47b6da6657} 
+function pop (\begin{DoxyParamCaption}\item[{}]{setarr}{}\end{DoxyParamCaption})}
+
+Pops the last added item out of the \doxylink{classSetArray}{Set\+Array}. \Hypertarget{set-array_8mjs_af1f9862cc43cdeac3349609e63a2a10b}\index{set-\/array.mjs@{set-\/array.mjs}!put@{put}}
+\index{put@{put}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{put()}{put()}}
+{\footnotesize\ttfamily \label{set-array_8mjs_af1f9862cc43cdeac3349609e63a2a10b} 
+function put (\begin{DoxyParamCaption}\item[{}]{setarr}{, }\item[{}]{key}{}\end{DoxyParamCaption})}
+
+Puts {\ttfamily key} into the backing array, if it is not already present. Returns the index of the {\ttfamily key} in the backing array. \Hypertarget{set-array_8mjs_a52913815240e15fc88a3725f81ee0bb9}\index{set-\/array.mjs@{set-\/array.mjs}!remove@{remove}}
+\index{remove@{remove}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{remove()}{remove()}}
+{\footnotesize\ttfamily \label{set-array_8mjs_a52913815240e15fc88a3725f81ee0bb9} 
+function remove (\begin{DoxyParamCaption}\item[{}]{setarr}{, }\item[{}]{key}{}\end{DoxyParamCaption})}
+
+Removes the key, if it exists in the set. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{set-array_8mjs_a9c57eef25270a48365249a68581a1247}\index{set-\/array.mjs@{set-\/array.mjs}!get@{get}}
+\index{get@{get}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{get}{get}}
+{\footnotesize\ttfamily \label{set-array_8mjs_a9c57eef25270a48365249a68581a1247} 
+get}
+
+\Hypertarget{set-array_8mjs_a23acc33d21869c517c7eb8114b3d8072}\index{set-\/array.mjs@{set-\/array.mjs}!pop@{pop}}
+\index{pop@{pop}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{pop}{pop}}
+{\footnotesize\ttfamily \label{set-array_8mjs_a23acc33d21869c517c7eb8114b3d8072} 
+pop}
+
+\Hypertarget{set-array_8mjs_aab5de7f226167a5951571bdf8606cba0}\index{set-\/array.mjs@{set-\/array.mjs}!put@{put}}
+\index{put@{put}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{put}{put}}
+{\footnotesize\ttfamily \label{set-array_8mjs_aab5de7f226167a5951571bdf8606cba0} 
+put}
+
+\Hypertarget{set-array_8mjs_aced660190aa41c91691cb3371e3c5644}\index{set-\/array.mjs@{set-\/array.mjs}!remove@{remove}}
+\index{remove@{remove}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{remove}{remove}}
+{\footnotesize\ttfamily \label{set-array_8mjs_aced660190aa41c91691cb3371e3c5644} 
+remove}
+
+\Hypertarget{set-array_8mjs_a93766a6ecfd31909248753afe9cc7e8c}\index{set-\/array.mjs@{set-\/array.mjs}!SetArray@{SetArray}}
+\index{SetArray@{SetArray}!set-\/array.mjs@{set-\/array.mjs}}
+\doxysubsubsection{\texorpdfstring{SetArray}{SetArray}}
+{\footnotesize\ttfamily \label{set-array_8mjs_a93766a6ecfd31909248753afe9cc7e8c} 
+Set\+Array}
+

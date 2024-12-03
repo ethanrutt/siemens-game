@@ -1,0 +1,61 @@
+\doxysection{Range\+Tree Class Reference}
+\hypertarget{classRangeTree}{}\label{classRangeTree}\index{RangeTree@{RangeTree}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRangeTree_ac2b7f62a70cf1d6de447c74ebf76b9d8}{constructor}} (start, end, delta, children)
+\item 
+\mbox{\hyperlink{classRangeTree_aa80878ff90db8213366b01419f07e784}{normalize}} ()
+\item 
+\mbox{\hyperlink{classRangeTree_ad457ff0e14dd8dd2dc61c82e3294bb1a}{split}} (value)
+\item 
+\mbox{\hyperlink{classRangeTree_a8e38771a821a5a3f11e2c6adde0f30e8}{to\+Ranges}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classRangeTree_af08836df1ef9ca1c6e10a911079b184c}{from\+Sorted\+Ranges}} (ranges)
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classRangeTree_ac2b7f62a70cf1d6de447c74ebf76b9d8}\index{RangeTree@{RangeTree}!constructor@{constructor}}
+\index{constructor@{constructor}!RangeTree@{RangeTree}}
+\doxysubsubsection{\texorpdfstring{constructor()}{constructor()}}
+{\footnotesize\ttfamily \label{classRangeTree_ac2b7f62a70cf1d6de447c74ebf76b9d8} 
+Range\+Tree\+::constructor (\begin{DoxyParamCaption}\item[{}]{start}{, }\item[{}]{end}{, }\item[{}]{delta}{, }\item[{}]{children}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classRangeTree_af08836df1ef9ca1c6e10a911079b184c}\index{RangeTree@{RangeTree}!fromSortedRanges@{fromSortedRanges}}
+\index{fromSortedRanges@{fromSortedRanges}!RangeTree@{RangeTree}}
+\doxysubsubsection{\texorpdfstring{fromSortedRanges()}{fromSortedRanges()}}
+{\footnotesize\ttfamily \label{classRangeTree_af08836df1ef9ca1c6e10a911079b184c} 
+static Range\+Tree\+::from\+Sorted\+Ranges (\begin{DoxyParamCaption}\item[{}]{ranges}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+@precodition {\ttfamily ranges} are well-\/formed and pre-\/order sorted \Hypertarget{classRangeTree_aa80878ff90db8213366b01419f07e784}\index{RangeTree@{RangeTree}!normalize@{normalize}}
+\index{normalize@{normalize}!RangeTree@{RangeTree}}
+\doxysubsubsection{\texorpdfstring{normalize()}{normalize()}}
+{\footnotesize\ttfamily \label{classRangeTree_aa80878ff90db8213366b01419f07e784} 
+Range\+Tree\+::normalize (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classRangeTree_ad457ff0e14dd8dd2dc61c82e3294bb1a}\index{RangeTree@{RangeTree}!split@{split}}
+\index{split@{split}!RangeTree@{RangeTree}}
+\doxysubsubsection{\texorpdfstring{split()}{split()}}
+{\footnotesize\ttfamily \label{classRangeTree_ad457ff0e14dd8dd2dc61c82e3294bb1a} 
+Range\+Tree\+::split (\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+@precondition {\ttfamily tree.\+start \texorpdfstring{$<$}{<} value \&\& value \texorpdfstring{$<$}{<} tree.\+end} \begin{DoxyReturn}{Returns}
+\doxylink{classRangeTree}{Range\+Tree} Right part 
+\end{DoxyReturn}
+\Hypertarget{classRangeTree_a8e38771a821a5a3f11e2c6adde0f30e8}\index{RangeTree@{RangeTree}!toRanges@{toRanges}}
+\index{toRanges@{toRanges}!RangeTree@{RangeTree}}
+\doxysubsubsection{\texorpdfstring{toRanges()}{toRanges()}}
+{\footnotesize\ttfamily \label{classRangeTree_a8e38771a821a5a3f11e2c6adde0f30e8} 
+Range\+Tree\+::to\+Ranges (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Get the range coverages corresponding to the tree.
+
+The ranges are pre-\/order sorted. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+backend/\+Lambda\+Function\+APIs/node\+\_\+modules/@bcoe/v8-\/coverage/dist/lib/\mbox{\hyperlink{range-tree_8mjs}{range-\/tree.\+mjs}}\end{DoxyCompactItemize}

@@ -1,0 +1,306 @@
+\doxysection{Interactor\+\_\+\+Display Class Reference}
+\hypertarget{classInteractor__Display}{}\label{classInteractor__Display}\index{Interactor\_Display@{Interactor\_Display}}
+
+
+This class is used to handle the display of the leaderboards.  
+
+
+Inheritance diagram for Interactor\+\_\+\+Display\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classInteractor__Display}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a53c1d1153b80c10eff69260b06d7a234}{Open\+Menu}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a75aa28f1f00423ac97a6557d7242fa2e}{Leave\+Menu}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a81ba0fac4d6e9ca15b84fd264b84bcd3}{on\+Exit\+Request\+Complete}} (string response\+Text)
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a32a97bb8ec151ab880a8865a6fb1bbc6}{Exit\+Game}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a2a034a52d6fd38aff0fd58ce3d33b609}{Exit\+Leaderboards}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_ad51ba41fb163c4f92f9cdd8ba0dc64dd}{Exit\+Inventory}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_acf7a17281831f52544e47a444311e848}{Open\+Inventory}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a14613c65f148e7c21df057d9dbfd2b11}{Display\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a06840112c0e349fc5b7d23170725650c}{Get\+Peculiar\+Pipes\+Leaderboard}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a664e16ca6264b067bbbd638156baeec5}{Get\+Wacky\+Wires\+Leaderboard}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_ace906f195575e3e538138dcb0825913e}{On\+Request\+Fail}} (string response\+Text)
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a0afd6343f18c2ee948eb8805dd4b7cd1}{Setup\+Error\+Screen}} (string error\+Message)
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a149a7da28bda74549bcc9061b40b8b74}{Error\+Exit\+Button}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classGameManager}{Game\+Manager}} \mbox{\hyperlink{classInteractor__Display_a0ff695400b8a1d20251423279551dd39}{game\+Manager}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} \mbox{\hyperlink{classInteractor__Display_a124cc3e4ed6ffe938139867dbe3abf63}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+string \mbox{\hyperlink{classInteractor__Display_a884a61ba4b0db2920044cf7594aa0aab}{interactable}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a86c21a04ad7b61dc3f27673cb4808494}{upload\+Player\+Data\+On\+Exit}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a0993d77bd0f1c8d2b4ca3ee2b3f83b07}{Start}} ()
+\item 
+void \mbox{\hyperlink{classInteractor__Display_aa15b49af4488d6a08207b494728ade0b}{get\+Leaderboard}} (int game\+Id)
+\item 
+void \mbox{\hyperlink{classInteractor__Display_a696f54b3cdd5323eb236771a5ec42623}{set\+Leaderboard\+Text}} (string response\+Text)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classInteractor__Display_a0760643c4e2f0d9dea458fb6c472f38a}{leaderboards}}
+\item 
+Game\+Object \mbox{\hyperlink{classInteractor__Display_aa135d95077a45cf9f94c6cdbfb7eb577}{base\+Game\+UI}}
+\item 
+Game\+Object \mbox{\hyperlink{classInteractor__Display_a9f3b15e9646b7ef1038c053253ba833e}{player}}
+\item 
+Game\+Object \mbox{\hyperlink{classInteractor__Display_a15e7287a35c54cd41ffef29c0674ac9e}{inventory\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classInteractor__Display_ab85e335b92d276d58628e90853d34e39}{menu\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classInteractor__Display_aba016c3c92ef747665f82308be5e738a}{modal}}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{classInteractor__Display_a0b0c9045120eedde9ca4a8aa78a317c5}{top5}}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{classInteractor__Display_aea4ea997d679022c799d1bd4cc2ca437}{top10}}
+\item 
+\mbox{\hyperlink{classDialogueManager__TS}{Dialogue\+Manager\+\_\+\+TS}} \mbox{\hyperlink{classInteractor__Display_a503df8406304a5507a18c0ab38793c4b}{dialogue\+Manager}}
+\item 
+\mbox{\hyperlink{classDialogueManager__Casino}{Dialogue\+Manager\+\_\+\+Casino}} \mbox{\hyperlink{classInteractor__Display_acca0ad78ea05297fd557ed9b5396370b}{dialogue\+Manager\+Casino}}
+\item 
+\mbox{\hyperlink{classDialogueManager__Lab}{Dialogue\+Manager\+\_\+\+Lab}} \mbox{\hyperlink{classInteractor__Display_a7b40088a75ce5ebd261f8c434770debd}{dialogue\+Manager\+Lab}}
+\item 
+Game\+Object \mbox{\hyperlink{classInteractor__Display_a6887e4c87257945920293c63516df87f}{error\+Screen}}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{classInteractor__Display_ae8dd940420c5fbfa360d5f67bc5c3647}{error\+Message\+Text}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is used to handle the display of the leaderboards. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInteractor__Display_a14613c65f148e7c21df057d9dbfd2b11}\index{Interactor\_Display@{Interactor\_Display}!DisplayPanel@{DisplayPanel}}
+\index{DisplayPanel@{DisplayPanel}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{DisplayPanel()}{DisplayPanel()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a14613c65f148e7c21df057d9dbfd2b11} 
+void Interactor\+\_\+\+Display.\+Display\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a149a7da28bda74549bcc9061b40b8b74}\index{Interactor\_Display@{Interactor\_Display}!ErrorExitButton@{ErrorExitButton}}
+\index{ErrorExitButton@{ErrorExitButton}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{ErrorExitButton()}{ErrorExitButton()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a149a7da28bda74549bcc9061b40b8b74} 
+void Interactor\+\_\+\+Display.\+Error\+Exit\+Button (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a32a97bb8ec151ab880a8865a6fb1bbc6}\index{Interactor\_Display@{Interactor\_Display}!ExitGame@{ExitGame}}
+\index{ExitGame@{ExitGame}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{ExitGame()}{ExitGame()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a32a97bb8ec151ab880a8865a6fb1bbc6} 
+void Interactor\+\_\+\+Display.\+Exit\+Game (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_ad51ba41fb163c4f92f9cdd8ba0dc64dd}\index{Interactor\_Display@{Interactor\_Display}!ExitInventory@{ExitInventory}}
+\index{ExitInventory@{ExitInventory}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{ExitInventory()}{ExitInventory()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_ad51ba41fb163c4f92f9cdd8ba0dc64dd} 
+void Interactor\+\_\+\+Display.\+Exit\+Inventory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a2a034a52d6fd38aff0fd58ce3d33b609}\index{Interactor\_Display@{Interactor\_Display}!ExitLeaderboards@{ExitLeaderboards}}
+\index{ExitLeaderboards@{ExitLeaderboards}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{ExitLeaderboards()}{ExitLeaderboards()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a2a034a52d6fd38aff0fd58ce3d33b609} 
+void Interactor\+\_\+\+Display.\+Exit\+Leaderboards (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_aa15b49af4488d6a08207b494728ade0b}\index{Interactor\_Display@{Interactor\_Display}!getLeaderboard@{getLeaderboard}}
+\index{getLeaderboard@{getLeaderboard}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{getLeaderboard()}{getLeaderboard()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_aa15b49af4488d6a08207b494728ade0b} 
+void Interactor\+\_\+\+Display.\+get\+Leaderboard (\begin{DoxyParamCaption}\item[{int}]{game\+Id}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a06840112c0e349fc5b7d23170725650c}\index{Interactor\_Display@{Interactor\_Display}!GetPeculiarPipesLeaderboard@{GetPeculiarPipesLeaderboard}}
+\index{GetPeculiarPipesLeaderboard@{GetPeculiarPipesLeaderboard}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{GetPeculiarPipesLeaderboard()}{GetPeculiarPipesLeaderboard()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a06840112c0e349fc5b7d23170725650c} 
+void Interactor\+\_\+\+Display.\+Get\+Peculiar\+Pipes\+Leaderboard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a664e16ca6264b067bbbd638156baeec5}\index{Interactor\_Display@{Interactor\_Display}!GetWackyWiresLeaderboard@{GetWackyWiresLeaderboard}}
+\index{GetWackyWiresLeaderboard@{GetWackyWiresLeaderboard}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{GetWackyWiresLeaderboard()}{GetWackyWiresLeaderboard()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a664e16ca6264b067bbbd638156baeec5} 
+void Interactor\+\_\+\+Display.\+Get\+Wacky\+Wires\+Leaderboard (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a75aa28f1f00423ac97a6557d7242fa2e}\index{Interactor\_Display@{Interactor\_Display}!LeaveMenu@{LeaveMenu}}
+\index{LeaveMenu@{LeaveMenu}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{LeaveMenu()}{LeaveMenu()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a75aa28f1f00423ac97a6557d7242fa2e} 
+void Interactor\+\_\+\+Display.\+Leave\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a81ba0fac4d6e9ca15b84fd264b84bcd3}\index{Interactor\_Display@{Interactor\_Display}!onExitRequestComplete@{onExitRequestComplete}}
+\index{onExitRequestComplete@{onExitRequestComplete}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{onExitRequestComplete()}{onExitRequestComplete()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a81ba0fac4d6e9ca15b84fd264b84bcd3} 
+void Interactor\+\_\+\+Display.\+on\+Exit\+Request\+Complete (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_ace906f195575e3e538138dcb0825913e}\index{Interactor\_Display@{Interactor\_Display}!OnRequestFail@{OnRequestFail}}
+\index{OnRequestFail@{OnRequestFail}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{OnRequestFail()}{OnRequestFail()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_ace906f195575e3e538138dcb0825913e} 
+void Interactor\+\_\+\+Display.\+On\+Request\+Fail (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_acf7a17281831f52544e47a444311e848}\index{Interactor\_Display@{Interactor\_Display}!OpenInventory@{OpenInventory}}
+\index{OpenInventory@{OpenInventory}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{OpenInventory()}{OpenInventory()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_acf7a17281831f52544e47a444311e848} 
+void Interactor\+\_\+\+Display.\+Open\+Inventory (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a53c1d1153b80c10eff69260b06d7a234}\index{Interactor\_Display@{Interactor\_Display}!OpenMenu@{OpenMenu}}
+\index{OpenMenu@{OpenMenu}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{OpenMenu()}{OpenMenu()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a53c1d1153b80c10eff69260b06d7a234} 
+void Interactor\+\_\+\+Display.\+Open\+Menu (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a696f54b3cdd5323eb236771a5ec42623}\index{Interactor\_Display@{Interactor\_Display}!setLeaderboardText@{setLeaderboardText}}
+\index{setLeaderboardText@{setLeaderboardText}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{setLeaderboardText()}{setLeaderboardText()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a696f54b3cdd5323eb236771a5ec42623} 
+void Interactor\+\_\+\+Display.\+set\+Leaderboard\+Text (\begin{DoxyParamCaption}\item[{string}]{response\+Text}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a0afd6343f18c2ee948eb8805dd4b7cd1}\index{Interactor\_Display@{Interactor\_Display}!SetupErrorScreen@{SetupErrorScreen}}
+\index{SetupErrorScreen@{SetupErrorScreen}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{SetupErrorScreen()}{SetupErrorScreen()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a0afd6343f18c2ee948eb8805dd4b7cd1} 
+void Interactor\+\_\+\+Display.\+Setup\+Error\+Screen (\begin{DoxyParamCaption}\item[{string}]{error\+Message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInteractor__Display_a0993d77bd0f1c8d2b4ca3ee2b3f83b07}\index{Interactor\_Display@{Interactor\_Display}!Start@{Start}}
+\index{Start@{Start}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a0993d77bd0f1c8d2b4ca3ee2b3f83b07} 
+void Interactor\+\_\+\+Display.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a86c21a04ad7b61dc3f27673cb4808494}\index{Interactor\_Display@{Interactor\_Display}!uploadPlayerDataOnExit@{uploadPlayerDataOnExit}}
+\index{uploadPlayerDataOnExit@{uploadPlayerDataOnExit}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{uploadPlayerDataOnExit()}{uploadPlayerDataOnExit()}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a86c21a04ad7b61dc3f27673cb4808494} 
+void Interactor\+\_\+\+Display.\+upload\+Player\+Data\+On\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classInteractor__Display_aa135d95077a45cf9f94c6cdbfb7eb577}\index{Interactor\_Display@{Interactor\_Display}!baseGameUI@{baseGameUI}}
+\index{baseGameUI@{baseGameUI}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{baseGameUI}{baseGameUI}}
+{\footnotesize\ttfamily \label{classInteractor__Display_aa135d95077a45cf9f94c6cdbfb7eb577} 
+Game\+Object Interactor\+\_\+\+Display.\+base\+Game\+UI\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a503df8406304a5507a18c0ab38793c4b}\index{Interactor\_Display@{Interactor\_Display}!dialogueManager@{dialogueManager}}
+\index{dialogueManager@{dialogueManager}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{dialogueManager}{dialogueManager}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a503df8406304a5507a18c0ab38793c4b} 
+\mbox{\hyperlink{classDialogueManager__TS}{Dialogue\+Manager\+\_\+\+TS}} Interactor\+\_\+\+Display.\+dialogue\+Manager\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_acca0ad78ea05297fd557ed9b5396370b}\index{Interactor\_Display@{Interactor\_Display}!dialogueManagerCasino@{dialogueManagerCasino}}
+\index{dialogueManagerCasino@{dialogueManagerCasino}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{dialogueManagerCasino}{dialogueManagerCasino}}
+{\footnotesize\ttfamily \label{classInteractor__Display_acca0ad78ea05297fd557ed9b5396370b} 
+\mbox{\hyperlink{classDialogueManager__Casino}{Dialogue\+Manager\+\_\+\+Casino}} Interactor\+\_\+\+Display.\+dialogue\+Manager\+Casino\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a7b40088a75ce5ebd261f8c434770debd}\index{Interactor\_Display@{Interactor\_Display}!dialogueManagerLab@{dialogueManagerLab}}
+\index{dialogueManagerLab@{dialogueManagerLab}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{dialogueManagerLab}{dialogueManagerLab}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a7b40088a75ce5ebd261f8c434770debd} 
+\mbox{\hyperlink{classDialogueManager__Lab}{Dialogue\+Manager\+\_\+\+Lab}} Interactor\+\_\+\+Display.\+dialogue\+Manager\+Lab\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_ae8dd940420c5fbfa360d5f67bc5c3647}\index{Interactor\_Display@{Interactor\_Display}!errorMessageText@{errorMessageText}}
+\index{errorMessageText@{errorMessageText}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{errorMessageText}{errorMessageText}}
+{\footnotesize\ttfamily \label{classInteractor__Display_ae8dd940420c5fbfa360d5f67bc5c3647} 
+TMP\+\_\+\+Text Interactor\+\_\+\+Display.\+error\+Message\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a6887e4c87257945920293c63516df87f}\index{Interactor\_Display@{Interactor\_Display}!errorScreen@{errorScreen}}
+\index{errorScreen@{errorScreen}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{errorScreen}{errorScreen}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a6887e4c87257945920293c63516df87f} 
+Game\+Object Interactor\+\_\+\+Display.\+error\+Screen\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a15e7287a35c54cd41ffef29c0674ac9e}\index{Interactor\_Display@{Interactor\_Display}!inventoryPanel@{inventoryPanel}}
+\index{inventoryPanel@{inventoryPanel}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{inventoryPanel}{inventoryPanel}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a15e7287a35c54cd41ffef29c0674ac9e} 
+Game\+Object Interactor\+\_\+\+Display.\+inventory\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a0760643c4e2f0d9dea458fb6c472f38a}\index{Interactor\_Display@{Interactor\_Display}!leaderboards@{leaderboards}}
+\index{leaderboards@{leaderboards}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{leaderboards}{leaderboards}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a0760643c4e2f0d9dea458fb6c472f38a} 
+Game\+Object Interactor\+\_\+\+Display.\+leaderboards\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_ab85e335b92d276d58628e90853d34e39}\index{Interactor\_Display@{Interactor\_Display}!menuPanel@{menuPanel}}
+\index{menuPanel@{menuPanel}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{menuPanel}{menuPanel}}
+{\footnotesize\ttfamily \label{classInteractor__Display_ab85e335b92d276d58628e90853d34e39} 
+Game\+Object Interactor\+\_\+\+Display.\+menu\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_aba016c3c92ef747665f82308be5e738a}\index{Interactor\_Display@{Interactor\_Display}!modal@{modal}}
+\index{modal@{modal}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{modal}{modal}}
+{\footnotesize\ttfamily \label{classInteractor__Display_aba016c3c92ef747665f82308be5e738a} 
+Game\+Object Interactor\+\_\+\+Display.\+modal\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a9f3b15e9646b7ef1038c053253ba833e}\index{Interactor\_Display@{Interactor\_Display}!player@{player}}
+\index{player@{player}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a9f3b15e9646b7ef1038c053253ba833e} 
+Game\+Object Interactor\+\_\+\+Display.\+player\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_aea4ea997d679022c799d1bd4cc2ca437}\index{Interactor\_Display@{Interactor\_Display}!top10@{top10}}
+\index{top10@{top10}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{top10}{top10}}
+{\footnotesize\ttfamily \label{classInteractor__Display_aea4ea997d679022c799d1bd4cc2ca437} 
+TMP\+\_\+\+Text Interactor\+\_\+\+Display.\+top10\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInteractor__Display_a0b0c9045120eedde9ca4a8aa78a317c5}\index{Interactor\_Display@{Interactor\_Display}!top5@{top5}}
+\index{top5@{top5}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{top5}{top5}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a0b0c9045120eedde9ca4a8aa78a317c5} 
+TMP\+\_\+\+Text Interactor\+\_\+\+Display.\+top5\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classInteractor__Display_a0ff695400b8a1d20251423279551dd39}\index{Interactor\_Display@{Interactor\_Display}!gameManager@{gameManager}}
+\index{gameManager@{gameManager}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{gameManager}{gameManager}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a0ff695400b8a1d20251423279551dd39} 
+\mbox{\hyperlink{classGameManager}{Game\+Manager}} Interactor\+\_\+\+Display.\+game\+Manager\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{classInteractor__Display_a884a61ba4b0db2920044cf7594aa0aab}\index{Interactor\_Display@{Interactor\_Display}!interactable@{interactable}}
+\index{interactable@{interactable}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{interactable}{interactable}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a884a61ba4b0db2920044cf7594aa0aab} 
+string Interactor\+\_\+\+Display.\+interactable\hspace{0.3cm}{\ttfamily [get]}}
+
+\Hypertarget{classInteractor__Display_a124cc3e4ed6ffe938139867dbe3abf63}\index{Interactor\_Display@{Interactor\_Display}!playerData@{playerData}}
+\index{playerData@{playerData}!Interactor\_Display@{Interactor\_Display}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{classInteractor__Display_a124cc3e4ed6ffe938139867dbe3abf63} 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} Interactor\+\_\+\+Display.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Interactors/\mbox{\hyperlink{Interactor__Display_8cs}{Interactor\+\_\+\+Display.\+cs}}\end{DoxyCompactItemize}

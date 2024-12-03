@@ -1,0 +1,602 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/node\+\_\+modules/@jridgewell/trace-\/mapping/dist/trace-\/mapping.mjs File Reference}
+\hypertarget{trace-mapping_8mjs}{}\label{trace-mapping_8mjs}\index{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/trace-\/mapping/dist/trace-\/mapping.mjs@{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/trace-\/mapping/dist/trace-\/mapping.mjs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classTraceMap}{Trace\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a29c7fd97c610c782137ba05994992fc0}{resolve}} (input, base)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a976be25c306c6b2a72111c660ac89439}{strip\+Filename}} (\mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a4a945f2dc0be9c418ccf55c6cf01c1da}{path}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_ad4e92b7b79ca719cdd408bdc651d1985}{maybe\+Sort}} (mappings, owned)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a772a8ebfe961b129f7780b596b3f2f7a}{next\+Unsorted\+Segment\+Line}} (mappings, start)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a023c2bfea0ee9fdd0248b6813494abd5}{is\+Sorted}} (\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a37ed5e3ea6dd53c6e1234820c41c32f9}{sort\+Segments}} (\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, owned)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_aeb35dffe19729fc47f70f75ead912859}{sort\+Comparator}} (a, b)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_ae79f983293231769631f010a1da04ad1}{binary\+Search}} (haystack, needle, low, high)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a3ae91d2894c971da1fc8bd96690d2480}{upper\+Bound}} (haystack, needle, index)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a67aa3d1027bcbcfd27b6dea057a2d4da}{lower\+Bound}} (haystack, needle, index)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_af7b59adf6854c73d89d00a8b60f934a5}{memoized\+State}} ()
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_adfcb9c69dd8641554cf59b5e24085438}{memoized\+Binary\+Search}} (haystack, needle, state, \mbox{\hyperlink{index_8min_8mjs_aa3284bd5ae917593d1f1757477368bab}{key}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a3c052f636f9f0ae84a7591ee15ba95b2}{build\+By\+Sources}} (decoded, memos)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_ad4ca67171e2f298e80ec475c4288cca5}{insert}} (array, index, value)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a6d1eb8f1e86007af9d866ac3bd8e8888}{build\+Null\+Array}} ()
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a96013ed69a2106e384295876a5e69ef2}{parse}} (map)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_aebe2a3531380d184458bbcfd544e24a0}{recurse}} (input, map\+Url, mappings, sources, sources\+Content, names, ignore\+List, line\+Offset, column\+Offset, stop\+Line, stop\+Column)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_acf3aabcb1cdd2750ef8f74d67c95fd51}{add\+Section}} (input, map\+Url, mappings, sources, sources\+Content, names, ignore\+List, line\+Offset, column\+Offset, stop\+Line, stop\+Column)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_acebba774973e05fd464b0d369d44c5a8}{append}} (arr, other)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a57bd51786ba23144df46943e07058952}{get\+Line}} (arr, index)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_aa5b20310e0b682037a8cc10ffb6deb21}{cast}} (map)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a58cb6f063b7607c67c6f4e8625079d3a}{encoded\+Mappings}} (map)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a5824afb090fd01eab45b77333794a33a}{decoded\+Mappings}} (map)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_acbccf7b4b1ba6c784c94f0bc5679e0af}{trace\+Segment}} (map, \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a7e713f155259fb60a7e2d732107f7115}{original\+Position\+For}} (map, needle)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a1cb9e05d8326309f33813764768a45e2}{generated\+Position\+For}} (map, needle)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a5cffd7f59c048080131b9bc05ef4d488}{all\+Generated\+Positions\+For}} (map, needle)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a242daa630c6600c2818fef5b218764a6}{each\+Mapping}} (map, cb)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a6772a563c08f84111605f563fb2ca6ed}{source\+Index}} (map, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a50272cb0e7b8d6a8d86f5b9823d33431}{source\+Content\+For}} (map, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_ad150d2b9b881f3dac3ec199be8e97373}{is\+Ignored}} (map, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a2aed9187ec35da84cd3ff1be1867c358}{presorted\+Decoded\+Map}} (map, map\+Url)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a2c7cf9b5bb9c1b27749a33b56cd9c003}{decoded\+Map}} (map)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_af970a921413477a32b903cc5b46dd5b0}{encoded\+Map}} (map)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a1021a8aebf4af4997270328687ded463}{clone}} (map, mappings)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a431d4d0e3f9a0e7a21e276e800373fd9}{OMapping}} (\mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}}, \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a3f141661899998b0df278f7a9c201304}{name}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_aa219c0c6b8666c8ce3ccf15766970454}{GMapping}} (\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}})
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a5fdf0589c24ba3b10e21467cedb85362}{trace\+Segment\+Internal}} (segments, memo, \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}}, bias)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_a5b469e448d263e51dea512a8925a9a1c}{slice\+Generated\+Positions}} (segments, memo, \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}}, bias)
+\item 
+function \mbox{\hyperlink{trace-mapping_8mjs_ac4c2d94f1a257f7d9598a7fa743e06d8}{generated\+Position}} (map, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}}, bias, all)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a59be084da8908b7d77ff34b25cd84488}{import}} \{ \mbox{\hyperlink{sourcemap-codec_8mjs_ab441d4eced7b779bcc1a3515598670e3}{encode}}, \mbox{\hyperlink{sourcemap-codec_8mjs_a739275c68bf50273757891827753bf82}{decode}} \} from \textquotesingle{}@jridgewell/sourcemap-\/codec\textquotesingle{}
+\item 
+\mbox{\hyperlink{Equip_2src_2index_8mjs_aa2f30af07f4643a7f6a47dcaee56174f}{import}} resolve\+Uri from jridgewell \mbox{\hyperlink{esm_8mjs_ab2dffd225c7835ac54b00ca1bb8d83cf}{resolve}} \mbox{\hyperlink{trace-mapping_8mjs_ad87802f3f6d5ac9d6da2e2ba7b4fcd8c}{uri}}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_a49e02c923fc83e96a13e89e4a8d800cd}{COLUMN}} = 0
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_ab50c196f1c4551ba4df20bfd225090a5}{SOURCES\+\_\+\+INDEX}} = 1
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_a2c05e52e7ab30bd0ccf8cfa486a04fd6}{SOURCE\+\_\+\+LINE}} = 2
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_af5b5b87a6d9c467748ea95f4061aa27f}{SOURCE\+\_\+\+COLUMN}} = 3
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_a5fa5a3832a8272c8fb4c2e5532f4b88e}{NAMES\+\_\+\+INDEX}} = 4
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_ab4ae474815c2e556c8596c34a0233950}{REV\+\_\+\+GENERATED\+\_\+\+LINE}} = 1
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_afcb94691d8e2b4a002c9043486b5cc3f}{REV\+\_\+\+GENERATED\+\_\+\+COLUMN}} = 2
+\item 
+let \mbox{\hyperlink{trace-mapping_8mjs_ad40c6c0942f9c49b7b74c5fa061fd6ad}{found}} = false
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_ab913f67c849e592de5b7c1467204a4a4}{Any\+Map}}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_a00b64804ad1374145820ea62049863ef}{LINE\+\_\+\+GTR\+\_\+\+ZERO}} = \textquotesingle{}\`{}\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}\`{} must be greater than 0 (lines start at \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}} 1)\textquotesingle{}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_a7c96f73008945a392294eb36105fbbfb}{COL\+\_\+\+GTR\+\_\+\+EQ\+\_\+\+ZERO}} = \textquotesingle{}\`{}\mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}}\`{} must be greater than or equal to 0 (columns start at \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}} 0)\textquotesingle{}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_a861cb42483db428d5b71835836f2e504}{LEAST\+\_\+\+UPPER\+\_\+\+BOUND}} = -\/1
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{trace-mapping_8mjs_aa12feffc0a62fa1dfb7de5e49e2444c4}{GREATEST\+\_\+\+LOWER\+\_\+\+BOUND}} = 1
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_af17c1e8aabb1dd5e2ee54efe0c62b8f8}{Trace\+Map}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a5f8f1ff6e1efb3bd38f7c270332a1efb}{all\+Generated\+Positions\+For}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a652ef65498d9513fa41d4d122b1331cb}{decoded\+Map}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_aa4ea48baacb95808ad2f3e4d3942b9f5}{decoded\+Mappings}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a7c7887246a9e2fe895f0c97933ee447a}{each\+Mapping}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a7f833b0ded72ddf296b29b9410089f51}{encoded\+Map}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_aaf2027b2d989dac87bfd2b6f7e846202}{encoded\+Mappings}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a419eaadfc6c926b578aab1d4a258cfbf}{generated\+Position\+For}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a35063c236ae3f92b4f7982f2054b5965}{is\+Ignored}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a6d42e0757d1a6190f2fbaa1b3bb92ebe}{original\+Position\+For}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_ae2c0fa9688b3272abff2b9b066eb2efd}{presorted\+Decoded\+Map}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a5b8669ae5722e1544916a6ccfeceea40}{source\+Content\+For}}
+\item 
+\mbox{\hyperlink{trace-mapping_8mjs_a27adffd54a31aa8ff3e31765ba6210d0}{trace\+Segment}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{trace-mapping_8mjs_acf3aabcb1cdd2750ef8f74d67c95fd51}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!addSection@{addSection}}
+\index{addSection@{addSection}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{addSection()}{addSection()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_acf3aabcb1cdd2750ef8f74d67c95fd51} 
+function add\+Section (\begin{DoxyParamCaption}\item[{}]{input}{, }\item[{}]{map\+Url}{, }\item[{}]{mappings}{, }\item[{}]{sources}{, }\item[{}]{sources\+Content}{, }\item[{}]{names}{, }\item[{}]{ignore\+List}{, }\item[{}]{line\+Offset}{, }\item[{}]{column\+Offset}{, }\item[{}]{stop\+Line}{, }\item[{}]{stop\+Column}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a5cffd7f59c048080131b9bc05ef4d488}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!allGeneratedPositionsFor@{allGeneratedPositionsFor}}
+\index{allGeneratedPositionsFor@{allGeneratedPositionsFor}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{allGeneratedPositionsFor()}{allGeneratedPositionsFor()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a5cffd7f59c048080131b9bc05ef4d488} 
+function all\+Generated\+Positions\+For (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{needle}{}\end{DoxyParamCaption})}
+
+Finds all generated line/column positions of the provided source/line/column source position. \Hypertarget{trace-mapping_8mjs_acebba774973e05fd464b0d369d44c5a8}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!append@{append}}
+\index{append@{append}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{append()}{append()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_acebba774973e05fd464b0d369d44c5a8} 
+function append (\begin{DoxyParamCaption}\item[{}]{arr}{, }\item[{}]{other}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_ae79f983293231769631f010a1da04ad1}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!binarySearch@{binarySearch}}
+\index{binarySearch@{binarySearch}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{binarySearch()}{binarySearch()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ae79f983293231769631f010a1da04ad1} 
+function binary\+Search (\begin{DoxyParamCaption}\item[{}]{haystack}{, }\item[{}]{needle}{, }\item[{}]{low}{, }\item[{}]{high}{}\end{DoxyParamCaption})}
+
+A binary search implementation that returns the index if a match is found. If no match is found, then the left-\/index (the index associated with the item that comes just before the desired index) is returned. To maintain proper sort order, a splice would happen at the next index\+:
+
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{const\ array\ =\ [1,\ 3];}
+\DoxyCodeLine{const\ needle\ =\ 2;}
+\DoxyCodeLine{const\ index\ =\ binarySearch(array,\ needle,\ (item,\ needle)\ =>\ item\ -\/\ needle);}
+\DoxyCodeLine{}
+\DoxyCodeLine{assert.equal(index,\ 0);}
+\DoxyCodeLine{array.splice(index\ +\ 1,\ 0,\ needle);}
+\DoxyCodeLine{assert.deepEqual(array,\ [1,\ 2,\ 3]);}
+
+\end{DoxyCode}
+ \Hypertarget{trace-mapping_8mjs_a3c052f636f9f0ae84a7591ee15ba95b2}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!buildBySources@{buildBySources}}
+\index{buildBySources@{buildBySources}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{buildBySources()}{buildBySources()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a3c052f636f9f0ae84a7591ee15ba95b2} 
+function build\+By\+Sources (\begin{DoxyParamCaption}\item[{}]{decoded}{, }\item[{}]{memos}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a6d1eb8f1e86007af9d866ac3bd8e8888}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!buildNullArray@{buildNullArray}}
+\index{buildNullArray@{buildNullArray}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{buildNullArray()}{buildNullArray()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a6d1eb8f1e86007af9d866ac3bd8e8888} 
+function build\+Null\+Array (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_aa5b20310e0b682037a8cc10ffb6deb21}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!cast@{cast}}
+\index{cast@{cast}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{cast()}{cast()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_aa5b20310e0b682037a8cc10ffb6deb21} 
+function cast (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Typescript doesn\textquotesingle{}t allow friend access to private fields, so this just casts the map into a type with public access modifiers. \Hypertarget{trace-mapping_8mjs_a1021a8aebf4af4997270328687ded463}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!clone@{clone}}
+\index{clone@{clone}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{clone()}{clone()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a1021a8aebf4af4997270328687ded463} 
+function clone (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{mappings}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a2c7cf9b5bb9c1b27749a33b56cd9c003}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!decodedMap@{decodedMap}}
+\index{decodedMap@{decodedMap}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{decodedMap()}{decodedMap()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a2c7cf9b5bb9c1b27749a33b56cd9c003} 
+function decoded\+Map (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Returns a sourcemap object (with decoded mappings) suitable for passing to a library that expects a sourcemap, or to JSON.\+stringify. \Hypertarget{trace-mapping_8mjs_a5824afb090fd01eab45b77333794a33a}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!decodedMappings@{decodedMappings}}
+\index{decodedMappings@{decodedMappings}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{decodedMappings()}{decodedMappings()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a5824afb090fd01eab45b77333794a33a} 
+function decoded\+Mappings (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Returns the decoded (array of lines of segments) form of the \doxylink{classSourceMap}{Source\+Map}\textquotesingle{}s mappings field. \Hypertarget{trace-mapping_8mjs_a242daa630c6600c2818fef5b218764a6}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!eachMapping@{eachMapping}}
+\index{eachMapping@{eachMapping}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{eachMapping()}{eachMapping()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a242daa630c6600c2818fef5b218764a6} 
+function each\+Mapping (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{cb}{}\end{DoxyParamCaption})}
+
+Iterates each mapping in generated position order. \Hypertarget{trace-mapping_8mjs_af970a921413477a32b903cc5b46dd5b0}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!encodedMap@{encodedMap}}
+\index{encodedMap@{encodedMap}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{encodedMap()}{encodedMap()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_af970a921413477a32b903cc5b46dd5b0} 
+function encoded\+Map (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Returns a sourcemap object (with encoded mappings) suitable for passing to a library that expects a sourcemap, or to JSON.\+stringify. \Hypertarget{trace-mapping_8mjs_a58cb6f063b7607c67c6f4e8625079d3a}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!encodedMappings@{encodedMappings}}
+\index{encodedMappings@{encodedMappings}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{encodedMappings()}{encodedMappings()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a58cb6f063b7607c67c6f4e8625079d3a} 
+function encoded\+Mappings (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Returns the encoded (VLQ string) form of the \doxylink{classSourceMap}{Source\+Map}\textquotesingle{}s mappings field. \Hypertarget{trace-mapping_8mjs_ac4c2d94f1a257f7d9598a7fa743e06d8}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!generatedPosition@{generatedPosition}}
+\index{generatedPosition@{generatedPosition}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{generatedPosition()}{generatedPosition()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ac4c2d94f1a257f7d9598a7fa743e06d8} 
+function generated\+Position (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{source}{, }\item[{}]{line}{, }\item[{}]{column}{, }\item[{}]{bias}{, }\item[{}]{all}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a1cb9e05d8326309f33813764768a45e2}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!generatedPositionFor@{generatedPositionFor}}
+\index{generatedPositionFor@{generatedPositionFor}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{generatedPositionFor()}{generatedPositionFor()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a1cb9e05d8326309f33813764768a45e2} 
+function generated\+Position\+For (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{needle}{}\end{DoxyParamCaption})}
+
+Finds the generated line/column position of the provided source/line/column source position. \Hypertarget{trace-mapping_8mjs_a57bd51786ba23144df46943e07058952}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!getLine@{getLine}}
+\index{getLine@{getLine}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{getLine()}{getLine()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a57bd51786ba23144df46943e07058952} 
+function get\+Line (\begin{DoxyParamCaption}\item[{}]{arr}{, }\item[{}]{index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_aa219c0c6b8666c8ce3ccf15766970454}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!GMapping@{GMapping}}
+\index{GMapping@{GMapping}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{GMapping()}{GMapping()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_aa219c0c6b8666c8ce3ccf15766970454} 
+function GMapping (\begin{DoxyParamCaption}\item[{}]{line}{, }\item[{}]{column}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_ad4ca67171e2f298e80ec475c4288cca5}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!insert@{insert}}
+\index{insert@{insert}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ad4ca67171e2f298e80ec475c4288cca5} 
+function insert (\begin{DoxyParamCaption}\item[{}]{array}{, }\item[{}]{index}{, }\item[{}]{value}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_ad150d2b9b881f3dac3ec199be8e97373}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!isIgnored@{isIgnored}}
+\index{isIgnored@{isIgnored}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{isIgnored()}{isIgnored()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ad150d2b9b881f3dac3ec199be8e97373} 
+function is\+Ignored (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{source}{}\end{DoxyParamCaption})}
+
+Determines if the source is marked to ignore by the source map. \Hypertarget{trace-mapping_8mjs_a023c2bfea0ee9fdd0248b6813494abd5}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!isSorted@{isSorted}}
+\index{isSorted@{isSorted}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{isSorted()}{isSorted()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a023c2bfea0ee9fdd0248b6813494abd5} 
+function is\+Sorted (\begin{DoxyParamCaption}\item[{}]{line}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a67aa3d1027bcbcfd27b6dea057a2d4da}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!lowerBound@{lowerBound}}
+\index{lowerBound@{lowerBound}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{lowerBound()}{lowerBound()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a67aa3d1027bcbcfd27b6dea057a2d4da} 
+function lower\+Bound (\begin{DoxyParamCaption}\item[{}]{haystack}{, }\item[{}]{needle}{, }\item[{}]{index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_ad4e92b7b79ca719cdd408bdc651d1985}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!maybeSort@{maybeSort}}
+\index{maybeSort@{maybeSort}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{maybeSort()}{maybeSort()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ad4e92b7b79ca719cdd408bdc651d1985} 
+function maybe\+Sort (\begin{DoxyParamCaption}\item[{}]{mappings}{, }\item[{}]{owned}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_adfcb9c69dd8641554cf59b5e24085438}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!memoizedBinarySearch@{memoizedBinarySearch}}
+\index{memoizedBinarySearch@{memoizedBinarySearch}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{memoizedBinarySearch()}{memoizedBinarySearch()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_adfcb9c69dd8641554cf59b5e24085438} 
+function memoized\+Binary\+Search (\begin{DoxyParamCaption}\item[{}]{haystack}{, }\item[{}]{needle}{, }\item[{}]{state}{, }\item[{}]{key}{}\end{DoxyParamCaption})}
+
+This overly complicated beast is just to record the last tested line/column and the resulting index, allowing us to skip a few tests if mappings are monotonically increasing. \Hypertarget{trace-mapping_8mjs_af7b59adf6854c73d89d00a8b60f934a5}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!memoizedState@{memoizedState}}
+\index{memoizedState@{memoizedState}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{memoizedState()}{memoizedState()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_af7b59adf6854c73d89d00a8b60f934a5} 
+function memoized\+State (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a772a8ebfe961b129f7780b596b3f2f7a}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!nextUnsortedSegmentLine@{nextUnsortedSegmentLine}}
+\index{nextUnsortedSegmentLine@{nextUnsortedSegmentLine}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{nextUnsortedSegmentLine()}{nextUnsortedSegmentLine()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a772a8ebfe961b129f7780b596b3f2f7a} 
+function next\+Unsorted\+Segment\+Line (\begin{DoxyParamCaption}\item[{}]{mappings}{, }\item[{}]{start}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a431d4d0e3f9a0e7a21e276e800373fd9}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!OMapping@{OMapping}}
+\index{OMapping@{OMapping}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{OMapping()}{OMapping()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a431d4d0e3f9a0e7a21e276e800373fd9} 
+function OMapping (\begin{DoxyParamCaption}\item[{}]{source}{, }\item[{}]{line}{, }\item[{}]{column}{, }\item[{}]{name}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a7e713f155259fb60a7e2d732107f7115}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!originalPositionFor@{originalPositionFor}}
+\index{originalPositionFor@{originalPositionFor}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{originalPositionFor()}{originalPositionFor()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a7e713f155259fb60a7e2d732107f7115} 
+function original\+Position\+For (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{needle}{}\end{DoxyParamCaption})}
+
+A higher-\/level API to find the source/line/column associated with a generated line/column (think, from a stack trace). Line is 1-\/based, but column is 0-\/based, due to legacy behavior in {\ttfamily source-\/map} library. \Hypertarget{trace-mapping_8mjs_a96013ed69a2106e384295876a5e69ef2}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!parse@{parse}}
+\index{parse@{parse}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{parse()}{parse()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a96013ed69a2106e384295876a5e69ef2} 
+function parse (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a2aed9187ec35da84cd3ff1be1867c358}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!presortedDecodedMap@{presortedDecodedMap}}
+\index{presortedDecodedMap@{presortedDecodedMap}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{presortedDecodedMap()}{presortedDecodedMap()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a2aed9187ec35da84cd3ff1be1867c358} 
+function presorted\+Decoded\+Map (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{map\+Url}{}\end{DoxyParamCaption})}
+
+A helper that skips sorting of the input map\textquotesingle{}s mappings array, which can be expensive for larger maps. \Hypertarget{trace-mapping_8mjs_aebe2a3531380d184458bbcfd544e24a0}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!recurse@{recurse}}
+\index{recurse@{recurse}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{recurse()}{recurse()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_aebe2a3531380d184458bbcfd544e24a0} 
+function recurse (\begin{DoxyParamCaption}\item[{}]{input}{, }\item[{}]{map\+Url}{, }\item[{}]{mappings}{, }\item[{}]{sources}{, }\item[{}]{sources\+Content}{, }\item[{}]{names}{, }\item[{}]{ignore\+List}{, }\item[{}]{line\+Offset}{, }\item[{}]{column\+Offset}{, }\item[{}]{stop\+Line}{, }\item[{}]{stop\+Column}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a29c7fd97c610c782137ba05994992fc0}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!resolve@{resolve}}
+\index{resolve@{resolve}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a29c7fd97c610c782137ba05994992fc0} 
+function resolve (\begin{DoxyParamCaption}\item[{}]{input}{, }\item[{}]{base}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a5b469e448d263e51dea512a8925a9a1c}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!sliceGeneratedPositions@{sliceGeneratedPositions}}
+\index{sliceGeneratedPositions@{sliceGeneratedPositions}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{sliceGeneratedPositions()}{sliceGeneratedPositions()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a5b469e448d263e51dea512a8925a9a1c} 
+function slice\+Generated\+Positions (\begin{DoxyParamCaption}\item[{}]{segments}{, }\item[{}]{memo}{, }\item[{}]{line}{, }\item[{}]{column}{, }\item[{}]{bias}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_aeb35dffe19729fc47f70f75ead912859}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!sortComparator@{sortComparator}}
+\index{sortComparator@{sortComparator}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{sortComparator()}{sortComparator()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_aeb35dffe19729fc47f70f75ead912859} 
+function sort\+Comparator (\begin{DoxyParamCaption}\item[{}]{a}{, }\item[{}]{b}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a37ed5e3ea6dd53c6e1234820c41c32f9}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!sortSegments@{sortSegments}}
+\index{sortSegments@{sortSegments}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{sortSegments()}{sortSegments()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a37ed5e3ea6dd53c6e1234820c41c32f9} 
+function sort\+Segments (\begin{DoxyParamCaption}\item[{}]{line}{, }\item[{}]{owned}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a50272cb0e7b8d6a8d86f5b9823d33431}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!sourceContentFor@{sourceContentFor}}
+\index{sourceContentFor@{sourceContentFor}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{sourceContentFor()}{sourceContentFor()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a50272cb0e7b8d6a8d86f5b9823d33431} 
+function source\+Content\+For (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{source}{}\end{DoxyParamCaption})}
+
+Retrieves the source content for a particular source, if its found. Returns null if not. \Hypertarget{trace-mapping_8mjs_a6772a563c08f84111605f563fb2ca6ed}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!sourceIndex@{sourceIndex}}
+\index{sourceIndex@{sourceIndex}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{sourceIndex()}{sourceIndex()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a6772a563c08f84111605f563fb2ca6ed} 
+function source\+Index (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{source}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a976be25c306c6b2a72111c660ac89439}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!stripFilename@{stripFilename}}
+\index{stripFilename@{stripFilename}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{stripFilename()}{stripFilename()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a976be25c306c6b2a72111c660ac89439} 
+function strip\+Filename (\begin{DoxyParamCaption}\item[{}]{path}{}\end{DoxyParamCaption})}
+
+Removes everything after the last "{}/"{}, but leaves the slash. \Hypertarget{trace-mapping_8mjs_acbccf7b4b1ba6c784c94f0bc5679e0af}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!traceSegment@{traceSegment}}
+\index{traceSegment@{traceSegment}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{traceSegment()}{traceSegment()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_acbccf7b4b1ba6c784c94f0bc5679e0af} 
+function trace\+Segment (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{line}{, }\item[{}]{column}{}\end{DoxyParamCaption})}
+
+A low-\/level API to find the segment associated with a generated line/column (think, from a stack trace). Line and column here are 0-\/based, unlike {\ttfamily original\+Position\+For}. \Hypertarget{trace-mapping_8mjs_a5fdf0589c24ba3b10e21467cedb85362}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!traceSegmentInternal@{traceSegmentInternal}}
+\index{traceSegmentInternal@{traceSegmentInternal}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{traceSegmentInternal()}{traceSegmentInternal()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a5fdf0589c24ba3b10e21467cedb85362} 
+function trace\+Segment\+Internal (\begin{DoxyParamCaption}\item[{}]{segments}{, }\item[{}]{memo}{, }\item[{}]{line}{, }\item[{}]{column}{, }\item[{}]{bias}{}\end{DoxyParamCaption})}
+
+\Hypertarget{trace-mapping_8mjs_a3ae91d2894c971da1fc8bd96690d2480}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!upperBound@{upperBound}}
+\index{upperBound@{upperBound}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{upperBound()}{upperBound()}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a3ae91d2894c971da1fc8bd96690d2480} 
+function upper\+Bound (\begin{DoxyParamCaption}\item[{}]{haystack}{, }\item[{}]{needle}{, }\item[{}]{index}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{trace-mapping_8mjs_a5f8f1ff6e1efb3bd38f7c270332a1efb}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!allGeneratedPositionsFor@{allGeneratedPositionsFor}}
+\index{allGeneratedPositionsFor@{allGeneratedPositionsFor}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{allGeneratedPositionsFor}{allGeneratedPositionsFor}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a5f8f1ff6e1efb3bd38f7c270332a1efb} 
+all\+Generated\+Positions\+For}
+
+\Hypertarget{trace-mapping_8mjs_ab913f67c849e592de5b7c1467204a4a4}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!AnyMap@{AnyMap}}
+\index{AnyMap@{AnyMap}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{AnyMap}{AnyMap}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ab913f67c849e592de5b7c1467204a4a4} 
+Any\+Map}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \textcolor{keyword}{function}\ (map,\ mapUrl)\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ parsed\ =\ \mbox{\hyperlink{index_8min_8mjs_afbb224ef64380e0c03fd28ca64a949ab}{parse}}(map);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{if}\ (!(\textcolor{stringliteral}{'sections'}\ in\ parsed))\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \textcolor{keyword}{new}\ \mbox{\hyperlink{trace-mapping_8mjs_af17c1e8aabb1dd5e2ee54efe0c62b8f8}{TraceMap}}(parsed,\ mapUrl);}
+\DoxyCodeLine{\ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ mappings\ =\ [];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ sources\ =\ [];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ sourcesContent\ =\ [];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ names\ =\ [];}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ ignoreList\ =\ [];}
+\DoxyCodeLine{\ \ \ \ \mbox{\hyperlink{trace-mapping_8mjs_aebe2a3531380d184458bbcfd544e24a0}{recurse}}(parsed,\ mapUrl,\ mappings,\ sources,\ sourcesContent,\ names,\ ignoreList,\ 0,\ 0,\ Infinity,\ Infinity);}
+\DoxyCodeLine{\ \ \ \ \textcolor{keyword}{const}\ joined\ =\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ version:\ 3,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ file:\ parsed.file,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ names,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ sources,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ sourcesContent,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ mappings,}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ ignoreList,}
+\DoxyCodeLine{\ \ \ \ \};}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{trace-mapping_8mjs_ae2c0fa9688b3272abff2b9b066eb2efd}{presortedDecodedMap}}(joined);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\Hypertarget{trace-mapping_8mjs_a7c96f73008945a392294eb36105fbbfb}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!COL\_GTR\_EQ\_ZERO@{COL\_GTR\_EQ\_ZERO}}
+\index{COL\_GTR\_EQ\_ZERO@{COL\_GTR\_EQ\_ZERO}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{COL\_GTR\_EQ\_ZERO}{COL\_GTR\_EQ\_ZERO}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a7c96f73008945a392294eb36105fbbfb} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} COL\+\_\+\+GTR\+\_\+\+EQ\+\_\+\+ZERO = \textquotesingle{}\`{}\mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}}\`{} must be greater than or equal to 0 (columns start at \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}} 0)\textquotesingle{}}
+
+\Hypertarget{trace-mapping_8mjs_a49e02c923fc83e96a13e89e4a8d800cd}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!COLUMN@{COLUMN}}
+\index{COLUMN@{COLUMN}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{COLUMN}{COLUMN}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a49e02c923fc83e96a13e89e4a8d800cd} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} COLUMN = 0}
+
+\Hypertarget{trace-mapping_8mjs_a652ef65498d9513fa41d4d122b1331cb}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!decodedMap@{decodedMap}}
+\index{decodedMap@{decodedMap}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{decodedMap}{decodedMap}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a652ef65498d9513fa41d4d122b1331cb} 
+decoded\+Map}
+
+\Hypertarget{trace-mapping_8mjs_aa4ea48baacb95808ad2f3e4d3942b9f5}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!decodedMappings@{decodedMappings}}
+\index{decodedMappings@{decodedMappings}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{decodedMappings}{decodedMappings}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_aa4ea48baacb95808ad2f3e4d3942b9f5} 
+decoded\+Mappings}
+
+\Hypertarget{trace-mapping_8mjs_a7c7887246a9e2fe895f0c97933ee447a}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!eachMapping@{eachMapping}}
+\index{eachMapping@{eachMapping}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{eachMapping}{eachMapping}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a7c7887246a9e2fe895f0c97933ee447a} 
+each\+Mapping}
+
+\Hypertarget{trace-mapping_8mjs_a7f833b0ded72ddf296b29b9410089f51}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!encodedMap@{encodedMap}}
+\index{encodedMap@{encodedMap}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{encodedMap}{encodedMap}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a7f833b0ded72ddf296b29b9410089f51} 
+encoded\+Map}
+
+\Hypertarget{trace-mapping_8mjs_aaf2027b2d989dac87bfd2b6f7e846202}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!encodedMappings@{encodedMappings}}
+\index{encodedMappings@{encodedMappings}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{encodedMappings}{encodedMappings}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_aaf2027b2d989dac87bfd2b6f7e846202} 
+encoded\+Mappings}
+
+\Hypertarget{trace-mapping_8mjs_ad40c6c0942f9c49b7b74c5fa061fd6ad}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!found@{found}}
+\index{found@{found}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{found}{found}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ad40c6c0942f9c49b7b74c5fa061fd6ad} 
+let found = false}
+
+\Hypertarget{trace-mapping_8mjs_a419eaadfc6c926b578aab1d4a258cfbf}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!generatedPositionFor@{generatedPositionFor}}
+\index{generatedPositionFor@{generatedPositionFor}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{generatedPositionFor}{generatedPositionFor}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a419eaadfc6c926b578aab1d4a258cfbf} 
+generated\+Position\+For}
+
+\Hypertarget{trace-mapping_8mjs_aa12feffc0a62fa1dfb7de5e49e2444c4}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!GREATEST\_LOWER\_BOUND@{GREATEST\_LOWER\_BOUND}}
+\index{GREATEST\_LOWER\_BOUND@{GREATEST\_LOWER\_BOUND}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{GREATEST\_LOWER\_BOUND}{GREATEST\_LOWER\_BOUND}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_aa12feffc0a62fa1dfb7de5e49e2444c4} 
+GREATEST\+\_\+\+LOWER\+\_\+\+BOUND = 1}
+
+\Hypertarget{trace-mapping_8mjs_a59be084da8908b7d77ff34b25cd84488}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!import@{import}}
+\index{import@{import}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a59be084da8908b7d77ff34b25cd84488} 
+import \{ \mbox{\hyperlink{sourcemap-codec_8mjs_ab441d4eced7b779bcc1a3515598670e3}{encode}}, \mbox{\hyperlink{sourcemap-codec_8mjs_a739275c68bf50273757891827753bf82}{decode}} \} from \textquotesingle{}@jridgewell/sourcemap-\/codec\textquotesingle{}}
+
+\Hypertarget{trace-mapping_8mjs_a35063c236ae3f92b4f7982f2054b5965}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!isIgnored@{isIgnored}}
+\index{isIgnored@{isIgnored}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{isIgnored}{isIgnored}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a35063c236ae3f92b4f7982f2054b5965} 
+is\+Ignored}
+
+\Hypertarget{trace-mapping_8mjs_a861cb42483db428d5b71835836f2e504}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!LEAST\_UPPER\_BOUND@{LEAST\_UPPER\_BOUND}}
+\index{LEAST\_UPPER\_BOUND@{LEAST\_UPPER\_BOUND}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{LEAST\_UPPER\_BOUND}{LEAST\_UPPER\_BOUND}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a861cb42483db428d5b71835836f2e504} 
+LEAST\+\_\+\+UPPER\+\_\+\+BOUND = -\/1}
+
+\Hypertarget{trace-mapping_8mjs_a00b64804ad1374145820ea62049863ef}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!LINE\_GTR\_ZERO@{LINE\_GTR\_ZERO}}
+\index{LINE\_GTR\_ZERO@{LINE\_GTR\_ZERO}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{LINE\_GTR\_ZERO}{LINE\_GTR\_ZERO}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a00b64804ad1374145820ea62049863ef} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} LINE\+\_\+\+GTR\+\_\+\+ZERO = \textquotesingle{}\`{}\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}\`{} must be greater than 0 (lines start at \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}} 1)\textquotesingle{}}
+
+\Hypertarget{trace-mapping_8mjs_a5fa5a3832a8272c8fb4c2e5532f4b88e}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!NAMES\_INDEX@{NAMES\_INDEX}}
+\index{NAMES\_INDEX@{NAMES\_INDEX}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{NAMES\_INDEX}{NAMES\_INDEX}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a5fa5a3832a8272c8fb4c2e5532f4b88e} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} NAMES\+\_\+\+INDEX = 4}
+
+\Hypertarget{trace-mapping_8mjs_a6d42e0757d1a6190f2fbaa1b3bb92ebe}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!originalPositionFor@{originalPositionFor}}
+\index{originalPositionFor@{originalPositionFor}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{originalPositionFor}{originalPositionFor}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a6d42e0757d1a6190f2fbaa1b3bb92ebe} 
+original\+Position\+For}
+
+\Hypertarget{trace-mapping_8mjs_ae2c0fa9688b3272abff2b9b066eb2efd}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!presortedDecodedMap@{presortedDecodedMap}}
+\index{presortedDecodedMap@{presortedDecodedMap}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{presortedDecodedMap}{presortedDecodedMap}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ae2c0fa9688b3272abff2b9b066eb2efd} 
+presorted\+Decoded\+Map}
+
+\Hypertarget{trace-mapping_8mjs_afcb94691d8e2b4a002c9043486b5cc3f}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!REV\_GENERATED\_COLUMN@{REV\_GENERATED\_COLUMN}}
+\index{REV\_GENERATED\_COLUMN@{REV\_GENERATED\_COLUMN}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{REV\_GENERATED\_COLUMN}{REV\_GENERATED\_COLUMN}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_afcb94691d8e2b4a002c9043486b5cc3f} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} REV\+\_\+\+GENERATED\+\_\+\+COLUMN = 2}
+
+\Hypertarget{trace-mapping_8mjs_ab4ae474815c2e556c8596c34a0233950}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!REV\_GENERATED\_LINE@{REV\_GENERATED\_LINE}}
+\index{REV\_GENERATED\_LINE@{REV\_GENERATED\_LINE}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{REV\_GENERATED\_LINE}{REV\_GENERATED\_LINE}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ab4ae474815c2e556c8596c34a0233950} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} REV\+\_\+\+GENERATED\+\_\+\+LINE = 1}
+
+\Hypertarget{trace-mapping_8mjs_af5b5b87a6d9c467748ea95f4061aa27f}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!SOURCE\_COLUMN@{SOURCE\_COLUMN}}
+\index{SOURCE\_COLUMN@{SOURCE\_COLUMN}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{SOURCE\_COLUMN}{SOURCE\_COLUMN}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_af5b5b87a6d9c467748ea95f4061aa27f} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} SOURCE\+\_\+\+COLUMN = 3}
+
+\Hypertarget{trace-mapping_8mjs_a2c05e52e7ab30bd0ccf8cfa486a04fd6}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!SOURCE\_LINE@{SOURCE\_LINE}}
+\index{SOURCE\_LINE@{SOURCE\_LINE}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{SOURCE\_LINE}{SOURCE\_LINE}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a2c05e52e7ab30bd0ccf8cfa486a04fd6} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} SOURCE\+\_\+\+LINE = 2}
+
+\Hypertarget{trace-mapping_8mjs_a5b8669ae5722e1544916a6ccfeceea40}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!sourceContentFor@{sourceContentFor}}
+\index{sourceContentFor@{sourceContentFor}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{sourceContentFor}{sourceContentFor}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a5b8669ae5722e1544916a6ccfeceea40} 
+source\+Content\+For}
+
+\Hypertarget{trace-mapping_8mjs_ab50c196f1c4551ba4df20bfd225090a5}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!SOURCES\_INDEX@{SOURCES\_INDEX}}
+\index{SOURCES\_INDEX@{SOURCES\_INDEX}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{SOURCES\_INDEX}{SOURCES\_INDEX}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ab50c196f1c4551ba4df20bfd225090a5} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} SOURCES\+\_\+\+INDEX = 1}
+
+\Hypertarget{trace-mapping_8mjs_af17c1e8aabb1dd5e2ee54efe0c62b8f8}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!TraceMap@{TraceMap}}
+\index{TraceMap@{TraceMap}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{TraceMap}{TraceMap}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_af17c1e8aabb1dd5e2ee54efe0c62b8f8} 
+Trace\+Map}
+
+\Hypertarget{trace-mapping_8mjs_a27adffd54a31aa8ff3e31765ba6210d0}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!traceSegment@{traceSegment}}
+\index{traceSegment@{traceSegment}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{traceSegment}{traceSegment}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_a27adffd54a31aa8ff3e31765ba6210d0} 
+trace\+Segment}
+
+\Hypertarget{trace-mapping_8mjs_ad87802f3f6d5ac9d6da2e2ba7b4fcd8c}\index{trace-\/mapping.mjs@{trace-\/mapping.mjs}!uri@{uri}}
+\index{uri@{uri}!trace-\/mapping.mjs@{trace-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{uri}{uri}}
+{\footnotesize\ttfamily \label{trace-mapping_8mjs_ad87802f3f6d5ac9d6da2e2ba7b4fcd8c} 
+\mbox{\hyperlink{Equip_2src_2index_8mjs_aa2f30af07f4643a7f6a47dcaee56174f}{import}} resolve\+Uri from jridgewell \mbox{\hyperlink{esm_8mjs_ab2dffd225c7835ac54b00ca1bb8d83cf}{resolve}} uri}
+

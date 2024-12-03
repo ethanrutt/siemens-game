@@ -1,0 +1,321 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/node\+\_\+modules/@jridgewell/gen-\/mapping/dist/gen-\/mapping.mjs File Reference}
+\hypertarget{gen-mapping_8mjs}{}\label{gen-mapping_8mjs}\index{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/gen-\/mapping/dist/gen-\/mapping.mjs@{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/gen-\/mapping/dist/gen-\/mapping.mjs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classGenMapping}{Gen\+Mapping}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_aa5b20310e0b682037a8cc10ffb6deb21}{cast}} (map)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_ae658f291b77ae9b770943d80a24d3896}{add\+Segment}} (map, gen\+Line, gen\+Column, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, source\+Line, source\+Column, \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a3f141661899998b0df278f7a9c201304}{name}}, content)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a00b87c0a2e0ec846911fd64afd6103fd}{add\+Mapping}} (map, mapping)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a9484f42693f0f9f52ed49de35a92cdb9}{set\+Source\+Content}} (map, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, content)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_ae6440852f1e67f885bc5cc54589fb3bf}{set\+Ignore}} (map, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, ignore=true)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a676f9c9d20fba0afb0f7f516d4019409}{to\+Decoded\+Map}} (map)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a5a7fe293e6040ef0bc299425d866d22c}{to\+Encoded\+Map}} (map)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_aa7b1d34ef428bfc9bfcb0fad44d9e468}{from\+Map}} (input)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a832f623406e9a769647d5b6b67edffbb}{all\+Mappings}} (map)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a3d92d4e9abcf299e602a224310d6d910}{add\+Segment\+Internal}} (skipable, map, gen\+Line, gen\+Column, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, source\+Line, source\+Column, \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a3f141661899998b0df278f7a9c201304}{name}}, content)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_aadf78dd355a948e78b69838cf80a8498}{get\+Line}} (mappings, index)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a4273f39567b2a6060a5e3dcb2aae2a18}{get\+Column\+Index}} (\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, gen\+Column)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_ad4ca67171e2f298e80ec475c4288cca5}{insert}} (array, index, value)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_ac62d0e008a8139732965e2c0c988dc1a}{remove\+Empty\+Final\+Lines}} (mappings)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a8033e4487a514360593da1665d3b5934}{put\+All}} (setarr, array)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_af12aa46480a32ebe82d55cd638fab1ba}{skip\+Sourceless}} (\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, index)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a7961435adc3db382ae9f59cf48ea03c6}{skip\+Source}} (\mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, index, sources\+Index, source\+Line, source\+Column, names\+Index)
+\item 
+function \mbox{\hyperlink{gen-mapping_8mjs_a5c3e252fcad230f986cd2c8d42700392}{add\+Mapping\+Internal}} (skipable, map, mapping)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_a59be084da8908b7d77ff34b25cd84488}{import}} \{ \mbox{\hyperlink{classSetArray}{Set\+Array}}, \mbox{\hyperlink{set-array_8mjs_aab5de7f226167a5951571bdf8606cba0}{put}}, \mbox{\hyperlink{set-array_8mjs_aced660190aa41c91691cb3371e3c5644}{remove}} \} from \textquotesingle{}@jridgewell/set-\/array\textquotesingle{}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{gen-mapping_8mjs_a49e02c923fc83e96a13e89e4a8d800cd}{COLUMN}} = 0
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{gen-mapping_8mjs_ab50c196f1c4551ba4df20bfd225090a5}{SOURCES\+\_\+\+INDEX}} = 1
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{gen-mapping_8mjs_a2c05e52e7ab30bd0ccf8cfa486a04fd6}{SOURCE\+\_\+\+LINE}} = 2
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{gen-mapping_8mjs_af5b5b87a6d9c467748ea95f4061aa27f}{SOURCE\+\_\+\+COLUMN}} = 3
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{gen-mapping_8mjs_a5fa5a3832a8272c8fb4c2e5532f4b88e}{NAMES\+\_\+\+INDEX}} = 4
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{gen-mapping_8mjs_a334a0ed99c8f0b03e246bdb4101bb07c}{NO\+\_\+\+NAME}} = -\/1
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{gen-mapping_8mjs_a199fd0d332aaf524142fbffea4fafa1e}{maybe\+Add\+Segment}}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{gen-mapping_8mjs_a7a1b485691caaec7e530bfa06521f977}{maybe\+Add\+Mapping}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_aa86f782e9f3ab3a19d63a6bf75649291}{Gen\+Mapping}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_a1cb3fda7e623bcfc8094c4746972b269}{add\+Mapping}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_a7e540e864c42b0b05ee3b3d5d1ae8027}{add\+Segment}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_a6f168bc312580f5a23b4423d4704d367}{all\+Mappings}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_a247f65da28bde8aa39d22a629bd604de}{from\+Map}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_a59eab14a84a942a30d97574031dafb14}{set\+Ignore}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_a6b0a9f0f2dae83378e5c3303e23953d0}{set\+Source\+Content}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_acc40e55b5bea9d26625ad8f1c2d9d90e}{to\+Decoded\+Map}}
+\item 
+\mbox{\hyperlink{gen-mapping_8mjs_adfc1472541569c2272d2db427fb5a189}{to\+Encoded\+Map}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{gen-mapping_8mjs_a00b87c0a2e0ec846911fd64afd6103fd}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!addMapping@{addMapping}}
+\index{addMapping@{addMapping}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{addMapping()}{addMapping()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a00b87c0a2e0ec846911fd64afd6103fd} 
+function add\+Mapping (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{mapping}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_a5c3e252fcad230f986cd2c8d42700392}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!addMappingInternal@{addMappingInternal}}
+\index{addMappingInternal@{addMappingInternal}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{addMappingInternal()}{addMappingInternal()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a5c3e252fcad230f986cd2c8d42700392} 
+function add\+Mapping\+Internal (\begin{DoxyParamCaption}\item[{}]{skipable}{, }\item[{}]{map}{, }\item[{}]{mapping}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_ae658f291b77ae9b770943d80a24d3896}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!addSegment@{addSegment}}
+\index{addSegment@{addSegment}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{addSegment()}{addSegment()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_ae658f291b77ae9b770943d80a24d3896} 
+function add\+Segment (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{gen\+Line}{, }\item[{}]{gen\+Column}{, }\item[{}]{source}{, }\item[{}]{source\+Line}{, }\item[{}]{source\+Column}{, }\item[{}]{name}{, }\item[{}]{content}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_a3d92d4e9abcf299e602a224310d6d910}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!addSegmentInternal@{addSegmentInternal}}
+\index{addSegmentInternal@{addSegmentInternal}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{addSegmentInternal()}{addSegmentInternal()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a3d92d4e9abcf299e602a224310d6d910} 
+function add\+Segment\+Internal (\begin{DoxyParamCaption}\item[{}]{skipable}{, }\item[{}]{map}{, }\item[{}]{gen\+Line}{, }\item[{}]{gen\+Column}{, }\item[{}]{source}{, }\item[{}]{source\+Line}{, }\item[{}]{source\+Column}{, }\item[{}]{name}{, }\item[{}]{content}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_a832f623406e9a769647d5b6b67edffbb}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!allMappings@{allMappings}}
+\index{allMappings@{allMappings}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{allMappings()}{allMappings()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a832f623406e9a769647d5b6b67edffbb} 
+function all\+Mappings (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Returns an array of high-\/level mapping objects for every recorded segment, which could then be passed to the {\ttfamily source-\/map} library. \Hypertarget{gen-mapping_8mjs_aa5b20310e0b682037a8cc10ffb6deb21}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!cast@{cast}}
+\index{cast@{cast}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{cast()}{cast()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_aa5b20310e0b682037a8cc10ffb6deb21} 
+function cast (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Typescript doesn\textquotesingle{}t allow friend access to private fields, so this just casts the map into a type with public access modifiers. \Hypertarget{gen-mapping_8mjs_aa7b1d34ef428bfc9bfcb0fad44d9e468}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!fromMap@{fromMap}}
+\index{fromMap@{fromMap}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{fromMap()}{fromMap()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_aa7b1d34ef428bfc9bfcb0fad44d9e468} 
+function from\+Map (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+Constructs a new \doxylink{classGenMapping}{Gen\+Mapping}, using the already present mappings of the input. \Hypertarget{gen-mapping_8mjs_a4273f39567b2a6060a5e3dcb2aae2a18}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!getColumnIndex@{getColumnIndex}}
+\index{getColumnIndex@{getColumnIndex}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{getColumnIndex()}{getColumnIndex()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a4273f39567b2a6060a5e3dcb2aae2a18} 
+function get\+Column\+Index (\begin{DoxyParamCaption}\item[{}]{line}{, }\item[{}]{gen\+Column}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_aadf78dd355a948e78b69838cf80a8498}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!getLine@{getLine}}
+\index{getLine@{getLine}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{getLine()}{getLine()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_aadf78dd355a948e78b69838cf80a8498} 
+function get\+Line (\begin{DoxyParamCaption}\item[{}]{mappings}{, }\item[{}]{index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_ad4ca67171e2f298e80ec475c4288cca5}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!insert@{insert}}
+\index{insert@{insert}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_ad4ca67171e2f298e80ec475c4288cca5} 
+function insert (\begin{DoxyParamCaption}\item[{}]{array}{, }\item[{}]{index}{, }\item[{}]{value}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_a8033e4487a514360593da1665d3b5934}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!putAll@{putAll}}
+\index{putAll@{putAll}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{putAll()}{putAll()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a8033e4487a514360593da1665d3b5934} 
+function put\+All (\begin{DoxyParamCaption}\item[{}]{setarr}{, }\item[{}]{array}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_ac62d0e008a8139732965e2c0c988dc1a}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!removeEmptyFinalLines@{removeEmptyFinalLines}}
+\index{removeEmptyFinalLines@{removeEmptyFinalLines}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{removeEmptyFinalLines()}{removeEmptyFinalLines()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_ac62d0e008a8139732965e2c0c988dc1a} 
+function remove\+Empty\+Final\+Lines (\begin{DoxyParamCaption}\item[{}]{mappings}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_ae6440852f1e67f885bc5cc54589fb3bf}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!setIgnore@{setIgnore}}
+\index{setIgnore@{setIgnore}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{setIgnore()}{setIgnore()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_ae6440852f1e67f885bc5cc54589fb3bf} 
+function set\+Ignore (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{source}{, }\item[{}]{ignore}{ = {\ttfamily true}}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_a9484f42693f0f9f52ed49de35a92cdb9}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!setSourceContent@{setSourceContent}}
+\index{setSourceContent@{setSourceContent}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{setSourceContent()}{setSourceContent()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a9484f42693f0f9f52ed49de35a92cdb9} 
+function set\+Source\+Content (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{source}{, }\item[{}]{content}{}\end{DoxyParamCaption})}
+
+Adds/removes the content of the source file to the source map. \Hypertarget{gen-mapping_8mjs_a7961435adc3db382ae9f59cf48ea03c6}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!skipSource@{skipSource}}
+\index{skipSource@{skipSource}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{skipSource()}{skipSource()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a7961435adc3db382ae9f59cf48ea03c6} 
+function skip\+Source (\begin{DoxyParamCaption}\item[{}]{line}{, }\item[{}]{index}{, }\item[{}]{sources\+Index}{, }\item[{}]{source\+Line}{, }\item[{}]{source\+Column}{, }\item[{}]{names\+Index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_af12aa46480a32ebe82d55cd638fab1ba}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!skipSourceless@{skipSourceless}}
+\index{skipSourceless@{skipSourceless}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{skipSourceless()}{skipSourceless()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_af12aa46480a32ebe82d55cd638fab1ba} 
+function skip\+Sourceless (\begin{DoxyParamCaption}\item[{}]{line}{, }\item[{}]{index}{}\end{DoxyParamCaption})}
+
+\Hypertarget{gen-mapping_8mjs_a676f9c9d20fba0afb0f7f516d4019409}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!toDecodedMap@{toDecodedMap}}
+\index{toDecodedMap@{toDecodedMap}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{toDecodedMap()}{toDecodedMap()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a676f9c9d20fba0afb0f7f516d4019409} 
+function to\+Decoded\+Map (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Returns a sourcemap object (with decoded mappings) suitable for passing to a library that expects a sourcemap, or to JSON.\+stringify. \Hypertarget{gen-mapping_8mjs_a5a7fe293e6040ef0bc299425d866d22c}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!toEncodedMap@{toEncodedMap}}
+\index{toEncodedMap@{toEncodedMap}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{toEncodedMap()}{toEncodedMap()}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a5a7fe293e6040ef0bc299425d866d22c} 
+function to\+Encoded\+Map (\begin{DoxyParamCaption}\item[{}]{map}{}\end{DoxyParamCaption})}
+
+Returns a sourcemap object (with encoded mappings) suitable for passing to a library that expects a sourcemap, or to JSON.\+stringify. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{gen-mapping_8mjs_a1cb3fda7e623bcfc8094c4746972b269}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!addMapping@{addMapping}}
+\index{addMapping@{addMapping}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{addMapping}{addMapping}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a1cb3fda7e623bcfc8094c4746972b269} 
+add\+Mapping}
+
+\Hypertarget{gen-mapping_8mjs_a7e540e864c42b0b05ee3b3d5d1ae8027}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!addSegment@{addSegment}}
+\index{addSegment@{addSegment}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{addSegment}{addSegment}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a7e540e864c42b0b05ee3b3d5d1ae8027} 
+add\+Segment}
+
+\Hypertarget{gen-mapping_8mjs_a6f168bc312580f5a23b4423d4704d367}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!allMappings@{allMappings}}
+\index{allMappings@{allMappings}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{allMappings}{allMappings}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a6f168bc312580f5a23b4423d4704d367} 
+all\+Mappings}
+
+\Hypertarget{gen-mapping_8mjs_a49e02c923fc83e96a13e89e4a8d800cd}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!COLUMN@{COLUMN}}
+\index{COLUMN@{COLUMN}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{COLUMN}{COLUMN}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a49e02c923fc83e96a13e89e4a8d800cd} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} COLUMN = 0}
+
+\Hypertarget{gen-mapping_8mjs_a247f65da28bde8aa39d22a629bd604de}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!fromMap@{fromMap}}
+\index{fromMap@{fromMap}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{fromMap}{fromMap}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a247f65da28bde8aa39d22a629bd604de} 
+from\+Map}
+
+\Hypertarget{gen-mapping_8mjs_aa86f782e9f3ab3a19d63a6bf75649291}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!GenMapping@{GenMapping}}
+\index{GenMapping@{GenMapping}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{GenMapping}{GenMapping}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_aa86f782e9f3ab3a19d63a6bf75649291} 
+Gen\+Mapping}
+
+\Hypertarget{gen-mapping_8mjs_a59be084da8908b7d77ff34b25cd84488}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!import@{import}}
+\index{import@{import}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a59be084da8908b7d77ff34b25cd84488} 
+import \{ \mbox{\hyperlink{classSetArray}{Set\+Array}}, \mbox{\hyperlink{set-array_8mjs_aab5de7f226167a5951571bdf8606cba0}{put}}, \mbox{\hyperlink{set-array_8mjs_aced660190aa41c91691cb3371e3c5644}{remove}} \} from \textquotesingle{}@jridgewell/set-\/array\textquotesingle{}}
+
+\Hypertarget{gen-mapping_8mjs_a7a1b485691caaec7e530bfa06521f977}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!maybeAddMapping@{maybeAddMapping}}
+\index{maybeAddMapping@{maybeAddMapping}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{maybeAddMapping}{maybeAddMapping}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a7a1b485691caaec7e530bfa06521f977} 
+maybe\+Add\+Mapping}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ (map,\ mapping)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{gen-mapping_8mjs_a5c3e252fcad230f986cd2c8d42700392}{addMappingInternal}}(\textcolor{keyword}{true},\ map,\ mapping);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Same as {\ttfamily add\+Mapping}, but will only add the mapping if it generates useful information in the resulting map. This only works correctly if mappings are added {\bfseries{in order}}, meaning you should not add a mapping with a lower generated line/column than one that came before. \Hypertarget{gen-mapping_8mjs_a199fd0d332aaf524142fbffea4fafa1e}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!maybeAddSegment@{maybeAddSegment}}
+\index{maybeAddSegment@{maybeAddSegment}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{maybeAddSegment}{maybeAddSegment}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a199fd0d332aaf524142fbffea4fafa1e} 
+maybe\+Add\+Segment}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ (map,\ genLine,\ genColumn,\ \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}},\ sourceLine,\ sourceColumn,\ \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a3f141661899998b0df278f7a9c201304}{name}},\ content)\ =>\ \{}
+\DoxyCodeLine{\ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{gen-mapping_8mjs_a3d92d4e9abcf299e602a224310d6d910}{addSegmentInternal}}(\textcolor{keyword}{true},\ map,\ genLine,\ genColumn,\ \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}},\ sourceLine,\ sourceColumn,\ \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a3f141661899998b0df278f7a9c201304}{name}},\ content);}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+Same as {\ttfamily add\+Segment}, but will only add the segment if it generates useful information in the resulting map. This only works correctly if segments are added {\bfseries{in order}}, meaning you should not add a segment with a lower generated line/column than one that came before. \Hypertarget{gen-mapping_8mjs_a5fa5a3832a8272c8fb4c2e5532f4b88e}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!NAMES\_INDEX@{NAMES\_INDEX}}
+\index{NAMES\_INDEX@{NAMES\_INDEX}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{NAMES\_INDEX}{NAMES\_INDEX}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a5fa5a3832a8272c8fb4c2e5532f4b88e} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} NAMES\+\_\+\+INDEX = 4}
+
+\Hypertarget{gen-mapping_8mjs_a334a0ed99c8f0b03e246bdb4101bb07c}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!NO\_NAME@{NO\_NAME}}
+\index{NO\_NAME@{NO\_NAME}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{NO\_NAME}{NO\_NAME}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a334a0ed99c8f0b03e246bdb4101bb07c} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} NO\+\_\+\+NAME = -\/1}
+
+\Hypertarget{gen-mapping_8mjs_a59eab14a84a942a30d97574031dafb14}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!setIgnore@{setIgnore}}
+\index{setIgnore@{setIgnore}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{setIgnore}{setIgnore}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a59eab14a84a942a30d97574031dafb14} 
+set\+Ignore}
+
+\Hypertarget{gen-mapping_8mjs_a6b0a9f0f2dae83378e5c3303e23953d0}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!setSourceContent@{setSourceContent}}
+\index{setSourceContent@{setSourceContent}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{setSourceContent}{setSourceContent}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a6b0a9f0f2dae83378e5c3303e23953d0} 
+set\+Source\+Content}
+
+\Hypertarget{gen-mapping_8mjs_af5b5b87a6d9c467748ea95f4061aa27f}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!SOURCE\_COLUMN@{SOURCE\_COLUMN}}
+\index{SOURCE\_COLUMN@{SOURCE\_COLUMN}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{SOURCE\_COLUMN}{SOURCE\_COLUMN}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_af5b5b87a6d9c467748ea95f4061aa27f} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} SOURCE\+\_\+\+COLUMN = 3}
+
+\Hypertarget{gen-mapping_8mjs_a2c05e52e7ab30bd0ccf8cfa486a04fd6}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!SOURCE\_LINE@{SOURCE\_LINE}}
+\index{SOURCE\_LINE@{SOURCE\_LINE}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{SOURCE\_LINE}{SOURCE\_LINE}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_a2c05e52e7ab30bd0ccf8cfa486a04fd6} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} SOURCE\+\_\+\+LINE = 2}
+
+\Hypertarget{gen-mapping_8mjs_ab50c196f1c4551ba4df20bfd225090a5}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!SOURCES\_INDEX@{SOURCES\_INDEX}}
+\index{SOURCES\_INDEX@{SOURCES\_INDEX}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{SOURCES\_INDEX}{SOURCES\_INDEX}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_ab50c196f1c4551ba4df20bfd225090a5} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} SOURCES\+\_\+\+INDEX = 1}
+
+\Hypertarget{gen-mapping_8mjs_acc40e55b5bea9d26625ad8f1c2d9d90e}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!toDecodedMap@{toDecodedMap}}
+\index{toDecodedMap@{toDecodedMap}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{toDecodedMap}{toDecodedMap}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_acc40e55b5bea9d26625ad8f1c2d9d90e} 
+to\+Decoded\+Map}
+
+\Hypertarget{gen-mapping_8mjs_adfc1472541569c2272d2db427fb5a189}\index{gen-\/mapping.mjs@{gen-\/mapping.mjs}!toEncodedMap@{toEncodedMap}}
+\index{toEncodedMap@{toEncodedMap}!gen-\/mapping.mjs@{gen-\/mapping.mjs}}
+\doxysubsubsection{\texorpdfstring{toEncodedMap}{toEncodedMap}}
+{\footnotesize\ttfamily \label{gen-mapping_8mjs_adfc1472541569c2272d2db427fb5a189} 
+to\+Encoded\+Map}
+

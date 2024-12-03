@@ -1,0 +1,98 @@
+\doxysection{Broadcast\+Discovery Class Reference}
+\hypertarget{classBroadcastDiscovery}{}\label{classBroadcastDiscovery}\index{BroadcastDiscovery@{BroadcastDiscovery}}
+Inheritance diagram for Broadcast\+Discovery\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classBroadcastDiscovery}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}} void \mbox{\hyperlink{classBroadcastDiscovery_a17607d3fa3ba248f89a74502f46951a6}{Start\+Broadcasting}} ()
+\item 
+\mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}} Task$<$ string $>$ \mbox{\hyperlink{classBroadcastDiscovery_a18770497520df9a8b8b11cc1ee062ec0}{Discover\+Host}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classBroadcastDiscovery}{Broadcast\+Discovery}} \mbox{\hyperlink{classBroadcastDiscovery_a517e85afee6a46941b04eb927ca9228e}{Instance}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classBroadcastDiscovery_ac2a0366eaec7097820635dbf15dd9d98}{Awake}} ()
+\item 
+void \mbox{\hyperlink{classBroadcastDiscovery_a9cd1b18bc7b0fc60f81d1eb660bcfade}{On\+Destroy}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Udp\+Client \mbox{\hyperlink{classBroadcastDiscovery_af3dafb4f13f1cbd8fafe6ed3ea45950d}{udp\+Client}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} int \mbox{\hyperlink{classBroadcastDiscovery_a59c1a72f068ae9598ea9c77ec0ba2a32}{broadcast\+Port}} = 47777
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} string \mbox{\hyperlink{classBroadcastDiscovery_a539066b788e766f51206ba4c5577c923}{broadcast\+Message}} = "{}Host\+Available"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classBroadcastDiscovery_ac2a0366eaec7097820635dbf15dd9d98}\index{BroadcastDiscovery@{BroadcastDiscovery}!Awake@{Awake}}
+\index{Awake@{Awake}!BroadcastDiscovery@{BroadcastDiscovery}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{classBroadcastDiscovery_ac2a0366eaec7097820635dbf15dd9d98} 
+void Broadcast\+Discovery.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classBroadcastDiscovery_a18770497520df9a8b8b11cc1ee062ec0}\index{BroadcastDiscovery@{BroadcastDiscovery}!DiscoverHost@{DiscoverHost}}
+\index{DiscoverHost@{DiscoverHost}!BroadcastDiscovery@{BroadcastDiscovery}}
+\doxysubsubsection{\texorpdfstring{DiscoverHost()}{DiscoverHost()}}
+{\footnotesize\ttfamily \label{classBroadcastDiscovery_a18770497520df9a8b8b11cc1ee062ec0} 
+\mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}} Task$<$ string $>$ Broadcast\+Discovery.\+Discover\+Host (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classBroadcastDiscovery_a9cd1b18bc7b0fc60f81d1eb660bcfade}\index{BroadcastDiscovery@{BroadcastDiscovery}!OnDestroy@{OnDestroy}}
+\index{OnDestroy@{OnDestroy}!BroadcastDiscovery@{BroadcastDiscovery}}
+\doxysubsubsection{\texorpdfstring{OnDestroy()}{OnDestroy()}}
+{\footnotesize\ttfamily \label{classBroadcastDiscovery_a9cd1b18bc7b0fc60f81d1eb660bcfade} 
+void Broadcast\+Discovery.\+On\+Destroy (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classBroadcastDiscovery_a17607d3fa3ba248f89a74502f46951a6}\index{BroadcastDiscovery@{BroadcastDiscovery}!StartBroadcasting@{StartBroadcasting}}
+\index{StartBroadcasting@{StartBroadcasting}!BroadcastDiscovery@{BroadcastDiscovery}}
+\doxysubsubsection{\texorpdfstring{StartBroadcasting()}{StartBroadcasting()}}
+{\footnotesize\ttfamily \label{classBroadcastDiscovery_a17607d3fa3ba248f89a74502f46951a6} 
+\mbox{\hyperlink{node__modules_2escalade_2dist_2index_8mjs_af74fbea9a2df2960e3b77e74488bebd6}{async}} void Broadcast\+Discovery.\+Start\+Broadcasting (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classBroadcastDiscovery_a539066b788e766f51206ba4c5577c923}\index{BroadcastDiscovery@{BroadcastDiscovery}!broadcastMessage@{broadcastMessage}}
+\index{broadcastMessage@{broadcastMessage}!BroadcastDiscovery@{BroadcastDiscovery}}
+\doxysubsubsection{\texorpdfstring{broadcastMessage}{broadcastMessage}}
+{\footnotesize\ttfamily \label{classBroadcastDiscovery_a539066b788e766f51206ba4c5577c923} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} string Broadcast\+Discovery.\+broadcast\+Message = "{}Host\+Available"{}\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{classBroadcastDiscovery_a59c1a72f068ae9598ea9c77ec0ba2a32}\index{BroadcastDiscovery@{BroadcastDiscovery}!broadcastPort@{broadcastPort}}
+\index{broadcastPort@{broadcastPort}!BroadcastDiscovery@{BroadcastDiscovery}}
+\doxysubsubsection{\texorpdfstring{broadcastPort}{broadcastPort}}
+{\footnotesize\ttfamily \label{classBroadcastDiscovery_a59c1a72f068ae9598ea9c77ec0ba2a32} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} int Broadcast\+Discovery.\+broadcast\+Port = 47777\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [private]}}
+
+\Hypertarget{classBroadcastDiscovery_a517e85afee6a46941b04eb927ca9228e}\index{BroadcastDiscovery@{BroadcastDiscovery}!Instance@{Instance}}
+\index{Instance@{Instance}!BroadcastDiscovery@{BroadcastDiscovery}}
+\doxysubsubsection{\texorpdfstring{Instance}{Instance}}
+{\footnotesize\ttfamily \label{classBroadcastDiscovery_a517e85afee6a46941b04eb927ca9228e} 
+\mbox{\hyperlink{classBroadcastDiscovery}{Broadcast\+Discovery}} Broadcast\+Discovery.\+Instance\hspace{0.3cm}{\ttfamily [static]}}
+
+\Hypertarget{classBroadcastDiscovery_af3dafb4f13f1cbd8fafe6ed3ea45950d}\index{BroadcastDiscovery@{BroadcastDiscovery}!udpClient@{udpClient}}
+\index{udpClient@{udpClient}!BroadcastDiscovery@{BroadcastDiscovery}}
+\doxysubsubsection{\texorpdfstring{udpClient}{udpClient}}
+{\footnotesize\ttfamily \label{classBroadcastDiscovery_af3dafb4f13f1cbd8fafe6ed3ea45950d} 
+Udp\+Client Broadcast\+Discovery.\+udp\+Client\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Card\+Jitsu/\mbox{\hyperlink{BroadcastDiscovery_8cs}{Broadcast\+Discovery.\+cs}}\end{DoxyCompactItemize}

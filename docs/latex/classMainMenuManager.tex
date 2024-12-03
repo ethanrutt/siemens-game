@@ -1,0 +1,337 @@
+\doxysection{Main\+Menu\+Manager Class Reference}
+\hypertarget{classMainMenuManager}{}\label{classMainMenuManager}\index{MainMenuManager@{MainMenuManager}}
+
+
+This handles the login and entering into the introduction cutscene at the start of the game.  
+
+
+Inheritance diagram for Main\+Menu\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classMainMenuManager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a899906b808a254a5ca03edf601ad4db1}{Close\+Login\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_ad765e2d346275a2a3cf6f8326faf5954}{Close\+Register\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_ad129272d2719b0dcb269841cd3ab4aac}{Close\+Login\+Reg\+Abstract\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a7513fa26c6142a83688b2c264feda87b}{Close\+Settings\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a9ef4738314f508d4aacc87b6ab32dff6}{Close\+Credits\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a0cf388800240019f58fdc2d65109dff8}{Close\+Error\+Screen}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a98ce7bab21f1a0749fcf16b66216d0ce}{Open\+Login\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_ad10e60933ffcdbc4b51c51764afe26d4}{Open\+Register\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a4fed99da407fa0ee43b75de799ab5a0d}{Open\+Login\+Reg\+Abstract\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a4b74bfb0652d90e80c021960b262aeae}{Open\+Settings\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_ace7b7fe34f1b189d74c8cf37842bfe2b}{Open\+Credits\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a926d1644fd7b2a6835aa9a89e22b98db}{Collect\+Login\+Input}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a99ff0a00e9b1168a1874f83707fb5b35}{Setup\+Error\+Screen}} (string error\+Message)
+\item 
+void \mbox{\hyperlink{classMainMenuManager_ac16658f51105b83a03a275bd3e3e5599}{Collect\+Create\+Account\+Input}} ()
+\item 
+void \mbox{\hyperlink{classMainMenuManager_ac8911f22aa37119f32c673b12c720485}{Send\+Login\+Request}} (string username, string password)
+\item 
+void \mbox{\hyperlink{classMainMenuManager_a8d483c7b6dd5f9e4127f0cc2d0390fc6}{Send\+Create\+Account\+Request}} (string employee\+Id, string username, string password)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} \mbox{\hyperlink{classMainMenuManager_a10551e858c240de10c4e462207d4ef99}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classMainMenuManager_aa765b3f8c7e1bff149219f9f90f40286}{Start}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classMainMenuManager_a174beb1c4261b297c47cd492fcf5a0c9}{login\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classMainMenuManager_ac7cdcc0530d5d56794941e5917b765e1}{register\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classMainMenuManager_ab942637b9192338d05e39c942a3ef501}{loginreg\+Abstract\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classMainMenuManager_a10a92eaaa85343afbab286973b19f254}{black\+Out\+Modal}}
+\item 
+Game\+Object \mbox{\hyperlink{classMainMenuManager_a7add2266f63263054d0aa3fff556f7be}{settings\+Panel}}
+\item 
+Game\+Object \mbox{\hyperlink{classMainMenuManager_a4bd8f48295bd6e987a21d1e506029939}{credits\+Panel}}
+\item 
+TMP\+\_\+\+Input\+Field \mbox{\hyperlink{classMainMenuManager_aec7cf23f18fe6859f5ee057510d3f51c}{create\+Account\+Employee\+Id}}
+\item 
+TMP\+\_\+\+Input\+Field \mbox{\hyperlink{classMainMenuManager_ac3b2ecb9e005395854de0fa67a7387c2}{create\+Account\+Username}}
+\item 
+TMP\+\_\+\+Input\+Field \mbox{\hyperlink{classMainMenuManager_a848b9163f7d24c45a24c3451c9b5c27c}{create\+Account\+Password}}
+\item 
+TMP\+\_\+\+Input\+Field \mbox{\hyperlink{classMainMenuManager_a18ad3a6c41b3a214acfe89135a7fdeef}{login\+Username}}
+\item 
+TMP\+\_\+\+Input\+Field \mbox{\hyperlink{classMainMenuManager_a4dfe21b6975e7d84c8f2bde0bbeaf7da}{login\+Password}}
+\item 
+Button \mbox{\hyperlink{classMainMenuManager_a7384d998f3004e6c9b9b8dbe03b87827}{create\+Account\+Button}}
+\item 
+Button \mbox{\hyperlink{classMainMenuManager_af1f176b64c9d75faed9a232394407a4a}{login\+Button}}
+\item 
+Game\+Object \mbox{\hyperlink{classMainMenuManager_a837b1279427995675b57f9acffd6f2fb}{error\+Screen}}
+\item 
+TMP\+\_\+\+Text \mbox{\hyperlink{classMainMenuManager_a0c0e47419b3c6f29bca249c787f10ef4}{error\+Message\+Text}}
+\item 
+bool \mbox{\hyperlink{classMainMenuManager_a1ca45dc2b124b5073d8eb726a31ff2a7}{is\+Login\+Successful}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classMainMenuManager_a2716f74cd28b18bf2b1a28cd06754dce}{badwords}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This handles the login and entering into the introduction cutscene at the start of the game. 
+
+This class handles the display of the login modals as well as sending the login api request.
+\begin{DoxyItemize}
+\item On new user creation, the username is checked against a bad word list seen below.
+\item Once the player is successfully logged in, we populate \doxylink{classPlayerData}{Player\+Data} with the values we get back from the API
+\item If the login is unsuccessful, error screens are shown
+\item If login is successful, then the player data is populated and the starting cutscene is loaded
+\end{DoxyItemize}
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classUserData}{User\+Data} 
+
+\doxylink{classPlayerData}{Player\+Data} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classMainMenuManager_a9ef4738314f508d4aacc87b6ab32dff6}\index{MainMenuManager@{MainMenuManager}!CloseCreditsPanel@{CloseCreditsPanel}}
+\index{CloseCreditsPanel@{CloseCreditsPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{CloseCreditsPanel()}{CloseCreditsPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a9ef4738314f508d4aacc87b6ab32dff6} 
+void Main\+Menu\+Manager.\+Close\+Credits\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a0cf388800240019f58fdc2d65109dff8}\index{MainMenuManager@{MainMenuManager}!CloseErrorScreen@{CloseErrorScreen}}
+\index{CloseErrorScreen@{CloseErrorScreen}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{CloseErrorScreen()}{CloseErrorScreen()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a0cf388800240019f58fdc2d65109dff8} 
+void Main\+Menu\+Manager.\+Close\+Error\+Screen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a899906b808a254a5ca03edf601ad4db1}\index{MainMenuManager@{MainMenuManager}!CloseLoginPanel@{CloseLoginPanel}}
+\index{CloseLoginPanel@{CloseLoginPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{CloseLoginPanel()}{CloseLoginPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a899906b808a254a5ca03edf601ad4db1} 
+void Main\+Menu\+Manager.\+Close\+Login\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_ad129272d2719b0dcb269841cd3ab4aac}\index{MainMenuManager@{MainMenuManager}!CloseLoginRegAbstractPanel@{CloseLoginRegAbstractPanel}}
+\index{CloseLoginRegAbstractPanel@{CloseLoginRegAbstractPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{CloseLoginRegAbstractPanel()}{CloseLoginRegAbstractPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ad129272d2719b0dcb269841cd3ab4aac} 
+void Main\+Menu\+Manager.\+Close\+Login\+Reg\+Abstract\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_ad765e2d346275a2a3cf6f8326faf5954}\index{MainMenuManager@{MainMenuManager}!CloseRegisterPanel@{CloseRegisterPanel}}
+\index{CloseRegisterPanel@{CloseRegisterPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{CloseRegisterPanel()}{CloseRegisterPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ad765e2d346275a2a3cf6f8326faf5954} 
+void Main\+Menu\+Manager.\+Close\+Register\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a7513fa26c6142a83688b2c264feda87b}\index{MainMenuManager@{MainMenuManager}!CloseSettingsPanel@{CloseSettingsPanel}}
+\index{CloseSettingsPanel@{CloseSettingsPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{CloseSettingsPanel()}{CloseSettingsPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a7513fa26c6142a83688b2c264feda87b} 
+void Main\+Menu\+Manager.\+Close\+Settings\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_ac16658f51105b83a03a275bd3e3e5599}\index{MainMenuManager@{MainMenuManager}!CollectCreateAccountInput@{CollectCreateAccountInput}}
+\index{CollectCreateAccountInput@{CollectCreateAccountInput}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{CollectCreateAccountInput()}{CollectCreateAccountInput()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ac16658f51105b83a03a275bd3e3e5599} 
+void Main\+Menu\+Manager.\+Collect\+Create\+Account\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a926d1644fd7b2a6835aa9a89e22b98db}\index{MainMenuManager@{MainMenuManager}!CollectLoginInput@{CollectLoginInput}}
+\index{CollectLoginInput@{CollectLoginInput}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{CollectLoginInput()}{CollectLoginInput()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a926d1644fd7b2a6835aa9a89e22b98db} 
+void Main\+Menu\+Manager.\+Collect\+Login\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_ace7b7fe34f1b189d74c8cf37842bfe2b}\index{MainMenuManager@{MainMenuManager}!OpenCreditsPanel@{OpenCreditsPanel}}
+\index{OpenCreditsPanel@{OpenCreditsPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{OpenCreditsPanel()}{OpenCreditsPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ace7b7fe34f1b189d74c8cf37842bfe2b} 
+void Main\+Menu\+Manager.\+Open\+Credits\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a98ce7bab21f1a0749fcf16b66216d0ce}\index{MainMenuManager@{MainMenuManager}!OpenLoginPanel@{OpenLoginPanel}}
+\index{OpenLoginPanel@{OpenLoginPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{OpenLoginPanel()}{OpenLoginPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a98ce7bab21f1a0749fcf16b66216d0ce} 
+void Main\+Menu\+Manager.\+Open\+Login\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a4fed99da407fa0ee43b75de799ab5a0d}\index{MainMenuManager@{MainMenuManager}!OpenLoginRegAbstractPanel@{OpenLoginRegAbstractPanel}}
+\index{OpenLoginRegAbstractPanel@{OpenLoginRegAbstractPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{OpenLoginRegAbstractPanel()}{OpenLoginRegAbstractPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a4fed99da407fa0ee43b75de799ab5a0d} 
+void Main\+Menu\+Manager.\+Open\+Login\+Reg\+Abstract\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_ad10e60933ffcdbc4b51c51764afe26d4}\index{MainMenuManager@{MainMenuManager}!OpenRegisterPanel@{OpenRegisterPanel}}
+\index{OpenRegisterPanel@{OpenRegisterPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{OpenRegisterPanel()}{OpenRegisterPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ad10e60933ffcdbc4b51c51764afe26d4} 
+void Main\+Menu\+Manager.\+Open\+Register\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a4b74bfb0652d90e80c021960b262aeae}\index{MainMenuManager@{MainMenuManager}!OpenSettingsPanel@{OpenSettingsPanel}}
+\index{OpenSettingsPanel@{OpenSettingsPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{OpenSettingsPanel()}{OpenSettingsPanel()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a4b74bfb0652d90e80c021960b262aeae} 
+void Main\+Menu\+Manager.\+Open\+Settings\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a8d483c7b6dd5f9e4127f0cc2d0390fc6}\index{MainMenuManager@{MainMenuManager}!SendCreateAccountRequest@{SendCreateAccountRequest}}
+\index{SendCreateAccountRequest@{SendCreateAccountRequest}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{SendCreateAccountRequest()}{SendCreateAccountRequest()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a8d483c7b6dd5f9e4127f0cc2d0390fc6} 
+void Main\+Menu\+Manager.\+Send\+Create\+Account\+Request (\begin{DoxyParamCaption}\item[{string}]{employee\+Id}{, }\item[{string}]{username}{, }\item[{string}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_ac8911f22aa37119f32c673b12c720485}\index{MainMenuManager@{MainMenuManager}!SendLoginRequest@{SendLoginRequest}}
+\index{SendLoginRequest@{SendLoginRequest}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{SendLoginRequest()}{SendLoginRequest()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ac8911f22aa37119f32c673b12c720485} 
+void Main\+Menu\+Manager.\+Send\+Login\+Request (\begin{DoxyParamCaption}\item[{string}]{username}{, }\item[{string}]{password}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_a99ff0a00e9b1168a1874f83707fb5b35}\index{MainMenuManager@{MainMenuManager}!SetupErrorScreen@{SetupErrorScreen}}
+\index{SetupErrorScreen@{SetupErrorScreen}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{SetupErrorScreen()}{SetupErrorScreen()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a99ff0a00e9b1168a1874f83707fb5b35} 
+void Main\+Menu\+Manager.\+Setup\+Error\+Screen (\begin{DoxyParamCaption}\item[{string}]{error\+Message}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classMainMenuManager_aa765b3f8c7e1bff149219f9f90f40286}\index{MainMenuManager@{MainMenuManager}!Start@{Start}}
+\index{Start@{Start}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classMainMenuManager_aa765b3f8c7e1bff149219f9f90f40286} 
+void Main\+Menu\+Manager.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classMainMenuManager_a2716f74cd28b18bf2b1a28cd06754dce}\index{MainMenuManager@{MainMenuManager}!badwords@{badwords}}
+\index{badwords@{badwords}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{badwords}{badwords}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a2716f74cd28b18bf2b1a28cd06754dce} 
+string \mbox{[}$\,$\mbox{]} Main\+Menu\+Manager.\+badwords\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a10a92eaaa85343afbab286973b19f254}\index{MainMenuManager@{MainMenuManager}!blackOutModal@{blackOutModal}}
+\index{blackOutModal@{blackOutModal}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{blackOutModal}{blackOutModal}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a10a92eaaa85343afbab286973b19f254} 
+Game\+Object Main\+Menu\+Manager.\+black\+Out\+Modal\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a7384d998f3004e6c9b9b8dbe03b87827}\index{MainMenuManager@{MainMenuManager}!createAccountButton@{createAccountButton}}
+\index{createAccountButton@{createAccountButton}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{createAccountButton}{createAccountButton}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a7384d998f3004e6c9b9b8dbe03b87827} 
+Button Main\+Menu\+Manager.\+create\+Account\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_aec7cf23f18fe6859f5ee057510d3f51c}\index{MainMenuManager@{MainMenuManager}!createAccountEmployeeId@{createAccountEmployeeId}}
+\index{createAccountEmployeeId@{createAccountEmployeeId}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{createAccountEmployeeId}{createAccountEmployeeId}}
+{\footnotesize\ttfamily \label{classMainMenuManager_aec7cf23f18fe6859f5ee057510d3f51c} 
+TMP\+\_\+\+Input\+Field Main\+Menu\+Manager.\+create\+Account\+Employee\+Id\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a848b9163f7d24c45a24c3451c9b5c27c}\index{MainMenuManager@{MainMenuManager}!createAccountPassword@{createAccountPassword}}
+\index{createAccountPassword@{createAccountPassword}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{createAccountPassword}{createAccountPassword}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a848b9163f7d24c45a24c3451c9b5c27c} 
+TMP\+\_\+\+Input\+Field Main\+Menu\+Manager.\+create\+Account\+Password\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_ac3b2ecb9e005395854de0fa67a7387c2}\index{MainMenuManager@{MainMenuManager}!createAccountUsername@{createAccountUsername}}
+\index{createAccountUsername@{createAccountUsername}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{createAccountUsername}{createAccountUsername}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ac3b2ecb9e005395854de0fa67a7387c2} 
+TMP\+\_\+\+Input\+Field Main\+Menu\+Manager.\+create\+Account\+Username\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a4bd8f48295bd6e987a21d1e506029939}\index{MainMenuManager@{MainMenuManager}!creditsPanel@{creditsPanel}}
+\index{creditsPanel@{creditsPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{creditsPanel}{creditsPanel}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a4bd8f48295bd6e987a21d1e506029939} 
+Game\+Object Main\+Menu\+Manager.\+credits\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a0c0e47419b3c6f29bca249c787f10ef4}\index{MainMenuManager@{MainMenuManager}!errorMessageText@{errorMessageText}}
+\index{errorMessageText@{errorMessageText}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{errorMessageText}{errorMessageText}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a0c0e47419b3c6f29bca249c787f10ef4} 
+TMP\+\_\+\+Text Main\+Menu\+Manager.\+error\+Message\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a837b1279427995675b57f9acffd6f2fb}\index{MainMenuManager@{MainMenuManager}!errorScreen@{errorScreen}}
+\index{errorScreen@{errorScreen}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{errorScreen}{errorScreen}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a837b1279427995675b57f9acffd6f2fb} 
+Game\+Object Main\+Menu\+Manager.\+error\+Screen\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a1ca45dc2b124b5073d8eb726a31ff2a7}\index{MainMenuManager@{MainMenuManager}!isLoginSuccessful@{isLoginSuccessful}}
+\index{isLoginSuccessful@{isLoginSuccessful}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{isLoginSuccessful}{isLoginSuccessful}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a1ca45dc2b124b5073d8eb726a31ff2a7} 
+bool Main\+Menu\+Manager.\+is\+Login\+Successful\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_af1f176b64c9d75faed9a232394407a4a}\index{MainMenuManager@{MainMenuManager}!loginButton@{loginButton}}
+\index{loginButton@{loginButton}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{loginButton}{loginButton}}
+{\footnotesize\ttfamily \label{classMainMenuManager_af1f176b64c9d75faed9a232394407a4a} 
+Button Main\+Menu\+Manager.\+login\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a174beb1c4261b297c47cd492fcf5a0c9}\index{MainMenuManager@{MainMenuManager}!loginPanel@{loginPanel}}
+\index{loginPanel@{loginPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{loginPanel}{loginPanel}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a174beb1c4261b297c47cd492fcf5a0c9} 
+Game\+Object Main\+Menu\+Manager.\+login\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a4dfe21b6975e7d84c8f2bde0bbeaf7da}\index{MainMenuManager@{MainMenuManager}!loginPassword@{loginPassword}}
+\index{loginPassword@{loginPassword}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{loginPassword}{loginPassword}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a4dfe21b6975e7d84c8f2bde0bbeaf7da} 
+TMP\+\_\+\+Input\+Field Main\+Menu\+Manager.\+login\+Password\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_ab942637b9192338d05e39c942a3ef501}\index{MainMenuManager@{MainMenuManager}!loginregAbstractPanel@{loginregAbstractPanel}}
+\index{loginregAbstractPanel@{loginregAbstractPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{loginregAbstractPanel}{loginregAbstractPanel}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ab942637b9192338d05e39c942a3ef501} 
+Game\+Object Main\+Menu\+Manager.\+loginreg\+Abstract\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a18ad3a6c41b3a214acfe89135a7fdeef}\index{MainMenuManager@{MainMenuManager}!loginUsername@{loginUsername}}
+\index{loginUsername@{loginUsername}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{loginUsername}{loginUsername}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a18ad3a6c41b3a214acfe89135a7fdeef} 
+TMP\+\_\+\+Input\+Field Main\+Menu\+Manager.\+login\+Username\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_ac7cdcc0530d5d56794941e5917b765e1}\index{MainMenuManager@{MainMenuManager}!registerPanel@{registerPanel}}
+\index{registerPanel@{registerPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{registerPanel}{registerPanel}}
+{\footnotesize\ttfamily \label{classMainMenuManager_ac7cdcc0530d5d56794941e5917b765e1} 
+Game\+Object Main\+Menu\+Manager.\+register\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classMainMenuManager_a7add2266f63263054d0aa3fff556f7be}\index{MainMenuManager@{MainMenuManager}!settingsPanel@{settingsPanel}}
+\index{settingsPanel@{settingsPanel}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{settingsPanel}{settingsPanel}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a7add2266f63263054d0aa3fff556f7be} 
+Game\+Object Main\+Menu\+Manager.\+settings\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classMainMenuManager_a10551e858c240de10c4e462207d4ef99}\index{MainMenuManager@{MainMenuManager}!playerData@{playerData}}
+\index{playerData@{playerData}!MainMenuManager@{MainMenuManager}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{classMainMenuManager_a10551e858c240de10c4e462207d4ef99} 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} Main\+Menu\+Manager.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Main\+Menu/\mbox{\hyperlink{MainMenuManager_8cs}{Main\+Menu\+Manager.\+cs}}\end{DoxyCompactItemize}

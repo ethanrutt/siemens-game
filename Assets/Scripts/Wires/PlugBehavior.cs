@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /**
- * Behavior logic for a wirePlug
+ * @brief Behavior logic for a wirePlug
  *
  * Makes use of the PlugStats class to keep track of variables
  * @see PlugStats

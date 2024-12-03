@@ -1,0 +1,140 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/node\+\_\+modules/@bcoe/v8-\/coverage/dist/lib/merge.mjs File Reference}
+\hypertarget{merge_8mjs}{}\label{merge_8mjs}\index{backend/LambdaFunctionAPIs/node\_modules/"@bcoe/v8-\/coverage/dist/lib/merge.mjs@{backend/LambdaFunctionAPIs/node\_modules/"@bcoe/v8-\/coverage/dist/lib/merge.mjs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classRangeTreeWithParent}{Range\+Tree\+With\+Parent}}
+\item 
+class \mbox{\hyperlink{classStartEvent}{Start\+Event}}
+\item 
+class \mbox{\hyperlink{classStartEventQueue}{Start\+Event\+Queue}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function export \mbox{\hyperlink{merge_8mjs_a08cb1b21b2ddf098f057f47896f4e616}{merge\+Process\+Covs}} (process\+Covs)
+\item 
+function export \mbox{\hyperlink{merge_8mjs_a27d1a932f9e3d7ec8db2b319b3ac2c7f}{merge\+Script\+Covs}} (script\+Covs)
+\item 
+function \mbox{\hyperlink{merge_8mjs_a833c1338de0e4b0a2a3b68b229a855d2}{stringify\+Function\+Root\+Range}} (func\+Cov)
+\item 
+function export \mbox{\hyperlink{merge_8mjs_a99feba995ed03d91fe46a49f8aa160da}{merge\+Function\+Covs}} (func\+Covs)
+\item 
+function \mbox{\hyperlink{merge_8mjs_a70d05c7c737dc8e9e8eaf1c8f55b01fb}{merge\+Range\+Trees}} (trees)
+\item 
+function \mbox{\hyperlink{merge_8mjs_a405d69d870e1aabc14526b1a2c0bb3ee}{merge\+Range\+Tree\+Children}} (parent\+Trees)
+\item 
+function \mbox{\hyperlink{merge_8mjs_a1bb73cff23e26a9a776e210b851c5c8b}{insert\+Child}} (parent\+To\+Nested, parent\+Index, \mbox{\hyperlink{node__modules_2_0dbcoe_2v8-coverage_2dist_2lib_2index_8mjs_acd257bf64a174f584af538f3497ced5d}{tree}})
+\item 
+function \mbox{\hyperlink{merge_8mjs_a685c0b6722222f755d3be89fc22edeea}{next\+Child}} (open\+Range, parent\+To\+Nested)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{merge_8mjs_a59be084da8908b7d77ff34b25cd84488}{import}} \{ \mbox{\hyperlink{normalize_8mjs_a8e83fc2bcd98ffa1a7c06dbc00366580}{deep\+Normalize\+Script\+Cov}}, \mbox{\hyperlink{normalize_8mjs_a5d3ed11b029e9ad33b967c7a44bd3f7d}{normalize\+Function\+Cov}}, \mbox{\hyperlink{normalize_8mjs_a4fe84eb00feac557400e8f9b982aef3b}{normalize\+Process\+Cov}}, \mbox{\hyperlink{normalize_8mjs_a2a1f0b9f6a36ea48f1d8753900be1fb6}{normalize\+Range\+Tree}}, \mbox{\hyperlink{normalize_8mjs_a9301594144e1ee707330d7351aed19ec}{normalize\+Script\+Cov}}, \} from "{}./normalize"{}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{merge_8mjs_a1bb73cff23e26a9a776e210b851c5c8b}\index{merge.mjs@{merge.mjs}!insertChild@{insertChild}}
+\index{insertChild@{insertChild}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{insertChild()}{insertChild()}}
+{\footnotesize\ttfamily \label{merge_8mjs_a1bb73cff23e26a9a776e210b851c5c8b} 
+function insert\+Child (\begin{DoxyParamCaption}\item[{}]{parent\+To\+Nested}{, }\item[{}]{parent\+Index}{, }\item[{}]{tree}{}\end{DoxyParamCaption})}
+
+\Hypertarget{merge_8mjs_a99feba995ed03d91fe46a49f8aa160da}\index{merge.mjs@{merge.mjs}!mergeFunctionCovs@{mergeFunctionCovs}}
+\index{mergeFunctionCovs@{mergeFunctionCovs}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{mergeFunctionCovs()}{mergeFunctionCovs()}}
+{\footnotesize\ttfamily \label{merge_8mjs_a99feba995ed03d91fe46a49f8aa160da} 
+function export merge\+Function\+Covs (\begin{DoxyParamCaption}\item[{}]{func\+Covs}{}\end{DoxyParamCaption})}
+
+Merges a list of matching function coverages.
+
+Functions are matching if their root ranges have the same span. The result is normalized. The input values may be mutated, it is not safe to use them after passing them to this function. The computation is synchronous.
+
+
+\begin{DoxyParams}{Parameters}
+{\em func\+Covs} & Function coverages to merge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Merged function coverage, or {\ttfamily undefined} if the input list was empty. 
+\end{DoxyReturn}
+\Hypertarget{merge_8mjs_a08cb1b21b2ddf098f057f47896f4e616}\index{merge.mjs@{merge.mjs}!mergeProcessCovs@{mergeProcessCovs}}
+\index{mergeProcessCovs@{mergeProcessCovs}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{mergeProcessCovs()}{mergeProcessCovs()}}
+{\footnotesize\ttfamily \label{merge_8mjs_a08cb1b21b2ddf098f057f47896f4e616} 
+function export merge\+Process\+Covs (\begin{DoxyParamCaption}\item[{}]{process\+Covs}{}\end{DoxyParamCaption})}
+
+Merges a list of process coverages.
+
+The result is normalized. The input values may be mutated, it is not safe to use them after passing them to this function. The computation is synchronous.
+
+
+\begin{DoxyParams}{Parameters}
+{\em process\+Covs} & Process coverages to merge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Merged process coverage. 
+\end{DoxyReturn}
+\Hypertarget{merge_8mjs_a405d69d870e1aabc14526b1a2c0bb3ee}\index{merge.mjs@{merge.mjs}!mergeRangeTreeChildren@{mergeRangeTreeChildren}}
+\index{mergeRangeTreeChildren@{mergeRangeTreeChildren}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{mergeRangeTreeChildren()}{mergeRangeTreeChildren()}}
+{\footnotesize\ttfamily \label{merge_8mjs_a405d69d870e1aabc14526b1a2c0bb3ee} 
+function merge\+Range\+Tree\+Children (\begin{DoxyParamCaption}\item[{}]{parent\+Trees}{}\end{DoxyParamCaption})}
+
+\Hypertarget{merge_8mjs_a70d05c7c737dc8e9e8eaf1c8f55b01fb}\index{merge.mjs@{merge.mjs}!mergeRangeTrees@{mergeRangeTrees}}
+\index{mergeRangeTrees@{mergeRangeTrees}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{mergeRangeTrees()}{mergeRangeTrees()}}
+{\footnotesize\ttfamily \label{merge_8mjs_a70d05c7c737dc8e9e8eaf1c8f55b01fb} 
+function merge\+Range\+Trees (\begin{DoxyParamCaption}\item[{}]{trees}{}\end{DoxyParamCaption})}
+
+@precondition Same {\ttfamily start} and {\ttfamily end} for all the trees \Hypertarget{merge_8mjs_a27d1a932f9e3d7ec8db2b319b3ac2c7f}\index{merge.mjs@{merge.mjs}!mergeScriptCovs@{mergeScriptCovs}}
+\index{mergeScriptCovs@{mergeScriptCovs}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{mergeScriptCovs()}{mergeScriptCovs()}}
+{\footnotesize\ttfamily \label{merge_8mjs_a27d1a932f9e3d7ec8db2b319b3ac2c7f} 
+function export merge\+Script\+Covs (\begin{DoxyParamCaption}\item[{}]{script\+Covs}{}\end{DoxyParamCaption})}
+
+Merges a list of matching script coverages.
+
+Scripts are matching if they have the same {\ttfamily url}. The result is normalized. The input values may be mutated, it is not safe to use them after passing them to this function. The computation is synchronous.
+
+
+\begin{DoxyParams}{Parameters}
+{\em script\+Covs} & Process coverages to merge. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Merged script coverage, or {\ttfamily undefined} if the input list was empty. 
+\end{DoxyReturn}
+\Hypertarget{merge_8mjs_a685c0b6722222f755d3be89fc22edeea}\index{merge.mjs@{merge.mjs}!nextChild@{nextChild}}
+\index{nextChild@{nextChild}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{nextChild()}{nextChild()}}
+{\footnotesize\ttfamily \label{merge_8mjs_a685c0b6722222f755d3be89fc22edeea} 
+function next\+Child (\begin{DoxyParamCaption}\item[{}]{open\+Range}{, }\item[{}]{parent\+To\+Nested}{}\end{DoxyParamCaption})}
+
+\Hypertarget{merge_8mjs_a833c1338de0e4b0a2a3b68b229a855d2}\index{merge.mjs@{merge.mjs}!stringifyFunctionRootRange@{stringifyFunctionRootRange}}
+\index{stringifyFunctionRootRange@{stringifyFunctionRootRange}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{stringifyFunctionRootRange()}{stringifyFunctionRootRange()}}
+{\footnotesize\ttfamily \label{merge_8mjs_a833c1338de0e4b0a2a3b68b229a855d2} 
+function stringify\+Function\+Root\+Range (\begin{DoxyParamCaption}\item[{}]{func\+Cov}{}\end{DoxyParamCaption})}
+
+Returns a string representation of the root range of the function.
+
+This string can be used to match function with same root range. The string is derived from the start and end offsets of the root range of the function. This assumes that {\ttfamily ranges} is non-\/empty (true for valid function coverages).
+
+
+\begin{DoxyParams}{Parameters}
+{\em func\+Cov} & Function coverage with the range to stringify \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{merge_8mjs_a59be084da8908b7d77ff34b25cd84488}\index{merge.mjs@{merge.mjs}!import@{import}}
+\index{import@{import}!merge.mjs@{merge.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{merge_8mjs_a59be084da8908b7d77ff34b25cd84488} 
+import \{ \mbox{\hyperlink{normalize_8mjs_a8e83fc2bcd98ffa1a7c06dbc00366580}{deep\+Normalize\+Script\+Cov}}, \mbox{\hyperlink{normalize_8mjs_a5d3ed11b029e9ad33b967c7a44bd3f7d}{normalize\+Function\+Cov}}, \mbox{\hyperlink{normalize_8mjs_a4fe84eb00feac557400e8f9b982aef3b}{normalize\+Process\+Cov}}, \mbox{\hyperlink{normalize_8mjs_a2a1f0b9f6a36ea48f1d8753900be1fb6}{normalize\+Range\+Tree}}, \mbox{\hyperlink{normalize_8mjs_a9301594144e1ee707330d7351aed19ec}{normalize\+Script\+Cov}}, \} from "{}./normalize"{}}
+

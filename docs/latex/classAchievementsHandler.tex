@@ -1,0 +1,371 @@
+\doxysection{Achievements\+Handler Class Reference}
+\hypertarget{classAchievementsHandler}{}\label{classAchievementsHandler}\index{AchievementsHandler@{AchievementsHandler}}
+
+
+This class is responsible for handling the achievements panel and lore objects.  
+
+
+Inheritance diagram for Achievements\+Handler\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classAchievementsHandler}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_abb3baead0e9ba4415ccaa7d5d115ecfb}{Open\+Lore\+Panel}} (int lore\+ID)
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_a892f49752e875f1320002a899bd5465c}{Close\+Lore\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_a677e9190f9733d4c90760ddbe7d35f3f}{Open\+Achievements\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_ac75b1119271eda454037d997aa73b769}{Close\+Achievements\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_a84d8fec78d116222831ea5d028ab3c01}{Populate\+Panel}} ()
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_a4d45e63f1e8b94b244d9a76479d8702f}{Page\+Back}} ()
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_add4c0f1e341e52a363253fe59e84f09b}{Page\+Forward}} ()
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_ad4f9f8033296c0e528689ea957ffa32b}{Show\+Achievement\+Unlocked\+Screen}} (int achievement\+ID)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} \mbox{\hyperlink{classAchievementsHandler_ac5cb4d15272a55da5fd787690f7d56a9}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_a48209c0cc4b6907fa33c3710fa1335c4}{Populate\+Lists}} ()
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_acf9ba92d11f45c680b4e492ffe954fdd}{Awake}} ()
+\item 
+void \mbox{\hyperlink{classAchievementsHandler_a7a668e8670463fad2e8b184b67f03abb}{Update}} ()
+\item 
+IEnumerator \mbox{\hyperlink{classAchievementsHandler_a8b3d20663eaf44d80b4ed4d5935472fc}{Fade\+Achievement\+Unlocked\+Screen}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classItemIDs}{Item\+IDs}} \mbox{\hyperlink{classAchievementsHandler_a293c2848edb6b9166fc5639867d13170}{item\+IDS}}
+\item 
+Game\+Object \mbox{\hyperlink{classAchievementsHandler_a4f9f2432ff8c28279cec035e541bb2d4}{achievements\+Panel}}
+\item 
+\mbox{\hyperlink{classCharacter__Movement}{Character\+\_\+\+Movement}} \mbox{\hyperlink{classAchievementsHandler_a63134cad71c93a4ad224cb92bf0551cd}{player\+Movement}}
+\item 
+Game\+Object \mbox{\hyperlink{classAchievementsHandler_ae4e24eacd917b5f8f3496722decb88f4}{blackout\+Modal}}
+\item 
+Game\+Object \mbox{\hyperlink{classAchievementsHandler_a657faf34dbaeb04c835590bca7f6c8d3}{ui\+Object}}
+\item 
+Unity\+Engine.\+UI.\+Button \mbox{\hyperlink{classAchievementsHandler_a086f5d143726890b2eaaa4de4cc90e9c}{left\+Button}}
+\item 
+Unity\+Engine.\+UI.\+Button \mbox{\hyperlink{classAchievementsHandler_a3cf4f8c61606c963b1a7b0e1a3d61b39}{right\+Button}}
+\item 
+Unity\+Engine.\+UI.\+Button\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classAchievementsHandler_a95b0c50f5f5f6ef290bc30e1651b7e9e}{lore\+Buttons}}
+\item 
+int \mbox{\hyperlink{classAchievementsHandler_ab49c96daea911c8879d80840f735011a}{page\+Counter}} = 0
+\item 
+Game\+Object \mbox{\hyperlink{classAchievementsHandler_a28b813fafda80d53eeb8d83f0928651f}{lore\+Object\+Panel}}
+\item 
+TMPro.\+TMP\+\_\+\+Text \mbox{\hyperlink{classAchievementsHandler_a07a4425e1c95be16d93111a5047f903f}{lore\+Title}}
+\item 
+TMPro.\+TMP\+\_\+\+Text \mbox{\hyperlink{classAchievementsHandler_ad67f2f66087d817052d6b17f6cef699f}{lore\+Sender}}
+\item 
+TMPro.\+TMP\+\_\+\+Text \mbox{\hyperlink{classAchievementsHandler_a55e40f5f01bcf9e255945cdf8b58c131}{lore\+Recipients}}
+\item 
+TMPro.\+TMP\+\_\+\+Text \mbox{\hyperlink{classAchievementsHandler_a8851ba61e142a2e3d79a4056d7fc1d01}{lore\+Body}}
+\item 
+TMPro.\+TMP\+\_\+\+Text \mbox{\hyperlink{classAchievementsHandler_ad0ea27f592a466cb6d344c6f0ada7da9}{lore\+Date}}
+\item 
+TMPro.\+TMP\+\_\+\+Text\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classAchievementsHandler_abca44bd8ddd1ecd528a2433ec990f039}{achievement\+Titles}}
+\item 
+TMPro.\+TMP\+\_\+\+Text\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classAchievementsHandler_a84c48fd5c424ac3f93120dbff8718d3f}{achievement\+Descriptions}}
+\item 
+string \mbox{\hyperlink{classAchievementsHandler_a5825bfd937e812db58871cb47e08d2ba}{lore\+Title\+Text}}
+\item 
+string \mbox{\hyperlink{classAchievementsHandler_ac2d5dddbbbac73a7791ead48464dc7b9}{lore\+Sender\+Text}}
+\item 
+string \mbox{\hyperlink{classAchievementsHandler_a5a9a86766118494f498ed96c5cb06dc5}{lore\+Recipients\+Text}}
+\item 
+string \mbox{\hyperlink{classAchievementsHandler_a319b4e05730291bb90b390346bacc9ba}{lore\+Body\+Text}}
+\item 
+string \mbox{\hyperlink{classAchievementsHandler_a97d1c5ebd5f0361c1ae31f7ff2b722bb}{lore\+Date\+Text}}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classAchievementsHandler_ac15512626c7e886b83be8771adf55f94}{rectangle\+Holders}}
+\item 
+List$<$ List$<$ int $>$ $>$ \mbox{\hyperlink{classAchievementsHandler_a796e7748644741200c851024dc27ac99}{achievement\+Pages}} = new List$<$List$<$int$>$$>$()
+\item 
+Game\+Object \mbox{\hyperlink{classAchievementsHandler_a16cc8ff9cfa2109ab802dfe349254d65}{achievement\+Unlocked\+Screen}}
+\item 
+TMPro.\+TMP\+\_\+\+Text \mbox{\hyperlink{classAchievementsHandler_a5ed63a814d82fe4271c11740d3e57db5}{achievement\+Unlocked\+Title}}
+\item 
+TMPro.\+TMP\+\_\+\+Text \mbox{\hyperlink{classAchievementsHandler_a0624b502dd8e4df7ed4749010f668cc5}{achievement\+Unlocked\+Description}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class is responsible for handling the achievements panel and lore objects. 
+
+This class will handle
+\begin{DoxyItemize}
+\item Opening and closing the achievements panel
+\item Opening and closing the lore object panel
+\item Populating the achievements panel with the achievements
+\item Populating the lore object panel with the lore object
+\item Managing the achievements and lore objects 
+\end{DoxyItemize}
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classAchievementsHandler_acf9ba92d11f45c680b4e492ffe954fdd}\index{AchievementsHandler@{AchievementsHandler}!Awake@{Awake}}
+\index{Awake@{Awake}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_acf9ba92d11f45c680b4e492ffe954fdd} 
+void Achievements\+Handler.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_ac75b1119271eda454037d997aa73b769}\index{AchievementsHandler@{AchievementsHandler}!CloseAchievementsPanel@{CloseAchievementsPanel}}
+\index{CloseAchievementsPanel@{CloseAchievementsPanel}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{CloseAchievementsPanel()}{CloseAchievementsPanel()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ac75b1119271eda454037d997aa73b769} 
+void Achievements\+Handler.\+Close\+Achievements\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classAchievementsHandler_a892f49752e875f1320002a899bd5465c}\index{AchievementsHandler@{AchievementsHandler}!CloseLorePanel@{CloseLorePanel}}
+\index{CloseLorePanel@{CloseLorePanel}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{CloseLorePanel()}{CloseLorePanel()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a892f49752e875f1320002a899bd5465c} 
+void Achievements\+Handler.\+Close\+Lore\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classAchievementsHandler_a8b3d20663eaf44d80b4ed4d5935472fc}\index{AchievementsHandler@{AchievementsHandler}!FadeAchievementUnlockedScreen@{FadeAchievementUnlockedScreen}}
+\index{FadeAchievementUnlockedScreen@{FadeAchievementUnlockedScreen}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{FadeAchievementUnlockedScreen()}{FadeAchievementUnlockedScreen()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a8b3d20663eaf44d80b4ed4d5935472fc} 
+IEnumerator Achievements\+Handler.\+Fade\+Achievement\+Unlocked\+Screen (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a677e9190f9733d4c90760ddbe7d35f3f}\index{AchievementsHandler@{AchievementsHandler}!OpenAchievementsPanel@{OpenAchievementsPanel}}
+\index{OpenAchievementsPanel@{OpenAchievementsPanel}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{OpenAchievementsPanel()}{OpenAchievementsPanel()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a677e9190f9733d4c90760ddbe7d35f3f} 
+void Achievements\+Handler.\+Open\+Achievements\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classAchievementsHandler_abb3baead0e9ba4415ccaa7d5d115ecfb}\index{AchievementsHandler@{AchievementsHandler}!OpenLorePanel@{OpenLorePanel}}
+\index{OpenLorePanel@{OpenLorePanel}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{OpenLorePanel()}{OpenLorePanel()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_abb3baead0e9ba4415ccaa7d5d115ecfb} 
+void Achievements\+Handler.\+Open\+Lore\+Panel (\begin{DoxyParamCaption}\item[{int}]{lore\+ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classAchievementsHandler_a4d45e63f1e8b94b244d9a76479d8702f}\index{AchievementsHandler@{AchievementsHandler}!PageBack@{PageBack}}
+\index{PageBack@{PageBack}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{PageBack()}{PageBack()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a4d45e63f1e8b94b244d9a76479d8702f} 
+void Achievements\+Handler.\+Page\+Back (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classAchievementsHandler_add4c0f1e341e52a363253fe59e84f09b}\index{AchievementsHandler@{AchievementsHandler}!PageForward@{PageForward}}
+\index{PageForward@{PageForward}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{PageForward()}{PageForward()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_add4c0f1e341e52a363253fe59e84f09b} 
+void Achievements\+Handler.\+Page\+Forward (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classAchievementsHandler_a48209c0cc4b6907fa33c3710fa1335c4}\index{AchievementsHandler@{AchievementsHandler}!PopulateLists@{PopulateLists}}
+\index{PopulateLists@{PopulateLists}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{PopulateLists()}{PopulateLists()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a48209c0cc4b6907fa33c3710fa1335c4} 
+void Achievements\+Handler.\+Populate\+Lists (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a84d8fec78d116222831ea5d028ab3c01}\index{AchievementsHandler@{AchievementsHandler}!PopulatePanel@{PopulatePanel}}
+\index{PopulatePanel@{PopulatePanel}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{PopulatePanel()}{PopulatePanel()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a84d8fec78d116222831ea5d028ab3c01} 
+void Achievements\+Handler.\+Populate\+Panel (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classAchievementsHandler_ad4f9f8033296c0e528689ea957ffa32b}\index{AchievementsHandler@{AchievementsHandler}!ShowAchievementUnlockedScreen@{ShowAchievementUnlockedScreen}}
+\index{ShowAchievementUnlockedScreen@{ShowAchievementUnlockedScreen}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{ShowAchievementUnlockedScreen()}{ShowAchievementUnlockedScreen()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ad4f9f8033296c0e528689ea957ffa32b} 
+void Achievements\+Handler.\+Show\+Achievement\+Unlocked\+Screen (\begin{DoxyParamCaption}\item[{int}]{achievement\+ID}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classAchievementsHandler_a7a668e8670463fad2e8b184b67f03abb}\index{AchievementsHandler@{AchievementsHandler}!Update@{Update}}
+\index{Update@{Update}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a7a668e8670463fad2e8b184b67f03abb} 
+void Achievements\+Handler.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classAchievementsHandler_a84c48fd5c424ac3f93120dbff8718d3f}\index{AchievementsHandler@{AchievementsHandler}!achievementDescriptions@{achievementDescriptions}}
+\index{achievementDescriptions@{achievementDescriptions}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{achievementDescriptions}{achievementDescriptions}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a84c48fd5c424ac3f93120dbff8718d3f} 
+TMPro.\+TMP\+\_\+\+Text \mbox{[}$\,$\mbox{]} Achievements\+Handler.\+achievement\+Descriptions\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a796e7748644741200c851024dc27ac99}\index{AchievementsHandler@{AchievementsHandler}!achievementPages@{achievementPages}}
+\index{achievementPages@{achievementPages}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{achievementPages}{achievementPages}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a796e7748644741200c851024dc27ac99} 
+List$<$List$<$int$>$ $>$ Achievements\+Handler.\+achievement\+Pages = new List$<$List$<$int$>$$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a4f9f2432ff8c28279cec035e541bb2d4}\index{AchievementsHandler@{AchievementsHandler}!achievementsPanel@{achievementsPanel}}
+\index{achievementsPanel@{achievementsPanel}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{achievementsPanel}{achievementsPanel}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a4f9f2432ff8c28279cec035e541bb2d4} 
+Game\+Object Achievements\+Handler.\+achievements\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_abca44bd8ddd1ecd528a2433ec990f039}\index{AchievementsHandler@{AchievementsHandler}!achievementTitles@{achievementTitles}}
+\index{achievementTitles@{achievementTitles}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{achievementTitles}{achievementTitles}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_abca44bd8ddd1ecd528a2433ec990f039} 
+TMPro.\+TMP\+\_\+\+Text \mbox{[}$\,$\mbox{]} Achievements\+Handler.\+achievement\+Titles\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a0624b502dd8e4df7ed4749010f668cc5}\index{AchievementsHandler@{AchievementsHandler}!achievementUnlockedDescription@{achievementUnlockedDescription}}
+\index{achievementUnlockedDescription@{achievementUnlockedDescription}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{achievementUnlockedDescription}{achievementUnlockedDescription}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a0624b502dd8e4df7ed4749010f668cc5} 
+TMPro.\+TMP\+\_\+\+Text Achievements\+Handler.\+achievement\+Unlocked\+Description\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a16cc8ff9cfa2109ab802dfe349254d65}\index{AchievementsHandler@{AchievementsHandler}!achievementUnlockedScreen@{achievementUnlockedScreen}}
+\index{achievementUnlockedScreen@{achievementUnlockedScreen}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{achievementUnlockedScreen}{achievementUnlockedScreen}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a16cc8ff9cfa2109ab802dfe349254d65} 
+Game\+Object Achievements\+Handler.\+achievement\+Unlocked\+Screen\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a5ed63a814d82fe4271c11740d3e57db5}\index{AchievementsHandler@{AchievementsHandler}!achievementUnlockedTitle@{achievementUnlockedTitle}}
+\index{achievementUnlockedTitle@{achievementUnlockedTitle}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{achievementUnlockedTitle}{achievementUnlockedTitle}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a5ed63a814d82fe4271c11740d3e57db5} 
+TMPro.\+TMP\+\_\+\+Text Achievements\+Handler.\+achievement\+Unlocked\+Title\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_ae4e24eacd917b5f8f3496722decb88f4}\index{AchievementsHandler@{AchievementsHandler}!blackoutModal@{blackoutModal}}
+\index{blackoutModal@{blackoutModal}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{blackoutModal}{blackoutModal}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ae4e24eacd917b5f8f3496722decb88f4} 
+Game\+Object Achievements\+Handler.\+blackout\+Modal\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a293c2848edb6b9166fc5639867d13170}\index{AchievementsHandler@{AchievementsHandler}!itemIDS@{itemIDS}}
+\index{itemIDS@{itemIDS}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{itemIDS}{itemIDS}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a293c2848edb6b9166fc5639867d13170} 
+\mbox{\hyperlink{classItemIDs}{Item\+IDs}} Achievements\+Handler.\+item\+IDS\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a086f5d143726890b2eaaa4de4cc90e9c}\index{AchievementsHandler@{AchievementsHandler}!leftButton@{leftButton}}
+\index{leftButton@{leftButton}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{leftButton}{leftButton}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a086f5d143726890b2eaaa4de4cc90e9c} 
+Unity\+Engine.\+UI.\+Button Achievements\+Handler.\+left\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a8851ba61e142a2e3d79a4056d7fc1d01}\index{AchievementsHandler@{AchievementsHandler}!loreBody@{loreBody}}
+\index{loreBody@{loreBody}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreBody}{loreBody}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a8851ba61e142a2e3d79a4056d7fc1d01} 
+TMPro.\+TMP\+\_\+\+Text Achievements\+Handler.\+lore\+Body\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a319b4e05730291bb90b390346bacc9ba}\index{AchievementsHandler@{AchievementsHandler}!loreBodyText@{loreBodyText}}
+\index{loreBodyText@{loreBodyText}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreBodyText}{loreBodyText}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a319b4e05730291bb90b390346bacc9ba} 
+string Achievements\+Handler.\+lore\+Body\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a95b0c50f5f5f6ef290bc30e1651b7e9e}\index{AchievementsHandler@{AchievementsHandler}!loreButtons@{loreButtons}}
+\index{loreButtons@{loreButtons}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreButtons}{loreButtons}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a95b0c50f5f5f6ef290bc30e1651b7e9e} 
+Unity\+Engine.\+UI.\+Button \mbox{[}$\,$\mbox{]} Achievements\+Handler.\+lore\+Buttons\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_ad0ea27f592a466cb6d344c6f0ada7da9}\index{AchievementsHandler@{AchievementsHandler}!loreDate@{loreDate}}
+\index{loreDate@{loreDate}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreDate}{loreDate}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ad0ea27f592a466cb6d344c6f0ada7da9} 
+TMPro.\+TMP\+\_\+\+Text Achievements\+Handler.\+lore\+Date\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a97d1c5ebd5f0361c1ae31f7ff2b722bb}\index{AchievementsHandler@{AchievementsHandler}!loreDateText@{loreDateText}}
+\index{loreDateText@{loreDateText}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreDateText}{loreDateText}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a97d1c5ebd5f0361c1ae31f7ff2b722bb} 
+string Achievements\+Handler.\+lore\+Date\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a28b813fafda80d53eeb8d83f0928651f}\index{AchievementsHandler@{AchievementsHandler}!loreObjectPanel@{loreObjectPanel}}
+\index{loreObjectPanel@{loreObjectPanel}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreObjectPanel}{loreObjectPanel}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a28b813fafda80d53eeb8d83f0928651f} 
+Game\+Object Achievements\+Handler.\+lore\+Object\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a55e40f5f01bcf9e255945cdf8b58c131}\index{AchievementsHandler@{AchievementsHandler}!loreRecipients@{loreRecipients}}
+\index{loreRecipients@{loreRecipients}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreRecipients}{loreRecipients}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a55e40f5f01bcf9e255945cdf8b58c131} 
+TMPro.\+TMP\+\_\+\+Text Achievements\+Handler.\+lore\+Recipients\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a5a9a86766118494f498ed96c5cb06dc5}\index{AchievementsHandler@{AchievementsHandler}!loreRecipientsText@{loreRecipientsText}}
+\index{loreRecipientsText@{loreRecipientsText}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreRecipientsText}{loreRecipientsText}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a5a9a86766118494f498ed96c5cb06dc5} 
+string Achievements\+Handler.\+lore\+Recipients\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_ad67f2f66087d817052d6b17f6cef699f}\index{AchievementsHandler@{AchievementsHandler}!loreSender@{loreSender}}
+\index{loreSender@{loreSender}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreSender}{loreSender}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ad67f2f66087d817052d6b17f6cef699f} 
+TMPro.\+TMP\+\_\+\+Text Achievements\+Handler.\+lore\+Sender\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_ac2d5dddbbbac73a7791ead48464dc7b9}\index{AchievementsHandler@{AchievementsHandler}!loreSenderText@{loreSenderText}}
+\index{loreSenderText@{loreSenderText}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreSenderText}{loreSenderText}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ac2d5dddbbbac73a7791ead48464dc7b9} 
+string Achievements\+Handler.\+lore\+Sender\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a07a4425e1c95be16d93111a5047f903f}\index{AchievementsHandler@{AchievementsHandler}!loreTitle@{loreTitle}}
+\index{loreTitle@{loreTitle}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreTitle}{loreTitle}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a07a4425e1c95be16d93111a5047f903f} 
+TMPro.\+TMP\+\_\+\+Text Achievements\+Handler.\+lore\+Title\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a5825bfd937e812db58871cb47e08d2ba}\index{AchievementsHandler@{AchievementsHandler}!loreTitleText@{loreTitleText}}
+\index{loreTitleText@{loreTitleText}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{loreTitleText}{loreTitleText}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a5825bfd937e812db58871cb47e08d2ba} 
+string Achievements\+Handler.\+lore\+Title\+Text\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_ab49c96daea911c8879d80840f735011a}\index{AchievementsHandler@{AchievementsHandler}!pageCounter@{pageCounter}}
+\index{pageCounter@{pageCounter}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{pageCounter}{pageCounter}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ab49c96daea911c8879d80840f735011a} 
+int Achievements\+Handler.\+page\+Counter = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a63134cad71c93a4ad224cb92bf0551cd}\index{AchievementsHandler@{AchievementsHandler}!playerMovement@{playerMovement}}
+\index{playerMovement@{playerMovement}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{playerMovement}{playerMovement}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a63134cad71c93a4ad224cb92bf0551cd} 
+\mbox{\hyperlink{classCharacter__Movement}{Character\+\_\+\+Movement}} Achievements\+Handler.\+player\+Movement\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_ac15512626c7e886b83be8771adf55f94}\index{AchievementsHandler@{AchievementsHandler}!rectangleHolders@{rectangleHolders}}
+\index{rectangleHolders@{rectangleHolders}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{rectangleHolders}{rectangleHolders}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ac15512626c7e886b83be8771adf55f94} 
+Game\+Object \mbox{[}$\,$\mbox{]} Achievements\+Handler.\+rectangle\+Holders\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a3cf4f8c61606c963b1a7b0e1a3d61b39}\index{AchievementsHandler@{AchievementsHandler}!rightButton@{rightButton}}
+\index{rightButton@{rightButton}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{rightButton}{rightButton}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a3cf4f8c61606c963b1a7b0e1a3d61b39} 
+Unity\+Engine.\+UI.\+Button Achievements\+Handler.\+right\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classAchievementsHandler_a657faf34dbaeb04c835590bca7f6c8d3}\index{AchievementsHandler@{AchievementsHandler}!uiObject@{uiObject}}
+\index{uiObject@{uiObject}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{uiObject}{uiObject}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_a657faf34dbaeb04c835590bca7f6c8d3} 
+Game\+Object Achievements\+Handler.\+ui\+Object\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classAchievementsHandler_ac5cb4d15272a55da5fd787690f7d56a9}\index{AchievementsHandler@{AchievementsHandler}!playerData@{playerData}}
+\index{playerData@{playerData}!AchievementsHandler@{AchievementsHandler}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{classAchievementsHandler_ac5cb4d15272a55da5fd787690f7d56a9} 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} Achievements\+Handler.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Interactors/\mbox{\hyperlink{AchievementsHandler_8cs}{Achievements\+Handler.\+cs}}\end{DoxyCompactItemize}

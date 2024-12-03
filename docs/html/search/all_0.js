@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['482_20932_0',['CSCE 482 - 932',['../index.html#autotoc_md2',1,'']]]
+  ['1_20create_20an_20rds_20database_0',['1. Create an RDS Database',['../index.html#autotoc_md23',1,'']]]
 ];

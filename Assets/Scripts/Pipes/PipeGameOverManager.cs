@@ -32,15 +32,13 @@ public class PipeGameOverManager : MonoBehaviour
 
     public void RestartButton()
     {
-        // FIXME: use actual userId from playerData
-        uploadTime(300);
+        uploadTime(playerData.userId);
         SceneManager.LoadScene("PipeGame");
     }
 
     public void ExitButton()
     {
-        // FIXME: use actual userId from playerData
-        uploadTime(300);
+        uploadTime(playerData.userId);
         SceneManager.LoadScene("Laboratory_Main");
     }
 
