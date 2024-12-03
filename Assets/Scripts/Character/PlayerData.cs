@@ -26,7 +26,6 @@ public class PlayerData : MonoBehaviour
     // Storing information like the player's username, coins
     public string username;
     public int coins;
-    public int userId;
 
     public static PlayerData Instance;
 
@@ -44,6 +43,7 @@ public class PlayerData : MonoBehaviour
     public int casino_losses = 0; // Total losses from the casino　（coins)
     public int pipe_puzzle_wins = 0; // Wins from the pipe puzzle
 
+<<<<<<< HEAD
     // Movement speed
     public float movement_speed = 5.0f;
 
@@ -54,6 +54,8 @@ public class PlayerData : MonoBehaviour
     // Storing neuroflux meter
     public int neuroflux_meter = 0; // Can go max 100
 
+=======
+>>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
     // Where the UI for coins is stored
     // Look for Currency Image, which has a Text (TMP) that is a child object
     private TMPro.TMP_Text currencyText;
@@ -79,10 +81,15 @@ public class PlayerData : MonoBehaviour
         {"deckmaster", 0},
         {"casino_owner", 1},
         {"shopkeeper", 0},
+<<<<<<< HEAD
         {"drunkard", 0},
         {"sensei", 2}, // just for debug
         {"casinoenter", 1},
         {"labenter", 0}
+=======
+        {"drunk_robot", 0},
+        {"sensei", 0}
+>>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
     };
 
     // Storing the current items the player has unlocked (list of item id's)
@@ -96,28 +103,6 @@ public class PlayerData : MonoBehaviour
     // when they first start the game. This is used to reset the player's
     // items to the original state.
     [SerializeField] public List<int> original_load_items = new List<int>();
-
-    // A list of unlocked achievements
-    [SerializeField] public List<int> unlocked_achievements = new List<int>(); // by the ids, 0 , 1, 2, etc...
-
-    // AchievementFunction
-    // This function will be called when the player completes an achievement
-    public void UnlockAchievement(int achievement_id)
-    {
-        // If the achievement is not already unlocked, unlock it
-        if (!unlocked_achievements.Contains(achievement_id))
-        {
-            unlocked_achievements.Add(achievement_id);
-        }
-
-        // Also call PopulatePanel on AchievementHandler
-        // to update the achievements panel
-        FindObjectOfType<AchievementsHandler>().PopulatePanel();
-
-        // Call AchievementHandler's ShowAchievementUnlockedScreen
-        // to show the achievement unlocked screen
-        FindObjectOfType<AchievementsHandler>().ShowAchievementUnlockedScreen(achievement_id);
-    }
 
     // Awake is called when the script instance is being loaded
     private void Awake()
@@ -166,15 +151,18 @@ public class PlayerData : MonoBehaviour
                 danceEmoteButton = GameObject.Find("UI_Button_Dance").GetComponent<UnityEngine.UI.Button>();
             }
         }
-
         // For just showing how everything works, add all items to unlocked_items
         // if someone pressed Y key
+<<<<<<< HEAD
         // DEBUG:::
+=======
+>>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
         if (Input.GetKeyDown(KeyCode.Y))
         {
             Debug.Log("Adding all items to unlocked items");
             foreach (KeyValuePair<int, ItemIDs.Item> item in item_database)
             {
+<<<<<<< HEAD
                 if (!unlocked_items.Contains(item.Key))
                 {
                     unlocked_items.Add(item.Key);
@@ -194,7 +182,14 @@ public class PlayerData : MonoBehaviour
             }
         }
 
+=======
+                unlocked_items.Add(item.Key);
+            }
+>>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
 
+            // Now call ItemIds FillAllInventoryButtons()
+            item_ids.FillInventoryButtons();
+        }
         // If any 0's in equipped_items, remove them
         if (equipped_items.Contains(0))
         {

@@ -53,7 +53,6 @@ public class EnterRoom : MonoBehaviour
             interactButton.SetActive(true);
             playerData.interactable = "exitcasino";
         } // ...
-        // else if (scene_checker ==)
     }
 
     // OnTriggerExit2D

@@ -12,6 +12,7 @@ using UnityEngine.UI;
 // This includes all items, dances, and unlockables
 //
 
+<<<<<<< HEAD
 /**
  * @brief ItemIds holds the encoding for the various items. This includes all
  * of the cosmetic items. It also holds the LoreObject which will be the
@@ -19,6 +20,9 @@ using UnityEngine.UI;
  * It also holds the achievement descriptions which trigger when the player
  * does various things.
  */
+=======
+
+>>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
 public class ItemIDs : MonoBehaviour
 {
     public struct Item
@@ -29,6 +33,7 @@ public class ItemIDs : MonoBehaviour
         public int cost; // The cost of the item
     }
 
+<<<<<<< HEAD
     // Lore objects
     public struct LoreObject
     {
@@ -106,6 +111,8 @@ public class ItemIDs : MonoBehaviour
         {18, new LoreObject("Rishi", "To my love", "Keiko, \n\nI'm sorry. I'm sorry for everything. I'm sorry it had to come to this.\n\nTo be honest, Keiko, I've been feeling like I've been losing myself. My mind is in a bunch of pieces. Take the kids back to Japan. But no matter what happens, I love you. And I'll always love you. I'm so glad I met you that one fateful day. Even if this is the end, just know, I'll always be by your side.", "Dec. 17, 2054", new string[]{"Keiko"})},
     };
 
+=======
+>>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
     // Create the item database
     // Hats start at 100, Chests start at 200, Leggings start at 300, Shoes start at 400, Dances start at 500, Unlockables start at 1000
     public Dictionary<int, Item> item_database = new Dictionary<int, Item>()

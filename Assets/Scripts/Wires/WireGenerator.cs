@@ -97,14 +97,15 @@ public class WireGenerator : MonoBehaviour
     {
         if (checkConnection())
         {
-            clearWires();
-            if (level < 6)
+            // FIXME: change back to 6 after testing
+            if (level < 2)
             {
                 levelStopwatch.Stop();
                 levelOverManager.Setup(levelStopwatch.Elapsed);
             }
             else
             {
+                // FIXME: setup backend call
                 levelStopwatch.Stop();
                 gameStopwatch.Stop();
                 gameOverManager.Setup(levelStopwatch.Elapsed, gameStopwatch.Elapsed);
@@ -118,6 +119,7 @@ public class WireGenerator : MonoBehaviour
      */
     public void StartLevel()
     {
+        clearWires();
         level++;
         spawnObjects();
         levelStopwatch.Restart();
