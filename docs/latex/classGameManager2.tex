@@ -1,0 +1,255 @@
+\doxysection{Game\+Manager2 Class Reference}
+\hypertarget{classGameManager2}{}\label{classGameManager2}\index{GameManager2@{GameManager2}}
+Inheritance diagram for Game\+Manager2\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classGameManager2}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGameManager2_ad3e3a383c6cfb7b5cbf454c861eafebb}{Reset}} ()
+\item 
+void \mbox{\hyperlink{classGameManager2_a7ff73650ce64d231ba941774f75269f6}{Update}} ()
+\item 
+void \mbox{\hyperlink{classGameManager2_a1347dff3cebe4c72e161d3a3e46eb231}{Check\+Play\+Slots}} ()
+\item 
+void \mbox{\hyperlink{classGameManager2_aed5828d77f8fbcbdba056f237ba0f810}{Draw\+Card}} (int index)
+\item 
+void \mbox{\hyperlink{classGameManager2_a4dbf7cc43b4da1b5cd9e6b22e92adae6}{resize\+Card\+Slots}} ()
+\item 
+void \mbox{\hyperlink{classGameManager2_afd41568a9701d78351fc48d832fd5800}{Move\+To\+Play\+Slot}} (\mbox{\hyperlink{classCard}{Card}} play\+Card)
+\item 
+void \mbox{\hyperlink{classGameManager2_a7f927e74ba7edbf07890293efe4d0670}{Undo\+Play\+Slot}} (\mbox{\hyperlink{classCard}{Card}} play\+Card)
+\item 
+void \mbox{\hyperlink{classGameManager2_a5e87dab2bb3d56d1b89d38a0329f2866}{Play\+Turn}} ()
+\item 
+void \mbox{\hyperlink{classGameManager2_a116b33de54fc31a5d8dcfb926969a1cc}{Shuffle}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Camera \mbox{\hyperlink{classGameManager2_a005cc89ced3806d2f79df82c7c39d2f3}{main\+Camera}}
+\item 
+List$<$ \mbox{\hyperlink{classCard}{Card}} $>$ \mbox{\hyperlink{classGameManager2_a82f9a43c59ba9c53dc4a7c767bdfb756}{deck}} = new List$<$\mbox{\hyperlink{classCard}{Card}}$>$()
+\item 
+List$<$ \mbox{\hyperlink{classCard}{Card}} $>$ \mbox{\hyperlink{classGameManager2_a78b8fdd2912e03ec0fcf9efebd5ee31a}{discard\+Pile}} = new List$<$\mbox{\hyperlink{classCard}{Card}}$>$()
+\item 
+List$<$ \mbox{\hyperlink{classCard}{Card}} $>$ \mbox{\hyperlink{classGameManager2_acbda800f0b9f85f49100a88f2bbcba2e}{current\+Hand}} = new List$<$\mbox{\hyperlink{classCard}{Card}}$>$()
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_ad349313f0b19b485b03aca02d959935c}{card\+Id}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_a7d686854a2be1845eedf7560b184b511}{card\+Cost}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_af593a053846cc98e697b3f8463b61328}{card\+Power}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_ab40abbbc37264486275b3a90cb85ea81}{card\+Description}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_a428d53e94797d5ac16d300ef7d49141b}{card\+Names}}
+\item 
+Transform\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_a59c329baab85d4e1e11ac5b78cfcc1d6}{card\+Slots}}
+\item 
+bool\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_a8d7b9851e2b26296cb43064f5e0d8ed0}{available\+Card\+Slots}}
+\item 
+Transform\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_a86272763bd126fb792f6801eb59434da}{play\+Slots}}
+\item 
+bool\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classGameManager2_a4c70e13b3fb7070171fa2057ddcc289d}{available\+Play\+Slots}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classGameManager2_abc5d2e200aba65b12b68eca5e1a45f5a}{deck\+Text}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classGameManager2_a72456994d34edeedb6274d90d1ea48a6}{discard\+Text}}
+\item 
+int \mbox{\hyperlink{classGameManager2_a2cd0ec4efafea5c4ca523bae36a9a8e4}{hand\+Size}}
+\item 
+Button \mbox{\hyperlink{classGameManager2_adc2739747f6d4f11528348a8a09f6deb}{play\+Turn\+Button}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classGameManager2_ac3424ef6879fa6d5f571b79b5db8ba89}{Start}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classGameManager2_a3940b84d3ecd057df7ed6d0e7f3c4960}{is\+Below\+Threshold}} = false
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classGameManager2_a1347dff3cebe4c72e161d3a3e46eb231}\index{GameManager2@{GameManager2}!CheckPlaySlots@{CheckPlaySlots}}
+\index{CheckPlaySlots@{CheckPlaySlots}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{CheckPlaySlots()}{CheckPlaySlots()}}
+{\footnotesize\ttfamily \label{classGameManager2_a1347dff3cebe4c72e161d3a3e46eb231} 
+void Game\+Manager2.\+Check\+Play\+Slots (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGameManager2_aed5828d77f8fbcbdba056f237ba0f810}\index{GameManager2@{GameManager2}!DrawCard@{DrawCard}}
+\index{DrawCard@{DrawCard}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{DrawCard()}{DrawCard()}}
+{\footnotesize\ttfamily \label{classGameManager2_aed5828d77f8fbcbdba056f237ba0f810} 
+void Game\+Manager2.\+Draw\+Card (\begin{DoxyParamCaption}\item[{int}]{index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGameManager2_afd41568a9701d78351fc48d832fd5800}\index{GameManager2@{GameManager2}!MoveToPlaySlot@{MoveToPlaySlot}}
+\index{MoveToPlaySlot@{MoveToPlaySlot}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{MoveToPlaySlot()}{MoveToPlaySlot()}}
+{\footnotesize\ttfamily \label{classGameManager2_afd41568a9701d78351fc48d832fd5800} 
+void Game\+Manager2.\+Move\+To\+Play\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCard}{Card}}}]{play\+Card}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGameManager2_a5e87dab2bb3d56d1b89d38a0329f2866}\index{GameManager2@{GameManager2}!PlayTurn@{PlayTurn}}
+\index{PlayTurn@{PlayTurn}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{PlayTurn()}{PlayTurn()}}
+{\footnotesize\ttfamily \label{classGameManager2_a5e87dab2bb3d56d1b89d38a0329f2866} 
+void Game\+Manager2.\+Play\+Turn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGameManager2_ad3e3a383c6cfb7b5cbf454c861eafebb}\index{GameManager2@{GameManager2}!Reset@{Reset}}
+\index{Reset@{Reset}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{Reset()}{Reset()}}
+{\footnotesize\ttfamily \label{classGameManager2_ad3e3a383c6cfb7b5cbf454c861eafebb} 
+void Game\+Manager2.\+Reset (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGameManager2_a4dbf7cc43b4da1b5cd9e6b22e92adae6}\index{GameManager2@{GameManager2}!resizeCardSlots@{resizeCardSlots}}
+\index{resizeCardSlots@{resizeCardSlots}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{resizeCardSlots()}{resizeCardSlots()}}
+{\footnotesize\ttfamily \label{classGameManager2_a4dbf7cc43b4da1b5cd9e6b22e92adae6} 
+void Game\+Manager2.\+resize\+Card\+Slots (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGameManager2_a116b33de54fc31a5d8dcfb926969a1cc}\index{GameManager2@{GameManager2}!Shuffle@{Shuffle}}
+\index{Shuffle@{Shuffle}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{Shuffle()}{Shuffle()}}
+{\footnotesize\ttfamily \label{classGameManager2_a116b33de54fc31a5d8dcfb926969a1cc} 
+void Game\+Manager2.\+Shuffle (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGameManager2_ac3424ef6879fa6d5f571b79b5db8ba89}\index{GameManager2@{GameManager2}!Start@{Start}}
+\index{Start@{Start}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classGameManager2_ac3424ef6879fa6d5f571b79b5db8ba89} 
+void Game\+Manager2.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classGameManager2_a7f927e74ba7edbf07890293efe4d0670}\index{GameManager2@{GameManager2}!UndoPlaySlot@{UndoPlaySlot}}
+\index{UndoPlaySlot@{UndoPlaySlot}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{UndoPlaySlot()}{UndoPlaySlot()}}
+{\footnotesize\ttfamily \label{classGameManager2_a7f927e74ba7edbf07890293efe4d0670} 
+void Game\+Manager2.\+Undo\+Play\+Slot (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCard}{Card}}}]{play\+Card}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classGameManager2_a7ff73650ce64d231ba941774f75269f6}\index{GameManager2@{GameManager2}!Update@{Update}}
+\index{Update@{Update}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{classGameManager2_a7ff73650ce64d231ba941774f75269f6} 
+void Game\+Manager2.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classGameManager2_a8d7b9851e2b26296cb43064f5e0d8ed0}\index{GameManager2@{GameManager2}!availableCardSlots@{availableCardSlots}}
+\index{availableCardSlots@{availableCardSlots}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{availableCardSlots}{availableCardSlots}}
+{\footnotesize\ttfamily \label{classGameManager2_a8d7b9851e2b26296cb43064f5e0d8ed0} 
+bool \mbox{[}$\,$\mbox{]} Game\+Manager2.\+available\+Card\+Slots}
+
+\Hypertarget{classGameManager2_a4c70e13b3fb7070171fa2057ddcc289d}\index{GameManager2@{GameManager2}!availablePlaySlots@{availablePlaySlots}}
+\index{availablePlaySlots@{availablePlaySlots}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{availablePlaySlots}{availablePlaySlots}}
+{\footnotesize\ttfamily \label{classGameManager2_a4c70e13b3fb7070171fa2057ddcc289d} 
+bool \mbox{[}$\,$\mbox{]} Game\+Manager2.\+available\+Play\+Slots}
+
+\Hypertarget{classGameManager2_a7d686854a2be1845eedf7560b184b511}\index{GameManager2@{GameManager2}!cardCost@{cardCost}}
+\index{cardCost@{cardCost}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{cardCost}{cardCost}}
+{\footnotesize\ttfamily \label{classGameManager2_a7d686854a2be1845eedf7560b184b511} 
+int \mbox{[}$\,$\mbox{]} Game\+Manager2.\+card\+Cost}
+
+\Hypertarget{classGameManager2_ab40abbbc37264486275b3a90cb85ea81}\index{GameManager2@{GameManager2}!cardDescription@{cardDescription}}
+\index{cardDescription@{cardDescription}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{cardDescription}{cardDescription}}
+{\footnotesize\ttfamily \label{classGameManager2_ab40abbbc37264486275b3a90cb85ea81} 
+string \mbox{[}$\,$\mbox{]} Game\+Manager2.\+card\+Description}
+
+\Hypertarget{classGameManager2_ad349313f0b19b485b03aca02d959935c}\index{GameManager2@{GameManager2}!cardId@{cardId}}
+\index{cardId@{cardId}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{cardId}{cardId}}
+{\footnotesize\ttfamily \label{classGameManager2_ad349313f0b19b485b03aca02d959935c} 
+int \mbox{[}$\,$\mbox{]} Game\+Manager2.\+card\+Id}
+
+\Hypertarget{classGameManager2_a428d53e94797d5ac16d300ef7d49141b}\index{GameManager2@{GameManager2}!cardNames@{cardNames}}
+\index{cardNames@{cardNames}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{cardNames}{cardNames}}
+{\footnotesize\ttfamily \label{classGameManager2_a428d53e94797d5ac16d300ef7d49141b} 
+string \mbox{[}$\,$\mbox{]} Game\+Manager2.\+card\+Names}
+
+\Hypertarget{classGameManager2_af593a053846cc98e697b3f8463b61328}\index{GameManager2@{GameManager2}!cardPower@{cardPower}}
+\index{cardPower@{cardPower}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{cardPower}{cardPower}}
+{\footnotesize\ttfamily \label{classGameManager2_af593a053846cc98e697b3f8463b61328} 
+int \mbox{[}$\,$\mbox{]} Game\+Manager2.\+card\+Power}
+
+\Hypertarget{classGameManager2_a59c329baab85d4e1e11ac5b78cfcc1d6}\index{GameManager2@{GameManager2}!cardSlots@{cardSlots}}
+\index{cardSlots@{cardSlots}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{cardSlots}{cardSlots}}
+{\footnotesize\ttfamily \label{classGameManager2_a59c329baab85d4e1e11ac5b78cfcc1d6} 
+Transform \mbox{[}$\,$\mbox{]} Game\+Manager2.\+card\+Slots}
+
+\Hypertarget{classGameManager2_acbda800f0b9f85f49100a88f2bbcba2e}\index{GameManager2@{GameManager2}!currentHand@{currentHand}}
+\index{currentHand@{currentHand}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{currentHand}{currentHand}}
+{\footnotesize\ttfamily \label{classGameManager2_acbda800f0b9f85f49100a88f2bbcba2e} 
+List$<$\mbox{\hyperlink{classCard}{Card}}$>$ Game\+Manager2.\+current\+Hand = new List$<$\mbox{\hyperlink{classCard}{Card}}$>$()}
+
+\Hypertarget{classGameManager2_a82f9a43c59ba9c53dc4a7c767bdfb756}\index{GameManager2@{GameManager2}!deck@{deck}}
+\index{deck@{deck}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{deck}{deck}}
+{\footnotesize\ttfamily \label{classGameManager2_a82f9a43c59ba9c53dc4a7c767bdfb756} 
+List$<$\mbox{\hyperlink{classCard}{Card}}$>$ Game\+Manager2.\+deck = new List$<$\mbox{\hyperlink{classCard}{Card}}$>$()}
+
+\Hypertarget{classGameManager2_abc5d2e200aba65b12b68eca5e1a45f5a}\index{GameManager2@{GameManager2}!deckText@{deckText}}
+\index{deckText@{deckText}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{deckText}{deckText}}
+{\footnotesize\ttfamily \label{classGameManager2_abc5d2e200aba65b12b68eca5e1a45f5a} 
+Text\+Mesh\+Pro\+UGUI Game\+Manager2.\+deck\+Text}
+
+\Hypertarget{classGameManager2_a78b8fdd2912e03ec0fcf9efebd5ee31a}\index{GameManager2@{GameManager2}!discardPile@{discardPile}}
+\index{discardPile@{discardPile}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{discardPile}{discardPile}}
+{\footnotesize\ttfamily \label{classGameManager2_a78b8fdd2912e03ec0fcf9efebd5ee31a} 
+List$<$\mbox{\hyperlink{classCard}{Card}}$>$ Game\+Manager2.\+discard\+Pile = new List$<$\mbox{\hyperlink{classCard}{Card}}$>$()}
+
+\Hypertarget{classGameManager2_a72456994d34edeedb6274d90d1ea48a6}\index{GameManager2@{GameManager2}!discardText@{discardText}}
+\index{discardText@{discardText}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{discardText}{discardText}}
+{\footnotesize\ttfamily \label{classGameManager2_a72456994d34edeedb6274d90d1ea48a6} 
+Text\+Mesh\+Pro\+UGUI Game\+Manager2.\+discard\+Text}
+
+\Hypertarget{classGameManager2_a2cd0ec4efafea5c4ca523bae36a9a8e4}\index{GameManager2@{GameManager2}!handSize@{handSize}}
+\index{handSize@{handSize}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{handSize}{handSize}}
+{\footnotesize\ttfamily \label{classGameManager2_a2cd0ec4efafea5c4ca523bae36a9a8e4} 
+int Game\+Manager2.\+hand\+Size}
+
+\Hypertarget{classGameManager2_a3940b84d3ecd057df7ed6d0e7f3c4960}\index{GameManager2@{GameManager2}!isBelowThreshold@{isBelowThreshold}}
+\index{isBelowThreshold@{isBelowThreshold}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{isBelowThreshold}{isBelowThreshold}}
+{\footnotesize\ttfamily \label{classGameManager2_a3940b84d3ecd057df7ed6d0e7f3c4960} 
+bool Game\+Manager2.\+is\+Below\+Threshold = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classGameManager2_a005cc89ced3806d2f79df82c7c39d2f3}\index{GameManager2@{GameManager2}!mainCamera@{mainCamera}}
+\index{mainCamera@{mainCamera}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{mainCamera}{mainCamera}}
+{\footnotesize\ttfamily \label{classGameManager2_a005cc89ced3806d2f79df82c7c39d2f3} 
+Camera Game\+Manager2.\+main\+Camera}
+
+\Hypertarget{classGameManager2_a86272763bd126fb792f6801eb59434da}\index{GameManager2@{GameManager2}!playSlots@{playSlots}}
+\index{playSlots@{playSlots}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{playSlots}{playSlots}}
+{\footnotesize\ttfamily \label{classGameManager2_a86272763bd126fb792f6801eb59434da} 
+Transform \mbox{[}$\,$\mbox{]} Game\+Manager2.\+play\+Slots}
+
+\Hypertarget{classGameManager2_adc2739747f6d4f11528348a8a09f6deb}\index{GameManager2@{GameManager2}!playTurnButton@{playTurnButton}}
+\index{playTurnButton@{playTurnButton}!GameManager2@{GameManager2}}
+\doxysubsubsection{\texorpdfstring{playTurnButton}{playTurnButton}}
+{\footnotesize\ttfamily \label{classGameManager2_adc2739747f6d4f11528348a8a09f6deb} 
+Button Game\+Manager2.\+play\+Turn\+Button}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Card\+Jitsu/\mbox{\hyperlink{GameManager2_8cs}{Game\+Manager2.\+cs}}\end{DoxyCompactItemize}

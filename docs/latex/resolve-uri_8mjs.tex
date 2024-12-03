@@ -1,0 +1,157 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/node\+\_\+modules/@jridgewell/resolve-\/uri/dist/resolve-\/uri.mjs File Reference}
+\hypertarget{resolve-uri_8mjs}{}\label{resolve-uri_8mjs}\index{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/resolve-\/uri/dist/resolve-\/uri.mjs@{backend/LambdaFunctionAPIs/node\_modules/"@jridgewell/resolve-\/uri/dist/resolve-\/uri.mjs}}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a937a4bd629131f4e088991e808020ad5}{is\+Absolute\+Url}} (input)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a5cbcf3e43100b5bf033ffe26deb979c4}{is\+Scheme\+Relative\+Url}} (input)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a2d1ead5118f5b79262979a750cdc3103}{is\+Absolute\+Path}} (input)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a7c7ec9f8dece0d4002138b1966c8bb35}{is\+File\+Url}} (input)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_afc75b76814b193e01c7a9d40f755c61b}{is\+Relative}} (input)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a0632a840fd9dced951f3a99542fa4dfc}{parse\+Absolute\+Url}} (input)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_ada9cc9ec0c04f4c14bf4421e026049f1}{parse\+File\+Url}} (input)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a8001ef3f0428821315ed19b5e05f8c4e}{make\+Url}} (scheme, user, host, port, \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a4a945f2dc0be9c418ccf55c6cf01c1da}{path}}, query, hash)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a3d0cdf9720b2badd8762d96336c7398b}{parse\+Url}} (input)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_aefc1d749364d800bc652d7761218a346}{strip\+Path\+Filename}} (\mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a4a945f2dc0be9c418ccf55c6cf01c1da}{path}})
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a13476cbc3c6ffdc0cee0f8754d677c81}{merge\+Paths}} (url, base)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a54fe089db9450140737a16270ba98ed2}{normalize\+Path}} (url, type)
+\item 
+function \mbox{\hyperlink{resolve-uri_8mjs_a29c7fd97c610c782137ba05994992fc0}{resolve}} (input, base)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{resolve-uri_8mjs_a08acf836bfb7d56fda2fe81cdfde0ad7}{scheme\+Regex}}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{resolve-uri_8mjs_aa50308a5a82e6011886cafc245f30aae}{file\+Regex}} = /\texorpdfstring{$^\wedge$}{\string^}file\+:(?\+:\textbackslash{}/\textbackslash{}/((?!\mbox{[}a-\/z\mbox{]}\+:)\mbox{[}\texorpdfstring{$^\wedge$}{\string^}/\#?\mbox{]}\texorpdfstring{$\ast$}{*})?)?(\textbackslash{}/?\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\#?\mbox{]}\texorpdfstring{$\ast$}{*})(\textbackslash{}?\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\#\mbox{]}\texorpdfstring{$\ast$}{*})?(\#.\texorpdfstring{$\ast$}{*})?/\mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}
+\item 
+\mbox{\hyperlink{esm_8mjs_ab2dffd225c7835ac54b00ca1bb8d83cf}{resolve}} as \mbox{\hyperlink{resolve-uri_8mjs_ab8f023a9ecf6f9295043d70f425753e4}{default}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{resolve-uri_8mjs_a2d1ead5118f5b79262979a750cdc3103}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!isAbsolutePath@{isAbsolutePath}}
+\index{isAbsolutePath@{isAbsolutePath}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{isAbsolutePath()}{isAbsolutePath()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a2d1ead5118f5b79262979a750cdc3103} 
+function is\+Absolute\+Path (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_a937a4bd629131f4e088991e808020ad5}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!isAbsoluteUrl@{isAbsoluteUrl}}
+\index{isAbsoluteUrl@{isAbsoluteUrl}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{isAbsoluteUrl()}{isAbsoluteUrl()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a937a4bd629131f4e088991e808020ad5} 
+function is\+Absolute\+Url (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_a7c7ec9f8dece0d4002138b1966c8bb35}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!isFileUrl@{isFileUrl}}
+\index{isFileUrl@{isFileUrl}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{isFileUrl()}{isFileUrl()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a7c7ec9f8dece0d4002138b1966c8bb35} 
+function is\+File\+Url (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_afc75b76814b193e01c7a9d40f755c61b}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!isRelative@{isRelative}}
+\index{isRelative@{isRelative}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{isRelative()}{isRelative()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_afc75b76814b193e01c7a9d40f755c61b} 
+function is\+Relative (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_a5cbcf3e43100b5bf033ffe26deb979c4}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!isSchemeRelativeUrl@{isSchemeRelativeUrl}}
+\index{isSchemeRelativeUrl@{isSchemeRelativeUrl}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{isSchemeRelativeUrl()}{isSchemeRelativeUrl()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a5cbcf3e43100b5bf033ffe26deb979c4} 
+function is\+Scheme\+Relative\+Url (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_a8001ef3f0428821315ed19b5e05f8c4e}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!makeUrl@{makeUrl}}
+\index{makeUrl@{makeUrl}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{makeUrl()}{makeUrl()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a8001ef3f0428821315ed19b5e05f8c4e} 
+function make\+Url (\begin{DoxyParamCaption}\item[{}]{scheme}{, }\item[{}]{user}{, }\item[{}]{host}{, }\item[{}]{port}{, }\item[{}]{path}{, }\item[{}]{query}{, }\item[{}]{hash}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_a13476cbc3c6ffdc0cee0f8754d677c81}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!mergePaths@{mergePaths}}
+\index{mergePaths@{mergePaths}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{mergePaths()}{mergePaths()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a13476cbc3c6ffdc0cee0f8754d677c81} 
+function merge\+Paths (\begin{DoxyParamCaption}\item[{}]{url}{, }\item[{}]{base}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_a54fe089db9450140737a16270ba98ed2}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!normalizePath@{normalizePath}}
+\index{normalizePath@{normalizePath}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{normalizePath()}{normalizePath()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a54fe089db9450140737a16270ba98ed2} 
+function normalize\+Path (\begin{DoxyParamCaption}\item[{}]{url}{, }\item[{}]{type}{}\end{DoxyParamCaption})}
+
+The path can have empty directories "{}//"{}, unneeded parents "{}foo/.."{}, or current directory "{}foo/."{}. We need to normalize to a standard representation. \Hypertarget{resolve-uri_8mjs_a0632a840fd9dced951f3a99542fa4dfc}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!parseAbsoluteUrl@{parseAbsoluteUrl}}
+\index{parseAbsoluteUrl@{parseAbsoluteUrl}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{parseAbsoluteUrl()}{parseAbsoluteUrl()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a0632a840fd9dced951f3a99542fa4dfc} 
+function parse\+Absolute\+Url (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_ada9cc9ec0c04f4c14bf4421e026049f1}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!parseFileUrl@{parseFileUrl}}
+\index{parseFileUrl@{parseFileUrl}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{parseFileUrl()}{parseFileUrl()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_ada9cc9ec0c04f4c14bf4421e026049f1} 
+function parse\+File\+Url (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_a3d0cdf9720b2badd8762d96336c7398b}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!parseUrl@{parseUrl}}
+\index{parseUrl@{parseUrl}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{parseUrl()}{parseUrl()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a3d0cdf9720b2badd8762d96336c7398b} 
+function parse\+Url (\begin{DoxyParamCaption}\item[{}]{input}{}\end{DoxyParamCaption})}
+
+\Hypertarget{resolve-uri_8mjs_a29c7fd97c610c782137ba05994992fc0}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!resolve@{resolve}}
+\index{resolve@{resolve}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{resolve()}{resolve()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a29c7fd97c610c782137ba05994992fc0} 
+function resolve (\begin{DoxyParamCaption}\item[{}]{input}{, }\item[{}]{base}{}\end{DoxyParamCaption})}
+
+Attempts to resolve {\ttfamily input} URL/path relative to {\ttfamily base}. \Hypertarget{resolve-uri_8mjs_aefc1d749364d800bc652d7761218a346}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!stripPathFilename@{stripPathFilename}}
+\index{stripPathFilename@{stripPathFilename}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{stripPathFilename()}{stripPathFilename()}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_aefc1d749364d800bc652d7761218a346} 
+function strip\+Path\+Filename (\begin{DoxyParamCaption}\item[{}]{path}{}\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{resolve-uri_8mjs_ab8f023a9ecf6f9295043d70f425753e4}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!default@{default}}
+\index{default@{default}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{default}{default}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_ab8f023a9ecf6f9295043d70f425753e4} 
+\mbox{\hyperlink{esm_8mjs_ab2dffd225c7835ac54b00ca1bb8d83cf}{resolve}} as default}
+
+\Hypertarget{resolve-uri_8mjs_aa50308a5a82e6011886cafc245f30aae}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!fileRegex@{fileRegex}}
+\index{fileRegex@{fileRegex}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{fileRegex}{fileRegex}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_aa50308a5a82e6011886cafc245f30aae} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} file\+Regex = /\texorpdfstring{$^\wedge$}{\string^}file\+:(?\+:\textbackslash{}/\textbackslash{}/((?!\mbox{[}a-\/z\mbox{]}\+:)\mbox{[}\texorpdfstring{$^\wedge$}{\string^}/\#?\mbox{]}\texorpdfstring{$\ast$}{*})?)?(\textbackslash{}/?\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\#?\mbox{]}\texorpdfstring{$\ast$}{*})(\textbackslash{}?\mbox{[}\texorpdfstring{$^\wedge$}{\string^}\#\mbox{]}\texorpdfstring{$\ast$}{*})?(\#.\texorpdfstring{$\ast$}{*})?/\mbox{\hyperlink{node__modules_2resolve_8exports_2dist_2index_8mjs_a8b72ff0804764a8f45a2a6846d6b3550}{i}}}
+
+File URLs are weird. They dont\textquotesingle{} need the regular {\ttfamily //} in the scheme, they may or may not start with a leading {\ttfamily /}, they can have a domain (but only if they don\textquotesingle{}t start with a Windows drive).
+
+
+\begin{DoxyEnumerate}
+\item Host, optional.
+\item Path, which may include "{}/"{}, guaranteed.
+\item Query, including "{}?"{}, optional.
+\item Hash, including "{}\#"{}, optional. 
+\end{DoxyEnumerate}\Hypertarget{resolve-uri_8mjs_a08acf836bfb7d56fda2fe81cdfde0ad7}\index{resolve-\/uri.mjs@{resolve-\/uri.mjs}!schemeRegex@{schemeRegex}}
+\index{schemeRegex@{schemeRegex}!resolve-\/uri.mjs@{resolve-\/uri.mjs}}
+\doxysubsubsection{\texorpdfstring{schemeRegex}{schemeRegex}}
+{\footnotesize\ttfamily \label{resolve-uri_8mjs_a08acf836bfb7d56fda2fe81cdfde0ad7} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} scheme\+Regex}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ /\string^[\(\backslash\)w+.-\/]+:\(\backslash\)/\(\backslash\)}
+\DoxyCodeLine{}
+\DoxyCodeLine{\textcolor{keyword}{const}\ urlRegex\ =\ /\string^([\(\backslash\)w+.-\/]+:)\(\backslash\)/\(\backslash\)/([\string^@/\#?]*@)?([\string^:/\#?]*)(:\(\backslash\)d+)?(\(\backslash\)/[\string^\#?]*)?(\(\backslash\)?[\string^\#]*)?(\#.*)?/}
+
+\end{DoxyCode}

@@ -1,0 +1,70 @@
+\doxysection{Card\+Game\+\_\+\+Enter Class Reference}
+\hypertarget{classCardGame__Enter}{}\label{classCardGame__Enter}\index{CardGame\_Enter@{CardGame\_Enter}}
+
+
+This class handles the interaction in order to enter the card game.  
+
+
+Inheritance diagram for Card\+Game\+\_\+\+Enter\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCardGame__Enter}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classCardGame__Enter_aca6d6ffe5b20a946987c8bf89f5b41fb}{player}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCardGame__Enter_a07d1fa5a785042bf2be5dc5eac502f55}{On\+Trigger\+Enter2D}} (Collider2D other)
+\item 
+void \mbox{\hyperlink{classCardGame__Enter_a708c62f37e50f42506fe9ce01891a236}{On\+Trigger\+Exit2D}} (Collider2D other)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Game\+Object \mbox{\hyperlink{classCardGame__Enter_adeea96913fffdf6a0d5454b688c2fba9}{interact\+Button}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles the interaction in order to enter the card game. 
+
+This class is attached to the computer object in the card game room. When the player walks into the collider for the computer, the player\textquotesingle{}s interactable is set to "{}cardgame"{} and the interact button is shown. When the player walks away from the collider for the computer, the player\textquotesingle{}s interactable is set to nothing and the interact button is hidden. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCardGame__Enter_a07d1fa5a785042bf2be5dc5eac502f55}\index{CardGame\_Enter@{CardGame\_Enter}!OnTriggerEnter2D@{OnTriggerEnter2D}}
+\index{OnTriggerEnter2D@{OnTriggerEnter2D}!CardGame\_Enter@{CardGame\_Enter}}
+\doxysubsubsection{\texorpdfstring{OnTriggerEnter2D()}{OnTriggerEnter2D()}}
+{\footnotesize\ttfamily \label{classCardGame__Enter_a07d1fa5a785042bf2be5dc5eac502f55} 
+void Card\+Game\+\_\+\+Enter.\+On\+Trigger\+Enter2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCardGame__Enter_a708c62f37e50f42506fe9ce01891a236}\index{CardGame\_Enter@{CardGame\_Enter}!OnTriggerExit2D@{OnTriggerExit2D}}
+\index{OnTriggerExit2D@{OnTriggerExit2D}!CardGame\_Enter@{CardGame\_Enter}}
+\doxysubsubsection{\texorpdfstring{OnTriggerExit2D()}{OnTriggerExit2D()}}
+{\footnotesize\ttfamily \label{classCardGame__Enter_a708c62f37e50f42506fe9ce01891a236} 
+void Card\+Game\+\_\+\+Enter.\+On\+Trigger\+Exit2D (\begin{DoxyParamCaption}\item[{Collider2D}]{other}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCardGame__Enter_adeea96913fffdf6a0d5454b688c2fba9}\index{CardGame\_Enter@{CardGame\_Enter}!interactButton@{interactButton}}
+\index{interactButton@{interactButton}!CardGame\_Enter@{CardGame\_Enter}}
+\doxysubsubsection{\texorpdfstring{interactButton}{interactButton}}
+{\footnotesize\ttfamily \label{classCardGame__Enter_adeea96913fffdf6a0d5454b688c2fba9} 
+Game\+Object Card\+Game\+\_\+\+Enter.\+interact\+Button\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCardGame__Enter_aca6d6ffe5b20a946987c8bf89f5b41fb}\index{CardGame\_Enter@{CardGame\_Enter}!player@{player}}
+\index{player@{player}!CardGame\_Enter@{CardGame\_Enter}}
+\doxysubsubsection{\texorpdfstring{player}{player}}
+{\footnotesize\ttfamily \label{classCardGame__Enter_aca6d6ffe5b20a946987c8bf89f5b41fb} 
+Game\+Object Card\+Game\+\_\+\+Enter.\+player}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Interactors/\mbox{\hyperlink{CardGame__Enter_8cs}{Card\+Game\+\_\+\+Enter.\+cs}}\end{DoxyCompactItemize}

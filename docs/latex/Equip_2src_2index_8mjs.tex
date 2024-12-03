@@ -1,0 +1,70 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/\+Equip/src/index.mjs File Reference}
+\hypertarget{Equip_2src_2index_8mjs}{}\label{Equip_2src_2index_8mjs}\index{backend/LambdaFunctionAPIs/Equip/src/index.mjs@{backend/LambdaFunctionAPIs/Equip/src/index.mjs}}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{Equip_2src_2index_8mjs_aa2f30af07f4643a7f6a47dcaee56174f}{import}} \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/\mbox{\hyperlink{browser_8mjs_a9714695853ac8b11f91a97f47fd765f0}{utils.\+mjs}}\textquotesingle{}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{Equip_2src_2index_8mjs_af9e9af6ca19b8f4eb578d8b303895c95}{update\+Items}}
+\item 
+export \mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{Equip_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}{handler}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{Equip_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d}\index{index.mjs@{index.mjs}!handler@{handler}}
+\index{handler@{handler}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{handler}{handler}}
+{\footnotesize\ttfamily \label{Equip_2src_2index_8mjs_a696ed2287cb97f6b73ce36a583c4102d} 
+export \mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} handler}
+
+Lambda function handler for processing equip/unequip item requests.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & event -\/ The event object containing the request payload. \\
+\hline
+{\em \{string\}} & event.\+body -\/ JSON string containing the action, items, and employee\+\_\+id. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} -\/ Returns a response object containing the status code and a JSON body. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the request payload is invalid or if the database operation fails. \\
+\hline
+\end{DoxyExceptions}
+\Hypertarget{Equip_2src_2index_8mjs_aa2f30af07f4643a7f6a47dcaee56174f}\index{index.mjs@{index.mjs}!import@{import}}
+\index{import@{import}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{Equip_2src_2index_8mjs_aa2f30af07f4643a7f6a47dcaee56174f} 
+import \mbox{\hyperlink{helpers_8mjs_a149822062ffaaed24fea31059d2e7a2f}{Parser}} from yargs \mbox{\hyperlink{helpers_8mjs_a5215ae8140681632f4528e66008f81bb}{parser}} import \{ \mbox{\hyperlink{utils_8mjs_afdd2b8e6fe1c732729aa13573e4bc134}{get\+Secret}}, \mbox{\hyperlink{utils_8mjs_a025520d777e24dc89c6f4852b5d9dc63}{create\+Db\+Client}}, \mbox{\hyperlink{utils_8mjs_a417b5eff0e338b080a36d75e82da9ba6}{secret\+\_\+name}} \} from \textquotesingle{}./shared/\mbox{\hyperlink{browser_8mjs_a9714695853ac8b11f91a97f47fd765f0}{utils.\+mjs}}\textquotesingle{}}
+
+\Hypertarget{Equip_2src_2index_8mjs_af9e9af6ca19b8f4eb578d8b303895c95}\index{index.mjs@{index.mjs}!updateItems@{updateItems}}
+\index{updateItems@{updateItems}!index.mjs@{index.mjs}}
+\doxysubsubsection{\texorpdfstring{updateItems}{updateItems}}
+{\footnotesize\ttfamily \label{Equip_2src_2index_8mjs_af9e9af6ca19b8f4eb578d8b303895c95} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} update\+Items}
+
+Updates the items\+\_\+equipped for a user based on the action (equip/unequip).
+
+
+\begin{DoxyParams}{Parameters}
+{\em \{\+Object\}} & client -\/ The Postgre\+SQL client used to interact with the database. \\
+\hline
+{\em \{string\}} & employee\+Id -\/ The employee ID of the user. \\
+\hline
+{\em \{number\mbox{[}$\,$\mbox{]}\}} & items -\/ Array of item IDs to be equipped or unequipped. \\
+\hline
+{\em \{string\}} & action -\/ The action to perform, either \textquotesingle{}equip\textquotesingle{} or \textquotesingle{}unequip\textquotesingle{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\{Promise$<$\+Object$>$\} -\/ Returns an object containing the status code, a message, and the updated items\+\_\+equipped array. 
+\end{DoxyReturn}
+
+\begin{DoxyExceptions}{Exceptions}
+{\em \{\+Error\}} & -\/ Throws an error if the user is not found, items are not owned, or an invalid action is provided. \\
+\hline
+\end{DoxyExceptions}

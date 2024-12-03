@@ -1,0 +1,150 @@
+\doxysection{Inventory\+UI Class Reference}
+\hypertarget{classInventoryUI}{}\label{classInventoryUI}\index{InventoryUI@{InventoryUI}}
+
+
+This class handles the UI buttons on the inventory modal.  
+
+
+Inheritance diagram for Inventory\+UI\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classInventoryUI}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classInventoryUI_a99b38b50627d6827a4a2ec36310c93be}{Update\+Inventory\+UI}} ()
+\item 
+void \mbox{\hyperlink{classInventoryUI_a01e5159ade0bb2b800ac25eb5c81434c}{Toggle\+Body\+Part\+Visibility}} (\mbox{\hyperlink{BodyPart_8cs_a7a4875f2b53773a016c13bcfc2a55ac3}{Body\+Part}} body\+Part)
+\item 
+void \mbox{\hyperlink{classInventoryUI_a8c4576f8845a5a50a3f9d4faf95cc9fa}{Show\+All}} ()
+\item 
+void \mbox{\hyperlink{classInventoryUI_a19449c1d60156adaffe179f810c7b4e9}{On\+Inventory\+Button\+Click}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classInventory}{Inventory}} \mbox{\hyperlink{classInventoryUI_a8d6663f7c90f116e9d9d3a9f9ed8f616}{inventory}}
+\item 
+Game\+Object \mbox{\hyperlink{classInventoryUI_ab310271fb1fb94d77cc899b8f9bb6e40}{button\+Prefab}}
+\item 
+Transform \mbox{\hyperlink{classInventoryUI_acb50b8700e233c8ee7fb27411707f87a}{button\+Container}}
+\item 
+\mbox{\hyperlink{BodyPart_8cs_a7a4875f2b53773a016c13bcfc2a55ac3}{Body\+Part}} \mbox{\hyperlink{classInventoryUI_a40b0f7f0619fd6c83bff2f61062d18d9}{selected\+Body\+Part}}
+\item 
+Dictionary$<$ \mbox{\hyperlink{BodyPart_8cs_a7a4875f2b53773a016c13bcfc2a55ac3}{Body\+Part}}, bool $>$ \mbox{\hyperlink{classInventoryUI_aba445e33eec12c77a7f203adffd2818d}{body\+Part\+Visibility}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classInventoryUI_a3860766b4516c00d581323d0bb55bb63}{Start}} ()
+\item 
+void \mbox{\hyperlink{classInventoryUI_aa65be0d8837c693d21e6f990dd13c0ec}{On\+Item\+Clicked}} (\mbox{\hyperlink{classCosmeticItem}{Cosmetic\+Item}} item)
+\item 
+void \mbox{\hyperlink{classInventoryUI_a35d9fde5143faaee0c246c4fa2d2d50a}{Reset\+Body\+Part\+Visibility}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+List$<$ Button $>$ \mbox{\hyperlink{classInventoryUI_a1cbab06a758fc0956305c24a676c7a5b}{item\+Buttons}} = new List$<$Button$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles the UI buttons on the inventory modal. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classInventory}{Inventory} 
+
+\doxylink{BodyPart_8cs_a7a4875f2b53773a016c13bcfc2a55ac3}{Body\+Part} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classInventoryUI_a19449c1d60156adaffe179f810c7b4e9}\index{InventoryUI@{InventoryUI}!OnInventoryButtonClick@{OnInventoryButtonClick}}
+\index{OnInventoryButtonClick@{OnInventoryButtonClick}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{OnInventoryButtonClick()}{OnInventoryButtonClick()}}
+{\footnotesize\ttfamily \label{classInventoryUI_a19449c1d60156adaffe179f810c7b4e9} 
+void Inventory\+UI.\+On\+Inventory\+Button\+Click (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInventoryUI_aa65be0d8837c693d21e6f990dd13c0ec}\index{InventoryUI@{InventoryUI}!OnItemClicked@{OnItemClicked}}
+\index{OnItemClicked@{OnItemClicked}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{OnItemClicked()}{OnItemClicked()}}
+{\footnotesize\ttfamily \label{classInventoryUI_aa65be0d8837c693d21e6f990dd13c0ec} 
+void Inventory\+UI.\+On\+Item\+Clicked (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classCosmeticItem}{Cosmetic\+Item}}}]{item}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classInventoryUI_a35d9fde5143faaee0c246c4fa2d2d50a}\index{InventoryUI@{InventoryUI}!ResetBodyPartVisibility@{ResetBodyPartVisibility}}
+\index{ResetBodyPartVisibility@{ResetBodyPartVisibility}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{ResetBodyPartVisibility()}{ResetBodyPartVisibility()}}
+{\footnotesize\ttfamily \label{classInventoryUI_a35d9fde5143faaee0c246c4fa2d2d50a} 
+void Inventory\+UI.\+Reset\+Body\+Part\+Visibility (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classInventoryUI_a8c4576f8845a5a50a3f9d4faf95cc9fa}\index{InventoryUI@{InventoryUI}!ShowAll@{ShowAll}}
+\index{ShowAll@{ShowAll}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{ShowAll()}{ShowAll()}}
+{\footnotesize\ttfamily \label{classInventoryUI_a8c4576f8845a5a50a3f9d4faf95cc9fa} 
+void Inventory\+UI.\+Show\+All (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInventoryUI_a3860766b4516c00d581323d0bb55bb63}\index{InventoryUI@{InventoryUI}!Start@{Start}}
+\index{Start@{Start}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classInventoryUI_a3860766b4516c00d581323d0bb55bb63} 
+void Inventory\+UI.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classInventoryUI_a01e5159ade0bb2b800ac25eb5c81434c}\index{InventoryUI@{InventoryUI}!ToggleBodyPartVisibility@{ToggleBodyPartVisibility}}
+\index{ToggleBodyPartVisibility@{ToggleBodyPartVisibility}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{ToggleBodyPartVisibility()}{ToggleBodyPartVisibility()}}
+{\footnotesize\ttfamily \label{classInventoryUI_a01e5159ade0bb2b800ac25eb5c81434c} 
+void Inventory\+UI.\+Toggle\+Body\+Part\+Visibility (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{BodyPart_8cs_a7a4875f2b53773a016c13bcfc2a55ac3}{Body\+Part}}}]{body\+Part}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classInventoryUI_a99b38b50627d6827a4a2ec36310c93be}\index{InventoryUI@{InventoryUI}!UpdateInventoryUI@{UpdateInventoryUI}}
+\index{UpdateInventoryUI@{UpdateInventoryUI}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{UpdateInventoryUI()}{UpdateInventoryUI()}}
+{\footnotesize\ttfamily \label{classInventoryUI_a99b38b50627d6827a4a2ec36310c93be} 
+void Inventory\+UI.\+Update\+Inventory\+UI (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classInventoryUI_aba445e33eec12c77a7f203adffd2818d}\index{InventoryUI@{InventoryUI}!bodyPartVisibility@{bodyPartVisibility}}
+\index{bodyPartVisibility@{bodyPartVisibility}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{bodyPartVisibility}{bodyPartVisibility}}
+{\footnotesize\ttfamily \label{classInventoryUI_aba445e33eec12c77a7f203adffd2818d} 
+Dictionary$<$\mbox{\hyperlink{BodyPart_8cs_a7a4875f2b53773a016c13bcfc2a55ac3}{Body\+Part}}, bool$>$ Inventory\+UI.\+body\+Part\+Visibility}
+
+\Hypertarget{classInventoryUI_acb50b8700e233c8ee7fb27411707f87a}\index{InventoryUI@{InventoryUI}!buttonContainer@{buttonContainer}}
+\index{buttonContainer@{buttonContainer}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{buttonContainer}{buttonContainer}}
+{\footnotesize\ttfamily \label{classInventoryUI_acb50b8700e233c8ee7fb27411707f87a} 
+Transform Inventory\+UI.\+button\+Container}
+
+\Hypertarget{classInventoryUI_ab310271fb1fb94d77cc899b8f9bb6e40}\index{InventoryUI@{InventoryUI}!buttonPrefab@{buttonPrefab}}
+\index{buttonPrefab@{buttonPrefab}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{buttonPrefab}{buttonPrefab}}
+{\footnotesize\ttfamily \label{classInventoryUI_ab310271fb1fb94d77cc899b8f9bb6e40} 
+Game\+Object Inventory\+UI.\+button\+Prefab}
+
+\Hypertarget{classInventoryUI_a8d6663f7c90f116e9d9d3a9f9ed8f616}\index{InventoryUI@{InventoryUI}!inventory@{inventory}}
+\index{inventory@{inventory}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{inventory}{inventory}}
+{\footnotesize\ttfamily \label{classInventoryUI_a8d6663f7c90f116e9d9d3a9f9ed8f616} 
+\mbox{\hyperlink{classInventory}{Inventory}} Inventory\+UI.\+inventory}
+
+\Hypertarget{classInventoryUI_a1cbab06a758fc0956305c24a676c7a5b}\index{InventoryUI@{InventoryUI}!itemButtons@{itemButtons}}
+\index{itemButtons@{itemButtons}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{itemButtons}{itemButtons}}
+{\footnotesize\ttfamily \label{classInventoryUI_a1cbab06a758fc0956305c24a676c7a5b} 
+List$<$Button$>$ Inventory\+UI.\+item\+Buttons = new List$<$Button$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classInventoryUI_a40b0f7f0619fd6c83bff2f61062d18d9}\index{InventoryUI@{InventoryUI}!selectedBodyPart@{selectedBodyPart}}
+\index{selectedBodyPart@{selectedBodyPart}!InventoryUI@{InventoryUI}}
+\doxysubsubsection{\texorpdfstring{selectedBodyPart}{selectedBodyPart}}
+{\footnotesize\ttfamily \label{classInventoryUI_a40b0f7f0619fd6c83bff2f61062d18d9} 
+\mbox{\hyperlink{BodyPart_8cs_a7a4875f2b53773a016c13bcfc2a55ac3}{Body\+Part}} Inventory\+UI.\+selected\+Body\+Part}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Inventory/\mbox{\hyperlink{InventoryUI_8cs}{Inventory\+UI.\+cs}}\end{DoxyCompactItemize}

@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 /**
- * Statistics class for wirePlug. This is mainly a dataclass that
+ * @brief Statistics class for wirePlug. This is mainly a dataclass that
  * This keeps track of whether the wire is connected
  *
  * All logic for moving the wire is in PlugBehavior

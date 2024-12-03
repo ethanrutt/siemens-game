@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['mainmenu_0',['MainMenu',['../class_main_menu.html',1,'']]],
-  ['mainmenumanager_1',['MainMenuManager',['../class_main_menu_manager.html',1,'']]]
+  ['mainmenu_0',['MainMenu',['../classMainMenu.html',1,'']]],
+  ['mainmenumanager_1',['MainMenuManager',['../classMainMenuManager.html',1,'']]]
 ];

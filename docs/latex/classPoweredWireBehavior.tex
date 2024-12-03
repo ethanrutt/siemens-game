@@ -1,0 +1,146 @@
+\doxysection{Powered\+Wire\+Behavior Class Reference}
+\hypertarget{classPoweredWireBehavior}{}\label{classPoweredWireBehavior}\index{PoweredWireBehavior@{PoweredWireBehavior}}
+
+
+Behavior logic for a powered\+Wire.  
+
+
+Inheritance diagram for Powered\+Wire\+Behavior\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classPoweredWireBehavior}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPoweredWireBehavior_a9e480aa764230cd41ac9c66bf96d4725}{Update\+Line}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPoweredWireStats}{Powered\+Wire\+Stats}} \mbox{\hyperlink{classPoweredWireBehavior_a9a99e4ca57c6df7732fd37865139fe2e}{power\+WireS}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classPoweredWireBehavior_a331a9fbde67684af42a8a96af6ec7e4e}{Start}} ()
+\item 
+void \mbox{\hyperlink{classPoweredWireBehavior_ab80bd7d172fde161ae30bb610a73b97e}{Update}} ()
+\item 
+void \mbox{\hyperlink{classPoweredWireBehavior_aeb5fc6fab3818e32d8d5bfbc842de230}{On\+Mouse\+Down}} ()
+\item 
+void \mbox{\hyperlink{classPoweredWireBehavior_ad49e1ed28d7060e6e07d5253f88edaed}{On\+Mouse\+Over}} ()
+\item 
+void \mbox{\hyperlink{classPoweredWireBehavior_a6dd3fbe0e0312bf212e7ede10a669b95}{On\+Mouse\+Exit}} ()
+\item 
+void \mbox{\hyperlink{classPoweredWireBehavior_ac1be47a3c0ed449ba3f8460d44512b1a}{On\+Mouse\+Up}} ()
+\item 
+void \mbox{\hyperlink{classPoweredWireBehavior_abdabf17717ecf1cc301e68aa5e893f13}{Move\+Wire}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classPoweredWireBehavior_a83e98e5821c9ae404a24d6c2b9ae0348}{mouse\+Down}} = false
+\item 
+Line\+Renderer \mbox{\hyperlink{classPoweredWireBehavior_abac1cfc9b1cabe14186019870c31fcd3}{line}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Behavior logic for a powered\+Wire. 
+
+Makes heavy use of the \doxylink{classPoweredWireStats}{Powered\+Wire\+Stats} class to keep track of variables \begin{DoxySeeAlso}{See also}
+\doxylink{classPoweredWireStats}{Powered\+Wire\+Stats} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classPoweredWireBehavior_abdabf17717ecf1cc301e68aa5e893f13}\index{PoweredWireBehavior@{PoweredWireBehavior}!MoveWire@{MoveWire}}
+\index{MoveWire@{MoveWire}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{MoveWire()}{MoveWire()}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_abdabf17717ecf1cc301e68aa5e893f13} 
+void Powered\+Wire\+Behavior.\+Move\+Wire (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPoweredWireBehavior_abdabf17717ecf1cc301e68aa5e893f13}{Move\+Wire()} handles the logic for moving the wire
+
+The wire will follow the position of the Input, which is normally the mouse or the finger \Hypertarget{classPoweredWireBehavior_aeb5fc6fab3818e32d8d5bfbc842de230}\index{PoweredWireBehavior@{PoweredWireBehavior}!OnMouseDown@{OnMouseDown}}
+\index{OnMouseDown@{OnMouseDown}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{OnMouseDown()}{OnMouseDown()}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_aeb5fc6fab3818e32d8d5bfbc842de230} 
+void Powered\+Wire\+Behavior.\+On\+Mouse\+Down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPoweredWireBehavior_aeb5fc6fab3818e32d8d5bfbc842de230}{On\+Mouse\+Down()} is a Unity function that runs whenever the mouse is down
+
+This just sets the mouse\+Down variable to true \Hypertarget{classPoweredWireBehavior_a6dd3fbe0e0312bf212e7ede10a669b95}\index{PoweredWireBehavior@{PoweredWireBehavior}!OnMouseExit@{OnMouseExit}}
+\index{OnMouseExit@{OnMouseExit}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{OnMouseExit()}{OnMouseExit()}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_a6dd3fbe0e0312bf212e7ede10a669b95} 
+void Powered\+Wire\+Behavior.\+On\+Mouse\+Exit (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPoweredWireBehavior_a6dd3fbe0e0312bf212e7ede10a669b95}{On\+Mouse\+Exit()} is a Unity function that runs whenever the mouse stops hovering over the GUI element
+
+This sets the wire to no longer be movable if it\textquotesingle{}s not currently moving \Hypertarget{classPoweredWireBehavior_ad49e1ed28d7060e6e07d5253f88edaed}\index{PoweredWireBehavior@{PoweredWireBehavior}!OnMouseOver@{OnMouseOver}}
+\index{OnMouseOver@{OnMouseOver}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{OnMouseOver()}{OnMouseOver()}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_ad49e1ed28d7060e6e07d5253f88edaed} 
+void Powered\+Wire\+Behavior.\+On\+Mouse\+Over (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPoweredWireBehavior_ad49e1ed28d7060e6e07d5253f88edaed}{On\+Mouse\+Over()} is a Unity function that runs whenever the mouse is over this game\+Object
+
+This sets the wire to be movable if it\textquotesingle{}s not already connected \Hypertarget{classPoweredWireBehavior_ac1be47a3c0ed449ba3f8460d44512b1a}\index{PoweredWireBehavior@{PoweredWireBehavior}!OnMouseUp@{OnMouseUp}}
+\index{OnMouseUp@{OnMouseUp}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{OnMouseUp()}{OnMouseUp()}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_ac1be47a3c0ed449ba3f8460d44512b1a} 
+void Powered\+Wire\+Behavior.\+On\+Mouse\+Up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPoweredWireBehavior_ac1be47a3c0ed449ba3f8460d44512b1a}{On\+Mouse\+Up()} is a Unity function that runs whenever the user has released the mouse button
+
+This resets the wire to its start position and calls the \doxylink{classPoweredWireBehavior_a9e480aa764230cd41ac9c66bf96d4725}{Update\+Line()} function \Hypertarget{classPoweredWireBehavior_a331a9fbde67684af42a8a96af6ec7e4e}\index{PoweredWireBehavior@{PoweredWireBehavior}!Start@{Start}}
+\index{Start@{Start}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_a331a9fbde67684af42a8a96af6ec7e4e} 
+void Powered\+Wire\+Behavior.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPoweredWireBehavior_a331a9fbde67684af42a8a96af6ec7e4e}{Start()} is a Unity function that is called before the first frame update
+
+This just grabs the appropriate members using the Get\+Component() Unity function both power\+Wire\+Stats and the Line\+Renderer are grabbed \Hypertarget{classPoweredWireBehavior_ab80bd7d172fde161ae30bb610a73b97e}\index{PoweredWireBehavior@{PoweredWireBehavior}!Update@{Update}}
+\index{Update@{Update}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_ab80bd7d172fde161ae30bb610a73b97e} 
+void Powered\+Wire\+Behavior.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\doxylink{classPoweredWireBehavior_ab80bd7d172fde161ae30bb610a73b97e}{Update()} is a Unity function that is called every frame update
+
+This calls the \doxylink{classPoweredWireBehavior_abdabf17717ecf1cc301e68aa5e893f13}{Move\+Wire()} function \Hypertarget{classPoweredWireBehavior_a9e480aa764230cd41ac9c66bf96d4725}\index{PoweredWireBehavior@{PoweredWireBehavior}!UpdateLine@{UpdateLine}}
+\index{UpdateLine@{UpdateLine}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{UpdateLine()}{UpdateLine()}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_a9e480aa764230cd41ac9c66bf96d4725} 
+void Powered\+Wire\+Behavior.\+Update\+Line (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\doxylink{classPoweredWireBehavior_a9e480aa764230cd41ac9c66bf96d4725}{Update\+Line()} will handle the Line\+Renderer updates that need to happen The Line\+Renderer trails behind the front object (wire\+Length) by 0.\+1 units 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classPoweredWireBehavior_abac1cfc9b1cabe14186019870c31fcd3}\index{PoweredWireBehavior@{PoweredWireBehavior}!line@{line}}
+\index{line@{line}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{line}{line}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_abac1cfc9b1cabe14186019870c31fcd3} 
+Line\+Renderer Powered\+Wire\+Behavior.\+line\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classPoweredWireBehavior_a83e98e5821c9ae404a24d6c2b9ae0348}\index{PoweredWireBehavior@{PoweredWireBehavior}!mouseDown@{mouseDown}}
+\index{mouseDown@{mouseDown}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{mouseDown}{mouseDown}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_a83e98e5821c9ae404a24d6c2b9ae0348} 
+bool Powered\+Wire\+Behavior.\+mouse\+Down = false\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classPoweredWireBehavior_a9a99e4ca57c6df7732fd37865139fe2e}\index{PoweredWireBehavior@{PoweredWireBehavior}!powerWireS@{powerWireS}}
+\index{powerWireS@{powerWireS}!PoweredWireBehavior@{PoweredWireBehavior}}
+\doxysubsubsection{\texorpdfstring{powerWireS}{powerWireS}}
+{\footnotesize\ttfamily \label{classPoweredWireBehavior_a9a99e4ca57c6df7732fd37865139fe2e} 
+\mbox{\hyperlink{classPoweredWireStats}{Powered\+Wire\+Stats}} Powered\+Wire\+Behavior.\+power\+WireS}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Wires/\mbox{\hyperlink{PoweredWireBehavior_8cs}{Powered\+Wire\+Behavior.\+cs}}\end{DoxyCompactItemize}

@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 
 /**
- * This class handles the level over screen and behavior. It is called by the
+ * @brief This class handles the level over screen and behavior. It is called by the
  * WireGenerator and also calls the WireGenerator when we want to start a new
  * level
  * @see WireGenerator

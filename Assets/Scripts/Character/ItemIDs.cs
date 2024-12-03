@@ -21,6 +21,9 @@ using UnityEngine.UI;
  */
 public class ItemIDs : MonoBehaviour
 {
+    /**
+     * @brief struct for defining items
+     */
     public struct Item
     {
         public string name; // The name of the item
@@ -29,7 +32,10 @@ public class ItemIDs : MonoBehaviour
         public int cost; // The cost of the item
     }
 
-    // Lore objects
+    /**
+     * @brief struct for defining lore objects
+     * @see Achievement
+     */
     public struct LoreObject
     {
         public string sender; // Whoever sends the e-mail
@@ -48,7 +54,10 @@ public class ItemIDs : MonoBehaviour
         }
     }
 
-    // Achievements
+    /**
+     * @brief struct for defining achievements
+     * @see LoreObject
+     */
     public struct Achievement
     {
         public string title; // The title of the achievement
@@ -186,6 +195,9 @@ public class ItemIDs : MonoBehaviour
     // Put all the item IDs and the sprites in separate Serializables
     // This will allow us to easily assign the sprites to the item IDs
     // This will be used in the inventory system
+    /**
+     * @brief sprite and sprite id linker struct
+     */
     [Serializable]
     public struct ItemSprite
     {

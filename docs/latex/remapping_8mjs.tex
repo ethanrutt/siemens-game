@@ -1,0 +1,139 @@
+\doxysection{backend/\+Lambda\+Function\+APIs/node\+\_\+modules/@ampproject/remapping/dist/remapping.mjs File Reference}
+\hypertarget{remapping_8mjs}{}\label{remapping_8mjs}\index{backend/LambdaFunctionAPIs/node\_modules/"@ampproject/remapping/dist/remapping.mjs@{backend/LambdaFunctionAPIs/node\_modules/"@ampproject/remapping/dist/remapping.mjs}}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classSourceMap}{Source\+Map}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \mbox{\hyperlink{remapping_8mjs_a9181e8bb689170aee97de93276fcb22e}{Segment\+Object}} (\mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}}, \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a3f141661899998b0df278f7a9c201304}{name}}, content, ignore)
+\item 
+function \mbox{\hyperlink{remapping_8mjs_a312be3436adaaca5ade11d40f55bbdbc}{Source}} (map, sources, \mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, content, ignore)
+\item 
+function \mbox{\hyperlink{remapping_8mjs_aaf0b70af20c2e866eea5e0830f789096}{Map\+Source}} (map, sources)
+\item 
+function \mbox{\hyperlink{remapping_8mjs_a639d1ff78fbd27d8b391b3700321102b}{Original\+Source}} (\mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, content, ignore)
+\item 
+function \mbox{\hyperlink{remapping_8mjs_a4193d895d623f40f58d2559b464344ed}{trace\+Mappings}} (\mbox{\hyperlink{node__modules_2_0dbcoe_2v8-coverage_2dist_2lib_2index_8mjs_acd257bf64a174f584af538f3497ced5d}{tree}})
+\item 
+function \mbox{\hyperlink{remapping_8mjs_aa8c16275d08d0ea942a2b5561c8d3c0f}{original\+Position\+For}} (\mbox{\hyperlink{index_8min_8mjs_a9f077e9c7cfd39a4866f3afc25bceba9}{source}}, \mbox{\hyperlink{index_8min_8mjs_a51f4b95540e2ec2634b84be973bab500}{line}}, \mbox{\hyperlink{index_8min_8mjs_a2a90d8cd0beacf7bf847317a09e6fcd7}{column}}, \mbox{\hyperlink{lib_2platform-shims_2browser_8mjs_a3f141661899998b0df278f7a9c201304}{name}})
+\item 
+function \mbox{\hyperlink{remapping_8mjs_afc17298b116b1ab3d4e6de1b60c714f8}{as\+Array}} (value)
+\item 
+function \mbox{\hyperlink{remapping_8mjs_ae756dac95d2bfdaaf8fb541c2f0dcb81}{build\+Source\+Map\+Tree}} (input, loader)
+\item 
+function \mbox{\hyperlink{remapping_8mjs_af0bca803cb8fae2b02c010748433eefe}{build}} (map, loader, importer, importer\+Depth)
+\item 
+function \mbox{\hyperlink{remapping_8mjs_a8cee7ee2719b751cd03554293e4b0258}{remapping}} (input, loader, options)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{remapping_8mjs_a59be084da8908b7d77ff34b25cd84488}{import}} \{ \mbox{\hyperlink{trace-mapping_8mjs_aa4ea48baacb95808ad2f3e4d3942b9f5}{decoded\+Mappings}}, \mbox{\hyperlink{trace-mapping_8mjs_a27adffd54a31aa8ff3e31765ba6210d0}{trace\+Segment}}, \mbox{\hyperlink{classTraceMap}{Trace\+Map}} \} from \textquotesingle{}@jridgewell/trace-\/mapping\textquotesingle{}
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{remapping_8mjs_a0a4196f2241c0468df8dfa3a97f87716}{SOURCELESS\+\_\+\+MAPPING}} = \mbox{\hyperlink{remapping_8mjs_a9181e8bb689170aee97de93276fcb22e}{Segment\+Object}}(\textquotesingle{}\textquotesingle{}, -\/1, -\/1, \textquotesingle{}\textquotesingle{}, null, false)
+\item 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} \mbox{\hyperlink{remapping_8mjs_a9eea6bd56c07c97bed9c936c4ddead97}{EMPTY\+\_\+\+SOURCES}} = \mbox{[}$\,$\mbox{]}
+\item 
+\mbox{\hyperlink{remapping_8mjs_a8cee7ee2719b751cd03554293e4b0258}{remapping}} as \mbox{\hyperlink{remapping_8mjs_a7bac30ecb45aeca3a76ffc606e8e886e}{default}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{remapping_8mjs_afc17298b116b1ab3d4e6de1b60c714f8}\index{remapping.mjs@{remapping.mjs}!asArray@{asArray}}
+\index{asArray@{asArray}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{asArray()}{asArray()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_afc17298b116b1ab3d4e6de1b60c714f8} 
+function as\+Array (\begin{DoxyParamCaption}\item[{}]{value}{}\end{DoxyParamCaption})}
+
+\Hypertarget{remapping_8mjs_af0bca803cb8fae2b02c010748433eefe}\index{remapping.mjs@{remapping.mjs}!build@{build}}
+\index{build@{build}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{build()}{build()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_af0bca803cb8fae2b02c010748433eefe} 
+function build (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{loader}{, }\item[{}]{importer}{, }\item[{}]{importer\+Depth}{}\end{DoxyParamCaption})}
+
+\Hypertarget{remapping_8mjs_ae756dac95d2bfdaaf8fb541c2f0dcb81}\index{remapping.mjs@{remapping.mjs}!buildSourceMapTree@{buildSourceMapTree}}
+\index{buildSourceMapTree@{buildSourceMapTree}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{buildSourceMapTree()}{buildSourceMapTree()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_ae756dac95d2bfdaaf8fb541c2f0dcb81} 
+function build\+Source\+Map\+Tree (\begin{DoxyParamCaption}\item[{}]{input}{, }\item[{}]{loader}{}\end{DoxyParamCaption})}
+
+Recursively builds a tree structure out of sourcemap files, with each node being either an {\ttfamily Original\+Source} "{}leaf"{} or a {\ttfamily Source\+Map\+Tree} composed of {\ttfamily Original\+Source}s and {\ttfamily Source\+Map\+Tree}s.
+
+Every sourcemap is composed of a collection of source files and mappings into locations of those source files. When we generate a {\ttfamily Source\+Map\+Tree} for the sourcemap, we attempt to load each source file\textquotesingle{}s own sourcemap. If it does not have an associated sourcemap, it is considered an original, unmodified source file. \Hypertarget{remapping_8mjs_aaf0b70af20c2e866eea5e0830f789096}\index{remapping.mjs@{remapping.mjs}!MapSource@{MapSource}}
+\index{MapSource@{MapSource}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{MapSource()}{MapSource()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_aaf0b70af20c2e866eea5e0830f789096} 
+function Map\+Source (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{sources}{}\end{DoxyParamCaption})}
+
+Map\+Source represents a single sourcemap, with the ability to trace mappings into its child nodes (which may themselves be Source\+Map\+Trees). \Hypertarget{remapping_8mjs_aa8c16275d08d0ea942a2b5561c8d3c0f}\index{remapping.mjs@{remapping.mjs}!originalPositionFor@{originalPositionFor}}
+\index{originalPositionFor@{originalPositionFor}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{originalPositionFor()}{originalPositionFor()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_aa8c16275d08d0ea942a2b5561c8d3c0f} 
+function original\+Position\+For (\begin{DoxyParamCaption}\item[{}]{source}{, }\item[{}]{line}{, }\item[{}]{column}{, }\item[{}]{name}{}\end{DoxyParamCaption})}
+
+original\+Position\+For is only called on children Source\+Map\+Trees. It recurses down into its own child Source\+Map\+Trees, until we find the original source map. \Hypertarget{remapping_8mjs_a639d1ff78fbd27d8b391b3700321102b}\index{remapping.mjs@{remapping.mjs}!OriginalSource@{OriginalSource}}
+\index{OriginalSource@{OriginalSource}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{OriginalSource()}{OriginalSource()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a639d1ff78fbd27d8b391b3700321102b} 
+function Original\+Source (\begin{DoxyParamCaption}\item[{}]{source}{, }\item[{}]{content}{, }\item[{}]{ignore}{}\end{DoxyParamCaption})}
+
+A "{}leaf"{} node in the sourcemap tree, representing an original, unmodified source file. Recursive segment tracing ends at the {\ttfamily Original\+Source}. \Hypertarget{remapping_8mjs_a8cee7ee2719b751cd03554293e4b0258}\index{remapping.mjs@{remapping.mjs}!remapping@{remapping}}
+\index{remapping@{remapping}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{remapping()}{remapping()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a8cee7ee2719b751cd03554293e4b0258} 
+function remapping (\begin{DoxyParamCaption}\item[{}]{input}{, }\item[{}]{loader}{, }\item[{}]{options}{}\end{DoxyParamCaption})}
+
+Traces through all the mappings in the root sourcemap, through the sources (and their sourcemaps), all the way back to the original source location.
+
+{\ttfamily loader} will be called every time we encounter a source file. If it returns a sourcemap, we will recurse into that sourcemap to continue the trace. If it returns a falsey value, that source file is treated as an original, unmodified source file.
+
+Pass {\ttfamily exclude\+Content} to exclude any self-\/containing source file content from the output sourcemap.
+
+Pass {\ttfamily decoded\+Mappings} to receive a \doxylink{classSourceMap}{Source\+Map} with decoded (instead of VLQ encoded) mappings. \Hypertarget{remapping_8mjs_a9181e8bb689170aee97de93276fcb22e}\index{remapping.mjs@{remapping.mjs}!SegmentObject@{SegmentObject}}
+\index{SegmentObject@{SegmentObject}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{SegmentObject()}{SegmentObject()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a9181e8bb689170aee97de93276fcb22e} 
+function Segment\+Object (\begin{DoxyParamCaption}\item[{}]{source}{, }\item[{}]{line}{, }\item[{}]{column}{, }\item[{}]{name}{, }\item[{}]{content}{, }\item[{}]{ignore}{}\end{DoxyParamCaption})}
+
+\Hypertarget{remapping_8mjs_a312be3436adaaca5ade11d40f55bbdbc}\index{remapping.mjs@{remapping.mjs}!Source@{Source}}
+\index{Source@{Source}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{Source()}{Source()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a312be3436adaaca5ade11d40f55bbdbc} 
+function Source (\begin{DoxyParamCaption}\item[{}]{map}{, }\item[{}]{sources}{, }\item[{}]{source}{, }\item[{}]{content}{, }\item[{}]{ignore}{}\end{DoxyParamCaption})}
+
+\Hypertarget{remapping_8mjs_a4193d895d623f40f58d2559b464344ed}\index{remapping.mjs@{remapping.mjs}!traceMappings@{traceMappings}}
+\index{traceMappings@{traceMappings}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{traceMappings()}{traceMappings()}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a4193d895d623f40f58d2559b464344ed} 
+function trace\+Mappings (\begin{DoxyParamCaption}\item[{}]{tree}{}\end{DoxyParamCaption})}
+
+trace\+Mappings is only called on the root level Source\+Map\+Tree, and begins the process of resolving each mapping in terms of the original source files. 
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{remapping_8mjs_a7bac30ecb45aeca3a76ffc606e8e886e}\index{remapping.mjs@{remapping.mjs}!default@{default}}
+\index{default@{default}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{default}{default}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a7bac30ecb45aeca3a76ffc606e8e886e} 
+\mbox{\hyperlink{remapping_8mjs_a8cee7ee2719b751cd03554293e4b0258}{remapping}} as default}
+
+\Hypertarget{remapping_8mjs_a9eea6bd56c07c97bed9c936c4ddead97}\index{remapping.mjs@{remapping.mjs}!EMPTY\_SOURCES@{EMPTY\_SOURCES}}
+\index{EMPTY\_SOURCES@{EMPTY\_SOURCES}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{EMPTY\_SOURCES}{EMPTY\_SOURCES}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a9eea6bd56c07c97bed9c936c4ddead97} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} EMPTY\+\_\+\+SOURCES = \mbox{[}$\,$\mbox{]}}
+
+\Hypertarget{remapping_8mjs_a59be084da8908b7d77ff34b25cd84488}\index{remapping.mjs@{remapping.mjs}!import@{import}}
+\index{import@{import}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{import}{import}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a59be084da8908b7d77ff34b25cd84488} 
+import \{ \mbox{\hyperlink{trace-mapping_8mjs_aa4ea48baacb95808ad2f3e4d3942b9f5}{decoded\+Mappings}}, \mbox{\hyperlink{trace-mapping_8mjs_a27adffd54a31aa8ff3e31765ba6210d0}{trace\+Segment}}, \mbox{\hyperlink{classTraceMap}{Trace\+Map}} \} from \textquotesingle{}@jridgewell/trace-\/mapping\textquotesingle{}}
+
+\Hypertarget{remapping_8mjs_a0a4196f2241c0468df8dfa3a97f87716}\index{remapping.mjs@{remapping.mjs}!SOURCELESS\_MAPPING@{SOURCELESS\_MAPPING}}
+\index{SOURCELESS\_MAPPING@{SOURCELESS\_MAPPING}!remapping.mjs@{remapping.mjs}}
+\doxysubsubsection{\texorpdfstring{SOURCELESS\_MAPPING}{SOURCELESS\_MAPPING}}
+{\footnotesize\ttfamily \label{remapping_8mjs_a0a4196f2241c0468df8dfa3a97f87716} 
+\mbox{\hyperlink{yargs_8mjs_a92b303b76a3f942ea819498907d5e83c}{const}} SOURCELESS\+\_\+\+MAPPING = \mbox{\hyperlink{remapping_8mjs_a9181e8bb689170aee97de93276fcb22e}{Segment\+Object}}(\textquotesingle{}\textquotesingle{}, -\/1, -\/1, \textquotesingle{}\textquotesingle{}, null, false)}
+

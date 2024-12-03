@@ -1,0 +1,151 @@
+\doxysection{Dialogue\+Manager Class Reference}
+\hypertarget{classDialogueManager}{}\label{classDialogueManager}\index{DialogueManager@{DialogueManager}}
+
+
+This class handles the dialogue. It involves methods for opening dialogue boxes, handling the "{}typing"{} of text, the skip buttons, and cleaning up dialogue objects when the dialogue is finished.  
+
+
+Inheritance diagram for Dialogue\+Manager\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDialogueManager}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDialogueManager_a4c952b5fb5a3c41fd6ce8259df3c654b}{Start\+Dialogue}} (\mbox{\hyperlink{classDialogue}{Dialogue}} dialogue)
+\item 
+void \mbox{\hyperlink{classDialogueManager_a3752a7bf287404d874c568dd86bbb6cc}{Display\+Next\+Sentence}} ()
+\item 
+void \mbox{\hyperlink{classDialogueManager_aad44e661c6c855fa48b046537f8a06ec}{Show\+Interactive\+Buttons}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classDialogueManager_adb54c63104f586fe011f80114397b805}{name\+Text}}
+\item 
+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classDialogueManager_a58a5d00d5a07a22736a2d72890d6fcd5}{dialogue\+Text}}
+\item 
+Image \mbox{\hyperlink{classDialogueManager_a75c2e98e3132f784b194aaeaf9ee3e6d}{character\+Image}}
+\item 
+Animator \mbox{\hyperlink{classDialogueManager_a44c7001a06fbb2b83c492817d2124cd3}{animator}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDialogueManager_a7b40c5c1386c727e3757738a19aac7f2}{Start}} ()
+\item 
+IEnumerator \mbox{\hyperlink{classDialogueManager_abc90a15336c82cafb22e1af72178ca7f}{Type\+Sentence}} (string sentence)
+\item 
+void \mbox{\hyperlink{classDialogueManager_a54314106d505d5fe58ab4a6f9eba3f2f}{End\+Dialogue}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCharacter__Movement}{Character\+\_\+\+Movement}} \mbox{\hyperlink{classDialogueManager_a6157d5a14aa4c230c843e2a8e1a0441d}{player\+Movement}}
+\item 
+Queue$<$ string $>$ \mbox{\hyperlink{classDialogueManager_ad5960852fefb06c014bb7905c38394af}{sentences}} = new Queue$<$string$>$()
+\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{classDialogueManager_afa1e222f03f8f60191f3b3bdcaa0ef66}{interactive\+Buttons}} = new List$<$Game\+Object$>$()
+\item 
+Queue$<$ \mbox{\hyperlink{classCharacterImage}{Character\+Image}} $>$ \mbox{\hyperlink{classDialogueManager_ac3ca3828c8c74fb50e673c96f42bd4f5}{character\+Images}} = new Queue$<$\mbox{\hyperlink{classCharacterImage}{Character\+Image}}$>$()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles the dialogue. It involves methods for opening dialogue boxes, handling the "{}typing"{} of text, the skip buttons, and cleaning up dialogue objects when the dialogue is finished. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDialogueManager_a3752a7bf287404d874c568dd86bbb6cc}\index{DialogueManager@{DialogueManager}!DisplayNextSentence@{DisplayNextSentence}}
+\index{DisplayNextSentence@{DisplayNextSentence}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{DisplayNextSentence()}{DisplayNextSentence()}}
+{\footnotesize\ttfamily \label{classDialogueManager_a3752a7bf287404d874c568dd86bbb6cc} 
+void Dialogue\+Manager.\+Display\+Next\+Sentence (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classDialogueManager_a54314106d505d5fe58ab4a6f9eba3f2f}\index{DialogueManager@{DialogueManager}!EndDialogue@{EndDialogue}}
+\index{EndDialogue@{EndDialogue}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{EndDialogue()}{EndDialogue()}}
+{\footnotesize\ttfamily \label{classDialogueManager_a54314106d505d5fe58ab4a6f9eba3f2f} 
+void Dialogue\+Manager.\+End\+Dialogue (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager_aad44e661c6c855fa48b046537f8a06ec}\index{DialogueManager@{DialogueManager}!ShowInteractiveButtons@{ShowInteractiveButtons}}
+\index{ShowInteractiveButtons@{ShowInteractiveButtons}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{ShowInteractiveButtons()}{ShowInteractiveButtons()}}
+{\footnotesize\ttfamily \label{classDialogueManager_aad44e661c6c855fa48b046537f8a06ec} 
+void Dialogue\+Manager.\+Show\+Interactive\+Buttons (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classDialogueManager_a7b40c5c1386c727e3757738a19aac7f2}\index{DialogueManager@{DialogueManager}!Start@{Start}}
+\index{Start@{Start}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classDialogueManager_a7b40c5c1386c727e3757738a19aac7f2} 
+void Dialogue\+Manager.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager_a4c952b5fb5a3c41fd6ce8259df3c654b}\index{DialogueManager@{DialogueManager}!StartDialogue@{StartDialogue}}
+\index{StartDialogue@{StartDialogue}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{StartDialogue()}{StartDialogue()}}
+{\footnotesize\ttfamily \label{classDialogueManager_a4c952b5fb5a3c41fd6ce8259df3c654b} 
+void Dialogue\+Manager.\+Start\+Dialogue (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classDialogue}{Dialogue}}}]{dialogue}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classDialogueManager_abc90a15336c82cafb22e1af72178ca7f}\index{DialogueManager@{DialogueManager}!TypeSentence@{TypeSentence}}
+\index{TypeSentence@{TypeSentence}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{TypeSentence()}{TypeSentence()}}
+{\footnotesize\ttfamily \label{classDialogueManager_abc90a15336c82cafb22e1af72178ca7f} 
+IEnumerator Dialogue\+Manager.\+Type\+Sentence (\begin{DoxyParamCaption}\item[{string}]{sentence}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDialogueManager_a44c7001a06fbb2b83c492817d2124cd3}\index{DialogueManager@{DialogueManager}!animator@{animator}}
+\index{animator@{animator}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{animator}{animator}}
+{\footnotesize\ttfamily \label{classDialogueManager_a44c7001a06fbb2b83c492817d2124cd3} 
+Animator Dialogue\+Manager.\+animator}
+
+\Hypertarget{classDialogueManager_a75c2e98e3132f784b194aaeaf9ee3e6d}\index{DialogueManager@{DialogueManager}!characterImage@{characterImage}}
+\index{characterImage@{characterImage}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{characterImage}{characterImage}}
+{\footnotesize\ttfamily \label{classDialogueManager_a75c2e98e3132f784b194aaeaf9ee3e6d} 
+Image Dialogue\+Manager.\+character\+Image}
+
+\Hypertarget{classDialogueManager_ac3ca3828c8c74fb50e673c96f42bd4f5}\index{DialogueManager@{DialogueManager}!characterImages@{characterImages}}
+\index{characterImages@{characterImages}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{characterImages}{characterImages}}
+{\footnotesize\ttfamily \label{classDialogueManager_ac3ca3828c8c74fb50e673c96f42bd4f5} 
+Queue$<$\mbox{\hyperlink{classCharacterImage}{Character\+Image}}$>$ Dialogue\+Manager.\+character\+Images = new Queue$<$\mbox{\hyperlink{classCharacterImage}{Character\+Image}}$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager_a58a5d00d5a07a22736a2d72890d6fcd5}\index{DialogueManager@{DialogueManager}!dialogueText@{dialogueText}}
+\index{dialogueText@{dialogueText}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{dialogueText}{dialogueText}}
+{\footnotesize\ttfamily \label{classDialogueManager_a58a5d00d5a07a22736a2d72890d6fcd5} 
+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager.\+dialogue\+Text}
+
+\Hypertarget{classDialogueManager_afa1e222f03f8f60191f3b3bdcaa0ef66}\index{DialogueManager@{DialogueManager}!interactiveButtons@{interactiveButtons}}
+\index{interactiveButtons@{interactiveButtons}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{interactiveButtons}{interactiveButtons}}
+{\footnotesize\ttfamily \label{classDialogueManager_afa1e222f03f8f60191f3b3bdcaa0ef66} 
+List$<$Game\+Object$>$ Dialogue\+Manager.\+interactive\+Buttons = new List$<$Game\+Object$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager_adb54c63104f586fe011f80114397b805}\index{DialogueManager@{DialogueManager}!nameText@{nameText}}
+\index{nameText@{nameText}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{nameText}{nameText}}
+{\footnotesize\ttfamily \label{classDialogueManager_adb54c63104f586fe011f80114397b805} 
+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager.\+name\+Text}
+
+\Hypertarget{classDialogueManager_a6157d5a14aa4c230c843e2a8e1a0441d}\index{DialogueManager@{DialogueManager}!playerMovement@{playerMovement}}
+\index{playerMovement@{playerMovement}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{playerMovement}{playerMovement}}
+{\footnotesize\ttfamily \label{classDialogueManager_a6157d5a14aa4c230c843e2a8e1a0441d} 
+\mbox{\hyperlink{classCharacter__Movement}{Character\+\_\+\+Movement}} Dialogue\+Manager.\+player\+Movement\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager_ad5960852fefb06c014bb7905c38394af}\index{DialogueManager@{DialogueManager}!sentences@{sentences}}
+\index{sentences@{sentences}!DialogueManager@{DialogueManager}}
+\doxysubsubsection{\texorpdfstring{sentences}{sentences}}
+{\footnotesize\ttfamily \label{classDialogueManager_ad5960852fefb06c014bb7905c38394af} 
+Queue$<$string$>$ Dialogue\+Manager.\+sentences = new Queue$<$string$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Dialogue/\mbox{\hyperlink{DialogueManager_8cs}{Dialogue\+Manager.\+cs}}\end{DoxyCompactItemize}

@@ -1,7 +1,7 @@
 \chapter{Byte\+City}
 \hypertarget{index}{}\label{index}\index{ByteCity@{ByteCity}}
-\label{index_md__r_e_a_d_m_e}%
-\Hypertarget{index_md__r_e_a_d_m_e}%
+\label{index_md_README}%
+\Hypertarget{index_md_README}%
 \hypertarget{index_autotoc_md1}{}\doxysection{\texorpdfstring{Siemens Manufacturing x Texas A\&M Computer Science}{Siemens Manufacturing x Texas A\&M Computer Science}}\label{index_autotoc_md1}
 \hypertarget{index_autotoc_md2}{}\doxysection{\texorpdfstring{CSCE 482 -\/ 932}{CSCE 482 -\/ 932}}\label{index_autotoc_md2}
 \hypertarget{index_autotoc_md3}{}\doxysection{\texorpdfstring{Table of Contents}{Table of Contents}}\label{index_autotoc_md3}
@@ -20,7 +20,6 @@
 \item Deployment
 \item Android Deployment
 \item i\+OS Deployment
-\item Documentation
 \item Future Development
 \end{DoxyItemize}
 
@@ -70,8 +69,21 @@
 \end{DoxyItemize}\hypertarget{index_autotoc_md15}{}\doxysubsection{\texorpdfstring{Backend}{Backend}}\label{index_autotoc_md15}
 
 \begin{DoxyItemize}
-\item We are using \href{https://nodejs.org/en/}{\texttt{ nodejs}}, along with AWS Lambda and an {\bfseries{naveed fix this part plz}}.
-\end{DoxyItemize}\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{Frontend Installation}{Frontend Installation}}\label{index_autotoc_md16}
+\item We are using \href{https://nodejs.org/en/}{\texttt{ nodejs}} to define HTTP APIs to connect to the Database
+\item Code
+\begin{DoxyItemize}
+\item Node\+JS, npm
+\item jest for testing
+\end{DoxyItemize}
+\item AWS Resources
+\begin{DoxyItemize}
+\item API Gateway for routing
+\item AWS Lambda for API Definitions
+\item Secrets Manager for authentication
+\item RDS Proxy for Connection Management
+\item RDS DB for the Database
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md16}{}\doxysection{\texorpdfstring{Frontend Installation}{Frontend Installation}}\label{index_autotoc_md16}
 
 \begin{DoxyItemize}
 \item Installing Unity is pretty straight forward. Go to {\ttfamily \href{https://unity.com/download}{\texttt{ https\+://unity.\+com/download}}} or click \href{https://unity.com/download}{\texttt{ here}} and download {\ttfamily Unity Hub}.
@@ -102,15 +114,181 @@
 \end{DoxyItemize}
 \item Depending on the speed of your computer, this could take up to 10 minutes.
 \item Once this is finished, you should be ready to develop, build, and run Byte\+City!
-\end{DoxyItemize}\hypertarget{index_autotoc_md17}{}\doxysubsection{\texorpdfstring{Backend Installation}{Backend Installation}}\label{index_autotoc_md17}
+\end{DoxyItemize}\hypertarget{index_autotoc_md17}{}\doxysection{\texorpdfstring{Backend Installation}{Backend Installation}}\label{index_autotoc_md17}
+\hypertarget{index_autotoc_md18}{}\doxysubsection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{index_autotoc_md18}
+
+\begin{DoxyEnumerate}
+\item {\bfseries{AWS Account}}\+: Access to the AWS Management Console.
+\item {\bfseries{AWS CLI Installed}}\+: \href{https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html}{\texttt{ Install AWS CLI}}.
+\item {\bfseries{IAM Permissions}}\+: Permissions to create resources\+:
+\begin{DoxyItemize}
+\item RDS
+\item Secrets Manager
+\item API Gateway
+\item Lambda
+\item IAM roles
+\end{DoxyItemize}
+\item {\bfseries{VPC Setup}}\+: Access to a VPC with subnets and security groups.
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Architecture Components}{Architecture Components}}\label{index_autotoc_md20}
+The backend includes the following AWS services\+:
+\begin{DoxyEnumerate}
+\item {\bfseries{Amazon RDS}}\+: A Postgre\+SQL database for storing Byte\+City data.
+\item {\bfseries{Secrets Manager}}\+: Securely stores database credentials.
+\item {\bfseries{RDS Proxy}}\+: Optimizes and secures Lambda database connections.
+\item {\bfseries{Lambda Functions}}\+: Handle backend logic.
+\item {\bfseries{API Gateway}}\+: Provides REST/\+HTTP APIs to the frontend.
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md22}{}\doxysection{\texorpdfstring{Step-\/by-\/\+Step Setup}{Step-\/by-\/\+Step Setup}}\label{index_autotoc_md22}
+\hypertarget{index_autotoc_md23}{}\doxysubsection{\texorpdfstring{1. Create an RDS Database}{1. Create an RDS Database}}\label{index_autotoc_md23}
+
+\begin{DoxyEnumerate}
+\item Go to {\bfseries{RDS → Create Database}}.
+\item Select {\bfseries{Postgre\+SQL}} as the engine.
+\item Configure\+:
+\begin{DoxyItemize}
+\item Instance class\+: {\ttfamily db.\+t3.\+micro} (for development).
+\item Storage\+: Adjust as needed.
+\item Public Access\+: {\bfseries{No}} (for security).
+\item Enable IAM database authentication.
+\end{DoxyItemize}
+\item Create a database user and password for the instance.
+\item Set up a {\bfseries{security group}} to allow traffic from the RDS Proxy(make it allow all traffic, 0.\+0.\+0.\+0/0, unless Siemens says otherwise).
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{2. Set Up Secrets in AWS Secrets Manager}{2. Set Up Secrets in AWS Secrets Manager}}\label{index_autotoc_md25}
+
+\begin{DoxyEnumerate}
+\item Go to {\bfseries{Secrets Manager → Store a new secret}}.
+\item Choose {\bfseries{RDS Database Credentials}} and enter\+:
+\begin{DoxyItemize}
+\item Database username and password.
+\end{DoxyItemize}
+\item Name the secret
+\item Attach an {\bfseries{IAM policy}} to allow Lambda to access this secret\+: 
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md26}{}\doxysection{\texorpdfstring{autotoc\+\_\+md26}{autotoc\+\_\+md26}}\label{index_autotoc_md26}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ "{}Version"{}:\ "{}2012-\/10-\/17"{},}
+\DoxyCodeLine{\ \ \ \ "{}Statement"{}:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ "{}Effect"{}:\ "{}Allow"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ "{}Action"{}:\ "{}secretsmanager:GetSecretValue"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ "{}Resource"{}:\ "{}arn:aws:secretsmanager:<region>:<account\_id>:secret:<secretname>"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+\hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{3. Deploy Lambda Functions}{3. Deploy Lambda Functions}}\label{index_autotoc_md27}
+\hypertarget{index_autotoc_md28}{}\doxysubsection{\texorpdfstring{Configure AWS Locally}{Configure AWS Locally}}\label{index_autotoc_md28}
+
+\begin{DoxyEnumerate}
+\item run aws configure on your local machine
+\item give the corresponding values from your aws account
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md29}{}\doxysubsection{\texorpdfstring{Create Lambda role\+:}{Create Lambda role\+:}}\label{index_autotoc_md29}
+
+\begin{DoxyEnumerate}
+\item Go to IAM then go to Roles
+\item Create a role and attach the following policies\+:
+\end{DoxyEnumerate}
+\begin{DoxyItemize}
+\item AWSLambda\+Basic\+Execution\+Role
+\item AWSLambda\+VPCAccess\+Execution\+Role
+\item Cloud\+Front\+Full\+Access (for logging)
+\item Secrets\+Manager\+Read\+Write
+\item Custom Inline Role\+: 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\{}
+\DoxyCodeLine{\ \ \ \ "{}Version"{}:\ "{}2012-\/10-\/17"{},}
+\DoxyCodeLine{\ \ \ \ "{}Statement"{}:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ "{}Effect"{}:\ "{}Allow"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ "{}Action"{}:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}rds-\/db:connect"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ ],}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ "{}Resource"{}:\ "{}arn:aws:rds:us-\/east-\/1:<awsaccountid>:db-\/proxy:<proxyid>"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ ]}
+\DoxyCodeLine{\}}
+
+\end{DoxyCode}
+
+\end{DoxyItemize}\hypertarget{index_autotoc_md30}{}\doxysubsection{\texorpdfstring{Create Lambda Functions\+:}{Create Lambda Functions\+:}}\label{index_autotoc_md30}
+
+\begin{DoxyEnumerate}
+\item For every single folder in siemens-\/game/backend/\+Lambda\+Function\+APIs except for "{}shared"{} and "{}\+Test"{}\+: create a lambda function(step 2)
+\item Go to the lambda console in AWS
+\begin{DoxyItemize}
+\item click "{}\+Create Function"{}
+\item Choose a Function Name, it should equal the variable "{}const function\+Name"{} in the build.\+js(line 17) file in the corresponding folder
+\item Runtime\+: Node.\+js
+\item Architecture x86\+\_\+64
+\item Change default Excecution Role and choose the role you created above
+\item Create Function
+\end{DoxyItemize}
+\end{DoxyEnumerate}
+\begin{DoxyEnumerate}
+\item Example environment variables\+:
+\begin{DoxyItemize}
+\item {\ttfamily DB\+\_\+\+SECRET\+\_\+\+ARN}\+: ARN of the secret in Secrets Manager.
+\item {\ttfamily DB\+\_\+\+PROXY\+\_\+\+ENDPOINT}\+: Endpoint of the RDS Proxy.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md31}{}\doxysubsection{\texorpdfstring{Deploy the Functions\+:}{Deploy the Functions\+:}}\label{index_autotoc_md31}
+
+\begin{DoxyEnumerate}
+\item Navigate to the folder you want to deploy(\+Ex\+: Equip )
+\item {\ttfamily npm init -\/y}
+\item {\ttfamily npm install archiver aws-\/sdk pg @aws-\/sdk/client-\/secrets-\/manager}
+\item {\ttfamily npm install jest @jest/globals -\/-\/save-\/dev}
+\item {\ttfamily npm run deploy} (runs the build.\+js file and should upload your function lambda)
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md33}{}\doxysection{\texorpdfstring{4. Set Up API Gateway}{4. Set Up API Gateway}}\label{index_autotoc_md33}
+\hypertarget{index_autotoc_md34}{}\doxysubsection{\texorpdfstring{Create an API Gateway\+:}{Create an API Gateway\+:}}\label{index_autotoc_md34}
+
+\begin{DoxyEnumerate}
+\item Go to {\bfseries{API Gateway}} → {\bfseries{Create API}}.
+\item Choose {\bfseries{HTTP API}}.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md35}{}\doxysubsection{\texorpdfstring{Create Routes\+:}{Create Routes\+:}}\label{index_autotoc_md35}
+
+\begin{DoxyEnumerate}
+\item Map each Lambda function to a route.
+\item Example routes\+:
+\begin{DoxyItemize}
+\item look at the {\ttfamily APIPayload.\+txt} to see the type and how its structure
+\item {\ttfamily /login} → Login Lambda Function.
+\end{DoxyItemize}
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md36}{}\doxysubsection{\texorpdfstring{Integrate API with Lambda\+:}{Integrate API with Lambda\+:}}\label{index_autotoc_md36}
+
+\begin{DoxyEnumerate}
+\item For each route, set the integration type to {\bfseries{Lambda Function}}.
+\item Deploy the API and note the endpoint URL.
+\end{DoxyEnumerate}\hypertarget{index_autotoc_md37}{}\doxysubsection{\texorpdfstring{Enable CORS\+:}{Enable CORS\+:}}\label{index_autotoc_md37}
 
 \begin{DoxyItemize}
-\item {\bfseries{naveed fix this part plz}}
+\item If the frontend interacts with this API, enable {\bfseries{CORS}} for each route.
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
- \hypertarget{index_autotoc_md19}{}\doxysection{\texorpdfstring{Testing}{Testing}}\label{index_autotoc_md19}
-\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Frontend Testing}{Frontend Testing}}\label{index_autotoc_md20}
+\hypertarget{index_autotoc_md39}{}\doxysection{\texorpdfstring{5. Configure Networking}{5. Configure Networking}}\label{index_autotoc_md39}
+\hypertarget{index_autotoc_md40}{}\doxysubsection{\texorpdfstring{VPC Setup\+:}{VPC Setup\+:}}\label{index_autotoc_md40}
+
+\begin{DoxyItemize}
+\item Ensure that {\bfseries{RDS}}, {\bfseries{RDS Proxy}}, and {\bfseries{Lambda}} are in the same {\bfseries{VPC}}.
+\end{DoxyItemize}\hypertarget{index_autotoc_md41}{}\doxysubsection{\texorpdfstring{Security Groups\+:}{Security Groups\+:}}\label{index_autotoc_md41}
+
+\begin{DoxyItemize}
+\item Allow traffic between {\bfseries{Lambda}} and {\bfseries{RDS Proxy}} on port {\ttfamily 5432}.
+\end{DoxyItemize}\hypertarget{index_autotoc_md42}{}\doxysection{\texorpdfstring{Testing}{Testing}}\label{index_autotoc_md42}
+\hypertarget{index_autotoc_md43}{}\doxysubsection{\texorpdfstring{Frontend Testing}{Frontend Testing}}\label{index_autotoc_md43}
 
 \begin{DoxyItemize}
 \item We have a combination of github actions, combined with \href{https://game.ci/}{\texttt{ game-\/ci}} to automatically test whenever we push code.
@@ -127,15 +305,35 @@
 \item These are for making sure that assets can be properly loaded, they are in the right place and other things that you could test without actually playing the game.
 \end{DoxyItemize}
 \end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{index_autotoc_md21}{}\doxysubsection{\texorpdfstring{Backend Testing}{Backend Testing}}\label{index_autotoc_md21}
+\end{DoxyItemize}\hypertarget{index_autotoc_md44}{}\doxysubsection{\texorpdfstring{Backend Testing}{Backend Testing}}\label{index_autotoc_md44}
 
 \begin{DoxyItemize}
 \item We use \href{https://jestjs.io/}{\texttt{ jest}} to test our backend code combined with github actions to get automated testing whenever we push code.
+\item Testing framework\+: \href{https://jestjs.io/}{\texttt{ Jest}}.
+\item Automated testing with Git\+Hub Actions for every push to the repository.
+\item Folders containing tests (siemens-\/game/backend/\+Lambda\+Function\+APIs)\+:
+\begin{DoxyItemize}
+\item Equip
+\item Get\+All\+Items
+\item Get\+Items\+By\+Category
+\item Get\+User\+Items
+\item High\+Score
+\item Leaderboard
+\item Login
+\item player\+Data\+Upload
+\item Score\+Upload
+\end{DoxyItemize}
+\item Focus areas\+:
+\begin{DoxyItemize}
+\item Unit tests for functions like {\ttfamily update\+Player\+Data} and {\ttfamily get\+Top\+Scores\+By\+Game}.
+\item Integration tests for AWS Lambda handlers.
+\item API tests for endpoints.
+\end{DoxyItemize}
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
- \hypertarget{index_autotoc_md23}{}\doxysection{\texorpdfstring{Deployment}{Deployment}}\label{index_autotoc_md23}
-\hypertarget{index_autotoc_md24}{}\doxysubsection{\texorpdfstring{Android Deployment}{Android Deployment}}\label{index_autotoc_md24}
+ \hypertarget{index_autotoc_md46}{}\doxysection{\texorpdfstring{Deployment}{Deployment}}\label{index_autotoc_md46}
+\hypertarget{index_autotoc_md47}{}\doxysubsection{\texorpdfstring{Android Deployment}{Android Deployment}}\label{index_autotoc_md47}
 
 \begin{DoxyItemize}
 \item There should already be Android Build Support installed from our packages, but if there isn\textquotesingle{}t then you can follow these steps.
@@ -174,7 +372,7 @@
 \item There is also an option in settings app to allow third-\/party app installations.
 \end{DoxyItemize}
 \end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{i\+OS Deployment}{i\+OS Deployment}}\label{index_autotoc_md25}
+\end{DoxyItemize}\hypertarget{index_autotoc_md48}{}\doxysubsection{\texorpdfstring{i\+OS Deployment}{i\+OS Deployment}}\label{index_autotoc_md48}
 
 \begin{DoxyItemize}
 \item {\bfseries{note that you need to have a macbook or a way to launch xcode to build for i\+OS}}.
@@ -203,7 +401,7 @@
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
- \hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md27}
+ \hypertarget{index_autotoc_md50}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md50}
 
 \begin{DoxyItemize}
 \item We have generated our documentation using \href{https://www.doxygen.nl/index.html}{\texttt{ doxygen}}.
@@ -214,12 +412,12 @@
 
 \end{DoxyCode}
 
-\item View the documentation {\bfseries{FIXME host the documentation somewhere}}.
+\item View the documentation \href{https://ethanrutt.github.io/bytecity_docs/html/index.html}{\texttt{ here}}
 \item Some Notes about the Doxyfile config
 \begin{DoxyItemize}
 \item We are using {\ttfamily .mjs} files for our backend, which aren\textquotesingle{}t recognized by the doxygen parser by default. This line fixes this which just says that {\ttfamily .mjs} files should use the {\ttfamily Javascript} parser. 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{EXTENSION\_MAPPING\ \ \ \ \ \ =\ mjs=Javascript}
+\DoxyCodeLine{EXTENSION\_MAPPING\ =\ mjs=Javascript}
 
 \end{DoxyCode}
 
@@ -230,7 +428,7 @@
 \end{DoxyItemize}
 
 \DoxyHorRuler{0}
- \hypertarget{index_autotoc_md29}{}\doxysection{\texorpdfstring{Future Development}{Future Development}}\label{index_autotoc_md29}
+ \hypertarget{index_autotoc_md52}{}\doxysection{\texorpdfstring{Future Development}{Future Development}}\label{index_autotoc_md52}
 
 \begin{DoxyItemize}
 \item The Byte City team has put tons of hours into this game. We were given nothing but an open-\/ended request with simple constraints, and we have built the Byte City you can play today from scratch.

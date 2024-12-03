@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['enterroom_0',['EnterRoom',['../class_enter_room.html',1,'']]]
+  ['enterroom_0',['EnterRoom',['../classEnterRoom.html',1,'']]]
 ];

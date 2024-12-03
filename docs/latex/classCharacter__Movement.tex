@@ -1,0 +1,537 @@
+\doxysection{Character\+\_\+\+Movement Class Reference}
+\hypertarget{classCharacter__Movement}{}\label{classCharacter__Movement}\index{Character\_Movement@{Character\_Movement}}
+
+
+This class handles character movement. This script will be attached to the player object.  
+
+
+Inheritance diagram for Character\+\_\+\+Movement\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classCharacter__Movement}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_ac3aaa6b985eb3f26f4761f4cd5e0c7e8}{Stop\+Player}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_aec4036e1697a866c2d03dc3fa8129bdd}{Unstop\+Player}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a45144e6af89898ba7d6a99af73697dd7}{Move\+Up}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_abf632ac0ca841db814642dffcf028b86}{Move\+Down}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_ae9f730d4e08e388f70cb25075e1f10d1}{Move\+Left}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a5769479bb300459ff8440601815a3979}{Move\+Right}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_ac37e5f8a121db8e0c53ea43ef29ab370}{Stop\+Moving}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a961d141c14bcd37ec7cd9949460c4593}{Dance\+Emote}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a2597531cb4ca15381bca5e17edda3351}{Toggle\+Movement}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a37d277def8b5efeae825d16700742ece}{Set\+Chest\+Sprite}} (Runtime\+Animator\+Controller new\+Controller)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a195cf3da1b856ab414d4ed939185dd1e}{Set\+Leg\+Sprite}} (Runtime\+Animator\+Controller new\+Controller)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a2479f6846f619021482d67a84db69ab5}{Set\+Shoe\+Sprite}} (Runtime\+Animator\+Controller new\+Controller)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a02fd4f4c2e90bc58e75d1ebff51b2821}{Set\+Hat\+Sprite}} (Runtime\+Animator\+Controller new\+Controller)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+float \mbox{\hyperlink{classCharacter__Movement_a31bf939da3e4231614da95afde474a16}{char\+Speed}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} \mbox{\hyperlink{classCharacter__Movement_a5da2302c002c46aedd833213be1baee4}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\item 
+List$<$ int $>$ \mbox{\hyperlink{classCharacter__Movement_a9d4cb92215332b9906d0e6c6e4ccfff5}{equipped\+\_\+items}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a0fba727cebd4ae2de79baf6c05fcd7da}{Awake}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_ab0c8144e6d37ffb1ba5a40875f6ea849}{Start}} ()
+\item 
+bool \mbox{\hyperlink{classCharacter__Movement_a8d40ba9d86ec371ed7754e92ee689d05}{Are\+Lists\+Equal}} (List$<$ int $>$ list1, List$<$ int $>$ list2)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_aba3ec11ec02879574b189438a71c26ce}{Update}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a9f3f8e923e0a32b7d0705cacf10b2eae}{Fixed\+Update}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a3f27a4c99e64d7c17e99e1e1d699910f}{Change\+Animation\+State}} (Animator \mbox{\hyperlink{classCharacter__Movement_a9aad13d931c778870faf52a85596d680}{animator}}, string new\+State, ref string \mbox{\hyperlink{classCharacter__Movement_a44cee868670a3563065057d0963066c0}{current\+State}})
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a8153f30f0ab1cf8004717902fabc567d}{Change\+Player\+Animation\+State}} (string new\+State)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a8f50011109cbc031af1a55754f28e96b}{Change\+Chest\+Animation\+State}} (string new\+State)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a05b9e44dec4b38ab2be7569b2f97ad92}{Change\+Leg\+Animation\+State}} (string new\+State)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a1ffdbf805679d8b701bdad14a8dcbb7d}{Change\+Shoe\+Animation\+State}} (string new\+State)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a76bb8a4ad05a7b55a5c90d3bae8ecbfa}{Change\+Hat\+Animation\+State}} (string new\+State)
+\item 
+Vector2 \mbox{\hyperlink{classCharacter__Movement_a21eecb62b9036b9576b952e8ec42f955}{Get\+Input}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a96553663defcc0eb9ed70c5eba0b06a0}{Handle\+Movement}} (Vector2 movement)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_a4197f810ba0cf69f3e5117515fbf5252}{Update\+Animator}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_ad6374ea8bb39f6d18a89b33d9dbd74c8}{Perform\+Emote}} (int emote\+Index)
+\item 
+IEnumerator \mbox{\hyperlink{classCharacter__Movement_adc700e667afe0631e7733217e484be56}{Wait\+For\+Emote\+To\+Finish}} (int emote\+Index)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_ad6b2745adbb7038d46bf2363b43f2c2e}{Stop\+Emoting}} ()
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_ae79b613a634aee1402f8a9175e6f1d7b}{Sync\+Animations}} (Vector2 movement)
+\item 
+void \mbox{\hyperlink{classCharacter__Movement_af7e16539fda285ab8fab7e7762efd737}{Create\+Animation\+Dictionary}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classCosmeticHandler}{Cosmetic\+Handler}} \mbox{\hyperlink{classCharacter__Movement_abe1327cd0109831ec4fd2cbb87734cf7}{cosmetic\+Handler}}
+\item 
+string \mbox{\hyperlink{classCharacter__Movement_a44cee868670a3563065057d0963066c0}{current\+State}}
+\item 
+Rigidbody2D \mbox{\hyperlink{classCharacter__Movement_a9a27bb32869bd41c7a75a1c2918ff814}{rb}}
+\item 
+Animator \mbox{\hyperlink{classCharacter__Movement_a9aad13d931c778870faf52a85596d680}{animator}}
+\item 
+Animator \mbox{\hyperlink{classCharacter__Movement_a40331e201751ef1649a6f7d20089cd9e}{child\+\_\+\+Chest\+Animator}}
+\item 
+Animator \mbox{\hyperlink{classCharacter__Movement_aca18ee6de62c8b9cc0418ecaf33a59a4}{child\+\_\+\+Leg\+Animator}}
+\item 
+Animator \mbox{\hyperlink{classCharacter__Movement_af998cd71a1a84e7b83bde45e08a80a97}{child\+\_\+\+Shoe\+Animator}}
+\item 
+Animator \mbox{\hyperlink{classCharacter__Movement_aa4606954a5a3e7ec10e6cb33d0e682c3}{child\+\_\+\+Hat\+Animator}}
+\item 
+List$<$ int $>$ \mbox{\hyperlink{classCharacter__Movement_aa301357bf495e75450295807fd86c024}{original\+\_\+load\+\_\+items}} = new List$<$int$>$()
+\item 
+Vector2 \mbox{\hyperlink{classCharacter__Movement_ad29202b6129dd517d82bf4afc9f959d8}{movement\+Input\+Direction}}
+\item 
+Vector2 \mbox{\hyperlink{classCharacter__Movement_a60a413751d5ab79b56300b3959b18a63}{last\+Movement\+Input\+Direction}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_a67eb54155814d5a7b4ce174646e7cb4a}{player\+Moving\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_a2ade0bf84361763acd2bae37ceaa647e}{player\+Idle\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_a4b9e263967896aec85db25969ed5ae86}{chest\+Moving\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_a13b1afeae7cb6afcc199f0a3268ff554}{chest\+Idle\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_ae2c42853e27f4b6b99dc470d82388da1}{leg\+Moving\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_aa848ed24447484462c095854a388b9e0}{leg\+Idle\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_aa091abd6b46e2be50e36f1e9674872c3}{hat\+Moving\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_acd240894f90c04c8d4e70a463079fe87}{hat\+Idle\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_a4f8e69b8ae46779f24ff841c270b54c9}{shoe\+Moving\+Animations}}
+\item 
+Dictionary$<$ Vector2, string $>$ \mbox{\hyperlink{classCharacter__Movement_adbc7fc96d08f9d0f07b47882f6b5f3e0}{shoe\+Idle\+Animations}}
+\item 
+bool \mbox{\hyperlink{classCharacter__Movement_aa06bd177dd7388bb03f0cb5cb565290d}{sync\+Flag}} = false
+\item 
+bool \mbox{\hyperlink{classCharacter__Movement_a3aa4427a39a8b4fa267911a997afec0d}{can\+Move}} = true
+\item 
+List$<$ Game\+Object $>$ \mbox{\hyperlink{classCharacter__Movement_a66bc398630f3963bb43139b88d92b5d9}{interactive\+Buttons}} = new List$<$Game\+Object$>$()
+\item 
+bool \mbox{\hyperlink{classCharacter__Movement_a316de5a78047f629efc61d337563b227}{is\+Resetting\+Animations}}
+\item 
+bool \mbox{\hyperlink{classCharacter__Movement_a0da7e5ace7763410e50c1f4785f20874}{is\+Emoting}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class handles character movement. This script will be attached to the player object. 
+
+There are lots of moving parts, since we have separate entities for the player\textquotesingle{}s head, chest, arms, legs, as well as handling movement for all of their cosmetics. Emotes are also handled in this class.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classCosmeticHandler}{Cosmetic\+Handler} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classCharacter__Movement_a8d40ba9d86ec371ed7754e92ee689d05}\index{Character\_Movement@{Character\_Movement}!AreListsEqual@{AreListsEqual}}
+\index{AreListsEqual@{AreListsEqual}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{AreListsEqual()}{AreListsEqual()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a8d40ba9d86ec371ed7754e92ee689d05} 
+bool Character\+\_\+\+Movement.\+Are\+Lists\+Equal (\begin{DoxyParamCaption}\item[{List$<$ int $>$}]{list1}{, }\item[{List$<$ int $>$}]{list2}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a0fba727cebd4ae2de79baf6c05fcd7da}\index{Character\_Movement@{Character\_Movement}!Awake@{Awake}}
+\index{Awake@{Awake}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{Awake()}{Awake()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a0fba727cebd4ae2de79baf6c05fcd7da} 
+void Character\+\_\+\+Movement.\+Awake (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a3f27a4c99e64d7c17e99e1e1d699910f}\index{Character\_Movement@{Character\_Movement}!ChangeAnimationState@{ChangeAnimationState}}
+\index{ChangeAnimationState@{ChangeAnimationState}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{ChangeAnimationState()}{ChangeAnimationState()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a3f27a4c99e64d7c17e99e1e1d699910f} 
+void Character\+\_\+\+Movement.\+Change\+Animation\+State (\begin{DoxyParamCaption}\item[{Animator}]{animator}{, }\item[{string}]{new\+State}{, }\item[{ref string}]{current\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a8f50011109cbc031af1a55754f28e96b}\index{Character\_Movement@{Character\_Movement}!ChangeChestAnimationState@{ChangeChestAnimationState}}
+\index{ChangeChestAnimationState@{ChangeChestAnimationState}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{ChangeChestAnimationState()}{ChangeChestAnimationState()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a8f50011109cbc031af1a55754f28e96b} 
+void Character\+\_\+\+Movement.\+Change\+Chest\+Animation\+State (\begin{DoxyParamCaption}\item[{string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a76bb8a4ad05a7b55a5c90d3bae8ecbfa}\index{Character\_Movement@{Character\_Movement}!ChangeHatAnimationState@{ChangeHatAnimationState}}
+\index{ChangeHatAnimationState@{ChangeHatAnimationState}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{ChangeHatAnimationState()}{ChangeHatAnimationState()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a76bb8a4ad05a7b55a5c90d3bae8ecbfa} 
+void Character\+\_\+\+Movement.\+Change\+Hat\+Animation\+State (\begin{DoxyParamCaption}\item[{string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a05b9e44dec4b38ab2be7569b2f97ad92}\index{Character\_Movement@{Character\_Movement}!ChangeLegAnimationState@{ChangeLegAnimationState}}
+\index{ChangeLegAnimationState@{ChangeLegAnimationState}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{ChangeLegAnimationState()}{ChangeLegAnimationState()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a05b9e44dec4b38ab2be7569b2f97ad92} 
+void Character\+\_\+\+Movement.\+Change\+Leg\+Animation\+State (\begin{DoxyParamCaption}\item[{string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a8153f30f0ab1cf8004717902fabc567d}\index{Character\_Movement@{Character\_Movement}!ChangePlayerAnimationState@{ChangePlayerAnimationState}}
+\index{ChangePlayerAnimationState@{ChangePlayerAnimationState}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{ChangePlayerAnimationState()}{ChangePlayerAnimationState()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a8153f30f0ab1cf8004717902fabc567d} 
+void Character\+\_\+\+Movement.\+Change\+Player\+Animation\+State (\begin{DoxyParamCaption}\item[{string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a1ffdbf805679d8b701bdad14a8dcbb7d}\index{Character\_Movement@{Character\_Movement}!ChangeShoeAnimationState@{ChangeShoeAnimationState}}
+\index{ChangeShoeAnimationState@{ChangeShoeAnimationState}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{ChangeShoeAnimationState()}{ChangeShoeAnimationState()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a1ffdbf805679d8b701bdad14a8dcbb7d} 
+void Character\+\_\+\+Movement.\+Change\+Shoe\+Animation\+State (\begin{DoxyParamCaption}\item[{string}]{new\+State}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_af7e16539fda285ab8fab7e7762efd737}\index{Character\_Movement@{Character\_Movement}!CreateAnimationDictionary@{CreateAnimationDictionary}}
+\index{CreateAnimationDictionary@{CreateAnimationDictionary}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{CreateAnimationDictionary()}{CreateAnimationDictionary()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_af7e16539fda285ab8fab7e7762efd737} 
+void Character\+\_\+\+Movement.\+Create\+Animation\+Dictionary (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a961d141c14bcd37ec7cd9949460c4593}\index{Character\_Movement@{Character\_Movement}!DanceEmote@{DanceEmote}}
+\index{DanceEmote@{DanceEmote}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{DanceEmote()}{DanceEmote()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a961d141c14bcd37ec7cd9949460c4593} 
+void Character\+\_\+\+Movement.\+Dance\+Emote (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_a9f3f8e923e0a32b7d0705cacf10b2eae}\index{Character\_Movement@{Character\_Movement}!FixedUpdate@{FixedUpdate}}
+\index{FixedUpdate@{FixedUpdate}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{FixedUpdate()}{FixedUpdate()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a9f3f8e923e0a32b7d0705cacf10b2eae} 
+void Character\+\_\+\+Movement.\+Fixed\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a21eecb62b9036b9576b952e8ec42f955}\index{Character\_Movement@{Character\_Movement}!GetInput@{GetInput}}
+\index{GetInput@{GetInput}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{GetInput()}{GetInput()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a21eecb62b9036b9576b952e8ec42f955} 
+Vector2 Character\+\_\+\+Movement.\+Get\+Input (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a96553663defcc0eb9ed70c5eba0b06a0}\index{Character\_Movement@{Character\_Movement}!HandleMovement@{HandleMovement}}
+\index{HandleMovement@{HandleMovement}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{HandleMovement()}{HandleMovement()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a96553663defcc0eb9ed70c5eba0b06a0} 
+void Character\+\_\+\+Movement.\+Handle\+Movement (\begin{DoxyParamCaption}\item[{Vector2}]{movement}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_abf632ac0ca841db814642dffcf028b86}\index{Character\_Movement@{Character\_Movement}!MoveDown@{MoveDown}}
+\index{MoveDown@{MoveDown}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{MoveDown()}{MoveDown()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_abf632ac0ca841db814642dffcf028b86} 
+void Character\+\_\+\+Movement.\+Move\+Down (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_ae9f730d4e08e388f70cb25075e1f10d1}\index{Character\_Movement@{Character\_Movement}!MoveLeft@{MoveLeft}}
+\index{MoveLeft@{MoveLeft}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{MoveLeft()}{MoveLeft()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ae9f730d4e08e388f70cb25075e1f10d1} 
+void Character\+\_\+\+Movement.\+Move\+Left (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_a5769479bb300459ff8440601815a3979}\index{Character\_Movement@{Character\_Movement}!MoveRight@{MoveRight}}
+\index{MoveRight@{MoveRight}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{MoveRight()}{MoveRight()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a5769479bb300459ff8440601815a3979} 
+void Character\+\_\+\+Movement.\+Move\+Right (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_a45144e6af89898ba7d6a99af73697dd7}\index{Character\_Movement@{Character\_Movement}!MoveUp@{MoveUp}}
+\index{MoveUp@{MoveUp}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{MoveUp()}{MoveUp()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a45144e6af89898ba7d6a99af73697dd7} 
+void Character\+\_\+\+Movement.\+Move\+Up (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_ad6374ea8bb39f6d18a89b33d9dbd74c8}\index{Character\_Movement@{Character\_Movement}!PerformEmote@{PerformEmote}}
+\index{PerformEmote@{PerformEmote}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{PerformEmote()}{PerformEmote()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ad6374ea8bb39f6d18a89b33d9dbd74c8} 
+void Character\+\_\+\+Movement.\+Perform\+Emote (\begin{DoxyParamCaption}\item[{int}]{emote\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a37d277def8b5efeae825d16700742ece}\index{Character\_Movement@{Character\_Movement}!SetChestSprite@{SetChestSprite}}
+\index{SetChestSprite@{SetChestSprite}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{SetChestSprite()}{SetChestSprite()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a37d277def8b5efeae825d16700742ece} 
+void Character\+\_\+\+Movement.\+Set\+Chest\+Sprite (\begin{DoxyParamCaption}\item[{Runtime\+Animator\+Controller}]{new\+Controller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_a02fd4f4c2e90bc58e75d1ebff51b2821}\index{Character\_Movement@{Character\_Movement}!SetHatSprite@{SetHatSprite}}
+\index{SetHatSprite@{SetHatSprite}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{SetHatSprite()}{SetHatSprite()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a02fd4f4c2e90bc58e75d1ebff51b2821} 
+void Character\+\_\+\+Movement.\+Set\+Hat\+Sprite (\begin{DoxyParamCaption}\item[{Runtime\+Animator\+Controller}]{new\+Controller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_a195cf3da1b856ab414d4ed939185dd1e}\index{Character\_Movement@{Character\_Movement}!SetLegSprite@{SetLegSprite}}
+\index{SetLegSprite@{SetLegSprite}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{SetLegSprite()}{SetLegSprite()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a195cf3da1b856ab414d4ed939185dd1e} 
+void Character\+\_\+\+Movement.\+Set\+Leg\+Sprite (\begin{DoxyParamCaption}\item[{Runtime\+Animator\+Controller}]{new\+Controller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_a2479f6846f619021482d67a84db69ab5}\index{Character\_Movement@{Character\_Movement}!SetShoeSprite@{SetShoeSprite}}
+\index{SetShoeSprite@{SetShoeSprite}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{SetShoeSprite()}{SetShoeSprite()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a2479f6846f619021482d67a84db69ab5} 
+void Character\+\_\+\+Movement.\+Set\+Shoe\+Sprite (\begin{DoxyParamCaption}\item[{Runtime\+Animator\+Controller}]{new\+Controller}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_ab0c8144e6d37ffb1ba5a40875f6ea849}\index{Character\_Movement@{Character\_Movement}!Start@{Start}}
+\index{Start@{Start}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ab0c8144e6d37ffb1ba5a40875f6ea849} 
+void Character\+\_\+\+Movement.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_ad6b2745adbb7038d46bf2363b43f2c2e}\index{Character\_Movement@{Character\_Movement}!StopEmoting@{StopEmoting}}
+\index{StopEmoting@{StopEmoting}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{StopEmoting()}{StopEmoting()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ad6b2745adbb7038d46bf2363b43f2c2e} 
+void Character\+\_\+\+Movement.\+Stop\+Emoting (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_ac37e5f8a121db8e0c53ea43ef29ab370}\index{Character\_Movement@{Character\_Movement}!StopMoving@{StopMoving}}
+\index{StopMoving@{StopMoving}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{StopMoving()}{StopMoving()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ac37e5f8a121db8e0c53ea43ef29ab370} 
+void Character\+\_\+\+Movement.\+Stop\+Moving (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_ac3aaa6b985eb3f26f4761f4cd5e0c7e8}\index{Character\_Movement@{Character\_Movement}!StopPlayer@{StopPlayer}}
+\index{StopPlayer@{StopPlayer}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{StopPlayer()}{StopPlayer()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ac3aaa6b985eb3f26f4761f4cd5e0c7e8} 
+void Character\+\_\+\+Movement.\+Stop\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_ae79b613a634aee1402f8a9175e6f1d7b}\index{Character\_Movement@{Character\_Movement}!SyncAnimations@{SyncAnimations}}
+\index{SyncAnimations@{SyncAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{SyncAnimations()}{SyncAnimations()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ae79b613a634aee1402f8a9175e6f1d7b} 
+void Character\+\_\+\+Movement.\+Sync\+Animations (\begin{DoxyParamCaption}\item[{Vector2}]{movement}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a2597531cb4ca15381bca5e17edda3351}\index{Character\_Movement@{Character\_Movement}!ToggleMovement@{ToggleMovement}}
+\index{ToggleMovement@{ToggleMovement}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{ToggleMovement()}{ToggleMovement()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a2597531cb4ca15381bca5e17edda3351} 
+void Character\+\_\+\+Movement.\+Toggle\+Movement (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_aec4036e1697a866c2d03dc3fa8129bdd}\index{Character\_Movement@{Character\_Movement}!UnstopPlayer@{UnstopPlayer}}
+\index{UnstopPlayer@{UnstopPlayer}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{UnstopPlayer()}{UnstopPlayer()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_aec4036e1697a866c2d03dc3fa8129bdd} 
+void Character\+\_\+\+Movement.\+Unstop\+Player (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classCharacter__Movement_aba3ec11ec02879574b189438a71c26ce}\index{Character\_Movement@{Character\_Movement}!Update@{Update}}
+\index{Update@{Update}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_aba3ec11ec02879574b189438a71c26ce} 
+void Character\+\_\+\+Movement.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a4197f810ba0cf69f3e5117515fbf5252}\index{Character\_Movement@{Character\_Movement}!UpdateAnimator@{UpdateAnimator}}
+\index{UpdateAnimator@{UpdateAnimator}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{UpdateAnimator()}{UpdateAnimator()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a4197f810ba0cf69f3e5117515fbf5252} 
+void Character\+\_\+\+Movement.\+Update\+Animator (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_adc700e667afe0631e7733217e484be56}\index{Character\_Movement@{Character\_Movement}!WaitForEmoteToFinish@{WaitForEmoteToFinish}}
+\index{WaitForEmoteToFinish@{WaitForEmoteToFinish}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{WaitForEmoteToFinish()}{WaitForEmoteToFinish()}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_adc700e667afe0631e7733217e484be56} 
+IEnumerator Character\+\_\+\+Movement.\+Wait\+For\+Emote\+To\+Finish (\begin{DoxyParamCaption}\item[{int}]{emote\+Index}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classCharacter__Movement_a9aad13d931c778870faf52a85596d680}\index{Character\_Movement@{Character\_Movement}!animator@{animator}}
+\index{animator@{animator}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{animator}{animator}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a9aad13d931c778870faf52a85596d680} 
+Animator Character\+\_\+\+Movement.\+animator\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a3aa4427a39a8b4fa267911a997afec0d}\index{Character\_Movement@{Character\_Movement}!canMove@{canMove}}
+\index{canMove@{canMove}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{canMove}{canMove}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a3aa4427a39a8b4fa267911a997afec0d} 
+bool Character\+\_\+\+Movement.\+can\+Move = true\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a13b1afeae7cb6afcc199f0a3268ff554}\index{Character\_Movement@{Character\_Movement}!chestIdleAnimations@{chestIdleAnimations}}
+\index{chestIdleAnimations@{chestIdleAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{chestIdleAnimations}{chestIdleAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a13b1afeae7cb6afcc199f0a3268ff554} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+chest\+Idle\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a4b9e263967896aec85db25969ed5ae86}\index{Character\_Movement@{Character\_Movement}!chestMovingAnimations@{chestMovingAnimations}}
+\index{chestMovingAnimations@{chestMovingAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{chestMovingAnimations}{chestMovingAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a4b9e263967896aec85db25969ed5ae86} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+chest\+Moving\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a40331e201751ef1649a6f7d20089cd9e}\index{Character\_Movement@{Character\_Movement}!child\_ChestAnimator@{child\_ChestAnimator}}
+\index{child\_ChestAnimator@{child\_ChestAnimator}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{child\_ChestAnimator}{child\_ChestAnimator}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a40331e201751ef1649a6f7d20089cd9e} 
+Animator Character\+\_\+\+Movement.\+child\+\_\+\+Chest\+Animator\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_aa4606954a5a3e7ec10e6cb33d0e682c3}\index{Character\_Movement@{Character\_Movement}!child\_HatAnimator@{child\_HatAnimator}}
+\index{child\_HatAnimator@{child\_HatAnimator}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{child\_HatAnimator}{child\_HatAnimator}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_aa4606954a5a3e7ec10e6cb33d0e682c3} 
+Animator Character\+\_\+\+Movement.\+child\+\_\+\+Hat\+Animator\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_aca18ee6de62c8b9cc0418ecaf33a59a4}\index{Character\_Movement@{Character\_Movement}!child\_LegAnimator@{child\_LegAnimator}}
+\index{child\_LegAnimator@{child\_LegAnimator}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{child\_LegAnimator}{child\_LegAnimator}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_aca18ee6de62c8b9cc0418ecaf33a59a4} 
+Animator Character\+\_\+\+Movement.\+child\+\_\+\+Leg\+Animator\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_af998cd71a1a84e7b83bde45e08a80a97}\index{Character\_Movement@{Character\_Movement}!child\_ShoeAnimator@{child\_ShoeAnimator}}
+\index{child\_ShoeAnimator@{child\_ShoeAnimator}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{child\_ShoeAnimator}{child\_ShoeAnimator}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_af998cd71a1a84e7b83bde45e08a80a97} 
+Animator Character\+\_\+\+Movement.\+child\+\_\+\+Shoe\+Animator\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_abe1327cd0109831ec4fd2cbb87734cf7}\index{Character\_Movement@{Character\_Movement}!cosmeticHandler@{cosmeticHandler}}
+\index{cosmeticHandler@{cosmeticHandler}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{cosmeticHandler}{cosmeticHandler}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_abe1327cd0109831ec4fd2cbb87734cf7} 
+\mbox{\hyperlink{classCosmeticHandler}{Cosmetic\+Handler}} Character\+\_\+\+Movement.\+cosmetic\+Handler\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a44cee868670a3563065057d0963066c0}\index{Character\_Movement@{Character\_Movement}!currentState@{currentState}}
+\index{currentState@{currentState}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{currentState}{currentState}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a44cee868670a3563065057d0963066c0} 
+string Character\+\_\+\+Movement.\+current\+State\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_acd240894f90c04c8d4e70a463079fe87}\index{Character\_Movement@{Character\_Movement}!hatIdleAnimations@{hatIdleAnimations}}
+\index{hatIdleAnimations@{hatIdleAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{hatIdleAnimations}{hatIdleAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_acd240894f90c04c8d4e70a463079fe87} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+hat\+Idle\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_aa091abd6b46e2be50e36f1e9674872c3}\index{Character\_Movement@{Character\_Movement}!hatMovingAnimations@{hatMovingAnimations}}
+\index{hatMovingAnimations@{hatMovingAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{hatMovingAnimations}{hatMovingAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_aa091abd6b46e2be50e36f1e9674872c3} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+hat\+Moving\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a66bc398630f3963bb43139b88d92b5d9}\index{Character\_Movement@{Character\_Movement}!interactiveButtons@{interactiveButtons}}
+\index{interactiveButtons@{interactiveButtons}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{interactiveButtons}{interactiveButtons}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a66bc398630f3963bb43139b88d92b5d9} 
+List$<$Game\+Object$>$ Character\+\_\+\+Movement.\+interactive\+Buttons = new List$<$Game\+Object$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a0da7e5ace7763410e50c1f4785f20874}\index{Character\_Movement@{Character\_Movement}!isEmoting@{isEmoting}}
+\index{isEmoting@{isEmoting}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{isEmoting}{isEmoting}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a0da7e5ace7763410e50c1f4785f20874} 
+bool Character\+\_\+\+Movement.\+is\+Emoting\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a316de5a78047f629efc61d337563b227}\index{Character\_Movement@{Character\_Movement}!isResettingAnimations@{isResettingAnimations}}
+\index{isResettingAnimations@{isResettingAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{isResettingAnimations}{isResettingAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a316de5a78047f629efc61d337563b227} 
+bool Character\+\_\+\+Movement.\+is\+Resetting\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a60a413751d5ab79b56300b3959b18a63}\index{Character\_Movement@{Character\_Movement}!lastMovementInputDirection@{lastMovementInputDirection}}
+\index{lastMovementInputDirection@{lastMovementInputDirection}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{lastMovementInputDirection}{lastMovementInputDirection}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a60a413751d5ab79b56300b3959b18a63} 
+Vector2 Character\+\_\+\+Movement.\+last\+Movement\+Input\+Direction\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_aa848ed24447484462c095854a388b9e0}\index{Character\_Movement@{Character\_Movement}!legIdleAnimations@{legIdleAnimations}}
+\index{legIdleAnimations@{legIdleAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{legIdleAnimations}{legIdleAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_aa848ed24447484462c095854a388b9e0} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+leg\+Idle\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_ae2c42853e27f4b6b99dc470d82388da1}\index{Character\_Movement@{Character\_Movement}!legMovingAnimations@{legMovingAnimations}}
+\index{legMovingAnimations@{legMovingAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{legMovingAnimations}{legMovingAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ae2c42853e27f4b6b99dc470d82388da1} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+leg\+Moving\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_ad29202b6129dd517d82bf4afc9f959d8}\index{Character\_Movement@{Character\_Movement}!movementInputDirection@{movementInputDirection}}
+\index{movementInputDirection@{movementInputDirection}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{movementInputDirection}{movementInputDirection}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_ad29202b6129dd517d82bf4afc9f959d8} 
+Vector2 Character\+\_\+\+Movement.\+movement\+Input\+Direction\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_aa301357bf495e75450295807fd86c024}\index{Character\_Movement@{Character\_Movement}!original\_load\_items@{original\_load\_items}}
+\index{original\_load\_items@{original\_load\_items}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{original\_load\_items}{original\_load\_items}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_aa301357bf495e75450295807fd86c024} 
+List$<$int$>$ Character\+\_\+\+Movement.\+original\+\_\+load\+\_\+items = new List$<$int$>$()\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a2ade0bf84361763acd2bae37ceaa647e}\index{Character\_Movement@{Character\_Movement}!playerIdleAnimations@{playerIdleAnimations}}
+\index{playerIdleAnimations@{playerIdleAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{playerIdleAnimations}{playerIdleAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a2ade0bf84361763acd2bae37ceaa647e} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+player\+Idle\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a67eb54155814d5a7b4ce174646e7cb4a}\index{Character\_Movement@{Character\_Movement}!playerMovingAnimations@{playerMovingAnimations}}
+\index{playerMovingAnimations@{playerMovingAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{playerMovingAnimations}{playerMovingAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a67eb54155814d5a7b4ce174646e7cb4a} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+player\+Moving\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a9a27bb32869bd41c7a75a1c2918ff814}\index{Character\_Movement@{Character\_Movement}!rb@{rb}}
+\index{rb@{rb}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{rb}{rb}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a9a27bb32869bd41c7a75a1c2918ff814} 
+Rigidbody2D Character\+\_\+\+Movement.\+rb\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_adbc7fc96d08f9d0f07b47882f6b5f3e0}\index{Character\_Movement@{Character\_Movement}!shoeIdleAnimations@{shoeIdleAnimations}}
+\index{shoeIdleAnimations@{shoeIdleAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{shoeIdleAnimations}{shoeIdleAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_adbc7fc96d08f9d0f07b47882f6b5f3e0} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+shoe\+Idle\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a4f8e69b8ae46779f24ff841c270b54c9}\index{Character\_Movement@{Character\_Movement}!shoeMovingAnimations@{shoeMovingAnimations}}
+\index{shoeMovingAnimations@{shoeMovingAnimations}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{shoeMovingAnimations}{shoeMovingAnimations}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a4f8e69b8ae46779f24ff841c270b54c9} 
+Dictionary$<$Vector2, string$>$ Character\+\_\+\+Movement.\+shoe\+Moving\+Animations\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_aa06bd177dd7388bb03f0cb5cb565290d}\index{Character\_Movement@{Character\_Movement}!syncFlag@{syncFlag}}
+\index{syncFlag@{syncFlag}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{syncFlag}{syncFlag}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_aa06bd177dd7388bb03f0cb5cb565290d} 
+bool Character\+\_\+\+Movement.\+sync\+Flag = false\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classCharacter__Movement_a31bf939da3e4231614da95afde474a16}\index{Character\_Movement@{Character\_Movement}!charSpeed@{charSpeed}}
+\index{charSpeed@{charSpeed}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{charSpeed}{charSpeed}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a31bf939da3e4231614da95afde474a16} 
+float Character\+\_\+\+Movement.\+char\+Speed\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a9d4cb92215332b9906d0e6c6e4ccfff5}\index{Character\_Movement@{Character\_Movement}!equipped\_items@{equipped\_items}}
+\index{equipped\_items@{equipped\_items}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{equipped\_items}{equipped\_items}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a9d4cb92215332b9906d0e6c6e4ccfff5} 
+List$<$int$>$ Character\+\_\+\+Movement.\+equipped\+\_\+items\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+\Hypertarget{classCharacter__Movement_a5da2302c002c46aedd833213be1baee4}\index{Character\_Movement@{Character\_Movement}!playerData@{playerData}}
+\index{playerData@{playerData}!Character\_Movement@{Character\_Movement}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{classCharacter__Movement_a5da2302c002c46aedd833213be1baee4} 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} Character\+\_\+\+Movement.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Character/\mbox{\hyperlink{Character__Movement_8cs}{Character\+\_\+\+Movement.\+cs}}\end{DoxyCompactItemize}

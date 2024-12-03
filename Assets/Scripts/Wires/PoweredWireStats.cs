@@ -4,10 +4,10 @@ using UnityEngine;
 
 
 /**
- * Statistics class for powered wires. This is mainly a dataclass that
+ * @brief Statistics class for powered wires. This is mainly a dataclass that
  * keeps track of the wires start position and other helpful flags for an
  * individual wire
- * 
+ *
  * All logic for moving the wire is in PoweredWireBehavior
  * @see PoweredWireBehavior
  */

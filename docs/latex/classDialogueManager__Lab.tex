@@ -1,0 +1,418 @@
+\doxysection{Dialogue\+Manager\+\_\+\+Lab Class Reference}
+\hypertarget{classDialogueManager__Lab}{}\label{classDialogueManager__Lab}\index{DialogueManager\_Lab@{DialogueManager\_Lab}}
+
+
+This handles the dialogue in the Laboratory. This consists of sensei\textquotesingle{}s dialogue at the beginning as well as the deckmaster\textquotesingle{}s dialogue.  
+
+
+Inheritance diagram for Dialogue\+Manager\+\_\+\+Lab\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classDialogueManager__Lab}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classDialogueManager__Lab_a5e9c366b2b1726562f6d68021253ef44}{Deck\+Master\+Speak}} ()
+\item 
+void \mbox{\hyperlink{classDialogueManager__Lab_ad21a0b795afb52d46ac7a846a0a2746e}{Deck\+Master\+Interrupt}} ()
+\item 
+void \mbox{\hyperlink{classDialogueManager__Lab_ab4f6a00c590e1f9eb78bbacbd1721891}{Sensei\+Tutorial}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classDialogueManager__Lab_a302aa64a8b18891520013d3258cb3d5e}{dialogue\+Text}}
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classDialogueManager__Lab_ab84875f32c358935434eb1459c3da983}{char\+Name}}
+\item 
+Unity\+Engine.\+UI.\+Image \mbox{\hyperlink{classDialogueManager__Lab_adbe986b84899eeed7aab683d4b5562b0}{character\+Image}}
+\item 
+TMPro.\+Text\+Mesh\+Pro\+UGUI \mbox{\hyperlink{classDialogueManager__Lab_ac541235753fbb133e5bacbdfc8bc4a14}{TTC\+\_\+\+Text}}
+\item 
+Game\+Object \mbox{\hyperlink{classDialogueManager__Lab_a96eb390ee612776382941efd11dbbd20}{back\+Modal}}
+\item 
+Game\+Object \mbox{\hyperlink{classDialogueManager__Lab_af804e7b50df623c59619eae681c2f600}{dialogue\+Panel}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Properties}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} \mbox{\hyperlink{classDialogueManager__Lab_a1d79ae8a6383f94406223216cbb28531}{player\+Data}}\hspace{0.3cm}{\ttfamily  \mbox{[}get\mbox{]}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+IEnumerator \mbox{\hyperlink{classDialogueManager__Lab_a4e5c0a2ef9733c1645edaae74cd80b73}{Deck\+Master\+Interrupt\+Coroutine}} ()
+\item 
+IEnumerator \mbox{\hyperlink{classDialogueManager__Lab_acde48e1d4b3501236babfca7d0e4b91b}{Deck\+Master\+Speak\+Initial}} ()
+\item 
+IEnumerator \mbox{\hyperlink{classDialogueManager__Lab_a9b6217e31362d48965ad2259d3f416a6}{Deck\+Master\+Speak\+Coroutine}} ()
+\item 
+IEnumerator \mbox{\hyperlink{classDialogueManager__Lab_a9502d7c36f86d06c3e77d9573f7c9831}{Type\+Sentence}} (string sentence)
+\item 
+void \mbox{\hyperlink{classDialogueManager__Lab_af72ae6376cc2dd22899ed2dc2f3bd6d3}{Start}} ()
+\item 
+IEnumerator \mbox{\hyperlink{classDialogueManager__Lab_a22deae5d6652915e0841f24654be3952}{Sensei\+Tutorial\+Coroutine}} ()
+\item 
+void \mbox{\hyperlink{classDialogueManager__Lab_a30d4c4c61bab5d77eb2abefbc473a3a8}{Update}} ()
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Private Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classDialogueManager__Lab_a886a74a668096c5c17c06b0367d693a6}{is\+Typing}} = true
+\item 
+float \mbox{\hyperlink{classDialogueManager__Lab_a3a7475783c66622ca869fe2ad6641ae9}{typing\+Speed}} = 0.\+025f
+\item 
+\mbox{\hyperlink{classCameraFollow}{Camera\+Follow}} \mbox{\hyperlink{classDialogueManager__Lab_a8e3a58c241d9d8f4aee018d6eb6172d1}{camera\+Follow}}
+\item 
+\mbox{\hyperlink{classCharacter__Movement}{Character\+\_\+\+Movement}} \mbox{\hyperlink{classDialogueManager__Lab_a5af4e42875a49360194df25544aff73a}{player\+Movement}}
+\item 
+int \mbox{\hyperlink{classDialogueManager__Lab_af3317f78ad7a874aea73212c2dab14f0}{dialogue\+Index}} = 0
+\item 
+Game\+Object \mbox{\hyperlink{classDialogueManager__Lab_a8ad07821bd2367def8cdbf86865d2de3}{card\+View\+Panel}}
+\item 
+Sprite\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_ab0fa5b27b259e1bead9d0d79889d1044}{deckmaster\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_a30c7c7acd660e178d13d52f87a85ec4c}{deck\+Master\+Initial}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_a5a3cbc07d8e7dc973988c3914c426d21}{deck\+Master\+Random}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_a3fecade9f68b163a06f7144720efa18e}{deck\+Master\+Random\+Sprites}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_acb08cfdadfa29e87ab3414b6dff27a19}{deck\+Master\+Initial\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_a62159b6227e0b09f6c8f78397397e17b}{deck\+Master\+Havent\+Spoken}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_a33e85733e05000a54950f19903dd77dc}{deck\+Master\+Havent\+Spoken\+Sprites}}
+\item 
+Coroutine \mbox{\hyperlink{classDialogueManager__Lab_a31f1eabbd96ea55df5455f916e0476f8}{type\+Sentence\+Coroutine}}
+\item 
+Game\+Object\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_a78124d934c4a253e3e99ca63899e6d88}{camera\+Pan\+Targets}}
+\item 
+Sprite\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_a67c207f5be737b94e1b1899c45caffbb}{sensei\+Sprites}}
+\item 
+string\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_a92ca6670c343bc1d8e1156048273b60f}{sensei\+Dialogues}}
+\item 
+int\mbox{[}$\,$\mbox{]} \mbox{\hyperlink{classDialogueManager__Lab_abd38f919748ea6f64a6605d423da4754}{sensei\+Sprite\+Indices}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This handles the dialogue in the Laboratory. This consists of sensei\textquotesingle{}s dialogue at the beginning as well as the deckmaster\textquotesingle{}s dialogue. 
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classDialogueManager}{Dialogue\+Manager} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classDialogueManager__Lab_ad21a0b795afb52d46ac7a846a0a2746e}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!DeckMasterInterrupt@{DeckMasterInterrupt}}
+\index{DeckMasterInterrupt@{DeckMasterInterrupt}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{DeckMasterInterrupt()}{DeckMasterInterrupt()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_ad21a0b795afb52d46ac7a846a0a2746e} 
+void Dialogue\+Manager\+\_\+\+Lab.\+Deck\+Master\+Interrupt (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classDialogueManager__Lab_a4e5c0a2ef9733c1645edaae74cd80b73}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!DeckMasterInterruptCoroutine@{DeckMasterInterruptCoroutine}}
+\index{DeckMasterInterruptCoroutine@{DeckMasterInterruptCoroutine}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{DeckMasterInterruptCoroutine()}{DeckMasterInterruptCoroutine()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a4e5c0a2ef9733c1645edaae74cd80b73} 
+IEnumerator Dialogue\+Manager\+\_\+\+Lab.\+Deck\+Master\+Interrupt\+Coroutine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_a5e9c366b2b1726562f6d68021253ef44}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!DeckMasterSpeak@{DeckMasterSpeak}}
+\index{DeckMasterSpeak@{DeckMasterSpeak}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{DeckMasterSpeak()}{DeckMasterSpeak()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a5e9c366b2b1726562f6d68021253ef44} 
+void Dialogue\+Manager\+\_\+\+Lab.\+Deck\+Master\+Speak (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classDialogueManager__Lab_a9b6217e31362d48965ad2259d3f416a6}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!DeckMasterSpeakCoroutine@{DeckMasterSpeakCoroutine}}
+\index{DeckMasterSpeakCoroutine@{DeckMasterSpeakCoroutine}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{DeckMasterSpeakCoroutine()}{DeckMasterSpeakCoroutine()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a9b6217e31362d48965ad2259d3f416a6} 
+IEnumerator Dialogue\+Manager\+\_\+\+Lab.\+Deck\+Master\+Speak\+Coroutine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_acde48e1d4b3501236babfca7d0e4b91b}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!DeckMasterSpeakInitial@{DeckMasterSpeakInitial}}
+\index{DeckMasterSpeakInitial@{DeckMasterSpeakInitial}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{DeckMasterSpeakInitial()}{DeckMasterSpeakInitial()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_acde48e1d4b3501236babfca7d0e4b91b} 
+IEnumerator Dialogue\+Manager\+\_\+\+Lab.\+Deck\+Master\+Speak\+Initial (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_ab4f6a00c590e1f9eb78bbacbd1721891}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!SenseiTutorial@{SenseiTutorial}}
+\index{SenseiTutorial@{SenseiTutorial}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{SenseiTutorial()}{SenseiTutorial()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_ab4f6a00c590e1f9eb78bbacbd1721891} 
+void Dialogue\+Manager\+\_\+\+Lab.\+Sensei\+Tutorial (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\Hypertarget{classDialogueManager__Lab_a22deae5d6652915e0841f24654be3952}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!SenseiTutorialCoroutine@{SenseiTutorialCoroutine}}
+\index{SenseiTutorialCoroutine@{SenseiTutorialCoroutine}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{SenseiTutorialCoroutine()}{SenseiTutorialCoroutine()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a22deae5d6652915e0841f24654be3952} 
+IEnumerator Dialogue\+Manager\+\_\+\+Lab.\+Sensei\+Tutorial\+Coroutine (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_af72ae6376cc2dd22899ed2dc2f3bd6d3}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!Start@{Start}}
+\index{Start@{Start}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{Start()}{Start()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_af72ae6376cc2dd22899ed2dc2f3bd6d3} 
+void Dialogue\+Manager\+\_\+\+Lab.\+Start (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_a9502d7c36f86d06c3e77d9573f7c9831}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!TypeSentence@{TypeSentence}}
+\index{TypeSentence@{TypeSentence}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{TypeSentence()}{TypeSentence()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a9502d7c36f86d06c3e77d9573f7c9831} 
+IEnumerator Dialogue\+Manager\+\_\+\+Lab.\+Type\+Sentence (\begin{DoxyParamCaption}\item[{string}]{sentence}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_a30d4c4c61bab5d77eb2abefbc473a3a8}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!Update@{Update}}
+\index{Update@{Update}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{Update()}{Update()}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a30d4c4c61bab5d77eb2abefbc473a3a8} 
+void Dialogue\+Manager\+\_\+\+Lab.\+Update (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [private]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classDialogueManager__Lab_a96eb390ee612776382941efd11dbbd20}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!backModal@{backModal}}
+\index{backModal@{backModal}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{backModal}{backModal}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a96eb390ee612776382941efd11dbbd20} 
+Game\+Object Dialogue\+Manager\+\_\+\+Lab.\+back\+Modal}
+
+\Hypertarget{classDialogueManager__Lab_a8e3a58c241d9d8f4aee018d6eb6172d1}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!cameraFollow@{cameraFollow}}
+\index{cameraFollow@{cameraFollow}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{cameraFollow}{cameraFollow}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a8e3a58c241d9d8f4aee018d6eb6172d1} 
+\mbox{\hyperlink{classCameraFollow}{Camera\+Follow}} Dialogue\+Manager\+\_\+\+Lab.\+camera\+Follow\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_a78124d934c4a253e3e99ca63899e6d88}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!cameraPanTargets@{cameraPanTargets}}
+\index{cameraPanTargets@{cameraPanTargets}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{cameraPanTargets}{cameraPanTargets}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a78124d934c4a253e3e99ca63899e6d88} 
+Game\+Object \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+camera\+Pan\+Targets\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_a8ad07821bd2367def8cdbf86865d2de3}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!cardViewPanel@{cardViewPanel}}
+\index{cardViewPanel@{cardViewPanel}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{cardViewPanel}{cardViewPanel}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a8ad07821bd2367def8cdbf86865d2de3} 
+Game\+Object Dialogue\+Manager\+\_\+\+Lab.\+card\+View\+Panel\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_adbe986b84899eeed7aab683d4b5562b0}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!characterImage@{characterImage}}
+\index{characterImage@{characterImage}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{characterImage}{characterImage}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_adbe986b84899eeed7aab683d4b5562b0} 
+Unity\+Engine.\+UI.\+Image Dialogue\+Manager\+\_\+\+Lab.\+character\+Image}
+
+\Hypertarget{classDialogueManager__Lab_ab84875f32c358935434eb1459c3da983}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!charName@{charName}}
+\index{charName@{charName}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{charName}{charName}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_ab84875f32c358935434eb1459c3da983} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+\_\+\+Lab.\+char\+Name}
+
+\Hypertarget{classDialogueManager__Lab_a62159b6227e0b09f6c8f78397397e17b}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!deckMasterHaventSpoken@{deckMasterHaventSpoken}}
+\index{deckMasterHaventSpoken@{deckMasterHaventSpoken}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{deckMasterHaventSpoken}{deckMasterHaventSpoken}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a62159b6227e0b09f6c8f78397397e17b} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+deck\+Master\+Havent\+Spoken\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hey,\ hey,\ hey!\ You\ can't\ just\ walk\ in\ here\ and\ start\ playing\ cards.\ You\ gotta\ talk\ to\ me\ first."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}What\ you\ doing?\ You\ gotta\ have\ a\ convo\ with\ the\ deckmaster\ before\ you\ get\ to\ tossing\ them\ cards."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hola.\ You\ speak\ Spanish?\ Tu\ necesitas\ hablar\ conmigo\ antes\ de\ jugar\ cartas.\ That's\ a\ good\ Spanish\ accent,\ right?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Ok.\ You're\ probably\ making\ an\ honest\ mistake.\ I'll\ forgive\ that.\ However,\ you\ gotta\ talk\ to\ me\ before\ you\ play\ cards.\ That's\ the\ rule."{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDialogueManager__Lab_a33e85733e05000a54950f19903dd77dc}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!deckMasterHaventSpokenSprites@{deckMasterHaventSpokenSprites}}
+\index{deckMasterHaventSpokenSprites@{deckMasterHaventSpokenSprites}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{deckMasterHaventSpokenSprites}{deckMasterHaventSpokenSprites}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a33e85733e05000a54950f19903dd77dc} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+deck\+Master\+Havent\+Spoken\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 0,\ 0,\ 1,\ 0}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDialogueManager__Lab_a30c7c7acd660e178d13d52f87a85ec4c}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!deckMasterInitial@{deckMasterInitial}}
+\index{deckMasterInitial@{deckMasterInitial}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{deckMasterInitial}{deckMasterInitial}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a30c7c7acd660e178d13d52f87a85ec4c} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+deck\+Master\+Initial\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hey.\ I'm\ the\ Deckmaster.\ You\ want\ to\ play\ some\ cards?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I'm\ the\ best\ card\ player\ in\ all\ of\ Byte\ City.\ I\ live,\ eat,\ and\ breathe\ cards."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Well,\ not\ necessarily.\ I\ don't\ live,\ nor\ do\ I\ eat,\ nor\ do\ I\ breathe...\ But\ that's\ beside\ the\ point."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Before\ you\ even\ hop\ into\ those\ games,\ you\ gotta\ speak\ with\ me.\ I'll\ give\ you\ a\ rundown\ of\ the\ rules."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}There\ are\ three\ types\ of\ cards\ in\ this\ game:\ heat\ cards,\ pressure\ cards,\ and\ electricity\ cards."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Heat\ beats\ pressure,\ pressure\ beats\ electricity,\ and\ electricity\ beats\ heat."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Each\ card\ has\ its\ own\ level\ of\ power.\ The\ higher\ the\ power,\ the\ rarer\ the\ card\ is,\ and\ therefore,\ the\ more\ useful."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}There\ are\ three\ power\ cards,\ one\ of\ each\ rarity.\ Essentially,\ power\ cards\ decrease\ the\ power\ of\ the\ enemy's\ cards\ by\ 2,\ for\ two\ rounds\ following."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}And\ with\ power\ cards,\ you're\ not\ always\ guaranteed\ to\ win.\ It's\ all\ about\ strategy.\ If\ I\ had\ a\ 13\ electricity,\ and\ you\ had\ a\ 3\ pressure,\ even\ though\ my\ card\ is\ higher\ power,\ I\ lose."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}So,\ you\ ready\ to\ play?\ I'm\ going\ to\ give\ you\ a\ few\ cards\ from\ here.\ You\ can\ start\ playing\ with\ them.\ Bonne\ chance!"{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDialogueManager__Lab_acb08cfdadfa29e87ab3414b6dff27a19}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!deckMasterInitialSprites@{deckMasterInitialSprites}}
+\index{deckMasterInitialSprites@{deckMasterInitialSprites}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{deckMasterInitialSprites}{deckMasterInitialSprites}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_acb08cfdadfa29e87ab3414b6dff27a19} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+deck\+Master\+Initial\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 2,\ 1,\ 0,\ 1,\ 2,\ 3,\ 1,\ 2,\ 1,\ 3}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDialogueManager__Lab_a5a3cbc07d8e7dc973988c3914c426d21}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!deckMasterRandom@{deckMasterRandom}}
+\index{deckMasterRandom@{deckMasterRandom}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{deckMasterRandom}{deckMasterRandom}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a5a3cbc07d8e7dc973988c3914c426d21} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+deck\+Master\+Random\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Cards\ are\ like\ life.\ You\ never\ know\ what\ you're\ going\ to\ get.\ Well,\ I\ guess\ you're\ about\ to,\ since\ you\ want\ to\ buy\ some\ from\ me."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I've\ been\ playing\ cards\ for\ years.\ I've\ seen\ it\ all.\ I've\ seen\ the\ best,\ and\ I've\ seen\ the\ worst.\ And\ you'll\ see\ it\ too."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ know,\ I've\ been\ thinking\ about\ it.\ I\ should\ probably\ get\ a\ real\ name.\ Deckmaster\ is\ just...\ weird.\ Well,\ some\ people\ say\ it\ is."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Do\ you\ like\ me?\ Do\ you\ hate\ me?\ Do\ you\ wish\ I\ was\ more\ charismatic?\ Well,\ I'm\ trying\ my\ best."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I've\ never\ done\ flux\ before.\ Come\ to\ think\ of\ it,\ I've\ never\ done\ anything\ before.\ I'm\ just\ a\ card\ dealer."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I\ used\ to\ be\ a\ big\ video\ game\ junkie\ back\ when\ I\ was...\ a\ human?\ Oh\ right,\ I\ used\ to\ be\ a\ human.\ What\ a\ life."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Jobs\ are\ for\ people\ who\ don't\ make\ enough\ money\ to\ sit\ at\ home\ and\ play\ cards\ all\ day.\ Am\ I\ right?"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Hello,\ hello,\ hello...\ This\ is\ the\ Deckmaster\ speaking.\ I'm\ here\ to\ give\ you\ some\ cards.\ You\ want\ some\ cards?\ I\ want\ some\ cards.\ Let's\ trade."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Give\ me\ money,\ I\ give\ you\ cards.\ Give\ me\ a\ middle\ finger,\ I\ give\ you\ a\ middle\ finger.\ It's\ all\ about\ the\ exchange."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I\ am\ your\ father.\ Well,\ I\ probably\ was.\ Who\ knows?\ I\ could\ be\ anyone?\ I\ could\ be\ you.\ I\ could\ be\ me.\ I\ could\ be\ the\ cards\ I'm\ holding\ in\ my\ pocket."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}I'm\ the\ Deckmaster.\ I'm\ the\ best\ card\ player\ in\ all\ of\ Byte\ City.\ I\ live,\ eat,\ and\ breathe\ cards.\ And\ you\ are,\ an\ amateur.\ But\ that's\ okay.\ We\ all\ start\ somewhere."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}There\ used\ to\ be\ this\ thing\ called\ the\ alphabet.\ I\ used\ to\ know\ it.\ Now\ I\ can\ only\ count\ to\ seventeen,\ and\ I\ forgot\ the\ order."{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDialogueManager__Lab_a3fecade9f68b163a06f7144720efa18e}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!deckMasterRandomSprites@{deckMasterRandomSprites}}
+\index{deckMasterRandomSprites@{deckMasterRandomSprites}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{deckMasterRandomSprites}{deckMasterRandomSprites}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a3fecade9f68b163a06f7144720efa18e} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+deck\+Master\+Random\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 1,\ 1,\ 0,\ 1,\ 2,\ 1,\ 1,\ 3,\ 1,\ 2,\ 3,\ 1}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDialogueManager__Lab_ab0fa5b27b259e1bead9d0d79889d1044}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!deckmasterSprites@{deckmasterSprites}}
+\index{deckmasterSprites@{deckmasterSprites}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{deckmasterSprites}{deckmasterSprites}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_ab0fa5b27b259e1bead9d0d79889d1044} 
+Sprite \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+deckmaster\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_af3317f78ad7a874aea73212c2dab14f0}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!dialogueIndex@{dialogueIndex}}
+\index{dialogueIndex@{dialogueIndex}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{dialogueIndex}{dialogueIndex}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_af3317f78ad7a874aea73212c2dab14f0} 
+int Dialogue\+Manager\+\_\+\+Lab.\+dialogue\+Index = 0\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_af804e7b50df623c59619eae681c2f600}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!dialoguePanel@{dialoguePanel}}
+\index{dialoguePanel@{dialoguePanel}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{dialoguePanel}{dialoguePanel}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_af804e7b50df623c59619eae681c2f600} 
+Game\+Object Dialogue\+Manager\+\_\+\+Lab.\+dialogue\+Panel}
+
+\Hypertarget{classDialogueManager__Lab_a302aa64a8b18891520013d3258cb3d5e}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!dialogueText@{dialogueText}}
+\index{dialogueText@{dialogueText}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{dialogueText}{dialogueText}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a302aa64a8b18891520013d3258cb3d5e} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+\_\+\+Lab.\+dialogue\+Text}
+
+\Hypertarget{classDialogueManager__Lab_a886a74a668096c5c17c06b0367d693a6}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!isTyping@{isTyping}}
+\index{isTyping@{isTyping}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{isTyping}{isTyping}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a886a74a668096c5c17c06b0367d693a6} 
+bool Dialogue\+Manager\+\_\+\+Lab.\+is\+Typing = true\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_a5af4e42875a49360194df25544aff73a}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!playerMovement@{playerMovement}}
+\index{playerMovement@{playerMovement}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{playerMovement}{playerMovement}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a5af4e42875a49360194df25544aff73a} 
+\mbox{\hyperlink{classCharacter__Movement}{Character\+\_\+\+Movement}} Dialogue\+Manager\+\_\+\+Lab.\+player\+Movement\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_a92ca6670c343bc1d8e1156048273b60f}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!senseiDialogues@{senseiDialogues}}
+\index{senseiDialogues@{senseiDialogues}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{senseiDialogues}{senseiDialogues}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a92ca6670c343bc1d8e1156048273b60f} 
+string \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+sensei\+Dialogues\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ found\ the\ lab!\ That's\ nice.\ Welcome\ to\ the\ lab.\ Or\ whatever\ they\ say."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Legend\ says\ this\ is\ where\ Rishi\ and\ his\ team\ worked\ on\ Protocol\ Asce–"{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Right...\ I\ forgot\ that\ word\ was\ prohibited\ within\ Byte\ City.\ My\ apologies.\ But\ right,\ the\ laboratory..."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ like\ being\ competitive?\ Well,\ there\ are\ minigames\ here.\ You\ won't\ make\ any\ money,\ but\ you\ can\ be\ on\ the\ leaderboards..."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ might\ wonder...\ where\ are\ the\ leaderboards?\ Well,\ for\ all\ three\ of\ the\ games,\ you'll\ find\ the\ leaderboards\ near\ the\ entrance,\ over\ here."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}You\ like\ orienting\ pipes?\ There's\ a\ nice\ game\ for\ that.\ Check\ it\ out\ near\ the\ data\ center."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}How\ about\ putting\ wires\ together?\ There's\ a\ game\ for\ that\ too.\ You'll\ find\ it\ right\ about...\ here."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}And\ then,\ for\ those\ who\ enjoy\ card\ games,\ you\ can\ talk\ to\ the\ \(\backslash\)"{}Deckmaster\(\backslash\)"{}\ over\ there."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Deckmaster\ is\ such\ a\ weird\ name.\ I\ don't\ know\ why\ he\ calls\ himself\ that.\ But\ he's\ a\ nice\ guy."{}},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \textcolor{stringliteral}{"{}Anyways...\ Toodles!\ Or\ whatever\ people\ say\ in\ this\ day\ and\ age."{}}}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDialogueManager__Lab_abd38f919748ea6f64a6605d423da4754}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!senseiSpriteIndices@{senseiSpriteIndices}}
+\index{senseiSpriteIndices@{senseiSpriteIndices}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{senseiSpriteIndices}{senseiSpriteIndices}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_abd38f919748ea6f64a6605d423da4754} 
+int \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+sensei\+Sprite\+Indices\hspace{0.3cm}{\ttfamily [private]}}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{=\ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ 3,\ 2,\ 1,\ 2,\ 2,\ 3,\ 2,\ 1,\ 0,\ 3}
+\DoxyCodeLine{\ \ \ \ \}}
+
+\end{DoxyCode}
+\Hypertarget{classDialogueManager__Lab_a67c207f5be737b94e1b1899c45caffbb}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!senseiSprites@{senseiSprites}}
+\index{senseiSprites@{senseiSprites}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{senseiSprites}{senseiSprites}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a67c207f5be737b94e1b1899c45caffbb} 
+Sprite \mbox{[}$\,$\mbox{]} Dialogue\+Manager\+\_\+\+Lab.\+sensei\+Sprites\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_ac541235753fbb133e5bacbdfc8bc4a14}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!TTC\_Text@{TTC\_Text}}
+\index{TTC\_Text@{TTC\_Text}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{TTC\_Text}{TTC\_Text}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_ac541235753fbb133e5bacbdfc8bc4a14} 
+TMPro.\+Text\+Mesh\+Pro\+UGUI Dialogue\+Manager\+\_\+\+Lab.\+TTC\+\_\+\+Text}
+
+\Hypertarget{classDialogueManager__Lab_a31f1eabbd96ea55df5455f916e0476f8}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!typeSentenceCoroutine@{typeSentenceCoroutine}}
+\index{typeSentenceCoroutine@{typeSentenceCoroutine}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{typeSentenceCoroutine}{typeSentenceCoroutine}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a31f1eabbd96ea55df5455f916e0476f8} 
+Coroutine Dialogue\+Manager\+\_\+\+Lab.\+type\+Sentence\+Coroutine\hspace{0.3cm}{\ttfamily [private]}}
+
+\Hypertarget{classDialogueManager__Lab_a3a7475783c66622ca869fe2ad6641ae9}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!typingSpeed@{typingSpeed}}
+\index{typingSpeed@{typingSpeed}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{typingSpeed}{typingSpeed}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a3a7475783c66622ca869fe2ad6641ae9} 
+float Dialogue\+Manager\+\_\+\+Lab.\+typing\+Speed = 0.\+025f\hspace{0.3cm}{\ttfamily [private]}}
+
+
+
+\doxysubsection{Property Documentation}
+\Hypertarget{classDialogueManager__Lab_a1d79ae8a6383f94406223216cbb28531}\index{DialogueManager\_Lab@{DialogueManager\_Lab}!playerData@{playerData}}
+\index{playerData@{playerData}!DialogueManager\_Lab@{DialogueManager\_Lab}}
+\doxysubsubsection{\texorpdfstring{playerData}{playerData}}
+{\footnotesize\ttfamily \label{classDialogueManager__Lab_a1d79ae8a6383f94406223216cbb28531} 
+\mbox{\hyperlink{classPlayerData}{Player\+Data}} Dialogue\+Manager\+\_\+\+Lab.\+player\+Data\hspace{0.3cm}{\ttfamily [get]}, {\ttfamily [private]}}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Dialogue/\mbox{\hyperlink{DialogueManager__Lab_8cs}{Dialogue\+Manager\+\_\+\+Lab.\+cs}}\end{DoxyCompactItemize}

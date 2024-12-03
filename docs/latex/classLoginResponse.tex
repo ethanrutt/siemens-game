@@ -1,0 +1,44 @@
+\doxysection{Login\+Response Class Reference}
+\hypertarget{classLoginResponse}{}\label{classLoginResponse}\index{LoginResponse@{LoginResponse}}
+
+
+This is a dataclass used to work with the json utility in Unity.  
+
+
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+string \mbox{\hyperlink{classLoginResponse_aada8da85fca18522a899622b0dcd499c}{message}}
+\item 
+\mbox{\hyperlink{classUserData}{User\+Data}} \mbox{\hyperlink{classLoginResponse_aea1cfa8d3c1d4f71ecf1c73eb6e4439d}{user}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This is a dataclass used to work with the json utility in Unity. 
+
+The fields in this class are synced up with the fields in the json response from the API. It is important to not change these names (i.\+e. to camelcase) because they are serialized directly from the json response. Becuase of the way that the login response is formed, this class mainly uses the \doxylink{classUserData}{User\+Data} class to hold the relevant information. This is effectively a wrapper around the \doxylink{classUserData}{User\+Data} dataclass.
+
+\begin{DoxySeeAlso}{See also}
+\doxylink{classUserData}{User\+Data} 
+\end{DoxySeeAlso}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{classLoginResponse_aada8da85fca18522a899622b0dcd499c}\index{LoginResponse@{LoginResponse}!message@{message}}
+\index{message@{message}!LoginResponse@{LoginResponse}}
+\doxysubsubsection{\texorpdfstring{message}{message}}
+{\footnotesize\ttfamily \label{classLoginResponse_aada8da85fca18522a899622b0dcd499c} 
+string Login\+Response.\+message}
+
+\Hypertarget{classLoginResponse_aea1cfa8d3c1d4f71ecf1c73eb6e4439d}\index{LoginResponse@{LoginResponse}!user@{user}}
+\index{user@{user}!LoginResponse@{LoginResponse}}
+\doxysubsubsection{\texorpdfstring{user}{user}}
+{\footnotesize\ttfamily \label{classLoginResponse_aea1cfa8d3c1d4f71ecf1c73eb6e4439d} 
+\mbox{\hyperlink{classUserData}{User\+Data}} Login\+Response.\+user}
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Assets/\+Scripts/\+Main\+Menu/\mbox{\hyperlink{MainMenuManager_8cs}{Main\+Menu\+Manager.\+cs}}\end{DoxyCompactItemize}
