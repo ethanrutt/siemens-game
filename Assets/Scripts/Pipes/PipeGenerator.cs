@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEditor.Rendering;
 using UnityEngine;
-using UnityEngine.UI;
 
 /**
  * @class PipeGenerator
@@ -22,14 +21,10 @@ public class PipeGenerator : MonoBehaviour
 {
     public System.Random rand = new System.Random();
 
-    public System.Diagnostics.Stopwatch gameTime = new System.Diagnostics.Stopwatch();
-
     public GameObject source;
     public GameObject sink;
     public GameObject straightPipe;
     public GameObject turnPipe;
-
-    int level = 1;
 
     private Quaternion[] possibleRotations = {
         // up
@@ -42,78 +37,43 @@ public class PipeGenerator : MonoBehaviour
         Quaternion.Euler(0, 0, -90)
     };
 
-    private static PipeInfo[] emptyRow = new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)};
-
     private Vector3[][] spawnLocations = new Vector3[][] {
-        new Vector3[] {new Vector3(-7, 4, 0), new Vector3(-5, 4, 0), new Vector3(-3, 4, 0), new Vector3(-1, 4, 0), new Vector3(1, 4, 0), new Vector3(3, 4, 0), new Vector3(5, 4, 0), new Vector3(7, 4, 0)},
         new Vector3[] {new Vector3(-7, 2, 0), new Vector3(-5, 2, 0), new Vector3(-3, 2, 0), new Vector3(-1, 2, 0), new Vector3(1, 2, 0), new Vector3(3, 2, 0), new Vector3(5, 2, 0), new Vector3(7, 2, 0)},
-        new Vector3[] {new Vector3(-7, 0, 0), new Vector3(-5, 0, 0), new Vector3(-3, 0, 0), new Vector3(-1, 0, 0), new Vector3(1, 0, 0), new Vector3(3, 0, 0), new Vector3(5, 0, 0), new Vector3(7, 0, 0)},
-        new Vector3[] {new Vector3(-7, -3, 0), new Vector3(-5, -3, 0), new Vector3(-3, -3, 0), new Vector3(-1, -3, 0), new Vector3(1, -3, 0), new Vector3(3, -2, 0), new Vector3(5, -3, 0), new Vector3(7, -3, 0)},
-        new Vector3[] {new Vector3(-7, -4, 0), new Vector3(-5, -4, 0), new Vector3(-3, -4, 0), new Vector3(-1, -4, 0), new Vector3(1, -4, 0), new Vector3(3, -4, 0), new Vector3(5, -4, 0), new Vector3(7, -4, 0)}
+        new Vector3[] {new Vector3(-7, 0, 0), new Vector3(-5, 0, 0), new Vector3(-3, 0, 0), new Vector3(-1, 0, 0), new Vector3(1, 0, 0), new Vector3(3, 0, 0), new Vector3(5, 0, 0), new Vector3(7, 0, 0)}
     };
 
+    // initialize explicitly
     private PipeInfo[][][] easyLevels = new PipeInfo[][][] {
         // level 1 straight line
         new PipeInfo[][] {
             emptyRow,
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)},
-            emptyRow,
-            emptyRow,
-            emptyRow
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)}
         },
         // level 1 one turn
         new PipeInfo[][] {
-            emptyRow,
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
             new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.left, PipeType.sink)},
-            emptyRow,
-            emptyRow
+            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)}
         }
     };
 
-    private PipeInfo[][][] mediumLevels = new PipeInfo[][][] {
-        // level 2 stairs down and then back
-        new PipeInfo[][] {
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.right, PipeType.sink), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            emptyRow
-        },
-        // level 2 sideways u shape
-        new PipeInfo[][] {
-            emptyRow,
-            emptyRow,
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.sink), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            emptyRow
-        }
-    };
-
-    private PipeInfo[][][] hardLevels = new PipeInfo[][][] {
-        // level 3 down then back
-        new PipeInfo[][] {
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.source), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            new PipeInfo[] {new PipeInfo(Direction.right, PipeType.sink), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.straight), new PipeInfo(Direction.up, PipeType.turn), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)},
-            emptyRow
-        }
-    };
+    private static PipeInfo[] emptyRow = new PipeInfo[] {new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty), new PipeInfo(Direction.up, PipeType.empty)};
 
     private PipeInfo[][] currentLevel;
-
-    private ArrayList gameObjects = new ArrayList();
-
-    public PipeGameOverManager pipeGameOverManager;
-
-    public Button checkSolutionButton;
 
     // Start is called before the first frame update
     void Start()
     {
-        gameTime.Start();
-        GenerateLevel(easyLevels[rand.Next(2)]);
+        // have 3 categories of levels, easy, medium, hard
+        // maybe have 3 levels for each, so 3 easy, 3 medium, 3 hard
+        // randomly pick an easy level, then randomly pick a medium level, then randomly pick a hard level
+        // probably have a "done" button that checks the solution and moves on to the next level
+        GenerateLevel(easyLevels[1]);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
     }
 
     /**
@@ -132,15 +92,14 @@ public class PipeGenerator : MonoBehaviour
             Vector3 res = spawnLocations[i][j];
             res.x += 0.5f;
             switch (dir) {
-                case 0:
-                    res.y -= 1f;
-                    break;
                 case 1:
-                    res.x -= 1f;
-                    res.y -= 1f;
+                    res.y += 1f;
                     break;
                 case 2:
                     res.x -= 1f;
+                    break;
+                case 3:
+                    res.y -= 1f;
                     break;
             }
             return res;
@@ -169,6 +128,7 @@ public class PipeGenerator : MonoBehaviour
 
     void InstantiatePipe(PipeInfo[][] currLevel, GameObject prefab, Vector3 spawn, Quaternion rotation, int row, int col, int dir, PipeType type)
     {
+        Debug.Log($"instantiating pipe at {row}, {col} with direction {(Direction) dir}");
         GameObject pipe = Instantiate(prefab, spawn, rotation);
         PipeBehavior pipeBehavior = pipe.GetComponent<PipeBehavior>();
         pipeBehavior.gameState = currLevel;
@@ -176,14 +136,6 @@ public class PipeGenerator : MonoBehaviour
         pipeBehavior.col = col;
         pipeBehavior.pipeInfo = new PipeInfo((Direction)dir, type);
         currLevel[row][col].direction = (Direction)dir;
-        gameObjects.Add(pipe);
-
-        // the sprites for right / left are flipped on straight pipes, make sure to handle this properly
-        if ((dir == 1 || dir == 3) && type != PipeType.turn)
-        {
-            SpriteRenderer sr = pipe.GetComponent<SpriteRenderer>();
-            sr.flipY = !sr.flipY;
-        }
     }
 
     void GenerateLevel(PipeInfo[][] currLevel)
@@ -202,52 +154,17 @@ public class PipeGenerator : MonoBehaviour
                         InstantiatePipe(currLevel, straightPipe, getSpawnLocation(PipeType.straight, i, j, dir), currRotation, i, j, dir, PipeType.straight);
                         break;
                     case PipeType.turn:
-                        // with turnpipes, right is left and left is right in terms of animations
-                        // this is due to the rotate 90 working differently for the shape i've defined
-                        // this will handle whether it is left or right, flip it accordingly, and sync the direction in the gamestate
-                        if (dir == 1)
-                        {
-                            InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), possibleRotations[3], i, j, dir, PipeType.turn);
-                        }
-                        else if (dir == 3)
-                        {
-                            InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), possibleRotations[1], i, j, dir, PipeType.turn);
-
-                        }
-                        else
-                        {
-                            InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), currRotation, i, j, dir, PipeType.turn);
-                        }
+                        InstantiatePipe(currLevel, turnPipe, getSpawnLocation(PipeType.turn, i, j, dir), currRotation, i, j, dir, PipeType.turn);
                         break;
                     case PipeType.source:
-                        Quaternion rot = getSpawnRotation(currLevel, i, j);
-                        GameObject bruh1 = Instantiate(source, getSpawnLocation(PipeType.source, i, j, 0), rot);
-
-                        // the source has the same sprites as straight pipe, so we also need to flip if its right or left
-                        if (rot == possibleRotations[1] || rot == possibleRotations[3])
-                        {
-                            SpriteRenderer sr = bruh1.GetComponent<SpriteRenderer>();
-                            sr.flipY = !sr.flipY;
-                        }
-
-                        gameObjects.Add(bruh1);
+                        Instantiate(source, getSpawnLocation(PipeType.source, i, j, 0), getSpawnRotation(currLevel, i, j));
                         break;
                     case PipeType.sink:
-                        GameObject bruh2 = Instantiate(sink, getSpawnLocation(PipeType.sink, i, j, 0), getSpawnRotation(currLevel, i, j));
-                        gameObjects.Add(bruh2);
+                        Instantiate(sink, getSpawnLocation(PipeType.sink, i, j, 0), getSpawnRotation(currLevel, i, j));
                         break;
                 }
             }
         }
-    }
-
-    void ClearLevel()
-    {
-        foreach (GameObject g in gameObjects)
-        {
-            Destroy(g);
-        }
-        gameObjects.Clear();
     }
 
     (int row, int col) GetSource(PipeInfo[][] currLevel)
@@ -284,15 +201,20 @@ public class PipeGenerator : MonoBehaviour
         }
         else
         {
+            Debug.Log("non turn pipe");
             switch(currLevel[row][col].direction)
             {
                 case Direction.up:
+                    Debug.Log("moving up");
                     return (row - 1, col);
                 case Direction.right:
+                    Debug.Log("moving right");
                     return (row, col + 1);
                 case Direction.down:
+                    Debug.Log("moving down");
                     return (row + 1, col);
                 case Direction.left:
+                    Debug.Log("moving left");
                     return (row, col - 1);
             }
         }
@@ -302,19 +224,14 @@ public class PipeGenerator : MonoBehaviour
     public bool CheckSolution(PipeInfo[][] currLevel)
     {
         var (currRow, currCol) = GetSource(currLevel);
+        Debug.Log($"source = ({currRow}, {currCol})");
         for (int i = 0; i < 100; i++)
         {
-            // sometimes we can go out of bounds, so if we do, just return false
-            try
+            Debug.Log($"curr location = ({currRow}, {currCol})");
+            Debug.Log($"curr direction = {currLevel[currRow][currCol].direction}");
+            if (currLevel[currRow][currCol].type == PipeType.sink)
             {
-                if (currLevel[currRow][currCol].type == PipeType.sink)
-                {
-                    return true;
-                }
-            }
-            catch (System.Exception e)
-            {
-                return false;
+                return true;
             }
             (currRow, currCol) = DirectionToMove(currLevel, currRow, currCol);
         }
@@ -322,41 +239,15 @@ public class PipeGenerator : MonoBehaviour
         return false;
     }
 
-    public IEnumerator ChangeButtonColorOnFail()
-    {
-        Image buttonImage = checkSolutionButton.GetComponent<Image>();
-
-        buttonImage.color = Color.red;
-
-        yield return new WaitForSeconds(1);
-
-        buttonImage.color = Color.white;
-
-    }
-
     public void CheckSolutionButton()
     {
         if (CheckSolution(currentLevel))
         {
-            ClearLevel();
-            level++;
-            if (level == 2)
-            {
-                GenerateLevel(mediumLevels[rand.Next(2)]);
-            }
-            else if (level == 3)
-            {
-                GenerateLevel(hardLevels[0]);
-            }
-            else
-            {
-                gameTime.Stop();
-                pipeGameOverManager.Setup(gameTime.Elapsed);
-            }
+            Debug.Log("success");
         }
         else
         {
-            StartCoroutine(ChangeButtonColorOnFail());
+            Debug.Log("level failed");
         }
     }
 }

@@ -30,12 +30,16 @@ public static class WebRequestUtility
         monoBehaviour.StartCoroutine(SendWebRequestCoroutine(url, jsonData, successCallback, failCallback));
     }
 
+<<<<<<< HEAD
     public static void SendGetWebRequest(MonoBehaviour monobehavior, string url, System.Action<string> successCallback, System.Action<string> failCallback)
     {
         monobehavior.StartCoroutine(SendGetWebRequestCoroutine(url, successCallback, failCallback));
     }
 
     private static IEnumerator SendWebRequestCoroutine(string url, string jsonData, System.Action<string> successCallback, System.Action<string> failCallback)
+=======
+    private static IEnumerator SendWebRequestCoroutine(string url, string jsonData, System.Action<string> callback)
+>>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
     {
         byte[] jsonToSend = System.Text.Encoding.UTF8.GetBytes(jsonData);
 
@@ -61,6 +65,7 @@ public static class WebRequestUtility
             }
         }
     }
+<<<<<<< HEAD
 
     private static IEnumerator SendGetWebRequestCoroutine(string url, System.Action<string> successCallback, System.Action<string> failCallback)
     {
@@ -85,4 +90,6 @@ public static class WebRequestUtility
             }
         }
     }
+=======
+>>>>>>> 878ff7f2413801b48682745b6faf2f5a490799a2
 }
