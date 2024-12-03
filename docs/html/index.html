@@ -109,7 +109,6 @@ Table of Contents</h1>
 <li>Deployment</li>
 <li>Android Deployment</li>
 <li>iOS Deployment</li>
-<li>Documentation</li>
 <li>Future Development</li>
 </ul>
 <hr  />
@@ -156,10 +155,23 @@ Frontend</h2>
 <h2><a class="anchor" id="autotoc_md15"></a>
 Backend</h2>
 <ul>
-<li>We are using <a href="https://nodejs.org/en/">nodejs</a>, along with AWS Lambda and an <b>naveed fix this part plz</b>.</li>
+<li>We are using <a href="https://nodejs.org/en/">nodejs</a> to define HTTP APIs to connect to the Database</li>
+<li>Code<ul>
+<li>NodeJS, npm</li>
+<li>jest for testing</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md16"></a>
-Frontend Installation</h2>
+</li>
+<li>AWS Resources<ul>
+<li>API Gateway for routing</li>
+<li>AWS Lambda for API Definitions</li>
+<li>Secrets Manager for authentication</li>
+<li>RDS Proxy for Connection Management</li>
+<li>RDS DB for the Database</li>
+</ul>
+</li>
+</ul>
+<h1><a class="anchor" id="autotoc_md16"></a>
+Frontend Installation</h1>
 <ul>
 <li>Installing Unity is pretty straight forward. Go to <code><a href="https://unity.com/download">https://unity.com/download</a></code> or click <a href="https://unity.com/download">here</a> and download <code>Unity Hub</code>.</li>
 <li>This will be the main area you launch your Unity Engine from.</li>
@@ -182,127 +194,247 @@ Frontend Installation</h2>
 <li>Depending on the speed of your computer, this could take up to 10 minutes.</li>
 <li>Once this is finished, you should be ready to develop, build, and run ByteCity!</li>
 </ul>
-<h2><a class="anchor" id="autotoc_md17"></a>
-Backend Installation</h2>
-<ul>
-<li><b>naveed fix this part plz</b></li>
+<h1><a class="anchor" id="autotoc_md17"></a>
+Backend Installation</h1>
+<h2><a class="anchor" id="autotoc_md18"></a>
+Prerequisites</h2>
+<ol type="1">
+<li><b>AWS Account</b>: Access to the AWS Management Console.</li>
+<li><b>AWS CLI Installed</b>: <a href="https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html">Install AWS CLI</a>.</li>
+<li><b>IAM Permissions</b>: Permissions to create resources:<ul>
+<li>RDS</li>
+<li>Secrets Manager</li>
+<li>API Gateway</li>
+<li>Lambda</li>
+<li>IAM roles</li>
 </ul>
+</li>
+<li><b>VPC Setup</b>: Access to a VPC with subnets and security groups.</li>
+</ol>
 <hr  />
- <h1><a class="anchor" id="autotoc_md19"></a>
-Testing</h1>
 <h2><a class="anchor" id="autotoc_md20"></a>
-Frontend Testing</h2>
-<ul>
-<li>We have a combination of github actions, combined with <a href="https://game.ci/">game-ci</a> to automatically test whenever we push code.</li>
-<li>Inside of Unity itself, there are edit mode tests and play mode tests possible in <a href="https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/index.html">Unity Test Runner</a>.</li>
-<li>Both are essential to testing functionality.</li>
-<li>The methodology we have used is<ul>
-<li>Play Mode Tests<ul>
-<li>These are for testing in-game functionality such as player movement, connecting wires, etc.</li>
-</ul>
-</li>
-<li>Edit Mode Tests<ul>
-<li>These are for making sure that assets can be properly loaded, they are in the right place and other things that you could test without actually playing the game.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<h2><a class="anchor" id="autotoc_md21"></a>
-Backend Testing</h2>
-<ul>
-<li>We use <a href="https://jestjs.io/">jest</a> to test our backend code combined with github actions to get automated testing whenever we push code.</li>
-</ul>
+Architecture Components</h2>
+<p>The backend includes the following AWS services:</p><ol type="1">
+<li><b>Amazon RDS</b>: A PostgreSQL database for storing ByteCity data.</li>
+<li><b>Secrets Manager</b>: Securely stores database credentials.</li>
+<li><b>RDS Proxy</b>: Optimizes and secures Lambda database connections.</li>
+<li><b>Lambda Functions</b>: Handle backend logic.</li>
+<li><b>API Gateway</b>: Provides REST/HTTP APIs to the frontend.</li>
+</ol>
 <hr  />
- <h1><a class="anchor" id="autotoc_md23"></a>
-Deployment</h1>
-<h2><a class="anchor" id="autotoc_md24"></a>
-Android Deployment</h2>
-<ul>
-<li>There should already be Android Build Support installed from our packages, but if there isn't then you can follow these steps.</li>
-<li>Open Unity Hub.<ul>
-<li>Click on <code>Installs</code> on the left.</li>
-<li>Find the Unity Version used with this project <code>2022.3.45f1</code>.</li>
-<li>Click the gear on the far right of the Unity Version.</li>
-<li>Click <code>Add modules</code>.</li>
-<li>Click <code>Android Build Support</code>.</li>
-<li>Click <code>Install</code>.</li>
+<h1><a class="anchor" id="autotoc_md22"></a>
+Step-by-Step Setup</h1>
+<h2><a class="anchor" id="autotoc_md23"></a>
+1. Create an RDS Database</h2>
+<ol type="1">
+<li>Go to <b>RDS → Create Database</b>.</li>
+<li>Select <b>PostgreSQL</b> as the engine.</li>
+<li>Configure:<ul>
+<li>Instance class: <code>db.t3.micro</code> (for development).</li>
+<li>Storage: Adjust as needed.</li>
+<li>Public Access: <b>No</b> (for security).</li>
+<li>Enable IAM database authentication.</li>
 </ul>
 </li>
-<li>After you have installed Android Build Support, open up the Unity Editor by clicking on <code>siemens-game</code> in Unity Hub.<ul>
-<li>Go to File -&gt; Build Settings.</li>
-<li>Click <code>Android</code>.</li>
-<li>Click <code>Switch Platform</code>.</li>
-<li>Click <code>Player Settings</code> in the bottom left.</li>
-<li>Make sure the <code>Company Name</code> is set to <code>Siemens</code>.</li>
-<li>Make sure the <code>Product Name</code> is set to <code>Byte City</code>.</li>
-<li>Set the version to whatever version you are releasing.</li>
-<li>Click Build.</li>
-</ul>
-</li>
-<li>Once the project has successfully been built, you should have a <code>.apk</code> file.</li>
-<li>This is how you will install the game onto an Android Device.<ul>
-<li>To distribute this <code>.apk</code> file, you can upload it to a file sharing service, or use a usb to directly transfer it to a device.</li>
-<li>Once it's on the device, simply running it should install the game as an app.</li>
-</ul>
-</li>
-<li>When on the android device<ul>
-<li>You might have to scan the file before installing it. This is normal.</li>
-<li>You also might have to allow third-party apps to be installed.<ul>
-<li>For the most part, this will just pop up as a prompt whenever you install the <code>.apk</code>.</li>
-<li>There is also an option in settings app to allow third-party app installations.</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
+<li>Create a database user and password for the instance.</li>
+<li>Set up a <b>security group</b> to allow traffic from the RDS Proxy(make it allow all traffic, 0.0.0.0/0, unless Siemens says otherwise).</li>
+</ol>
+<hr  />
 <h2><a class="anchor" id="autotoc_md25"></a>
-iOS Deployment</h2>
-<ul>
-<li><b>note that you need to have a macbook or a way to launch xcode to build for iOS</b>.</li>
-<li>Open Unity Hub.<ul>
-<li>Click on <code>Installs</code> on the left.</li>
-<li>Find the Unity Version used with this project <code>2022.3.45f1</code>.</li>
-<li>Click the gear on the far right of the Unity Version.</li>
-<li>Click <code>Add modules</code>.</li>
-<li>Click <code>iOS Build Support</code>.</li>
-<li>Click <code>Install</code>.</li>
+2. Set Up Secrets in AWS Secrets Manager</h2>
+<ol type="1">
+<li>Go to <b>Secrets Manager → Store a new secret</b>.</li>
+<li>Choose <b>RDS Database Credentials</b> and enter:<ul>
+<li>Database username and password.</li>
 </ul>
 </li>
-<li>After you have installed iOS Build Support, open up the Unity Editor by clicking on <code>siemens-game</code> in Unity Hub.<ul>
-<li>Go to File -&gt; Build Settings.</li>
-<li>Click <code>iOS</code>.</li>
-<li>Click <code>Switch Platform</code>.</li>
-<li>Click <code>Player Settings</code> in the bottom left.</li>
-<li>Make sure the <code>Company Name</code> is set to <code>Siemens</code>.</li>
-<li>Make sure the <code>Product Name</code> is set to <code>Byte City</code>.</li>
-<li>Set the version to whatever version you are releasing.</li>
-<li>Click Build.</li>
-</ul>
-</li>
-<li>You should have an <code>.xcode</code> file that you will need to open in XCode.</li>
-<li>This file will allow you to build the game on iOS, and you should follow the steps that XCode gives you with regards to this process.</li>
-</ul>
-<hr  />
- <h1><a class="anchor" id="autotoc_md27"></a>
-Documentation</h1>
-<ul>
-<li>We have generated our documentation using <a href="https://www.doxygen.nl/index.html">doxygen</a>.</li>
-<li>Make sure that any new code written has <a href="https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html">javadoc style comments</a>.</li>
-<li>Generate new documentation using our preconfigured <code>Doxyfile</code> by running <div class="fragment"><div class="line">doxygen Doxyfile</div>
-</div><!-- fragment --></li>
-<li>View the documentation <a href="https://ethanrutt.github.io/bytecity_docs/html/index.html">here</a></li>
-<li>Some Notes about the Doxyfile config<ul>
-<li>We are using <code>.mjs</code> files for our backend, which aren't recognized by the doxygen parser by default. This line fixes this which just says that <code>.mjs</code> files should use the <code>Javascript</code> parser. <div class="fragment"><div class="line">EXTENSION_MAPPING = mjs=Javascript</div>
-</div><!-- fragment --></li>
+<li>Name the secret</li>
+<li>Attach an <b>IAM policy</b> to allow Lambda to access this secret: <div class="fragment"><div class="line">   {</div>
+<div class="line">       &quot;Version&quot;: &quot;2012-10-17&quot;,</div>
+<div class="line">       &quot;Statement&quot;: [</div>
+<div class="line">           {</div>
+<div class="line">               &quot;Effect&quot;: &quot;Allow&quot;,</div>
+<div class="line">               &quot;Action&quot;: &quot;secretsmanager:GetSecretValue&quot;,</div>
+<div class="line">               &quot;Resource&quot;: &quot;arn:aws:secretsmanager:&lt;region&gt;:&lt;account_id&gt;:secret:&lt;secretname&gt;&quot;</div>
+<div class="line">           }</div>
+<div class="line">       ]</div>
+<div class="line">   }</div>
+<div class="line">---</div>
+<div class="line"> </div>
+<div class="line">## 3. Deploy Lambda Functions</div>
+<div class="line">### Configure AWS Locally</div>
+<div class="line">1. run aws configure on your local machine</div>
+<div class="line">2. give the corresponding values from your aws account</div>
+<div class="line"> </div>
+<div class="line">### Create Lambda role:</div>
+<div class="line">1. Go to IAM then go to Roles</div>
+<div class="line">2. Create a role and attach the following policies:</div>
+<div class="line">- AWSLambdaBasicExecutionRole</div>
+<div class="line">- AWSLambdaVPCAccessExecutionRole</div>
+<div class="line">- CloudFrontFullAccess  (for logging)</div>
+<div class="line">- SecretsManagerReadWrite</div>
+<div class="line">- Custom Inline Role:</div>
+</div><!-- fragment --> json { "Version": "2012-10-17", "Statement": [ { "Effect": "Allow", "Action": [ "rds-db:connect" ], "Resource": "arn:aws:rds:us-east-1:&lt;awsaccountid&gt;:db-proxy:&lt;proxyid&gt;" } ] } <div class="fragment"><div class="line">### Create Lambda Functions:</div>
+<div class="line">1. For every single folder in siemens-game/backend/LambdaFunctionAPIs except for &quot;shared&quot; and &quot;Test&quot;: create a lambda function(step 2)</div>
+<div class="line">2. Go to the lambda console in AWS</div>
+<div class="line">    -  click &quot;Create Function&quot;</div>
+<div class="line">    -  Choose a Function Name, it should equal  the variable &quot;const functionName&quot; in the build.js(line 17) file in the corresponding folder</div>
+<div class="line">    - Runtime: Node.js</div>
+<div class="line">    - Architecture x86_64</div>
+<div class="line">    - Change default Excecution Role and choose the role you created above</div>
+<div class="line">    - Create Function</div>
+<div class="line">2. Example environment variables:</div>
+<div class="line">   - `DB_SECRET_ARN`: ARN of the secret in Secrets Manager.</div>
+<div class="line">   - `DB_PROXY_ENDPOINT`: Endpoint of the RDS Proxy.</div>
+<div class="line"> </div>
+<div class="line">### Deploy the Functions:</div>
+<div class="line">1. Navigate to the folder you want to deploy(Ex: Equip )</div>
+<div class="line">2. `npm init -y`</div>
+<div class="line">3. `npm install archiver aws-sdk pg @aws-sdk/client-secrets-manager`</div>
+<div class="line">4. `npm install jest @jest/globals --save-dev`</div>
+<div class="line">5. `npm run deploy` (runs the build.js file and should upload your function lambda)</div>
+<div class="line"> </div>
+<div class="line">---</div>
+<div class="line"> </div>
+<div class="line">## 4. Set Up API Gateway</div>
+<div class="line">### Create an API Gateway:</div>
+<div class="line">1. Go to **API Gateway** → **Create API**.</div>
+<div class="line">2. Choose **HTTP API**.</div>
+<div class="line"> </div>
+<div class="line">### Create Routes:</div>
+<div class="line">1. Map each Lambda function to a route.</div>
+<div class="line">2. Example routes:</div>
+<div class="line">   - look at the `APIPayload.txt` to see the type and how its structure</div>
+<div class="line">   - `/login` → Login Lambda Function.</div>
+<div class="line"> </div>
+<div class="line">### Integrate API with Lambda:</div>
+<div class="line">1. For each route, set the integration type to **Lambda Function**.</div>
+<div class="line">2. Deploy the API and note the endpoint URL.</div>
+<div class="line"> </div>
+<div class="line">### Enable CORS:</div>
+<div class="line">- If the frontend interacts with this API, enable **CORS** for each route.</div>
+<div class="line"> </div>
+<div class="line">---</div>
+<div class="line"> </div>
+<div class="line">## 5. Configure Networking</div>
+<div class="line">### VPC Setup:</div>
+<div class="line">- Ensure that **RDS**, **RDS Proxy**, and **Lambda** are in the same **VPC**.</div>
+<div class="line"> </div>
+<div class="line">### Security Groups:</div>
+<div class="line">- Allow traffic between **Lambda** and **RDS Proxy** on port `5432`.</div>
+<div class="line"> </div>
+<div class="line">## Testing</div>
+<div class="line">### Frontend Testing</div>
+<div class="line">* We have a combination of github actions, combined with</div>
+<div class="line">  [game-ci](https://game.ci/) to automatically test whenever we push code.</div>
+<div class="line">* Inside of Unity itself, there are edit mode tests and play mode tests</div>
+<div class="line">  possible in [Unity Test Runner](https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/index.html).</div>
+<div class="line">* Both are essential to testing functionality.</div>
+<div class="line">* The methodology we have used is</div>
+<div class="line">  * Play Mode Tests</div>
+<div class="line">    * These are for testing in-game functionality such as player movement,</div>
+<div class="line">      connecting wires, etc.</div>
+<div class="line">  * Edit Mode Tests</div>
+<div class="line">    * These are for making sure that assets can be properly loaded, they are in</div>
+<div class="line">      the right place and other things that you could test without actually</div>
+<div class="line">      playing the game.</div>
+<div class="line"> </div>
+<div class="line">### Backend Testing</div>
+<div class="line">* We use [jest](https://jestjs.io/) to test our backend code combined with</div>
+<div class="line">  github actions to get automated testing whenever we push code.</div>
+<div class="line">* Testing framework: [Jest](https://jestjs.io/).</div>
+<div class="line">* Automated testing with GitHub Actions for every push to the repository.</div>
+<div class="line">* Folders containing tests (siemens-game/backend/LambdaFunctionAPIs):</div>
+<div class="line">  * Equip</div>
+<div class="line">  * GetAllItems</div>
+<div class="line">  * GetItemsByCategory</div>
+<div class="line">  * GetUserItems</div>
+<div class="line">  * HighScore</div>
+<div class="line">  * Leaderboard</div>
+<div class="line">  * Login</div>
+<div class="line">  * playerDataUpload</div>
+<div class="line">  * ScoreUpload</div>
+<div class="line">* Focus areas:</div>
+<div class="line">  * Unit tests for functions like `updatePlayerData` and `getTopScoresByGame`.</div>
+<div class="line">  * Integration tests for AWS Lambda handlers.</div>
+<div class="line">  * API tests for endpoints.</div>
+<div class="line"> </div>
+<div class="line">---</div>
+<div class="line">## Deployment</div>
+<div class="line">### Android Deployment</div>
+<div class="line">* There should already be Android Build Support installed from our packages,</div>
+<div class="line">  but if there isn&#39;t then you can follow these steps.</div>
+<div class="line">* Open Unity Hub.</div>
+<div class="line">    * Click on `Installs` on the left.</div>
+<div class="line">    * Find the Unity Version used with this project `2022.3.45f1`.</div>
+<div class="line">    * Click the gear on the far right of the Unity Version.</div>
+<div class="line">    * Click `Add modules`.</div>
+<div class="line">    * Click `Android Build Support`.</div>
+<div class="line">    * Click `Install`.</div>
+<div class="line">* After you have installed Android Build Support, open up the Unity Editor by</div>
+<div class="line">  clicking on `siemens-game` in Unity Hub.</div>
+<div class="line">  * Go to File -&gt; Build Settings.</div>
+<div class="line">  * Click `Android`.</div>
+<div class="line">  * Click `Switch Platform`.</div>
+<div class="line">  * Click `Player Settings` in the bottom left.</div>
+<div class="line">  * Make sure the `Company Name` is set to `Siemens`.</div>
+<div class="line">  * Make sure the `Product Name` is set to `Byte City`.</div>
+<div class="line">  * Set the version to whatever version you are releasing.</div>
+<div class="line">  * Click Build.</div>
+<div class="line">* Once the project has successfully been built, you should have a `.apk` file.</div>
+<div class="line">* This is how you will install the game onto an Android Device.</div>
+<div class="line">  * To distribute this `.apk` file, you can upload it to a file sharing service,</div>
+<div class="line">    or use a usb to directly transfer it to a device.</div>
+<div class="line">  * Once it&#39;s on the device, simply running it should install the game as an app.</div>
+<div class="line">* When on the android device</div>
+<div class="line">  * You might have to scan the file before installing it. This is normal.</div>
+<div class="line">  * You also might have to allow third-party apps to be installed.</div>
+<div class="line">      * For the most part, this will just pop up as a prompt whenever you install</div>
+<div class="line">        the `.apk`.</div>
+<div class="line">      * There is also an option in settings app to allow third-party app</div>
+<div class="line">        installations.</div>
+<div class="line"> </div>
+<div class="line">### iOS Deployment</div>
+<div class="line">* **note that you need to have a macbook or a way to launch xcode to build for</div>
+<div class="line">  iOS**.</div>
+<div class="line">* Open Unity Hub.</div>
+<div class="line">    * Click on `Installs` on the left.</div>
+<div class="line">    * Find the Unity Version used with this project `2022.3.45f1`.</div>
+<div class="line">    * Click the gear on the far right of the Unity Version.</div>
+<div class="line">    * Click `Add modules`.</div>
+<div class="line">    * Click `iOS Build Support`.</div>
+<div class="line">    * Click `Install`.</div>
+<div class="line">* After you have installed iOS Build Support, open up the Unity Editor by</div>
+<div class="line">  clicking on `siemens-game` in Unity Hub.</div>
+<div class="line">  * Go to File -&gt; Build Settings.</div>
+<div class="line">  * Click `iOS`.</div>
+<div class="line">  * Click `Switch Platform`.</div>
+<div class="line">  * Click `Player Settings` in the bottom left.</div>
+<div class="line">  * Make sure the `Company Name` is set to `Siemens`.</div>
+<div class="line">  * Make sure the `Product Name` is set to `Byte City`.</div>
+<div class="line">  * Set the version to whatever version you are releasing.</div>
+<div class="line">  * Click Build.</div>
+<div class="line">* You should have an `.xcode` file that you will need to open in XCode.</div>
+<div class="line">* This file will allow you to build the game on iOS, and you should follow the</div>
+<div class="line">  steps that XCode gives you with regards to this process.</div>
+<div class="line"> </div>
+<div class="line">---</div>
+<div class="line">## Documentation</div>
+<div class="line">* We have generated our documentation using [doxygen](https://www.doxygen.nl/index.html).</div>
+<div class="line">* Make sure that any new code written has [javadoc style comments](https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html).</div>
+<div class="line">* Generate new documentation using our preconfigured `Doxyfile` by running</div>
+</div><!-- fragment --> doxygen Doxyfile <div class="fragment"><div class="line">* View the documentation [here](https://ethanrutt.github.io/bytecity_docs/html/index.html)</div>
+<div class="line">* Some Notes about the Doxyfile config</div>
+<div class="line">  * We are using `.mjs` files for our backend, which aren&#39;t recognized by the doxygen parser by default. This line fixes this which just says that `.mjs` files should use the `Javascript` parser.</div>
+</div><!-- fragment --> EXTENSION_MAPPING = mjs=Javascript ```<ul>
 <li>The Main Page is set to this readme file.</li>
 <li>The backend documentation is found by searching through the files on the doxygen website.</li>
 <li>The game documentation is found by searching through the class list on the doxygen website.</li>
 </ul>
 </li>
-</ul>
+</ol>
 <hr  />
- <h1><a class="anchor" id="autotoc_md29"></a>
+ <h1><a class="anchor" id="autotoc_md27"></a>
 Future Development</h1>
 <ul>
 <li>The Byte City team has put tons of hours into this game. We were given nothing but an open-ended request with simple constraints, and we have built the Byte City you can play today from scratch.</li>

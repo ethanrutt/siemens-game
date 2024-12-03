@@ -20,7 +20,6 @@
 \item Deployment
 \item Android Deployment
 \item i\+OS Deployment
-\item Documentation
 \item Future Development
 \end{DoxyItemize}
 
@@ -70,8 +69,21 @@
 \end{DoxyItemize}\hypertarget{index_autotoc_md15}{}\doxysubsection{\texorpdfstring{Backend}{Backend}}\label{index_autotoc_md15}
 
 \begin{DoxyItemize}
-\item We are using \href{https://nodejs.org/en/}{\texttt{ nodejs}}, along with AWS Lambda and an {\bfseries{naveed fix this part plz}}.
-\end{DoxyItemize}\hypertarget{index_autotoc_md16}{}\doxysubsection{\texorpdfstring{Frontend Installation}{Frontend Installation}}\label{index_autotoc_md16}
+\item We are using \href{https://nodejs.org/en/}{\texttt{ nodejs}} to define HTTP APIs to connect to the Database
+\item Code
+\begin{DoxyItemize}
+\item Node\+JS, npm
+\item jest for testing
+\end{DoxyItemize}
+\item AWS Resources
+\begin{DoxyItemize}
+\item API Gateway for routing
+\item AWS Lambda for API Definitions
+\item Secrets Manager for authentication
+\item RDS Proxy for Connection Management
+\item RDS DB for the Database
+\end{DoxyItemize}
+\end{DoxyItemize}\hypertarget{index_autotoc_md16}{}\doxysection{\texorpdfstring{Frontend Installation}{Frontend Installation}}\label{index_autotoc_md16}
 
 \begin{DoxyItemize}
 \item Installing Unity is pretty straight forward. Go to {\ttfamily \href{https://unity.com/download}{\texttt{ https\+://unity.\+com/download}}} or click \href{https://unity.com/download}{\texttt{ here}} and download {\ttfamily Unity Hub}.
@@ -102,135 +114,261 @@
 \end{DoxyItemize}
 \item Depending on the speed of your computer, this could take up to 10 minutes.
 \item Once this is finished, you should be ready to develop, build, and run Byte\+City!
-\end{DoxyItemize}\hypertarget{index_autotoc_md17}{}\doxysubsection{\texorpdfstring{Backend Installation}{Backend Installation}}\label{index_autotoc_md17}
+\end{DoxyItemize}\hypertarget{index_autotoc_md17}{}\doxysection{\texorpdfstring{Backend Installation}{Backend Installation}}\label{index_autotoc_md17}
+\hypertarget{index_autotoc_md18}{}\doxysubsection{\texorpdfstring{Prerequisites}{Prerequisites}}\label{index_autotoc_md18}
 
+\begin{DoxyEnumerate}
+\item {\bfseries{AWS Account}}\+: Access to the AWS Management Console.
+\item {\bfseries{AWS CLI Installed}}\+: \href{https://docs.aws.amazon.com/cli/latest/userguide/install-cliv2.html}{\texttt{ Install AWS CLI}}.
+\item {\bfseries{IAM Permissions}}\+: Permissions to create resources\+:
 \begin{DoxyItemize}
-\item {\bfseries{naveed fix this part plz}}
+\item RDS
+\item Secrets Manager
+\item API Gateway
+\item Lambda
+\item IAM roles
 \end{DoxyItemize}
-
-\DoxyHorRuler{0}
- \hypertarget{index_autotoc_md19}{}\doxysection{\texorpdfstring{Testing}{Testing}}\label{index_autotoc_md19}
-\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Frontend Testing}{Frontend Testing}}\label{index_autotoc_md20}
-
-\begin{DoxyItemize}
-\item We have a combination of github actions, combined with \href{https://game.ci/}{\texttt{ game-\/ci}} to automatically test whenever we push code.
-\item Inside of Unity itself, there are edit mode tests and play mode tests possible in \href{https://docs.unity3d.com/Packages/com.unity.test-framework@1.4/manual/index.html}{\texttt{ Unity Test Runner}}.
-\item Both are essential to testing functionality.
-\item The methodology we have used is
-\begin{DoxyItemize}
-\item Play Mode Tests
-\begin{DoxyItemize}
-\item These are for testing in-\/game functionality such as player movement, connecting wires, etc.
-\end{DoxyItemize}
-\item Edit Mode Tests
-\begin{DoxyItemize}
-\item These are for making sure that assets can be properly loaded, they are in the right place and other things that you could test without actually playing the game.
-\end{DoxyItemize}
-\end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{index_autotoc_md21}{}\doxysubsection{\texorpdfstring{Backend Testing}{Backend Testing}}\label{index_autotoc_md21}
-
-\begin{DoxyItemize}
-\item We use \href{https://jestjs.io/}{\texttt{ jest}} to test our backend code combined with github actions to get automated testing whenever we push code.
-\end{DoxyItemize}
+\item {\bfseries{VPC Setup}}\+: Access to a VPC with subnets and security groups.
+\end{DoxyEnumerate}
 
 \DoxyHorRuler{0}
- \hypertarget{index_autotoc_md23}{}\doxysection{\texorpdfstring{Deployment}{Deployment}}\label{index_autotoc_md23}
-\hypertarget{index_autotoc_md24}{}\doxysubsection{\texorpdfstring{Android Deployment}{Android Deployment}}\label{index_autotoc_md24}
-
-\begin{DoxyItemize}
-\item There should already be Android Build Support installed from our packages, but if there isn\textquotesingle{}t then you can follow these steps.
-\item Open Unity Hub.
-\begin{DoxyItemize}
-\item Click on {\ttfamily Installs} on the left.
-\item Find the Unity Version used with this project {\ttfamily 2022.\+3.\+45f1}.
-\item Click the gear on the far right of the Unity Version.
-\item Click {\ttfamily Add modules}.
-\item Click {\ttfamily Android Build Support}.
-\item Click {\ttfamily Install}.
-\end{DoxyItemize}
-\item After you have installed Android Build Support, open up the Unity Editor by clicking on {\ttfamily siemens-\/game} in Unity Hub.
-\begin{DoxyItemize}
-\item Go to File -\/\texorpdfstring{$>$}{>} Build Settings.
-\item Click {\ttfamily Android}.
-\item Click {\ttfamily Switch Platform}.
-\item Click {\ttfamily Player Settings} in the bottom left.
-\item Make sure the {\ttfamily Company Name} is set to {\ttfamily Siemens}.
-\item Make sure the {\ttfamily Product Name} is set to {\ttfamily Byte City}.
-\item Set the version to whatever version you are releasing.
-\item Click Build.
-\end{DoxyItemize}
-\item Once the project has successfully been built, you should have a {\ttfamily .apk} file.
-\item This is how you will install the game onto an Android Device.
-\begin{DoxyItemize}
-\item To distribute this {\ttfamily .apk} file, you can upload it to a file sharing service, or use a usb to directly transfer it to a device.
-\item Once it\textquotesingle{}s on the device, simply running it should install the game as an app.
-\end{DoxyItemize}
-\item When on the android device
-\begin{DoxyItemize}
-\item You might have to scan the file before installing it. This is normal.
-\item You also might have to allow third-\/party apps to be installed.
-\begin{DoxyItemize}
-\item For the most part, this will just pop up as a prompt whenever you install the {\ttfamily .apk}.
-\item There is also an option in settings app to allow third-\/party app installations.
-\end{DoxyItemize}
-\end{DoxyItemize}
-\end{DoxyItemize}\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{i\+OS Deployment}{i\+OS Deployment}}\label{index_autotoc_md25}
-
-\begin{DoxyItemize}
-\item {\bfseries{note that you need to have a macbook or a way to launch xcode to build for i\+OS}}.
-\item Open Unity Hub.
-\begin{DoxyItemize}
-\item Click on {\ttfamily Installs} on the left.
-\item Find the Unity Version used with this project {\ttfamily 2022.\+3.\+45f1}.
-\item Click the gear on the far right of the Unity Version.
-\item Click {\ttfamily Add modules}.
-\item Click {\ttfamily i\+OS Build Support}.
-\item Click {\ttfamily Install}.
-\end{DoxyItemize}
-\item After you have installed i\+OS Build Support, open up the Unity Editor by clicking on {\ttfamily siemens-\/game} in Unity Hub.
-\begin{DoxyItemize}
-\item Go to File -\/\texorpdfstring{$>$}{>} Build Settings.
-\item Click {\ttfamily i\+OS}.
-\item Click {\ttfamily Switch Platform}.
-\item Click {\ttfamily Player Settings} in the bottom left.
-\item Make sure the {\ttfamily Company Name} is set to {\ttfamily Siemens}.
-\item Make sure the {\ttfamily Product Name} is set to {\ttfamily Byte City}.
-\item Set the version to whatever version you are releasing.
-\item Click Build.
-\end{DoxyItemize}
-\item You should have an {\ttfamily .xcode} file that you will need to open in XCode.
-\item This file will allow you to build the game on i\+OS, and you should follow the steps that XCode gives you with regards to this process.
-\end{DoxyItemize}
+\hypertarget{index_autotoc_md20}{}\doxysubsection{\texorpdfstring{Architecture Components}{Architecture Components}}\label{index_autotoc_md20}
+The backend includes the following AWS services\+:
+\begin{DoxyEnumerate}
+\item {\bfseries{Amazon RDS}}\+: A Postgre\+SQL database for storing Byte\+City data.
+\item {\bfseries{Secrets Manager}}\+: Securely stores database credentials.
+\item {\bfseries{RDS Proxy}}\+: Optimizes and secures Lambda database connections.
+\item {\bfseries{Lambda Functions}}\+: Handle backend logic.
+\item {\bfseries{API Gateway}}\+: Provides REST/\+HTTP APIs to the frontend.
+\end{DoxyEnumerate}
 
 \DoxyHorRuler{0}
- \hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{Documentation}{Documentation}}\label{index_autotoc_md27}
+\hypertarget{index_autotoc_md22}{}\doxysection{\texorpdfstring{Step-\/by-\/\+Step Setup}{Step-\/by-\/\+Step Setup}}\label{index_autotoc_md22}
+\hypertarget{index_autotoc_md23}{}\doxysubsection{\texorpdfstring{1. Create an RDS Database}{1. Create an RDS Database}}\label{index_autotoc_md23}
 
+\begin{DoxyEnumerate}
+\item Go to {\bfseries{RDS → Create Database}}.
+\item Select {\bfseries{Postgre\+SQL}} as the engine.
+\item Configure\+:
 \begin{DoxyItemize}
-\item We have generated our documentation using \href{https://www.doxygen.nl/index.html}{\texttt{ doxygen}}.
-\item Make sure that any new code written has \href{https://www.oracle.com/technical-resources/articles/java/javadoc-tool.html}{\texttt{ javadoc style comments}}.
-\item Generate new documentation using our preconfigured {\ttfamily Doxyfile} by running 
+\item Instance class\+: {\ttfamily db.\+t3.\+micro} (for development).
+\item Storage\+: Adjust as needed.
+\item Public Access\+: {\bfseries{No}} (for security).
+\item Enable IAM database authentication.
+\end{DoxyItemize}
+\item Create a database user and password for the instance.
+\item Set up a {\bfseries{security group}} to allow traffic from the RDS Proxy(make it allow all traffic, 0.\+0.\+0.\+0/0, unless Siemens says otherwise).
+\end{DoxyEnumerate}
+
+\DoxyHorRuler{0}
+\hypertarget{index_autotoc_md25}{}\doxysubsection{\texorpdfstring{2. Set Up Secrets in AWS Secrets Manager}{2. Set Up Secrets in AWS Secrets Manager}}\label{index_autotoc_md25}
+
+\begin{DoxyEnumerate}
+\item Go to {\bfseries{Secrets Manager → Store a new secret}}.
+\item Choose {\bfseries{RDS Database Credentials}} and enter\+:
+\begin{DoxyItemize}
+\item Database username and password.
+\end{DoxyItemize}
+\item Name the secret
+\item Attach an {\bfseries{IAM policy}} to allow Lambda to access this secret\+: 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{doxygen\ Doxyfile}
+\DoxyCodeLine{\ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}Version"{}:\ "{}2012-\/10-\/17"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ "{}Statement"{}:\ [}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Effect"{}:\ "{}Allow"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Action"{}:\ "{}secretsmanager:GetSecretValue"{},}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ "{}Resource"{}:\ "{}arn:aws:secretsmanager:<region>:<account\_id>:secret:<secretname>"{}}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\ \ \ \ \ \ \ ]}
+\DoxyCodeLine{\ \ \ \}}
+\DoxyCodeLine{-\/-\/-\/}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ 3.\ Deploy\ Lambda\ Functions}
+\DoxyCodeLine{\#\#\#\ Configure\ AWS\ Locally}
+\DoxyCodeLine{1.\ run\ aws\ configure\ on\ your\ local\ machine}
+\DoxyCodeLine{2.\ give\ the\ corresponding\ values\ from\ your\ aws\ account}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Create\ Lambda\ role:}
+\DoxyCodeLine{1.\ Go\ to\ IAM\ then\ go\ to\ Roles}
+\DoxyCodeLine{2.\ Create\ a\ role\ and\ attach\ the\ following\ policies:}
+\DoxyCodeLine{-\/\ AWSLambdaBasicExecutionRole}
+\DoxyCodeLine{-\/\ AWSLambdaVPCAccessExecutionRole}
+\DoxyCodeLine{-\/\ CloudFrontFullAccess\ \ (for\ logging)}
+\DoxyCodeLine{-\/\ SecretsManagerReadWrite}
+\DoxyCodeLine{-\/\ Custom\ Inline\ Role:}
 
 \end{DoxyCode}
-
-\item View the documentation \href{https://ethanrutt.github.io/bytecity_docs/html/index.html}{\texttt{ here}}
-\item Some Notes about the Doxyfile config
-\begin{DoxyItemize}
-\item We are using {\ttfamily .mjs} files for our backend, which aren\textquotesingle{}t recognized by the doxygen parser by default. This line fixes this which just says that {\ttfamily .mjs} files should use the {\ttfamily Javascript} parser. 
+ json \{ "{}\+Version"{}\+: "{}2012-\/10-\/17"{}, "{}\+Statement"{}\+: \mbox{[} \{ "{}\+Effect"{}\+: "{}\+Allow"{}, "{}\+Action"{}\+: \mbox{[} "{}rds-\/db\+:connect"{} \mbox{]}, "{}\+Resource"{}\+: "{}arn\+:aws\+:rds\+:us-\/east-\/1\+:$<$awsaccountid$>$\+:db-\/proxy\+:$<$proxyid$>$"{} \} \mbox{]} \} 
 \begin{DoxyCode}{0}
-\DoxyCodeLine{EXTENSION\_MAPPING\ =\ mjs=Javascript}
+\DoxyCodeLine{\#\#\#\ Create\ Lambda\ Functions:}
+\DoxyCodeLine{1.\ For\ every\ single\ folder\ in\ siemens-\/game/backend/LambdaFunctionAPIs\ except\ for\ "{}shared"{}\ and\ "{}Test"{}:\ create\ a\ lambda\ function(step\ 2)}
+\DoxyCodeLine{2.\ Go\ to\ the\ lambda\ console\ in\ AWS}
+\DoxyCodeLine{\ \ \ \ -\/\ \ click\ "{}Create\ Function"{}}
+\DoxyCodeLine{\ \ \ \ -\/\ \ Choose\ a\ Function\ Name,\ it\ should\ equal\ \ the\ variable\ "{}const\ functionName"{}\ in\ the\ build.js(line\ 17)\ file\ in\ the\ corresponding\ folder}
+\DoxyCodeLine{\ \ \ \ -\/\ Runtime:\ Node.js}
+\DoxyCodeLine{\ \ \ \ -\/\ Architecture\ x86\_64}
+\DoxyCodeLine{\ \ \ \ -\/\ Change\ default\ Excecution\ Role\ and\ choose\ the\ role\ you\ created\ above}
+\DoxyCodeLine{\ \ \ \ -\/\ Create\ Function}
+\DoxyCodeLine{2.\ Example\ environment\ variables:}
+\DoxyCodeLine{\ \ \ -\/\ \`{}DB\_SECRET\_ARN`:\ ARN\ of\ the\ secret\ in\ Secrets\ Manager.}
+\DoxyCodeLine{\ \ \ -\/\ \`{}DB\_PROXY\_ENDPOINT`:\ Endpoint\ of\ the\ RDS\ Proxy.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Deploy\ the\ Functions:}
+\DoxyCodeLine{1.\ Navigate\ to\ the\ folder\ you\ want\ to\ deploy(Ex:\ Equip\ )}
+\DoxyCodeLine{2.\ \`{}npm\ init\ -\/y`}
+\DoxyCodeLine{3.\ \`{}npm\ install\ archiver\ aws-\/sdk\ pg\ @aws-\/sdk/client-\/secrets-\/manager`}
+\DoxyCodeLine{4.\ \`{}npm\ install\ jest\ @jest/globals\ -\/-\/save-\/dev`}
+\DoxyCodeLine{5.\ \`{}npm\ run\ deploy`\ (runs\ the\ build.js\ file\ and\ should\ upload\ your\ function\ lambda)}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ 4.\ Set\ Up\ API\ Gateway}
+\DoxyCodeLine{\#\#\#\ Create\ an\ API\ Gateway:}
+\DoxyCodeLine{1.\ Go\ to\ **API\ Gateway**\ →\ **Create\ API**.}
+\DoxyCodeLine{2.\ Choose\ **HTTP\ API**.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Create\ Routes:}
+\DoxyCodeLine{1.\ Map\ each\ Lambda\ function\ to\ a\ route.}
+\DoxyCodeLine{2.\ Example\ routes:}
+\DoxyCodeLine{\ \ \ -\/\ look\ at\ the\ \`{}APIPayload.txt`\ to\ see\ the\ type\ and\ how\ its\ structure}
+\DoxyCodeLine{\ \ \ -\/\ \`{}/login`\ →\ Login\ Lambda\ Function.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Integrate\ API\ with\ Lambda:}
+\DoxyCodeLine{1.\ For\ each\ route,\ set\ the\ integration\ type\ to\ **Lambda\ Function**.}
+\DoxyCodeLine{2.\ Deploy\ the\ API\ and\ note\ the\ endpoint\ URL.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Enable\ CORS:}
+\DoxyCodeLine{-\/\ If\ the\ frontend\ interacts\ with\ this\ API,\ enable\ **CORS**\ for\ each\ route.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ 5.\ Configure\ Networking}
+\DoxyCodeLine{\#\#\#\ VPC\ Setup:}
+\DoxyCodeLine{-\/\ Ensure\ that\ **RDS**,\ **RDS\ Proxy**,\ and\ **Lambda**\ are\ in\ the\ same\ **VPC**.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Security\ Groups:}
+\DoxyCodeLine{-\/\ Allow\ traffic\ between\ **Lambda**\ and\ **RDS\ Proxy**\ on\ port\ \`{}5432`.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\ Testing}
+\DoxyCodeLine{\#\#\#\ Frontend\ Testing}
+\DoxyCodeLine{*\ We\ have\ a\ combination\ of\ github\ actions,\ combined\ with}
+\DoxyCodeLine{\ \ [game-\/ci](https://game.ci/)\ to\ automatically\ test\ whenever\ we\ push\ code.}
+\DoxyCodeLine{*\ Inside\ of\ Unity\ itself,\ there\ are\ edit\ mode\ tests\ and\ play\ mode\ tests}
+\DoxyCodeLine{\ \ possible\ in\ [Unity\ Test\ Runner](https://docs.unity3d.com/Packages/com.unity.test-\/framework@1.4/manual/index.html).}
+\DoxyCodeLine{*\ Both\ are\ essential\ to\ testing\ functionality.}
+\DoxyCodeLine{*\ The\ methodology\ we\ have\ used\ is}
+\DoxyCodeLine{\ \ *\ Play\ Mode\ Tests}
+\DoxyCodeLine{\ \ \ \ *\ These\ are\ for\ testing\ in-\/game\ functionality\ such\ as\ player\ movement,}
+\DoxyCodeLine{\ \ \ \ \ \ connecting\ wires,\ etc.}
+\DoxyCodeLine{\ \ *\ Edit\ Mode\ Tests}
+\DoxyCodeLine{\ \ \ \ *\ These\ are\ for\ making\ sure\ that\ assets\ can\ be\ properly\ loaded,\ they\ are\ in}
+\DoxyCodeLine{\ \ \ \ \ \ the\ right\ place\ and\ other\ things\ that\ you\ could\ test\ without\ actually}
+\DoxyCodeLine{\ \ \ \ \ \ playing\ the\ game.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ Backend\ Testing}
+\DoxyCodeLine{*\ We\ use\ [jest](https://jestjs.io/)\ to\ test\ our\ backend\ code\ combined\ with}
+\DoxyCodeLine{\ \ github\ actions\ to\ get\ automated\ testing\ whenever\ we\ push\ code.}
+\DoxyCodeLine{*\ Testing\ framework:\ [Jest](https://jestjs.io/).}
+\DoxyCodeLine{*\ Automated\ testing\ with\ GitHub\ Actions\ for\ every\ push\ to\ the\ repository.}
+\DoxyCodeLine{*\ Folders\ containing\ tests\ (siemens-\/game/backend/LambdaFunctionAPIs):}
+\DoxyCodeLine{\ \ *\ Equip}
+\DoxyCodeLine{\ \ *\ GetAllItems}
+\DoxyCodeLine{\ \ *\ GetItemsByCategory}
+\DoxyCodeLine{\ \ *\ GetUserItems}
+\DoxyCodeLine{\ \ *\ HighScore}
+\DoxyCodeLine{\ \ *\ Leaderboard}
+\DoxyCodeLine{\ \ *\ Login}
+\DoxyCodeLine{\ \ *\ playerDataUpload}
+\DoxyCodeLine{\ \ *\ ScoreUpload}
+\DoxyCodeLine{*\ Focus\ areas:}
+\DoxyCodeLine{\ \ *\ Unit\ tests\ for\ functions\ like\ \`{}updatePlayerData`\ and\ \`{}getTopScoresByGame`.}
+\DoxyCodeLine{\ \ *\ Integration\ tests\ for\ AWS\ Lambda\ handlers.}
+\DoxyCodeLine{\ \ *\ API\ tests\ for\ endpoints.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/}
+\DoxyCodeLine{\#\#\ Deployment}
+\DoxyCodeLine{\#\#\#\ Android\ Deployment}
+\DoxyCodeLine{*\ There\ should\ already\ be\ Android\ Build\ Support\ installed\ from\ our\ packages,}
+\DoxyCodeLine{\ \ but\ if\ there\ isn't\ then\ you\ can\ follow\ these\ steps.}
+\DoxyCodeLine{*\ Open\ Unity\ Hub.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ on\ \`{}Installs`\ on\ the\ left.}
+\DoxyCodeLine{\ \ \ \ *\ Find\ the\ Unity\ Version\ used\ with\ this\ project\ \`{}2022.3.45f1`.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ the\ gear\ on\ the\ far\ right\ of\ the\ Unity\ Version.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ \`{}Add\ modules`.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ \`{}Android\ Build\ Support`.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ \`{}Install`.}
+\DoxyCodeLine{*\ After\ you\ have\ installed\ Android\ Build\ Support,\ open\ up\ the\ Unity\ Editor\ by}
+\DoxyCodeLine{\ \ clicking\ on\ \`{}siemens-\/game`\ in\ Unity\ Hub.}
+\DoxyCodeLine{\ \ *\ Go\ to\ File\ -\/>\ Build\ Settings.}
+\DoxyCodeLine{\ \ *\ Click\ \`{}Android`.}
+\DoxyCodeLine{\ \ *\ Click\ \`{}Switch\ Platform`.}
+\DoxyCodeLine{\ \ *\ Click\ \`{}Player\ Settings`\ in\ the\ bottom\ left.}
+\DoxyCodeLine{\ \ *\ Make\ sure\ the\ \`{}Company\ Name`\ is\ set\ to\ \`{}Siemens`.}
+\DoxyCodeLine{\ \ *\ Make\ sure\ the\ \`{}Product\ Name`\ is\ set\ to\ \`{}Byte\ City`.}
+\DoxyCodeLine{\ \ *\ Set\ the\ version\ to\ whatever\ version\ you\ are\ releasing.}
+\DoxyCodeLine{\ \ *\ Click\ Build.}
+\DoxyCodeLine{*\ Once\ the\ project\ has\ successfully\ been\ built,\ you\ should\ have\ a\ \`{}.apk`\ file.}
+\DoxyCodeLine{*\ This\ is\ how\ you\ will\ install\ the\ game\ onto\ an\ Android\ Device.}
+\DoxyCodeLine{\ \ *\ To\ distribute\ this\ \`{}.apk`\ file,\ you\ can\ upload\ it\ to\ a\ file\ sharing\ service,}
+\DoxyCodeLine{\ \ \ \ or\ use\ a\ usb\ to\ directly\ transfer\ it\ to\ a\ device.}
+\DoxyCodeLine{\ \ *\ Once\ it's\ on\ the\ device,\ simply\ running\ it\ should\ install\ the\ game\ as\ an\ app.}
+\DoxyCodeLine{*\ When\ on\ the\ android\ device}
+\DoxyCodeLine{\ \ *\ You\ might\ have\ to\ scan\ the\ file\ before\ installing\ it.\ This\ is\ normal.}
+\DoxyCodeLine{\ \ *\ You\ also\ might\ have\ to\ allow\ third-\/party\ apps\ to\ be\ installed.}
+\DoxyCodeLine{\ \ \ \ \ \ *\ For\ the\ most\ part,\ this\ will\ just\ pop\ up\ as\ a\ prompt\ whenever\ you\ install}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ the\ \`{}.apk`.}
+\DoxyCodeLine{\ \ \ \ \ \ *\ There\ is\ also\ an\ option\ in\ settings\ app\ to\ allow\ third-\/party\ app}
+\DoxyCodeLine{\ \ \ \ \ \ \ \ installations.}
+\DoxyCodeLine{}
+\DoxyCodeLine{\#\#\#\ iOS\ Deployment}
+\DoxyCodeLine{*\ **note\ that\ you\ need\ to\ have\ a\ macbook\ or\ a\ way\ to\ launch\ xcode\ to\ build\ for}
+\DoxyCodeLine{\ \ iOS**.}
+\DoxyCodeLine{*\ Open\ Unity\ Hub.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ on\ \`{}Installs`\ on\ the\ left.}
+\DoxyCodeLine{\ \ \ \ *\ Find\ the\ Unity\ Version\ used\ with\ this\ project\ \`{}2022.3.45f1`.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ the\ gear\ on\ the\ far\ right\ of\ the\ Unity\ Version.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ \`{}Add\ modules`.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ \`{}iOS\ Build\ Support`.}
+\DoxyCodeLine{\ \ \ \ *\ Click\ \`{}Install`.}
+\DoxyCodeLine{*\ After\ you\ have\ installed\ iOS\ Build\ Support,\ open\ up\ the\ Unity\ Editor\ by}
+\DoxyCodeLine{\ \ clicking\ on\ \`{}siemens-\/game`\ in\ Unity\ Hub.}
+\DoxyCodeLine{\ \ *\ Go\ to\ File\ -\/>\ Build\ Settings.}
+\DoxyCodeLine{\ \ *\ Click\ \`{}iOS`.}
+\DoxyCodeLine{\ \ *\ Click\ \`{}Switch\ Platform`.}
+\DoxyCodeLine{\ \ *\ Click\ \`{}Player\ Settings`\ in\ the\ bottom\ left.}
+\DoxyCodeLine{\ \ *\ Make\ sure\ the\ \`{}Company\ Name`\ is\ set\ to\ \`{}Siemens`.}
+\DoxyCodeLine{\ \ *\ Make\ sure\ the\ \`{}Product\ Name`\ is\ set\ to\ \`{}Byte\ City`.}
+\DoxyCodeLine{\ \ *\ Set\ the\ version\ to\ whatever\ version\ you\ are\ releasing.}
+\DoxyCodeLine{\ \ *\ Click\ Build.}
+\DoxyCodeLine{*\ You\ should\ have\ an\ \`{}.xcode`\ file\ that\ you\ will\ need\ to\ open\ in\ XCode.}
+\DoxyCodeLine{*\ This\ file\ will\ allow\ you\ to\ build\ the\ game\ on\ iOS,\ and\ you\ should\ follow\ the}
+\DoxyCodeLine{\ \ steps\ that\ XCode\ gives\ you\ with\ regards\ to\ this\ process.}
+\DoxyCodeLine{}
+\DoxyCodeLine{-\/-\/-\/}
+\DoxyCodeLine{\#\#\ Documentation}
+\DoxyCodeLine{*\ We\ have\ generated\ our\ documentation\ using\ [doxygen](https://www.doxygen.nl/index.html).}
+\DoxyCodeLine{*\ Make\ sure\ that\ any\ new\ code\ written\ has\ [javadoc\ style\ comments](https://www.oracle.com/technical-\/resources/articles/java/javadoc-\/tool.html).}
+\DoxyCodeLine{*\ Generate\ new\ documentation\ using\ our\ preconfigured\ \`{}Doxyfile`\ by\ running}
 
 \end{DoxyCode}
+ doxygen Doxyfile 
+\begin{DoxyCode}{0}
+\DoxyCodeLine{*\ View\ the\ documentation\ [here](https://ethanrutt.github.io/bytecity\_docs/html/index.html)}
+\DoxyCodeLine{*\ Some\ Notes\ about\ the\ Doxyfile\ config}
+\DoxyCodeLine{\ \ *\ We\ are\ using\ \`{}.mjs`\ files\ for\ our\ backend,\ which\ aren't\ recognized\ by\ the\ doxygen\ parser\ by\ default.\ This\ line\ fixes\ this\ which\ just\ says\ that\ \`{}.mjs`\ files\ should\ use\ the\ \`{}Javascript`\ parser.}
 
+\end{DoxyCode}
+ EXTENSION\+\_\+\+MAPPING = mjs=Javascript \`{}\`{}\`{}
+\begin{DoxyItemize}
 \item The Main Page is set to this readme file.
 \item The backend documentation is found by searching through the files on the doxygen website.
 \item The game documentation is found by searching through the class list on the doxygen website.
 \end{DoxyItemize}
-\end{DoxyItemize}
+\end{DoxyEnumerate}
 
 \DoxyHorRuler{0}
- \hypertarget{index_autotoc_md29}{}\doxysection{\texorpdfstring{Future Development}{Future Development}}\label{index_autotoc_md29}
+ \hypertarget{index_autotoc_md27}{}\doxysection{\texorpdfstring{Future Development}{Future Development}}\label{index_autotoc_md27}
 
 \begin{DoxyItemize}
 \item The Byte City team has put tons of hours into this game. We were given nothing but an open-\/ended request with simple constraints, and we have built the Byte City you can play today from scratch.
