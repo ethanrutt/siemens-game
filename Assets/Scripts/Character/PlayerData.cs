@@ -163,6 +163,10 @@ public class PlayerData : MonoBehaviour
     [SerializeField] private List<UnityEngine.UI.Image> card_images = new List<UnityEngine.UI.Image>();
     private Dictionary<int, Card> cards;
 
+    // Now unlocked cards
+    // Storing the current cards the player has unlocked (list of card id's)
+    [SerializeField] public List<int> unlocked_cards = new List<int>();
+
     // Storing the current items the player has unlocked (list of item id's)
     [SerializeField] public List<int> unlocked_items = new List<int>();
 
