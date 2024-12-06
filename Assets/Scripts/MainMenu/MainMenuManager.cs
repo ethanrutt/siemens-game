@@ -721,7 +721,7 @@ public class MainMenuManager : MonoBehaviour
                     UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
                 },
                 (string response) => {
-                    SetupErrorScreen("Error: The request was invalid. Are you sure you have the right employee ID? If so, please contact Sidra Maryam");
+                    SetupErrorScreen("Error: The request was invalid. Are you sure you have the right employee ID? If so, please contact your supervisor");
                 }
 
         );
