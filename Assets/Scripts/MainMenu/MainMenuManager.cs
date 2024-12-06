@@ -21,6 +21,38 @@ public class UserData
     public int total_coins;
     public List<int> items_owned;
     public List<int> items_equipped;
+    public List<int> cards_owned;
+    public List<int> achievements_complete;
+    public Dictionary<string, int> achievements;
+    public bool has_finished_cutscene;
+    public int location_x;
+    public int location_y;
+    public string current_scene;
+    public UserDataInteractions interactions;
+}
+
+/**
+ * @class UserDataInteractions
+ * @brief Dataclass that maps to a dictionary returned in login request
+ * @details Since the json utility is very barebones in Unity, and since we
+ * didn't want to introduce more external dependencies with something like
+ * newtonsoft, we are using the JsonUtility built in with Unity. This has some
+ * problems, for example, the existence of this class. The API response from
+ * the login returns a dictionary for the npc interactions, which the
+ * JsonUtility cannot implicitly convert to a dictionary. It instead looks like
+ * more Json, so we have to parse it like so. This then needs to be converted
+ * into a dictionary so that we can store it in playerData properly.
+ */
+[System.Serializable]
+public class UserDataInteractions
+{
+    public int sensei;
+    public int drunkard;
+    public int labenter;
+    public int deckmaster;
+    public int shopkeeper;
+    public int casinoenter;
+    public int casino_owner;
 }
 
 /**
@@ -628,13 +660,35 @@ public class MainMenuManager : MonoBehaviour
                 url,
                 jsonData,
                 (string response) => {
+                    Debug.Log(response);
                     LoginResponse data = JsonUtility.FromJson<LoginResponse>(response);
                     playerData.username = data.user.user_name;
                     playerData.userId = data.user.user_id;
                     playerData.coins = data.user.current_coins;
                     playerData.unlocked_items = data.user.items_owned;
                     playerData.equipped_items = data.user.items_equipped;
-                    UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
+                    playerData.unlocked_cards = data.user.cards_owned;
+                    playerData.unlocked_achievements = data.user.achievements_complete;
+                    // Due to the way that JsonUtility parses Json, we need to
+                    // manually set all keys in the npc_interactors since we
+                    // cannot parse dictionaries with JsonUtility
+                    playerData.npc_interactions["deckmaster"] = data.user.interactions.deckmaster;
+                    playerData.npc_interactions["casino_owner"] = data.user.interactions.casino_owner;
+                    playerData.npc_interactions["shopkeeper"] = data.user.interactions.shopkeeper;
+                    playerData.npc_interactions["drunkard"] = data.user.interactions.drunkard;
+                    playerData.npc_interactions["sensei"] = data.user.interactions.sensei;
+                    playerData.npc_interactions["casinoenter"] = data.user.interactions.casinoenter;
+                    playerData.npc_interactions["labenter"] = data.user.interactions.labenter;
+
+                    if (playerData.npc_interactions["sensei"] > 0)
+                    {
+                        UnityEngine.SceneManagement.SceneManager.LoadScene("Town_Square");
+
+                    }
+                    else
+                    {
+                        UnityEngine.SceneManagement.SceneManager.LoadScene("Starting-Cutscene");
+                    }
                 },
                 (string response) => {
                     SetupErrorScreen("Error: The request was invalid. Are you sure you have the right username and password?");
