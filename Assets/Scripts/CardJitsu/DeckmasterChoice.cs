@@ -463,6 +463,9 @@ public class DeckmasterChoice : MonoBehaviour
         viewCards.SetActive(false);
         // set modal false
         backModal.SetActive(false);
+
+        // Close the choicepanel
+        choicesPanel.SetActive(false);
     }
 
     // Close the unlockedPanel
@@ -472,6 +475,9 @@ public class DeckmasterChoice : MonoBehaviour
         cardUnlockingPanel.SetActive(false);
         // set modal false
         backModal.SetActive(false);
+
+        // Close the choicepanel
+        choicesPanel.SetActive(false);
     }
 
     // Awake
