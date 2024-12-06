@@ -80,13 +80,13 @@ public class PlayerData : MonoBehaviour
     // Storing the interaction_times with each NPC (starting at 0)
     [SerializeField] public Dictionary<string, int> npc_interactions = new Dictionary<string, int>()
     {
-        {"deckmaster", 1},
-        {"casino_owner", 1},
-        {"shopkeeper", 1},
-        {"drunkard", 1},
-        {"sensei", 2}, // just for debug
-        {"casinoenter", 1},
-        {"labenter", 1}
+        {"deckmaster", 0},
+        {"casino_owner", 0},
+        {"shopkeeper", 0},
+        {"drunkard", 0},
+        {"sensei", 0}, // just for debug
+        {"casinoenter", 0},
+        {"labenter", 0}
     };
 
     // We are going to store the cards from the card game using a specific struct
