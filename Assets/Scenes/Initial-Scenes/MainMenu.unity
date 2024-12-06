@@ -1230,7 +1230,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e6cd52243ed0546d6b83b75673491af0, type: 3}
   - {fileID: 21300000, guid: 0c77083c8d27b41d0ac4f84b80bb82f1, type: 3}
   - {fileID: 21300000, guid: f966a304cea8a4a0dbe37fe84d6bbc22, type: 3}
-  unlocked_cards: 00000000010000000200000003000000040000000500000006000000
+  unlocked_cards: 
   unlocked_items: 
   equipped_items: 
   original_load_items: 

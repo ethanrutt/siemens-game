@@ -6,7 +6,7 @@ using TMPro;
 
 public class GameManager2 : MonoBehaviour
 {
-    private PlayerData playerData => PlayerData.Instance;
+    //private PlayerData playerData => PlayerData.Instance;
     
     public Camera mainCamera; // Reference to the Main Camera
     private bool isBelowThreshold = false;
@@ -39,7 +39,7 @@ public class GameManager2 : MonoBehaviour
     private void Start(){
         playTurnButton.gameObject.SetActive(false);
 
-        playerUnlocks = playerData.unlocked_cards;
+        //playerUnlocks = playerData.unlocked_cards;
 
 
         int j = 0;
@@ -51,8 +51,8 @@ public class GameManager2 : MonoBehaviour
             j++;
         }
 
-        for(int i = 0; i < playerUnlocks.Count; i++){
-            Card randCard = deck[playerUnlocks[i]];
+        for(int i = 0; i < 7; i++){
+            Card randCard = deck[Random.Range(0, deck.Count)];
             playerDeck.Add(randCard);
             
             deck.Remove(randCard);
@@ -72,7 +72,7 @@ public class GameManager2 : MonoBehaviour
 
         foreach(Card card in discardPile){
             card.hasBeenPlayed = false;
-            card.nameLabel.enabled = false;
+            card.nameLabel.SetActive(false);
         }
 
         foreach(Card card in currentHand){
@@ -82,14 +82,14 @@ public class GameManager2 : MonoBehaviour
             }  
             card.hasBeenPlayed = false;
             availableCardSlots[card.handIndex] = true;
-            card.nameLabel.enabled = false;
+            card.nameLabel.SetActive(false);
             discardPile.Add(card);
             card.gameObject.SetActive(false);
         }
 
         foreach(Card card in playerDeck){
             card.hasBeenPlayed = false;
-            card.nameLabel.enabled = false;
+            card.nameLabel.SetActive(false);
             discardPile.Add(card);
         }
 
@@ -227,7 +227,7 @@ public class GameManager2 : MonoBehaviour
                 card.isInSlot = false;
                 availableCardSlots[card.handIndex] = true;
                 availablePlaySlots[card.playIndex] = true;
-                card.nameLabel.enabled = false;
+                card.nameLabel.SetActive(false);
                 discardPile.Add(card);
                 currentHand.Remove(card);
                 DrawCard(card.handIndex);

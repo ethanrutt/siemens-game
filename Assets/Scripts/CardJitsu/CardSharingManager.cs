@@ -297,7 +297,7 @@ public class CardSharingManager : NetworkBehaviour
     {
         for (int i = 0; i < 1; i++)
         {
-            if(hW == 7 || cW == 7){
+            if(hW == 5 || cW == 5){
                 break;
             }
             if(i == 0){
@@ -310,7 +310,7 @@ public class CardSharingManager : NetworkBehaviour
             Debug.Log($"Displaying matchup {i + 1}: {c1.cardName} {c1.sourceClientId}  - {c2.cardName} {c2.sourceClientId}");
             
             if(compareTypes(c1.type, c2.type)){
-                c1.power = c1.power * 4;
+                c1.power = c1.power * 10;
 
                 powerSlots[i].SetActive(true);
                 powerSlots[i].transform.position = sharedCardCopies[i].transform.position;
@@ -319,7 +319,7 @@ public class CardSharingManager : NetworkBehaviour
                 yield return new WaitForSeconds(2.5f);  
             }
             else if(compareTypes(c2.type, c1.type)){
-                c2.power = c2.power * 4;
+                c2.power = c2.power * 10;
 
                 powerSlots[i].SetActive(true);
                 powerSlots[i].transform.position = sharedCardCopies[i + 1].transform.position;

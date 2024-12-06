@@ -22,14 +22,17 @@ public class Card : MonoBehaviour
 
     private GameManager2 gm;
     private CardSharingManager cardSharingManager;
-    public TextMeshProUGUI nameLabel;
+    public GameObject nameLabel;
+    public TextMeshPro cName;
 
     private void Start()
     {
         gm = FindObjectOfType<GameManager2>();
         //cardSharingManager = FindObjectOfType<CardSharingManager>();
-        nameLabel.text = cardName;
-        nameLabel.enabled = false;
+        cName = nameLabel.GetComponent<TextMeshPro>();
+        //nameLabel.text = cardName;
+        //nameLabel.enabled = false;
+        nameLabel.SetActive(false);
         StartCoroutine(FindCardSharingManager());
     }
 
@@ -49,7 +52,8 @@ public class Card : MonoBehaviour
             }
             ignoreExit = true;
             StartCoroutine(ResetIgnoreMouseExit());
-            nameLabel.enabled = false;
+            //nameLabel.enabled = false;
+            nameLabel.SetActive(false);
         }
     }
 
@@ -60,8 +64,18 @@ public class Card : MonoBehaviour
             originalPosition = transform.position;
             transform.position += new Vector3(0, 0.05f, -4);
             Vector3 labelOffset = new Vector3(95f + (handIndex * 65f), 0, 0);
-            nameLabel.transform.position = labelOffset;
-            nameLabel.enabled = true;
+            //nameLabel.transform.position = labelOffset;
+            //nameLabel.enabled = true;
+            if(cName != null){
+                cName.text = cardName;
+            }
+            
+            if(isInSlot)
+                nameLabel.transform.position = transform.position + new Vector3(0, 1.4f, -1f);
+            else    
+                nameLabel.transform.position = transform.position + new Vector3(0, 1.4f, -3f);
+
+            nameLabel.SetActive(true);
         }
     }
 
@@ -70,7 +84,8 @@ public class Card : MonoBehaviour
         if (!hasBeenPlayed && !ignoreExit)
         {
             transform.position = originalPosition;
-            nameLabel.enabled = false;
+            //nameLabel.enabled = false;
+            nameLabel.SetActive(false);
         }
     }
 

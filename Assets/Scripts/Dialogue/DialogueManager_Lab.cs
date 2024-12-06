@@ -34,6 +34,9 @@ public class DialogueManager_Lab : MonoBehaviour
     // import PlayerMovement script
     [SerializeField] private Character_Movement playerMovement;
 
+    // Open the choice panel
+    [SerializeField] private GameObject choicePanel;
+
     // Modal back
     [SerializeField] public GameObject backModal;
 
@@ -47,6 +50,9 @@ public class DialogueManager_Lab : MonoBehaviour
     // public int dialogueindex
     private int dialogueIndex = 0;
 
+    // DeckmasterChoice script
+    [SerializeField] private DeckmasterChoice deckmasterChoice;
+
     // Card view panel
     [SerializeField] private GameObject cardViewPanel;
     // Add all the casino owner sprites
@@ -59,9 +65,9 @@ public class DialogueManager_Lab : MonoBehaviour
         "Well, not necessarily. I don't live, nor do I eat, nor do I breathe... But that's beside the point.",
         "Before you even hop into those games, you gotta speak with me. I'll give you a rundown of the rules.",
         "There are three types of cards in this game: heat cards, pressure cards, and electricity cards.",
-        "Heat quadruples in power against pressure, pressure quadruples against electricity, and electricity quadruples against heat.",
+        "Heat beats pressure, pressure beats electricity, and electricity beats heat.",
         "Each card has its own level of power. The higher the power, the rarer the card is, and therefore, the more useful.",
-        "There are three power ranges that dictate card rarity. Cards with power from 3-6 are common. Cards with power from 7-10 are rare. And cards with power from 11+ are legendary.",
+        "There are three power ranges that dictate card rarity. Cards with power from 3-6 are common. Cards with power from 7-11 are rare. And cards with power from 12+ are legendary.",
         "Even with legendary cards, you're not always guaranteed to win. It's all about strategy. If I had a 11 electricity, and you had a 3 pressure, even though my card is higher power, I lose.",
         "So, you ready to play? I'm going to give you a few cards from here. You can start playing with them. Bonne chance!"
     };
@@ -114,9 +120,6 @@ public class DialogueManager_Lab : MonoBehaviour
 
         // Increment the npc_interactions for deckmaster
         playerData.npc_interactions["deckmaster"] += 1;
-
-        // Whenever you add the cards, you should also add the cards to the player's inventory
-        // ROHAN -> Add your code here.
     }
 
     public void DeckMasterInterrupt()
@@ -216,7 +219,7 @@ public class DialogueManager_Lab : MonoBehaviour
             typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterInitial[i]));
 
             // Wait
-            yield return new WaitForSeconds(deckMasterInitial[i].Length * typingSpeed + 1.25f);
+            yield return new WaitForSeconds(deckMasterInitial[i].Length * typingSpeed + 1f);
 
             // Wait
             yield return new WaitForSeconds(2);
@@ -230,6 +233,12 @@ public class DialogueManager_Lab : MonoBehaviour
 
         // Let player move
         playerMovement.UnstopPlayer();
+
+        // Now call DeckmasterChoice script's buyStarting()
+        deckmasterChoice.buyStarting();
+
+        // Increment the npc_interactions for deckmaster
+        playerData.npc_interactions["deckmaster"] += 1;
     }
 
     // Deckmaster coroutine
@@ -255,18 +264,24 @@ public class DialogueManager_Lab : MonoBehaviour
         isTyping = true;
         typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterRandom[i]));
 
-        // Wait
-        yield return new WaitForSeconds(deckMasterRandom[i].Length * typingSpeed + 1.25f);
+        // TTC
+        TTC_Text.text = "Tap to Continue...";
 
-        // Wait
-        yield return new WaitForSeconds(2);
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began)));
 
         // Close the dialogue panel
         dialoguePanel.SetActive(false);
 
+        // Open the choice panel
+        choicePanel.SetActive(true);
+
         // Let player move
         playerMovement.UnstopPlayer();
     }
+
+    // We're going to make a function for NotEnoughCoins to buy a pack for Deckmaster
+    // We're going to make another function for Can'tViewCards to view the cards
+
 
 
     IEnumerator TypeSentence (string sentence)
@@ -439,7 +454,6 @@ public class DialogueManager_Lab : MonoBehaviour
         {
             dialoguePanel.SetActive(false);
         }
-
 
     }
 }
