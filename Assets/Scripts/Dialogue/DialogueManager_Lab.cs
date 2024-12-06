@@ -120,9 +120,6 @@ public class DialogueManager_Lab : MonoBehaviour
 
         // Increment the npc_interactions for deckmaster
         playerData.npc_interactions["deckmaster"] += 1;
-
-        // Whenever you add the cards, you should also add the cards to the player's inventory
-        // ROHAN -> Add your code here.
     }
 
     public void DeckMasterInterrupt()
@@ -267,11 +264,10 @@ public class DialogueManager_Lab : MonoBehaviour
         isTyping = true;
         typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterRandom[i]));
 
-        // Wait
-        yield return new WaitForSeconds(deckMasterRandom[i].Length * typingSpeed + 1.25f);
+        // TTC
+        TTC_Text.text = "Tap to Continue...";
 
-        // Wait
-        yield return new WaitForSeconds(2);
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began)));
 
         // Close the dialogue panel
         dialoguePanel.SetActive(false);
@@ -458,7 +454,6 @@ public class DialogueManager_Lab : MonoBehaviour
         {
             dialoguePanel.SetActive(false);
         }
-
 
     }
 }

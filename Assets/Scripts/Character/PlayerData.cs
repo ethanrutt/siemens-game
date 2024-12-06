@@ -80,7 +80,7 @@ public class PlayerData : MonoBehaviour
     // Storing the interaction_times with each NPC (starting at 0)
     [SerializeField] public Dictionary<string, int> npc_interactions = new Dictionary<string, int>()
     {
-        {"deckmaster", 0},
+        {"deckmaster", 1},
         {"casino_owner", 1},
         {"shopkeeper", 1},
         {"drunkard", 1},

@@ -2366,7 +2366,6 @@ RectTransform:
   - {fileID: 761477437}
   - {fileID: 31895180}
   - {fileID: 885243377}
-  - {fileID: 1777135028}
   m_Father: {fileID: 888896346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -13478,6 +13477,7 @@ RectTransform:
   - {fileID: 1681804103}
   - {fileID: 721383854}
   - {fileID: 2075819836}
+  - {fileID: 1777135028}
   - {fileID: 156333928}
   - {fileID: 2147228127}
   - {fileID: 1771880716}
@@ -15400,9 +15400,11 @@ MonoBehaviour:
   TTC_Text: {fileID: 1609473979}
   cameraFollow: {fileID: 1553580388}
   playerMovement: {fileID: 1288844310}
+  choicePanel: {fileID: 156333927}
   backModal: {fileID: 425249733}
   dialoguePanel: {fileID: 2002772267}
-  cardViewPanel: {fileID: 0}
+  deckmasterChoice: {fileID: 1777135029}
+  cardViewPanel: {fileID: 2147228126}
   deckmasterSprites:
   - {fileID: 21300000, guid: e8b8e2266c2bd4e53922ea56ed8d8ec0, type: 3}
   - {fileID: 21300000, guid: 81f689c68428c434cbed9f6102eb989a, type: 3}
@@ -40563,16 +40565,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1777135027}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 156333928}
+  m_Father: {fileID: 888896346}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0.000061035156, y: -6.862488}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1777135029
@@ -40590,6 +40592,7 @@ MonoBehaviour:
   backModal: {fileID: 425249733}
   choicesPanel: {fileID: 156333927}
   viewCards: {fileID: 2147228126}
+  dialogueManager: {fileID: 0}
   cardUnlockingPanel: {fileID: 1771880715}
   leftButton: {fileID: 808499674}
   rightButton: {fileID: 545392607}
