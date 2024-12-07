@@ -2975,7 +2975,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: These details are the same details you chose when you initially created
     your account. In the case where you are unable to retrieve your log in details,
-    please contact Sidra Maryam.
+    please contact your supervisor.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b72c46d048eac418032a721a38712c, type: 2}
   m_sharedMaterial: {fileID: 4228292995865826738, guid: c5b72c46d048eac418032a721a38712c, type: 2}
@@ -4412,31 +4412,31 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: 'This game was made as a Texas A&M 2024 Fall Semester Capstone project,
-    designed for siemens.
+    designed for Siemens.
 
 
     The Design Team:
 
-    - Rishi Santhanam (Lead UI,
-    Game Design, Project Manager)
+    - [REDACTED] (Lead UI, Game
+    Design, Project Manager)
 
-    - Ethan Rutt (Lead Minigame, Integration and
-    Testing Manager)
+    - [REDACTED] (Lead Minigame, Integration and Testing
+    Manager)
 
-    - Naveed Haq (Lead Backend, Data designer)
+    - [REDACTED] (Lead Backend, Data designer)
 
-    - Rohan
-    Ali (Game Design and UI Support)
+    - [REDACTED] (Game
+    Design and UI Support)
 
 
     Special Thanks to:
 
-    - Sidra Maryam
+    - [REDACTED]
+
+    - [REDACTED]
 
     -
-    Aaron Patton
-
-    - Mukul Kumar'
+    [REDACTED]'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c5b72c46d048eac418032a721a38712c, type: 2}
   m_sharedMaterial: {fileID: 4228292995865826738, guid: c5b72c46d048eac418032a721a38712c, type: 2}
