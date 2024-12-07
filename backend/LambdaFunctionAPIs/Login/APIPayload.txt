@@ -1,3 +1,5 @@
+Login:
+
 curl -X POST "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/Login" \
 -H "Content-Type: application/json" \
 -d '{
@@ -6,7 +8,6 @@ curl -X POST "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/Log
 }'
 
 Signup:
-
 curl -X POST "https://g7fh351dz2.execute-api.us-east-1.amazonaws.com/default/Login" \
 -H "Content-Type: application/json" \
 -d '{

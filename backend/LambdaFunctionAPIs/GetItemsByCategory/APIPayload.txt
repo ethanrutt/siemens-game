@@ -1,0 +1,5 @@
+curl -X POST https://api.example.com/GetItemsByCategory \
+-H "Content-Type: application/json" \
+-d '{
+  "category": "pants"
+}'

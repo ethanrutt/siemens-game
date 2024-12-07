@@ -1,6 +1,22 @@
 /* jslint ignore:start */
-import { getSecret, createDbClient, secret_name } from './shared/utils.mjs';
+import { getSecret, secret_name } from './shared/utils.mjs';
 /* jslint ignore:end */
+
+export const DBCREDENTIALS = {
+    host: "seimensgame.cluster-ro-cby6ieo44z27.us-east-1.rds.amazonaws.com",  // RDS Proxy endpoint
+    port: 5432,
+    database: "seimensgame",
+};
+
+const createDbClient = (credentials) => {
+    return new Client({
+        host: DBCREDENTIALS.host,
+        user: credentials.username,
+        password: credentials.password,
+        database: DBCREDENTIALS.database,
+        port: DBCREDENTIALS.port,
+    });
+};
 
 // Query function to update users' coins
 const updateUserCoins = async (client) => {

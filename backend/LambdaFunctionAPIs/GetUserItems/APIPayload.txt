@@ -1,0 +1,5 @@
+curl -X POST https://api.example.com/GetUserItems \
+-H "Content-Type: application/json" \
+-d '{
+  "employee_id": "E12345"
+}'
