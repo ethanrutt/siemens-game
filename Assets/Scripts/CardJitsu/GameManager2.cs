@@ -51,7 +51,10 @@ public class GameManager2 : MonoBehaviour
             j++;
         }
 
+
+        //playerUnlocks.Count
         for(int i = 0; i < 7; i++){
+            //Card randCard = deck[playerUnlocks[i]];
             Card randCard = deck[Random.Range(0, deck.Count)];
             playerDeck.Add(randCard);
             
