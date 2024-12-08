@@ -499,11 +499,10 @@ public class DialogueManager_Casino : MonoBehaviour
         isTyping = true;
         typeSentenceCoroutine = StartCoroutine(TypeSentence(selectedDialogues[i]));
 
-        // Wait
-        yield return new WaitForSeconds(selectedDialogues[i].Length * typingSpeed + 1.25f);
+        // TTC
+        TTC_Text.text = "Tap to Continue...";
 
-        // Wait
-        yield return new WaitForSeconds(2);
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began)));
 
         // Show the choice panel
         // Before we do choice panel, we need to set the fluxCostText

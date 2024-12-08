@@ -34,6 +34,9 @@ public class DialogueManager_Lab : MonoBehaviour
     // import PlayerMovement script
     [SerializeField] private Character_Movement playerMovement;
 
+    // Open the choice panel
+    [SerializeField] private GameObject choicePanel;
+
     // Modal back
     [SerializeField] public GameObject backModal;
 
@@ -46,6 +49,9 @@ public class DialogueManager_Lab : MonoBehaviour
 
     // public int dialogueindex
     private int dialogueIndex = 0;
+
+    // DeckmasterChoice script
+    [SerializeField] private DeckmasterChoice deckmasterChoice;
 
     // Card view panel
     [SerializeField] private GameObject cardViewPanel;
@@ -114,9 +120,6 @@ public class DialogueManager_Lab : MonoBehaviour
 
         // Increment the npc_interactions for deckmaster
         playerData.npc_interactions["deckmaster"] += 1;
-
-        // Whenever you add the cards, you should also add the cards to the player's inventory
-        // ROHAN -> Add your code here.
     }
 
     public void DeckMasterInterrupt()
@@ -216,7 +219,7 @@ public class DialogueManager_Lab : MonoBehaviour
             typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterInitial[i]));
 
             // Wait
-            yield return new WaitForSeconds(deckMasterInitial[i].Length * typingSpeed + 1.25f);
+            yield return new WaitForSeconds(deckMasterInitial[i].Length * typingSpeed + 1f);
 
             // Wait
             yield return new WaitForSeconds(2);
@@ -230,6 +233,12 @@ public class DialogueManager_Lab : MonoBehaviour
 
         // Let player move
         playerMovement.UnstopPlayer();
+
+        // Now call DeckmasterChoice script's buyStarting()
+        deckmasterChoice.buyStarting();
+
+        // Increment the npc_interactions for deckmaster
+        playerData.npc_interactions["deckmaster"] += 1;
     }
 
     // Deckmaster coroutine
@@ -255,18 +264,24 @@ public class DialogueManager_Lab : MonoBehaviour
         isTyping = true;
         typeSentenceCoroutine = StartCoroutine(TypeSentence(deckMasterRandom[i]));
 
-        // Wait
-        yield return new WaitForSeconds(deckMasterRandom[i].Length * typingSpeed + 1.25f);
+        // TTC
+        TTC_Text.text = "Tap to Continue...";
 
-        // Wait
-        yield return new WaitForSeconds(2);
+        yield return new WaitUntil(() => Input.GetMouseButtonDown(0) || (Input.touchCount > 0 && (Input.GetTouch(0).phase == TouchPhase.Began)));
 
         // Close the dialogue panel
         dialoguePanel.SetActive(false);
 
+        // Open the choice panel
+        choicePanel.SetActive(true);
+
         // Let player move
         playerMovement.UnstopPlayer();
     }
+
+    // We're going to make a function for NotEnoughCoins to buy a pack for Deckmaster
+    // We're going to make another function for Can'tViewCards to view the cards
+
 
 
     IEnumerator TypeSentence (string sentence)
@@ -439,7 +454,6 @@ public class DialogueManager_Lab : MonoBehaviour
         {
             dialoguePanel.SetActive(false);
         }
-
 
     }
 }

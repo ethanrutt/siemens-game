@@ -91,7 +91,7 @@ public class PlayerData : MonoBehaviour
 
     // We are going to store the cards from the card game using a specific struct
     // This struct contains the card id, cost, power, and clientId
-    private struct Card : INetworkSerializable, IEquatable<Card>
+    public struct Card : INetworkSerializable, IEquatable<Card>
     {
         public int id;
         public int rarity;
@@ -160,8 +160,8 @@ public class PlayerData : MonoBehaviour
     // Store the card images
     // and the dictionary, where we will populate the dictionary
     // and then we will populate the images on Awake
-    [SerializeField] private List<Sprite> card_images = new List<Sprite>();
-    private Dictionary<int, Card> cards;
+    [SerializeField] public List<Sprite> card_images = new List<Sprite>();
+    public Dictionary<int, Card> cards;
 
     // Now unlocked cards
     // Storing the current cards the player has unlocked (list of card id's)
