@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class CardSharingManager : NetworkBehaviour
 {
+    //private PlayerData playerData => PlayerData.Instance;
+    
     [SerializeField] private string buttonPath = "PlayerOne/PrefabCanvas/PlayTurn";
     [SerializeField] private Button confirmButton;
     [SerializeField] private Button disconnectButton;
@@ -15,8 +17,11 @@ public class CardSharingManager : NetworkBehaviour
     [SerializeField] private GameObject playerOne; // Reference to the PlayerOne GameObject
     [SerializeField] private GameObject deckOverlay; // Reference to the PlayerOne GameObject
     [SerializeField] private GameObject discardOverlay; // Reference to the PlayerOne GameObject
-    [SerializeField] public TextMeshProUGUI hostWin; 
-    [SerializeField] public TextMeshProUGUI clientWin;
+    [SerializeField] public GameObject hostWin; 
+    [SerializeField] public GameObject clientWin;
+    [SerializeField] public TextMeshPro hostText;
+    [SerializeField] public TextMeshPro clientText;
+
     [SerializeField] public TextMeshProUGUI winScreen; 
     [SerializeField] public TextMeshProUGUI loseScreen;  
     [SerializeField] private GameManager2 gm; // Reference to the GameManager GameObject
@@ -102,6 +107,11 @@ public class CardSharingManager : NetworkBehaviour
                 Debug.LogWarning($"Duplicate card ID detected: {card.id}. Card {card.cardName} was not added to lookup.");
             }
         }
+
+        hostText = hostWin.GetComponent<TextMeshPro>();
+        clientText = clientWin.GetComponent<TextMeshPro>();
+        hostWin.SetActive(false);
+        clientWin.SetActive(false);
     }
 
     //public void Update(){
@@ -280,8 +290,8 @@ public class CardSharingManager : NetworkBehaviour
                 // Display the card using the existing DisplaySharedCard method
                 DisplaySharedCard(card, clientId);
             }
-            hostWin.gameObject.SetActive(true);
-            clientWin.gameObject.SetActive(true);
+            hostWin.SetActive(true);
+            clientWin.SetActive(true);
 
             CalculateTurn();
             
@@ -333,11 +343,11 @@ public class CardSharingManager : NetworkBehaviour
             {
                 if(c1.sourceClientId == 0){
                     hW++;
-                    hostWin.text = hW.ToString();
+                    hostText.text = "Host: " + hW.ToString();
                 }
                 else{
                     cW++;
-                    clientWin.text = cW.ToString();
+                    clientText.text = "Client: " + cW.ToString();
                 }
 
                 c2.gameObject.SetActive(false);
@@ -349,11 +359,11 @@ public class CardSharingManager : NetworkBehaviour
             {
                 if(c2.sourceClientId == 0){
                     hW++;
-                    hostWin.text = hW.ToString();
+                    hostText.text = "Host: " + hW.ToString();
                 }
                 else{
                     cW++;
-                    clientWin.text = cW.ToString();
+                    clientText.text = "Client: " + cW.ToString();
                 }
                 
                 c1.gameObject.SetActive(false);
@@ -366,9 +376,13 @@ public class CardSharingManager : NetworkBehaviour
             yield return new WaitForSeconds(2.5f); // Adjust the duration as needed
         }
         
-        hostWin.gameObject.SetActive(false);
-        clientWin.gameObject.SetActive(false);
+        hostWin.SetActive(false);
+        clientWin.SetActive(false);
         if(hW == 5 || cW == 5){
+            playerOne.SetActive(true);
+            gm.Reset();
+            gm.Restart();
+            playerOne.SetActive(false);
             deckOverlay.SetActive(false);
             discardOverlay.SetActive(false);
             disconnectButton.gameObject.SetActive(true);
@@ -431,21 +445,25 @@ public class CardSharingManager : NetworkBehaviour
         {
             // Host is displaying its own shared card
             cardCopy.transform.position = new Vector3(2.5f - xOffset, -3, 0); // Host's position for its own card
+            hostWin.transform.position = new Vector3(-3.5f, -3, 0);
         }
         else if (IsHost && sourceClientId != NetworkManager.Singleton.LocalClientId)
         {
             // Host is displaying a card shared by a client
             cardCopy.transform.position = new Vector3(2.5f - xOffset, 3, 0); // Host's position for a client-shared card
+            clientWin.transform.position = new Vector3(-3.5f, 3, 0);
         }
         else if (IsClient && sourceClientId == NetworkManager.Singleton.LocalClientId)
         {
             // Client is displaying its own shared card
             cardCopy.transform.position = new Vector3(2.5f - xOffset, -3, 0); // Client's position for its own card
+            clientWin.transform.position = new Vector3(-3.5f, -3, 0);
         }
         else if (IsClient && sourceClientId != NetworkManager.Singleton.LocalClientId)
         {
             // Client is displaying a card shared by the host
             cardCopy.transform.position = new Vector3(2.5f - xOffset, 3, 0); // Client's position for a host-shared card
+            hostWin.transform.position = new Vector3(-3.5f, 3, 0);
         }
 
         // If needed, update other properties of the copied card

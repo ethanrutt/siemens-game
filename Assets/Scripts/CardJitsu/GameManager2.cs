@@ -6,7 +6,7 @@ using TMPro;
 
 public class GameManager2 : MonoBehaviour
 {
-    //private PlayerData playerData => PlayerData.Instance;
+    private PlayerData playerData => PlayerData.Instance;
     
     public Camera mainCamera; // Reference to the Main Camera
     private bool isBelowThreshold = false;
@@ -39,7 +39,7 @@ public class GameManager2 : MonoBehaviour
     private void Start(){
         playTurnButton.gameObject.SetActive(false);
 
-        //playerUnlocks = playerData.unlocked_cards;
+        playerUnlocks = playerData.unlocked_cards;
 
 
         int j = 0;
@@ -51,11 +51,15 @@ public class GameManager2 : MonoBehaviour
             j++;
         }
 
-        for(int i = 0; i < 7; i++){
-            Card randCard = deck[Random.Range(0, deck.Count)];
+
+        //playerUnlocks.Count
+        for(int i = 0; i < 6; i++){
+            int k = Random.Range(0, playerUnlocks.Count);
+            Card randCard = deck[playerUnlocks[k]];
+            //Card randCard = deck[Random.Range(0, deck.Count)];
             playerDeck.Add(randCard);
-            
-            deck.Remove(randCard);
+            playerUnlocks.RemoveAt(k);
+            //deck.Remove(randCard);
         }
 
 
@@ -72,6 +76,7 @@ public class GameManager2 : MonoBehaviour
 
         foreach(Card card in discardPile){
             card.hasBeenPlayed = false;
+            playerUnlocks.Add(card.id);
             card.nameLabel.SetActive(false);
         }
 
@@ -83,20 +88,34 @@ public class GameManager2 : MonoBehaviour
             card.hasBeenPlayed = false;
             availableCardSlots[card.handIndex] = true;
             card.nameLabel.SetActive(false);
-            discardPile.Add(card);
+            //discardPile.Add(card);
+            playerUnlocks.Add(card.id);
             card.gameObject.SetActive(false);
         }
 
         foreach(Card card in playerDeck){
             card.hasBeenPlayed = false;
             card.nameLabel.SetActive(false);
-            discardPile.Add(card);
+            //discardPile.Add(card);
+            playerUnlocks.Add(card.id);
         }
 
+        discardPile.Clear();
         currentHand.Clear();
         playerDeck.Clear();
 
-        Shuffle();
+        //Shuffle();
+    }
+
+    public void Restart(){
+        for(int i = 0; i < 6; i++){
+            int k = Random.Range(0, playerUnlocks.Count);
+            Card randCard = deck[playerUnlocks[k]];
+            //Card randCard = deck[Random.Range(0, deck.Count)];
+            playerDeck.Add(randCard);
+            playerUnlocks.RemoveAt(k);
+            //deck.Remove(randCard);
+        }
 
         for(int i = 0; i < handSize; i++){
             DrawCard(i);
