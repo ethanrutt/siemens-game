@@ -22,6 +22,8 @@ public class Card : MonoBehaviour
 
     private GameManager2 gm;
     private CardSharingManager cardSharingManager;
+    private int clickCount;
+    private static Card selectedCard = null;
     public GameObject nameLabel;
     public TextMeshPro cName;
 
@@ -38,55 +40,67 @@ public class Card : MonoBehaviour
 
     private void OnMouseDown()
     {
-        if (hasBeenPlayed == false)
+        // Reset the previously selected card if it's not the current card
+        if (selectedCard != null && selectedCard != this)
+        {
+            selectedCard.ResetCardState();
+        }
+
+        // Mark the current card as the selected card
+        selectedCard = this;
+
+        // Continue with your existing logic
+        if (!hasBeenPlayed && clickCount == 0)
+        {
+            originalPosition = transform.position;
+            transform.position += new Vector3(0, 0.05f, -4);
+
+            Vector3 labelOffset = new Vector3(95f + (handIndex * 65f), 0, 0);
+            if (cName != null)
+            {
+                cName.text = cardName;
+            }
+
+            if (isInSlot)
+                nameLabel.transform.position = transform.position + new Vector3(0, 1.4f, -1f);
+            else
+                nameLabel.transform.position = transform.position + new Vector3(0, 1.4f, -3f);
+
+            nameLabel.SetActive(true);
+            clickCount++;
+        }
+        else if (hasBeenPlayed == false && clickCount == 1)
         {
             if (isInSlot)
             {
+                selectedCard.ResetCardState();
                 gm.UndoPlaySlot(this);
+                originalPosition = transform.position;
                 cardSharingManager.DeselectCard(this); // Deselect from sharing
             }
             else
             {
+                selectedCard.ResetCardState();
                 gm.MoveToPlaySlot(this);
+                originalPosition = transform.position;
                 cardSharingManager.SelectCard(this); // Select for sharing
             }
             ignoreExit = true;
             StartCoroutine(ResetIgnoreMouseExit());
-            //nameLabel.enabled = false;
             nameLabel.SetActive(false);
         }
     }
 
-    private void OnMouseEnter()
+    public void ResetCardState()
     {
-        if (!hasBeenPlayed)
-        {
-            originalPosition = transform.position;
-            transform.position += new Vector3(0, 0.05f, -4);
-            Vector3 labelOffset = new Vector3(95f + (handIndex * 65f), 0, 0);
-            //nameLabel.transform.position = labelOffset;
-            //nameLabel.enabled = true;
-            if(cName != null){
-                cName.text = cardName;
-            }
-            
-            if(isInSlot)
-                nameLabel.transform.position = transform.position + new Vector3(0, 1.4f, -1f);
-            else    
-                nameLabel.transform.position = transform.position + new Vector3(0, 1.4f, -3f);
+        // Reset the clickCount
+        clickCount = 0;
 
-            nameLabel.SetActive(true);
-        }
-    }
+        // Move the card back to its original position
+        transform.position = originalPosition;
 
-    private void OnMouseExit()
-    {
-        if (!hasBeenPlayed && !ignoreExit)
-        {
-            transform.position = originalPosition;
-            //nameLabel.enabled = false;
-            nameLabel.SetActive(false);
-        }
+        // Hide the name label
+        nameLabel.SetActive(false);
     }
 
     public CardData GetCardData()
